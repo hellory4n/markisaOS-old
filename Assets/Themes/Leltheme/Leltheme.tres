@@ -1,0 +1,119 @@
+[gd_resource type="Theme" load_steps=15 format=2]
+
+[ext_resource path="res://Fonts/RedHatText-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Fonts/RedHatText-Medium.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/Themes/Leltheme/Buttons/ButtonNormal.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Themes/Leltheme/Buttons/ButtonHover.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Themes/Leltheme/Buttons/ButtonDisabled.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Themes/Leltheme/Buttons/ButtonFocus.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Themes/Leltheme/Buttons/ButtonPressed.png" type="Texture" id=7]
+
+[sub_resource type="DynamicFont" id=19]
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 38, 38 )
+margin_left = 18.0
+margin_right = 18.0
+margin_top = 4.0
+margin_bottom = 4.0
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id=9]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 38, 38 )
+margin_left = 18.0
+margin_right = 18.0
+margin_top = 4.0
+margin_bottom = 4.0
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id=12]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 37.5, 37.5 )
+margin_left = 18.0
+margin_right = 18.0
+margin_top = 4.0
+margin_bottom = 4.0
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id=15]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 3.0
+content_margin_bottom = 3.0
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 38, 38 )
+margin_left = 18.0
+margin_right = 18.0
+margin_top = 4.0
+margin_bottom = 4.0
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id=18]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 3.0
+content_margin_bottom = 3.0
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 38, 38 )
+margin_left = 18.0
+margin_right = 18.0
+margin_top = 4.0
+margin_bottom = 4.0
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="DynamicFont" id=23]
+font_data = ExtResource( 2 )
+
+[resource]
+default_font = SubResource( 23 )
+Button/colors/font_color = Color( 1, 1, 1, 1 )
+Button/colors/font_color_disabled = Color( 1, 1, 1, 1 )
+Button/colors/font_color_focus = Color( 0.941176, 0.941176, 0.941176, 1 )
+Button/colors/font_color_hover = Color( 1, 1, 1, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = SubResource( 19 )
+Button/styles/disabled = SubResource( 6 )
+Button/styles/focus = SubResource( 9 )
+Button/styles/hover = SubResource( 12 )
+Button/styles/normal = SubResource( 15 )
+Button/styles/pressed = SubResource( 18 )
+Label/colors/font_color = Color( 1, 1, 1, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 1 )
+Label/colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+Label/constants/line_spacing = 0
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 0
+Label/constants/shadow_offset_y = 0
+Label/fonts/font = SubResource( 23 )
+Label/styles/normal = null
