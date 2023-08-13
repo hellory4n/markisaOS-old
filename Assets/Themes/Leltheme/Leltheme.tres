@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=59 format=2]
+[gd_resource type="Theme" load_steps=66 format=2]
 
 [ext_resource path="res://Fonts/RedHatText-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Fonts/RedHatText-Medium.ttf" type="DynamicFontData" id=2]
@@ -26,6 +26,8 @@
 [ext_resource path="res://Assets/Themes/Leltheme/Sliders/GrabArea.png" type="Texture" id=24]
 [ext_resource path="res://Assets/Themes/Leltheme/Icons/Updown.png" type="Texture" id=25]
 [ext_resource path="res://Assets/Themes/Leltheme/Sliders/GrabAreaHighlight.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Themes/Leltheme/Sliders/VGrabAreaHighlight.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Themes/Leltheme/Sliders/VSliderBody.png" type="Texture" id=28]
 
 [sub_resource type="DynamicFont" id=19]
 font_data = ExtResource( 1 )
@@ -307,6 +309,44 @@ margin_right = 16.0
 margin_top = 16.0
 margin_bottom = 16.0
 
+[sub_resource type="Image" id=69]
+data = {
+"data": PoolByteArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 130, 130, 130, 121, 141, 141, 141, 121, 152, 152, 152, 121, 129, 162, 173, 0, 140, 172, 184, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 56, 85, 95, 0, 78, 78, 78, 49, 130, 130, 130, 121, 141, 141, 141, 121, 152, 152, 152, 121, 78, 78, 78, 49, 78, 78, 78, 49, 78, 78, 78, 49, 56, 85, 95, 0, 56, 85, 95, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 56, 85, 95, 0, 78, 78, 78, 28, 78, 78, 78, 49, 78, 78, 78, 49, 78, 78, 78, 49, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ),
+"format": "RGBA8",
+"height": 4,
+"mipmaps": false,
+"width": 16
+}
+
+[sub_resource type="ImageTexture" id=70]
+flags = 4
+flags = 4
+image = SubResource( 69 )
+size = Vector2( 16, 4 )
+
+[sub_resource type="StyleBoxTexture" id=71]
+texture = ExtResource( 24 )
+margin_left = 4.0
+margin_right = 4.0
+margin_top = 8.0
+margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id=72]
+texture = ExtResource( 27 )
+region_rect = Rect2( 0, 0, 16, 16 )
+margin_left = 4.0
+margin_right = 4.0
+margin_top = 8.0
+margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id=73]
+texture = ExtResource( 28 )
+region_rect = Rect2( 0, 0, 16, 16 )
+margin_left = 4.0
+margin_right = 4.0
+margin_top = 8.0
+margin_bottom = 8.0
+
 [resource]
 default_font = SubResource( 23 )
 Button/colors/font_color = Color( 1, 1, 1, 1 )
@@ -413,3 +453,10 @@ TextEdit/styles/completion = SubResource( 53 )
 TextEdit/styles/focus = SubResource( 35 )
 TextEdit/styles/normal = SubResource( 54 )
 TextEdit/styles/read_only = SubResource( 55 )
+VSlider/icons/grabber = ExtResource( 21 )
+VSlider/icons/grabber_disabled = ExtResource( 22 )
+VSlider/icons/grabber_highlight = ExtResource( 23 )
+VSlider/icons/tick = SubResource( 70 )
+VSlider/styles/grabber_area = SubResource( 71 )
+VSlider/styles/grabber_area_highlight = SubResource( 72 )
+VSlider/styles/slider = SubResource( 73 )
