@@ -23,24 +23,30 @@ margin_bottom = 710.0
 text = "lelsktop v0.0.1"
 align = 2
 
-[node name="Button" type="Button" parent="."]
-margin_left = 515.0
-margin_top = 360.0
-margin_right = 859.0
-margin_bottom = 388.0
-text = "a button omgomgomgogmgogo holy moly"
-
 [node name="CheckBox" type="CheckBox" parent="."]
-margin_right = 31.0
-margin_bottom = 31.0
+margin_right = 105.0
+margin_bottom = 40.0
 pressed = true
 group = SubResource( 1 )
 text = "Fuck off."
 
 [node name="CheckBox2" type="CheckBox" parent="."]
-margin_left = 2.0
-margin_top = 35.0
-margin_right = 33.0
-margin_bottom = 66.0
+margin_top = 40.0
+margin_right = 69.0
+margin_bottom = 80.0
 group = SubResource( 1 )
 text = "pain"
+
+[node name="CheckBox3" type="CheckBox" parent="."]
+margin_left = 271.0
+margin_top = 104.0
+margin_right = 340.0
+margin_bottom = 144.0
+text = "pain"
+
+[node name="Button" type="Button" parent="."]
+margin_left = 376.0
+margin_top = 234.0
+margin_right = 608.0
+margin_bottom = 274.0
+text = "a button."
