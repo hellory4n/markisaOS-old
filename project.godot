@@ -16,12 +16,15 @@ run/main_scene="res://OS/Lelsktop/Lelsktop.tscn"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
+[autoload]
+
+ResolutionManager="*res://Scripts/OS/Drivers/ResolutionManager.cs"
+
 [display]
 
 window/size/width=1280
 window/size/height=720
-window/stretch/mode="2d"
-window/stretch/aspect="keep"
+window/size/fullscreen=true
 
 [gui]
 
