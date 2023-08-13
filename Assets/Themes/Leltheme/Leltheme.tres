@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=66 format=2]
+[gd_resource type="Theme" load_steps=85 format=2]
 
 [ext_resource path="res://Fonts/RedHatText-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Fonts/RedHatText-Medium.ttf" type="DynamicFontData" id=2]
@@ -28,6 +28,14 @@
 [ext_resource path="res://Assets/Themes/Leltheme/Sliders/GrabAreaHighlight.png" type="Texture" id=26]
 [ext_resource path="res://Assets/Themes/Leltheme/Sliders/VGrabAreaHighlight.png" type="Texture" id=27]
 [ext_resource path="res://Assets/Themes/Leltheme/Sliders/VSliderBody.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Themes/Leltheme/Scrollbars/VScrollBody.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Themes/Leltheme/Scrollbars/VGrabHover.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Themes/Leltheme/Scrollbars/VGrab.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Themes/Leltheme/Scrollbars/VGrabPressed.png" type="Texture" id=32]
+[ext_resource path="res://Assets/Themes/Leltheme/Scrollbars/HGrabHover.png" type="Texture" id=33]
+[ext_resource path="res://Assets/Themes/Leltheme/Scrollbars/HGrab.png" type="Texture" id=34]
+[ext_resource path="res://Assets/Themes/Leltheme/Scrollbars/HGrabPressed.png" type="Texture" id=35]
+[ext_resource path="res://Assets/Themes/Leltheme/Scrollbars/HScrollBody.png" type="Texture" id=36]
 
 [sub_resource type="DynamicFont" id=19]
 font_data = ExtResource( 1 )
@@ -124,7 +132,61 @@ margin_right = 16.0
 margin_top = 16.0
 margin_bottom = 16.0
 
-[sub_resource type="Image" id=62]
+[sub_resource type="ImageTexture" id=81]
+
+[sub_resource type="StyleBoxTexture" id=87]
+content_margin_left = 2.0
+content_margin_right = 2.0
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+texture = ExtResource( 34 )
+margin_left = 8.0
+margin_right = 8.0
+margin_top = 5.0
+margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id=88]
+content_margin_left = 2.0
+content_margin_right = 2.0
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+texture = ExtResource( 33 )
+margin_left = 8.0
+margin_right = 8.0
+margin_top = 5.0
+margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id=89]
+content_margin_left = 2.0
+content_margin_right = 2.0
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+texture = ExtResource( 35 )
+margin_left = 8.0
+margin_right = 8.0
+margin_top = 5.0
+margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id=90]
+content_margin_left = 0.0
+content_margin_right = 0.0
+texture = ExtResource( 36 )
+region_rect = Rect2( 0, 0, 16, 16 )
+margin_left = 8.0
+margin_right = 8.0
+
+[sub_resource type="StyleBoxTexture" id=91]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource( 19 )
+margin_left = 20.0
+margin_right = 20.0
+margin_top = 5.0
+margin_bottom = 5.0
+
+[sub_resource type="Image" id=92]
 data = {
 "data": PoolByteArray( 0, 0, 0, 0, 152, 152, 152, 121, 78, 78, 78, 49, 0, 0, 0, 0, 0, 0, 0, 0, 141, 141, 141, 121, 78, 78, 78, 49, 0, 0, 0, 0, 0, 0, 0, 0, 130, 130, 130, 121, 78, 78, 78, 49, 0, 0, 0, 0, 0, 0, 0, 0, 78, 78, 78, 49, 78, 78, 78, 28, 0, 0, 0, 0, 0, 0, 0, 0, 56, 85, 95, 0, 56, 85, 95, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 140, 172, 184, 0, 56, 85, 95, 0, 0, 0, 0, 0, 0, 0, 0, 0, 129, 162, 173, 0, 56, 85, 95, 0, 0, 0, 0, 0, 0, 0, 0, 0, 152, 152, 152, 121, 78, 78, 78, 49, 0, 0, 0, 0, 0, 0, 0, 0, 141, 141, 141, 121, 78, 78, 78, 49, 0, 0, 0, 0, 0, 0, 0, 0, 130, 130, 130, 121, 78, 78, 78, 49, 0, 0, 0, 0 ),
 "format": "RGBA8",
@@ -136,7 +198,7 @@ data = {
 [sub_resource type="ImageTexture" id=58]
 flags = 4
 flags = 4
-image = SubResource( 62 )
+image = SubResource( 92 )
 size = Vector2( 4, 16 )
 
 [sub_resource type="StyleBoxTexture" id=59]
@@ -160,7 +222,7 @@ region_rect = Rect2( 0, 0, 16, 16 )
 margin_left = 8.0
 margin_right = 8.0
 
-[sub_resource type="Image" id=63]
+[sub_resource type="Image" id=93]
 data = {
 "data": PoolByteArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 223, 88, 220, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 220, 22, 223, 88, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 223, 88, 224, 254, 224, 211, 220, 22, 0, 0, 0, 0, 0, 0, 0, 0, 220, 22, 224, 211, 224, 254, 223, 88, 0, 0, 0, 0, 0, 0, 0, 0, 219, 21, 223, 210, 224, 255, 224, 215, 224, 25, 0, 0, 0, 0, 219, 21, 223, 210, 224, 255, 224, 215, 223, 24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 219, 21, 223, 210, 224, 255, 224, 215, 224, 25, 219, 21, 223, 210, 224, 255, 224, 215, 223, 24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 219, 21, 223, 210, 224, 255, 225, 218, 224, 214, 224, 255, 224, 215, 223, 24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 219, 21, 223, 214, 224, 255, 224, 255, 224, 219, 223, 24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 219, 21, 223, 214, 224, 255, 224, 255, 224, 219, 224, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 219, 21, 223, 210, 224, 255, 223, 218, 224, 214, 224, 255, 224, 215, 224, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 219, 21, 223, 210, 224, 255, 224, 215, 223, 24, 219, 21, 223, 210, 224, 255, 224, 215, 224, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 219, 21, 223, 210, 224, 255, 224, 215, 223, 24, 0, 0, 0, 0, 219, 21, 223, 210, 224, 255, 224, 215, 224, 25, 0, 0, 0, 0, 0, 0, 0, 0, 223, 88, 224, 254, 224, 211, 220, 22, 0, 0, 0, 0, 0, 0, 0, 0, 220, 22, 224, 211, 224, 254, 223, 88, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 223, 88, 220, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 220, 22, 223, 88, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ),
 "format": "LumAlpha8",
@@ -172,7 +234,7 @@ data = {
 [sub_resource type="ImageTexture" id=37]
 flags = 4
 flags = 4
-image = SubResource( 63 )
+image = SubResource( 93 )
 size = Vector2( 16, 16 )
 
 [sub_resource type="StyleBoxTexture" id=35]
@@ -200,7 +262,7 @@ margin_right = 16.0
 margin_top = 6.0
 margin_bottom = 6.0
 
-[sub_resource type="Image" id=64]
+[sub_resource type="Image" id=94]
 data = {
 "data": PoolByteArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 255, 224, 255, 224, 255, 224, 255, 224, 255, 224, 255, 224, 255, 224, 255, 0, 0, 0, 0, 0, 0, 0, 0, 224, 255, 224, 255, 224, 255, 224, 255, 224, 255, 224, 255, 224, 255, 224, 255, 0, 0, 0, 0, 0, 0, 0, 0, 224, 255, 224, 255, 224, 255, 224, 255, 224, 255, 224, 255, 224, 255, 224, 255, 0, 0, 0, 0, 0, 0, 0, 0, 225, 94, 224, 244, 224, 255, 224, 255, 224, 255, 224, 255, 224, 246, 225, 102, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 223, 40, 223, 210, 224, 255, 224, 255, 224, 215, 227, 45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 232, 11, 225, 159, 225, 159, 232, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ),
 "format": "LumAlpha8",
@@ -212,10 +274,10 @@ data = {
 [sub_resource type="ImageTexture" id=44]
 flags = 4
 flags = 4
-image = SubResource( 64 )
+image = SubResource( 94 )
 size = Vector2( 12, 12 )
 
-[sub_resource type="Image" id=65]
+[sub_resource type="Image" id=95]
 data = {
 "data": PoolByteArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 255, 224, 255, 224, 255, 223, 96, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 255, 224, 255, 224, 255, 224, 244, 225, 43, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 255, 224, 255, 224, 255, 224, 255, 224, 213, 232, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 255, 224, 255, 224, 255, 224, 255, 224, 255, 225, 159, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 255, 224, 255, 224, 255, 224, 255, 224, 255, 225, 159, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 255, 224, 255, 224, 255, 224, 255, 224, 213, 232, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 255, 224, 255, 224, 255, 224, 244, 225, 43, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 255, 224, 255, 224, 255, 223, 96, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ),
 "format": "LumAlpha8",
@@ -227,10 +289,10 @@ data = {
 [sub_resource type="ImageTexture" id=46]
 flags = 4
 flags = 4
-image = SubResource( 65 )
+image = SubResource( 95 )
 size = Vector2( 12, 12 )
 
-[sub_resource type="Image" id=66]
+[sub_resource type="Image" id=96]
 data = {
 "data": PoolByteArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 17, 255, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 18, 255, 50, 255, 50, 255, 17, 0, 0, 0, 0, 0, 0, 0, 0, 255, 18, 255, 50, 255, 50, 255, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 17, 255, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ),
 "format": "LumAlpha8",
@@ -242,10 +304,10 @@ data = {
 [sub_resource type="ImageTexture" id=48]
 flags = 4
 flags = 4
-image = SubResource( 66 )
+image = SubResource( 96 )
 size = Vector2( 8, 8 )
 
-[sub_resource type="Image" id=67]
+[sub_resource type="Image" id=97]
 data = {
 "data": PoolByteArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 89, 255, 20, 255, 20, 255, 89, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 89, 255, 20, 255, 20, 255, 89, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 89, 255, 20, 255, 20, 255, 89, 0, 0, 0, 0, 0, 0, 0, 0, 255, 89, 255, 20, 255, 20, 255, 89, 0, 0, 0, 0, 0, 0, 255, 89, 255, 20, 255, 20, 255, 89, 0, 0, 0, 0, 0, 0, 255, 89, 255, 20, 255, 20, 255, 89, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ),
 "format": "LumAlpha8",
@@ -257,10 +319,10 @@ data = {
 [sub_resource type="ImageTexture" id=50]
 flags = 4
 flags = 4
-image = SubResource( 67 )
+image = SubResource( 97 )
 size = Vector2( 8, 8 )
 
-[sub_resource type="Image" id=68]
+[sub_resource type="Image" id=98]
 data = {
 "data": PoolByteArray( 23, 22, 26, 111, 29, 28, 33, 239, 32, 30, 36, 247, 33, 31, 37, 247, 33, 31, 37, 247, 33, 31, 37, 247, 33, 31, 37, 247, 32, 30, 36, 247, 29, 28, 33, 239, 23, 22, 26, 111, 29, 28, 33, 240, 36, 34, 41, 255, 40, 38, 45, 255, 40, 38, 46, 255, 40, 38, 46, 255, 40, 38, 46, 255, 40, 38, 46, 255, 40, 38, 45, 255, 36, 34, 41, 255, 29, 28, 33, 240, 32, 30, 36, 249, 40, 38, 45, 255, 43, 42, 49, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 43, 42, 49, 255, 40, 38, 45, 255, 32, 30, 36, 249, 33, 31, 37, 247, 40, 38, 46, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 40, 38, 46, 255, 33, 31, 37, 247, 33, 31, 37, 247, 40, 38, 46, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 40, 38, 46, 255, 33, 31, 37, 247, 33, 31, 37, 247, 40, 38, 46, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 40, 38, 46, 255, 33, 31, 37, 247, 33, 31, 37, 247, 40, 38, 46, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 40, 38, 46, 255, 33, 31, 37, 247, 32, 30, 36, 249, 40, 38, 45, 255, 43, 42, 49, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 43, 42, 49, 255, 40, 38, 45, 255, 32, 30, 36, 249, 29, 28, 33, 240, 36, 34, 41, 255, 40, 38, 45, 255, 40, 38, 46, 255, 40, 38, 46, 255, 40, 38, 46, 255, 40, 38, 46, 255, 40, 38, 45, 255, 36, 34, 41, 255, 29, 28, 33, 241, 23, 22, 26, 111, 29, 28, 33, 240, 32, 30, 36, 247, 33, 31, 37, 247, 33, 31, 37, 247, 33, 31, 37, 247, 33, 31, 37, 247, 32, 30, 36, 247, 29, 28, 33, 238, 23, 22, 26, 111 ),
 "format": "RGBA8",
@@ -272,7 +334,7 @@ data = {
 [sub_resource type="ImageTexture" id=52]
 flags = 4
 flags = 4
-image = SubResource( 68 )
+image = SubResource( 98 )
 size = Vector2( 10, 10 )
 
 [sub_resource type="StyleBoxTexture" id=53]
@@ -309,7 +371,63 @@ margin_right = 16.0
 margin_top = 16.0
 margin_bottom = 16.0
 
-[sub_resource type="Image" id=69]
+[sub_resource type="StyleBoxTexture" id=82]
+content_margin_left = 2.0
+content_margin_right = 2.0
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+texture = ExtResource( 31 )
+margin_left = 5.0
+margin_right = 5.0
+margin_top = 8.0
+margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id=83]
+content_margin_left = 2.0
+content_margin_right = 2.0
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+texture = ExtResource( 30 )
+margin_left = 5.0
+margin_right = 5.0
+margin_top = 8.0
+margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id=84]
+content_margin_left = 2.0
+content_margin_right = 2.0
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+texture = ExtResource( 32 )
+margin_left = 5.0
+margin_right = 5.0
+margin_top = 8.0
+margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id=85]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource( 29 )
+region_rect = Rect2( 0, 0, 16, 16 )
+margin_left = 5.0
+margin_right = 5.0
+margin_top = 8.0
+margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id=86]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource( 19 )
+margin_left = 5.0
+margin_right = 5.0
+margin_top = 20.0
+margin_bottom = 20.0
+
+[sub_resource type="Image" id=99]
 data = {
 "data": PoolByteArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 130, 130, 130, 121, 141, 141, 141, 121, 152, 152, 152, 121, 129, 162, 173, 0, 140, 172, 184, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 56, 85, 95, 0, 78, 78, 78, 49, 130, 130, 130, 121, 141, 141, 141, 121, 152, 152, 152, 121, 78, 78, 78, 49, 78, 78, 78, 49, 78, 78, 78, 49, 56, 85, 95, 0, 56, 85, 95, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 56, 85, 95, 0, 78, 78, 78, 28, 78, 78, 78, 49, 78, 78, 78, 49, 78, 78, 78, 49, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ),
 "format": "RGBA8",
@@ -321,7 +439,7 @@ data = {
 [sub_resource type="ImageTexture" id=70]
 flags = 4
 flags = 4
-image = SubResource( 69 )
+image = SubResource( 99 )
 size = Vector2( 16, 4 )
 
 [sub_resource type="StyleBoxTexture" id=71]
@@ -384,6 +502,17 @@ CheckBox/styles/hover = SubResource( 32 )
 CheckBox/styles/hover_pressed = SubResource( 32 )
 CheckBox/styles/normal = SubResource( 32 )
 CheckBox/styles/pressed = SubResource( 32 )
+HScrollBar/icons/decrement = SubResource( 81 )
+HScrollBar/icons/decrement_highlight = SubResource( 81 )
+HScrollBar/icons/decrement_pressed = SubResource( 81 )
+HScrollBar/icons/increment = SubResource( 81 )
+HScrollBar/icons/increment_highlight = SubResource( 81 )
+HScrollBar/icons/increment_pressed = SubResource( 81 )
+HScrollBar/styles/grabber = SubResource( 87 )
+HScrollBar/styles/grabber_highlight = SubResource( 88 )
+HScrollBar/styles/grabber_pressed = SubResource( 89 )
+HScrollBar/styles/scroll = SubResource( 90 )
+HScrollBar/styles/scroll_focus = SubResource( 91 )
 HSlider/icons/grabber = ExtResource( 21 )
 HSlider/icons/grabber_disabled = ExtResource( 22 )
 HSlider/icons/grabber_highlight = ExtResource( 23 )
@@ -453,6 +582,17 @@ TextEdit/styles/completion = SubResource( 53 )
 TextEdit/styles/focus = SubResource( 35 )
 TextEdit/styles/normal = SubResource( 54 )
 TextEdit/styles/read_only = SubResource( 55 )
+VScrollBar/icons/decrement = SubResource( 81 )
+VScrollBar/icons/decrement_highlight = SubResource( 81 )
+VScrollBar/icons/decrement_pressed = SubResource( 81 )
+VScrollBar/icons/increment = SubResource( 81 )
+VScrollBar/icons/increment_highlight = SubResource( 81 )
+VScrollBar/icons/increment_pressed = SubResource( 81 )
+VScrollBar/styles/grabber = SubResource( 82 )
+VScrollBar/styles/grabber_highlight = SubResource( 83 )
+VScrollBar/styles/grabber_pressed = SubResource( 84 )
+VScrollBar/styles/scroll = SubResource( 85 )
+VScrollBar/styles/scroll_focus = SubResource( 86 )
 VSlider/icons/grabber = ExtResource( 21 )
 VSlider/icons/grabber_disabled = ExtResource( 22 )
 VSlider/icons/grabber_highlight = ExtResource( 23 )

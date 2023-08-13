@@ -38,17 +38,17 @@ group = SubResource( 1 )
 text = "pain"
 
 [node name="CheckBox3" type="CheckBox" parent="."]
-margin_left = 271.0
-margin_top = 104.0
-margin_right = 340.0
-margin_bottom = 137.0
+margin_left = 210.0
+margin_top = 268.0
+margin_right = 279.0
+margin_bottom = 301.0
 text = "pain"
 
 [node name="Button" type="Button" parent="."]
-margin_left = 376.0
-margin_top = 234.0
-margin_right = 608.0
-margin_bottom = 274.0
+margin_left = 430.0
+margin_top = 316.0
+margin_right = 662.0
+margin_bottom = 356.0
 text = "a button."
 
 [node name="TextEdit" type="TextEdit" parent="."]
@@ -68,3 +68,380 @@ margin_left = 109.0
 margin_top = 207.0
 margin_right = 125.0
 margin_bottom = 388.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+margin_left = 701.0
+margin_top = 112.0
+margin_right = 817.0
+margin_bottom = 369.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 86.0
+margin_bottom = 1340.0
+custom_constants/separation = 10
+
+[node name="Button" type="Button" parent="ScrollContainer/VBoxContainer"]
+margin_right = 86.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+text = "a button."
+
+[node name="Button2" type="Button" parent="ScrollContainer/VBoxContainer"]
+margin_top = 50.0
+margin_right = 86.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 0, 40 )
+text = "a button."
+
+[node name="Button3" type="Button" parent="ScrollContainer/VBoxContainer"]
+margin_top = 100.0
+margin_right = 86.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 0, 40 )
+text = "a button."
+
+[node name="Button4" type="Button" parent="ScrollContainer/VBoxContainer"]
+margin_top = 150.0
+margin_right = 86.0
+margin_bottom = 190.0
+rect_min_size = Vector2( 0, 40 )
+text = "a button."
+
+[node name="Button5" type="Button" parent="ScrollContainer/VBoxContainer"]
+margin_top = 200.0
+margin_right = 86.0
+margin_bottom = 240.0
+rect_min_size = Vector2( 0, 40 )
+text = "a button."
+
+[node name="Button6" type="Button" parent="ScrollContainer/VBoxContainer"]
+margin_top = 250.0
+margin_right = 86.0
+margin_bottom = 290.0
+rect_min_size = Vector2( 0, 40 )
+text = "a button."
+
+[node name="Button7" type="Button" parent="ScrollContainer/VBoxContainer"]
+margin_top = 300.0
+margin_right = 86.0
+margin_bottom = 340.0
+rect_min_size = Vector2( 0, 40 )
+text = "a button."
+
+[node name="Button8" type="Button" parent="ScrollContainer/VBoxContainer"]
+margin_top = 350.0
+margin_right = 86.0
+margin_bottom = 390.0
+rect_min_size = Vector2( 0, 40 )
+text = "a button."
+
+[node name="Button9" type="Button" parent="ScrollContainer/VBoxContainer"]
+margin_top = 400.0
+margin_right = 86.0
+margin_bottom = 440.0
+rect_min_size = Vector2( 0, 40 )
+text = "a button."
+
+[node name="Button10" type="Button" parent="ScrollContainer/VBoxContainer"]
+margin_top = 450.0
+margin_right = 86.0
+margin_bottom = 490.0
+rect_min_size = Vector2( 0, 40 )
+text = "a button."
+
+[node name="Button11" type="Button" parent="ScrollContainer/VBoxContainer"]
+margin_top = 500.0
+margin_right = 86.0
+margin_bottom = 540.0
+rect_min_size = Vector2( 0, 40 )
+text = "a button."
+
+[node name="Button12" type="Button" parent="ScrollContainer/VBoxContainer"]
+margin_top = 550.0
+margin_right = 86.0
+margin_bottom = 590.0
+rect_min_size = Vector2( 0, 40 )
+text = "a button."
+
+[node name="Button13" type="Button" parent="ScrollContainer/VBoxContainer"]
+margin_top = 600.0
+margin_right = 86.0
+margin_bottom = 640.0
+rect_min_size = Vector2( 0, 40 )
+text = "a button."
+
+[node name="Button14" type="Button" parent="ScrollContainer/VBoxContainer"]
+margin_top = 650.0
+margin_right = 86.0
+margin_bottom = 690.0
+rect_min_size = Vector2( 0, 40 )
+text = "a button."
+
+[node name="Button15" type="Button" parent="ScrollContainer/VBoxContainer"]
+margin_top = 700.0
+margin_right = 86.0
+margin_bottom = 740.0
+rect_min_size = Vector2( 0, 40 )
+text = "a button."
+
+[node name="Button16" type="Button" parent="ScrollContainer/VBoxContainer"]
+margin_top = 750.0
+margin_right = 86.0
+margin_bottom = 790.0
+rect_min_size = Vector2( 0, 40 )
+text = "a button."
+
+[node name="Button17" type="Button" parent="ScrollContainer/VBoxContainer"]
+margin_top = 800.0
+margin_right = 86.0
+margin_bottom = 840.0
+rect_min_size = Vector2( 0, 40 )
+text = "a button."
+
+[node name="Button18" type="Button" parent="ScrollContainer/VBoxContainer"]
+margin_top = 850.0
+margin_right = 86.0
+margin_bottom = 890.0
+rect_min_size = Vector2( 0, 40 )
+text = "a button."
+
+[node name="Button19" type="Button" parent="ScrollContainer/VBoxContainer"]
+margin_top = 900.0
+margin_right = 86.0
+margin_bottom = 940.0
+rect_min_size = Vector2( 0, 40 )
+text = "a button."
+
+[node name="Button20" type="Button" parent="ScrollContainer/VBoxContainer"]
+margin_top = 950.0
+margin_right = 86.0
+margin_bottom = 990.0
+rect_min_size = Vector2( 0, 40 )
+text = "a button."
+
+[node name="Button21" type="Button" parent="ScrollContainer/VBoxContainer"]
+margin_top = 1000.0
+margin_right = 86.0
+margin_bottom = 1040.0
+rect_min_size = Vector2( 0, 40 )
+text = "a button."
+
+[node name="Button22" type="Button" parent="ScrollContainer/VBoxContainer"]
+margin_top = 1050.0
+margin_right = 86.0
+margin_bottom = 1090.0
+rect_min_size = Vector2( 0, 40 )
+text = "a button."
+
+[node name="Button23" type="Button" parent="ScrollContainer/VBoxContainer"]
+margin_top = 1100.0
+margin_right = 86.0
+margin_bottom = 1140.0
+rect_min_size = Vector2( 0, 40 )
+text = "a button."
+
+[node name="Button24" type="Button" parent="ScrollContainer/VBoxContainer"]
+margin_top = 1150.0
+margin_right = 86.0
+margin_bottom = 1190.0
+rect_min_size = Vector2( 0, 40 )
+text = "a button."
+
+[node name="Button48" type="Button" parent="ScrollContainer/VBoxContainer"]
+margin_top = 1200.0
+margin_right = 86.0
+margin_bottom = 1240.0
+rect_min_size = Vector2( 0, 40 )
+text = "a button."
+
+[node name="Button49" type="Button" parent="ScrollContainer/VBoxContainer"]
+margin_top = 1250.0
+margin_right = 86.0
+margin_bottom = 1290.0
+rect_min_size = Vector2( 0, 40 )
+text = "a button."
+
+[node name="Button50" type="Button" parent="ScrollContainer/VBoxContainer"]
+margin_top = 1300.0
+margin_right = 86.0
+margin_bottom = 1340.0
+rect_min_size = Vector2( 0, 40 )
+text = "a button."
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="."]
+margin_left = 158.0
+margin_top = 189.0
+margin_right = 663.0
+margin_bottom = 256.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer2"]
+margin_right = 2006.0
+margin_bottom = 40.0
+custom_constants/separation = 10
+
+[node name="Button" type="Button" parent="ScrollContainer2/HBoxContainer"]
+margin_right = 86.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+rect_pivot_offset = Vector2( -15, 185 )
+text = "a button."
+
+[node name="Button2" type="Button" parent="ScrollContainer2/HBoxContainer"]
+margin_left = 96.0
+margin_right = 182.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+rect_pivot_offset = Vector2( -15, 185 )
+text = "a button."
+
+[node name="Button3" type="Button" parent="ScrollContainer2/HBoxContainer"]
+margin_left = 192.0
+margin_right = 278.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+rect_pivot_offset = Vector2( -15, 185 )
+text = "a button."
+
+[node name="Button4" type="Button" parent="ScrollContainer2/HBoxContainer"]
+margin_left = 288.0
+margin_right = 374.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+rect_pivot_offset = Vector2( -15, 185 )
+text = "a button."
+
+[node name="Button5" type="Button" parent="ScrollContainer2/HBoxContainer"]
+margin_left = 384.0
+margin_right = 470.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+rect_pivot_offset = Vector2( -15, 185 )
+text = "a button."
+
+[node name="Button6" type="Button" parent="ScrollContainer2/HBoxContainer"]
+margin_left = 480.0
+margin_right = 566.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+rect_pivot_offset = Vector2( -15, 185 )
+text = "a button."
+
+[node name="Button7" type="Button" parent="ScrollContainer2/HBoxContainer"]
+margin_left = 576.0
+margin_right = 662.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+rect_pivot_offset = Vector2( -15, 185 )
+text = "a button."
+
+[node name="Button8" type="Button" parent="ScrollContainer2/HBoxContainer"]
+margin_left = 672.0
+margin_right = 758.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+rect_pivot_offset = Vector2( -15, 185 )
+text = "a button."
+
+[node name="Button9" type="Button" parent="ScrollContainer2/HBoxContainer"]
+margin_left = 768.0
+margin_right = 854.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+rect_pivot_offset = Vector2( -15, 185 )
+text = "a button."
+
+[node name="Button10" type="Button" parent="ScrollContainer2/HBoxContainer"]
+margin_left = 864.0
+margin_right = 950.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+rect_pivot_offset = Vector2( -15, 185 )
+text = "a button."
+
+[node name="Button11" type="Button" parent="ScrollContainer2/HBoxContainer"]
+margin_left = 960.0
+margin_right = 1046.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+rect_pivot_offset = Vector2( -15, 185 )
+text = "a button."
+
+[node name="Button12" type="Button" parent="ScrollContainer2/HBoxContainer"]
+margin_left = 1056.0
+margin_right = 1142.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+rect_pivot_offset = Vector2( -15, 185 )
+text = "a button."
+
+[node name="Button13" type="Button" parent="ScrollContainer2/HBoxContainer"]
+margin_left = 1152.0
+margin_right = 1238.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+rect_pivot_offset = Vector2( -15, 185 )
+text = "a button."
+
+[node name="Button14" type="Button" parent="ScrollContainer2/HBoxContainer"]
+margin_left = 1248.0
+margin_right = 1334.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+rect_pivot_offset = Vector2( -15, 185 )
+text = "a button."
+
+[node name="Button15" type="Button" parent="ScrollContainer2/HBoxContainer"]
+margin_left = 1344.0
+margin_right = 1430.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+rect_pivot_offset = Vector2( -15, 185 )
+text = "a button."
+
+[node name="Button16" type="Button" parent="ScrollContainer2/HBoxContainer"]
+margin_left = 1440.0
+margin_right = 1526.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+rect_pivot_offset = Vector2( -15, 185 )
+text = "a button."
+
+[node name="Button17" type="Button" parent="ScrollContainer2/HBoxContainer"]
+margin_left = 1536.0
+margin_right = 1622.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+rect_pivot_offset = Vector2( -15, 185 )
+text = "a button."
+
+[node name="Button18" type="Button" parent="ScrollContainer2/HBoxContainer"]
+margin_left = 1632.0
+margin_right = 1718.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+rect_pivot_offset = Vector2( -15, 185 )
+text = "a button."
+
+[node name="Button19" type="Button" parent="ScrollContainer2/HBoxContainer"]
+margin_left = 1728.0
+margin_right = 1814.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+rect_pivot_offset = Vector2( -15, 185 )
+text = "a button."
+
+[node name="Button20" type="Button" parent="ScrollContainer2/HBoxContainer"]
+margin_left = 1824.0
+margin_right = 1910.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+rect_pivot_offset = Vector2( -15, 185 )
+text = "a button."
+
+[node name="Button21" type="Button" parent="ScrollContainer2/HBoxContainer"]
+margin_left = 1920.0
+margin_right = 2006.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+rect_pivot_offset = Vector2( -15, 185 )
+text = "a button."
