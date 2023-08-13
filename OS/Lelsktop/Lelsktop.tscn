@@ -41,7 +41,7 @@ text = "pain"
 margin_left = 271.0
 margin_top = 104.0
 margin_right = 340.0
-margin_bottom = 144.0
+margin_bottom = 137.0
 text = "pain"
 
 [node name="Button" type="Button" parent="."]
@@ -50,3 +50,9 @@ margin_top = 234.0
 margin_right = 608.0
 margin_bottom = 274.0
 text = "a button."
+
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_left = 289.0
+margin_top = 377.0
+margin_right = 1050.0
+margin_bottom = 583.0
