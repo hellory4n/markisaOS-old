@@ -7,7 +7,7 @@ public class ResolutionManager : Camera2D {
     public override void _Ready() {
         base._Ready();
         Current = true;
-        Position = new Vector2(640, 360);
+        AnchorMode = AnchorModeEnum.FixedTopLeft;
 
         // this gives more zoom at mobile so it's more touch-friendly
         float zoomomgogmg;
@@ -26,11 +26,12 @@ public class ResolutionManager : Camera2D {
             zoomomgogmg = 1280 / OS.GetScreenSize().x;
         else
             zoomomgogmg = OS.GetScreenSize().x / 1280;
-        
+
         // get the resolution visible
-        Vector2 result = new Vector2();
-        result.x = 1280 / (1/zoomomgogmg);
-        result.y = 720 / (1/zoomomgogmg);
+        Vector2 result = new Vector2 {
+            x = 1280 / (1 / zoomomgogmg),
+            y = 720 / (1 / zoomomgogmg)
+        };
         return result;
     }
 }

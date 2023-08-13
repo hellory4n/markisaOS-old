@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme/Leltheme.tres" type="Theme" id=1]
 [ext_resource path="res://Scripts/OS/Lelkstop/Lelsktop.cs" type="Script" id=2]
 [ext_resource path="res://Assets/coolwallpaperlol.png" type="Texture" id=3]
+
+[sub_resource type="ButtonGroup" id=1]
 
 [node name="Lelsktop" type="Control"]
 theme = ExtResource( 1 )
@@ -27,3 +29,18 @@ margin_top = 360.0
 margin_right = 859.0
 margin_bottom = 388.0
 text = "a button omgomgomgogmgogo holy moly"
+
+[node name="CheckBox" type="CheckBox" parent="."]
+margin_right = 31.0
+margin_bottom = 31.0
+pressed = true
+group = SubResource( 1 )
+text = "Fuck off."
+
+[node name="CheckBox2" type="CheckBox" parent="."]
+margin_left = 2.0
+margin_top = 35.0
+margin_right = 33.0
+margin_bottom = 66.0
+group = SubResource( 1 )
+text = "pain"
