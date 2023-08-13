@@ -1,10 +1,18 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme/Leltheme.tres" type="Theme" id=1]
 [ext_resource path="res://Scripts/OS/Lelkstop/Lelsktop.cs" type="Script" id=2]
 [ext_resource path="res://Assets/coolwallpaperlol.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/OS/WindowManager/Leleffects.shader" type="Shader" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=6]
 
-[sub_resource type="ButtonGroup" id=1]
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 4 )
+shader_param/blurSize = 30
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 4 )
+shader_param/blurSize = 25
 
 [node name="Lelsktop" type="Control"]
 theme = ExtResource( 1 )
@@ -23,425 +31,250 @@ margin_bottom = 710.0
 text = "lelsktop v0.0.1"
 align = 2
 
-[node name="CheckBox" type="CheckBox" parent="."]
-margin_right = 105.0
-margin_bottom = 40.0
-pressed = true
-group = SubResource( 1 )
-text = "Fuck off."
+[node name="TestWindow" type="ColorRect" parent="."]
+material = SubResource( 3 )
+margin_left = 546.0
+margin_top = 265.0
+margin_right = 1106.0
+margin_bottom = 578.0
+color = Color( 0, 0, 0, 0 )
 
-[node name="CheckBox2" type="CheckBox" parent="."]
-margin_top = 40.0
-margin_right = 69.0
-margin_bottom = 80.0
-group = SubResource( 1 )
-text = "pain"
+[node name="Icon" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1070, 542 )
+texture = ExtResource( 6 )
 
-[node name="CheckBox3" type="CheckBox" parent="."]
-margin_left = 210.0
-margin_top = 268.0
-margin_right = 279.0
-margin_bottom = 301.0
-text = "pain"
+[node name="Icon2" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1031, 568 )
+texture = ExtResource( 6 )
 
-[node name="Button" type="Button" parent="."]
-margin_left = 430.0
-margin_top = 316.0
-margin_right = 662.0
-margin_bottom = 356.0
-text = "a button."
+[node name="Icon3" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1126, 547 )
+texture = ExtResource( 6 )
 
-[node name="TextEdit" type="TextEdit" parent="."]
-margin_left = 289.0
-margin_top = 377.0
-margin_right = 1050.0
-margin_bottom = 583.0
+[node name="Icon4" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1114, 601 )
+texture = ExtResource( 6 )
 
-[node name="HSlider" type="HSlider" parent="."]
-margin_left = 143.0
-margin_top = 311.0
-margin_right = 406.0
-margin_bottom = 337.0
+[node name="Icon5" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="VSlider" type="VSlider" parent="."]
-margin_left = 109.0
-margin_top = 207.0
-margin_right = 125.0
-margin_bottom = 388.0
+[node name="Icon6" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
-margin_left = 701.0
-margin_top = 112.0
-margin_right = 817.0
-margin_bottom = 369.0
+[node name="Icon7" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
-margin_right = 86.0
-margin_bottom = 1340.0
-custom_constants/separation = 10
+[node name="Icon8" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_right = 86.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
-text = "a button."
+[node name="Icon9" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button2" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_top = 50.0
-margin_right = 86.0
-margin_bottom = 90.0
-rect_min_size = Vector2( 0, 40 )
-text = "a button."
+[node name="Icon10" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button3" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_top = 100.0
-margin_right = 86.0
-margin_bottom = 140.0
-rect_min_size = Vector2( 0, 40 )
-text = "a button."
+[node name="Icon11" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button4" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_top = 150.0
-margin_right = 86.0
-margin_bottom = 190.0
-rect_min_size = Vector2( 0, 40 )
-text = "a button."
+[node name="Icon12" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button5" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_top = 200.0
-margin_right = 86.0
-margin_bottom = 240.0
-rect_min_size = Vector2( 0, 40 )
-text = "a button."
+[node name="Icon13" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button6" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_top = 250.0
-margin_right = 86.0
-margin_bottom = 290.0
-rect_min_size = Vector2( 0, 40 )
-text = "a button."
+[node name="Icon14" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button7" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_top = 300.0
-margin_right = 86.0
-margin_bottom = 340.0
-rect_min_size = Vector2( 0, 40 )
-text = "a button."
+[node name="Icon15" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button8" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_top = 350.0
-margin_right = 86.0
-margin_bottom = 390.0
-rect_min_size = Vector2( 0, 40 )
-text = "a button."
+[node name="Icon16" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button9" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_top = 400.0
-margin_right = 86.0
-margin_bottom = 440.0
-rect_min_size = Vector2( 0, 40 )
-text = "a button."
+[node name="Icon17" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button10" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_top = 450.0
-margin_right = 86.0
-margin_bottom = 490.0
-rect_min_size = Vector2( 0, 40 )
-text = "a button."
+[node name="Icon18" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button11" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_top = 500.0
-margin_right = 86.0
-margin_bottom = 540.0
-rect_min_size = Vector2( 0, 40 )
-text = "a button."
+[node name="Icon19" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button12" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_top = 550.0
-margin_right = 86.0
-margin_bottom = 590.0
-rect_min_size = Vector2( 0, 40 )
-text = "a button."
+[node name="Icon20" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button13" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_top = 600.0
-margin_right = 86.0
-margin_bottom = 640.0
-rect_min_size = Vector2( 0, 40 )
-text = "a button."
+[node name="Icon21" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button14" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_top = 650.0
-margin_right = 86.0
-margin_bottom = 690.0
-rect_min_size = Vector2( 0, 40 )
-text = "a button."
+[node name="Icon22" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button15" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_top = 700.0
-margin_right = 86.0
-margin_bottom = 740.0
-rect_min_size = Vector2( 0, 40 )
-text = "a button."
+[node name="Icon23" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button16" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_top = 750.0
-margin_right = 86.0
-margin_bottom = 790.0
-rect_min_size = Vector2( 0, 40 )
-text = "a button."
+[node name="Icon24" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button17" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_top = 800.0
-margin_right = 86.0
-margin_bottom = 840.0
-rect_min_size = Vector2( 0, 40 )
-text = "a button."
+[node name="Icon25" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button18" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_top = 850.0
-margin_right = 86.0
-margin_bottom = 890.0
-rect_min_size = Vector2( 0, 40 )
-text = "a button."
+[node name="Icon26" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button19" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_top = 900.0
-margin_right = 86.0
-margin_bottom = 940.0
-rect_min_size = Vector2( 0, 40 )
-text = "a button."
+[node name="Icon27" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button20" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_top = 950.0
-margin_right = 86.0
-margin_bottom = 990.0
-rect_min_size = Vector2( 0, 40 )
-text = "a button."
+[node name="Icon28" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button21" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_top = 1000.0
-margin_right = 86.0
-margin_bottom = 1040.0
-rect_min_size = Vector2( 0, 40 )
-text = "a button."
+[node name="Icon29" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button22" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_top = 1050.0
-margin_right = 86.0
-margin_bottom = 1090.0
-rect_min_size = Vector2( 0, 40 )
-text = "a button."
+[node name="Icon30" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button23" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_top = 1100.0
-margin_right = 86.0
-margin_bottom = 1140.0
-rect_min_size = Vector2( 0, 40 )
-text = "a button."
+[node name="Icon31" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button24" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_top = 1150.0
-margin_right = 86.0
-margin_bottom = 1190.0
-rect_min_size = Vector2( 0, 40 )
-text = "a button."
+[node name="Icon32" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button48" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_top = 1200.0
-margin_right = 86.0
-margin_bottom = 1240.0
-rect_min_size = Vector2( 0, 40 )
-text = "a button."
+[node name="Icon33" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button49" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_top = 1250.0
-margin_right = 86.0
-margin_bottom = 1290.0
-rect_min_size = Vector2( 0, 40 )
-text = "a button."
+[node name="Icon34" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button50" type="Button" parent="ScrollContainer/VBoxContainer"]
-margin_top = 1300.0
-margin_right = 86.0
-margin_bottom = 1340.0
-rect_min_size = Vector2( 0, 40 )
-text = "a button."
+[node name="Icon35" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="ScrollContainer2" type="ScrollContainer" parent="."]
-margin_left = 158.0
-margin_top = 189.0
-margin_right = 663.0
-margin_bottom = 256.0
+[node name="Icon36" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer2"]
-margin_right = 2006.0
-margin_bottom = 40.0
-custom_constants/separation = 10
+[node name="Icon37" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button" type="Button" parent="ScrollContainer2/HBoxContainer"]
-margin_right = 86.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
-rect_pivot_offset = Vector2( -15, 185 )
-text = "a button."
+[node name="Icon38" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button2" type="Button" parent="ScrollContainer2/HBoxContainer"]
-margin_left = 96.0
-margin_right = 182.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
-rect_pivot_offset = Vector2( -15, 185 )
-text = "a button."
+[node name="Icon39" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button3" type="Button" parent="ScrollContainer2/HBoxContainer"]
-margin_left = 192.0
-margin_right = 278.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
-rect_pivot_offset = Vector2( -15, 185 )
-text = "a button."
+[node name="Icon40" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button4" type="Button" parent="ScrollContainer2/HBoxContainer"]
-margin_left = 288.0
-margin_right = 374.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
-rect_pivot_offset = Vector2( -15, 185 )
-text = "a button."
+[node name="Icon41" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button5" type="Button" parent="ScrollContainer2/HBoxContainer"]
-margin_left = 384.0
-margin_right = 470.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
-rect_pivot_offset = Vector2( -15, 185 )
-text = "a button."
+[node name="Icon42" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button6" type="Button" parent="ScrollContainer2/HBoxContainer"]
-margin_left = 480.0
-margin_right = 566.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
-rect_pivot_offset = Vector2( -15, 185 )
-text = "a button."
+[node name="Icon43" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button7" type="Button" parent="ScrollContainer2/HBoxContainer"]
-margin_left = 576.0
-margin_right = 662.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
-rect_pivot_offset = Vector2( -15, 185 )
-text = "a button."
+[node name="Icon44" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button8" type="Button" parent="ScrollContainer2/HBoxContainer"]
-margin_left = 672.0
-margin_right = 758.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
-rect_pivot_offset = Vector2( -15, 185 )
-text = "a button."
+[node name="Icon45" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button9" type="Button" parent="ScrollContainer2/HBoxContainer"]
-margin_left = 768.0
-margin_right = 854.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
-rect_pivot_offset = Vector2( -15, 185 )
-text = "a button."
+[node name="Icon46" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button10" type="Button" parent="ScrollContainer2/HBoxContainer"]
-margin_left = 864.0
-margin_right = 950.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
-rect_pivot_offset = Vector2( -15, 185 )
-text = "a button."
+[node name="Icon47" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
 
-[node name="Button11" type="Button" parent="ScrollContainer2/HBoxContainer"]
-margin_left = 960.0
-margin_right = 1046.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
-rect_pivot_offset = Vector2( -15, 185 )
-text = "a button."
-
-[node name="Button12" type="Button" parent="ScrollContainer2/HBoxContainer"]
-margin_left = 1056.0
-margin_right = 1142.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
-rect_pivot_offset = Vector2( -15, 185 )
-text = "a button."
-
-[node name="Button13" type="Button" parent="ScrollContainer2/HBoxContainer"]
-margin_left = 1152.0
-margin_right = 1238.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
-rect_pivot_offset = Vector2( -15, 185 )
-text = "a button."
-
-[node name="Button14" type="Button" parent="ScrollContainer2/HBoxContainer"]
-margin_left = 1248.0
-margin_right = 1334.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
-rect_pivot_offset = Vector2( -15, 185 )
-text = "a button."
-
-[node name="Button15" type="Button" parent="ScrollContainer2/HBoxContainer"]
-margin_left = 1344.0
-margin_right = 1430.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
-rect_pivot_offset = Vector2( -15, 185 )
-text = "a button."
-
-[node name="Button16" type="Button" parent="ScrollContainer2/HBoxContainer"]
-margin_left = 1440.0
-margin_right = 1526.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
-rect_pivot_offset = Vector2( -15, 185 )
-text = "a button."
-
-[node name="Button17" type="Button" parent="ScrollContainer2/HBoxContainer"]
-margin_left = 1536.0
-margin_right = 1622.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
-rect_pivot_offset = Vector2( -15, 185 )
-text = "a button."
-
-[node name="Button18" type="Button" parent="ScrollContainer2/HBoxContainer"]
-margin_left = 1632.0
-margin_right = 1718.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
-rect_pivot_offset = Vector2( -15, 185 )
-text = "a button."
-
-[node name="Button19" type="Button" parent="ScrollContainer2/HBoxContainer"]
-margin_left = 1728.0
-margin_right = 1814.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
-rect_pivot_offset = Vector2( -15, 185 )
-text = "a button."
-
-[node name="Button20" type="Button" parent="ScrollContainer2/HBoxContainer"]
-margin_left = 1824.0
-margin_right = 1910.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
-rect_pivot_offset = Vector2( -15, 185 )
-text = "a button."
-
-[node name="Button21" type="Button" parent="ScrollContainer2/HBoxContainer"]
-margin_left = 1920.0
-margin_right = 2006.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
-rect_pivot_offset = Vector2( -15, 185 )
-text = "a button."
+[node name="Icon48" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 1077, 582 )
+texture = ExtResource( 6 )
