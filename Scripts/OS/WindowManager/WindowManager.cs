@@ -4,20 +4,31 @@ using System.Collections.Generic;
 
 public class WindowManager : Node {
     // TODO: don't have a window switching maximum of 800
-    List<WindowDialog> Windows = new List<WindowDialog>();
+    List<Control> Windows = new List<Control>();
     int Layer = -4095;
+    PackedScene windowDecoration;
 
-    public void AddWindow(WindowDialog window) {
+    public override void _Ready() {
+        base._Ready();
+        windowDecoration = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/WindowDecoration.tscn");
+    }
+
+    public void AddWindow(Control window) {
         Control lelsktop = GetNode<Control>("/root/Lelsktop");
+
+        // epic window decorations :)
+        Panel bruh = (Panel)windowDecoration.Instance();
+        bruh.RectMinSize = new Vector2(window.RectSize.x, 45);
+        bruh.AddChild(window);
+
         // so we can have windows on top of windows and stuff
         Node2D thing = new Node2D {
             ZIndex = Layer
         };
-        thing.AddChild(window);
+        thing.AddChild(bruh);
         lelsktop.AddChild(thing);
-
-        // ye
-        window.Popup_();
-        window.PopupCentered();
+        bruh.RectPosition = new Vector2(150, 150);
+        window.RectPosition = new Vector2(0, 45);
+        Layer += 1;
     }
 }

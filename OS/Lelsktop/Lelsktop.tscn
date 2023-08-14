@@ -15,6 +15,7 @@ script = ExtResource( 2 )
 
 [node name="Coolwallpaperlol" type="Sprite" parent="."]
 scale = Vector2( 0.71, 0.71 )
+z_index = -4096
 texture = ExtResource( 3 )
 centered = false
 
