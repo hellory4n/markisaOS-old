@@ -1,11 +1,8 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://Scripts/OS/WindowManager/WindowDecoration.cs" type="Script" id=3]
+[gd_scene format=2]
 
 [node name="WindowDecoration" type="Control"]
 margin_right = 219.0
 margin_bottom = 45.0
-script = ExtResource( 3 )
 
 [node name="Bruh" type="ColorRect" parent="."]
 margin_right = 219.0

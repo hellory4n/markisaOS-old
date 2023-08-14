@@ -1,23 +1,27 @@
 using Godot;
 using System;
 
-public class WindowDecoration : Control {
-    Vector2? dragPoint;
+public class WindowDecoration : KinematicBody2D {
+    bool CanDrag = false;
+    Vector2 GrabbedOffset = new Vector2();
 
-    public override void _GuiInput(InputEvent @event) {
+    public override void _InputEvent(Godot.Object viewport, InputEvent @event, int shapeIdx) {
+        GD.Print("1");
         if (@event is InputEventMouseButton) {
-            InputEventMouseButton yes = (InputEventMouseButton)@event;
-            if (yes.ButtonIndex == (int)ButtonList.Left) {
-                if (yes.Pressed) {
-                    dragPoint = GetGlobalMousePosition() - RectPosition;
-                } else {
-                    dragPoint = null;
-                }
-            }
+            GD.Print("2");
+            CanDrag = @event.IsPressed();
+            GrabbedOffset = Position - GetGlobalMousePosition();
+        }
+        GD.Print("3");
+        base._InputEvent(viewport, @event, shapeIdx);
+    }
+
+    public override void _Process(float delta) {
+        if (Input.IsMouseButtonPressed((int)ButtonList.Left) && CanDrag) {
+            Position = GetGlobalMousePosition() + GrabbedOffset;
+            GD.Print("4");
         }
 
-        if (@event is InputEventMouseButton && dragPoint != null)
-            RectPosition = GetGlobalMousePosition() - (Vector2)dragPoint;
-        base._GuiInput(@event);
+        base._Process(delta);
     }
 }
