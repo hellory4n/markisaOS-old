@@ -19,6 +19,7 @@ config/icon="res://icon.png"
 [autoload]
 
 ResolutionManager="*res://Scripts/OS/Drivers/ResolutionManager.cs"
+WindowManager="*res://Scripts/OS/WindowManager/WindowManager.cs"
 
 [display]
 
