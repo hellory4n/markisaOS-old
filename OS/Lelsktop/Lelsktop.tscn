@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme/Leltheme.tres" type="Theme" id=1]
 [ext_resource path="res://Scripts/OS/Lelkstop/Lelsktop.cs" type="Script" id=2]
 [ext_resource path="res://Assets/coolwallpaperlol.png" type="Texture" id=3]
 [ext_resource path="res://Fonts/RedHatText-Bold.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://Assets/windows_eks_pee.jpg" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -14,13 +13,8 @@ font_data = ExtResource( 4 )
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
 
-[node name="WindowsEksPee" type="Sprite" parent="."]
-texture = ExtResource( 5 )
-centered = false
-
 [node name="Coolwallpaperlol" type="Sprite" parent="."]
-visible = false
-scale = Vector2( 0.76, 0.76 )
+scale = Vector2( 0.71, 0.71 )
 texture = ExtResource( 3 )
 centered = false
 

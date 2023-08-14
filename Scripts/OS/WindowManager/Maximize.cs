@@ -8,10 +8,17 @@ public class Maximize : TextureButton {
     }
 
     public void Click() {
-        Vector2 newSize = ResolutionManager.GetScreenSize();
-        // newSize = new Vector2(newSize.x, newSize.y-55);
-        Control window = (Control)GetParent();
-        window.RectPosition = new Vector2(0, 55);
-        window.RectSize = newSize;
+        WindowDialog window = (WindowDialog)GetParent();
+        Vector2 maximizedSize = ResolutionManager.GetScreenSize();
+        maximizedSize = new Vector2(maximizedSize.x, maximizedSize.y-55);
+
+        // check if the window is maximized
+        if (window.RectPosition != new Vector2(0, 55) && window.RectSize != maximizedSize) {
+            window.RectPosition = new Vector2(0, 55);
+            window.RectSize = maximizedSize;
+        } else {
+            window.RectSize = window.RectMinSize;
+            window.PopupCentered();
+        }
     }
 }
