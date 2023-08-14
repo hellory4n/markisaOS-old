@@ -3,35 +3,26 @@ using System;
 
 // This node adapts the game's resolution and screen factor dynamically,
 // so you get more ui on desktop and stuff
-public class ResolutionManager : Camera2D {
+public class ResolutionManager : Node2D {
     public override void _Ready() {
         base._Ready();
-        Current = true;
-        AnchorMode = AnchorModeEnum.FixedTopLeft;
 
-        // this gives more zoom at mobile so it's more touch-friendly
-        float zoomomgogmg;
-        if (OS.GetName() == "Android")
-            zoomomgogmg = 1280 / OS.GetScreenSize().x;
+        // this lowers the resolution at mobile so it's more touch-friendly
+        if (OS.GetName() != "Android")
+            GetTree().SetScreenStretch(SceneTree.StretchMode.Mode2d, SceneTree.StretchAspect.Keep, 
+                OS.GetScreenSize()/1.25f);
         else
-            zoomomgogmg = OS.GetScreenSize().x / 1280;
-
-        Zoom = new Vector2(zoomomgogmg, zoomomgogmg);
+            GetTree().SetScreenStretch(SceneTree.StretchMode.Mode2d, SceneTree.StretchAspect.Keep, 
+                OS.GetScreenSize());
     }
 
     public static Vector2 GetScreenSize() {
-        // get zoom level
-        float zoomomgogmg;
-        if (OS.GetName() == "Android")
-            zoomomgogmg = 1280 / OS.GetScreenSize().x;
+        Vector2 resolution;
+        if (OS.GetName() != "Android")
+            resolution = OS.GetScreenSize()/1.25f;
         else
-            zoomomgogmg = OS.GetScreenSize().x / 1280;
+            resolution = OS.GetScreenSize();
 
-        // get the resolution visible
-        Vector2 result = new Vector2 {
-            x = 1280 / (1 / zoomomgogmg),
-            y = 720 / (1 / zoomomgogmg)
-        };
-        return result;
+        return resolution;
     }
 }
