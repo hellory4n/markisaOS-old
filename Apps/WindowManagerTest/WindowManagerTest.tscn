@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Themes/Leltheme/Leltheme.tres" type="Theme" id=1]
+
+[node name="WindowManagerTest" type="WindowDialog"]
+visible = true
+margin_right = 420.0
+margin_bottom = 223.0
+theme = ExtResource( 1 )
+window_title = "Pain"
+resizable = true
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -141.0
+margin_top = -20.0
+margin_right = 141.0
+margin_bottom = 20.0
+text = "death"
