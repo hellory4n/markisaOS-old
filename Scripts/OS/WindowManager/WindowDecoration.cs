@@ -1,26 +1,23 @@
 using Godot;
 using System;
 
-public class WindowDecoration : Panel {
-    Vector2 previousMousePosition = new Vector2();
-    bool isDragging = false;
-
-    public override void _Process(float delta) {
-        base._Process(delta);
-        if (isDragging) {
-            Vector2 mouseDelta = previousMousePosition - GetLocalMousePosition();
-            RectPosition -= mouseDelta;
-        }
-    }
+public class WindowDecoration : Control {
+    Vector2? dragPoint;
 
     public override void _GuiInput(InputEvent @event) {
+        if (@event is InputEventMouseButton) {
+            InputEventMouseButton yes = (InputEventMouseButton)@event;
+            if (yes.ButtonIndex == (int)ButtonList.Left) {
+                if (yes.Pressed) {
+                    dragPoint = GetGlobalMousePosition() - RectPosition;
+                } else {
+                    dragPoint = null;
+                }
+            }
+        }
+
+        if (@event is InputEventMouseButton && dragPoint != null)
+            RectPosition = GetGlobalMousePosition() - (Vector2)dragPoint;
         base._GuiInput(@event);
-        if (@event.IsActionPressed("ui_select")) {
-            isDragging = true;
-            previousMousePosition = GetLocalMousePosition();
-        }
-        if (@event.IsActionReleased("ui_select")) {
-            isDragging = false;
-        }
     }
 }

@@ -17,8 +17,8 @@ public class WindowManager : Node {
         Control lelsktop = GetNode<Control>("/root/Lelsktop");
 
         // epic window decorations :)
-        Panel bruh = (Panel)windowDecoration.Instance();
-        bruh.RectMinSize = new Vector2(window.RectSize.x, 45);
+        Control bruh = (Control)windowDecoration.Instance();
+        // bruh.RectMinSize = new Vector2(window.RectSize.x, 45);
         bruh.AddChild(window);
 
         // so we can have windows on top of windows and stuff
