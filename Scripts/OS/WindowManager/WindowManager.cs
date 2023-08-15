@@ -14,7 +14,7 @@ public class WindowManager : Node {
         windowDecoration = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/WindowDecoration.tscn");
     }
 
-    public void AddWindow(Control window, float windowWidth) {
+    public void AddWindow(Control window, float windowWidth, float windowHeight) {
         Node2D lelsktop = GetNode<Node2D>("/root/Lelsktop");
 
         // epic window decorations :)
@@ -26,9 +26,9 @@ public class WindowManager : Node {
         // make the window decorations have the width of the window and stuff
         CollisionShape2D m = GetNode<CollisionShape2D>($"{bruh.GetPath()}/EpicCollision");
         m.Shape = new RectangleShape2D {
-            Extents = new Vector2(windowWidth-40, 45)
+            Extents = new Vector2(windowWidth, 45)
         };
-        m.Position = new Vector2(windowWidth+40, 45);
+        m.Position = new Vector2(windowWidth, 45);
 
         Label funni = GetNode<Label>($"{bruh.GetPath()}/Name");
         funni.Text = window.Name;
@@ -38,7 +38,10 @@ public class WindowManager : Node {
         close.RectPosition = new Vector2(windowWidth-36, 6);
 
         Sprite jgkf = GetNode<Sprite>($"{bruh.GetPath()}/Pain");
-        jgkf.Scale *= new Vector2(690, 45);
+        jgkf.Scale *= new Vector2(windowWidth, 45);
+
+        KinematicBody2D gaming = GetNode<KinematicBody2D>($"{bruh.GetPath()}/Resize");
+        gaming.Position = new Vector2(windowWidth+40, windowHeight+40);
 
         bruh.AddChild(window);
     }

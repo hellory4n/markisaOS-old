@@ -51,7 +51,6 @@ texture_hover = ExtResource( 5 )
 script = ExtResource( 7 )
 
 [node name="Resize" type="KinematicBody2D" parent="."]
-position = Vector2( 5, 6 )
 input_pickable = true
 script = ExtResource( 9 )
 

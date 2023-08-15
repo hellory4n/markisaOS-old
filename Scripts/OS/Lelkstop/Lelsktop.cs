@@ -12,7 +12,7 @@ public class Lelsktop : Node2D {
         // make 5 windows for testing :)
         for (int i = 0; i < 1; i++) {
             Control jjkn = (Control)m.Instance();    
-            wm.AddWindow(jjkn, 690);
+            wm.AddWindow(jjkn, 690, 420);
         }
     }
 }
