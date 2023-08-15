@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme/Leltheme.tres" type="Theme" id=1]
+[ext_resource path="res://Scripts/OS/WindowManager/BaseWindow.cs" type="Script" id=5]
 
-[node name="Content" type="WindowDialog"]
+[node name="WindowManagerTest" type="WindowDialog"]
+visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -590.0
@@ -10,8 +12,9 @@ margin_bottom = -300.0
 rect_min_size = Vector2( 690, 420 )
 theme = ExtResource( 1 )
 popup_exclusive = true
-window_title = "bruh"
+window_title = "gaming"
 resizable = true
+script = ExtResource( 5 )
 
 [node name="Button" type="Button" parent="."]
 anchor_left = 0.5
