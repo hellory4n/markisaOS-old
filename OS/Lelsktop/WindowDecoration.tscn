@@ -17,7 +17,7 @@ outline_size = 4
 font_data = ExtResource( 2 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 16, 16 )
+extents = Vector2( 20, 20 )
 
 [node name="WindowDecoration" type="KinematicBody2D"]
 input_pickable = true

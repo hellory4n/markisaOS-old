@@ -26,9 +26,9 @@ public class WindowManager : Node {
         // make the window decorations have the width of the window and stuff
         CollisionShape2D m = GetNode<CollisionShape2D>($"{bruh.GetPath()}/EpicCollision");
         m.Shape = new RectangleShape2D {
-            Extents = new Vector2(windowWidth, 45)
+            Extents = new Vector2(windowWidth-40, 45)
         };
-        m.Position = new Vector2(windowWidth, 45);
+        m.Position = new Vector2(windowWidth+40, 45);
 
         Label funni = GetNode<Label>($"{bruh.GetPath()}/Name");
         funni.Text = window.Name;
