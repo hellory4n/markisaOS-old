@@ -11,8 +11,8 @@ public class Lelsktop : Node2D {
         PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/WindowManagerTest/WindowManagerTest.tscn");
         // make 5 windows for testing :)
         for (int i = 0; i < 5; i++) {
-            Control jjkn = (Control)m.Instance();
-            wm.AddWindow(jjkn, 690, 420);
+            WindowDialog jjkn = (WindowDialog)m.Instance();    
+            wm.AddWindow(jjkn);
         }
     }
 }
