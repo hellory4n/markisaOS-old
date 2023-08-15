@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Fonts/RedHatText-Bold.ttf" type="DynamicFontData" id=2]
@@ -7,12 +7,17 @@
 [ext_resource path="res://Assets/Themes/Leltheme/Window/CloseHover.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Themes/Leltheme/Window/Close.png" type="Texture" id=6]
 [ext_resource path="res://Scripts/OS/WindowManager/Close.cs" type="Script" id=7]
+[ext_resource path="res://Assets/Themes/Leltheme/Window/Resize.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/OS/WindowManager/Resize.cs" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 [sub_resource type="DynamicFont" id=2]
 outline_size = 4
 font_data = ExtResource( 2 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 16, 16 )
 
 [node name="WindowDecoration" type="KinematicBody2D"]
 input_pickable = true
@@ -39,7 +44,21 @@ clip_text = true
 [node name="Close" type="TextureButton" parent="."]
 margin_right = 32.0
 margin_bottom = 32.0
+rect_pivot_offset = Vector2( -67, -76 )
 texture_normal = ExtResource( 6 )
 texture_pressed = ExtResource( 4 )
 texture_hover = ExtResource( 5 )
 script = ExtResource( 7 )
+
+[node name="Resize" type="KinematicBody2D" parent="."]
+position = Vector2( 5, 6 )
+input_pickable = true
+script = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Resize"]
+position = Vector2( 16, 16 )
+shape = SubResource( 3 )
+
+[node name="Thing" type="Sprite" parent="Resize"]
+texture = ExtResource( 8 )
+centered = false
