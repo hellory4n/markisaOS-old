@@ -8,18 +8,19 @@ public class ResolutionManager : Node2D {
         base._Ready();
 
         // this lowers the resolution at mobile so it's more touch-friendly
-        if (OS.GetName() == "Android")
+        if (OS.GetName() == "Android") {
             GetTree().SetScreenStretch(SceneTree.StretchMode.Mode2d, SceneTree.StretchAspect.Keep, 
-                OS.GetScreenSize()/1.25f);
-        else
+                OS.GetScreenSize()/1.5f);
+        } else {
             GetTree().SetScreenStretch(SceneTree.StretchMode.Mode2d, SceneTree.StretchAspect.Keep, 
                 OS.GetScreenSize());
+        }
     }
 
     public static Vector2 GetScreenSize() {
         Vector2 resolution;
         if (OS.GetName() == "Android")
-            resolution = OS.GetScreenSize()/1.25f;
+            resolution = OS.GetScreenSize()/1.5f;
         else
             resolution = OS.GetScreenSize();
 

@@ -34,13 +34,13 @@ public class BaseWindow : WindowDialog {
                 RectSize = maximizedSize;
             }
 
-            if (GetGlobalMousePosition().x == 0) {
+            if (GetGlobalMousePosition().x < 25) {
                 Vector2 newSize = new Vector2(screenSize.x/2, screenSize.y);
                 RectPosition = new Vector2(0, 55);
                 RectSize = newSize;
             }
 
-            if (GetGlobalMousePosition().x == screenSize.x-1) {
+            if (GetGlobalMousePosition().x > screenSize.x-25) {
                 Vector2 newSize = new Vector2(screenSize.x/2, screenSize.y);
                 RectPosition = new Vector2(screenSize.x/2, 55);
                 RectSize = newSize;
