@@ -6,7 +6,7 @@ using System.Drawing;
 public class WindowManager : Node {
     // TODO: don't have a window switching maximum of 8000
     List<Control> Windows = new List<Control>();
-    int Layer = -4095;
+    public int Layer = 2;
     PackedScene windowDecoration;
 
     public override void _Ready() {
@@ -19,8 +19,12 @@ public class WindowManager : Node {
 
         // epic window decorations :)
         KinematicBody2D bruh = (KinematicBody2D)windowDecoration.Instance();
+        // bruh.ZIndex = Layer;
+        Layer++;
+        bruh.Raise();
         lelsktop.AddChild(bruh);
-        bruh.Position = new Vector2(150, 150);
+        Random dgjgnjdngj = new Random();
+        bruh.Position = new Vector2(dgjgnjdngj.Next(0, 1300), dgjgnjdngj.Next(0, 700));
         window.RectPosition = new Vector2(0, 45);
 
         // make the window decorations have the width of the window and stuff

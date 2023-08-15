@@ -14,8 +14,12 @@ public class WindowDecoration : KinematicBody2D {
     }
 
     public override void _Process(float delta) {
-        if (Input.IsMouseButtonPressed((int)ButtonList.Left) && CanDrag) 
+        if (Input.IsMouseButtonPressed((int)ButtonList.Left) && CanDrag) {
             Position = GetGlobalMousePosition() + GrabbedOffset;
+            // WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
+            Raise();
+            // wm.Layer++;
+        }
         base._Process(delta);
     }
 }
