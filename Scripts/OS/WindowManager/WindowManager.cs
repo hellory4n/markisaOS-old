@@ -30,6 +30,13 @@ public class WindowManager : Node {
         };
         m.Position = new Vector2(windowWidth, 45);
 
+        Label funni = GetNode<Label>($"{bruh.GetPath()}/Name");
+        funni.Text = window.Name;
+        funni.RectSize = new Vector2(windowWidth, 45);
+
+        TextureButton close = GetNode<TextureButton>($"{bruh.GetPath()}/Close");
+        close.RectPosition = new Vector2(windowWidth-36, 6);
+
         Sprite jgkf = GetNode<Sprite>($"{bruh.GetPath()}/Pain");
         jgkf.Scale *= new Vector2(690, 45);
 
