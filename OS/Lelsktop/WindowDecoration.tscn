@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Fonts/RedHatText-Bold.ttf" type="DynamicFontData" id=2]
@@ -9,6 +9,10 @@
 [ext_resource path="res://Scripts/OS/WindowManager/Close.cs" type="Script" id=7]
 [ext_resource path="res://Assets/Themes/Leltheme/Window/Resize.png" type="Texture" id=8]
 [ext_resource path="res://Scripts/OS/WindowManager/Resize.cs" type="Script" id=9]
+[ext_resource path="res://Assets/Themes/Leltheme/Window/MaximizePressed.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Themes/Leltheme/Window/Maximize.png" type="Texture" id=11]
+[ext_resource path="res://Scripts/OS/WindowManager/Maximize.cs" type="Script" id=12]
+[ext_resource path="res://Assets/Themes/Leltheme/Window/MaximizeHover.png" type="Texture" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -61,3 +65,11 @@ shape = SubResource( 3 )
 [node name="Thing" type="Sprite" parent="Resize"]
 texture = ExtResource( 8 )
 centered = false
+
+[node name="Maximize" type="TextureButton" parent="."]
+margin_right = 32.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 13 )
+script = ExtResource( 12 )

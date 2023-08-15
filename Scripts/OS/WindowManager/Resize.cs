@@ -34,6 +34,7 @@ public class Resize : KinematicBody2D {
             m.Position = new Vector2(newSize.x, 45);
             GetNode<Label>("../Name").RectSize = new Vector2(newSize.x-18, 45);
             GetNode<TextureButton>("../Close").RectPosition = new Vector2(newSize.x-36, 6);
+            GetNode<TextureButton>("../Maximize").RectPosition = new Vector2(newSize.x-82, 6);
             GetNode<Sprite>("../Pain").Scale = new Vector2(0.008f, 0.008f) * new Vector2(newSize.x-18, 45);
             Position = new Vector2(newSize.x+40, newSize.y+40);
         }

@@ -43,6 +43,9 @@ public class WindowManager : Node {
         KinematicBody2D gaming = GetNode<KinematicBody2D>($"{bruh.GetPath()}/Resize");
         gaming.Position = new Vector2(windowWidth+40, windowHeight+40);
 
+        TextureButton maximize = GetNode<TextureButton>($"{bruh.GetPath()}/Maximize");
+        maximize.RectPosition = new Vector2(windowWidth-82, 6);
+
         bruh.AddChild(window);
     }
 }
