@@ -7,6 +7,10 @@ public class BaseWindow : WindowDialog {
         PackedScene maximize = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Maximize.tscn");
         TextureButton yes = (TextureButton)maximize.Instance();
         AddChild(yes);
+
+        PackedScene minimize = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Minimize.tscn");
+        TextureButton perhaps = (TextureButton)minimize.Instance();
+        AddChild(perhaps);
     }
 
     public override void _Process(float delta) {
