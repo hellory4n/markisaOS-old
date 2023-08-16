@@ -4,6 +4,7 @@ using System;
 public class BaseWindow : WindowDialog {
     Vector2 screenSize;
     Vector2 previousPosition = new Vector2(0, 0);
+    ColorRect blur;
 
     public override void _Ready() {
         base._Ready();
@@ -16,6 +17,13 @@ public class BaseWindow : WindowDialog {
         PackedScene minimize = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Minimize.tscn");
         TextureButton perhaps = (TextureButton)minimize.Instance();
         AddChild(perhaps);
+
+        // if we add the blur node as a child it's gonna blur the window's background and window title, not cool!
+        Random random = new Random();
+        PackedScene jbodlkmgodkg = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Blur.tscn");
+        blur = (ColorRect)jbodlkmgodkg.Instance();
+        blur.Name = $"BlurWindow-{Name}-{random.Next(0, int.MaxValue)}";
+        GetParent().AddChild(blur);
     }
 
     public override void _Process(float delta) {
@@ -47,13 +55,19 @@ public class BaseWindow : WindowDialog {
             }
         }
         previousPosition = RectPosition;
+
+        // cool blur effect :)
+        blur.RectPosition = RectPosition - new Vector2(5, 55);
+        blur.RectSize = RectSize + new Vector2(10, 60);
     }
 
     // make the window active :)
     public override void _GuiInput(InputEvent @event) {
         if (@event is InputEventMouseButton bruh) {
-            if (bruh.Pressed)
+            if (bruh.Pressed) {
+                blur.Raise();
                 Raise();
+            }
         }
         base._GuiInput(@event);
     }
