@@ -518,6 +518,8 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxFlat" id=109]
 bg_color = Color( 0.14902, 0.14902, 0.14902, 1 )
+shadow_color = Color( 0, 0, 0, 0.196078 )
+shadow_size = 25
 
 [resource]
 default_font = SubResource( 23 )

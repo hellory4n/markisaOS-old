@@ -4,7 +4,7 @@ using System;
 public class BaseWindow : WindowDialog {
     Vector2 screenSize;
     Vector2 previousPosition = new Vector2(0, 0);
-    ColorRect blur;
+    // BackBufferCopy blur;
 
     public override void _Ready() {
         base._Ready();
@@ -19,11 +19,14 @@ public class BaseWindow : WindowDialog {
         AddChild(perhaps);
 
         // if we add the blur node as a child it's gonna blur the window's background and window title, not cool!
-        Random random = new Random();
+        /*Random random = new Random();
         PackedScene jbodlkmgodkg = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Blur.tscn");
-        blur = (ColorRect)jbodlkmgodkg.Instance();
+        blur = (BackBufferCopy)jbodlkmgodkg.Instance();
         blur.Name = $"BlurWindow-{Name}-{random.Next(0, int.MaxValue)}";
         GetParent().AddChild(blur);
+
+        blur.Raise();*/
+        Raise();
     }
 
     public override void _Process(float delta) {
@@ -57,15 +60,15 @@ public class BaseWindow : WindowDialog {
         previousPosition = RectPosition;
 
         // cool blur effect :)
-        blur.RectPosition = RectPosition - new Vector2(5, 55);
-        blur.RectSize = RectSize + new Vector2(10, 60);
+        // blur.Position = RectPosition - new Vector2(5, 50);
+        // blur.Rect = new Rect2(0, 0, RectSize + new Vector2(0, 45));
     }
 
     // make the window active :)
     public override void _GuiInput(InputEvent @event) {
         if (@event is InputEventMouseButton bruh) {
             if (bruh.Pressed) {
-                blur.Raise();
+                // blur.Raise();
                 Raise();
             }
         }
