@@ -4,7 +4,6 @@ using System;
 public class BaseWindow : WindowDialog {
     Vector2 screenSize;
     Vector2 previousPosition = new Vector2(0, 0);
-    // BackBufferCopy blur;
 
     public override void _Ready() {
         base._Ready();
@@ -17,6 +16,12 @@ public class BaseWindow : WindowDialog {
         PackedScene minimize = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Minimize.tscn");
         TextureButton perhaps = (TextureButton)minimize.Instance();
         AddChild(perhaps);
+
+        PackedScene title = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/TitleTexture.tscn");
+        Panel probably = (Panel)title.Instance();
+        AddChild(probably);
+        MoveChild(probably, 0);
+        probably.GetNode<Label>("Label").Text = WindowTitle;
 
         Raise();
     }
@@ -50,17 +55,12 @@ public class BaseWindow : WindowDialog {
             }
         }
         previousPosition = RectPosition;
-
-        // cool blur effect :)
-        // blur.Position = RectPosition - new Vector2(5, 50);
-        // blur.Rect = new Rect2(0, 0, RectSize + new Vector2(0, 45));
     }
 
     // make the window active :)
     public override void _GuiInput(InputEvent @event) {
         if (@event is InputEventMouseButton bruh) {
             if (bruh.Pressed) {
-                // blur.Raise();
                 Raise();
             }
         }
