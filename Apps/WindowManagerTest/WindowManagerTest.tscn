@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme/Leltheme.tres" type="Theme" id=1]
+[ext_resource path="res://Scripts/Apps/WindowManagerTest/EpicCoolAmazingBeautifulGorgeousFantasticMajesticButton.cs" type="Script" id=2]
 [ext_resource path="res://Scripts/OS/WindowManager/BaseWindow.cs" type="Script" id=5]
 
 [sub_resource type="Animation" id=2]
@@ -76,11 +77,9 @@ tracks/1/keys = {
 
 [node name="WindowManagerTest" type="WindowDialog"]
 visible = true
-modulate = Color( 1, 1, 1, 0 )
 margin_right = -590.0
 margin_bottom = -300.0
 rect_min_size = Vector2( 690, 420 )
-rect_scale = Vector2( 1e-05, 1e-05 )
 theme = ExtResource( 1 )
 popup_exclusive = true
 window_title = "gaming"
@@ -101,4 +100,5 @@ margin_left = -118.0
 margin_top = -20.0
 margin_right = 118.0
 margin_bottom = 20.0
-text = "a button :)))))))"
+text = "open another window"
+script = ExtResource( 2 )
