@@ -518,6 +518,8 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxFlat" id=109]
 bg_color = Color( 0.14902, 0.14902, 0.14902, 1 )
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 shadow_color = Color( 0, 0, 0, 0.196078 )
 shadow_size = 25
 
@@ -662,10 +664,10 @@ VSlider/styles/grabber_area = SubResource( 71 )
 VSlider/styles/grabber_area_highlight = SubResource( 72 )
 VSlider/styles/slider = SubResource( 73 )
 WindowDialog/colors/title_color = Color( 1, 1, 1, 1 )
-WindowDialog/constants/close_h_ofs = 36
-WindowDialog/constants/close_v_ofs = 45
+WindowDialog/constants/close_h_ofs = 38
+WindowDialog/constants/close_v_ofs = 38
 WindowDialog/constants/scaleborder_size = 4
-WindowDialog/constants/title_height = 55
+WindowDialog/constants/title_height = 45
 WindowDialog/fonts/title_font = SubResource( 104 )
 WindowDialog/icons/close = ExtResource( 40 )
 WindowDialog/icons/close_highlight = ExtResource( 39 )

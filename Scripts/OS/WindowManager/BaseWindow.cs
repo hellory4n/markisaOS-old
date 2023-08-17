@@ -18,14 +18,6 @@ public class BaseWindow : WindowDialog {
         TextureButton perhaps = (TextureButton)minimize.Instance();
         AddChild(perhaps);
 
-        // if we add the blur node as a child it's gonna blur the window's background and window title, not cool!
-        /*Random random = new Random();
-        PackedScene jbodlkmgodkg = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Blur.tscn");
-        blur = (BackBufferCopy)jbodlkmgodkg.Instance();
-        blur.Name = $"BlurWindow-{Name}-{random.Next(0, int.MaxValue)}";
-        GetParent().AddChild(blur);
-
-        blur.Raise();*/
         Raise();
     }
 
@@ -39,21 +31,21 @@ public class BaseWindow : WindowDialog {
         // window snapping :)
         // first check if the window is moving
         if (previousPosition != RectPosition) {
-            if (GetGlobalMousePosition().y < 55) {
-                Vector2 maximizedSize = new Vector2(screenSize.x, screenSize.y-55);
-                RectPosition = new Vector2(0, 55);
+            if (GetGlobalMousePosition().y < 45) {
+                Vector2 maximizedSize = new Vector2(screenSize.x, screenSize.y-45);
+                RectPosition = new Vector2(0, 45);
                 RectSize = maximizedSize;
             }
 
             if (GetGlobalMousePosition().x < 25) {
                 Vector2 newSize = new Vector2(screenSize.x/2, screenSize.y);
-                RectPosition = new Vector2(0, 55);
+                RectPosition = new Vector2(0, 45);
                 RectSize = newSize;
             }
 
             if (GetGlobalMousePosition().x > screenSize.x-25) {
                 Vector2 newSize = new Vector2(screenSize.x/2, screenSize.y);
-                RectPosition = new Vector2(screenSize.x/2, 55);
+                RectPosition = new Vector2(screenSize.x/2, 45);
                 RectSize = newSize;
             }
         }

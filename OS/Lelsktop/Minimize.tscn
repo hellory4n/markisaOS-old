@@ -8,10 +8,10 @@
 [node name="Minimize" type="TextureButton"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -120.0
-margin_top = -45.0
-margin_right = -88.0
-margin_bottom = -13.0
+margin_left = -118.0
+margin_top = -38.0
+margin_right = -86.0
+margin_bottom = -6.0
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 1 )
 texture_hover = ExtResource( 2 )
