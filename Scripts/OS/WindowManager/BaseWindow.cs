@@ -4,6 +4,7 @@ using System;
 public class BaseWindow : WindowDialog {
     Vector2 screenSize;
     Vector2 previousPosition = new Vector2(0, 0);
+    AnimationPlayer animation;
 
     public override void _Ready() {
         base._Ready();
@@ -23,15 +24,20 @@ public class BaseWindow : WindowDialog {
         MoveChild(probably, 0);
         probably.GetNode<Label>("Label").Text = WindowTitle;
 
-        Raise();
+        // epic animation for opening the window, very important indeed
+        animation = GetNode<AnimationPlayer>("AnimationPlayer");
+        animation.Play("Open");
     }
 
     public override void _Process(float delta) {
         base._Process(delta);
 
-        // windowdialog's close button just makes it invisible
-        if (!Visible)
-            QueueFree();
+        // windowdialog's close button just makes it invisible, this plays the close animation that also deletes
+        // the window
+        if (!Visible) {
+            animation.Play("Close");
+            Visible = true;
+        }
         
         // window snapping :)
         // first check if the window is moving
