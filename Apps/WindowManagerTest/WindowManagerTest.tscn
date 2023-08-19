@@ -1,9 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme/Leltheme.tres" type="Theme" id=1]
 [ext_resource path="res://Scripts/Apps/WindowManagerTest/EpicCoolAmazingBeautifulGorgeousFantasticMajesticButton.cs" type="Script" id=2]
-[ext_resource path="res://Audio/Sounds/WindowClose.mp3" type="AudioStream" id=3]
-[ext_resource path="res://Audio/Sounds/WindowOpen.mp3" type="AudioStream" id=4]
 [ext_resource path="res://Scripts/OS/WindowManager/BaseWindow.cs" type="Script" id=5]
 
 [sub_resource type="Animation" id=2]
@@ -48,30 +46,6 @@ tracks/2/keys = {
 "method": "queue_free"
 } ]
 }
-tracks/3/type = "value"
-tracks/3/path = NodePath("AudioStreamPlayer:stream")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 3 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("AudioStreamPlayer:playing")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
 
 [sub_resource type="Animation" id=1]
 resource_name = "Open"
@@ -100,38 +74,11 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath("AudioStreamPlayer:stream")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 4 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("AudioStreamPlayer:playing")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
 
 [node name="WindowManagerTest" type="WindowDialog"]
-visible = true
-modulate = Color( 1, 1, 1, 0 )
 margin_right = -590.0
 margin_bottom = -300.0
 rect_min_size = Vector2( 690, 420 )
-rect_scale = Vector2( 1e-05, 1e-05 )
 theme = ExtResource( 1 )
 popup_exclusive = true
 window_title = "gaming"
@@ -142,8 +89,6 @@ script = ExtResource( 5 )
 method_call_mode = 1
 anims/Close = SubResource( 2 )
 anims/Open = SubResource( 1 )
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="Button" type="Button" parent="."]
 anchor_left = 0.5

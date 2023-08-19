@@ -11,5 +11,9 @@ public class Lelsktop : Node2D {
         PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/WindowManagerTest/WindowManagerTest.tscn");
         WindowDialog jjkn = (WindowDialog)m.Instance();    
         wm.AddWindow(jjkn);
+
+        // cool dock texture
+        GetNode<Sprite>("DockTexture").Scale *= new Vector2(bruh.x, 100);
+        GetNode<Sprite>("DockTexture").Position = new Vector2(0, bruh.y-100);
     }
 }
