@@ -12,11 +12,8 @@ public class Lelsktop : Node2D {
         WindowDialog jjkn = (WindowDialog)m.Instance();    
         wm.AddWindow(jjkn);
 
-        // cool dock texture
-        GetNode<Sprite>("DockTexture").Scale *= new Vector2(bruh.x, 100);
-        GetNode<Sprite>("DockTexture").Position = new Vector2(0, bruh.y-100);
-
-        // the icons on the dock itself :)
-        GetNode<Control>("Painful/Pain").RectSize = bruh;
+        // cool dock :)
+        GetNode<Panel>("Painful/Panel").RectSize = new Vector2(bruh.x, 80);
+        GetNode<Panel>("Painful/Panel").RectPosition = new Vector2(0, bruh.y-100);
     }
 }
