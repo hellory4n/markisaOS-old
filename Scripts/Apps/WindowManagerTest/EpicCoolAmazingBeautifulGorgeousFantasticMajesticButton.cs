@@ -10,7 +10,7 @@ public class EpicCoolAmazingBeautifulGorgeousFantasticMajesticButton : Button {
     public void Click() {
         WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
         PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/WindowManagerTest/WindowManagerTest.tscn");
-        WindowDialog jjkn = (WindowDialog)m.Instance();    
+        BaseWindow jjkn = (BaseWindow)m.Instance();    
         wm.AddWindow(jjkn);
     }
 }

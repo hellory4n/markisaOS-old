@@ -5,6 +5,8 @@ public class BaseWindow : WindowDialog {
     Vector2 screenSize;
     Vector2 previousPosition = new Vector2(0, 0);
     AnimationPlayer animation;
+    [Export]
+    public Texture Icon;
 
     public override void _Ready() {
         base._Ready();

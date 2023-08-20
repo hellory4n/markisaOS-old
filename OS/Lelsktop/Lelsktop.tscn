@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/NewWallpaper.jpg" type="Texture" id=1]
 [ext_resource path="res://Scripts/OS/Lelkstop/Lelsktop.cs" type="Script" id=2]
@@ -7,10 +7,6 @@
 [ext_resource path="res://Assets/Themes/Leltheme/Desktop/Dock.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Themes/Leltheme/Leltheme.tres" type="Theme" id=6]
 [ext_resource path="res://Audio/Sounds/Startup.mp3" type="AudioStream" id=7]
-[ext_resource path="res://Assets/Themes/Leltheme/Icons/Dashboard.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Themes/Leltheme/DockButton/ButtonPressed.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Themes/Leltheme/DockButton/ButtonHover.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Themes/Leltheme/DockButton/Button.png" type="Texture" id=11]
 
 [sub_resource type="Animation" id=8]
 resource_name = "Startup"
@@ -37,36 +33,6 @@ texture = ExtResource( 5 )
 region_rect = Rect2( 0, 0, 100, 100 )
 margin_left = 40.0
 margin_right = 40.0
-
-[sub_resource type="DynamicFont" id=3]
-size = 24
-font_data = ExtResource( 4 )
-
-[sub_resource type="StyleBoxTexture" id=4]
-texture = ExtResource( 10 )
-region_rect = Rect2( 0, 0, 80, 80 )
-margin_left = 20.0
-margin_right = 20.0
-margin_top = 20.0
-margin_bottom = 20.0
-
-[sub_resource type="StyleBoxTexture" id=5]
-texture = ExtResource( 9 )
-region_rect = Rect2( 0, 0, 80, 80 )
-margin_left = 20.0
-margin_right = 20.0
-margin_top = 20.0
-margin_bottom = 20.0
-
-[sub_resource type="StyleBoxEmpty" id=7]
-
-[sub_resource type="StyleBoxTexture" id=6]
-texture = ExtResource( 11 )
-region_rect = Rect2( 0, 0, 80, 80 )
-margin_left = 20.0
-margin_right = 20.0
-margin_top = 20.0
-margin_bottom = 20.0
 
 [node name="Lelsktop" type="Node2D"]
 script = ExtResource( 2 )
@@ -123,78 +89,7 @@ rect_min_size = Vector2( 0, 80 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Painful/Panel/ScrollContainer"]
 margin_right = 1280.0
-margin_bottom = 80.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 custom_constants/separation = 10
 alignment = 1
-
-[node name="Button" type="Button" parent="Painful/Panel/ScrollContainer/HBoxContainer"]
-margin_left = 200.0
-margin_right = 368.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 80, 80 )
-custom_constants/hseparation = 10
-custom_fonts/font = SubResource( 3 )
-custom_styles/hover = SubResource( 4 )
-custom_styles/pressed = SubResource( 5 )
-custom_styles/focus = SubResource( 7 )
-custom_styles/normal = SubResource( 6 )
-text = "app lol"
-icon = ExtResource( 8 )
-
-[node name="Button2" type="Button" parent="Painful/Panel/ScrollContainer/HBoxContainer"]
-margin_left = 378.0
-margin_right = 546.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 80, 80 )
-custom_constants/hseparation = 10
-custom_fonts/font = SubResource( 3 )
-custom_styles/hover = SubResource( 4 )
-custom_styles/pressed = SubResource( 5 )
-custom_styles/focus = SubResource( 7 )
-custom_styles/normal = SubResource( 6 )
-text = "app lol"
-icon = ExtResource( 8 )
-
-[node name="Button3" type="Button" parent="Painful/Panel/ScrollContainer/HBoxContainer"]
-margin_left = 556.0
-margin_right = 724.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 80, 80 )
-custom_constants/hseparation = 10
-custom_fonts/font = SubResource( 3 )
-custom_styles/hover = SubResource( 4 )
-custom_styles/pressed = SubResource( 5 )
-custom_styles/focus = SubResource( 7 )
-custom_styles/normal = SubResource( 6 )
-text = "app lol"
-icon = ExtResource( 8 )
-
-[node name="Button4" type="Button" parent="Painful/Panel/ScrollContainer/HBoxContainer"]
-margin_left = 734.0
-margin_right = 902.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 80, 80 )
-custom_constants/hseparation = 10
-custom_fonts/font = SubResource( 3 )
-custom_styles/hover = SubResource( 4 )
-custom_styles/pressed = SubResource( 5 )
-custom_styles/focus = SubResource( 7 )
-custom_styles/normal = SubResource( 6 )
-text = "app lol"
-icon = ExtResource( 8 )
-
-[node name="Button5" type="Button" parent="Painful/Panel/ScrollContainer/HBoxContainer"]
-margin_left = 912.0
-margin_right = 1080.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 80, 80 )
-custom_constants/hseparation = 10
-custom_fonts/font = SubResource( 3 )
-custom_styles/hover = SubResource( 4 )
-custom_styles/pressed = SubResource( 5 )
-custom_styles/focus = SubResource( 7 )
-custom_styles/normal = SubResource( 6 )
-text = "app lol"
-icon = ExtResource( 8 )
