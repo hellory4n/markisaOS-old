@@ -7,6 +7,8 @@ public class BaseWindow : WindowDialog {
     AnimationPlayer animation;
     [Export]
     public Texture Icon;
+    // used for the dock button
+    public bool IsClosing = false;
 
     public override void _Ready() {
         base._Ready();
@@ -39,25 +41,26 @@ public class BaseWindow : WindowDialog {
         if (!Visible) {
             animation.Play("Close");
             Visible = true;
+            IsClosing = true;
         }
         
         // window snapping :)
         // first check if the window is moving
         if (previousPosition != RectPosition) {
             if (GetGlobalMousePosition().y < 45) {
-                Vector2 maximizedSize = new Vector2(screenSize.x, screenSize.y-45);
+                Vector2 maximizedSize = new Vector2(screenSize.x, screenSize.y-145);
                 RectPosition = new Vector2(0, 45);
                 RectSize = maximizedSize;
             }
 
             if (GetGlobalMousePosition().x < 25) {
-                Vector2 newSize = new Vector2(screenSize.x/2, screenSize.y);
+                Vector2 newSize = new Vector2(screenSize.x/2, screenSize.y-145);
                 RectPosition = new Vector2(0, 45);
                 RectSize = newSize;
             }
 
             if (GetGlobalMousePosition().x > screenSize.x-25) {
-                Vector2 newSize = new Vector2(screenSize.x/2, screenSize.y);
+                Vector2 newSize = new Vector2(screenSize.x/2, screenSize.y-145);
                 RectPosition = new Vector2(screenSize.x/2, 45);
                 RectSize = newSize;
             }
