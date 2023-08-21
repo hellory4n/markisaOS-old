@@ -12,7 +12,7 @@ config_version=4
 
 config/name="lelcubeOS"
 config/description="Game."
-run/main_scene="res://OS/Lelsktop/Lelsktop.tscn"
+run/main_scene="res://OS/Core/Bootscreen.tscn"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
@@ -33,9 +33,9 @@ common/drop_mouse_on_gui_input_disabled=true
 
 [input]
 
-yes={
+skip_boot={
 "deadzone": 0.5,
-"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":16777217,"unicode":0,"echo":false,"script":null)
  ]
 }
 

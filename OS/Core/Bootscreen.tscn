@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/OS/WindowManager/SetSizeToScreenResolution.cs" type="Script" id=1]
+[ext_resource path="res://Assets/Boot/Loading.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/RedHatText-Medium.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/Boot/Logo.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/OS/Core/EndBoot.cs" type="Script" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Boot"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/Thing/Loading:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -360.0, 360.0, 0.0 ]
+}
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 3 )
+
+[node name="Bootscreen" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Boot"
+anims/Boot = SubResource( 1 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+script = ExtResource( 1 )
+
+[node name="Thing" type="Control" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -316.0
+margin_top = -117.0
+margin_right = 316.0
+margin_bottom = 117.0
+
+[node name="Logo" type="Sprite" parent="Control/Thing"]
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Loading" type="Sprite" parent="Control/Thing"]
+position = Vector2( 316, 202 )
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -145.5
+margin_top = -58.0
+margin_right = 145.5
+rect_min_size = Vector2( 0, 58 )
+custom_fonts/font = SubResource( 2 )
+text = "lelcubeOS Me is starting..."
+align = 1
+valign = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+script = ExtResource( 5 )

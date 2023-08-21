@@ -6,10 +6,6 @@ public class Lelsktop : Node2D {
         base._Ready();
         Vector2 bruh = ResolutionManager.GetScreenSize();
         GD.Print($"Screen resolution is {bruh.x}, {bruh.y}");
-        
-        SavingManager.NewUser("Joe Mama");
-        BasicUser pain = SavingManager.LoadBasicUser("Joe Mama");
-        GD.Print($"Joe Mama uses v{pain.MajorVersion}.{pain.MinorVersion}.{pain.PatchVersion}");
 
         // cool dock :)
         PackedScene m = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/LelsktopInterface.tscn");
