@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme/Leltheme.tres" type="Theme" id=1]
 [ext_resource path="res://Scripts/Apps/WindowManagerTest/EpicCoolAmazingBeautifulGorgeousFantasticMajesticButton.cs" type="Script" id=2]
@@ -48,6 +48,22 @@ tracks/2/keys = {
 } ]
 }
 
+[sub_resource type="Animation" id=3]
+resource_name = "Minimize"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.37, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
 [sub_resource type="Animation" id=1]
 resource_name = "Open"
 length = 0.2
@@ -76,8 +92,25 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
+[sub_resource type="Animation" id=4]
+resource_name = "Restore"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 0.37 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
 [node name="WindowManagerTest" type="WindowDialog"]
 visible = true
+modulate = Color( 1, 1, 1, 0 )
 margin_right = -590.0
 margin_bottom = -300.0
 rect_min_size = Vector2( 690, 420 )
@@ -91,7 +124,9 @@ Icon = ExtResource( 3 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 method_call_mode = 1
 anims/Close = SubResource( 2 )
+anims/Minimize = SubResource( 3 )
 anims/Open = SubResource( 1 )
+anims/Restore = SubResource( 4 )
 
 [node name="Button" type="Button" parent="."]
 anchor_left = 0.5

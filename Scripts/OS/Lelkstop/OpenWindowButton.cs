@@ -3,6 +3,7 @@ using System;
 
 public class OpenWindowButton : Button {
     BaseWindow epicWindow;
+    AnimationPlayer animation;
 
     // called when the window manager opens a window
     public void Init(BaseWindow window) {
@@ -12,6 +13,7 @@ public class OpenWindowButton : Button {
     public override void _Ready() {
         base._Ready();
         Connect("pressed", this, nameof(Click));
+        animation = epicWindow.GetNode<AnimationPlayer>("AnimationPlayer");
     }
 
     public override void _Process(float delta) {
@@ -24,6 +26,16 @@ public class OpenWindowButton : Button {
     }
 
     public void Click() {
-        epicWindow.Raise();
+        Color invisible = new Color(1, 1, 1, 0);
+
+        // minimize the window if it's active :)
+        if (epicWindow.GetIndex() == epicWindow.GetParent().GetChildCount()-1 && epicWindow.Modulate != invisible)
+           animation.Play("Minimize");
+        // already minimized
+        else if (epicWindow.Modulate == invisible) {
+            animation.Play("Restore");
+            epicWindow.Raise();
+        } else
+            epicWindow.Raise();
     }
 }

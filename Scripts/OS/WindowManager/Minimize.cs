@@ -8,8 +8,6 @@ public class Minimize : TextureButton {
     }
 
     public void Click() {
-        WindowDialog yourMother = (WindowDialog)GetParent();
-        // making it invisible makes the window think it was closed cuz
-        yourMother.RectPosition = new Vector2(-69420, -69420);
+        GetParent().GetNode<AnimationPlayer>("AnimationPlayer").Play("Minimize");
     }
 }
