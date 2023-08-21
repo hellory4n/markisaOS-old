@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Scripts/OS/Lelkstop/DefaultOpenWindowButton.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/OS/Lelkstop/Time.cs" type="Script" id=2]
@@ -9,6 +9,34 @@
 [ext_resource path="res://Assets/Themes/Leltheme/Desktop/Panel.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Themes/Leltheme/DockButton/Button.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Themes/Leltheme/Icons/Search.png" type="Texture" id=9]
+
+[sub_resource type="Animation" id=8]
+resource_name = "Startup"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Dock:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.37, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 720 ), Vector2( 0, 620 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Panel:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.37, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -40 ), Vector2( 0, 0 ) ]
+}
 
 [sub_resource type="StyleBoxTexture" id=2]
 texture = ExtResource( 4 )
@@ -67,10 +95,14 @@ margin_bottom = 40.0
 [sub_resource type="StyleBoxEmpty" id=18]
 
 [node name="LelsktopInterface" type="CanvasLayer"]
+process_priority = -69
 layer = 128
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Startup = SubResource( 8 )
+
 [node name="Dock" type="Panel" parent="."]
-process_priority = -1
+process_priority = -69
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -92,6 +124,7 @@ rect_min_size = Vector2( 0, 80 )
 [node name="HBoxContainer" type="HBoxContainer" parent="Dock/ScrollContainer"]
 margin_right = 1280.0
 margin_bottom = 80.0
+mouse_filter = 0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 custom_constants/separation = 10

@@ -136,8 +136,7 @@ tracks/1/keys = {
 }
 
 [node name="WindowManagerTest" type="WindowDialog"]
-visible = true
-modulate = Color( 1, 1, 1, 0 )
+process_priority = 1
 margin_right = -590.0
 margin_bottom = -300.0
 rect_min_size = Vector2( 690, 420 )

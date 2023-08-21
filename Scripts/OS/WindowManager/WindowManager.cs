@@ -19,7 +19,7 @@ public class WindowManager : Node {
         // add it to the dock
         OpenWindowButton coolDockButton = (OpenWindowButton)openWindow.Instance();
         coolDockButton.Init(window);
-        HBoxContainer dock = lelsktop.GetNode<HBoxContainer>("LelsktopInterface/Dock/ScrollContainer/HBoxContainer");
+        HBoxContainer dock = GetNode<HBoxContainer>("/root/LelsktopInterface/Dock/ScrollContainer/HBoxContainer");
         dock.AddChild(coolDockButton);
     }
 }
