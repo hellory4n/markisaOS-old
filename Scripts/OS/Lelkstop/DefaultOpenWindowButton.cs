@@ -15,9 +15,5 @@ public class DefaultOpenWindowButton : Button {
         PackedScene m = ResourceLoader.Load<PackedScene>(WindowScene);
         BaseWindow jjkn = (BaseWindow)m.Instance();    
         wm.AddWindow(jjkn);
-
-        if (GetNodeOrNull("/root/Lelsktop/ApplicationMenu") != null) {
-            jjkn.Modulate = new Color(1, 1, 1, 0);
-        }
     }
 }
