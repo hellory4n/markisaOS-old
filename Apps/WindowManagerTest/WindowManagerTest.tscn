@@ -2,8 +2,11 @@
 
 [ext_resource path="res://Assets/Themes/Leltheme/Leltheme.tres" type="Theme" id=1]
 [ext_resource path="res://Scripts/Apps/WindowManagerTest/EpicCoolAmazingBeautifulGorgeousFantasticMajesticButton.cs" type="Script" id=2]
-[ext_resource path="res://Assets/Themes/Leltheme/Icons/Dashboard.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/OS/WindowManager/BaseWindow.cs" type="Script" id=5]
+
+[sub_resource type="StreamTexture" id=19]
+flags = 4
+load_path = "res://.import/Dashboard.png-a2c0f627fcaddca1aedcb876f8e7a940.stex"
 
 [sub_resource type="Animation" id=2]
 resource_name = "Close"
@@ -109,8 +112,6 @@ tracks/0/keys = {
 }
 
 [node name="WindowManagerTest" type="WindowDialog"]
-visible = true
-modulate = Color( 1, 1, 1, 0 )
 margin_right = -590.0
 margin_bottom = -300.0
 rect_min_size = Vector2( 690, 420 )
@@ -119,7 +120,7 @@ popup_exclusive = true
 window_title = "gaming"
 resizable = true
 script = ExtResource( 5 )
-Icon = ExtResource( 3 )
+Icon = SubResource( 19 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 method_call_mode = 1
