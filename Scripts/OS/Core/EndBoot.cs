@@ -15,7 +15,7 @@ public class EndBoot : Timer {
     }
 
     public void Thing() {
-        PackedScene aPackedScene = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Lelsktop.tscn");
+        PackedScene aPackedScene = ResourceLoader.Load<PackedScene>("res://OS/Core/Onboarding.tscn");
         Node aNode = aPackedScene.Instance();
         GetTree().Root.AddChild(aNode);
         GetParent().QueueFree();
