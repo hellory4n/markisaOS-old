@@ -9,6 +9,7 @@ public class BaseWindow : WindowDialog {
     public Texture Icon;
     // used for the dock button
     public bool IsClosing = false;
+    WindowManager wm;
 
     public override void _Ready() {
         base._Ready();
@@ -31,6 +32,8 @@ public class BaseWindow : WindowDialog {
         // epic animation for opening the window, very important indeed
         animation = GetNode<AnimationPlayer>("AnimationPlayer");
         animation.Play("Open");
+
+        wm = GetNode<WindowManager>("/root/WindowManager");
     }
 
     public override void _Process(float delta) {
@@ -42,6 +45,7 @@ public class BaseWindow : WindowDialog {
             animation.Play("Close");
             Visible = true;
             IsClosing = true;
+            wm.CloseWindow(this);
         }
         
         // window snapping :)
