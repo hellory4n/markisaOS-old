@@ -1,107 +1,18 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/NewWallpaper.jpg" type="Texture" id=1]
 [ext_resource path="res://Scripts/OS/Lelkstop/Lelsktop.cs" type="Script" id=2]
 [ext_resource path="res://Assets/coolwallpaperlol.png" type="Texture" id=3]
 [ext_resource path="res://Fonts/RedHatText-Bold.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://Assets/Themes/Leltheme/Desktop/Dock.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Themes/Leltheme/Leltheme.tres" type="Theme" id=6]
 [ext_resource path="res://Audio/Sounds/Startup.mp3" type="AudioStream" id=7]
-[ext_resource path="res://Assets/Themes/Leltheme/Icons/Settings.png" type="Texture" id=8]
-[ext_resource path="res://Scripts/OS/Lelkstop/DefaultOpenWindowButton.cs" type="Script" id=9]
-[ext_resource path="res://Assets/Themes/Leltheme/Desktop/Panel.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Themes/Leltheme/DockButton/ButtonPressed.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Themes/Leltheme/DockButton/Button.png" type="Texture" id=12]
-[ext_resource path="res://Assets/Themes/Leltheme/Icons/Search.png" type="Texture" id=13]
-[ext_resource path="res://Scripts/OS/Lelkstop/Time.cs" type="Script" id=14]
 
 [sub_resource type="Animation" id=8]
 resource_name = "Startup"
 length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("LelsktopInterface/Dock:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.37, 0.37 ),
-"update": 0,
-"values": [ Vector2( 0, 720 ), Vector2( 0, 620 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("LelsktopInterface/Panel:rect_position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.37, 0.37 ),
-"update": 0,
-"values": [ Vector2( 0, -40 ), Vector2( 0, 0 ) ]
-}
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
 font_data = ExtResource( 4 )
-
-[sub_resource type="StyleBoxTexture" id=2]
-texture = ExtResource( 5 )
-region_rect = Rect2( 0, 0, 100, 100 )
-margin_left = 40.0
-margin_right = 40.0
-
-[sub_resource type="StyleBoxEmpty" id=9]
-
-[sub_resource type="StyleBoxEmpty" id=10]
-
-[sub_resource type="StyleBoxEmpty" id=11]
-
-[sub_resource type="StyleBoxEmpty" id=12]
-
-[sub_resource type="StyleBoxEmpty" id=13]
-
-[sub_resource type="StreamTexture" id=19]
-flags = 4
-load_path = "res://.import/Dashboard.png-a2c0f627fcaddca1aedcb876f8e7a940.stex"
-
-[sub_resource type="StyleBoxTexture" id=14]
-texture = ExtResource( 10 )
-region_rect = Rect2( 0, 0, 40, 40 )
-margin_left = 20.0
-margin_right = 20.0
-margin_top = 20.0
-margin_bottom = 20.0
-
-[sub_resource type="StyleBoxTexture" id=15]
-content_margin_left = 0.0
-content_margin_right = 0.0
-content_margin_top = 0.0
-content_margin_bottom = 0.0
-texture = ExtResource( 12 )
-region_rect = Rect2( 0, 0, 80, 80 )
-margin_left = 40.0
-margin_right = 40.0
-margin_top = 40.0
-margin_bottom = 40.0
-
-[sub_resource type="StyleBoxTexture" id=16]
-content_margin_left = 0.0
-content_margin_right = 0.0
-content_margin_top = 0.0
-content_margin_bottom = 0.0
-texture = ExtResource( 11 )
-region_rect = Rect2( 0, 0, 80, 80 )
-margin_left = 40.0
-margin_right = 40.0
-margin_top = 40.0
-margin_bottom = 40.0
-
-[sub_resource type="StyleBoxEmpty" id=17]
-
-[sub_resource type="StyleBoxEmpty" id=18]
 
 [node name="Lelsktop" type="Node2D"]
 script = ExtResource( 2 )
@@ -133,108 +44,3 @@ margin_right = 559.0
 margin_bottom = 101.0
 custom_fonts/font = SubResource( 1 )
 text = "lelsktop v0.3.0"
-
-[node name="LelsktopInterface" type="CanvasLayer" parent="."]
-layer = 128
-
-[node name="Dock" type="Panel" parent="LelsktopInterface"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -640.0
-margin_top = -100.0
-margin_right = 640.0
-rect_min_size = Vector2( 0, 100 )
-theme = ExtResource( 6 )
-custom_styles/panel = SubResource( 2 )
-
-[node name="ScrollContainer" type="ScrollContainer" parent="LelsktopInterface/Dock"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 10.0
-margin_bottom = -10.0
-rect_min_size = Vector2( 0, 80 )
-
-[node name="HBoxContainer" type="HBoxContainer" parent="LelsktopInterface/Dock/ScrollContainer"]
-margin_right = 1280.0
-margin_bottom = 80.0
-size_flags_horizontal = 3
-size_flags_vertical = 0
-custom_constants/separation = 10
-alignment = 1
-
-[node name="PinnedStuff" type="Button" parent="LelsktopInterface/Dock/ScrollContainer/HBoxContainer"]
-margin_left = 600.0
-margin_right = 680.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 80, 80 )
-custom_styles/hover = SubResource( 9 )
-custom_styles/pressed = SubResource( 10 )
-custom_styles/focus = SubResource( 11 )
-custom_styles/disabled = SubResource( 12 )
-custom_styles/normal = SubResource( 13 )
-icon = SubResource( 19 )
-icon_align = 1
-script = ExtResource( 9 )
-WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
-
-[node name="Panel" type="Panel" parent="LelsktopInterface"]
-anchor_right = 1.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
-theme = ExtResource( 6 )
-custom_styles/panel = SubResource( 14 )
-
-[node name="Apps" type="Button" parent="LelsktopInterface/Panel"]
-margin_right = 116.0
-margin_bottom = 40.0
-custom_styles/hover = SubResource( 15 )
-custom_styles/pressed = SubResource( 16 )
-custom_styles/focus = SubResource( 17 )
-custom_styles/normal = SubResource( 18 )
-text = "Applications"
-
-[node name="Search" type="Button" parent="LelsktopInterface/Panel"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -40.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 40, 40 )
-custom_styles/hover = SubResource( 15 )
-custom_styles/pressed = SubResource( 16 )
-custom_styles/focus = SubResource( 17 )
-custom_styles/normal = SubResource( 18 )
-icon = ExtResource( 13 )
-icon_align = 1
-
-[node name="Time" type="Button" parent="LelsktopInterface/Panel"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -190.0
-margin_right = -40.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 40, 40 )
-custom_styles/hover = SubResource( 15 )
-custom_styles/pressed = SubResource( 16 )
-custom_styles/focus = SubResource( 17 )
-custom_styles/normal = SubResource( 18 )
-text = "06/09/2069 06:09"
-align = 2
-icon_align = 1
-script = ExtResource( 14 )
-
-[node name="Settings" type="Button" parent="LelsktopInterface/Panel"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -230.0
-margin_right = -190.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 40, 40 )
-custom_styles/hover = SubResource( 15 )
-custom_styles/pressed = SubResource( 16 )
-custom_styles/focus = SubResource( 17 )
-custom_styles/normal = SubResource( 18 )
-icon = ExtResource( 8 )
-align = 2
-icon_align = 1

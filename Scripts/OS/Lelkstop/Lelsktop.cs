@@ -8,7 +8,10 @@ public class Lelsktop : Node2D {
         GD.Print($"Screen resolution is {bruh.x}, {bruh.y}");
 
         // cool dock :)
-        GetNode<Panel>("LelsktopInterface/Dock").RectSize = new Vector2(bruh.x, 80);
+        PackedScene m = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/LelsktopInterface.tscn");
+        CanvasLayer lelkstopInterface = (CanvasLayer)m.Instance();
+        GetTree().Root.CallDeferred("add_child", lelkstopInterface);
+        lelkstopInterface.GetNode<Panel>("Dock").RectSize = new Vector2(bruh.x, 80);
 
         // play the animation for the dock and make sure the position on the animation is correct :)
         Animation animationomg = GetNode<AnimationPlayer>("AnimationPlayer").GetAnimation("Startup");
