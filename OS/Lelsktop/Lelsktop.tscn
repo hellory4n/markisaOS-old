@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/NewWallpaper.jpg" type="Texture" id=1]
 [ext_resource path="res://Scripts/OS/Lelkstop/Lelsktop.cs" type="Script" id=2]
@@ -6,12 +6,32 @@
 [ext_resource path="res://Fonts/RedHatText-Bold.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Audio/Sounds/Startup.mp3" type="AudioStream" id=7]
 
+[sub_resource type="Animation" id=2]
+resource_name = "Startup"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.37, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
 [sub_resource type="DynamicFont" id=1]
 size = 32
 font_data = ExtResource( 4 )
 
 [node name="Lelsktop" type="Node2D"]
 script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Startup"
+anims/Startup = SubResource( 2 )
 
 [node name="Startup" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
