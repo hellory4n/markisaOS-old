@@ -13,8 +13,12 @@ public class WindowManager : Node {
     public void AddWindow(BaseWindow window) {
         Node2D lelsktop = GetNode<Node2D>("/root/Lelsktop");
         lelsktop.AddChild(window);
+        // using window.Popup_() makes it only work with 1 window, so this is a hack to bypass that
         window.Visible = true;
-        window.RectPosition = new Vector2(150, 150);
+
+        // put it on the center of the screen
+        Vector2 yes = ResolutionManager.GetScreenSize();
+        window.RectPosition = yes/2 - (window.RectSize/2);
 
         // add it to the dock
         OpenWindowButton coolDockButton = (OpenWindowButton)openWindow.Instance();
