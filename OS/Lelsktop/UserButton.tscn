@@ -28,3 +28,6 @@ clip_text = true
 align = 0
 expand_icon = true
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": true
+}

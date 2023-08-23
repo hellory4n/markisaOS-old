@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scripts/OS/Lelkstop/DefaultOpenWindowButton.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/OS/Lelkstop/Time.cs" type="Script" id=2]
@@ -9,6 +9,63 @@
 [ext_resource path="res://Assets/Themes/Leltheme/Desktop/Panel.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Themes/Leltheme/DockButton/Button.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Themes/Leltheme/Icons/Search.png" type="Texture" id=9]
+[ext_resource path="res://Scripts/OS/Lelkstop/AppMenu/OpenAppMenu.cs" type="Script" id=10]
+
+[sub_resource type="Animation" id=20]
+resource_name = "CloseAppMenu"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("AppMenu:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 0.37 ),
+"update": 0,
+"values": [ Vector2( 0, 40 ), Vector2( 0, -360 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AppMenu:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 0.37 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "OpenAppMenu"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("AppMenu:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.37, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -360 ), Vector2( 0, 40 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AppMenu:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.37, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=8]
 resource_name = "Startup"
@@ -40,6 +97,7 @@ tracks/1/keys = {
 
 [sub_resource type="StyleBoxTexture" id=2]
 texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 75, 75 )
 margin_left = 36.0
 margin_right = 36.0
 margin_top = 36.0
@@ -73,11 +131,10 @@ content_margin_right = 0.0
 content_margin_top = 0.0
 content_margin_bottom = 0.0
 texture = ExtResource( 8 )
-region_rect = Rect2( 0, 0, 80, 80 )
-margin_left = 40.0
-margin_right = 40.0
-margin_top = 40.0
-margin_bottom = 40.0
+margin_left = 32.0
+margin_right = 32.0
+margin_top = 32.0
+margin_bottom = 32.0
 
 [sub_resource type="StyleBoxTexture" id=16]
 content_margin_left = 0.0
@@ -85,11 +142,10 @@ content_margin_right = 0.0
 content_margin_top = 0.0
 content_margin_bottom = 0.0
 texture = ExtResource( 6 )
-region_rect = Rect2( 0, 0, 80, 80 )
-margin_left = 40.0
-margin_right = 40.0
-margin_top = 40.0
-margin_bottom = 40.0
+margin_left = 32.0
+margin_right = 32.0
+margin_top = 32.0
+margin_bottom = 32.0
 
 [sub_resource type="StyleBoxEmpty" id=17]
 
@@ -100,6 +156,8 @@ process_priority = -69
 layer = 128
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/CloseAppMenu = SubResource( 20 )
+anims/OpenAppMenu = SubResource( 21 )
 anims/Startup = SubResource( 8 )
 
 [node name="Dock" type="Panel" parent="."]
@@ -146,6 +204,13 @@ icon_align = 1
 script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
+[node name="AppMenu" type="Panel" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = -360.0
+margin_right = 400.0
+margin_bottom = 40.0
+theme = ExtResource( 3 )
+
 [node name="Panel" type="Panel" parent="."]
 anchor_right = 1.0
 margin_bottom = 40.0
@@ -154,13 +219,15 @@ theme = ExtResource( 3 )
 custom_styles/panel = SubResource( 14 )
 
 [node name="Apps" type="Button" parent="Panel"]
-margin_right = 116.0
+margin_right = 200.0
 margin_bottom = 40.0
 custom_styles/hover = SubResource( 15 )
 custom_styles/pressed = SubResource( 16 )
 custom_styles/focus = SubResource( 17 )
 custom_styles/normal = SubResource( 18 )
+toggle_mode = true
 text = "Applications"
+script = ExtResource( 10 )
 
 [node name="Search" type="Button" parent="Panel"]
 anchor_left = 1.0
@@ -205,37 +272,3 @@ custom_styles/normal = SubResource( 18 )
 icon = ExtResource( 5 )
 align = 2
 icon_align = 1
-
-[node name="TabContainer" type="TabContainer" parent="."]
-margin_left = 22.0
-margin_top = 52.0
-margin_right = 393.0
-margin_bottom = 201.0
-tab_align = 0
-drag_to_rearrange_enabled = true
-
-[node name="A tab" type="Tabs" parent="TabContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 24.0
-margin_right = -4.0
-margin_bottom = -4.0
-
-[node name="Your mother" type="Tabs" parent="TabContainer"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 24.0
-margin_right = -4.0
-margin_bottom = -4.0
-
-[node name="She\'s very fat tbh" type="Tabs" parent="TabContainer"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 24.0
-margin_right = -4.0
-margin_bottom = -4.0
