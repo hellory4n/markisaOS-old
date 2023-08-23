@@ -21,5 +21,13 @@ public class WindowManager : Node {
         coolDockButton.Init(window);
         HBoxContainer dock = GetNode<HBoxContainer>("/root/LelsktopInterface/Dock/ScrollContainer/HBoxContainer");
         dock.AddChild(coolDockButton);
+
+        // all windows are maximized by default on mobile
+        if (OS.GetName() == "Android") {
+            Vector2 maximizedSize = ResolutionManager.GetScreenSize();
+            maximizedSize = new Vector2(maximizedSize.x, maximizedSize.y-185);
+            window.RectPosition = new Vector2(0, 85);
+            window.RectSize = maximizedSize;
+        }
     }
 }

@@ -9,8 +9,15 @@ public class ResolutionManager : Node2D {
 
         // this lowers the resolution at mobile so it's more touch-friendly
         if (OS.GetName() == "Android") {
-            GetTree().SetScreenStretch(SceneTree.StretchMode.Mode2d, SceneTree.StretchAspect.Keep, 
-                OS.GetScreenSize()/1.75f);
+            // we shouldn't put that much zoom on a tablet
+            Vector2 funni = OS.GetScreenSize();
+            if (funni.x/funni.y != 1.3) {
+                GetTree().SetScreenStretch(SceneTree.StretchMode.Mode2d, SceneTree.StretchAspect.Keep, 
+                    OS.GetScreenSize()/1.75f);
+            } else {
+                GetTree().SetScreenStretch(SceneTree.StretchMode.Mode2d, SceneTree.StretchAspect.Keep, 
+                    OS.GetScreenSize()/1.25f);
+            }
         } else {
             GetTree().SetScreenStretch(SceneTree.StretchMode.Mode2d, SceneTree.StretchAspect.Keep, 
                 OS.GetScreenSize());
@@ -19,10 +26,15 @@ public class ResolutionManager : Node2D {
 
     public static Vector2 GetScreenSize() {
         Vector2 resolution;
-        if (OS.GetName() == "Android")
-            resolution = OS.GetScreenSize()/1.75f;
-        else
+        if (OS.GetName() == "Android") {
+            Vector2 funni = OS.GetScreenSize();
+            if (funni.x/funni.y != 1.3)
+                resolution = OS.GetScreenSize()/1.75f;
+            else
+                resolution = OS.GetScreenSize()/1.25f;
+        } else {
             resolution = OS.GetScreenSize();
+        }
 
         return resolution;
     }
