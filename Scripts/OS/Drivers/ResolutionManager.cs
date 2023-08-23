@@ -13,7 +13,7 @@ public class ResolutionManager : Node2D {
             Vector2 funni = OS.GetScreenSize();
             if (funni.x/funni.y != 1.3) {
                 GetTree().SetScreenStretch(SceneTree.StretchMode.Mode2d, SceneTree.StretchAspect.Keep, 
-                    OS.GetScreenSize()/1.75f);
+                    OS.GetScreenSize()/1.5f);
             } else {
                 GetTree().SetScreenStretch(SceneTree.StretchMode.Mode2d, SceneTree.StretchAspect.Keep, 
                     OS.GetScreenSize()/1.25f);
@@ -29,7 +29,7 @@ public class ResolutionManager : Node2D {
         if (OS.GetName() == "Android") {
             Vector2 funni = OS.GetScreenSize();
             if (funni.x/funni.y != 1.3)
-                resolution = OS.GetScreenSize()/1.75f;
+                resolution = OS.GetScreenSize()/1.5f;
             else
                 resolution = OS.GetScreenSize()/1.25f;
         } else {

@@ -25,7 +25,7 @@ public class WindowManager : Node {
         // all windows are maximized by default on mobile
         if (OS.GetName() == "Android") {
             Vector2 maximizedSize = ResolutionManager.GetScreenSize();
-            maximizedSize = new Vector2(maximizedSize.x, maximizedSize.y-185);
+            maximizedSize = new Vector2(maximizedSize.x, maximizedSize.y-160);
             window.RectPosition = new Vector2(0, 85);
             window.RectSize = maximizedSize;
         }

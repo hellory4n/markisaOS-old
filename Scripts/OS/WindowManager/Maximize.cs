@@ -10,10 +10,10 @@ public class Maximize : TextureButton {
     public void Click() {
         WindowDialog window = (WindowDialog)GetParent();
         Vector2 maximizedSize = ResolutionManager.GetScreenSize();
-        maximizedSize = new Vector2(maximizedSize.x, maximizedSize.y-185);
+        maximizedSize = new Vector2(maximizedSize.x, maximizedSize.y-160);
 
         // check if the window is maximized
-        if (window.RectPosition != new Vector2(0, 185) && window.RectSize != maximizedSize) {
+        if (window.RectPosition != new Vector2(0, 85) && window.RectSize != maximizedSize) {
             window.RectPosition = new Vector2(0, 85);
             window.RectSize = maximizedSize;
         } else {

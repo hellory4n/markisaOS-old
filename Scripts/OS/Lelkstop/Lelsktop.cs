@@ -20,7 +20,7 @@ public class Lelsktop : Node2D {
         int keyStart = animationomg.TrackFindKey(0, 0);
         int keyEnd = animationomg.TrackFindKey(0, 0.5f);
         animationomg.TrackSetKeyValue(0, keyStart, new Vector2(0, bruh.y));
-        animationomg.TrackSetKeyValue(0, keyEnd, new Vector2(0, bruh.y-100));
+        animationomg.TrackSetKeyValue(0, keyEnd, new Vector2(0, bruh.y-75));
         lelsktopInterface.GetNode<AnimationPlayer>("AnimationPlayer").Play("Startup");
     }
 }

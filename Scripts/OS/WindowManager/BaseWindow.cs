@@ -48,19 +48,19 @@ public class BaseWindow : WindowDialog {
         // first check if the window is moving
         if (previousPosition != RectPosition) {
             if (GetGlobalMousePosition().y < 40) {
-                Vector2 maximizedSize = new Vector2(screenSize.x, screenSize.y-185);
+                Vector2 maximizedSize = new Vector2(screenSize.x, screenSize.y-160);
                 RectPosition = new Vector2(0, 85);
                 RectSize = maximizedSize;
             }
 
             if (GetGlobalMousePosition().x < 40) {
-                Vector2 newSize = new Vector2(screenSize.x/2, screenSize.y-185);
+                Vector2 newSize = new Vector2(screenSize.x/2, screenSize.y-160);
                 RectPosition = new Vector2(0, 85);
                 RectSize = newSize;
             }
 
             if (GetGlobalMousePosition().x > screenSize.x-40) {
-                Vector2 newSize = new Vector2(screenSize.x/2, screenSize.y-185);
+                Vector2 newSize = new Vector2(screenSize.x/2, screenSize.y-160);
                 RectPosition = new Vector2(screenSize.x/2, 85);
                 RectSize = newSize;
             }
