@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 public class SavingManager : Node {
     public static string CurrentUser = "";
 
-    public static void NewUser(string user) {
+    public static void NewUser(string user, UserInfo info) {
         File file = new File();
         Directory dir = new Directory();
         dir.MakeDirRecursive($"user://Users/{user}/");
@@ -18,10 +18,10 @@ public class SavingManager : Node {
 
         File pain = new File();
         pain.Open($"user://Users/{user}/UserInfo.json", File.ModeFlags.Write);
-        UserInfo a = new UserInfo();
-        file.StoreString(
-            JsonConvert.SerializeObject(a)
+        pain.StoreString(
+            JsonConvert.SerializeObject(info)
         );
+        pain.Close();
     }
 
     public static BasicUser LoadBasicUser(string user) {
@@ -48,29 +48,27 @@ public class SavingManager : Node {
         }
     }
 
-    public static string GetUserPhoto(string user) {
+    public static UserInfo LoadUserInfo(string user) {
         File file = new File();
         
         if (file.Open($"user://Users/{user}/UserInfo.json", File.ModeFlags.Read) == Error.Ok) {
             UserInfo m = JsonConvert.DeserializeObject<UserInfo>(file.GetAsText());
             file.Close();
-            return m.Photo;
+            return m;
         } else {
-            GD.PushError($"Failed to load photo from user \"{user}\", are you sure it exists?");
+            GD.PushError($"Failed to load OS version from user \"{user}\", are you sure it exists?");
             return null;
         }
     }
 
-    public static void SetUserPhoto(string user, string photo) {
+    public static void SaveUserInfo(string user, UserInfo data) {
         File file = new File();
         
         if (file.Open($"user://Users/{user}/UserInfo.json", File.ModeFlags.Read) == Error.Ok) {
-            UserInfo pain = new UserInfo();
-            pain.Photo = photo;
-            file.StoreString(JsonConvert.SerializeObject(pain));
+            file.StoreString(JsonConvert.SerializeObject(data));
             file.Close();
         } else {
-            GD.PushError($"Failed to save photo from user \"{user}\", are you sure it exists?");
+            GD.PushError($"Failed to save OS version from user \"{user}\", are you sure it exists?");
         }
     }
 }

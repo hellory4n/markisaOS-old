@@ -6,4 +6,5 @@ public class BasicUser {
 
 public class UserInfo {
     public string Photo = "Lelcube";
+    public string LelnetUsername = "john.doe";
 }
