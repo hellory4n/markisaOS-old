@@ -137,7 +137,6 @@ tracks/1/keys = {
 
 [node name="WindowManagerTest" type="WindowDialog"]
 process_priority = 1
-visible = true
 margin_right = -590.0
 margin_bottom = -300.0
 rect_min_size = Vector2( 300, 100 )

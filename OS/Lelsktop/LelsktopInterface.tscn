@@ -205,3 +205,37 @@ custom_styles/normal = SubResource( 18 )
 icon = ExtResource( 5 )
 align = 2
 icon_align = 1
+
+[node name="TabContainer" type="TabContainer" parent="."]
+margin_left = 22.0
+margin_top = 52.0
+margin_right = 393.0
+margin_bottom = 201.0
+tab_align = 0
+drag_to_rearrange_enabled = true
+
+[node name="A tab" type="Tabs" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 24.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Your mother" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 24.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="She\'s very fat tbh" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 24.0
+margin_right = -4.0
+margin_bottom = -4.0
