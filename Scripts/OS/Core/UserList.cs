@@ -6,7 +6,6 @@ public class UserList : VBoxContainer {
         base._Ready();
 
         PackedScene stupidity = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/UserButton.tscn");
-        Texture lelcube = ResourceLoader.Load<Texture>("res://icon.png");
         Texture cat = ResourceLoader.Load<Texture>("res://Assets/UserIcons/Cat.png");
         Texture flower = ResourceLoader.Load<Texture>("res://Assets/UserIcons/Flower.png");
         Texture balloons = ResourceLoader.Load<Texture>("res://Assets/UserIcons/Balloons.png");

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Scripts/OS/Lelkstop/DefaultOpenWindowButton.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/OS/Lelkstop/Time.cs" type="Script" id=2]
@@ -11,6 +11,15 @@
 [ext_resource path="res://Assets/Themes/Leltheme/Icons/Search.png" type="Texture" id=9]
 [ext_resource path="res://Scripts/OS/Lelkstop/AppMenu/OpenAppMenu.cs" type="Script" id=10]
 [ext_resource path="res://Scripts/OS/Lelkstop/AppMenu/OpenCategory.cs" type="Script" id=11]
+[ext_resource path="res://Fonts/RedHatText-Bold.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://Scripts/OS/Lelkstop/QuickSettings/QuickSettingsUserIcon.cs" type="Script" id=13]
+[ext_resource path="res://Assets/Themes/Leltheme/Icons/Sound.png" type="Texture" id=14]
+[ext_resource path="res://Assets/UserIcons/Cat.png" type="Texture" id=15]
+[ext_resource path="res://Scripts/OS/Lelkstop/QuickSettings/QuickSettingsUserName.cs" type="Script" id=16]
+[ext_resource path="res://Assets/Themes/Leltheme/Icons/Music.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Themes/Leltheme/Icons/Logout.png" type="Texture" id=18]
+[ext_resource path="res://Scripts/OS/Lelkstop/QuickSettings/OpenQuickSettings.cs" type="Script" id=19]
+[ext_resource path="res://Assets/Themes/Leltheme/Icons/Power.png" type="Texture" id=20]
 
 [sub_resource type="Animation" id=20]
 resource_name = "CloseAppMenu"
@@ -30,7 +39,35 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/path = NodePath("AppMenu:modulate")
 tracks/1/interp = 1
-tracks/1/loop_wrap = true
+tracks/1/loop_wrap = false
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 0.37 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=22]
+resource_name = "CloseQuickSettings"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("QuickSettings:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 0.37 ),
+"update": 0,
+"values": [ Vector2( 940, 40 ), Vector2( 940, -200 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("QuickSettings:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
@@ -59,6 +96,34 @@ tracks/1/type = "value"
 tracks/1/path = NodePath("AppMenu:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.37, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "OpenQuickSettings"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("QuickSettings:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.37, 1 ),
+"update": 0,
+"values": [ Vector2( 940, -200 ), Vector2( 940, 40 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("QuickSettings:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
@@ -118,12 +183,16 @@ margin_bottom = 36.0
 flags = 4
 load_path = "res://.import/Dashboard.png-a2c0f627fcaddca1aedcb876f8e7a940.stex"
 
+[sub_resource type="DynamicFont" id=24]
+font_data = ExtResource( 12 )
+
 [sub_resource type="StyleBoxTexture" id=15]
 content_margin_left = 0.0
 content_margin_right = 0.0
 content_margin_top = 0.0
 content_margin_bottom = 0.0
 texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 64, 64 )
 margin_left = 32.0
 margin_right = 32.0
 margin_top = 32.0
@@ -135,6 +204,7 @@ content_margin_right = 0.0
 content_margin_top = 0.0
 content_margin_bottom = 0.0
 texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 64, 64 )
 margin_left = 32.0
 margin_right = 32.0
 margin_top = 32.0
@@ -158,7 +228,9 @@ layer = 128
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/CloseAppMenu = SubResource( 20 )
+anims/CloseQuickSettings = SubResource( 22 )
 anims/OpenAppMenu = SubResource( 21 )
+anims/OpenQuickSettings = SubResource( 23 )
 anims/Startup = SubResource( 8 )
 
 [node name="Dock" type="Panel" parent="."]
@@ -183,7 +255,6 @@ rect_min_size = Vector2( 0, 64 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Dock/ScrollContainer"]
 margin_right = 1280.0
-margin_bottom = 64.0
 mouse_filter = 0
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -191,6 +262,7 @@ custom_constants/separation = 10
 alignment = 1
 
 [node name="PinnedStuff" type="Button" parent="Dock/ScrollContainer/HBoxContainer"]
+visible = false
 margin_left = 608.0
 margin_right = 672.0
 margin_bottom = 64.0
@@ -205,9 +277,90 @@ icon_align = 1
 script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
+[node name="QuickSettings" type="Panel" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -340.0
+margin_top = -200.0
+margin_right = -40.0
+rect_min_size = Vector2( 300, 200 )
+theme = ExtResource( 3 )
+
+[node name="UserIcon" type="Sprite" parent="QuickSettings"]
+position = Vector2( 4, 4 )
+scale = Vector2( 0.33, 0.33 )
+texture = ExtResource( 15 )
+centered = false
+script = ExtResource( 13 )
+
+[node name="Name" type="Label" parent="QuickSettings"]
+margin_left = 40.0
+margin_right = 300.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 24 )
+text = "Cool user :)"
+valign = 1
+clip_text = true
+script = ExtResource( 16 )
+
+[node name="Sound" type="Sprite" parent="QuickSettings"]
+position = Vector2( 4, 44 )
+texture = ExtResource( 14 )
+centered = false
+
+[node name="SoundSlider" type="HSlider" parent="QuickSettings"]
+margin_left = 40.0
+margin_top = 44.0
+margin_right = 290.0
+margin_bottom = 76.0
+value = 75.0
+
+[node name="Music" type="Sprite" parent="QuickSettings"]
+position = Vector2( 4, 84 )
+texture = ExtResource( 17 )
+centered = false
+
+[node name="MusicSlider" type="HSlider" parent="QuickSettings"]
+margin_left = 40.0
+margin_top = 84.0
+margin_right = 290.0
+margin_bottom = 116.0
+value = 75.0
+
+[node name="Logout" type="Button" parent="QuickSettings"]
+margin_left = 4.0
+margin_top = 120.0
+margin_right = 300.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 296, 40 )
+custom_constants/hseparation = 4
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Logout"
+icon = ExtResource( 18 )
+align = 0
+
+[node name="Turnoff" type="Button" parent="QuickSettings"]
+margin_left = 4.0
+margin_top = 160.0
+margin_right = 300.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 296, 40 )
+custom_constants/hseparation = 4
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Turn off"
+icon = ExtResource( 20 )
+align = 0
+
 [node name="AppMenu" type="Panel" parent="."]
-margin_top = -400.0
-margin_right = 400.0
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 440.0
 theme = ExtResource( 3 )
 
 [node name="CategoryCategories" type="ScrollContainer" parent="AppMenu"]
@@ -652,14 +805,16 @@ script = ExtResource( 2 )
 [node name="Settings" type="Button" parent="Panel"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -230.0
+margin_left = -290.0
 margin_right = -190.0
 margin_bottom = 40.0
-rect_min_size = Vector2( 40, 40 )
+rect_min_size = Vector2( 100, 40 )
 custom_styles/hover = SubResource( 15 )
 custom_styles/pressed = SubResource( 16 )
 custom_styles/focus = SubResource( 17 )
 custom_styles/normal = SubResource( 18 )
+toggle_mode = true
 icon = ExtResource( 5 )
 align = 2
 icon_align = 1
+script = ExtResource( 19 )
