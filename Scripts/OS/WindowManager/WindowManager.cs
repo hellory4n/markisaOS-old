@@ -40,13 +40,15 @@ public class WindowManager : Node {
 
     public static void DisableWindowInput() {
         foreach (var window in windows) {
-            window.MouseFilter = Control.MouseFilterEnum.Ignore;
+            window.Modulate = new Color(1, 1, 1, 0);
+            window.RectSize = new Vector2(0, 0);
         }
     }
 
     public static void EnableWindowInput() {
         foreach (var window in windows) {
-            window.MouseFilter = Control.MouseFilterEnum.Stop;
+            window.Modulate = new Color(1, 1, 1, 0);
+            window.RectSize = new Vector2(0, 0);
         }
     }
 }

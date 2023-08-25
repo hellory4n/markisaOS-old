@@ -36,9 +36,14 @@ public class BaseWindow : WindowDialog {
     public override void _Process(float delta) {
         base._Process(delta);
 
+        if (PopupExclusive)
+            GetCloseButton().MouseFilter = MouseFilterEnum.Stop;
+        else
+            GetCloseButton().MouseFilter = MouseFilterEnum.Ignore;
+
         // windowdialog's close button just makes it invisible, this plays the close animation that also deletes
         // the window
-        if (!Visible) {
+        if (!Visible && PopupExclusive) {
             animation.Play("Close");
             Visible = true;
             IsClosing = true;
