@@ -27,7 +27,7 @@ public class WindowManager : Node {
         dock.AddChild(coolDockButton);
 
         // all windows are maximized by default on mobile
-        if (OS.GetName() == "Android") {
+        if (OS.GetName() == "Android" && window.Resizable) {
             Vector2 maximizedSize = ResolutionManager.GetScreenSize();
             maximizedSize = new Vector2(maximizedSize.x, maximizedSize.y-160);
             window.RectPosition = new Vector2(0, 85);

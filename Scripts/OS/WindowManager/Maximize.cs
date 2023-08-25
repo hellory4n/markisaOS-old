@@ -7,6 +7,15 @@ public class Maximize : TextureButton {
         Connect("pressed", this, nameof(Click));
     }
 
+    public override void _Process(float delta) {
+        base._Process(delta);
+        WindowDialog window = (WindowDialog)GetParent();
+        if (!window.Resizable) {
+            GetParent().GetNode<TextureButton>("Minimize").RectPosition = RectPosition;
+            QueueFree();
+        }
+    }
+
     public void Click() {
         WindowDialog window = (WindowDialog)GetParent();
         Vector2 maximizedSize = ResolutionManager.GetScreenSize();
