@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class WindowManager : Node {
     PackedScene openWindow;
+    List<BaseWindow> windows = new List<BaseWindow>();
 
     public override void _Ready() {
         base._Ready();
@@ -11,6 +12,8 @@ public class WindowManager : Node {
     }
 
     public void AddWindow(BaseWindow window) {
+        windows.Add(window);
+
         Node2D lelsktop = GetNode<Node2D>("/root/Lelsktop");
         lelsktop.AddChild(window);
         // using window.Popup_() makes it only work with 1 window, so this is a hack to bypass that

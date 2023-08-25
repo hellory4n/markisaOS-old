@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Scripts/OS/Lelkstop/DefaultOpenWindowButton.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/OS/Lelkstop/Time.cs" type="Script" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://Assets/Themes/Leltheme/Icons/Logout.png" type="Texture" id=18]
 [ext_resource path="res://Scripts/OS/Lelkstop/QuickSettings/OpenQuickSettings.cs" type="Script" id=19]
 [ext_resource path="res://Assets/Themes/Leltheme/Icons/Power.png" type="Texture" id=20]
+[ext_resource path="res://Scripts/OS/Lelkstop/WindowSpace.cs" type="Script" id=21]
 
 [sub_resource type="Animation" id=20]
 resource_name = "CloseAppMenu"
@@ -232,6 +233,13 @@ anims/CloseQuickSettings = SubResource( 22 )
 anims/OpenAppMenu = SubResource( 21 )
 anims/OpenQuickSettings = SubResource( 23 )
 anims/Startup = SubResource( 8 )
+
+[node name="WindowSpace" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 40.0
+margin_bottom = -75.0
+script = ExtResource( 21 )
 
 [node name="Dock" type="Panel" parent="."]
 process_priority = -69
