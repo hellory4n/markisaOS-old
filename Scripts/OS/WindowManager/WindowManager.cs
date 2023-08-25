@@ -14,7 +14,7 @@ public class WindowManager : Node {
     public void AddWindow(BaseWindow window) {
         windows.Add(window);
 
-        Node2D lelsktop = GetNode<Node2D>("/root/Lelsktop");
+        Viewport lelsktop = GetNode<Viewport>("/root/Lelsktop/Thing/Windows");
         lelsktop.AddChild(window);
         // using window.Popup_() makes it only work with 1 window, so this is a hack to bypass that
         window.Visible = true;
@@ -35,20 +35,6 @@ public class WindowManager : Node {
             maximizedSize = new Vector2(maximizedSize.x, maximizedSize.y-160);
             window.RectPosition = new Vector2(0, 85);
             window.RectSize = maximizedSize;
-        }
-    }
-
-    public static void DisableWindowInput() {
-        foreach (var window in windows) {
-            window.Modulate = new Color(1, 1, 1, 0);
-            window.RectSize = new Vector2(0, 0);
-        }
-    }
-
-    public static void EnableWindowInput() {
-        foreach (var window in windows) {
-            window.Modulate = new Color(1, 1, 1, 0);
-            window.RectSize = new Vector2(0, 0);
         }
     }
 }

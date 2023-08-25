@@ -7,6 +7,9 @@ public class Lelsktop : Node2D {
         Vector2 bruh = ResolutionManager.GetScreenSize();
         GD.Print($"Screen resolution is {bruh.x}, {bruh.y}");
 
+        Viewport pain = GetNode<Viewport>("/root/Lelsktop/Thing/Windows");
+        pain.Size = bruh;
+
         // cool dock :)
         PackedScene m = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/LelsktopInterface.tscn");
         CanvasLayer lelsktopInterface = (CanvasLayer)m.Instance();
@@ -22,5 +25,21 @@ public class Lelsktop : Node2D {
         animationomg.TrackSetKeyValue(0, keyStart, new Vector2(0, bruh.y));
         animationomg.TrackSetKeyValue(0, keyEnd, new Vector2(0, bruh.y-75));
         lelsktopInterface.GetNode<AnimationPlayer>("AnimationPlayer").Play("Startup");
+    }
+
+    public override void _Process(float delta) {
+        base._Process(delta);
+        Vector2 pain = ResolutionManager.GetScreenSize();
+        Viewport bruh = GetNode<Viewport>("/root/Lelsktop/Thing/Windows");
+        Panel appMenu = GetNode<Panel>("/root/LelsktopInterface/AppMenu");
+        Panel quickSettings = GetNode<Panel>("/root/LelsktopInterface/QuickSettings");
+        Color invisible = new Color(1, 1, 1, 0);
+
+        if (GetGlobalMousePosition().y < 40 || GetGlobalMousePosition().y > pain.y-75 ||
+        appMenu.Modulate != invisible || quickSettings.Modulate != invisible) {
+            bruh.GuiDisableInput = true;
+        } else {
+            bruh.GuiDisableInput = false;
+        }
     }
 }

@@ -58,3 +58,11 @@ margin_right = 559.0
 margin_bottom = 101.0
 custom_fonts/font = SubResource( 1 )
 text = "lelsktop v0.5.0"
+
+[node name="Thing" type="ViewportContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Windows" type="Viewport" parent="Thing"]
+size = Vector2( 420, 69 )
+transparent_bg = true
