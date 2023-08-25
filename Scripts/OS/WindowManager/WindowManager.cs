@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class WindowManager : Node {
     PackedScene openWindow;
-    List<BaseWindow> windows = new List<BaseWindow>();
+    public static List<BaseWindow> windows = new List<BaseWindow>();
 
     public override void _Ready() {
         base._Ready();
@@ -35,6 +35,18 @@ public class WindowManager : Node {
             maximizedSize = new Vector2(maximizedSize.x, maximizedSize.y-160);
             window.RectPosition = new Vector2(0, 85);
             window.RectSize = maximizedSize;
+        }
+    }
+
+    public static void DisableWindowInput() {
+        foreach (var window in windows) {
+            window.MouseFilter = Control.MouseFilterEnum.Ignore;
+        }
+    }
+
+    public static void EnableWindowInput() {
+        foreach (var window in windows) {
+            window.MouseFilter = Control.MouseFilterEnum.Stop;
         }
     }
 }

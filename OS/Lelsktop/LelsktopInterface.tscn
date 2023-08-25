@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Scripts/OS/Lelkstop/DefaultOpenWindowButton.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/OS/Lelkstop/Time.cs" type="Script" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://Scripts/OS/Lelkstop/QuickSettings/OpenQuickSettings.cs" type="Script" id=19]
 [ext_resource path="res://Assets/Themes/Leltheme/Icons/Power.png" type="Texture" id=20]
 [ext_resource path="res://Scripts/OS/Lelkstop/WindowSpace.cs" type="Script" id=21]
+[ext_resource path="res://Scripts/OS/Lelkstop/DisableWindowInputThing.cs" type="Script" id=22]
 
 [sub_resource type="Animation" id=20]
 resource_name = "CloseAppMenu"
@@ -253,6 +254,7 @@ margin_right = 640.0
 rect_min_size = Vector2( 0, 75 )
 theme = ExtResource( 3 )
 custom_styles/panel = SubResource( 2 )
+script = ExtResource( 22 )
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Dock"]
 anchor_right = 1.0
@@ -293,6 +295,7 @@ margin_top = -200.0
 margin_right = -40.0
 rect_min_size = Vector2( 300, 200 )
 theme = ExtResource( 3 )
+script = ExtResource( 22 )
 
 [node name="UserIcon" type="Sprite" parent="QuickSettings"]
 position = Vector2( 4, 4 )
@@ -371,6 +374,7 @@ align = 0
 margin_top = -400.0
 margin_right = 200.0
 theme = ExtResource( 3 )
+script = ExtResource( 22 )
 
 [node name="CategoryCategories" type="ScrollContainer" parent="AppMenu"]
 margin_right = 200.0
@@ -770,6 +774,7 @@ margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
 theme = ExtResource( 3 )
 custom_styles/panel = SubResource( 14 )
+script = ExtResource( 22 )
 
 [node name="Apps" type="Button" parent="Panel"]
 margin_right = 200.0

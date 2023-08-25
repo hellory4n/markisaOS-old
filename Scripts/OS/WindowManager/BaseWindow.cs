@@ -42,6 +42,7 @@ public class BaseWindow : WindowDialog {
             animation.Play("Close");
             Visible = true;
             IsClosing = true;
+            WindowManager.windows.Remove(this);
         }
         
         // window snapping :)

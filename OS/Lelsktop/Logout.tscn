@@ -135,6 +135,7 @@ tracks/1/keys = {
 
 [node name="Logout" type="WindowDialog"]
 process_priority = 1
+visible = true
 margin_right = -590.0
 margin_bottom = -300.0
 rect_min_size = Vector2( 500, 250 )
