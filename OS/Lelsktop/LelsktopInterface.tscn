@@ -367,6 +367,8 @@ custom_styles/normal = SubResource( 18 )
 text = "Turn off"
 icon = ExtResource( 20 )
 align = 0
+script = ExtResource( 1 )
+WindowScene = "res://OS/Lelsktop/Shutdown.tscn"
 
 [node name="AppMenu" type="Panel" parent="."]
 modulate = Color( 1, 1, 1, 0 )

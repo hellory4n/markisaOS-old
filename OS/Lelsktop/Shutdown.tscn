@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme/Leltheme.tres" type="Theme" id=1]
-[ext_resource path="res://Assets/Themes/Leltheme/Icons/Logout.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Themes/Leltheme/Icons/Power.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/OS/WindowManager/Close.cs" type="Script" id=3]
-[ext_resource path="res://Scripts/OS/Core/Logout.cs" type="Script" id=4]
+[ext_resource path="res://Scripts/OS/Lelsktop/QuickSettings/QuickSettingsShutdown.cs" type="Script" id=4]
 [ext_resource path="res://Scripts/OS/WindowManager/BaseWindow.cs" type="Script" id=5]
 
 [sub_resource type="Animation" id=2]
@@ -133,14 +133,15 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[node name="Logout" type="WindowDialog"]
+[node name="Shutdown" type="WindowDialog"]
 process_priority = 1
+visible = true
 margin_right = -590.0
 margin_bottom = -300.0
 rect_min_size = Vector2( 500, 250 )
 theme = ExtResource( 1 )
 popup_exclusive = true
-window_title = "Logout"
+window_title = "Shutdown"
 script = ExtResource( 5 )
 Icon = ExtResource( 2 )
 
@@ -179,7 +180,7 @@ script = ExtResource( 4 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = -49.0
-text = "Are you sure you want to logout? Progress will be automatically saved, but any file currently being edited won't!"
+text = "Are you sure you want to turn off your device? Progress will be automatically saved, but any file currently being edited won't!"
 align = 1
 valign = 1
 autowrap = true
