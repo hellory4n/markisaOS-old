@@ -21,4 +21,5 @@ custom_styles/read_only = SubResource( 1 )
 custom_styles/focus = SubResource( 2 )
 custom_styles/normal = SubResource( 3 )
 text = "Your mother :)))"
+align = 1
 editable = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scripts/OS/WindowManager/SetSizeToScreenResolution.cs" type="Script" id=1]
 [ext_resource path="res://Assets/Themes/Leltheme/Leltheme.tres" type="Theme" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Assets/UserIcons/Balloons.png" type="Texture" id=14]
 [ext_resource path="res://Scripts/OS/Lelsktop/CloseParent.cs" type="Script" id=15]
 [ext_resource path="res://Scripts/OS/Core/CreateUser.cs" type="Script" id=16]
+[ext_resource path="res://Scripts/OS/Lelsktop/Overlay/TextPeek.cs" type="Script" id=17]
 
 [sub_resource type="Animation" id=3]
 resource_name = "OnboardingStart"
@@ -102,6 +103,7 @@ margin_right = 400.0
 margin_bottom = 83.0
 align = 1
 placeholder_text = "John Doe"
+script = ExtResource( 17 )
 
 [node name="NameLabelThing2" type="Label" parent="Control/Control"]
 anchor_right = 1.0
@@ -118,6 +120,7 @@ margin_right = 400.0
 margin_bottom = 176.0
 align = 1
 placeholder_text = "john.doe"
+script = ExtResource( 17 )
 
 [node name="NameLabelThing3" type="Label" parent="Control/Control"]
 anchor_right = 1.0
