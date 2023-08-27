@@ -20,29 +20,35 @@ public class CreateUser : Button {
     }
 
     public void Click() {
+        SoundManager sounds = GetNode<SoundManager>("/root/SoundManager");
+
         // make the icon be a string and not a number
         string icon = "";
-        switch (icons.GetSelectedItems()[0]) {
-            case 0: icon = "Cat"; break;
-            case 1: icon = "Flower"; break;
-            case 2: icon = "Balloon"; break;
-            case 3: icon = "Car"; break;
-            case 4: icon = "Dog"; break;
-            case 5: icon = "Duck"; break;
-            case 6: icon = "Pancakes"; break;
-            case 7: icon = "Brushes"; break;
-            case 8: icon = "Shuttle"; break;
-            case 9: icon = "Football"; break;
+        if (icons.GetSelectedItems().Length > 0) {
+            switch (icons.GetSelectedItems()[0]) {
+                case 0: icon = "Cat"; break;
+                case 1: icon = "Flower"; break;
+                case 2: icon = "Balloon"; break;
+                case 3: icon = "Car"; break;
+                case 4: icon = "Dog"; break;
+                case 5: icon = "Duck"; break;
+                case 6: icon = "Pancakes"; break;
+                case 7: icon = "Brushes"; break;
+                case 8: icon = "Shuttle"; break;
+                case 9: icon = "Football"; break;
+            }
         }
 
         // make sure the name and username things actually have something
         if (name.Text == "") {
             errorThingy.Text = "Invalid name!";
+            sounds.PlaySoundEffect(SoundManager.SoundEffects.Error);
             return;
         }
 
         if (username.Text == "") {
             errorThingy.Text = "Invalid username!";
+            sounds.PlaySoundEffect(SoundManager.SoundEffects.Error);
             return;
         }
 
@@ -50,12 +56,14 @@ public class CreateUser : Button {
         Regex what = new Regex("[\"/<>:\\|?*]", RegexOptions.Compiled | RegexOptions.CultureInvariant);
         if (what.Matches(name.Text).Count > 0) {
             errorThingy.Text = "Names can't include the characters \\/<>:|?*";
+            sounds.PlaySoundEffect(SoundManager.SoundEffects.Error);
             return;
         }
 
         Regex idkman = new Regex("[^[a-z0-9._]", RegexOptions.Compiled | RegexOptions.CultureInvariant);
         if (idkman.Matches(username.Text).Count > 0) {
             errorThingy.Text = "Lelnet usernames only allow lowercase characters, numbers, underscores (_) and periods (.)";
+            sounds.PlaySoundEffect(SoundManager.SoundEffects.Error);
             return;
         }
 
@@ -73,6 +81,7 @@ public class CreateUser : Button {
 
         if (users.Contains(name.Text)) {
             errorThingy.Text = $"User \"{name.Text}\" already exists!";
+            sounds.PlaySoundEffect(SoundManager.SoundEffects.Error);
             return;
         }
 

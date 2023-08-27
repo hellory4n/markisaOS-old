@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/NewWallpaper.jpg" type="Texture" id=1]
 [ext_resource path="res://Scripts/OS/Lelsktop/Lelsktop.cs" type="Script" id=2]
 [ext_resource path="res://Assets/coolwallpaperlol.png" type="Texture" id=3]
 [ext_resource path="res://Fonts/RedHatText-Bold.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Scripts/OS/Lelsktop/ImageBackground.cs" type="Script" id=5]
-[ext_resource path="res://Audio/Sounds/Startup.mp3" type="AudioStream" id=7]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Startup"
@@ -34,10 +33,6 @@ script = ExtResource( 2 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Startup"
 anims/Startup = SubResource( 2 )
-
-[node name="Startup" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 7 )
-autoplay = true
 
 [node name="Coolwallpaperlol" type="Sprite" parent="."]
 visible = false

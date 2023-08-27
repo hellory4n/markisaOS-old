@@ -10,6 +10,10 @@ public class Lelsktop : Node2D {
         Viewport pain = GetNode<Viewport>("/root/Lelsktop/Thing/Windows");
         pain.Size = bruh;
 
+        // startup sound :)
+        SoundManager sounds = GetNode<SoundManager>("/root/SoundManager");
+        sounds.PlaySoundEffect(SoundManager.SoundEffects.Startup);
+
         // cool dock :)
         PackedScene m = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/LelsktopInterface.tscn");
         CanvasLayer lelsktopInterface = (CanvasLayer)m.Instance();
