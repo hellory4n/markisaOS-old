@@ -27,6 +27,7 @@ size = 32
 font_data = ExtResource( 4 )
 
 [node name="Lelsktop" type="Node2D"]
+modulate = Color( 1, 1, 1, 0.91596 )
 z_index = -2
 script = ExtResource( 2 )
 

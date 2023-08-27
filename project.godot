@@ -21,6 +21,7 @@ config/icon="res://icon.png"
 ResolutionManager="*res://Scripts/OS/Drivers/ResolutionManager.cs"
 WindowManager="*res://Scripts/OS/WindowManager/WindowManager.cs"
 SoundManager="*res://Scripts/OS/Drivers/SoundManager.cs"
+NotificationManager="*res://Scripts/OS/Lelsktop/Overlay/NotificationManager.cs"
 
 [display]
 

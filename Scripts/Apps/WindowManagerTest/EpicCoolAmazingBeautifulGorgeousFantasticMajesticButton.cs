@@ -8,9 +8,7 @@ public class EpicCoolAmazingBeautifulGorgeousFantasticMajesticButton : Button {
     }
 
     public void Click() {
-        WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
-        PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/WindowManagerTest/WindowManagerTest.tscn");
-        BaseWindow jjkn = (BaseWindow)m.Instance();    
-        wm.AddWindow(jjkn);
+        NotificationManager notifications = GetNode<NotificationManager>("/root/NotificationManager");
+        notifications.ShowNotification("your amazon delivery has arrived");
     }
 }
