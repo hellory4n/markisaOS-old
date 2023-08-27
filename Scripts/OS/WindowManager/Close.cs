@@ -8,6 +8,6 @@ public class Close : Button {
     }
 
     public void Click() {
-        GetParent().GetNode<AnimationPlayer>("AnimationPlayer").Play("Close");
+        GetParent<BaseWindow>().Visible = false;
     }
 }
