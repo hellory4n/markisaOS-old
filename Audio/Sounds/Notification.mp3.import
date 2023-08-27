@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Notification.mp3-c006d6d0d41d3a9f60f89b6391453e41.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sounds/Notification.mp3"
+dest_files=[ "res://.import/Notification.mp3-c006d6d0d41d3a9f60f89b6391453e41.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
