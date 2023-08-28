@@ -18,6 +18,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
+SavingManager="*res://Scripts/OS/SavingManager/SavingManager.cs"
 ResolutionManager="*res://Scripts/OS/Drivers/ResolutionManager.cs"
 WindowManager="*res://Scripts/OS/WindowManager/WindowManager.cs"
 SoundManager="*res://Scripts/OS/Drivers/SoundManager.cs"
