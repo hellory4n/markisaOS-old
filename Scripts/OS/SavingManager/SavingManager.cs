@@ -4,6 +4,10 @@ using Newtonsoft.Json;
 
 public class SavingManager : Node {
     public static string CurrentUser = "";
+    public enum Info {
+        BasicInfo,
+        UserInfo
+    }
 
     public static void NewUser(string user, UserInfo info) {
         File file = new File();
@@ -22,53 +26,53 @@ public class SavingManager : Node {
             JsonConvert.SerializeObject(info)
         );
         pain.Close();
-    }
+    }    
 
-    public static BasicUser LoadBasicUser(string user) {
+    public static T Load<T>(string user, Info info) {
+        string filename = "";
+        switch (info) {
+            case Info.BasicInfo:
+                filename = $"user://Users/{user}/BasicInfo.json";
+                break;
+            case Info.UserInfo:
+                filename = $"user://Users/{user}/UserInfo.json";
+                break;
+            default:
+                GD.PushError("Invalid user info type!");
+                break;
+        }
+
         File file = new File();
-        
-        if (file.Open($"user://Users/{user}/BasicInfo.json", File.ModeFlags.Read) == Error.Ok) {
-            BasicUser m = JsonConvert.DeserializeObject<BasicUser>(file.GetAsText());
+        if (file.Open(filename, File.ModeFlags.Read) == Error.Ok) {
+            T m = JsonConvert.DeserializeObject<T>(file.GetAsText());
             file.Close();
             return m;
         } else {
-            GD.PushError($"Failed to load OS version from user \"{user}\", are you sure it exists?");
-            return null;
+            GD.PushError($"Failed to load data from user \"{user}\", are you sure it exists?");
+            return default;
         }
     }
 
-    public static void SaveBasicUser(string user, BasicUser data) {
+    public static void Save<T>(string user, Info info, T data) {
+        string filename = "";
+        switch (info) {
+            case Info.BasicInfo:
+                filename = $"user://Users/{user}/BasicInfo.json";
+                break;
+            case Info.UserInfo:
+                filename = $"user://Users/{user}/UserInfo.json";
+                break;
+            default:
+                GD.PushError("Invalid user info type!");
+                break;
+        }
+
         File file = new File();
-        
-        if (file.Open($"user://Users/{user}/BasicInfo.json", File.ModeFlags.Read) == Error.Ok) {
+        if (file.Open(filename, File.ModeFlags.Write) == Error.Ok) {
             file.StoreString(JsonConvert.SerializeObject(data));
             file.Close();
         } else {
-            GD.PushError($"Failed to save OS version from user \"{user}\", are you sure it exists?");
-        }
-    }
-
-    public static UserInfo LoadUserInfo(string user) {
-        File file = new File();
-        
-        if (file.Open($"user://Users/{user}/UserInfo.json", File.ModeFlags.Read) == Error.Ok) {
-            UserInfo m = JsonConvert.DeserializeObject<UserInfo>(file.GetAsText());
-            file.Close();
-            return m;
-        } else {
-            GD.PushError($"Failed to load OS version from user \"{user}\", are you sure it exists?");
-            return null;
-        }
-    }
-
-    public static void SaveUserInfo(string user, UserInfo data) {
-        File file = new File();
-        
-        if (file.Open($"user://Users/{user}/UserInfo.json", File.ModeFlags.Read) == Error.Ok) {
-            file.StoreString(JsonConvert.SerializeObject(data));
-            file.Close();
-        } else {
-            GD.PushError($"Failed to save OS version from user \"{user}\", are you sure it exists?");
+            GD.PushError($"Failed to save data from user \"{user}\", are you sure it exists?");
         }
     }
 }
