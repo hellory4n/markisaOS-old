@@ -22,7 +22,9 @@ public class SavingManager : Node {
 
         if (!displaySettings.FileExists("user://Settings/DisplaySettings.json")) {
             displaySettings.Open("user://Settings/DisplaySettings.json", File.ModeFlags.Write);
-            DisplaySettings thing = new DisplaySettings();
+            DisplaySettings thing = new DisplaySettings {
+                Resolution = OS.GetScreenSize()
+            };
             displaySettings.StoreString(
                 JsonConvert.SerializeObject(thing)
             );
