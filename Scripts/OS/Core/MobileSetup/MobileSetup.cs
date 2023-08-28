@@ -2,8 +2,6 @@ using Godot;
 using System;
 
 public class MobileSetup : Node2D {
-    public int Taps = 0;
-
     public override void _Ready() {
         base._Ready();
         // checks if this is the first try
@@ -13,12 +11,5 @@ public class MobileSetup : Node2D {
             GetNode<Label>("Control/Title").Text = "Let's try again";
             GetNode<Label>("Control/Text").Text = "We have increased the size of buttons, try tapping on the button again.";
         }
-    }
-
-    public override void _Process(float delta) {
-        base._Process(delta);
-        GD.Print($"taps: {Taps}");
-        if (Input.IsActionJustReleased("click_thingy"))
-            Taps++;
     }
 }

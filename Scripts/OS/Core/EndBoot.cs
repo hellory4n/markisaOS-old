@@ -7,7 +7,7 @@ public class EndBoot : Timer {
         Connect("timeout", this, nameof(Thing));
 
         // open the mobile setup screen :)
-        if (OS.GetName() != "Android") {
+        if (OS.GetName() == "Android") {
             PackedScene oneOfThePackedScenes = ResourceLoader.Load<PackedScene>("res://OS/Core/MobileSetup.tscn");
             Node oneOfTheNodes = oneOfThePackedScenes.Instance();
             GetTree().Root.CallDeferred("add_child", oneOfTheNodes);
