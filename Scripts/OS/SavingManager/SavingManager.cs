@@ -27,7 +27,7 @@ public class SavingManager : Node {
             };
 
             // you won't do the the mobile setup thing on a pc
-            if (OS.GetName() == "Android")
+            if (OS.GetName() != "Android")
                 thing.AlreadySetup = true;
 
             displaySettings.StoreString(

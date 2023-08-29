@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/OS/Lelsktop/ImageBackground.cs" type="Script" id=1]
 [ext_resource path="res://Fonts/RedHatText-Bold.ttf" type="DynamicFontData" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Fonts/RedHatText-Medium.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Scripts/OS/Core/MobileSetup.cs" type="Script" id=5]
 [ext_resource path="res://Assets/Themes/Leltheme/Leltheme.tres" type="Theme" id=6]
+[ext_resource path="res://Audio/Music/MobileSetup.mp3" type="AudioStream" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -65,3 +66,7 @@ margin_right = 75.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 150, 40 )
 text = "Button"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+autoplay = true
