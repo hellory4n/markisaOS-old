@@ -27,8 +27,6 @@ public class MobileSetup : Control {
         if (Input.IsActionJustReleased("click_thingy")) {
             FailedAttempts++;
         }
-
-        GD.Print($"user has failed {FailedAttempts} times");
         base._GuiInput(@event);
     }
 

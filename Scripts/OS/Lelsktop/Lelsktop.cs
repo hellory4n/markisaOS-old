@@ -5,7 +5,6 @@ public class Lelsktop : Node2D {
     public override void _Ready() {
         base._Ready();
         Vector2 bruh = ResolutionManager.GetScreenSize();
-        GD.Print($"Screen resolution is {bruh.x}, {bruh.y}");
 
         Viewport pain = GetNode<Viewport>("/root/Lelsktop/Thing/Windows");
         pain.Size = bruh;
@@ -28,6 +27,23 @@ public class Lelsktop : Node2D {
         int keyEnd = animationomg.TrackFindKey(0, 0.5f);
         animationomg.TrackSetKeyValue(0, keyStart, new Vector2(0, bruh.y));
         animationomg.TrackSetKeyValue(0, keyEnd, new Vector2(0, bruh.y-75));
+
+
+        // and also fix the animation for the quick settings
+        Animation animationOrSomething = lelsktopInterface.GetNode<AnimationPlayer>("AnimationPlayer").
+            GetAnimation("OpenQuickSettings");
+        int keyStartOrSomething = animationOrSomething.TrackFindKey(0, 0);
+        int keyEndOrSomething = animationOrSomething.TrackFindKey(0, 0.5f);
+        animationOrSomething.TrackSetKeyValue(0, keyStartOrSomething, new Vector2(bruh.x-340, -200));
+        animationOrSomething.TrackSetKeyValue(0, keyEndOrSomething, new Vector2(bruh.x-340, 40));
+
+        Animation animationButDifferent = lelsktopInterface.GetNode<AnimationPlayer>("AnimationPlayer").
+            GetAnimation("CloseQuickSettings");
+        int keyStartButDifferent = animationButDifferent.TrackFindKey(0, 0);
+        int keyEndButDifferent = animationButDifferent.TrackFindKey(0, 0.5f);
+        animationButDifferent.TrackSetKeyValue(0, keyStartButDifferent, new Vector2(bruh.x-340, 40));
+        animationButDifferent.TrackSetKeyValue(0, keyEndButDifferent, new Vector2(bruh.x-340, -200));
+        
         lelsktopInterface.GetNode<AnimationPlayer>("AnimationPlayer").Play("Startup");
     }
 
