@@ -12,7 +12,7 @@ config_version=4
 
 config/name="lelcubeOS"
 config/description="Game."
-run/main_scene="res://OS/Core/Bootscreen.tscn"
+run/main_scene="res://OS/Core/MobileSetup.tscn"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 

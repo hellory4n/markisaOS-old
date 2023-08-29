@@ -25,6 +25,11 @@ public class SavingManager : Node {
             DisplaySettings thing = new DisplaySettings {
                 Resolution = OS.GetScreenSize()
             };
+
+            // you won't do the the mobile setup thing on a pc
+            if (OS.GetName() == "Android")
+                thing.AlreadySetup = true;
+
             displaySettings.StoreString(
                 JsonConvert.SerializeObject(thing)
             );

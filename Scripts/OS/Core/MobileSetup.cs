@@ -6,8 +6,20 @@ public class MobileSetup : Control {
 
     public override void _Ready() {
         base._Ready();
-        RectSize = ResolutionManager.GetScreenSize();
-        GetNode<Button>("Button").Connect("pressed", this, nameof(Thing));
+
+        // show the mobile setup thing :)
+        // when the saving manager creates the settings files it already checks if the device if a computer,
+        // and automatically skips the mobile setup thing if so
+        DisplaySettings m = SavingManager.LoadSettings<DisplaySettings>(SavingManager.Settings.DisplaySettings);
+        if (m.AlreadySetup) {
+            PackedScene aPackedScene = ResourceLoader.Load<PackedScene>("res://OS/Core/Bootscreen.tscn");
+            Node aNode = aPackedScene.Instance();
+            GetTree().Root.CallDeferred("add_child", aNode);
+            GetParent().QueueFree();
+        } else {
+            RectSize = m.Resolution/m.ScalingFactor;
+            GetNode<Button>("Button").Connect("pressed", this, nameof(Thing));
+        }
     }
 
     // idk man
@@ -55,6 +67,12 @@ public class MobileSetup : Control {
             FailedAttempts = 0;
         } else {
             // this seems right, show the bootscreen
+            DisplaySettings display = SavingManager.LoadSettings<DisplaySettings>(
+                SavingManager.Settings.DisplaySettings
+            );
+            display.AlreadySetup = true;
+            SavingManager.SaveSettings(SavingManager.Settings.DisplaySettings, display);
+
             PackedScene m = ResourceLoader.Load<PackedScene>("res://OS/Core/Bootscreen.tscn");
             Node jjkn = m.Instance();
             GetTree().Root.AddChild(jjkn);
