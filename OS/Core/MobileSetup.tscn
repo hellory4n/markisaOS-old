@@ -50,7 +50,7 @@ margin_bottom = 22.0
 rect_min_size = Vector2( 0, 40 )
 custom_fonts/font = SubResource( 2 )
 text = "We need to see what button size is right for you.
-Please try tapping on the button in the center of the screen."
+Please try tapping on the button in the center of the screen 3 times."
 align = 1
 valign = 1
 autowrap = true
