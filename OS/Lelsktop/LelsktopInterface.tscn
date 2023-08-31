@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://Scripts/OS/Lelsktop/DefaultOpenWindowButton.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/OS/Lelsktop/Time.cs" type="Script" id=2]
@@ -21,6 +21,16 @@
 [ext_resource path="res://Scripts/OS/Lelsktop/QuickSettings/OpenQuickSettings.cs" type="Script" id=19]
 [ext_resource path="res://Assets/Themes/Leltheme/Icons/Power.png" type="Texture" id=20]
 [ext_resource path="res://Scripts/OS/Lelsktop/WindowSpace.cs" type="Script" id=21]
+[ext_resource path="res://Assets/Themes/Leltheme/Icons/App.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Themes/Leltheme/Icons/Utilities.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Themes/Leltheme/Icons/Development.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Themes/Leltheme/Icons/Games.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Themes/Leltheme/Icons/Graphics.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Themes/Leltheme/Icons/Internet.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Themes/Leltheme/Icons/Multimedia.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Themes/Leltheme/Icons/Office.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Themes/Leltheme/Icons/System.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Themes/Leltheme/Icons/Accessories.png" type="Texture" id=31]
 
 [sub_resource type="Animation" id=20]
 resource_name = "CloseAppMenu"
@@ -188,8 +198,8 @@ load_path = "res://.import/Dashboard.png-a2c0f627fcaddca1aedcb876f8e7a940.stex"
 font_data = ExtResource( 12 )
 
 [sub_resource type="StyleBoxTexture" id=15]
-content_margin_left = 0.0
-content_margin_right = 0.0
+content_margin_left = 8.0
+content_margin_right = 8.0
 content_margin_top = 0.0
 content_margin_bottom = 0.0
 texture = ExtResource( 8 )
@@ -200,8 +210,8 @@ margin_top = 32.0
 margin_bottom = 32.0
 
 [sub_resource type="StyleBoxTexture" id=16]
-content_margin_left = 0.0
-content_margin_right = 0.0
+content_margin_left = 8.0
+content_margin_right = 8.0
 content_margin_top = 0.0
 content_margin_bottom = 0.0
 texture = ExtResource( 6 )
@@ -212,8 +222,12 @@ margin_top = 32.0
 margin_bottom = 32.0
 
 [sub_resource type="StyleBoxEmpty" id=17]
+content_margin_left = 8.0
+content_margin_right = 8.0
 
 [sub_resource type="StyleBoxEmpty" id=18]
+content_margin_left = 8.0
+content_margin_right = 8.0
 
 [sub_resource type="StyleBoxTexture" id=14]
 texture = ExtResource( 7 )
@@ -373,19 +387,20 @@ WindowScene = "res://OS/Lelsktop/Shutdown.tscn"
 [node name="AppMenu" type="Panel" parent="."]
 modulate = Color( 1, 1, 1, 0 )
 margin_top = -400.0
-margin_right = 200.0
+margin_right = 416.0
+margin_bottom = 10.0
 theme = ExtResource( 3 )
 
-[node name="CategoryCategories" type="ScrollContainer" parent="AppMenu"]
+[node name="Categories" type="ScrollContainer" parent="AppMenu"]
 margin_right = 200.0
 margin_bottom = 400.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/CategoryCategories"]
+[node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/Categories"]
 margin_right = 200.0
-margin_bottom = 320.0
+margin_bottom = 400.0
 custom_constants/separation = 0
 
-[node name="Accessories" type="Button" parent="AppMenu/CategoryCategories/VBoxContainer"]
+[node name="AllApps" type="Button" parent="AppMenu/Categories/VBoxContainer"]
 margin_right = 200.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 200, 40 )
@@ -393,11 +408,13 @@ custom_styles/hover = SubResource( 15 )
 custom_styles/pressed = SubResource( 16 )
 custom_styles/focus = SubResource( 17 )
 custom_styles/normal = SubResource( 18 )
-text = "Accessories"
+text = "All Apps"
+icon = ExtResource( 22 )
+align = 0
 script = ExtResource( 11 )
-Category = "CategoryAccessories"
+Category = "CategoryAllApps"
 
-[node name="Games" type="Button" parent="AppMenu/CategoryCategories/VBoxContainer"]
+[node name="Accessories" type="Button" parent="AppMenu/Categories/VBoxContainer"]
 margin_top = 40.0
 margin_right = 200.0
 margin_bottom = 80.0
@@ -406,11 +423,13 @@ custom_styles/hover = SubResource( 15 )
 custom_styles/pressed = SubResource( 16 )
 custom_styles/focus = SubResource( 17 )
 custom_styles/normal = SubResource( 18 )
-text = "Games"
+text = "Accessories"
+icon = ExtResource( 31 )
+align = 0
 script = ExtResource( 11 )
-Category = "CategoryGames"
+Category = "CategoryAccessories"
 
-[node name="Graphics" type="Button" parent="AppMenu/CategoryCategories/VBoxContainer"]
+[node name="Development" type="Button" parent="AppMenu/Categories/VBoxContainer"]
 margin_top = 80.0
 margin_right = 200.0
 margin_bottom = 120.0
@@ -419,11 +438,13 @@ custom_styles/hover = SubResource( 15 )
 custom_styles/pressed = SubResource( 16 )
 custom_styles/focus = SubResource( 17 )
 custom_styles/normal = SubResource( 18 )
-text = "Graphics"
+text = "Development"
+icon = ExtResource( 24 )
+align = 0
 script = ExtResource( 11 )
-Category = "CategoryGraphics"
+Category = "CategoryDevelopment"
 
-[node name="Internet" type="Button" parent="AppMenu/CategoryCategories/VBoxContainer"]
+[node name="Games" type="Button" parent="AppMenu/Categories/VBoxContainer"]
 margin_top = 120.0
 margin_right = 200.0
 margin_bottom = 160.0
@@ -432,11 +453,13 @@ custom_styles/hover = SubResource( 15 )
 custom_styles/pressed = SubResource( 16 )
 custom_styles/focus = SubResource( 17 )
 custom_styles/normal = SubResource( 18 )
-text = "Internet"
+text = "Games"
+icon = ExtResource( 25 )
+align = 0
 script = ExtResource( 11 )
-Category = "CategoryInternet"
+Category = "CategoryGames"
 
-[node name="Multimedia" type="Button" parent="AppMenu/CategoryCategories/VBoxContainer"]
+[node name="Graphics" type="Button" parent="AppMenu/Categories/VBoxContainer"]
 margin_top = 160.0
 margin_right = 200.0
 margin_bottom = 200.0
@@ -445,11 +468,13 @@ custom_styles/hover = SubResource( 15 )
 custom_styles/pressed = SubResource( 16 )
 custom_styles/focus = SubResource( 17 )
 custom_styles/normal = SubResource( 18 )
-text = "Multimedia"
+text = "Graphics"
+icon = ExtResource( 26 )
+align = 0
 script = ExtResource( 11 )
-Category = "CategoryMultimedia"
+Category = "CategoryGraphics"
 
-[node name="Office" type="Button" parent="AppMenu/CategoryCategories/VBoxContainer"]
+[node name="Internet" type="Button" parent="AppMenu/Categories/VBoxContainer"]
 margin_top = 200.0
 margin_right = 200.0
 margin_bottom = 240.0
@@ -458,11 +483,13 @@ custom_styles/hover = SubResource( 15 )
 custom_styles/pressed = SubResource( 16 )
 custom_styles/focus = SubResource( 17 )
 custom_styles/normal = SubResource( 18 )
-text = "Office"
+text = "Internet"
+icon = ExtResource( 27 )
+align = 0
 script = ExtResource( 11 )
-Category = "CategoryOffice"
+Category = "CategoryInternet"
 
-[node name="System" type="Button" parent="AppMenu/CategoryCategories/VBoxContainer"]
+[node name="Multimedia" type="Button" parent="AppMenu/Categories/VBoxContainer"]
 margin_top = 240.0
 margin_right = 200.0
 margin_bottom = 280.0
@@ -471,11 +498,13 @@ custom_styles/hover = SubResource( 15 )
 custom_styles/pressed = SubResource( 16 )
 custom_styles/focus = SubResource( 17 )
 custom_styles/normal = SubResource( 18 )
-text = "System"
+text = "Multimedia"
+icon = ExtResource( 28 )
+align = 0
 script = ExtResource( 11 )
-Category = "CategorySystem"
+Category = "CategoryMultimedia"
 
-[node name="Utilities" type="Button" parent="AppMenu/CategoryCategories/VBoxContainer"]
+[node name="Office" type="Button" parent="AppMenu/Categories/VBoxContainer"]
 margin_top = 280.0
 margin_right = 200.0
 margin_bottom = 320.0
@@ -484,287 +513,2595 @@ custom_styles/hover = SubResource( 15 )
 custom_styles/pressed = SubResource( 16 )
 custom_styles/focus = SubResource( 17 )
 custom_styles/normal = SubResource( 18 )
-text = "Utilities"
+text = "Office"
+icon = ExtResource( 29 )
+align = 0
 script = ExtResource( 11 )
-Category = "CategoryUtilities"
+Category = "CategoryOffice"
 
-[node name="CategoryAccessories" type="ScrollContainer" parent="AppMenu"]
-visible = false
+[node name="System" type="Button" parent="AppMenu/Categories/VBoxContainer"]
+margin_top = 320.0
 margin_right = 200.0
-margin_bottom = 400.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/CategoryAccessories"]
-margin_right = 200.0
-margin_bottom = 80.0
-custom_constants/separation = 0
-
-[node name="Back" type="Button" parent="AppMenu/CategoryAccessories/VBoxContainer"]
-margin_right = 200.0
-margin_bottom = 40.0
+margin_bottom = 360.0
 rect_min_size = Vector2( 200, 40 )
 custom_styles/hover = SubResource( 15 )
 custom_styles/pressed = SubResource( 16 )
 custom_styles/focus = SubResource( 17 )
 custom_styles/normal = SubResource( 18 )
-text = "Back"
+text = "System"
+icon = ExtResource( 30 )
+align = 0
 script = ExtResource( 11 )
-Category = "CategoryCategories"
+Category = "CategorySystem"
+
+[node name="Utilities" type="Button" parent="AppMenu/Categories/VBoxContainer"]
+margin_top = 360.0
+margin_right = 200.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 200, 40 )
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Utilities"
+icon = ExtResource( 23 )
+align = 0
+script = ExtResource( 11 )
+Category = "CategoryUtilities"
+
+[node name="CategoryAllApps" type="ScrollContainer" parent="AppMenu"]
+margin_left = 200.0
+margin_right = 416.0
+margin_bottom = 407.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/CategoryAllApps"]
+margin_right = 200.0
+margin_bottom = 960.0
+custom_constants/separation = 0
+
+[node name="TestApp" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+margin_right = 200.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp2" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp3" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+margin_top = 80.0
+margin_right = 200.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp4" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+margin_top = 120.0
+margin_right = 200.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp5" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+margin_top = 160.0
+margin_right = 200.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp6" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+margin_top = 200.0
+margin_right = 200.0
+margin_bottom = 240.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp7" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+margin_top = 240.0
+margin_right = 200.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp8" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+margin_top = 280.0
+margin_right = 200.0
+margin_bottom = 320.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp9" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+margin_top = 320.0
+margin_right = 200.0
+margin_bottom = 360.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp10" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+margin_top = 360.0
+margin_right = 200.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp11" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+margin_top = 400.0
+margin_right = 200.0
+margin_bottom = 440.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp12" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+margin_top = 440.0
+margin_right = 200.0
+margin_bottom = 480.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp13" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+margin_top = 480.0
+margin_right = 200.0
+margin_bottom = 520.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp14" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+margin_top = 520.0
+margin_right = 200.0
+margin_bottom = 560.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp15" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+margin_top = 560.0
+margin_right = 200.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp16" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+margin_top = 600.0
+margin_right = 200.0
+margin_bottom = 640.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp17" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+margin_top = 640.0
+margin_right = 200.0
+margin_bottom = 680.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp18" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+margin_top = 680.0
+margin_right = 200.0
+margin_bottom = 720.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp19" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+margin_top = 720.0
+margin_right = 200.0
+margin_bottom = 760.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp20" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+margin_top = 760.0
+margin_right = 200.0
+margin_bottom = 800.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp21" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+margin_top = 800.0
+margin_right = 200.0
+margin_bottom = 840.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp22" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+margin_top = 840.0
+margin_right = 200.0
+margin_bottom = 880.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp23" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+margin_top = 880.0
+margin_right = 200.0
+margin_bottom = 920.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp24" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+margin_top = 920.0
+margin_right = 200.0
+margin_bottom = 960.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="CategoryAccessories" type="ScrollContainer" parent="AppMenu"]
+visible = false
+margin_left = 200.0
+margin_right = 416.0
+margin_bottom = 407.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/CategoryAccessories"]
+margin_right = 200.0
+margin_bottom = 40.0
+custom_constants/separation = 0
 
 [node name="TestApp" type="Button" parent="AppMenu/CategoryAccessories/VBoxContainer"]
 margin_top = 40.0
 margin_right = 200.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
 custom_styles/hover = SubResource( 15 )
 custom_styles/pressed = SubResource( 16 )
 custom_styles/focus = SubResource( 17 )
 custom_styles/normal = SubResource( 18 )
 text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp2" type="Button" parent="AppMenu/CategoryAccessories/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp3" type="Button" parent="AppMenu/CategoryAccessories/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp4" type="Button" parent="AppMenu/CategoryAccessories/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp5" type="Button" parent="AppMenu/CategoryAccessories/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp6" type="Button" parent="AppMenu/CategoryAccessories/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp7" type="Button" parent="AppMenu/CategoryAccessories/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp8" type="Button" parent="AppMenu/CategoryAccessories/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="CategoryDevelopment" type="ScrollContainer" parent="AppMenu"]
+visible = false
+margin_left = 200.0
+margin_right = 416.0
+margin_bottom = 407.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/CategoryDevelopment"]
+margin_right = 200.0
+margin_bottom = 40.0
+custom_constants/separation = 0
+
+[node name="TestApp" type="Button" parent="AppMenu/CategoryDevelopment/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp2" type="Button" parent="AppMenu/CategoryDevelopment/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp3" type="Button" parent="AppMenu/CategoryDevelopment/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp4" type="Button" parent="AppMenu/CategoryDevelopment/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp5" type="Button" parent="AppMenu/CategoryDevelopment/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp6" type="Button" parent="AppMenu/CategoryDevelopment/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp7" type="Button" parent="AppMenu/CategoryDevelopment/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
 script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="CategoryGames" type="ScrollContainer" parent="AppMenu"]
 visible = false
-margin_right = 200.0
-margin_bottom = 400.0
+margin_left = 200.0
+margin_right = 416.0
+margin_bottom = 407.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/CategoryGames"]
 margin_right = 200.0
-margin_bottom = 80.0
-custom_constants/separation = 0
-
-[node name="Back" type="Button" parent="AppMenu/CategoryGames/VBoxContainer"]
-margin_right = 200.0
 margin_bottom = 40.0
-rect_min_size = Vector2( 200, 40 )
-custom_styles/hover = SubResource( 15 )
-custom_styles/pressed = SubResource( 16 )
-custom_styles/focus = SubResource( 17 )
-custom_styles/normal = SubResource( 18 )
-text = "Back"
-script = ExtResource( 11 )
-Category = "CategoryCategories"
+custom_constants/separation = 0
 
 [node name="TestApp" type="Button" parent="AppMenu/CategoryGames/VBoxContainer"]
 margin_top = 40.0
 margin_right = 200.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
 custom_styles/hover = SubResource( 15 )
 custom_styles/pressed = SubResource( 16 )
 custom_styles/focus = SubResource( 17 )
 custom_styles/normal = SubResource( 18 )
 text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp2" type="Button" parent="AppMenu/CategoryGames/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp3" type="Button" parent="AppMenu/CategoryGames/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp4" type="Button" parent="AppMenu/CategoryGames/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp5" type="Button" parent="AppMenu/CategoryGames/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
 script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="CategoryGraphics" type="ScrollContainer" parent="AppMenu"]
 visible = false
-margin_right = 200.0
-margin_bottom = 400.0
+margin_left = 200.0
+margin_right = 416.0
+margin_bottom = 407.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/CategoryGraphics"]
 margin_right = 200.0
-margin_bottom = 80.0
-custom_constants/separation = 0
-
-[node name="Back" type="Button" parent="AppMenu/CategoryGraphics/VBoxContainer"]
-margin_right = 200.0
 margin_bottom = 40.0
-rect_min_size = Vector2( 200, 40 )
-custom_styles/hover = SubResource( 15 )
-custom_styles/pressed = SubResource( 16 )
-custom_styles/focus = SubResource( 17 )
-custom_styles/normal = SubResource( 18 )
-text = "Back"
-script = ExtResource( 11 )
-Category = "CategoryCategories"
+custom_constants/separation = 0
 
 [node name="TestApp" type="Button" parent="AppMenu/CategoryGraphics/VBoxContainer"]
 margin_top = 40.0
 margin_right = 200.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
 custom_styles/hover = SubResource( 15 )
 custom_styles/pressed = SubResource( 16 )
 custom_styles/focus = SubResource( 17 )
 custom_styles/normal = SubResource( 18 )
 text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp2" type="Button" parent="AppMenu/CategoryGraphics/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp3" type="Button" parent="AppMenu/CategoryGraphics/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp4" type="Button" parent="AppMenu/CategoryGraphics/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp5" type="Button" parent="AppMenu/CategoryGraphics/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp6" type="Button" parent="AppMenu/CategoryGraphics/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp7" type="Button" parent="AppMenu/CategoryGraphics/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp8" type="Button" parent="AppMenu/CategoryGraphics/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp9" type="Button" parent="AppMenu/CategoryGraphics/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp10" type="Button" parent="AppMenu/CategoryGraphics/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp11" type="Button" parent="AppMenu/CategoryGraphics/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp12" type="Button" parent="AppMenu/CategoryGraphics/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
 script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="CategoryInternet" type="ScrollContainer" parent="AppMenu"]
 visible = false
-margin_right = 200.0
-margin_bottom = 400.0
+margin_left = 200.0
+margin_right = 416.0
+margin_bottom = 407.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/CategoryInternet"]
 margin_right = 200.0
-margin_bottom = 80.0
-custom_constants/separation = 0
-
-[node name="Back" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_right = 200.0
 margin_bottom = 40.0
-rect_min_size = Vector2( 200, 40 )
-custom_styles/hover = SubResource( 15 )
-custom_styles/pressed = SubResource( 16 )
-custom_styles/focus = SubResource( 17 )
-custom_styles/normal = SubResource( 18 )
-text = "Back"
-script = ExtResource( 11 )
-Category = "CategoryCategories"
+custom_constants/separation = 0
 
 [node name="TestApp" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
 margin_top = 40.0
 margin_right = 200.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
 custom_styles/hover = SubResource( 15 )
 custom_styles/pressed = SubResource( 16 )
 custom_styles/focus = SubResource( 17 )
 custom_styles/normal = SubResource( 18 )
 text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp2" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp3" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp4" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp5" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp6" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp7" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp8" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp9" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp10" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp11" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp12" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp13" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp14" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp15" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp16" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp17" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp18" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp19" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp20" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp21" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp22" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp23" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp24" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp25" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp26" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp27" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp28" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp29" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp30" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp31" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp32" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp33" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp34" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp35" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp36" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp37" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp38" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp39" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp40" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp41" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp42" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp43" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp44" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp45" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp46" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp47" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp48" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp49" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp50" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp51" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp52" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp53" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp54" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp55" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp56" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp57" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp58" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp59" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp60" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp61" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp62" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp63" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp64" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
 script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="CategoryMultimedia" type="ScrollContainer" parent="AppMenu"]
 visible = false
-margin_right = 200.0
-margin_bottom = 400.0
+margin_left = 200.0
+margin_right = 416.0
+margin_bottom = 407.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/CategoryMultimedia"]
 margin_right = 200.0
-margin_bottom = 80.0
-custom_constants/separation = 0
-
-[node name="Back" type="Button" parent="AppMenu/CategoryMultimedia/VBoxContainer"]
-margin_right = 200.0
 margin_bottom = 40.0
-rect_min_size = Vector2( 200, 40 )
-custom_styles/hover = SubResource( 15 )
-custom_styles/pressed = SubResource( 16 )
-custom_styles/focus = SubResource( 17 )
-custom_styles/normal = SubResource( 18 )
-text = "Back"
-script = ExtResource( 11 )
-Category = "CategoryCategories"
+custom_constants/separation = 0
 
 [node name="TestApp" type="Button" parent="AppMenu/CategoryMultimedia/VBoxContainer"]
 margin_top = 40.0
 margin_right = 200.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
 custom_styles/hover = SubResource( 15 )
 custom_styles/pressed = SubResource( 16 )
 custom_styles/focus = SubResource( 17 )
 custom_styles/normal = SubResource( 18 )
 text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp2" type="Button" parent="AppMenu/CategoryMultimedia/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp3" type="Button" parent="AppMenu/CategoryMultimedia/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
 script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="CategoryOffice" type="ScrollContainer" parent="AppMenu"]
 visible = false
-margin_right = 200.0
-margin_bottom = 400.0
+margin_left = 200.0
+margin_right = 416.0
+margin_bottom = 407.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/CategoryOffice"]
 margin_right = 200.0
-margin_bottom = 80.0
-custom_constants/separation = 0
-
-[node name="Back" type="Button" parent="AppMenu/CategoryOffice/VBoxContainer"]
-margin_right = 200.0
 margin_bottom = 40.0
-rect_min_size = Vector2( 200, 40 )
-custom_styles/hover = SubResource( 15 )
-custom_styles/pressed = SubResource( 16 )
-custom_styles/focus = SubResource( 17 )
-custom_styles/normal = SubResource( 18 )
-text = "Back"
-script = ExtResource( 11 )
-Category = "CategoryCategories"
+custom_constants/separation = 0
 
 [node name="TestApp" type="Button" parent="AppMenu/CategoryOffice/VBoxContainer"]
 margin_top = 40.0
 margin_right = 200.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
 custom_styles/hover = SubResource( 15 )
 custom_styles/pressed = SubResource( 16 )
 custom_styles/focus = SubResource( 17 )
 custom_styles/normal = SubResource( 18 )
 text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp2" type="Button" parent="AppMenu/CategoryOffice/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp3" type="Button" parent="AppMenu/CategoryOffice/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp4" type="Button" parent="AppMenu/CategoryOffice/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp5" type="Button" parent="AppMenu/CategoryOffice/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp6" type="Button" parent="AppMenu/CategoryOffice/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp7" type="Button" parent="AppMenu/CategoryOffice/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp8" type="Button" parent="AppMenu/CategoryOffice/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp9" type="Button" parent="AppMenu/CategoryOffice/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp10" type="Button" parent="AppMenu/CategoryOffice/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp11" type="Button" parent="AppMenu/CategoryOffice/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp12" type="Button" parent="AppMenu/CategoryOffice/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp13" type="Button" parent="AppMenu/CategoryOffice/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
 script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="CategorySystem" type="ScrollContainer" parent="AppMenu"]
 visible = false
-margin_right = 200.0
-margin_bottom = 400.0
+margin_left = 200.0
+margin_right = 416.0
+margin_bottom = 407.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/CategorySystem"]
 margin_right = 200.0
-margin_bottom = 80.0
-custom_constants/separation = 0
-
-[node name="Back" type="Button" parent="AppMenu/CategorySystem/VBoxContainer"]
-margin_right = 200.0
 margin_bottom = 40.0
-rect_min_size = Vector2( 200, 40 )
-custom_styles/hover = SubResource( 15 )
-custom_styles/pressed = SubResource( 16 )
-custom_styles/focus = SubResource( 17 )
-custom_styles/normal = SubResource( 18 )
-text = "Back"
-script = ExtResource( 11 )
-Category = "CategoryCategories"
+custom_constants/separation = 0
 
 [node name="TestApp" type="Button" parent="AppMenu/CategorySystem/VBoxContainer"]
 margin_top = 40.0
 margin_right = 200.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
 custom_styles/hover = SubResource( 15 )
 custom_styles/pressed = SubResource( 16 )
 custom_styles/focus = SubResource( 17 )
 custom_styles/normal = SubResource( 18 )
 text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp2" type="Button" parent="AppMenu/CategorySystem/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
 script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="CategoryUtilities" type="ScrollContainer" parent="AppMenu"]
 visible = false
-margin_right = 200.0
-margin_bottom = 400.0
+margin_left = 200.0
+margin_right = 416.0
+margin_bottom = 407.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/CategoryUtilities"]
 margin_right = 200.0
-margin_bottom = 80.0
-custom_constants/separation = 0
-
-[node name="Back" type="Button" parent="AppMenu/CategoryUtilities/VBoxContainer"]
-margin_right = 200.0
 margin_bottom = 40.0
-rect_min_size = Vector2( 200, 40 )
-custom_styles/hover = SubResource( 15 )
-custom_styles/pressed = SubResource( 16 )
-custom_styles/focus = SubResource( 17 )
-custom_styles/normal = SubResource( 18 )
-text = "Back"
-script = ExtResource( 11 )
-Category = "CategoryCategories"
+custom_constants/separation = 0
 
 [node name="TestApp" type="Button" parent="AppMenu/CategoryUtilities/VBoxContainer"]
 margin_top = 40.0
 margin_right = 200.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
 custom_styles/hover = SubResource( 15 )
 custom_styles/pressed = SubResource( 16 )
 custom_styles/focus = SubResource( 17 )
 custom_styles/normal = SubResource( 18 )
 text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp2" type="Button" parent="AppMenu/CategoryUtilities/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp3" type="Button" parent="AppMenu/CategoryUtilities/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp4" type="Button" parent="AppMenu/CategoryUtilities/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp5" type="Button" parent="AppMenu/CategoryUtilities/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp6" type="Button" parent="AppMenu/CategoryUtilities/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp7" type="Button" parent="AppMenu/CategoryUtilities/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp8" type="Button" parent="AppMenu/CategoryUtilities/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp9" type="Button" parent="AppMenu/CategoryUtilities/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp10" type="Button" parent="AppMenu/CategoryUtilities/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp11" type="Button" parent="AppMenu/CategoryUtilities/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp12" type="Button" parent="AppMenu/CategoryUtilities/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp13" type="Button" parent="AppMenu/CategoryUtilities/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp14" type="Button" parent="AppMenu/CategoryUtilities/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
+script = ExtResource( 1 )
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp15" type="Button" parent="AppMenu/CategoryUtilities/VBoxContainer"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 40 )
+mouse_filter = 1
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "Test App™"
+icon = ExtResource( 22 )
+align = 0
 script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
@@ -788,10 +3125,13 @@ script = ExtResource( 10 )
 
 [node name="Search" type="Button" parent="Panel"]
 anchor_left = 1.0
+anchor_top = 0.5
 anchor_right = 1.0
-margin_left = -40.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 40, 40 )
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 100, 40 )
 custom_styles/hover = SubResource( 15 )
 custom_styles/pressed = SubResource( 16 )
 custom_styles/focus = SubResource( 17 )
@@ -800,27 +3140,26 @@ icon = ExtResource( 9 )
 icon_align = 1
 
 [node name="Time" type="Button" parent="Panel"]
-anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -190.0
-margin_right = -40.0
-margin_bottom = 40.0
+anchor_bottom = 1.0
 rect_min_size = Vector2( 40, 40 )
+mouse_filter = 2
 custom_styles/hover = SubResource( 15 )
 custom_styles/pressed = SubResource( 16 )
 custom_styles/focus = SubResource( 17 )
 custom_styles/normal = SubResource( 18 )
 text = "06/09/2069 06:09"
-align = 2
-icon_align = 1
 script = ExtResource( 2 )
 
 [node name="Settings" type="Button" parent="Panel"]
 anchor_left = 1.0
+anchor_top = 0.5
 anchor_right = 1.0
-margin_left = -290.0
-margin_right = -190.0
-margin_bottom = 40.0
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = -20.0
+margin_right = -100.0
+margin_bottom = 20.0
 rect_min_size = Vector2( 100, 40 )
 custom_styles/hover = SubResource( 15 )
 custom_styles/pressed = SubResource( 16 )

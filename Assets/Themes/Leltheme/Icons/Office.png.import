@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Dashboard.png-a2c0f627fcaddca1aedcb876f8e7a940.stex"
+path="res://.import/Office.png-1328b1bd6cefa6d983f1f400497288dd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Themes/Leltheme/Icons/Dashboard.png"
-dest_files=[ "res://.import/Dashboard.png-a2c0f627fcaddca1aedcb876f8e7a940.stex" ]
+source_file="res://Assets/Themes/Leltheme/Icons/Office.png"
+dest_files=[ "res://.import/Office.png-1328b1bd6cefa6d983f1f400497288dd.stex" ]
 
 [params]
 
