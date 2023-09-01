@@ -6,6 +6,6 @@ public class DisplaySettingsApply : Button {
         base._Ready();
 
         // set the value of the spin boxes to the current settings
-        DisplaySettings display = SavingManager.LoadSettings<DisplaySettings>(SavingManager.Settings.DisplaySettings);
+        DisplaySettings display = SavingManager.LoadSettings<DisplaySettings>();
     }
 }

@@ -2,7 +2,6 @@ using Godot;
 using System;
 
 public class MobileSetup : Control {
-    int FailedAttempts = 0;
     int SuccessfulAttempts = 0;
 
     public override void _Ready() {
@@ -11,7 +10,7 @@ public class MobileSetup : Control {
         // show the mobile setup thing :)
         // when the saving manager creates the settings files it already checks if the device if a computer,
         // and automatically skips the mobile setup thing if so
-        DisplaySettings m = SavingManager.LoadSettings<DisplaySettings>(SavingManager.Settings.DisplaySettings);
+        DisplaySettings m = SavingManager.LoadSettings<DisplaySettings>();
         if (m.AlreadySetup) {
             PackedScene aPackedScene = ResourceLoader.Load<PackedScene>("res://OS/Core/Bootscreen.tscn");
             Node aNode = aPackedScene.Instance();
@@ -28,11 +27,9 @@ public class MobileSetup : Control {
             // if the button was successfully pressed it would be processed by the button first
             if (fart.Pressed) {
                 // first update the resolution
-                DisplaySettings display = SavingManager.LoadSettings<DisplaySettings>(
-                    SavingManager.Settings.DisplaySettings
-                );
+                DisplaySettings display = SavingManager.LoadSettings<DisplaySettings>();
                 display.ScalingFactor += 0.2f;
-                SavingManager.SaveSettings(SavingManager.Settings.DisplaySettings, display);
+                SavingManager.SaveSettings(display);
                 ResolutionManager m = GetNode<ResolutionManager>("/root/ResolutionManager");
                 m.Update();
 
@@ -57,7 +54,6 @@ public class MobileSetup : Control {
                     display.Resolution.x/display.ScalingFactor, display.Resolution.y/display.ScalingFactor
                 ) / 2;
 
-                FailedAttempts = 0;
                 SuccessfulAttempts = 0;
             }
         }
@@ -68,11 +64,9 @@ public class MobileSetup : Control {
         SuccessfulAttempts++;
         if (SuccessfulAttempts == 3) {
             // this seems right, show the bootscreen
-            DisplaySettings display = SavingManager.LoadSettings<DisplaySettings>(
-                SavingManager.Settings.DisplaySettings
-            );
+            DisplaySettings display = SavingManager.LoadSettings<DisplaySettings>();
             display.AlreadySetup = true;
-            SavingManager.SaveSettings(SavingManager.Settings.DisplaySettings, display);
+            SavingManager.SaveSettings(display);
 
             PackedScene m = ResourceLoader.Load<PackedScene>("res://OS/Core/Bootscreen.tscn");
             Node jjkn = m.Instance();

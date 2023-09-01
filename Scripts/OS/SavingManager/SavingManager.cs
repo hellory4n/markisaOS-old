@@ -4,13 +4,6 @@ using Newtonsoft.Json;
 
 public class SavingManager : Node {
     public static string CurrentUser = "";
-    public enum Info {
-        BasicInfo,
-        UserInfo
-    }
-    public enum Settings {
-        DisplaySettings
-    }
 
     // setups settings files, in _EnterTree() since it needs to be ready before the things that use the settings
     public override void _EnterTree() {
@@ -56,13 +49,13 @@ public class SavingManager : Node {
         pain.Close();
     }    
 
-    public static T Load<T>(string user, Info info) {
+    public static T Load<T>(string user) {
         string filename = "";
-        switch (info) {
-            case Info.BasicInfo:
+        switch (typeof(T).Name) {
+            case nameof(BasicUser):
                 filename = $"user://Users/{user}/BasicInfo.json";
                 break;
-            case Info.UserInfo:
+            case nameof(UserInfo):
                 filename = $"user://Users/{user}/UserInfo.json";
                 break;
             default:
@@ -81,13 +74,13 @@ public class SavingManager : Node {
         }
     }
 
-    public static void Save<T>(string user, Info info, T data) {
+    public static void Save<T>(string user, T data) {
         string filename = "";
-        switch (info) {
-            case Info.BasicInfo:
+        switch (typeof(T).Name) {
+            case nameof(BasicUser):
                 filename = $"user://Users/{user}/BasicInfo.json";
                 break;
-            case Info.UserInfo:
+            case nameof(UserInfo):
                 filename = $"user://Users/{user}/UserInfo.json";
                 break;
             default:
@@ -104,10 +97,10 @@ public class SavingManager : Node {
         }
     }
 
-    public static T LoadSettings<T>(Settings settings) {
+    public static T LoadSettings<T>() {
         string filename = "";
-        switch (settings) {
-            case Settings.DisplaySettings:
+        switch (typeof(T).Name) {
+            case nameof(DisplaySettings):
                 filename = $"user://Settings/DisplaySettings.json";
                 break;
             default:
@@ -126,10 +119,10 @@ public class SavingManager : Node {
         }
     }
 
-    public static void SaveSettings<T>(Settings settings, T data) {
+    public static void SaveSettings<T>(T data) {
         string filename = "";
-        switch (settings) {
-            case Settings.DisplaySettings:
+        switch (typeof(T).Name) {
+            case nameof(DisplaySettings):
                 filename = $"user://Settings/DisplaySettings.json";
                 break;
             default:

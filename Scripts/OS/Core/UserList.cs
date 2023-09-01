@@ -27,7 +27,7 @@ public class UserList : VBoxContainer {
                 useromgomgomg.Text = filename;
                 
                 // cool user photo
-                string photo = SavingManager.Load<UserInfo>(filename, SavingManager.Info.UserInfo).Photo;
+                string photo = SavingManager.Load<UserInfo>(filename).Photo;
                 switch (photo) {
                     case "Cat":
                         useromgomgomg.Icon = cat;

@@ -10,9 +10,7 @@ public class ResolutionManager : Node {
     }
 
     public void Update() {
-        DisplaySettings displaySettings = SavingManager.LoadSettings<DisplaySettings>(
-            SavingManager.Settings.DisplaySettings
-        );
+        DisplaySettings displaySettings = SavingManager.LoadSettings<DisplaySettings>();
 
         GetTree().SetScreenStretch(SceneTree.StretchMode.Mode2d, SceneTree.StretchAspect.Keep, 
             displaySettings.Resolution/displaySettings.ScalingFactor);
@@ -20,9 +18,7 @@ public class ResolutionManager : Node {
 
     public static Vector2 GetScreenSize() {
         Vector2 resolution;
-        DisplaySettings displaySettings = SavingManager.LoadSettings<DisplaySettings>(
-            SavingManager.Settings.DisplaySettings
-        );
+        DisplaySettings displaySettings = SavingManager.LoadSettings<DisplaySettings>();
         resolution = displaySettings.Resolution/displaySettings.ScalingFactor;
         return resolution;
     }

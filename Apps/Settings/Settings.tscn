@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme/Leltheme.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/Themes/Leltheme/Icons/Graphics.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Assets/Themes/Leltheme/Icons/Accessories.png" type="Texture" id=6]
 [ext_resource path="res://Scripts/OS/Lelsktop/SidebarButton.cs" type="Script" id=7]
 [ext_resource path="res://Assets/Boot/Logo.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/Apps/Settings/Display/DisplaySettingsApply.cs" type="Script" id=9]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Close"
@@ -225,6 +226,7 @@ margin_right = 750.0
 margin_bottom = 500.0
 
 [node name="CategoryHome" type="CenterContainer" parent="HSplitContainer/Content"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -238,7 +240,6 @@ text = "Welcome to the Settings app!"
 align = 1
 
 [node name="CategoryDisplay" type="CenterContainer" parent="HSplitContainer/Content"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -309,6 +310,7 @@ margin_top = 186.0
 margin_right = 310.0
 margin_bottom = 226.0
 text = "Apply"
+script = ExtResource( 9 )
 
 [node name="CategorySomethingElse" type="ScrollContainer" parent="HSplitContainer/Content"]
 visible = false

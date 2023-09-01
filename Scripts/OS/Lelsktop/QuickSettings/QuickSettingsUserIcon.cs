@@ -16,9 +16,7 @@ public class QuickSettingsUserIcon : Sprite {
         Texture football = ResourceLoader.Load<Texture>("res://Assets/UserIcons/Football.png");
                 
         // cool user photo
-        string photo = SavingManager.Load<UserInfo>(
-            SavingManager.CurrentUser, SavingManager.Info.UserInfo
-        ).Photo;
+        string photo = SavingManager.Load<UserInfo>(SavingManager.CurrentUser).Photo;
 
         switch (photo) {
             case "Cat":
