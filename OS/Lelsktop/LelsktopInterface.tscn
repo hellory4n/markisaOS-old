@@ -441,17 +441,17 @@ margin_right = 200.0
 margin_bottom = 960.0
 custom_constants/separation = 0
 
-[node name="TestApp" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+[node name="Settings" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
 margin_right = 200.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
-text = "Test App™"
-icon = ExtResource( 22 )
+text = "Settings"
+icon = ExtResource( 31 )
 align = 0
 script = ExtResource( 1 )
-WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+WindowScene = "res://Apps/Settings/Settings.tscn"
 
 [node name="TestApp2" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
 margin_top = 40.0

@@ -2,11 +2,8 @@
 
 [ext_resource path="res://Assets/Themes/Leltheme/Leltheme.tres" type="Theme" id=1]
 [ext_resource path="res://Scripts/Apps/WindowManagerTest/EpicCoolAmazingBeautifulGorgeousFantasticMajesticButton.cs" type="Script" id=2]
-[ext_resource path="res://Scripts/OS/WindowManager/BaseWindow.cs" type="Script" id=5]
-
-[sub_resource type="StreamTexture" id=19]
-flags = 4
-load_path = "res://.import/Dashboard.png-a2c0f627fcaddca1aedcb876f8e7a940.stex"
+[ext_resource path="res://Scripts/OS/WindowManager/BaseWindow.cs" type="Script" id=3]
+[ext_resource path="res://Apps/Settings/Assets/IconDock.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Close"
@@ -135,17 +132,17 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[node name="WindowManagerTest" type="WindowDialog"]
+[node name="Settings" type="WindowDialog"]
 process_priority = 1
-margin_right = 400.0
+margin_right = 300.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 400, 100 )
 theme = ExtResource( 1 )
 popup_exclusive = true
-window_title = "Window Test"
+window_title = "Settings"
 resizable = true
-script = ExtResource( 5 )
-Icon = SubResource( 19 )
+script = ExtResource( 3 )
+Icon = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 method_call_mode = 1
@@ -163,5 +160,5 @@ margin_left = -152.5
 margin_top = -20.0
 margin_right = 152.5
 margin_bottom = 20.0
-text = "buy something from amazon dot com"
+text = "set stuff or something idk"
 script = ExtResource( 2 )
