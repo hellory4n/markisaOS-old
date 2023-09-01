@@ -139,7 +139,6 @@ tracks/1/keys = {
 
 [node name="Settings" type="WindowDialog"]
 process_priority = 1
-visible = true
 margin_right = 750.0
 margin_bottom = 500.0
 rect_min_size = Vector2( 600, 300 )
@@ -226,7 +225,6 @@ margin_right = 750.0
 margin_bottom = 500.0
 
 [node name="CategoryHome" type="CenterContainer" parent="HSplitContainer/Content"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -240,14 +238,15 @@ text = "Welcome to the Settings app!"
 align = 1
 
 [node name="CategoryDisplay" type="CenterContainer" parent="HSplitContainer/Content"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryDisplay"]
 margin_left = 121.0
-margin_top = 137.0
+margin_top = 93.0
 margin_right = 431.0
-margin_bottom = 363.0
+margin_bottom = 407.0
 alignment = 1
 
 [node name="Label" type="Label" parent="HSplitContainer/Content/CategoryDisplay/VBoxContainer"]
@@ -299,11 +298,13 @@ align = 1
 margin_top = 136.0
 margin_right = 310.0
 margin_bottom = 176.0
-min_value = 0.1
+min_value = 1.0
+max_value = 99999.0
 step = -1.0
-value = 0.1
+value = 100.0
 allow_greater = true
 align = 1
+suffix = "%"
 
 [node name="Apply" type="Button" parent="HSplitContainer/Content/CategoryDisplay/VBoxContainer"]
 margin_top = 186.0
@@ -311,6 +312,19 @@ margin_right = 310.0
 margin_bottom = 226.0
 text = "Apply"
 script = ExtResource( 9 )
+
+[node name="HSeparator" type="HSeparator" parent="HSplitContainer/Content/CategoryDisplay/VBoxContainer"]
+margin_top = 236.0
+margin_right = 310.0
+margin_bottom = 238.0
+
+[node name="Label3" type="Label" parent="HSplitContainer/Content/CategoryDisplay/VBoxContainer"]
+margin_top = 248.0
+margin_right = 310.0
+margin_bottom = 314.0
+text = "NOTE: You need to logout and log back in again to fully apply new display settings."
+align = 1
+autowrap = true
 
 [node name="CategorySomethingElse" type="ScrollContainer" parent="HSplitContainer/Content"]
 visible = false

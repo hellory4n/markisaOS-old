@@ -46,7 +46,7 @@ public class BaseWindow : WindowDialog {
         
         // window snapping :)
         // first check if the window is moving
-        if (previousPosition != RectPosition) {
+        if (previousPosition != RectPosition && Resizable) {
             if (GetGlobalMousePosition().y < 40) {
                 Vector2 maximizedSize = new Vector2(screenSize.x, screenSize.y-160);
                 RectPosition = new Vector2(0, 85);
