@@ -141,7 +141,7 @@ process_priority = 1
 visible = true
 margin_right = 750.0
 margin_bottom = 500.0
-rect_min_size = Vector2( 400, 300 )
+rect_min_size = Vector2( 600, 300 )
 theme = ExtResource( 1 )
 popup_exclusive = true
 window_title = "Settings"
@@ -224,20 +224,91 @@ margin_left = 198.0
 margin_right = 750.0
 margin_bottom = 500.0
 
-[node name="CategoryDisplay" type="ScrollContainer" parent="HSplitContainer/Content"]
+[node name="CategoryHome" type="CenterContainer" parent="HSplitContainer/Content"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="HSplitContainer/Content/CategoryHome"]
+margin_left = 102.0
+margin_top = 233.0
+margin_right = 449.0
+margin_bottom = 266.0
+theme_type_variation = "Header"
+text = "Welcome to the Settings app!"
+align = 1
+
+[node name="CategoryDisplay" type="CenterContainer" parent="HSplitContainer/Content"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryDisplay"]
-margin_right = 185.0
-margin_bottom = 22.0
-custom_constants/separation = 0
+margin_left = 121.0
+margin_top = 137.0
+margin_right = 431.0
+margin_bottom = 363.0
+alignment = 1
 
 [node name="Label" type="Label" parent="HSplitContainer/Content/CategoryDisplay/VBoxContainer"]
-margin_right = 185.0
-margin_bottom = 22.0
-text = "display settings are here"
+margin_right = 310.0
+margin_bottom = 33.0
+theme_type_variation = "Header"
+text = "Resolution"
+align = 1
+
+[node name="ResolutionThing" type="HBoxContainer" parent="HSplitContainer/Content/CategoryDisplay/VBoxContainer"]
+margin_top = 43.0
+margin_right = 310.0
+margin_bottom = 83.0
+rect_min_size = Vector2( 300, 0 )
+alignment = 1
+
+[node name="Width" type="SpinBox" parent="HSplitContainer/Content/CategoryDisplay/VBoxContainer/ResolutionThing"]
+margin_right = 150.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 150, 0 )
+min_value = 100.0
+value = 100.0
+rounded = true
+allow_greater = true
+align = 1
+prefix = "Width:"
+
+[node name="Height" type="SpinBox" parent="HSplitContainer/Content/CategoryDisplay/VBoxContainer/ResolutionThing"]
+margin_left = 160.0
+margin_right = 310.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 150, 0 )
+min_value = 100.0
+value = 100.0
+rounded = true
+allow_greater = true
+align = 1
+prefix = "Height: "
+
+[node name="Label2" type="Label" parent="HSplitContainer/Content/CategoryDisplay/VBoxContainer"]
+margin_top = 93.0
+margin_right = 310.0
+margin_bottom = 126.0
+theme_type_variation = "Header"
+text = "Scaling Factor"
+align = 1
+
+[node name="ScalingFactor" type="SpinBox" parent="HSplitContainer/Content/CategoryDisplay/VBoxContainer"]
+margin_top = 136.0
+margin_right = 310.0
+margin_bottom = 176.0
+min_value = 0.1
+step = -1.0
+value = 0.1
+allow_greater = true
+align = 1
+
+[node name="Apply" type="Button" parent="HSplitContainer/Content/CategoryDisplay/VBoxContainer"]
+margin_top = 186.0
+margin_right = 310.0
+margin_bottom = 226.0
+text = "Apply"
 
 [node name="CategorySomethingElse" type="ScrollContainer" parent="HSplitContainer/Content"]
 visible = false
@@ -255,6 +326,7 @@ margin_bottom = 22.0
 text = "something else :)"
 
 [node name="CategoryAbout" type="CenterContainer" parent="HSplitContainer/Content"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
