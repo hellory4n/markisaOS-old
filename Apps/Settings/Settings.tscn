@@ -1,9 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme/Leltheme.tres" type="Theme" id=1]
-[ext_resource path="res://Scripts/Apps/WindowManagerTest/EpicCoolAmazingBeautifulGorgeousFantasticMajesticButton.cs" type="Script" id=2]
+[ext_resource path="res://Assets/Themes/Leltheme/Icons/Graphics.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/OS/WindowManager/BaseWindow.cs" type="Script" id=3]
 [ext_resource path="res://Apps/Settings/Assets/IconDock.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Themes/Leltheme/Icons/System.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Themes/Leltheme/Icons/Accessories.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/OS/Lelsktop/SidebarButton.cs" type="Script" id=7]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Close"
@@ -134,9 +137,10 @@ tracks/1/keys = {
 
 [node name="Settings" type="WindowDialog"]
 process_priority = 1
-margin_right = 300.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 400, 100 )
+visible = true
+margin_right = 750.0
+margin_bottom = 500.0
+rect_min_size = Vector2( 100, 100 )
 theme = ExtResource( 1 )
 popup_exclusive = true
 window_title = "Settings"
@@ -151,14 +155,120 @@ anims/Minimize = SubResource( 3 )
 anims/Open = SubResource( 1 )
 anims/Restore = SubResource( 4 )
 
-[node name="Button" type="Button" parent="."]
-anchor_left = 0.5
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+split_offset = 150
+
+[node name="Sidebar" type="Control" parent="HSplitContainer"]
+margin_right = 190.0
+margin_bottom = 500.0
+rect_min_size = Vector2( 40, 0 )
+
+[node name="CoolSidebarLineThing" type="VSeparator" parent="HSplitContainer/Sidebar"]
+anchor_left = 1.0
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -152.5
-margin_top = -20.0
-margin_right = 152.5
-margin_bottom = 20.0
-text = "set stuff or something idk"
-script = ExtResource( 2 )
+margin_left = -2.0
+margin_top = -250.0
+margin_right = 10.5
+margin_bottom = 250.0
+mouse_filter = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/Sidebar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Sidebar/ScrollContainer"]
+margin_right = 172.0
+margin_bottom = 120.0
+custom_constants/separation = 0
+
+[node name="Button" type="Button" parent="HSplitContainer/Sidebar/ScrollContainer/VBoxContainer"]
+margin_right = 172.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+theme_type_variation = "SidebarButton"
+text = "Display"
+icon = ExtResource( 2 )
+align = 0
+script = ExtResource( 7 )
+Category = NodePath("../../../../Content/CategoryDisplay")
+
+[node name="Button2" type="Button" parent="HSplitContainer/Sidebar/ScrollContainer/VBoxContainer"]
+margin_top = 40.0
+margin_right = 172.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 0, 40 )
+theme_type_variation = "SidebarButton"
+text = "Something else"
+icon = ExtResource( 6 )
+align = 0
+script = ExtResource( 7 )
+Category = NodePath("../../../../Content/CategorySomethingElse")
+
+[node name="Button3" type="Button" parent="HSplitContainer/Sidebar/ScrollContainer/VBoxContainer"]
+margin_top = 80.0
+margin_right = 172.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 0, 40 )
+theme_type_variation = "SidebarButton"
+text = "About"
+icon = ExtResource( 5 )
+align = 0
+script = ExtResource( 7 )
+Category = NodePath("../../../../Content/CategoryAbout")
+
+[node name="Content" type="Control" parent="HSplitContainer"]
+margin_left = 198.0
+margin_right = 750.0
+margin_bottom = 500.0
+
+[node name="CategoryDisplay" type="ScrollContainer" parent="HSplitContainer/Content"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryDisplay"]
+margin_right = 185.0
+margin_bottom = 22.0
+custom_constants/separation = 0
+
+[node name="Label" type="Label" parent="HSplitContainer/Content/CategoryDisplay/VBoxContainer"]
+margin_right = 185.0
+margin_bottom = 22.0
+text = "display settings are here"
+
+[node name="CategorySomethingElse" type="ScrollContainer" parent="HSplitContainer/Content"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategorySomethingElse"]
+margin_right = 129.0
+margin_bottom = 22.0
+custom_constants/separation = 0
+
+[node name="Label" type="Label" parent="HSplitContainer/Content/CategorySomethingElse/VBoxContainer"]
+margin_right = 129.0
+margin_bottom = 22.0
+text = "something else :)"
+
+[node name="CategoryAbout" type="ScrollContainer" parent="HSplitContainer/Content"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryAbout"]
+margin_right = 304.0
+margin_bottom = 110.0
+custom_constants/separation = 0
+
+[node name="Label" type="Label" parent="HSplitContainer/Content/CategoryAbout/VBoxContainer"]
+margin_right = 304.0
+margin_bottom = 110.0
+text = "lelcubeOS Me
+version 6.9 (build 69420)
+(C) 2069 passionfruit all rights reserved
+
+bla bla bla we own lelcubeOS"
