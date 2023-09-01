@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Maximize : TextureButton {
+public class Maximize : Button {
     public override void _Ready() {
         base._Ready();
         Connect("pressed", this, nameof(Click));
@@ -11,7 +11,7 @@ public class Maximize : TextureButton {
         base._Process(delta);
         WindowDialog window = (WindowDialog)GetParent();
         if (!window.Resizable) {
-            GetParent().GetNode<TextureButton>("Minimize").RectPosition = RectPosition;
+            GetParent().GetNode<Button>("Minimize").RectPosition = RectPosition;
             QueueFree();
         }
     }

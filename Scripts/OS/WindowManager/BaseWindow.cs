@@ -15,11 +15,11 @@ public class BaseWindow : WindowDialog {
         screenSize = ResolutionManager.GetScreenSize();
 
         PackedScene maximize = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Maximize.tscn");
-        TextureButton yes = (TextureButton)maximize.Instance();
+        Button yes = (Button)maximize.Instance();
         AddChild(yes);
 
         PackedScene minimize = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Minimize.tscn");
-        TextureButton perhaps = (TextureButton)minimize.Instance();
+        Button perhaps = (Button)minimize.Instance();
         AddChild(perhaps);
 
         PackedScene title = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/TitleTexture.tscn");

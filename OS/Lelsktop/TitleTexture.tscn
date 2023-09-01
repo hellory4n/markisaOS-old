@@ -1,29 +1,20 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Assets/Themes/Leltheme/Window/Title.png" type="Texture" id=1]
-[ext_resource path="res://Fonts/RedHatText-Bold.ttf" type="DynamicFontData" id=2]
-
-[sub_resource type="StyleBoxTexture" id=1]
-texture = ExtResource( 1 )
-region_rect = Rect2( 0, 0, 45, 45 )
-margin_left = 22.0
-margin_right = 22.0
-
-[sub_resource type="DynamicFont" id=2]
-font_data = ExtResource( 2 )
+[ext_resource path="res://Assets/Themes/Leltheme/Leltheme.tres" type="Theme" id=1]
 
 [node name="TitleTexture" type="Panel"]
 anchor_right = 1.0
 margin_top = -45.0
 rect_min_size = Vector2( 45, 45 )
 mouse_filter = 2
-custom_styles/panel = SubResource( 1 )
+theme = ExtResource( 1 )
+theme_type_variation = "WindowTitle"
 
 [node name="Label" type="Label" parent="."]
 anchor_right = 1.0
 margin_bottom = 22.0
 rect_min_size = Vector2( 0, 45 )
-custom_fonts/font = SubResource( 2 )
+theme_type_variation = "WindowTitleText"
 text = "Epic Cool Amazing Title Omgomgomg"
 align = 1
 valign = 1
