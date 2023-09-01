@@ -11,7 +11,6 @@ public class SidebarButton : Button {
     }
 
     public void Click() {
-        // uh
         Control category = GetNode<Control>(Category);
 
         category.Visible = true;

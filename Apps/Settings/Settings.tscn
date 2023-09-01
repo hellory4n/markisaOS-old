@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme/Leltheme.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/Themes/Leltheme/Icons/Graphics.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Assets/Themes/Leltheme/Icons/System.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Themes/Leltheme/Icons/Accessories.png" type="Texture" id=6]
 [ext_resource path="res://Scripts/OS/Lelsktop/SidebarButton.cs" type="Script" id=7]
+[ext_resource path="res://Assets/Boot/Logo.png" type="Texture" id=8]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Close"
@@ -140,7 +141,7 @@ process_priority = 1
 visible = true
 margin_right = 750.0
 margin_bottom = 500.0
-rect_min_size = Vector2( 100, 100 )
+rect_min_size = Vector2( 400, 300 )
 theme = ExtResource( 1 )
 popup_exclusive = true
 window_title = "Settings"
@@ -167,13 +168,11 @@ rect_min_size = Vector2( 40, 0 )
 
 [node name="CoolSidebarLineThing" type="VSeparator" parent="HSplitContainer/Sidebar"]
 anchor_left = 1.0
-anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -2.0
-margin_top = -250.0
-margin_right = 10.5
-margin_bottom = 250.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 1.0
+margin_bottom = -1.0
 mouse_filter = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/Sidebar"]
@@ -226,6 +225,7 @@ margin_right = 750.0
 margin_bottom = 500.0
 
 [node name="CategoryDisplay" type="ScrollContainer" parent="HSplitContainer/Content"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -254,21 +254,47 @@ margin_right = 129.0
 margin_bottom = 22.0
 text = "something else :)"
 
-[node name="CategoryAbout" type="ScrollContainer" parent="HSplitContainer/Content"]
-visible = false
+[node name="CategoryAbout" type="CenterContainer" parent="HSplitContainer/Content"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryAbout"]
-margin_right = 304.0
-margin_bottom = 110.0
-custom_constants/separation = 0
+margin_left = 118.0
+margin_top = 147.0
+margin_right = 434.0
+margin_bottom = 353.0
+
+[node name="Control" type="Control" parent="HSplitContainer/Content/CategoryAbout/VBoxContainer"]
+margin_right = 316.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 316, 64 )
+mouse_filter = 2
+
+[node name="Logo" type="Sprite" parent="HSplitContainer/Content/CategoryAbout/VBoxContainer/Control"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 8 )
+centered = false
 
 [node name="Label" type="Label" parent="HSplitContainer/Content/CategoryAbout/VBoxContainer"]
-margin_right = 304.0
-margin_bottom = 110.0
-text = "lelcubeOS Me
-version 6.9 (build 69420)
-(C) 2069 passionfruit all rights reserved
+margin_top = 74.0
+margin_right = 316.0
+margin_bottom = 140.0
+text = "lelcubeOS v0.6.0
+© Passionfruit 2069
+Running on Device™"
+align = 1
 
-bla bla bla we own lelcubeOS"
+[node name="HSeparator" type="HSeparator" parent="HSplitContainer/Content/CategoryAbout/VBoxContainer"]
+margin_top = 150.0
+margin_right = 316.0
+margin_bottom = 152.0
+mouse_filter = 2
+
+[node name="Label2" type="Label" parent="HSplitContainer/Content/CategoryAbout/VBoxContainer"]
+margin_top = 162.0
+margin_right = 316.0
+margin_bottom = 206.0
+text = "Developed by hellory4n
+Audio by alex343xd"
+align = 1
