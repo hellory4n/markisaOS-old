@@ -3,7 +3,7 @@ using System;
 
 public class ImageBackground : Sprite {
     [Export]
-    Vector2 OriginalSize = new Vector2(0, 0);
+    public Vector2 OriginalSize = new Vector2(0, 0);
 
     public override void _Ready() {
         base._Ready();

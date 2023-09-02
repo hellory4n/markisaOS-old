@@ -244,9 +244,9 @@ anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryDisplay"]
 margin_left = 121.0
-margin_top = 93.0
+margin_top = 60.0
 margin_right = 431.0
-margin_bottom = 407.0
+margin_bottom = 440.0
 alignment = 1
 
 [node name="Label" type="Label" parent="HSplitContainer/Content/CategoryDisplay/VBoxContainer"]
@@ -321,8 +321,8 @@ margin_bottom = 238.0
 [node name="Label3" type="Label" parent="HSplitContainer/Content/CategoryDisplay/VBoxContainer"]
 margin_top = 248.0
 margin_right = 310.0
-margin_bottom = 314.0
-text = "NOTE: You need to logout and log back in again to fully apply new display settings."
+margin_bottom = 380.0
+text = "NOTE: You may need to log out and log back in to fully apply settings."
 align = 1
 autowrap = true
 
