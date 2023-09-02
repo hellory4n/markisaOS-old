@@ -35,11 +35,11 @@ autoplay = "Startup"
 anims/Startup = SubResource( 2 )
 
 [node name="Wallpaper" type="Sprite" parent="."]
-position = Vector2( 658, 351 )
-scale = Vector2( 0.172, 0.172 )
+position = Vector2( 632.5, 345 )
+scale = Vector2( 0.332275, 0.351562 )
 texture = ExtResource( 1 )
 script = ExtResource( 5 )
-OriginalSize = Vector2( 7952, 5304 )
+OriginalSize = Vector2( 4096, 2304 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = 13.0

@@ -50,10 +50,9 @@ tracks/1/keys = {
 
 [node name="OnboardingBackground" type="Sprite" parent="."]
 position = Vector2( 651, 367 )
-scale = Vector2( 1.067, 1.067 )
 texture = ExtResource( 3 )
 script = ExtResource( 18 )
-OriginalSize = Vector2( 1280, 720 )
+OriginalSize = Vector2( 4096, 2304 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "OnboardingStart"
