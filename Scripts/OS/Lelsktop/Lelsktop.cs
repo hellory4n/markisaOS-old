@@ -4,7 +4,7 @@ using System;
 public class Lelsktop : Node2D {
     public override void _Ready() {
         base._Ready();
-        Vector2 bruh = ResolutionManager.GetScreenSize();
+        Vector2 bruh = ResolutionManager.Resolution;
 
         Viewport pain = GetNode<Viewport>("/root/Lelsktop/Thing/Windows");
         pain.Size = bruh;
@@ -49,7 +49,7 @@ public class Lelsktop : Node2D {
 
     public override void _Process(float delta) {
         base._Process(delta);
-        Vector2 pain = ResolutionManager.GetScreenSize();
+        Vector2 pain = ResolutionManager.Resolution;
         Viewport bruh = GetNode<Viewport>("/root/Lelsktop/Thing/Windows");
         Panel appMenu = GetNode<Panel>("/root/LelsktopInterface/AppMenu");
         Panel quickSettings = GetNode<Panel>("/root/LelsktopInterface/QuickSettings");

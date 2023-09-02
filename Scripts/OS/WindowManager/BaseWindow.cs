@@ -12,7 +12,7 @@ public class BaseWindow : WindowDialog {
 
     public override void _Ready() {
         base._Ready();
-        screenSize = ResolutionManager.GetScreenSize();
+        screenSize = ResolutionManager.Resolution;
 
         PackedScene maximize = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Maximize.tscn");
         Button yes = (Button)maximize.Instance();

@@ -17,7 +17,7 @@ public class WindowManager : Node2D {
         window.Visible = true;
 
         // put it on the center of the screen
-        Vector2 yes = ResolutionManager.GetScreenSize();
+        Vector2 yes = ResolutionManager.Resolution;
         window.RectPosition = yes/2 - (window.RectSize/2);
 
         // add it to the dock
@@ -28,7 +28,7 @@ public class WindowManager : Node2D {
 
         // all windows are maximized by default on mobile
         if (OS.GetName() == "Android" && window.Resizable) {
-            Vector2 maximizedSize = ResolutionManager.GetScreenSize();
+            Vector2 maximizedSize = ResolutionManager.Resolution;
             maximizedSize = new Vector2(maximizedSize.x, maximizedSize.y-160);
             window.RectPosition = new Vector2(0, 85);
             window.RectSize = maximizedSize;

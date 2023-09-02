@@ -18,7 +18,7 @@ public class Maximize : Button {
 
     public void Click() {
         WindowDialog window = (WindowDialog)GetParent();
-        Vector2 maximizedSize = ResolutionManager.GetScreenSize();
+        Vector2 maximizedSize = ResolutionManager.Resolution;
         maximizedSize = new Vector2(maximizedSize.x, maximizedSize.y-160);
 
         // check if the window is maximized

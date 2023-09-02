@@ -7,7 +7,7 @@ public class ImageBackground : Sprite {
 
     public override void _Ready() {
         base._Ready();
-        Vector2 screenSize = ResolutionManager.GetScreenSize();
+        Vector2 screenSize = ResolutionManager.Resolution;
 
         // first scale the image
         float scale;

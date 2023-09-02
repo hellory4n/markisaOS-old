@@ -7,6 +7,6 @@ public class SetSizeToScreenResolution : Control {
 
     public override void _Ready() {
         base._Ready();
-        RectSize = ResolutionManager.GetScreenSize() - Offset;
+        RectSize = ResolutionManager.Resolution - Offset;
     }
 }
