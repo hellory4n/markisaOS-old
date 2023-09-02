@@ -318,7 +318,7 @@ margin_top = 5.0
 margin_bottom = 5.0
 
 [sub_resource type="StyleBoxLine" id=114]
-color = Color( 1, 1, 1, 0.498039 )
+color = Color( 0.266667, 0.541176, 1, 0.498039 )
 thickness = 2
 
 [sub_resource type="Image" id=225]
@@ -886,7 +886,7 @@ margin_top = 20.0
 margin_bottom = 20.0
 
 [sub_resource type="StyleBoxLine" id=136]
-color = Color( 1, 1, 1, 0.498039 )
+color = Color( 0.266667, 0.541176, 1, 0.498039 )
 thickness = 2
 vertical = true
 
@@ -934,19 +934,15 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxFlat" id=109]
 bg_color = Color( 0.027451, 0.054902, 0.101961, 1 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
 border_color = Color( 0.266667, 0.541176, 1, 1 )
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
 corner_detail = 12
 expand_margin_top = 45.0
-shadow_color = Color( 0, 0, 0, 0.196078 )
-shadow_size = 15
+shadow_color = Color( 0, 0, 0, 0.294118 )
+shadow_size = 25
 
 [sub_resource type="StyleBoxTexture" id=161]
 texture = ExtResource( 45 )
