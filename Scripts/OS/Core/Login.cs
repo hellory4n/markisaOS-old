@@ -14,6 +14,6 @@ public class Login : Button {
         Node lelsktop = packedScene.Instance();
         GetTree().Root.AddChild(lelsktop);
 
-        GetParent().GetParent().GetParent().GetParent().QueueFree();
+        GetNode<Node2D>("/root/Onboarding").QueueFree();
     }
 }

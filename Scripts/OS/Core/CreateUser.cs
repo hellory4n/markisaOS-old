@@ -12,9 +12,9 @@ public class CreateUser : Button {
 
     public override void _Ready() {
         base._Ready();
-        name = GetNode<LineEdit>("../Name");
-        username = GetNode<LineEdit>("../Username");
-        icons = GetNode<ItemList>("../Icons");
+        name = GetNode<LineEdit>("../../Name");
+        username = GetNode<LineEdit>("../../Username");
+        icons = GetNode<ItemList>("../../Icons");
         errorThingy = GetNode<Label>("/root/NewUser/Control/ErrorThingy");
         Connect("pressed", this, nameof(Click));
     }
@@ -96,7 +96,7 @@ public class CreateUser : Button {
         PackedScene packedScene = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Lelsktop.tscn");
         Node lelsktop = packedScene.Instance();
         GetTree().Root.AddChild(lelsktop);
-        GetParent().GetParent().GetParent().QueueFree();
         GetNode<Node2D>("/root/Onboarding").QueueFree();
+        GetNode<Node2D>("/root/NewUser").QueueFree();
     }
 }

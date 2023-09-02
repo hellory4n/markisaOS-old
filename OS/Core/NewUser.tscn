@@ -1,10 +1,10 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/OS/WindowManager/SetSizeToScreenResolution.cs" type="Script" id=1]
 [ext_resource path="res://Assets/Themes/Leltheme/Leltheme.tres" type="Theme" id=2]
-[ext_resource path="res://Assets/Boot/OnboardingBackground.png" type="Texture" id=3]
 [ext_resource path="res://Assets/UserIcons/Cat.png" type="Texture" id=4]
 [ext_resource path="res://Assets/UserIcons/Pancakes.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/OS/Core/OnboardingWindowStuff.cs" type="Script" id=6]
 [ext_resource path="res://Assets/UserIcons/Flower.png" type="Texture" id=7]
 [ext_resource path="res://Assets/UserIcons/Football.png" type="Texture" id=8]
 [ext_resource path="res://Assets/UserIcons/Shuttle.png" type="Texture" id=9]
@@ -16,7 +16,6 @@
 [ext_resource path="res://Scripts/OS/Lelsktop/CloseParent.cs" type="Script" id=15]
 [ext_resource path="res://Scripts/OS/Core/CreateUser.cs" type="Script" id=16]
 [ext_resource path="res://Scripts/OS/Lelsktop/Overlay/TextPeek.cs" type="Script" id=17]
-[ext_resource path="res://Scripts/OS/Lelsktop/ImageBackground.cs" type="Script" id=18]
 
 [sub_resource type="Animation" id=3]
 resource_name = "OnboardingStart"
@@ -47,12 +46,7 @@ tracks/1/keys = {
 }
 
 [node name="NewUser" type="Node2D"]
-
-[node name="OnboardingBackground" type="Sprite" parent="."]
-position = Vector2( 651, 367 )
-texture = ExtResource( 3 )
-script = ExtResource( 18 )
-OriginalSize = Vector2( 4096, 2304 )
+script = ExtResource( 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "OnboardingStart"
@@ -74,83 +68,142 @@ margin_top = -240.0
 margin_right = 200.0
 margin_bottom = 240.0
 
-[node name="NameLabelThing" type="Label" parent="Control/Control"]
+[node name="ErrorThingy" type="Label" parent="Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -640.0
+margin_top = -40.0
+margin_right = 640.0
+theme_type_variation = "Header"
+align = 1
+valign = 1
+
+[node name="Thing" type="WindowDialog" parent="Control"]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -400.0
+margin_top = -250.0
+margin_right = 400.0
+margin_bottom = 250.0
+popup_exclusive = true
+window_title = "New User"
+
+[node name="TitleTexture" type="Panel" parent="Control/Thing"]
 anchor_right = 1.0
+margin_top = -45.0
+rect_min_size = Vector2( 45, 45 )
+mouse_filter = 2
+theme = ExtResource( 2 )
+theme_type_variation = "WindowTitle"
+
+[node name="Label" type="Label" parent="Control/Thing/TitleTexture"]
+anchor_right = 1.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 0, 45 )
+theme_type_variation = "WindowTitleText"
+text = "New User"
+align = 1
+valign = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/Thing"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -400.0
+margin_top = -250.0
+margin_right = 400.0
+margin_bottom = 250.0
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/Thing/ScrollContainer"]
+margin_right = 411.0
+margin_bottom = 677.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Thing/ScrollContainer/CenterContainer"]
+margin_right = 411.0
+margin_bottom = 677.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="NameLabelThing" type="Label" parent="Control/Thing/ScrollContainer/CenterContainer/VBoxContainer"]
+margin_right = 411.0
 margin_bottom = 33.0
 theme_type_variation = "Header"
 text = "What is your name?"
 align = 1
 valign = 1
 
-[node name="Name" type="LineEdit" parent="Control/Control"]
+[node name="Name" type="LineEdit" parent="Control/Thing/ScrollContainer/CenterContainer/VBoxContainer"]
 margin_top = 43.0
-margin_right = 400.0
+margin_right = 411.0
 margin_bottom = 83.0
 align = 1
 placeholder_text = "John Doe"
 script = ExtResource( 17 )
 
-[node name="NameLabelThing2" type="Label" parent="Control/Control"]
-anchor_right = 1.0
-margin_left = -5.0
+[node name="NameLabelThing2" type="Label" parent="Control/Thing/ScrollContainer/CenterContainer/VBoxContainer"]
 margin_top = 93.0
-margin_right = 6.0
+margin_right = 411.0
 margin_bottom = 126.0
 theme_type_variation = "Header"
 text = "What will be your lelnet username?"
 align = 1
 valign = 1
 
-[node name="Username" type="LineEdit" parent="Control/Control"]
+[node name="Username" type="LineEdit" parent="Control/Thing/ScrollContainer/CenterContainer/VBoxContainer"]
 margin_top = 136.0
-margin_right = 400.0
+margin_right = 411.0
 margin_bottom = 176.0
 align = 1
 placeholder_text = "john.doe"
 script = ExtResource( 17 )
 
-[node name="NameLabelThing3" type="Label" parent="Control/Control"]
-anchor_right = 1.0
+[node name="NameLabelThing3" type="Label" parent="Control/Thing/ScrollContainer/CenterContainer/VBoxContainer"]
 margin_top = 186.0
+margin_right = 411.0
 margin_bottom = 219.0
 theme_type_variation = "Header"
 text = "What will be your icon?"
 align = 1
 valign = 1
 
-[node name="Icons" type="ItemList" parent="Control/Control"]
-margin_left = -82.0
+[node name="Icons" type="ItemList" parent="Control/Thing/ScrollContainer/CenterContainer/VBoxContainer"]
 margin_top = 229.0
-margin_right = 514.0
-margin_bottom = 429.0
+margin_right = 411.0
+margin_bottom = 627.0
+size_flags_horizontal = 3
 items = [ "", ExtResource( 4 ), false, "", ExtResource( 7 ), false, "", ExtResource( 14 ), false, "", ExtResource( 11 ), false, "", ExtResource( 13 ), false, "", ExtResource( 12 ), false, "", ExtResource( 5 ), false, "", ExtResource( 10 ), false, "", ExtResource( 9 ), false, "", ExtResource( 8 ), false ]
-max_columns = 5
-same_column_width = true
-fixed_column_width = 106
-icon_mode = 0
+auto_height = true
+max_columns = 69
+fixed_column_width = 98
 fixed_icon_size = Vector2( 96, 96 )
 
-[node name="Cancel" type="Button" parent="Control/Control"]
-anchor_right = 1.0
-margin_top = 438.0
-margin_right = -205.0
-margin_bottom = 478.0
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Thing/ScrollContainer/CenterContainer/VBoxContainer"]
+margin_top = 637.0
+margin_right = 411.0
+margin_bottom = 677.0
+
+[node name="Cancel" type="Button" parent="Control/Thing/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+margin_right = 200.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
 theme_type_variation = "SecondaryButton"
 text = "Cancel"
 script = ExtResource( 15 )
-Parents = 3
+Parents = 7
 
-[node name="Create" type="Button" parent="Control/Control"]
-anchor_right = 1.0
-margin_left = 204.0
-margin_top = 438.0
-margin_right = -1.0
-margin_bottom = 478.0
+[node name="Create" type="Button" parent="Control/Thing/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 210.0
+margin_right = 411.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
 text = "Create User"
 script = ExtResource( 16 )
-
-[node name="ErrorThingy" type="Label" parent="Control"]
-anchor_right = 1.0
-margin_bottom = 40.0
-align = 1
-valign = 1

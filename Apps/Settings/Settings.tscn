@@ -244,9 +244,9 @@ anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryDisplay"]
 margin_left = 121.0
-margin_top = 104.0
+margin_top = 137.0
 margin_right = 431.0
-margin_bottom = 396.0
+margin_bottom = 363.0
 alignment = 1
 
 [node name="Label" type="Label" parent="HSplitContainer/Content/CategoryDisplay/VBoxContainer"]
