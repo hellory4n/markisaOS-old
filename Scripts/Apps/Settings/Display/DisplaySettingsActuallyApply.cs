@@ -18,6 +18,10 @@ public class DisplaySettingsActuallyApply : Button {
         };
         SavingManager.SaveSettings(m);
 
-        GetParent<BaseWindow>().Visible = false;
+        PackedScene aPackedScene = ResourceLoader.Load<PackedScene>("res://OS/Core/Onboarding.tscn");
+        Node aNode = aPackedScene.Instance();
+        GetTree().Root.AddChild(aNode);
+        GetNode("/root/Lelsktop").QueueFree();
+        GetNode("/root/LelsktopInterface").QueueFree();
     }
 }

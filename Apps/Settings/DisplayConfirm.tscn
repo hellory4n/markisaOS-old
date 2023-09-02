@@ -136,6 +136,7 @@ tracks/1/keys = {
 
 [node name="DisplayConfirm" type="WindowDialog"]
 process_priority = 1
+visible = true
 margin_right = -590.0
 margin_bottom = -300.0
 rect_min_size = Vector2( 500, 250 )
@@ -181,7 +182,9 @@ script = ExtResource( 4 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = -47.0
-text = "Does these settings work for you? If you don't confirm, the display will go back to the previous settings in 10 seconds."
+text = "Does these settings work for you? If you don't confirm, the display will go back to the previous settings in 10 seconds.
+
+NOTE: This will log out to fully apply changes."
 align = 1
 valign = 1
 autowrap = true
