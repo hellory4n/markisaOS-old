@@ -1,17 +1,17 @@
 [gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://Assets/Themes/Leltheme/Leltheme.tres" type="Theme" id=1]
-[ext_resource path="res://Assets/Themes/Leltheme/Icons/Graphics.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Leltheme.tres" type="Theme" id=1]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Graphics.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/OS/WindowManager/BaseWindow.cs" type="Script" id=3]
 [ext_resource path="res://Apps/Settings/Assets/IconDock.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Themes/Leltheme/Icons/System.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Themes/Leltheme/Icons/Wallpapers.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/System.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Wallpapers.png" type="Texture" id=6]
 [ext_resource path="res://Scripts/OS/Lelsktop/SidebarButton.cs" type="Script" id=7]
 [ext_resource path="res://Assets/Boot/Logo.png" type="Texture" id=8]
 [ext_resource path="res://Scripts/Apps/Settings/Display/DisplaySettingsApply.cs" type="Script" id=9]
 [ext_resource path="res://Scripts/Apps/Settings/Wallpapers/WallpaperThing.cs" type="Script" id=10]
 [ext_resource path="res://Scripts/Apps/Settings/Wallpapers/ApplyWallpaper.cs" type="Script" id=11]
-[ext_resource path="res://Assets/Themes/Leltheme/Icons/Themes.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Themes.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Wallpapers/HighPeaks.jpg" type="Texture" id=13]
 [ext_resource path="res://Assets/Themes/Hideous.tres" type="Theme" id=14]
 
@@ -144,7 +144,6 @@ tracks/1/keys = {
 
 [node name="Settings" type="WindowDialog"]
 process_priority = 1
-visible = true
 margin_right = 750.0
 margin_bottom = 500.0
 rect_min_size = Vector2( 750, 500 )
@@ -341,9 +340,9 @@ mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryThemes"]
 margin_left = 165.0
-margin_top = 218.0
+margin_top = 208.0
 margin_right = 387.0
-margin_bottom = 281.0
+margin_bottom = 291.0
 alignment = 1
 
 [node name="Label" type="Label" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer"]
