@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/OS/WindowManager/SetSizeToScreenResolution.cs" type="Script" id=1]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Leltheme.tres" type="Theme" id=2]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=2]
 [ext_resource path="res://Assets/Boot/OnboardingBackground.png" type="Texture" id=3]
 [ext_resource path="res://Fonts/RedHatText-Bold.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Scripts/OS/Lelsktop/OpenSceneButton.cs" type="Script" id=5]

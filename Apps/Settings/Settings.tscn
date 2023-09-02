@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Leltheme.tres" type="Theme" id=1]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Graphics.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/OS/WindowManager/BaseWindow.cs" type="Script" id=3]
 [ext_resource path="res://Apps/Settings/Assets/IconDock.png" type="Texture" id=4]
@@ -153,6 +153,7 @@ window_title = "Settings"
 resizable = true
 script = ExtResource( 3 )
 Icon = ExtResource( 4 )
+CustomTheme = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 method_call_mode = 1

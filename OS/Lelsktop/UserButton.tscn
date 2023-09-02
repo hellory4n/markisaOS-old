@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Fonts/RedHatText-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Leltheme.tres" type="Theme" id=3]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=3]
 [ext_resource path="res://Scripts/OS/Core/Login.cs" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]

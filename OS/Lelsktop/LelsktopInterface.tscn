@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/OS/Lelsktop/DefaultOpenWindowButton.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/OS/Lelsktop/Time.cs" type="Script" id=2]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Leltheme.tres" type="Theme" id=3]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=3]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Settings.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Search.png" type="Texture" id=9]
 [ext_resource path="res://Scripts/OS/Lelsktop/AppMenu/OpenAppMenu.cs" type="Script" id=10]
