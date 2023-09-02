@@ -1,6 +1,5 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Scripts/OS/Lelsktop/OpenWindowButton.cs" type="Script" id=6]
 
 [sub_resource type="StreamTexture" id=19]
@@ -12,7 +11,6 @@ margin_left = 556.0
 margin_right = 620.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
-theme = ExtResource( 1 )
 theme_type_variation = "DockButton"
 icon = SubResource( 19 )
 icon_align = 1

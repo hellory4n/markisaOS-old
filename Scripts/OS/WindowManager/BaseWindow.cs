@@ -16,7 +16,7 @@ public class BaseWindow : WindowDialog {
         base._Ready();
         screenSize = ResolutionManager.Resolution;
 
-        // makes it use the theme from the viewport container, where all of the windows are located
+        // makes it use the theme from the viewport where all of the windows are located
         if (!CustomTheme)
             Theme = null;
 

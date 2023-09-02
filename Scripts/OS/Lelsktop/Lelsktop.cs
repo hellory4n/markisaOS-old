@@ -9,8 +9,10 @@ public class Lelsktop : Node2D {
         Viewport pain = GetNode<Viewport>("/root/Lelsktop/Thing/Windows");
         pain.Size = bruh;
 
+        UserLelsktop suffer = SavingManager.Load<UserLelsktop>(SavingManager.CurrentUser);
+
         // load the wallpaper
-        string wallpaperPath = SavingManager.Load<UserLelsktop>(SavingManager.CurrentUser).Wallpaper;
+        string wallpaperPath = suffer.Wallpaper;
         Texture wallpaper = ResourceLoader.Load<Texture>(wallpaperPath);
         GetNode<Sprite>("Wallpaper").Texture = wallpaper;
 
@@ -33,7 +35,6 @@ public class Lelsktop : Node2D {
         animationomg.TrackSetKeyValue(0, keyStart, new Vector2(0, bruh.y));
         animationomg.TrackSetKeyValue(0, keyEnd, new Vector2(0, bruh.y-75));
 
-
         // and also fix the animation for the quick settings
         Animation animationOrSomething = lelsktopInterface.GetNode<AnimationPlayer>("AnimationPlayer").
             GetAnimation("OpenQuickSettings");
@@ -50,6 +51,14 @@ public class Lelsktop : Node2D {
         animationButDifferent.TrackSetKeyValue(0, keyEndButDifferent, new Vector2(bruh.x-400, -200));
         
         lelsktopInterface.GetNode<AnimationPlayer>("AnimationPlayer").Play("Startup");
+
+        // load theme
+        Theme theme = ResourceLoader.Load<Theme>($"res://Assets/Themes/{suffer.Theme}/Theme.tres");
+        pain.GetNode<Control>("ThemeThing").Theme = theme;
+        lelsktopInterface.GetNode<Panel>("Dock").Theme = theme;
+        lelsktopInterface.GetNode<Panel>("QuickSettings").Theme = theme;
+        lelsktopInterface.GetNode<Panel>("AppMenu").Theme = theme;
+        lelsktopInterface.GetNode<Panel>("Panel").Theme = theme;
     }
 
     public override void _Process(float delta) {
