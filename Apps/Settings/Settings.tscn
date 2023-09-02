@@ -164,12 +164,14 @@ anims/Restore = SubResource( 4 )
 [node name="HSplitContainer" type="HSplitContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 1
 split_offset = 150
 
 [node name="Sidebar" type="Control" parent="HSplitContainer"]
 margin_right = 190.0
 margin_bottom = 500.0
 rect_min_size = Vector2( 40, 0 )
+mouse_filter = 1
 
 [node name="CoolSidebarLineThing" type="VSeparator" parent="HSplitContainer/Sidebar"]
 anchor_left = 1.0
@@ -240,6 +242,7 @@ Category = NodePath("../../../../Content/CategoryAbout")
 margin_left = 198.0
 margin_right = 750.0
 margin_bottom = 500.0
+mouse_filter = 1
 
 [node name="CategoryHome" type="CenterContainer" parent="HSplitContainer/Content"]
 anchor_right = 1.0

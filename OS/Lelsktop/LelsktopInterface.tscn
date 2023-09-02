@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Scripts/OS/Lelsktop/DefaultOpenWindowButton.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/OS/Lelsktop/Time.cs" type="Script" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Search.png" type="Texture" id=9]
 [ext_resource path="res://Scripts/OS/Lelsktop/AppMenu/OpenAppMenu.cs" type="Script" id=10]
 [ext_resource path="res://Scripts/OS/Lelsktop/AppMenu/OpenCategory.cs" type="Script" id=11]
-[ext_resource path="res://Fonts/RedHatText-Bold.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://Scripts/OS/Lelsktop/QuickSettings/QuickSettingsUserIcon.cs" type="Script" id=13]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Sound.png" type="Texture" id=14]
 [ext_resource path="res://Assets/UserIcons/Cat.png" type="Texture" id=15]
@@ -168,9 +167,6 @@ tracks/1/keys = {
 "values": [ Vector2( 0, -40 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="DynamicFont" id=24]
-font_data = ExtResource( 12 )
-
 [node name="LelsktopInterface" type="CanvasLayer"]
 process_priority = -69
 layer = 128
@@ -238,7 +234,6 @@ script = ExtResource( 13 )
 margin_left = 40.0
 margin_right = 300.0
 margin_bottom = 40.0
-custom_fonts/font = SubResource( 24 )
 text = "Cool user :)"
 valign = 1
 clip_text = true
