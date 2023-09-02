@@ -3,7 +3,7 @@ using System;
 
 public class WallpaperThing : OptionButton {
     // public so when it's applied we don't have to load the wallpaper twice
-    public Texture Wallpaper;
+    public Texture Wallpaper = ResourceLoader.Load<Texture>("res://Assets/Wallpapers/HighPeaks.jpg");
     public string WallpaperPath = "res://Assets/Wallpapers/HighPeaks.jpg";
 
     public override void _Ready() {
