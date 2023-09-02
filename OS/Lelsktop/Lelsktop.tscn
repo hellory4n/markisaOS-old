@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Assets/Wallpapers/Aurora.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/OS/Lelsktop/Lelsktop.cs" type="Script" id=2]
 [ext_resource path="res://Scripts/OS/Lelsktop/ImageBackground.cs" type="Script" id=5]
 
@@ -32,7 +31,6 @@ anims/Startup = SubResource( 2 )
 [node name="Wallpaper" type="Sprite" parent="."]
 position = Vector2( 632.5, 345 )
 scale = Vector2( 0.332275, 0.351562 )
-texture = ExtResource( 1 )
 script = ExtResource( 5 )
 OriginalSize = Vector2( 4096, 2304 )
 

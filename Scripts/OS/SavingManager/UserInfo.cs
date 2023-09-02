@@ -8,3 +8,8 @@ public class UserInfo {
     public string Photo = "Lelcube";
     public string LelnetUsername = "john.doe";
 }
+
+public class UserLelsktop {
+    public string Wallpaper = "res://Assets/Wallpapers/HighPeaks.jpg";
+    public string Theme = "Leltheme-Dark-Blue";
+}

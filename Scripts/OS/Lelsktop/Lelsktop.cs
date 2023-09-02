@@ -9,6 +9,11 @@ public class Lelsktop : Node2D {
         Viewport pain = GetNode<Viewport>("/root/Lelsktop/Thing/Windows");
         pain.Size = bruh;
 
+        // load the wallpaper
+        string wallpaperPath = SavingManager.Load<UserLelsktop>(SavingManager.CurrentUser).Wallpaper;
+        Texture wallpaper = ResourceLoader.Load<Texture>(wallpaperPath);
+        GetNode<Sprite>("Wallpaper").Texture = wallpaper;
+
         // startup sound :)
         SoundManager sounds = GetNode<SoundManager>("/root/SoundManager");
         sounds.PlaySoundEffect(SoundManager.SoundEffects.Startup);

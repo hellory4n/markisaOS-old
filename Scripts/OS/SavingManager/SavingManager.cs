@@ -47,6 +47,13 @@ public class SavingManager : Node {
             JsonConvert.SerializeObject(info)
         );
         pain.Close();
+
+        File bruh = new File();
+        bruh.Open($"user://Users/{user}/UserLelsktop.json", File.ModeFlags.Write);
+        bruh.StoreString(
+            JsonConvert.SerializeObject(new UserLelsktop())
+        );
+        bruh.Close();
     }    
 
     public static T Load<T>(string user) {
@@ -58,19 +65,26 @@ public class SavingManager : Node {
             case nameof(UserInfo):
                 filename = $"user://Users/{user}/UserInfo.json";
                 break;
+            case nameof(UserLelsktop):
+                filename = $"user://Users/{user}/UserLelsktop.json";
+                break;
             default:
                 GD.PushError("Invalid user info type!");
                 break;
         }
 
         File file = new File();
-        if (file.Open(filename, File.ModeFlags.Read) == Error.Ok) {
+        if (file.FileExists(filename)) {
+            file.Open(filename, File.ModeFlags.Read);
             T m = JsonConvert.DeserializeObject<T>(file.GetAsText());
             file.Close();
             return m;
         } else {
-            GD.PushError($"Failed to load data from user \"{user}\", are you sure it exists?");
-            return default;
+            file.Open(filename, File.ModeFlags.Write);
+            file.StoreString(
+                JsonConvert.SerializeObject(Activator.CreateInstance<T>())
+            );
+            return Activator.CreateInstance<T>();
         }
     }
 
@@ -82,6 +96,9 @@ public class SavingManager : Node {
                 break;
             case nameof(UserInfo):
                 filename = $"user://Users/{user}/UserInfo.json";
+                break;
+            case nameof(UserLelsktop):
+                filename = $"user://Users/{user}/UserLelsktop.json";
                 break;
             default:
                 GD.PushError("Invalid user info type!");
