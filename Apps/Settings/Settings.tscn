@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme/Leltheme.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/Themes/Leltheme/Icons/Graphics.png" type="Texture" id=2]
@@ -11,7 +11,9 @@
 [ext_resource path="res://Scripts/Apps/Settings/Display/DisplaySettingsApply.cs" type="Script" id=9]
 [ext_resource path="res://Scripts/Apps/Settings/Wallpapers/WallpaperThing.cs" type="Script" id=10]
 [ext_resource path="res://Scripts/Apps/Settings/Wallpapers/ApplyWallpaper.cs" type="Script" id=11]
+[ext_resource path="res://Assets/Themes/Leltheme/Icons/Themes.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Wallpapers/HighPeaks.jpg" type="Texture" id=13]
+[ext_resource path="res://Assets/Themes/Hideous.tres" type="Theme" id=14]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Close"
@@ -142,6 +144,7 @@ tracks/1/keys = {
 
 [node name="Settings" type="WindowDialog"]
 process_priority = 1
+visible = true
 margin_right = 750.0
 margin_bottom = 500.0
 rect_min_size = Vector2( 750, 500 )
@@ -184,7 +187,7 @@ anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Sidebar/ScrollContainer"]
 margin_right = 140.0
-margin_bottom = 120.0
+margin_bottom = 160.0
 custom_constants/separation = 0
 
 [node name="Button" type="Button" parent="HSplitContainer/Sidebar/ScrollContainer/VBoxContainer"]
@@ -210,10 +213,22 @@ align = 0
 script = ExtResource( 7 )
 Category = NodePath("../../../../Content/CategoryWallpapers")
 
-[node name="Button3" type="Button" parent="HSplitContainer/Sidebar/ScrollContainer/VBoxContainer"]
+[node name="Button4" type="Button" parent="HSplitContainer/Sidebar/ScrollContainer/VBoxContainer"]
 margin_top = 80.0
 margin_right = 140.0
 margin_bottom = 120.0
+rect_min_size = Vector2( 0, 40 )
+theme_type_variation = "SidebarButton"
+text = "Themes"
+icon = ExtResource( 12 )
+align = 0
+script = ExtResource( 7 )
+Category = NodePath("../../../../Content/CategoryThemes")
+
+[node name="Button3" type="Button" parent="HSplitContainer/Sidebar/ScrollContainer/VBoxContainer"]
+margin_top = 120.0
+margin_right = 140.0
+margin_bottom = 160.0
 rect_min_size = Vector2( 0, 40 )
 theme_type_variation = "SidebarButton"
 text = "About"
@@ -317,6 +332,33 @@ margin_right = 310.0
 margin_bottom = 226.0
 text = "Apply"
 script = ExtResource( 9 )
+
+[node name="CategoryThemes" type="CenterContainer" parent="HSplitContainer/Content"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryThemes"]
+margin_left = 165.0
+margin_top = 218.0
+margin_right = 387.0
+margin_bottom = 281.0
+alignment = 1
+
+[node name="Label" type="Label" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer"]
+margin_right = 122.0
+margin_bottom = 14.0
+theme_type_variation = "Header"
+text = "Epic bruh moment."
+align = 1
+
+[node name="Button" type="Button" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer"]
+margin_top = 18.0
+margin_right = 122.0
+margin_bottom = 38.0
+theme = ExtResource( 14 )
+text = "Become hideous"
 
 [node name="CategoryWallpapers" type="CenterContainer" parent="HSplitContainer/Content"]
 visible = false

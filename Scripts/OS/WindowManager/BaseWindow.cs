@@ -9,10 +9,16 @@ public class BaseWindow : WindowDialog {
     public Texture Icon;
     // used for the dock button
     public bool IsClosing = false;
+    [Export]
+    public bool CustomTheme = false;
 
     public override void _Ready() {
         base._Ready();
         screenSize = ResolutionManager.Resolution;
+
+        // makes it use the theme from the viewport container, where all of the windows are located
+        if (!CustomTheme)
+            Theme = null;
 
         PackedScene maximize = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Maximize.tscn");
         Button yes = (Button)maximize.Instance();
