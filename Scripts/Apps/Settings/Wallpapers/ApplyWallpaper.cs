@@ -14,7 +14,7 @@ public class ApplyWallpaper : Button {
 
         // then save the new settings
         UserLelsktop m = SavingManager.Load<UserLelsktop>(SavingManager.CurrentUser);
-        m.Wallpaper = wallpaper.ResourcePath;
+        m.Wallpaper = GetNode<WallpaperThing>("../ChooseThingy").WallpaperPath;
         SavingManager.Save(SavingManager.CurrentUser, m);
     }
 }

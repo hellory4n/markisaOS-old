@@ -4,6 +4,7 @@ using System;
 public class WallpaperThing : OptionButton {
     // public so when it's applied we don't have to load the wallpaper twice
     public Texture Wallpaper;
+    public string WallpaperPath = "res://Assets/Wallpapers/HighPeaks.jpg";
 
     public override void _Ready() {
         base._Ready();
@@ -21,21 +22,27 @@ public class WallpaperThing : OptionButton {
         switch (index) {
             case 0:
                 Wallpaper = ResourceLoader.Load<Texture>("res://Assets/Wallpapers/HighPeaks.jpg");
+                WallpaperPath = "res://Assets/Wallpapers/HighPeaks.jpg";
                 break;
             case 1:
                 Wallpaper = ResourceLoader.Load<Texture>("res://Assets/Wallpapers/Flowers.png");
+                WallpaperPath = "res://Assets/Wallpapers/Flowers.png";
                 break;
             case 2:
                 Wallpaper = ResourceLoader.Load<Texture>("res://Assets/Wallpapers/Beaches.png");
+                WallpaperPath = "res://Assets/Wallpapers/Beaches.png";
                 break;
             case 3:
                 Wallpaper = ResourceLoader.Load<Texture>("res://Assets/Wallpapers/Space.png");
+                WallpaperPath = "res://Assets/Wallpapers/Space.png";
                 break;
             case 4:
                 Wallpaper = ResourceLoader.Load<Texture>("res://Assets/Wallpapers/Mountains.png");
+                WallpaperPath = "res://Assets/Wallpapers/Mountains.png";
                 break;
             case 5:
                 Wallpaper = ResourceLoader.Load<Texture>("res://Assets/Wallpapers/Aurora.png");
+                WallpaperPath = "res://Assets/Wallpapers/Aurora.png";
                 break;
         }
         preview.Texture = Wallpaper;
