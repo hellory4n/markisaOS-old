@@ -15,6 +15,9 @@ public class ApplyNewTheme : Button {
         CheckBox option = (CheckBox)pain.GetPressedButton();
         Theme theme;
         switch (option.Text) {
+            case "Black":
+                theme = ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Black/Theme.tres");
+                break;
             case "Blue":
                 theme = ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres");
                 break;
@@ -32,6 +35,9 @@ public class ApplyNewTheme : Button {
                 break;
             case "Red":
                 theme = ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Red/Theme.tres");
+                break;
+            case "White":
+                theme = ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-White/Theme.tres");
                 break;
             case "Yellow":
                 theme = ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Yellow/Theme.tres");
@@ -52,6 +58,6 @@ public class ApplyNewTheme : Button {
         // save the settings :)))))))))))))))))))))))))))))))))))))))))))))))))
         UserLelsktop asdadjffjsfjaf = SavingManager.Load<UserLelsktop>(SavingManager.CurrentUser);
         asdadjffjsfjaf.Theme = $"Leltheme-Dark-{option.Text}";
-        SavingManager.Save<UserLelsktop>(SavingManager.CurrentUser, asdadjffjsfjaf);
+        SavingManager.Save(SavingManager.CurrentUser, asdadjffjsfjaf);
     }
 }

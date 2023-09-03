@@ -146,6 +146,7 @@ tracks/1/keys = {
 
 [node name="Settings" type="WindowDialog"]
 process_priority = 1
+visible = true
 margin_right = 750.0
 margin_bottom = 500.0
 rect_min_size = Vector2( 750, 500 )
@@ -247,6 +248,7 @@ margin_bottom = 500.0
 mouse_filter = 1
 
 [node name="CategoryHome" type="CenterContainer" parent="HSplitContainer/Content"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -338,20 +340,19 @@ text = "Apply"
 script = ExtResource( 9 )
 
 [node name="CategoryThemes" type="CenterContainer" parent="HSplitContainer/Content"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryThemes"]
-margin_left = 95.0
-margin_top = 120.0
-margin_right = 457.0
-margin_bottom = 379.0
+margin_left = 55.0
+margin_top = 131.0
+margin_right = 497.0
+margin_bottom = 368.0
 alignment = 1
 
 [node name="Label" type="Label" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer"]
-margin_right = 362.0
+margin_right = 442.0
 margin_bottom = 33.0
 theme_type_variation = "Header"
 text = "Accent colors"
@@ -359,12 +360,20 @@ align = 1
 
 [node name="Grid" type="GridContainer" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer"]
 margin_top = 43.0
-margin_right = 362.0
+margin_right = 442.0
 margin_bottom = 133.0
-columns = 4
+columns = 5
 
 [node name="CheckBox" type="CheckBox" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer/Grid"]
 margin_right = 86.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+group = SubResource( 5 )
+text = "Black"
+
+[node name="CheckBox43234" type="CheckBox" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer/Grid"]
+margin_left = 96.0
+margin_right = 166.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
 pressed = true
@@ -372,24 +381,24 @@ group = SubResource( 5 )
 text = "Blue"
 
 [node name="CheckBox2" type="CheckBox" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer/Grid"]
-margin_left = 96.0
-margin_right = 179.0
+margin_left = 176.0
+margin_right = 259.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
 group = SubResource( 5 )
 text = "Green"
 
 [node name="CheckBox3" type="CheckBox" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer/Grid"]
-margin_left = 189.0
-margin_right = 282.0
+margin_left = 269.0
+margin_right = 362.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
 group = SubResource( 5 )
 text = "Orange"
 
 [node name="CheckBox4" type="CheckBox" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer/Grid"]
-margin_left = 292.0
-margin_right = 362.0
+margin_left = 372.0
+margin_right = 442.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
 group = SubResource( 5 )
@@ -406,16 +415,25 @@ text = "Purple"
 [node name="CheckBox6" type="CheckBox" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer/Grid"]
 margin_left = 96.0
 margin_top = 50.0
-margin_right = 179.0
+margin_right = 166.0
 margin_bottom = 90.0
 rect_min_size = Vector2( 0, 40 )
 group = SubResource( 5 )
 text = "Red"
 
-[node name="CheckBox7" type="CheckBox" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer/Grid"]
-margin_left = 189.0
+[node name="CheckBox8" type="CheckBox" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer/Grid"]
+margin_left = 176.0
 margin_top = 50.0
-margin_right = 282.0
+margin_right = 259.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 0, 40 )
+group = SubResource( 5 )
+text = "White"
+
+[node name="CheckBox7" type="CheckBox" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer/Grid"]
+margin_left = 269.0
+margin_top = 50.0
+margin_right = 362.0
 margin_bottom = 90.0
 rect_min_size = Vector2( 0, 40 )
 group = SubResource( 5 )
@@ -423,15 +441,15 @@ text = "Yellow"
 
 [node name="Button" type="Button" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer"]
 margin_top = 143.0
-margin_right = 362.0
+margin_right = 442.0
 margin_bottom = 183.0
 text = "Apply"
 script = ExtResource( 14 )
 
 [node name="Label2" type="Label" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer"]
 margin_top = 193.0
-margin_right = 362.0
-margin_bottom = 259.0
+margin_right = 442.0
+margin_bottom = 237.0
 text = "Custom themes will be available when modding support is added (so after the base OS is finished)"
 align = 1
 autowrap = true
