@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public class SoundManager : AudioStreamPlayer {
+public class SoundManager : Node {
     public enum SoundEffects {
         Startup,
         Shutdown,
@@ -10,25 +10,55 @@ public class SoundManager : AudioStreamPlayer {
         Notification
     }
 
-    // it's on a list so the number of the enum is also the index in this list or something
-    public List<AudioStreamMP3> soundFiles = new List<AudioStreamMP3>();
+    // it's on a list so the number of the enum is also the index in this list or something, and also would
+    // allow people to change them
+    public List<AudioStreamMP3> SoundFiles = new List<AudioStreamMP3>();
+    public Node sounds = new Node {
+        Name = "Sounds"
+    };
+    public Node music = new Node {
+        Name = "Music"
+    };
+    public float SoundVolume = 1;
+    public float MusicVolume = 1;
 
     public override void _Ready() {
         base._Ready();
-        soundFiles.Add(ResourceLoader.Load<AudioStreamMP3>("res://Audio/Sounds/Startup.mp3"));
-        soundFiles.Add(ResourceLoader.Load<AudioStreamMP3>("res://Audio/Sounds/Shutdown.mp3"));
-        soundFiles.Add(ResourceLoader.Load<AudioStreamMP3>("res://Audio/Sounds/Error.mp3"));
-        soundFiles.Add(ResourceLoader.Load<AudioStreamMP3>("res://Audio/Sounds/Notification.mp3"));
+        SoundFiles.Add(ResourceLoader.Load<AudioStreamMP3>("res://Audio/Sounds/Startup.mp3"));
+        SoundFiles.Add(ResourceLoader.Load<AudioStreamMP3>("res://Audio/Sounds/Shutdown.mp3"));
+        SoundFiles.Add(ResourceLoader.Load<AudioStreamMP3>("res://Audio/Sounds/Error.mp3"));
+        SoundFiles.Add(ResourceLoader.Load<AudioStreamMP3>("res://Audio/Sounds/Notification.mp3"));
+
+        AddChild(sounds);
+        AddChild(music);
     }
 
     public void PlaySoundEffect(SoundEffects sound) {
         int enumButNumber = (int)sound;
-        Stream = soundFiles[enumButNumber];
-        Playing = true;
+        AudioStreamPlayer m = new AudioStreamPlayer {
+            Stream = SoundFiles[enumButNumber],
+            Bus = "Sounds"
+        };
+        sounds.AddChild(m);
+        m.Playing = true;
     }
 
     public void PlaySound(AudioStream sound) {
-        Stream = sound;
-        Playing = true;
+        AudioStreamPlayer m = new AudioStreamPlayer {
+            Stream = sound
+        };
+        sounds.AddChild(m);
+        m.Playing = true;
+    }
+
+    public override void _Process(float delta) {
+        base._Process(delta);
+        // there's too many sound effects now, delete some of them
+        if (sounds.GetChildCount() > 10) {
+            sounds.GetChild(0).QueueFree();
+        }
+
+        int m = AudioServer.GetBusIndex("Sounds");
+        AudioServer.SetBusVolumeDb(m, SoundVolume);
     }
 }

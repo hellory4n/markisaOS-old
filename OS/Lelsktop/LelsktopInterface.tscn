@@ -1,8 +1,9 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Scripts/OS/Lelsktop/DefaultOpenWindowButton.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/OS/Lelsktop/Time.cs" type="Script" id=2]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=3]
+[ext_resource path="res://Scripts/OS/Lelsktop/QuickSettings/SoundSlider.cs" type="Script" id=4]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Settings.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Search.png" type="Texture" id=9]
 [ext_resource path="res://Scripts/OS/Lelsktop/AppMenu/OpenAppMenu.cs" type="Script" id=10]
@@ -249,7 +250,8 @@ margin_left = 40.0
 margin_top = 44.0
 margin_right = 290.0
 margin_bottom = 76.0
-value = 75.0
+value = 100.0
+script = ExtResource( 4 )
 
 [node name="Music" type="Sprite" parent="QuickSettings"]
 position = Vector2( 4, 84 )
@@ -261,7 +263,9 @@ margin_left = 40.0
 margin_top = 84.0
 margin_right = 290.0
 margin_bottom = 116.0
-value = 75.0
+max_value = 1.0
+step = 0.001
+value = 1.0
 
 [node name="Logout" type="Button" parent="QuickSettings"]
 margin_left = 4.0
