@@ -1,6 +1,6 @@
 public class BasicUser {
     public int MajorVersion = 0;
-    public int MinorVersion = 6;
+    public int MinorVersion = 7;
     public int PatchVersion = 0;
 }
 
