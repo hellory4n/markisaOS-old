@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Scripts/OS/Lelsktop/DefaultOpenWindowButton.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/OS/Lelsktop/Time.cs" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scripts/OS/Lelsktop/QuickSettings/SoundSlider.cs" type="Script" id=4]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Settings.png" type="Texture" id=5]
 [ext_resource path="res://Scripts/OS/Lelsktop/AppMenu/ListApps.cs" type="Script" id=6]
+[ext_resource path="res://Apps/QuickLaunchSetup/Assets/IconDock.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Search.png" type="Texture" id=9]
 [ext_resource path="res://Scripts/OS/Lelsktop/AppMenu/OpenAppMenu.cs" type="Script" id=10]
 [ext_resource path="res://Scripts/OS/Lelsktop/AppMenu/OpenCategory.cs" type="Script" id=11]
@@ -169,6 +170,8 @@ tracks/1/keys = {
 "values": [ Vector2( 0, -40 ), Vector2( 0, 0 ) ]
 }
 
+[sub_resource type="StyleBoxEmpty" id=24]
+
 [node name="LelsktopInterface" type="CanvasLayer"]
 process_priority = -69
 layer = 128
@@ -211,11 +214,25 @@ split_offset = -250
 
 [node name="QuickLaunch" type="HBoxContainer" parent="Dock/DockStuff"]
 margin_right = 386.0
+margin_bottom = 64.0
 mouse_filter = 0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 custom_constants/separation = 10
 alignment = 1
+
+[node name="Appomg" type="Button" parent="Dock/DockStuff/QuickLaunch"]
+margin_left = 161.0
+margin_right = 225.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+hint_tooltip = "Quick Launch Setup"
+theme_type_variation = "DockButton"
+custom_styles/normal = SubResource( 24 )
+icon = ExtResource( 7 )
+icon_align = 1
+script = ExtResource( 1 )
+WindowScene = "res://Apps/QuickLaunchSetup/QuickLaunchSetup.tscn"
 
 [node name="Running" type="HBoxContainer" parent="Dock/DockStuff"]
 margin_left = 394.0

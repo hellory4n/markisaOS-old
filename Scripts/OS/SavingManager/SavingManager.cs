@@ -72,6 +72,13 @@ public class SavingManager : Node {
             })
         );
         j.Close();
+
+        File suffer = new File();
+        suffer.Open($"user://Users/{user}/QuickLaunch.json", File.ModeFlags.Write);
+        suffer.StoreString(
+            JsonConvert.SerializeObject(new QuickLaunch())
+        );
+        suffer.Close();
     }
 
     public static T Load<T>(string user) {
@@ -88,6 +95,9 @@ public class SavingManager : Node {
                 break;
             case nameof(InstalledApps):
                 filename = $"user://Users/{user}/InstalledApps.json";
+                break;
+            case nameof(QuickLaunch):
+                filename = $"user://Users/{user}/QuickLaunch.json";
                 break;
             default:
                 GD.PushError("Invalid user info type!");
@@ -123,6 +133,9 @@ public class SavingManager : Node {
                 break;
             case nameof(InstalledApps):
                 filename = $"user://Users/{user}/UserLelsktop.json";
+                break;
+            case nameof(QuickLaunch):
+                filename = $"user://Users/{user}/QuickLaunch.json";
                 break;
             default:
                 GD.PushError("Invalid user info type!");

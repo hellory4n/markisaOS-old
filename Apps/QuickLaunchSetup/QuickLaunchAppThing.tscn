@@ -1,0 +1,20 @@
+[gd_scene format=2]
+
+[node name="Thing" type="Control"]
+margin_right = 200.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 730, 40 )
+mouse_filter = 1
+theme_type_variation = "PanelButton"
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 0.5
+anchor_bottom = 1.0
+text = "App™"
+valign = 1
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Add"

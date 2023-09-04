@@ -38,3 +38,7 @@ public class InstalledApps {
     public Lelapp[] System = new Lelapp[]{};
     public Lelapp[] Utilities = new Lelapp[]{};
 }
+
+public class QuickLaunch {
+    public Lelapp[] Apps = new Lelapp[]{};
+}
