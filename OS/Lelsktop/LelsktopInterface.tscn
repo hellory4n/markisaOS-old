@@ -1,10 +1,11 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Scripts/OS/Lelsktop/DefaultOpenWindowButton.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/OS/Lelsktop/Time.cs" type="Script" id=2]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=3]
 [ext_resource path="res://Scripts/OS/Lelsktop/QuickSettings/SoundSlider.cs" type="Script" id=4]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Settings.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/OS/Lelsktop/AppMenu/ListApps.cs" type="Script" id=6]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Search.png" type="Texture" id=9]
 [ext_resource path="res://Scripts/OS/Lelsktop/AppMenu/OpenAppMenu.cs" type="Script" id=10]
 [ext_resource path="res://Scripts/OS/Lelsktop/AppMenu/OpenCategory.cs" type="Script" id=11]
@@ -452,8 +453,9 @@ margin_bottom = 407.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/CategoryAllApps"]
 margin_right = 200.0
-margin_bottom = 960.0
+margin_bottom = 920.0
 custom_constants/separation = 0
+script = ExtResource( 6 )
 
 [node name="Settings" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
 margin_right = 200.0
@@ -467,7 +469,7 @@ align = 0
 script = ExtResource( 1 )
 WindowScene = "res://Apps/Settings/Settings.tscn"
 
-[node name="TestApp2" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+[node name="TestApp3" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
 margin_top = 40.0
 margin_right = 200.0
 margin_bottom = 80.0
@@ -480,7 +482,7 @@ align = 0
 script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
-[node name="TestApp3" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+[node name="TestApp4" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
 margin_top = 80.0
 margin_right = 200.0
 margin_bottom = 120.0
@@ -493,7 +495,7 @@ align = 0
 script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
-[node name="TestApp4" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+[node name="TestApp5" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
 margin_top = 120.0
 margin_right = 200.0
 margin_bottom = 160.0
@@ -506,7 +508,7 @@ align = 0
 script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
-[node name="TestApp5" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+[node name="TestApp6" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
 margin_top = 160.0
 margin_right = 200.0
 margin_bottom = 200.0
@@ -519,7 +521,7 @@ align = 0
 script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
-[node name="TestApp6" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+[node name="TestApp7" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
 margin_top = 200.0
 margin_right = 200.0
 margin_bottom = 240.0
@@ -532,7 +534,7 @@ align = 0
 script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
-[node name="TestApp7" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+[node name="TestApp8" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
 margin_top = 240.0
 margin_right = 200.0
 margin_bottom = 280.0
@@ -545,7 +547,7 @@ align = 0
 script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
-[node name="TestApp8" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+[node name="TestApp9" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
 margin_top = 280.0
 margin_right = 200.0
 margin_bottom = 320.0
@@ -558,7 +560,7 @@ align = 0
 script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
-[node name="TestApp9" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+[node name="TestApp10" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
 margin_top = 320.0
 margin_right = 200.0
 margin_bottom = 360.0
@@ -571,7 +573,7 @@ align = 0
 script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
-[node name="TestApp10" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+[node name="TestApp11" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
 margin_top = 360.0
 margin_right = 200.0
 margin_bottom = 400.0
@@ -584,7 +586,7 @@ align = 0
 script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
-[node name="TestApp11" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+[node name="TestApp12" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
 margin_top = 400.0
 margin_right = 200.0
 margin_bottom = 440.0
@@ -597,7 +599,7 @@ align = 0
 script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
-[node name="TestApp12" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+[node name="TestApp13" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
 margin_top = 440.0
 margin_right = 200.0
 margin_bottom = 480.0
@@ -610,7 +612,7 @@ align = 0
 script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
-[node name="TestApp13" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+[node name="TestApp14" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
 margin_top = 480.0
 margin_right = 200.0
 margin_bottom = 520.0
@@ -623,7 +625,7 @@ align = 0
 script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
-[node name="TestApp14" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+[node name="TestApp15" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
 margin_top = 520.0
 margin_right = 200.0
 margin_bottom = 560.0
@@ -636,7 +638,7 @@ align = 0
 script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
-[node name="TestApp15" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+[node name="TestApp16" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
 margin_top = 560.0
 margin_right = 200.0
 margin_bottom = 600.0
@@ -649,7 +651,7 @@ align = 0
 script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
-[node name="TestApp16" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+[node name="TestApp17" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
 margin_top = 600.0
 margin_right = 200.0
 margin_bottom = 640.0
@@ -662,7 +664,7 @@ align = 0
 script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
-[node name="TestApp17" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+[node name="TestApp18" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
 margin_top = 640.0
 margin_right = 200.0
 margin_bottom = 680.0
@@ -675,7 +677,7 @@ align = 0
 script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
-[node name="TestApp18" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+[node name="TestApp19" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
 margin_top = 680.0
 margin_right = 200.0
 margin_bottom = 720.0
@@ -688,7 +690,7 @@ align = 0
 script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
-[node name="TestApp19" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+[node name="TestApp20" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
 margin_top = 720.0
 margin_right = 200.0
 margin_bottom = 760.0
@@ -701,7 +703,7 @@ align = 0
 script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
-[node name="TestApp20" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+[node name="TestApp21" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
 margin_top = 760.0
 margin_right = 200.0
 margin_bottom = 800.0
@@ -714,7 +716,7 @@ align = 0
 script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
-[node name="TestApp21" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+[node name="TestApp22" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
 margin_top = 800.0
 margin_right = 200.0
 margin_bottom = 840.0
@@ -727,7 +729,7 @@ align = 0
 script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
-[node name="TestApp22" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+[node name="TestApp23" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
 margin_top = 840.0
 margin_right = 200.0
 margin_bottom = 880.0
@@ -740,23 +742,10 @@ align = 0
 script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
-[node name="TestApp23" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
+[node name="TestApp24" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
 margin_top = 880.0
 margin_right = 200.0
 margin_bottom = 920.0
-rect_min_size = Vector2( 200, 40 )
-mouse_filter = 1
-theme_type_variation = "PanelButton"
-text = "Test App™"
-icon = ExtResource( 22 )
-align = 0
-script = ExtResource( 1 )
-WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
-
-[node name="TestApp24" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
-margin_top = 920.0
-margin_right = 200.0
-margin_bottom = 960.0
 rect_min_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
@@ -776,6 +765,8 @@ margin_bottom = 407.0
 margin_right = 200.0
 margin_bottom = 320.0
 custom_constants/separation = 0
+script = ExtResource( 6 )
+Category = "Accessories"
 
 [node name="TestApp" type="Button" parent="AppMenu/CategoryAccessories/VBoxContainer"]
 margin_top = 40.0
@@ -891,6 +882,8 @@ margin_bottom = 407.0
 margin_right = 200.0
 margin_bottom = 280.0
 custom_constants/separation = 0
+script = ExtResource( 6 )
+Category = "Development"
 
 [node name="TestApp" type="Button" parent="AppMenu/CategoryDevelopment/VBoxContainer"]
 margin_top = 40.0
@@ -993,6 +986,8 @@ margin_bottom = 407.0
 margin_right = 200.0
 margin_bottom = 200.0
 custom_constants/separation = 0
+script = ExtResource( 6 )
+Category = "Games"
 
 [node name="TestApp" type="Button" parent="AppMenu/CategoryGames/VBoxContainer"]
 margin_top = 40.0
@@ -1069,6 +1064,8 @@ margin_bottom = 407.0
 margin_right = 200.0
 margin_bottom = 480.0
 custom_constants/separation = 0
+script = ExtResource( 6 )
+Category = "Graphics"
 
 [node name="TestApp" type="Button" parent="AppMenu/CategoryGraphics/VBoxContainer"]
 margin_top = 40.0
@@ -1236,6 +1233,8 @@ margin_bottom = 407.0
 margin_right = 200.0
 margin_bottom = 2560.0
 custom_constants/separation = 0
+script = ExtResource( 6 )
+Category = "Internet"
 
 [node name="TestApp" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
 margin_top = 40.0
@@ -2079,6 +2078,8 @@ margin_bottom = 407.0
 margin_right = 200.0
 margin_bottom = 120.0
 custom_constants/separation = 0
+script = ExtResource( 6 )
+Category = "Multimedia"
 
 [node name="TestApp" type="Button" parent="AppMenu/CategoryMultimedia/VBoxContainer"]
 margin_top = 40.0
@@ -2129,6 +2130,8 @@ margin_bottom = 407.0
 margin_right = 200.0
 margin_bottom = 520.0
 custom_constants/separation = 0
+script = ExtResource( 6 )
+Category = "Office"
 
 [node name="TestApp" type="Button" parent="AppMenu/CategoryOffice/VBoxContainer"]
 margin_top = 40.0
@@ -2309,6 +2312,8 @@ margin_bottom = 407.0
 margin_right = 200.0
 margin_bottom = 40.0
 custom_constants/separation = 0
+script = ExtResource( 6 )
+Category = "System"
 
 [node name="TestApp" type="Button" parent="AppMenu/CategorySystem/VBoxContainer"]
 margin_top = 40.0
@@ -2333,6 +2338,8 @@ margin_bottom = 407.0
 margin_right = 200.0
 margin_bottom = 40.0
 custom_constants/separation = 0
+script = ExtResource( 6 )
+Category = "Utilities"
 
 [node name="TestApp" type="Button" parent="AppMenu/CategoryUtilities/VBoxContainer"]
 margin_top = 40.0
