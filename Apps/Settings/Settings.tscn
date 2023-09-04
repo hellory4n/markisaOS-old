@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Graphics.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Themes.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Wallpapers/HighPeaks.jpg" type="Texture" id=13]
 [ext_resource path="res://Scripts/Apps/Settings/Themes/ApplyNewTheme.cs" type="Script" id=14]
+[ext_resource path="res://Scripts/OS/Lelsktop/DefaultOpenWindowButton.cs" type="Script" id=15]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Close"
@@ -146,7 +147,6 @@ tracks/1/keys = {
 
 [node name="Settings" type="WindowDialog"]
 process_priority = 1
-visible = true
 margin_right = 750.0
 margin_bottom = 500.0
 rect_min_size = Vector2( 750, 500 )
@@ -235,11 +235,11 @@ margin_right = 140.0
 margin_bottom = 160.0
 rect_min_size = Vector2( 0, 40 )
 theme_type_variation = "SidebarButton"
-text = "About"
+text = "System"
 icon = ExtResource( 5 )
 align = 0
 script = ExtResource( 7 )
-Category = NodePath("../../../../Content/CategoryAbout")
+Category = NodePath("../../../../Content/CategorySystem")
 
 [node name="Content" type="Control" parent="HSplitContainer"]
 margin_left = 198.0
@@ -248,7 +248,6 @@ margin_bottom = 500.0
 mouse_filter = 1
 
 [node name="CategoryHome" type="CenterContainer" parent="HSplitContainer/Content"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -340,6 +339,7 @@ text = "Apply"
 script = ExtResource( 9 )
 
 [node name="CategoryThemes" type="CenterContainer" parent="HSplitContainer/Content"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -503,30 +503,30 @@ margin_bottom = 374.0
 text = "Apply"
 script = ExtResource( 11 )
 
-[node name="CategoryAbout" type="CenterContainer" parent="HSplitContainer/Content"]
+[node name="CategorySystem" type="CenterContainer" parent="HSplitContainer/Content"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryAbout"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategorySystem"]
 margin_left = 118.0
-margin_top = 147.0
+margin_top = 116.0
 margin_right = 434.0
-margin_bottom = 353.0
+margin_bottom = 384.0
 
-[node name="Control" type="Control" parent="HSplitContainer/Content/CategoryAbout/VBoxContainer"]
+[node name="Control" type="Control" parent="HSplitContainer/Content/CategorySystem/VBoxContainer"]
 margin_right = 316.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 316, 64 )
 mouse_filter = 2
 
-[node name="Logo" type="Sprite" parent="HSplitContainer/Content/CategoryAbout/VBoxContainer/Control"]
+[node name="Logo" type="Sprite" parent="HSplitContainer/Content/CategorySystem/VBoxContainer/Control"]
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 8 )
 centered = false
 
-[node name="Label" type="Label" parent="HSplitContainer/Content/CategoryAbout/VBoxContainer"]
+[node name="Label" type="Label" parent="HSplitContainer/Content/CategorySystem/VBoxContainer"]
 margin_top = 74.0
 margin_right = 316.0
 margin_bottom = 140.0
@@ -535,16 +535,31 @@ text = "lelcubeOS v0.6.0
 Running on Device™"
 align = 1
 
-[node name="HSeparator" type="HSeparator" parent="HSplitContainer/Content/CategoryAbout/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="HSplitContainer/Content/CategorySystem/VBoxContainer"]
 margin_top = 150.0
 margin_right = 316.0
 margin_bottom = 152.0
 mouse_filter = 2
 
-[node name="Label2" type="Label" parent="HSplitContainer/Content/CategoryAbout/VBoxContainer"]
+[node name="Label2" type="Label" parent="HSplitContainer/Content/CategorySystem/VBoxContainer"]
 margin_top = 162.0
 margin_right = 316.0
 margin_bottom = 206.0
 text = "Developed by hellory4n
 Audio by alex343xd"
 align = 1
+
+[node name="HSeparator2" type="HSeparator" parent="HSplitContainer/Content/CategorySystem/VBoxContainer"]
+margin_top = 216.0
+margin_right = 316.0
+margin_bottom = 218.0
+mouse_filter = 2
+
+[node name="Button" type="Button" parent="HSplitContainer/Content/CategorySystem/VBoxContainer"]
+margin_top = 228.0
+margin_right = 316.0
+margin_bottom = 268.0
+theme_type_variation = "DangerButton"
+text = "Factory Reset"
+script = ExtResource( 15 )
+WindowScene = "res://Apps/Settings/DeleteAllDataConfirm.tscn"
