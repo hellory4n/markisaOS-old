@@ -23,7 +23,7 @@ public class WindowManager : Node2D {
         // add it to the dock
         OpenWindowButton coolDockButton = (OpenWindowButton)OpenWindow.Instance();
         coolDockButton.Init(window);
-        HBoxContainer dock = GetNode<HBoxContainer>("/root/LelsktopInterface/Dock/ScrollContainer/HBoxContainer");
+        HBoxContainer dock = GetNode<HBoxContainer>("/root/LelsktopInterface/Dock/DockStuff/Running");
         dock.AddChild(coolDockButton);
 
         // all windows are maximized by default on mobile

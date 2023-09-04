@@ -18,6 +18,8 @@ public class OpenWindowButton : Button {
 
     public override void _Process(float delta) {
         base._Process(delta);
+        HintTooltip = epicWindow.WindowTitle;
+
         // if we just check if it's queued for deletion it's gonna have a bit of a delay due to the closing animation
         if (epicWindow.IsClosing)
             QueueFree();

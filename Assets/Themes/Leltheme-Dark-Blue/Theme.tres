@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=172 format=2]
+[gd_resource type="Theme" load_steps=173 format=2]
 
 [ext_resource path="res://Fonts/RedHatText-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Fonts/RedHatText-Medium.ttf" type="DynamicFontData" id=2]
@@ -825,6 +825,18 @@ margin_bottom = 16.0
 
 [sub_resource type="StyleBoxEmpty" id=187]
 
+[sub_resource type="StyleBoxTexture" id=234]
+content_margin_left = 7.0
+content_margin_right = 7.0
+content_margin_top = 7.0
+content_margin_bottom = 7.0
+texture = ExtResource( 42 )
+region_rect = Rect2( 0, 0, 40, 40 )
+margin_left = 20.0
+margin_right = 20.0
+margin_top = 20.0
+margin_bottom = 20.0
+
 [sub_resource type="StyleBoxTexture" id=82]
 content_margin_left = 2.0
 content_margin_right = 2.0
@@ -890,7 +902,7 @@ color = Color( 0.266667, 0.541176, 1, 0.498039 )
 thickness = 2
 vertical = true
 
-[sub_resource type="Image" id=234]
+[sub_resource type="Image" id=235]
 data = {
 "data": PoolByteArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 130, 130, 130, 121, 141, 141, 141, 121, 152, 152, 152, 121, 129, 162, 173, 0, 140, 172, 184, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 56, 85, 95, 0, 78, 78, 78, 49, 130, 130, 130, 121, 141, 141, 141, 121, 152, 152, 152, 121, 78, 78, 78, 49, 78, 78, 78, 49, 78, 78, 78, 49, 56, 85, 95, 0, 56, 85, 95, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 56, 85, 95, 0, 78, 78, 78, 28, 78, 78, 78, 49, 78, 78, 78, 49, 78, 78, 78, 49, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ),
 "format": "RGBA8",
@@ -902,7 +914,7 @@ data = {
 [sub_resource type="ImageTexture" id=70]
 flags = 4
 flags = 4
-image = SubResource( 234 )
+image = SubResource( 235 )
 size = Vector2( 16, 4 )
 
 [sub_resource type="StyleBoxTexture" id=71]
@@ -1211,6 +1223,7 @@ TextPeek/colors/font_color_uneditable = Color( 1, 1, 1, 1 )
 TextPeek/styles/focus = SubResource( 185 )
 TextPeek/styles/normal = SubResource( 186 )
 TextPeek/styles/read_only = SubResource( 187 )
+TooltipPanel/styles/panel = SubResource( 234 )
 VBoxContainer/constants/separation = 10
 VScrollBar/icons/decrement = SubResource( 81 )
 VScrollBar/icons/decrement_highlight = SubResource( 81 )
