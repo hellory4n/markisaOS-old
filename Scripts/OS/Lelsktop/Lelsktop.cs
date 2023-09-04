@@ -59,6 +59,16 @@ public class Lelsktop : Node2D {
         lelsktopInterface.GetNode<Panel>("QuickSettings").Theme = theme;
         lelsktopInterface.GetNode<Panel>("AppMenu").Theme = theme;
         lelsktopInterface.GetNode<Panel>("Panel").Theme = theme;
+
+        // quick launch stuff
+        Lelapp[] apps = SavingManager.Load<QuickLaunch>(SavingManager.CurrentUser).Apps;
+        foreach (var app in apps) {
+            PackedScene packedScene = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/QuickLaunchButton.tscn");
+            DefaultOpenWindowButton yes = packedScene.Instance<DefaultOpenWindowButton>();
+            yes.Icon = ResourceLoader.Load<Texture>(app.Icon);
+            yes.WindowScene = app.Scene;
+            lelsktopInterface.GetNode<HBoxContainer>("Dock/DockStuff/QuickLaunch").AddChild(yes);
+        }
     }
 
     public override void _Process(float delta) {

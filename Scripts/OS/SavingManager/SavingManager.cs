@@ -101,7 +101,7 @@ public class SavingManager : Node {
                 break;
             default:
                 GD.PushError("Invalid user info type!");
-                break;
+                return default;
         }
 
         File file = new File();
@@ -139,7 +139,7 @@ public class SavingManager : Node {
                 break;
             default:
                 GD.PushError("Invalid user info type!");
-                break;
+                return;
         }
 
         File file = new File();

@@ -1,4 +1,6 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Apps/QuickLaunchSetup/AddToQuickLaunch.cs" type="Script" id=1]
 
 [node name="Thing" type="Control"]
 margin_right = 200.0
@@ -18,3 +20,4 @@ anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
 text = "Add"
+script = ExtResource( 1 )
