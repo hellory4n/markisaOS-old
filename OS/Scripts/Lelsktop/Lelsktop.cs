@@ -6,9 +6,8 @@ public class Lelsktop : Node2D {
         base._Ready();
 
         // testing the filesystem :)
-        BaseLelfs bruhmoment = new BaseLelfs("Pain & Suffering");
-        bruhmoment.Metadata.Add("Author", "Robert Balls");
-        bruhmoment.Save();
+        BaseLelfs bruhmoment = BaseLelfs.Load<BaseLelfs>("C9sAyZNPv7Djzys6o4Zw");
+        GD.Print(bruhmoment);
 
         Vector2 bruh = ResolutionManager.Resolution;
 

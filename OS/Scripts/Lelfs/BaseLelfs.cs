@@ -48,7 +48,7 @@ public class BaseLelfs {
     }
 
     /// <summary>
-    /// Saves the file into the disk.
+    /// Saves the file into the disk, or creates a new file if it doesn't exist yet.
     /// </summary>
     public void Save() {
         Directory directory = new Directory();
@@ -59,5 +59,25 @@ public class BaseLelfs {
             JsonConvert.SerializeObject(this)
         );
         file.Close();
+    }
+
+    /// <summary>
+    /// Load a file with its ID.
+    /// </summary>
+    /// <typeparam name="T">The type of the file, must inherit from BaseLelfs.</typeparam>
+    /// <param name="id">The ID of the file.</param>
+    /// <returns>The loaded file.</returns>
+    public static T Load<T>(string id) where T : BaseLelfs {
+        File file = new File();
+        if (file.FileExists($"user://Users/{SavingManager.CurrentUser}/Files/{id}.json")) {
+            file.Open($"user://Users/{SavingManager.CurrentUser}/Files/{id}.json", File.ModeFlags.Read);
+            T yes = JsonConvert.DeserializeObject<T>(
+                file.GetAsText()
+            );
+            return yes;
+        } else {
+            GD.PushError($"File with ID \"{id}\" doesn't exist!");
+            return default;
+        }
     }
 }
