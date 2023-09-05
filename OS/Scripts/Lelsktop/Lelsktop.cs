@@ -4,6 +4,12 @@ using System;
 public class Lelsktop : Node2D {
     public override void _Ready() {
         base._Ready();
+
+        // testing the filesystem :)
+        BaseLelfs bruhmoment = new BaseLelfs("Pain & Suffering");
+        bruhmoment.Metadata.Add("Author", "Robert Balls");
+        bruhmoment.Save();
+
         Vector2 bruh = ResolutionManager.Resolution;
 
         Viewport pain = GetNode<Viewport>("/root/Lelsktop/Thing/Windows");
