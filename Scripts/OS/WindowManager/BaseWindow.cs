@@ -1,14 +1,25 @@
 using Godot;
 using System;
 
+/// <summary>
+/// A basic window. Adds window decorations, manages opening, closing, and minimizing animations, and also manages window snapping and making windows active.
+/// </summary>
 public class BaseWindow : WindowDialog {
     Vector2 screenSize;
     Vector2 previousPosition = new Vector2(0, 0);
     AnimationPlayer animation;
+    /// <summary>
+    /// The icon used for the button on the dock.
+    /// </summary>
     [Export]
     public Texture Icon;
-    // used for the dock button
+    /// <summary>
+    /// Used by the button on the dock to check if it should delete itself, as if it checked if the window was queued for deletion, there would be a little delay before it actually deleted the button.
+    /// </summary>
     public bool IsClosing = false;
+    /// <summary>
+    /// Prevents the lelsktop from changing the theme of the window based on the settings the user chose.
+    /// </summary>
     [Export]
     public bool CustomTheme = false;
 

@@ -2,6 +2,9 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
+/// <summary>
+/// Responsible for managing all windows in the lelsktop.
+/// </summary>
 public class WindowManager : Node2D {
     PackedScene OpenWindow;
 
@@ -10,6 +13,10 @@ public class WindowManager : Node2D {
         OpenWindow = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/OpenWindowButton.tscn");
     }
 
+    /// <summary>
+    /// Opens a window in the lelsktop.
+    /// </summary>
+    /// <param name="window">The window to open.</param>
     public void AddWindow(BaseWindow window) {
         Control lelsktop = GetNode<Control>("/root/Lelsktop/Thing/Windows/ThemeThing");
         lelsktop.AddChild(window);

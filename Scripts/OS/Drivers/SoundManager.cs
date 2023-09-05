@@ -2,7 +2,13 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
+/// <summary>
+/// Manages sound effects and music.
+/// </summary>
 public class SoundManager : Node {
+    /// <summary>
+    /// System sound effects.
+    /// </summary>
     public enum SoundEffects {
         Startup,
         Shutdown,
@@ -19,7 +25,13 @@ public class SoundManager : Node {
     public Node music = new Node {
         Name = "Music"
     };
+    /// <summary>
+    /// The volume of sound effects in decibels, I think.
+    /// </summary>
     public float SoundVolume = 1;
+    /// <summary>
+    /// The volume of music in decibels, I think.
+    /// </summary>
     public float MusicVolume = 1;
 
     public override void _Ready() {
@@ -33,6 +45,10 @@ public class SoundManager : Node {
         AddChild(music);
     }
 
+    /// <summary>
+    /// Plays a system sound effect.
+    /// </summary>
+    /// <param name="sound">The sound effect to play.</param>
     public void PlaySoundEffect(SoundEffects sound) {
         int enumButNumber = (int)sound;
         AudioStreamPlayer m = new AudioStreamPlayer {
@@ -43,6 +59,10 @@ public class SoundManager : Node {
         m.Playing = true;
     }
 
+    /// <summary>
+    /// Play any sound file.
+    /// </summary>
+    /// <param name="sound">The sound file to play.</param>
     public void PlaySound(AudioStream sound) {
         AudioStreamPlayer m = new AudioStreamPlayer {
             Stream = sound

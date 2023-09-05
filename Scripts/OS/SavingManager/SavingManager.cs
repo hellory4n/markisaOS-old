@@ -2,6 +2,9 @@ using Godot;
 using System;
 using Newtonsoft.Json;
 
+/// <summary>
+/// Manages settings and progress both for users, and settings that apply for all users.
+/// </summary>
 public class SavingManager : Node {
     public static string CurrentUser = "";
 
@@ -30,6 +33,11 @@ public class SavingManager : Node {
         }
     }
 
+    /// <summary>
+    /// Creates a new user.
+    /// </summary>
+    /// <param name="user">The name of the new user.</param>
+    /// <param name="info">The photo and picture of the new user.</param>
     public static void NewUser(string user, UserInfo info) {
         File file = new File();
         Directory dir = new Directory();
@@ -81,6 +89,12 @@ public class SavingManager : Node {
         suffer.Close();
     }
 
+    /// <summary>
+    /// Loads data from a user.
+    /// </summary>
+    /// <typeparam name="T">The type of data to load.</typeparam>
+    /// <param name="user">The user to load data from.</param>
+    /// <returns>The data loaded.</returns>
     public static T Load<T>(string user) {
         string filename = "";
         switch (typeof(T).Name) {
@@ -119,6 +133,12 @@ public class SavingManager : Node {
         }
     }
 
+    /// <summary>
+    /// Saves new data from a user.
+    /// </summary>
+    /// <typeparam name="T">The type of data to save.</typeparam>
+    /// <param name="user">The user to save data from.</param>
+    /// <param name="data">The new data to save.</param>
     public static void Save<T>(string user, T data) {
         string filename = "";
         switch (typeof(T).Name) {
@@ -151,6 +171,11 @@ public class SavingManager : Node {
         }
     }
 
+    /// <summary>
+    /// Loads settings that apply across all users.
+    /// </summary>
+    /// <typeparam name="T">The type of settings data to load.</typeparam>
+    /// <returns>The loaded settings data.</returns>
     public static T LoadSettings<T>() {
         string filename = "";
         switch (typeof(T).Name) {
@@ -173,6 +198,11 @@ public class SavingManager : Node {
         }
     }
 
+    /// <summary>
+    /// Saves new settings that apply across all users.
+    /// </summary>
+    /// <typeparam name="T">The type of settings data to save.</typeparam>
+    /// <param name="data">The new settings data to save.</param>
     public static void SaveSettings<T>(T data) {
         string filename = "";
         switch (typeof(T).Name) {
