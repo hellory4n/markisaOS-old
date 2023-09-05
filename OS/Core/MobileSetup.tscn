@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Scripts/OS/Lelsktop/ImageBackground.cs" type="Script" id=1]
+[ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/ImageBackground.cs" type="Script" id=1]
 [ext_resource path="res://Fonts/RedHatText-Bold.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Assets/Boot/OnboardingBackground.png" type="Texture" id=3]
 [ext_resource path="res://Fonts/RedHatText-Medium.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://Scripts/OS/Core/MobileSetup.cs" type="Script" id=5]
+[ext_resource path="res://OS/Scripts/Core/MobileSetup.cs" type="Script" id=5]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=6]
 [ext_resource path="res://Audio/Music/MobileSetup.mp3" type="AudioStream" id=7]
 

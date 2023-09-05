@@ -23,11 +23,11 @@ config/quit_on_go_back=false
 
 [autoload]
 
-SavingManager="*res://Scripts/OS/SavingManager/SavingManager.cs"
-ResolutionManager="*res://Scripts/OS/Drivers/ResolutionManager.cs"
-WindowManager="*res://Scripts/OS/WindowManager/WindowManager.cs"
-SoundManager="*res://Scripts/OS/Drivers/SoundManager.cs"
-NotificationManager="*res://Scripts/OS/Lelsktop/Overlay/NotificationManager.cs"
+SavingManager="*res://OS/Scripts/SavingManager/SavingManager.cs"
+ResolutionManager="*res://OS/Scripts/Drivers/ResolutionManager.cs"
+WindowManager="*res://OS/Scripts/WindowManager/WindowManager.cs"
+SoundManager="*res://OS/Scripts/Drivers/SoundManager.cs"
+NotificationManager="*res://OS/Scripts/Lelsktop/Overlay/NotificationManager.cs"
 
 [display]
 

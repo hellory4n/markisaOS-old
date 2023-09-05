@@ -1,10 +1,10 @@
 [gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://Scripts/OS/WindowManager/SetSizeToScreenResolution.cs" type="Script" id=1]
+[ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/SetSizeToScreenResolution.cs" type="Script" id=1]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=2]
 [ext_resource path="res://Assets/UserIcons/Cat.png" type="Texture" id=4]
 [ext_resource path="res://Assets/UserIcons/Pancakes.png" type="Texture" id=5]
-[ext_resource path="res://Scripts/OS/Core/OnboardingWindowStuff.cs" type="Script" id=6]
+[ext_resource path="res://OS/Scripts/Core/OnboardingWindowStuff.cs" type="Script" id=6]
 [ext_resource path="res://Assets/UserIcons/Flower.png" type="Texture" id=7]
 [ext_resource path="res://Assets/UserIcons/Football.png" type="Texture" id=8]
 [ext_resource path="res://Assets/UserIcons/Shuttle.png" type="Texture" id=9]
@@ -13,9 +13,9 @@
 [ext_resource path="res://Assets/UserIcons/Duck.png" type="Texture" id=12]
 [ext_resource path="res://Assets/UserIcons/Dog.png" type="Texture" id=13]
 [ext_resource path="res://Assets/UserIcons/Balloons.png" type="Texture" id=14]
-[ext_resource path="res://Scripts/OS/Lelsktop/CloseParent.cs" type="Script" id=15]
-[ext_resource path="res://Scripts/OS/Core/CreateUser.cs" type="Script" id=16]
-[ext_resource path="res://Scripts/OS/Lelsktop/Overlay/TextPeek.cs" type="Script" id=17]
+[ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/CloseParent.cs" type="Script" id=15]
+[ext_resource path="res://OS/Scripts/Core/CreateUser.cs" type="Script" id=16]
+[ext_resource path="res://OS/Scripts/Lelsktop/Overlay/TextPeek.cs" type="Script" id=17]
 
 [sub_resource type="Animation" id=3]
 resource_name = "OnboardingStart"

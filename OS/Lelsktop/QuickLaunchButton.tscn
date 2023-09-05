@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Scripts/OS/Lelsktop/DefaultOpenWindowButton.cs" type="Script" id=1]
+[ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/DefaultOpenWindowButton.cs" type="Script" id=1]
 [ext_resource path="res://Apps/QuickLaunchSetup/Assets/IconDock.png" type="Texture" id=2]
 
 [sub_resource type="StyleBoxEmpty" id=24]

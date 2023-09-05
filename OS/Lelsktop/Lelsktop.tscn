@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Scripts/OS/Lelsktop/Lelsktop.cs" type="Script" id=2]
-[ext_resource path="res://Scripts/OS/Lelsktop/ImageBackground.cs" type="Script" id=5]
+[ext_resource path="res://OS/Scripts/Lelsktop/Lelsktop.cs" type="Script" id=2]
+[ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/ImageBackground.cs" type="Script" id=5]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Startup"

@@ -1,14 +1,14 @@
 [gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://Scripts/OS/WindowManager/SetSizeToScreenResolution.cs" type="Script" id=1]
+[ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/SetSizeToScreenResolution.cs" type="Script" id=1]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=2]
 [ext_resource path="res://Assets/Boot/OnboardingBackground.png" type="Texture" id=3]
 [ext_resource path="res://Fonts/RedHatText-Bold.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://Scripts/OS/Lelsktop/OpenSceneButton.cs" type="Script" id=5]
-[ext_resource path="res://Scripts/OS/Lelsktop/Time.cs" type="Script" id=6]
-[ext_resource path="res://Scripts/OS/Core/UserList.cs" type="Script" id=7]
-[ext_resource path="res://Scripts/OS/Lelsktop/ImageBackground.cs" type="Script" id=8]
-[ext_resource path="res://Scripts/OS/Core/OnboardingWindowStuff.cs" type="Script" id=9]
+[ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/OpenSceneButton.cs" type="Script" id=5]
+[ext_resource path="res://OS/Scripts/Lelsktop/Time.cs" type="Script" id=6]
+[ext_resource path="res://OS/Scripts/Core/UserList.cs" type="Script" id=7]
+[ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/ImageBackground.cs" type="Script" id=8]
+[ext_resource path="res://OS/Scripts/Core/OnboardingWindowStuff.cs" type="Script" id=9]
 
 [sub_resource type="Animation" id=3]
 resource_name = "OnboardingStart"

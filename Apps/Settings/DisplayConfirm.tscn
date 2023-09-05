@@ -2,10 +2,10 @@
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Apps/Settings/Assets/IconDock.png" type="Texture" id=2]
-[ext_resource path="res://Scripts/Apps/Settings/Display/DisplaySettingsRevert.cs" type="Script" id=3]
-[ext_resource path="res://Scripts/Apps/Settings/Display/DisplaySettingsActuallyApply.cs" type="Script" id=4]
-[ext_resource path="res://Scripts/OS/WindowManager/BaseWindow.cs" type="Script" id=5]
-[ext_resource path="res://Scripts/Apps/Settings/Display/DisplaySettingsAutoRevert.cs" type="Script" id=6]
+[ext_resource path="res://Apps/Settings/Scripts/Display/DisplaySettingsRevert.cs" type="Script" id=3]
+[ext_resource path="res://Apps/Settings/Scripts/Display/DisplaySettingsActuallyApply.cs" type="Script" id=4]
+[ext_resource path="res://OS/Scripts/WindowManager/BaseWindow.cs" type="Script" id=5]
+[ext_resource path="res://Apps/Settings/Scripts/Display/DisplaySettingsAutoRevert.cs" type="Script" id=6]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Close"

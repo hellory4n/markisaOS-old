@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Scripts/OS/WindowManager/SetSizeToScreenResolution.cs" type="Script" id=1]
+[ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/SetSizeToScreenResolution.cs" type="Script" id=1]
 [ext_resource path="res://Assets/Boot/Boot2.png" type="Texture" id=2]
 [ext_resource path="res://Fonts/RedHatText-Medium.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Assets/Boot/Splash.png" type="Texture" id=4]
-[ext_resource path="res://Scripts/OS/Core/EndBoot.cs" type="Script" id=5]
+[ext_resource path="res://OS/Scripts/Core/EndBoot.cs" type="Script" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Boot"
