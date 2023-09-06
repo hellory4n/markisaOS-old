@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 
 public class BaseLelfs {
-    public readonly string Id;
+    public string Id;
     public BaseLelfs Parent;
     public string Name;
     public Dictionary<string, object> Metadata = new Dictionary<string, object>();
     public string Path;
     public readonly string Type = "BaseLelfs";
 
-    public BaseLelfs(string name, BaseLelfs parent = null) {
+    public BaseLelfs(string name, BaseLelfs parent = null, bool newFile = false) {
         // generate the id
         string[] possibleCharacters = {
             "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J",

@@ -36,10 +36,11 @@ public class LelfsManager : Node {
     public static T Load<T>(string path) where T : BaseLelfs {
         if (Paths.ContainsKey(path)) {
             File file = new File();
-            file.Open($"user://Users/{SavingManager.CurrentUser}", File.ModeFlags.Read);
+            file.Open($"user://Users/{SavingManager.CurrentUser}/Files/{Paths[path]}.json", File.ModeFlags.Read);
             T pain = JsonConvert.DeserializeObject<T>(
                 file.GetAsText()
             );
+            pain.Id = Paths[path];
             file.Close();
             return pain;
         } else {
