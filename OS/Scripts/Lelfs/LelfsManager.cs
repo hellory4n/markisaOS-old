@@ -23,8 +23,7 @@ public class LelfsManager : Node {
         }
     }
 
-    public static void AddPath(string path, string id) {
-        Paths.Add(path, id);
+    public static void SavePaths() {
         File file = new File();
         file.Open($"user://Users/{SavingManager.CurrentUser}/Files/db.json", File.ModeFlags.Write);
         file.StoreString(
@@ -47,5 +46,31 @@ public class LelfsManager : Node {
             GD.PushError($"No file was found at path \"{path}\"!");
             return default;
         }
+    }
+
+    public static T LoadById<T>(string id) where T : BaseLelfs {
+        File file = new File();
+        if (file.FileExists($"user://Users/{SavingManager.CurrentUser}/Files/{id}.json")) {
+            file.Open($"user://Users/{SavingManager.CurrentUser}/Files/{id}.json", File.ModeFlags.Read);
+            T yes = JsonConvert.DeserializeObject<T>(
+                file.GetAsText()
+            );
+            return yes;
+        } else {
+            GD.PushError($"File with ID \"{id}\" doesn't exist!");
+            return default;
+        }
+    }
+
+    public static bool FileExists(string path) {
+        if (Paths.ContainsKey(path))
+            return true;
+        else
+            return false;
+    }
+
+    public static string PermanentPath(string path) {
+        BaseLelfs jbkfjbg = Load<BaseLelfs>(path);
+        return jbkfjbg.Id;
     }
 }

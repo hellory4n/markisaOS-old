@@ -34,7 +34,8 @@ public class BaseLelfs {
 
         // yes :)
         if (parent != null) {
-            Path = $"{parent}/{name}";
+            BaseLelfs m = LelfsManager.LoadById<BaseLelfs>(parent);
+            Path = $"{m.Path}/{name}";
         } else {
             Path = $"/{name}";
         }
@@ -45,8 +46,10 @@ public class BaseLelfs {
         File file = new File();
         directory.MakeDirRecursive($"user://Users/{SavingManager.CurrentUser}/Files/");
 
-        if (!file.FileExists($"user://Users/{SavingManager.CurrentUser}/Files/{Id}.json"))
-            LelfsManager.AddPath(Path, Id);
+        if (!file.FileExists($"user://Users/{SavingManager.CurrentUser}/Files/{Id}.json")) {
+            LelfsManager.Paths.Add(Path, Id);
+            LelfsManager.SavePaths();
+        }
 
         file.Open($"user://Users/{SavingManager.CurrentUser}/Files/{Id}.json", File.ModeFlags.Write);
         file.StoreString(
@@ -70,6 +73,51 @@ public class BaseLelfs {
         } else {
             GD.PushError($"No file was found at path \"{actualPath}\"!");
             return default;
+        }
+    }
+
+    public T Copy<T>(string name, string parent = null) where T : BaseLelfs {
+        var gaming = this;
+        gaming.Name = name;
+        gaming.Parent = parent;
+        gaming.Save();
+
+        if (parent != null) {
+            BaseLelfs m = LelfsManager.LoadById<BaseLelfs>(parent);
+            Path = $"{m.Path}/{name}";
+        } else {
+            Path = $"/{name}";
+        }
+
+        return (T)gaming;
+    }
+
+    public void Rename(string name) {
+        Name = name;
+
+        LelfsManager.Paths.Remove(Path);
+
+        if (Parent != null) {
+            BaseLelfs m = LelfsManager.LoadById<BaseLelfs>(Parent);
+            Path = $"{m.Path}/{name}";
+        } else {
+            Path = $"/{name}";
+        }
+        
+        Save();
+
+        LelfsManager.Paths.Add(Path, Id);
+        LelfsManager.SavePaths();
+    }
+
+    public void Delete() {
+        Directory directory = new Directory();
+        if (directory.FileExists($"user://Users/{SavingManager.CurrentUser}/Files/{Id}.json")) {
+            directory.Remove($"user://Users/{SavingManager.CurrentUser}/Files/{Id}.json");
+            LelfsManager.Paths.Remove(Path);
+            LelfsManager.SavePaths();
+        } else {
+            GD.PushError("File not saved yet!");
         }
     }
 }
