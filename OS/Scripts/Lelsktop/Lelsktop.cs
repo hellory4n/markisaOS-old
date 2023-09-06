@@ -13,7 +13,7 @@ public class Lelsktop : Node2D {
         coolFolder.Items.Add(suffering.Id);
         coolFolder.Save();
 
-        coolFolder.Rename("HJBJDHUIOGHJSIOZKNFKLPEG");
+        coolFolder.CopyFolder("Unimaginable Pain");
         /*Folder coolFolder = LelfsManager.Load<Folder>("/Malware");
         BaseLelfs stupidity = coolFolder.LoadLocal<BaseLelfs>("Stupidity");
         GD.Print(stupidity.Id);*/

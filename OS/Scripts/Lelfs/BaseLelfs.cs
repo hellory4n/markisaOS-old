@@ -77,22 +77,41 @@ public class BaseLelfs {
     }
 
     public T Copy<T>(string name, string parent = null) where T : BaseLelfs {
-        var gaming = this;
+        var gaming = (T)MemberwiseClone();
         gaming.Name = name;
         gaming.Parent = parent;
-        gaming.Save();
+        gaming.Id = "";
+
+        // make a new id :)
+        string[] possibleCharacters = {
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J",
+            "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d",
+            "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x",
+            "y", "z", "-", "_"
+        };
+        Random random = new Random();
+        for (int i = 0; i < 20; i++) {
+            gaming.Id += possibleCharacters[random.Next(0, 63)];
+        }
 
         if (parent != null) {
             BaseLelfs m = LelfsManager.LoadById<BaseLelfs>(parent);
-            Path = $"{m.Path}/{name}";
+            gaming.Path = $"{m.Path}/{gaming.Name}";
         } else {
-            Path = $"/{name}";
+            gaming.Path = $"/{gaming.Name}";
         }
 
-        return (T)gaming;
+        LelfsManager.Paths.Add(gaming.Path, gaming.Id);
+        LelfsManager.SavePaths();
+
+        gaming.Save();
+        return gaming;
     }
 
     public void Rename(string name) {
+        if (Name == name)
+            return;
+
         Name = name;
 
         LelfsManager.Paths.Remove(Path);

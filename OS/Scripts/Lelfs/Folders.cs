@@ -11,29 +11,45 @@ public class Folder : BaseLelfs {
     public Folder(string name, string parent = null) : base(name, parent) {}
 
     public Folder CopyFolder(string name, string parent = null) {
-        Folder gaming = this;
+        Folder gaming = (Folder)MemberwiseClone();
         gaming.Name = name;
         gaming.Parent = parent;
-        gaming.Save();
+        gaming.Id = "";
+
+        // make a new id :)
+        string[] possibleCharacters = {
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J",
+            "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d",
+            "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x",
+            "y", "z", "-", "_"
+        };
+        Random random = new Random();
+        for (int i = 0; i < 20; i++) {
+            gaming.Id += possibleCharacters[random.Next(0, 63)];
+        }
 
         if (parent != null) {
             BaseLelfs m = LelfsManager.LoadById<BaseLelfs>(parent);
-            Path = $"{m.Path}/{name}";
+            gaming.Path = $"{m.Path}/{name}";
         } else {
-            Path = $"/{name}";
+            gaming.Path = $"/{name}";
         }
 
-        foreach (string item in gaming.Items) {
+        gaming.Items.Clear();
+        foreach (string item in Items) {
             BaseLelfs m = LelfsManager.LoadById<BaseLelfs>(item);
-            m.Parent = gaming.Id;
-            m.Path = $"{gaming.Path}/{m.Name}";
-            m.Save();
+            BaseLelfs pain = m.Copy<BaseLelfs>(m.Name, gaming.Id);
+            gaming.Items.Add(pain.Id);
         }
 
+        gaming.Save();
         return gaming;
     }
 
     public new void Rename(string name) {
+        if (Name == name)
+            return;
+
         Name = name;
 
         LelfsManager.Paths.Remove(Path);
