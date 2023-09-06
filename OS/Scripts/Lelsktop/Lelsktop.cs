@@ -6,8 +6,10 @@ public class Lelsktop : Node2D {
         base._Ready();
 
         // testing the filesystem :)
-        BaseLelfs bruhmoment = LelfsManager.Load<BaseLelfs>("/Gayming");
-        GD.Print(bruhmoment.Id);
+        Folder coolFolder = new Folder("Malware");
+        coolFolder.Save();
+        BaseLelfs suffering = new BaseLelfs("Stupidity", coolFolder);
+        suffering.Save();
 
         Vector2 bruh = ResolutionManager.Resolution;
 
