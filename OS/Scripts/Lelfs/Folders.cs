@@ -7,5 +7,5 @@ public class Folder : BaseLelfs {
     public List<string> Items = new List<string>();
 
     // yes :)
-    public Folder(string name, BaseLelfs parent = null) : base(name, parent) {}
+    public Folder(string name, string parent = null) : base(name, parent) {}
 }

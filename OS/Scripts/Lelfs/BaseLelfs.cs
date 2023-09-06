@@ -5,13 +5,13 @@ using Newtonsoft.Json;
 
 public class BaseLelfs {
     public string Id;
-    public BaseLelfs Parent;
+    public string Parent;
     public string Name;
     public Dictionary<string, object> Metadata = new Dictionary<string, object>();
     public string Path;
     public readonly string Type = "BaseLelfs";
 
-    public BaseLelfs(string name, BaseLelfs parent = null) {
+    public BaseLelfs(string name, string parent = null) {
         // generate the id
         string[] possibleCharacters = {
             "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J",
@@ -24,20 +24,20 @@ public class BaseLelfs {
             Id += possibleCharacters[random.Next(0, 63)];
         }
 
+        // very illegal names
+        if (name.Contains("/"))
+            GD.PushError("Filenames can't include forward slashes (/)");
+
         // setup stuff :)
         Parent = parent;
         Name = name;
 
         // yes :)
         if (parent != null) {
-            Path = $"{parent.Path}/{name}";
+            Path = $"{parent}/{name}";
         } else {
             Path = $"/{name}";
         }
-    }
-
-    public BaseLelfs(string name, BaseLelfs parent = null, bool newFile = false) : this(name, parent)
-    {
     }
 
     public void Save() {
@@ -53,5 +53,23 @@ public class BaseLelfs {
             JsonConvert.SerializeObject(this)
         );
         file.Close();
+    }
+
+    public T LoadLocal<T>(string path) where T : BaseLelfs {
+        string actualPath = $"{Path}/{path}";
+        if (LelfsManager.Paths.ContainsKey(actualPath)) {
+            File file = new File();
+            file.Open($"user://Users/{SavingManager.CurrentUser}/Files/{LelfsManager.Paths[actualPath]}.json",
+                File.ModeFlags.Read);
+            T pain = JsonConvert.DeserializeObject<T>(
+                file.GetAsText()
+            );
+            pain.Id = LelfsManager.Paths[actualPath];
+            file.Close();
+            return pain;
+        } else {
+            GD.PushError($"No file was found at path \"{actualPath}\"!");
+            return default;
+        }
     }
 }
