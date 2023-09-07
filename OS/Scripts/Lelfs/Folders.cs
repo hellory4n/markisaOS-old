@@ -8,10 +8,6 @@ using System.Collections.Generic;
 /// </summary>
 public class Folder : BaseLelfs {
     /// <summary>
-    /// The type of the folder.
-    /// </summary>
-    public new string Type = "Folder";
-    /// <summary>
     /// The IDs of the items in this folder.
     /// </summary>
     public List<string> Items = new List<string>();
@@ -21,7 +17,9 @@ public class Folder : BaseLelfs {
     /// </summary>
     /// <param name="name">The name of the folder.</param>
     /// <param name="parent">The ID of the parent of the folder.</param>
-    public Folder(string name, string parent = null) : base(name, parent) {}
+    public Folder(string name, string parent = null) : base(name, parent) {
+        Type = "Folder";
+    }
 
     /// <summary>
     /// Copies this folder and all of its items.

@@ -30,7 +30,7 @@ public class BaseLelfs {
     /// <summary>
     /// The type of this file.
     /// </summary>
-    public readonly string Type = "BaseLelfs";
+    public string Type = "BaseLelfs";
 
     /// <summary>
     /// Initializes a BaseLelfs file. NOTE: Use <c>NewId</c> after this if you're creating new files.
