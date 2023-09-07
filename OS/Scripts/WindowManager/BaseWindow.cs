@@ -22,6 +22,10 @@ public class BaseWindow : WindowDialog {
     /// </summary>
     [Export]
     public bool CustomTheme = false;
+    public Button StupidThingForInactiveWindows = new Button {
+        AnchorRight = 1,
+        AnchorBottom = 1,
+    };
 
     public override void _Ready() {
         base._Ready();
@@ -48,6 +52,14 @@ public class BaseWindow : WindowDialog {
         // epic animation for opening the window, very important indeed
         animation = GetNode<AnimationPlayer>("AnimationPlayer");
         animation.Play("Open");
+
+        // pain
+        AddChild(StupidThingForInactiveWindows);
+        StupidThingForInactiveWindows.AddStyleboxOverride("normal", new StyleBoxEmpty());
+        StupidThingForInactiveWindows.AddStyleboxOverride("pressed", new StyleBoxEmpty());
+        StupidThingForInactiveWindows.AddStyleboxOverride("hover", new StyleBoxEmpty());
+        StupidThingForInactiveWindows.AddStyleboxOverride("focus", new StyleBoxEmpty());
+        StupidThingForInactiveWindows.AddStyleboxOverride("disabled", new StyleBoxEmpty());
     }
 
     public override void _Process(float delta) {
@@ -64,6 +76,8 @@ public class BaseWindow : WindowDialog {
         // window snapping :)
         // first check if the window is moving
         if (previousPosition != RectPosition && Resizable) {
+            Raise();
+
             if (GetGlobalMousePosition().y < 40) {
                 Vector2 maximizedSize = new Vector2(screenSize.x, screenSize.y-160);
                 RectPosition = new Vector2(0, 85);
@@ -82,14 +96,33 @@ public class BaseWindow : WindowDialog {
                 RectSize = newSize;
             }
         }
+
         previousPosition = RectPosition;
+
+        // so true
+        Control jkbmjdg = GetFocusOwner();
+        if (jkbmjdg != null) {
+            if (jkbmjdg == StupidThingForInactiveWindows) {
+                Raise();
+            }
+        }
+
+        // checks if the window is active
+        if (GetIndex() != GetParent().GetChildCount()-1) {
+            StupidThingForInactiveWindows.Visible = true;
+        } else {
+            StupidThingForInactiveWindows.Visible = false;
+        }
+        StupidThingForInactiveWindows.Raise();
     }
 
     // make the window active :)
     public override void _GuiInput(InputEvent @event) {
         if (@event is InputEventMouseButton bruh) {
             if (bruh.Pressed) {
-                Raise();
+                if (GetFocusOwner() != null) {
+                    Raise();
+                }
             }
         }
         base._GuiInput(@event);
