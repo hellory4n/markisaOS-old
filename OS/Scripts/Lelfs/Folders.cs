@@ -73,14 +73,14 @@ public class Folder : BaseLelfs {
     public new void Delete() {
         Directory directory = new Directory();
         if (directory.FileExists($"user://Users/{SavingManager.CurrentUser}/Files/{Id}.json")) {
-            directory.Remove($"user://Users/{SavingManager.CurrentUser}/Files/{Id}.json");
-            LelfsManager.Paths.Remove(Path);
-            LelfsManager.SavePaths();
-
             foreach (var item in Items) {
                 BaseLelfs bruh = LelfsManager.LoadById<BaseLelfs>(item);
                 bruh.Delete();
             }
+
+            directory.Remove($"user://Users/{SavingManager.CurrentUser}/Files/{Id}.json");
+            LelfsManager.Paths.Remove(Path);
+            LelfsManager.SavePaths();            
         } else {
             GD.PushError("File not saved yet!");
         }

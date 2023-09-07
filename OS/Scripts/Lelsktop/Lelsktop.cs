@@ -6,7 +6,7 @@ public class Lelsktop : Node2D {
         base._Ready();
 
         // testing the filesystem :)
-        Folder coolFolder = new Folder("Malware");
+        /*Folder coolFolder = new Folder("Malware");
         coolFolder.NewId();
         coolFolder.Save();
         BaseLelfs suffering = new BaseLelfs("Stupidity", coolFolder.Id);
@@ -15,10 +15,9 @@ public class Lelsktop : Node2D {
         coolFolder.Items.Add(suffering.Id);
         coolFolder.Save();
 
-        coolFolder.CopyFolder("Unimaginable Pain");
-        /*Folder coolFolder = LelfsManager.Load<Folder>("/Malware");
-        BaseLelfs stupidity = coolFolder.LoadLocal<BaseLelfs>("Stupidity");
-        GD.Print(stupidity.Id);*/
+        coolFolder.CopyFolder("Unimaginable Pain");*/
+        Folder coolFolder = LelfsManager.Load<Folder>("/Malware");
+        coolFolder.Delete();
 
         Vector2 bruh = ResolutionManager.Resolution;
 

@@ -9,7 +9,7 @@ public class Login : Button {
 
     public void Click() {
         SavingManager.CurrentUser = Text;
-        LelfsManager.SavePaths();
+        LelfsManager.UpdatePaths();
 
         PackedScene packedScene = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Lelsktop.tscn");
         Node lelsktop = packedScene.Instance();
