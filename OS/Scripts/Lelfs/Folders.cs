@@ -3,13 +3,32 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 
+/// <summary>
+/// A lelfs folder.
+/// </summary>
 public class Folder : BaseLelfs {
+    /// <summary>
+    /// The type of the folder.
+    /// </summary>
     public new string Type = "Folder";
+    /// <summary>
+    /// The IDs of the items in this folder.
+    /// </summary>
     public List<string> Items = new List<string>();
 
-    // yes :)
+    /// <summary>
+    /// Initializes a Lelfs folder. NOTE: Use <c>NewId</c> after this if you're creating new files.
+    /// </summary>
+    /// <param name="name">The name of the folder.</param>
+    /// <param name="parent">The ID of the parent of the folder.</param>
     public Folder(string name, string parent = null) : base(name, parent) {}
 
+    /// <summary>
+    /// Copies this folder and all of its items.
+    /// </summary>
+    /// <param name="name">The name of the new folder.</param>
+    /// <param name="parent">The ID of the parent of the new folder.</param>
+    /// <returns>The copied folder.</returns>
     public Folder CopyFolder(string name, string parent = null) {
         Folder gaming = (Folder)MemberwiseClone();
         gaming.Name = name;
@@ -39,6 +58,10 @@ public class Folder : BaseLelfs {
         return gaming;
     }
 
+    /// <summary>
+    /// Renames this folder and updates the paths of its items.
+    /// </summary>
+    /// <param name="name">The new name of the folder.</param>
     public new void Rename(string name) {
         if (Name == name)
             return;
@@ -70,6 +93,9 @@ public class Folder : BaseLelfs {
         LelfsManager.SavePaths();
     }
 
+    /// <summary>
+    /// Deletes this folder and all of its items.
+    /// </summary>
     public new void Delete() {
         Directory directory = new Directory();
         if (directory.FileExists($"user://Users/{SavingManager.CurrentUser}/Files/{Id}.json")) {

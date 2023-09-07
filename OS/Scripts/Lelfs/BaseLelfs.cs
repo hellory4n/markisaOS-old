@@ -3,14 +3,40 @@ using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
+/// <summary>
+/// Base for all Lelfs file formats.
+/// </summary>
 public class BaseLelfs {
+    /// <summary>
+    /// The unique ID for the file: A random number, encoded in base64, with 20 characters.
+    /// </summary>
     public string Id;
+    /// <summary>
+    /// The unique ID for the parent of this file.
+    /// </summary>
     public string Parent;
+    /// <summary>
+    /// The name of this file.
+    /// </summary>
     public string Name;
+    /// <summary>
+    /// The metadata for this file.
+    /// </summary>
     public Dictionary<string, object> Metadata = new Dictionary<string, object>();
+    /// <summary>
+    /// The path where this file can be accessed.
+    /// </summary>
     public string Path;
+    /// <summary>
+    /// The type of this file.
+    /// </summary>
     public readonly string Type = "BaseLelfs";
 
+    /// <summary>
+    /// Initializes a BaseLelfs file. NOTE: Use <c>NewId</c> after this if you're creating new files.
+    /// </summary>
+    /// <param name="name">The name of the file.</param>
+    /// <param name="parent">The ID of the parent of the file.</param>
     public BaseLelfs(string name, string parent = null) {
         // very illegal names
         if (name.Contains("/"))
@@ -29,6 +55,9 @@ public class BaseLelfs {
         }
     }
 
+    /// <summary>
+    /// Generates a new ID for this file.
+    /// </summary>
     public void NewId() {
         Id = "";
         string[] possibleCharacters = {
@@ -43,6 +72,9 @@ public class BaseLelfs {
         }
     }
 
+    /// <summary>
+    /// Saves this file, or creates a new one if it hasn't been saved yet.
+    /// </summary>
     public void Save() {
         Directory directory = new Directory();
         File file = new File();
@@ -61,6 +93,12 @@ public class BaseLelfs {
         file.Close();
     }
 
+    /// <summary>
+    /// Loads a file inside this file.
+    /// </summary>
+    /// <typeparam name="T">The type of the file.</typeparam>
+    /// <param name="path">The path of the file, example: <c>FolderInsideThis/File</c></param>
+    /// <returns>The file loaded.</returns>
     public T LoadLocal<T>(string path) where T : BaseLelfs {
         string actualPath = $"{Path}/{path}";
         if (LelfsManager.Paths.ContainsKey(actualPath)) {
@@ -79,6 +117,13 @@ public class BaseLelfs {
         }
     }
 
+    /// <summary>
+    /// Copies the current file. NOTE: Use <c>CopyFolder</c> if this is a folder.
+    /// </summary>
+    /// <typeparam name="T">The type of the new file.</typeparam>
+    /// <param name="name">The name of the new file.</param>
+    /// <param name="parent">The parent of the new file.</param>
+    /// <returns>The copied file.</returns>
     public T Copy<T>(string name, string parent = null) where T : BaseLelfs {
         var gaming = (T)MemberwiseClone();
         gaming.Name = name;
@@ -101,6 +146,10 @@ public class BaseLelfs {
         return gaming;
     }
 
+    /// <summary>
+    /// Renames this file.
+    /// </summary>
+    /// <param name="name">The new name of the file.</param>
     public void Rename(string name) {
         if (Name == name)
             return;
@@ -122,6 +171,9 @@ public class BaseLelfs {
         LelfsManager.SavePaths();
     }
 
+    /// <summary>
+    /// Deletes this file permanently.
+    /// </summary>
     public void Delete() {
         Directory directory = new Directory();
         if (directory.FileExists($"user://Users/{SavingManager.CurrentUser}/Files/{Id}.json")) {

@@ -5,20 +5,6 @@ public class Lelsktop : Node2D {
     public override void _Ready() {
         base._Ready();
 
-        // testing the filesystem :)
-        /*Folder coolFolder = new Folder("Malware");
-        coolFolder.NewId();
-        coolFolder.Save();
-        BaseLelfs suffering = new BaseLelfs("Stupidity", coolFolder.Id);
-        suffering.NewId();
-        suffering.Save();
-        coolFolder.Items.Add(suffering.Id);
-        coolFolder.Save();
-
-        coolFolder.CopyFolder("Unimaginable Pain");*/
-        Folder coolFolder = LelfsManager.Load<Folder>("/Malware");
-        coolFolder.Delete();
-
         Vector2 bruh = ResolutionManager.Resolution;
 
         Viewport pain = GetNode<Viewport>("/root/Lelsktop/Thing/Windows");

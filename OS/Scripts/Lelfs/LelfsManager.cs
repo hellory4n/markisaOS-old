@@ -3,9 +3,18 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 
+/// <summary>
+/// Manages Lelfs. NOTE: Filesystems are local to each user.
+/// </summary>
 public class LelfsManager : Node {
+    /// <summary>
+    /// The list of paths available in the filesystem. The key is the path, and the value is the ID.
+    /// </summary>
     public static Dictionary<string, string> Paths = new Dictionary<string, string>();
 
+    /// <summary>
+    /// Reloads the paths available in the filesystem, or creates a new one if the user doesn't have the files for the filesystem yet.
+    /// </summary>
     public static void UpdatePaths() {
         File file = new File();
         if (file.FileExists($"user://Users/{SavingManager.CurrentUser}/Files/db.json")) {
@@ -23,6 +32,9 @@ public class LelfsManager : Node {
         }
     }
 
+    /// <summary>
+    /// Saves the paths available in the filesystem.
+    /// </summary>
     public static void SavePaths() {
         File file = new File();
         file.Open($"user://Users/{SavingManager.CurrentUser}/Files/db.json", File.ModeFlags.Write);
@@ -32,6 +44,12 @@ public class LelfsManager : Node {
         file.Close();
     }
 
+    /// <summary>
+    /// Loads a file from its path.
+    /// </summary>
+    /// <typeparam name="T">The type of the file.</typeparam>
+    /// <param name="path">The path of the file.</param>
+    /// <returns>The loaded file.</returns>
     public static T Load<T>(string path) where T : BaseLelfs {
         if (Paths.ContainsKey(path)) {
             File file = new File();
@@ -48,6 +66,12 @@ public class LelfsManager : Node {
         }
     }
 
+    /// <summary>
+    /// Loads a file from its ID instead of its path.
+    /// </summary>
+    /// <typeparam name="T">The type of the file.</typeparam>
+    /// <param name="id">The ID of the file.</param>
+    /// <returns>The loaded file.</returns>
     public static T LoadById<T>(string id) where T : BaseLelfs {
         File file = new File();
         if (file.FileExists($"user://Users/{SavingManager.CurrentUser}/Files/{id}.json")) {
@@ -62,6 +86,11 @@ public class LelfsManager : Node {
         }
     }
 
+    /// <summary>
+    /// Checks if a file exists from its path.
+    /// </summary>
+    /// <param name="path">The path of the file.</param>
+    /// <returns>Whether or not the file exists.</returns>
     public static bool FileExists(string path) {
         if (Paths.ContainsKey(path))
             return true;
@@ -69,6 +98,11 @@ public class LelfsManager : Node {
             return false;
     }
 
+    /// <summary>
+    /// Returns the ID of a file from its path.
+    /// </summary>
+    /// <param name="path">The path of a file.</param>
+    /// <returns>The ID of the file.</returns>
     public static string PermanentPath(string path) {
         BaseLelfs jbkfjbg = Load<BaseLelfs>(path);
         return jbkfjbg.Id;
