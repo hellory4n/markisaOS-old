@@ -14,19 +14,7 @@ public class Folder : BaseLelfs {
         Folder gaming = (Folder)MemberwiseClone();
         gaming.Name = name;
         gaming.Parent = parent;
-        gaming.Id = "";
-
-        // make a new id :)
-        string[] possibleCharacters = {
-            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J",
-            "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d",
-            "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x",
-            "y", "z", "-", "_"
-        };
-        Random random = new Random();
-        for (int i = 0; i < 20; i++) {
-            gaming.Id += possibleCharacters[random.Next(0, 63)];
-        }
+        gaming.NewId();
 
         if (parent != null) {
             BaseLelfs m = LelfsManager.LoadById<BaseLelfs>(parent);
@@ -35,8 +23,13 @@ public class Folder : BaseLelfs {
             gaming.Path = $"/{name}";
         }
 
+        string[] funni = gaming.Items.ToArray();
         gaming.Items.Clear();
-        foreach (string item in Items) {
+
+        // we have to save it twice cuz yes please help me
+        gaming.Save();
+
+        foreach (string item in funni) {
             BaseLelfs m = LelfsManager.LoadById<BaseLelfs>(item);
             BaseLelfs pain = m.Copy<BaseLelfs>(m.Name, gaming.Id);
             gaming.Items.Add(pain.Id);
