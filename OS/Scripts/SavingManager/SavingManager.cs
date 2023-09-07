@@ -66,18 +66,7 @@ public class SavingManager : Node {
         File j = new File();
         j.Open($"user://Users/{user}/InstalledApps.json", File.ModeFlags.Write);
         j.StoreString(
-            JsonConvert.SerializeObject(new InstalledApps {
-                All = new Lelapp[]{
-                    new Lelapp("Test App", "res://Assets/Themes/Leltheme-Dark-Blue/Icons/App.png", "res://Apps/WindowManagerTest/WindowManagerTest.tscn"),
-                    new Lelapp("Settings", "res://Assets/Themes/Leltheme-Dark-Blue/Icons/Accessories.png", "res://Apps/Settings/Settings.tscn")
-                },
-                Accessories = new Lelapp[]{
-                    new Lelapp("Settings", "res://Assets/Themes/Leltheme-Dark-Blue/Icons/Accessories.png", "res://Apps/Settings/Settings.tscn")
-                },
-                System = new Lelapp[]{
-                    new Lelapp("Settings", "res://Assets/Themes/Leltheme-Dark-Blue/Icons/Accessories.png", "res://Apps/Settings/Settings.tscn")
-                }
-            })
+            JsonConvert.SerializeObject(new InstalledApps())
         );
         j.Close();
 
