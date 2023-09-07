@@ -147,9 +147,10 @@ tracks/1/keys = {
 
 [node name="Settings" type="WindowDialog"]
 process_priority = 1
+visible = true
 margin_right = 750.0
 margin_bottom = 500.0
-rect_min_size = Vector2( 750, 500 )
+rect_min_size = Vector2( 500, 500 )
 theme = ExtResource( 1 )
 popup_exclusive = true
 window_title = "Settings"
@@ -167,6 +168,7 @@ anims/Restore = SubResource( 4 )
 [node name="HSplitContainer" type="HSplitContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_clip_content = true
 mouse_filter = 1
 split_offset = 150
 
