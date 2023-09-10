@@ -5,6 +5,25 @@ public class Lelsktop : Node2D {
     public override void _Ready() {
         base._Ready();
 
+        // testing epic formats :)
+        /*Picture suffering = new Picture(
+            "Lelcube omogmgogmom",
+            "res://icon.png",
+            LelfsManager.PermanentPath("/Malware"),
+            "me",
+            "ur mom's house",
+            "it's lelcube",
+            "h",
+            "if you use this i will literally fucking murder you"
+        );
+        suffering.Save();*/
+        Picture suffering = LelfsManager.Load<Picture>("/Malware/Lelcube omogmgogmom");
+        Sprite hahaFunni = new Sprite {
+            Centered = false,
+            Texture = suffering.GetResource()
+        };
+        AddChild(hahaFunni);
+
         Vector2 bruh = ResolutionManager.Resolution;
 
         Viewport pain = GetNode<Viewport>("/root/Lelsktop/Thing/Windows");

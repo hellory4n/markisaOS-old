@@ -53,22 +53,20 @@ public class BaseLelfs {
         } else {
             Path = $"/{name}";
         }
-    }
 
-    /// <summary>
-    /// Generates a new ID for this file.
-    /// </summary>
-    public void NewId() {
-        Id = "";
-        string[] possibleCharacters = {
-            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J",
-            "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d",
-            "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x",
-            "y", "z", "-", "_"
-        };
-        Random random = new Random();
-        for (int i = 0; i < 20; i++) {
-            Id += possibleCharacters[random.Next(0, 63)];
+        // generates cool id
+        if (!LelfsManager.FileExists(Path)) {
+            Id = "";
+            string[] possibleCharacters = {
+                "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J",
+                "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d",
+                "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x",
+                "y", "z", "-", "_"
+            };
+            Random random = new Random();
+            for (int i = 0; i < 20; i++) {
+                Id += possibleCharacters[random.Next(0, 63)];
+            }
         }
     }
 
@@ -84,6 +82,10 @@ public class BaseLelfs {
         !LelfsManager.Paths.ContainsKey(Path)) {
             LelfsManager.Paths.Add(Path, Id);
             LelfsManager.SavePaths();
+
+            Folder pain = LelfsManager.LoadById<Folder>(Parent);
+            pain.Items.Add(Id);
+            pain.Save();
         }
 
         file.Open($"user://Users/{SavingManager.CurrentUser}/Files/{Id}.json", File.ModeFlags.Write);
@@ -128,7 +130,6 @@ public class BaseLelfs {
         var gaming = (T)MemberwiseClone();
         gaming.Name = name;
         gaming.Parent = parent;
-        gaming.NewId();
 
         if (parent != null) {
             BaseLelfs m = LelfsManager.LoadById<BaseLelfs>(parent);

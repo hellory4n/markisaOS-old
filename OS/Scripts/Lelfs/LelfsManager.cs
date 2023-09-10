@@ -92,10 +92,11 @@ public class LelfsManager : Node {
     /// <param name="path">The path of the file.</param>
     /// <returns>Whether or not the file exists.</returns>
     public static bool FileExists(string path) {
-        if (Paths.ContainsKey(path))
+        if (Paths.ContainsKey(path)) {
             return true;
-        else
+        } else {
             return false;
+        }
     }
 
     /// <summary>

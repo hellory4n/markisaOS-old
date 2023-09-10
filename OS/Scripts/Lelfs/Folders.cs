@@ -31,7 +31,6 @@ public class Folder : BaseLelfs {
         Folder gaming = (Folder)MemberwiseClone();
         gaming.Name = name;
         gaming.Parent = parent;
-        gaming.NewId();
 
         if (parent != null) {
             BaseLelfs m = LelfsManager.LoadById<BaseLelfs>(parent);

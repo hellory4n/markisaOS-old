@@ -20,6 +20,10 @@ public class Picture : BaseLelfs {
         Metadata.Add("Camera", camera);
         Metadata.Add("ClaimRights", claimRights);
     }
+
+    public Texture GetResource() {
+        return ResourceLoader.Load<Texture>(PhotoPath);
+    }
 }
 
 public class AnimatedPicture : BaseLelfs {
@@ -66,6 +70,10 @@ public class Audio : BaseLelfs {
         Metadata.Add("TrackNumber", trackNumber);
         CoverArt = coverArt;
     }
+
+    public AudioStream GetResource() {
+        return ResourceLoader.Load<AudioStream>(AudioPath);
+    }
 }
 
 public class Video : BaseLelfs {
@@ -86,5 +94,9 @@ public class Video : BaseLelfs {
         Metadata.Add("Location", location);
         Metadata.Add("Language", language);
         Thumbnail = thumbnail;
+    }
+
+    public VideoStream GetResource() {
+        return ResourceLoader.Load<VideoStream>(VideoPath);
     }
 }
