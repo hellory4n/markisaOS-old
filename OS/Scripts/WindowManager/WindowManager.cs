@@ -18,7 +18,7 @@ public class WindowManager : Node2D {
     /// </summary>
     /// <param name="window">The window to open.</param>
     public void AddWindow(BaseWindow window) {
-        Control lelsktop = GetNode<Control>("/root/Lelsktop/Thing/Windows/ThemeThing");
+        Control lelsktop = GetNode<Control>("/root/Lelsktop/Windows");
         lelsktop.AddChild(window);
         // using window.Popup_() makes it only work with 1 window, so this is a hack to bypass that
         window.Visible = true;

@@ -2,13 +2,14 @@ using Godot;
 using System;
 
 public class Lelsktop : Node2D {
+    Control suffering = new Control();
+
     public override void _Ready() {
         base._Ready();
 
         Vector2 bruh = ResolutionManager.Resolution;
-
-        Viewport pain = GetNode<Viewport>("/root/Lelsktop/Thing/Windows");
-        pain.Size = bruh;
+        suffering.RectSize = bruh;
+        GetNode("Windows").AddChild(suffering);
 
         UserLelsktop suffer = SavingManager.Load<UserLelsktop>(SavingManager.CurrentUser);
 
@@ -55,7 +56,7 @@ public class Lelsktop : Node2D {
 
         // load theme
         Theme theme = ResourceLoader.Load<Theme>($"res://Assets/Themes/{suffer.Theme}/Theme.tres");
-        pain.GetNode<Control>("ThemeThing").Theme = theme;
+        GetNode<Control>("Windows").Theme = theme;
         lelsktopInterface.GetNode<Panel>("Dock").Theme = theme;
         lelsktopInterface.GetNode<Panel>("QuickSettings").Theme = theme;
         lelsktopInterface.GetNode<Panel>("AppMenu").Theme = theme;
@@ -76,16 +77,33 @@ public class Lelsktop : Node2D {
     public override void _Process(float delta) {
         base._Process(delta);
         Vector2 pain = ResolutionManager.Resolution;
-        Viewport bruh = GetNode<Viewport>("/root/Lelsktop/Thing/Windows");
+        Control bruh = GetNode<Control>("/root/Lelsktop/Windows");
         Panel appMenu = GetNode<Panel>("/root/LelsktopInterface/AppMenu");
         Panel quickSettings = GetNode<Panel>("/root/LelsktopInterface/QuickSettings");
         Color invisible = new Color(1, 1, 1, 0);
 
         if (GetGlobalMousePosition().y < 40 || GetGlobalMousePosition().y > pain.y-75 ||
         appMenu.Modulate != invisible || quickSettings.Modulate != invisible) {
-            bruh.GuiDisableInput = true;
+            foreach (var window in bruh.GetChildren()) {
+                if (window is BaseWindow window2electricboogaloo) {
+                    window2electricboogaloo.PopupExclusive = true;
+                    window2electricboogaloo.MouseFilter = Control.MouseFilterEnum.Ignore;
+                }
+            }
+            // makes all of windows become inactive, disabling the input of their children
+            /*suffering.Raise();
+            suffering.RectPosition = new Vector2(0, 0);*/
         } else {
-            bruh.GuiDisableInput = false;
+            foreach (var window in bruh.GetChildren()) {
+                if (window is BaseWindow window2electricboogaloo) {
+                    window2electricboogaloo.PopupExclusive = false;
+                    window2electricboogaloo.MouseFilter = Control.MouseFilterEnum.Stop;
+                }
+            }
+            // removes the thing that made all windows inactive
+            bruh.MoveChild(suffering, 0);
+            suffering.Visible = false;
+            suffering.RectPosition = new Vector2(69503789323, 589383);
         }
     }
 }
