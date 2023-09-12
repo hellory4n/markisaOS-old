@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://OS/Scripts/Lelsktop/Lelsktop.cs" type="Script" id=2]
+[ext_resource path="res://Assets/Wallpapers/Aurora.png" type="Texture" id=4]
 [ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/ImageBackground.cs" type="Script" id=5]
 
 [sub_resource type="Animation" id=2]
@@ -31,9 +32,20 @@ anims/Startup = SubResource( 2 )
 [node name="Wallpaper" type="Sprite" parent="."]
 position = Vector2( 632.5, 345 )
 scale = Vector2( 0.332275, 0.351562 )
+texture = ExtResource( 4 )
 script = ExtResource( 5 )
 OriginalSize = Vector2( 4096, 2304 )
 
-[node name="Windows" type="Control" parent="."]
+[node name="Thing" type="ViewportContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Windows" type="Viewport" parent="Thing"]
+size = Vector2( 1366, 766 )
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="ThemeThing" type="Control" parent="Thing/Windows"]
 margin_right = 40.0
 margin_bottom = 40.0
