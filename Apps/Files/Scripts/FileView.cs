@@ -15,6 +15,7 @@ public class FileView : ItemList {
         Connect("item_selected", this, nameof(ItemSelected));
         Connect("item_activated", this, nameof(Open));
         Connect("nothing_selected", this, nameof(NothingSelected));
+        Connect("item_rmb_selected", this, nameof(ContextMenu));
         GetNode<LineEdit>("../Toolbar/Path").Connect("text_entered", this, nameof(PathEdit));
     }
 
@@ -125,5 +126,17 @@ public class FileView : ItemList {
                 Refresh(path);
             }
         }
+    }
+
+    void ContextMenu(int index, Vector2 position) {
+        PopupMenu yes = new PopupMenu {
+            RectPosition = GetParent<Control>().RectGlobalPosition + position
+        };
+        yes.AddItem("Cool Item 1");
+        yes.AddItem("Cool Item 2");
+        yes.AddItem("Cool Item 3");
+        yes.AddItem("Cool Item 4");
+        GetParent().AddChild(yes);
+        yes.Popup_();
     }
 }
