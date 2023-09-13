@@ -6,11 +6,11 @@ public class FileTabs : HBoxContainer {
     public List<TabThing> TabButtons = new List<TabThing>();
     public List<Control> TabContent = new List<Control>();
     PackedScene TabThing = ResourceLoader.Load<PackedScene>("res://Apps/Files/TabThing.tscn");
-    PackedScene Home = ResourceLoader.Load<PackedScene>("res://Apps/Files/Home.tscn");
+    PackedScene TabContentThing = ResourceLoader.Load<PackedScene>("res://Apps/Files/TabContent.tscn");
 
     public override void _Ready() {
         base._Ready();
-        HSplitContainer coolTab = Home.Instance<HSplitContainer>();
+        HSplitContainer coolTab = TabContentThing.Instance<HSplitContainer>();
         // i have to set a theme at that scene so godot lets me put the correct sizes and stuff
         coolTab.Theme = null;
 

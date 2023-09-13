@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 
 public class FileView : ItemList {
-    Texture FolderIcon = ResourceLoader.Load<Texture>("res://Apps/Files/Assets/IconDock.png");
+    readonly Texture FolderIcon = ResourceLoader.Load<Texture>("res://Apps/Files/Assets/IconDock.png");
+    readonly Texture FileIcon = ResourceLoader.Load<Texture>("res://Apps/Files/Assets/File.png");
     List<string> CoolFiles = new List<string>();
     string Path = "/";
 
@@ -33,7 +34,19 @@ public class FileView : ItemList {
 
             foreach (var item in fart) {
                 BaseLelfs pain = LelfsManager.Load<BaseLelfs>(item.Key);
-                AddItem(pain.Name, FolderIcon);
+                switch (pain.Type) {
+                    case "Folder":
+                        AddItem(pain.Name, FolderIcon);
+                        break;
+                    case "Picture":
+                        Picture m = (Picture)pain;
+                        AddItem(pain.Name, m.GetResource());
+                        break;
+                    default:
+                        AddItem(pain.Name, FileIcon);
+                        break;
+                }
+                
                 CoolFiles.Add(pain.Id);
             }
 
@@ -43,7 +56,19 @@ public class FileView : ItemList {
             Folder nkbn = LelfsManager.Load<Folder>(pathThingSomething);
             foreach (var item in nkbn.Items) {
                 BaseLelfs pain = LelfsManager.LoadById<BaseLelfs>(item);
-                AddItem(pain.Name);
+                switch (pain.Type) {
+                    case "Folder":
+                        AddItem(pain.Name, FolderIcon);
+                        break;
+                    case "Picture":
+                        Picture m = LelfsManager.LoadById<Picture>(item);
+                        AddItem(pain.Name, m.GetResource());
+                        break;
+                    default:
+                        AddItem(pain.Name, FileIcon);
+                        break;
+                }
+
                 CoolFiles.Add(pain.Id);
             }
 
@@ -57,7 +82,6 @@ public class FileView : ItemList {
 
     void ItemSelected(int index) {
         BaseLelfs pain = LelfsManager.LoadById<BaseLelfs>(CoolFiles[index]);
-        GD.Print($"Item \"{pain.Path}\" selected");
 
         // update the inspector
         GetNode<Label>("../Inspector/Label").Text = $"{pain.Name}\nPath: {pain.Path}\nID: {pain.Id}\nParent ID: {pain.Parent}\nType: {pain.Type}\n\nMetadata:\n";
