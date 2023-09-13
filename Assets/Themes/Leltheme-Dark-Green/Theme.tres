@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=183 format=2]
+[gd_resource type="Theme" load_steps=185 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Green/Buttons/ButtonFocus.png" type="Texture" id=1]
 [ext_resource path="res://Fonts/RedHatText-Bold.ttf" type="DynamicFontData" id=2]
@@ -66,6 +66,7 @@
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Green/Tabs/Active.png" type="Texture" id=64]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Green/Tabs/Background.png" type="Texture" id=65]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Green/Tabs/Inactive.png" type="Texture" id=66]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Green/Icons/VSplitContainer.png" type="Texture" id=67]
 
 [sub_resource type="StyleBoxEmpty" id=235]
 
@@ -970,6 +971,8 @@ margin_right = 4.0
 margin_top = 8.0
 margin_bottom = 8.0
 
+[sub_resource type="StyleBoxEmpty" id=251]
+
 [sub_resource type="DynamicFont" id=104]
 font_data = ExtResource( 2 )
 
@@ -1286,6 +1289,8 @@ VSlider/icons/tick = SubResource( 70 )
 VSlider/styles/grabber_area = SubResource( 71 )
 VSlider/styles/grabber_area_highlight = SubResource( 72 )
 VSlider/styles/slider = SubResource( 73 )
+VSplitContainer/icons/grabber = ExtResource( 67 )
+VSplitContainer/styles/bg = SubResource( 251 )
 WindowDialog/colors/title_color = Color( 1, 1, 1, 1 )
 WindowDialog/constants/close_h_ofs = 38
 WindowDialog/constants/close_v_ofs = 38

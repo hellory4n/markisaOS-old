@@ -12,7 +12,7 @@ public class RemoveFromQuickLaunch : Button {
     }
 
     public void Click() {
-        HBoxContainer yes = GetNode<HBoxContainer>("/root/LelsktopInterface/Dock/DockStuff/QuickLaunch");
+        VBoxContainer yes = GetNode<VBoxContainer>("/root/LelsktopInterface/Dock/DockStuff/QuickLaunch");
         foreach (DefaultOpenWindowButton quickSettingsThing in yes.GetChildren()) {
             if (quickSettingsThing.WindowScene == App.Scene) {
                 quickSettingsThing.QueueFree();

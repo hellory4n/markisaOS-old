@@ -192,28 +192,22 @@ script = ExtResource( 21 )
 
 [node name="Dock" type="Panel" parent="."]
 process_priority = -69
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchor_left = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -640.0
-margin_top = -75.0
-margin_right = 640.0
-rect_min_size = Vector2( 0, 75 )
+margin_left = -75.0
+rect_min_size = Vector2( 75, 0 )
 theme = ExtResource( 3 )
 theme_type_variation = "Dock"
 
-[node name="DockStuff" type="HSplitContainer" parent="Dock"]
+[node name="DockStuff" type="VSplitContainer" parent="Dock"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 5.5
-margin_bottom = -14.5
 rect_min_size = Vector2( 0, 64 )
 custom_constants/autohide = 0
-split_offset = -250
 
-[node name="QuickLaunch" type="HBoxContainer" parent="Dock/DockStuff"]
-margin_right = 386.0
+[node name="QuickLaunch" type="VBoxContainer" parent="Dock/DockStuff"]
+margin_right = 75.0
 margin_bottom = 64.0
 mouse_filter = 0
 size_flags_horizontal = 3
@@ -222,11 +216,13 @@ custom_constants/separation = 10
 alignment = 1
 
 [node name="Appomg" type="Button" parent="Dock/DockStuff/QuickLaunch"]
-margin_left = 161.0
-margin_right = 225.0
+margin_left = 5.0
+margin_right = 69.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 hint_tooltip = "Quick Launch Setup"
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_type_variation = "DockButton"
 custom_styles/normal = SubResource( 24 )
 icon = ExtResource( 7 )
@@ -234,9 +230,10 @@ icon_align = 1
 script = ExtResource( 1 )
 WindowScene = "res://Apps/QuickLaunchSetup/QuickLaunchSetup.tscn"
 
-[node name="Running" type="HBoxContainer" parent="Dock/DockStuff"]
-margin_left = 394.0
-margin_right = 1280.0
+[node name="Running" type="VBoxContainer" parent="Dock/DockStuff"]
+margin_top = 76.0
+margin_right = 75.0
+margin_bottom = 76.0
 mouse_filter = 0
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -248,9 +245,9 @@ modulate = Color( 1, 1, 1, 0 )
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -340.0
-margin_top = -200.0
+margin_top = -241.0
 margin_right = -40.0
-margin_bottom = 40.0
+margin_bottom = -1.0
 rect_min_size = Vector2( 300, 240 )
 theme = ExtResource( 3 )
 
@@ -2384,6 +2381,7 @@ WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="Panel" type="Panel" parent="."]
 anchor_right = 1.0
+margin_right = -75.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
 theme = ExtResource( 3 )

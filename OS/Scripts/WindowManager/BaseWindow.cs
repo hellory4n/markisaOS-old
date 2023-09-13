@@ -72,27 +72,28 @@ public class BaseWindow : WindowDialog {
             Visible = true;
             IsClosing = true;
         }
-        
+
         // window snapping :)
         // first check if the window is moving
         if (previousPosition != RectPosition && Resizable) {
             Raise();
 
-            if (GetGlobalMousePosition().y < 40) {
-                Vector2 maximizedSize = new Vector2(screenSize.x, screenSize.y-160);
+            if (GetGlobalMousePosition().y < 60) {
+                Vector2 maximizedSize = new Vector2(screenSize.x-75, screenSize.y-85);
                 RectPosition = new Vector2(0, 85);
                 RectSize = maximizedSize;
             }
 
             if (GetGlobalMousePosition().x < 40) {
-                Vector2 newSize = new Vector2(screenSize.x/2, screenSize.y-160);
+                Vector2 newSize = new Vector2((screenSize.x-75)/2, screenSize.y-85);
                 RectPosition = new Vector2(0, 85);
                 RectSize = newSize;
             }
 
-            if (GetGlobalMousePosition().x > screenSize.x-40) {
-                Vector2 newSize = new Vector2(screenSize.x/2, screenSize.y-160);
-                RectPosition = new Vector2(screenSize.x/2, 85);
+            // we check the viewport thing so the window doesn't get snapped just because the mouse was on the dock
+            if (GetGlobalMousePosition().x > screenSize.x-115 && !GetViewport().GuiDisableInput) {
+                Vector2 newSize = new Vector2((screenSize.x-75)/2, screenSize.y-85);
+                RectPosition = new Vector2((screenSize.x-75)/2, 85);
                 RectSize = newSize;
             }
         }

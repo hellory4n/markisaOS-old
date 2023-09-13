@@ -25,18 +25,20 @@ public class WindowManager : Node2D {
 
         // put it on the center of the screen
         Vector2 yes = ResolutionManager.Resolution;
+        yes -= new Vector2(85, 0);
+        yes += new Vector2(0, 40);
         window.RectPosition = yes/2 - (window.RectSize/2);
 
         // add it to the dock
         OpenWindowButton coolDockButton = (OpenWindowButton)OpenWindow.Instance();
         coolDockButton.Init(window);
-        HBoxContainer dock = GetNode<HBoxContainer>("/root/LelsktopInterface/Dock/DockStuff/Running");
+        VBoxContainer dock = GetNode<VBoxContainer>("/root/LelsktopInterface/Dock/DockStuff/Running");
         dock.AddChild(coolDockButton);
 
         // all windows are maximized by default on mobile
         if (OS.GetName() == "Android" && window.Resizable) {
             Vector2 maximizedSize = ResolutionManager.Resolution;
-            maximizedSize = new Vector2(maximizedSize.x, maximizedSize.y-160);
+            maximizedSize = new Vector2(maximizedSize.x-75, maximizedSize.y-85);
             window.RectPosition = new Vector2(0, 85);
             window.RectSize = maximizedSize;
         }

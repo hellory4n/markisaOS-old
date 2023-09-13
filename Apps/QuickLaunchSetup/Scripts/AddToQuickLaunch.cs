@@ -16,7 +16,7 @@ public class AddToQuickLaunch : Button {
         DefaultOpenWindowButton yes = packedScene.Instance<DefaultOpenWindowButton>();
         yes.Icon = ResourceLoader.Load<Texture>(App.Icon);
         yes.WindowScene = App.Scene;
-        GetNode<HBoxContainer>("/root/LelsktopInterface/Dock/DockStuff/QuickLaunch").AddChild(yes);
+        GetNode<VBoxContainer>("/root/LelsktopInterface/Dock/DockStuff/QuickLaunch").AddChild(yes);
 
         QuickLaunch quickLaunch = SavingManager.Load<QuickLaunch>(SavingManager.CurrentUser);
         List<Lelapp> pain = quickLaunch.Apps.ToList();

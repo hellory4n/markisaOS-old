@@ -7,10 +7,16 @@ flags = 4
 load_path = "res://.import/Dashboard.png-a2c0f627fcaddca1aedcb876f8e7a940.stex"
 
 [node name="Appomg" type="Button"]
-margin_left = 556.0
-margin_right = 620.0
-margin_bottom = 64.0
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -64.0
+margin_top = -32.0
+margin_bottom = 32.0
 rect_min_size = Vector2( 64, 64 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_type_variation = "DockButton"
 icon = SubResource( 19 )
 icon_align = 1

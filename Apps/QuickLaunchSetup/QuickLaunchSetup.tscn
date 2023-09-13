@@ -136,10 +136,11 @@ tracks/1/keys = {
 process_priority = 1
 margin_right = 750.0
 margin_bottom = 500.0
-rect_min_size = Vector2( 750, 500 )
+rect_min_size = Vector2( 400, 400 )
 theme = ExtResource( 1 )
 popup_exclusive = true
 window_title = "Quick Launch Setup"
+resizable = true
 script = ExtResource( 3 )
 Icon = ExtResource( 2 )
 
@@ -167,3 +168,4 @@ margin_bottom = 33.0
 theme_type_variation = "Header"
 text = "Which apps do you want to add/remove to Quick Launch?"
 align = 1
+clip_text = true
