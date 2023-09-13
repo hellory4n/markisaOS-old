@@ -122,7 +122,7 @@ public class FileView : ItemList {
         if (LelfsManager.FileExists(path)) {
             BaseLelfs m = LelfsManager.Load<BaseLelfs>(path);
             if (m.Type == "Folder") {
-                Refresh(Path);
+                Refresh(path);
             }
         }
     }
