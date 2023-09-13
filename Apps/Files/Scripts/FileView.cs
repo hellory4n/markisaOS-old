@@ -3,24 +3,24 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-public class FileView : VBoxContainer {
-    public PackedScene Folder = ResourceLoader.Load<PackedScene>("res://Apps/Files/Folder.tscn");
-    public PackedScene File = ResourceLoader.Load<PackedScene>("res://Apps/Files/File.tscn");
+public class FileView : ItemList {
+    Texture FolderIcon = ResourceLoader.Load<Texture>("res://Apps/Files/Assets/IconDock.png");
+    List<string> CoolFiles = new List<string>();
 
     public override void _Ready() {
         base._Ready();
         Refresh("/");
-        GetNode<LineEdit>("PathThing").Connect("text_entered", this, nameof(Refresh));
+        Connect("item_selected", this, nameof(ItemSelected));
+        Connect("item_activated", this, nameof(Open));
     }
 
-    public void Refresh(string pathThingSomething) {
-        // clear previous list
-        foreach (Node boom in GetChildren()) {
-            if (boom.Name != "PathThing")
-                boom.QueueFree();
+    void Refresh(string pathThingSomething) {
+        // clear previous list :)))))
+        for (int i = 0; i < Items.Count; i++) {
+            RemoveItem(i);
+            i--;
         }
-
-        GetNode<LineEdit>("PathThing").Text = pathThingSomething;
+        CoolFiles.Clear();
 
         if (pathThingSomething == "/") {
             // this does something
@@ -29,34 +29,29 @@ public class FileView : VBoxContainer {
 
             foreach (var item in fart) {
                 BaseLelfs pain = LelfsManager.Load<BaseLelfs>(item.Key);
-                if (pain.Type == "Folder") {
-                    Button jgkjfg = Folder.Instance<Button>();
-                    jgkjfg.Text = pain.Name;
-                    jgkjfg.HintTooltip = item.Key;
-                    AddChild(jgkjfg);
-                } else {
-                    Button bkfnjng = File.Instance<Button>();
-                    bkfnjng.Text = pain.Name;
-                    bkfnjng.HintTooltip = item.Key;
-                    AddChild(bkfnjng);
-                }
+                AddItem(pain.Name, FolderIcon);
+                CoolFiles.Add(pain.Id);
             }
         } else {
             Folder nkbn = LelfsManager.Load<Folder>(pathThingSomething);
             foreach (var item in nkbn.Items) {
                 BaseLelfs pain = LelfsManager.LoadById<BaseLelfs>(item);
-                if (pain.Type == "Folder") {
-                    Button jgkjfg = Folder.Instance<Button>();
-                    jgkjfg.Text = pain.Name;
-                    jgkjfg.HintTooltip = item;
-                    AddChild(jgkjfg);
-                } else {
-                    Button bkfnjng = File.Instance<Button>();
-                    bkfnjng.Text = pain.Name;
-                    bkfnjng.HintTooltip = item;
-                    AddChild(bkfnjng);
-                }
+                AddItem(pain.Name);
+                CoolFiles.Add(pain.Id);
             }
         }
+    }
+
+    void ItemSelected(int index) {
+        BaseLelfs pain = LelfsManager.LoadById<BaseLelfs>(CoolFiles[index]);
+        GD.Print($"Item \"{pain.Path}\" selected");
+    }
+
+    void Open(int index) {
+        BaseLelfs pain = LelfsManager.LoadById<BaseLelfs>(CoolFiles[index]);
+        if (pain.Type == "Folder") {
+            Refresh(pain.Path);
+        }
+        // TODO: add a thing that opens files :)
     }
 }

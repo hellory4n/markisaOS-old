@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
+[ext_resource path="res://Apps/Files/Scripts/FileView.cs" type="Script" id=2]
 
 [node name="TabContent" type="HSplitContainer"]
 anchor_right = 1.0
@@ -61,5 +62,10 @@ margin_bottom = -1.0
 margin_left = 108.0
 margin_right = 1280.0
 margin_bottom = 675.0
-items = [ "Item 0", null, false, "Item 1", null, false, "Item 2", null, false, "Item 3", null, false, "Item 4", null, false, "Item 5", null, false, "Item 6", null, false, "Item 7", null, false, "Item 8", null, false, "Item 9", null, false, "Item 10", null, false, "Item 11", null, false, "Item 12", null, false, "Item 13", null, false, "Item 14", null, false, "Item 15", null, false, "Item 16", null, false, "Item 17", null, false, "Item 18", null, false, "Item 19", null, false, "Item 20", null, false, "Item 21", null, false, "Item 22", null, false, "Item 23", null, false, "Item 24", null, false, "Item 25", null, false, "Item 26", null, false, "Item 27", null, false, "Item 28", null, false, "Item 29", null, false, "Item 30", null, false, "Item 31", null, false, "Item 32", null, false, "Item 33", null, false, "Item 34", null, false, "Item 35", null, false, "Item 36", null, false, "Item 37", null, false, "Item 38", null, false, "Item 39", null, false, "Item 40", null, false, "Item 41", null, false, "Item 42", null, false, "Item 43", null, false, "Item 44", null, false, "Item 45", null, false, "Item 46", null, false, "Item 47", null, false, "Item 48", null, false ]
+allow_rmb_select = true
+max_text_lines = 2
 max_columns = 8
+same_column_width = true
+icon_mode = 0
+fixed_icon_size = Vector2( 40, 40 )
+script = ExtResource( 2 )
