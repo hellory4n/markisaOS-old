@@ -2,7 +2,8 @@ using Godot;
 using System;
 
 public class AddTab : Button {
-    int Tabs = 1;
+    PackedScene TabThing = ResourceLoader.Load<PackedScene>("res://Apps/Files/TabThing.tscn");
+    PackedScene TabContent = ResourceLoader.Load<PackedScene>("res://Apps/Files/TabContent.tscn");
 
     public override void _Ready() {
         base._Ready();
@@ -16,28 +17,17 @@ public class AddTab : Button {
     }
 
     public void Click() {
-        Tabs++;
-        Control coolTab = new Control {
-            AnchorRight = 1,
-            AnchorBottom = 1,
-            MarginTop = 45
-        };
-        PackedScene pain = ResourceLoader.Load<PackedScene>("res://Apps/Files/TabThing.tscn");
-        TabThing fart = pain.Instance<TabThing>();
+        HSplitContainer coolTab = TabContent.Instance<HSplitContainer>();
+        // i have to set a theme at that scene so godot lets me put the correct sizes and stuff
+        coolTab.Theme = null;
+
+        TabThing fart = TabThing.Instance<TabThing>();
         fart.TabContent = coolTab;
-        fart.Text = $"Tab {Tabs}";
+        fart.Text = $"/";
         
         GetParent().AddChild(fart);
         GetParent().GetParent().GetParent().AddChild(coolTab);
         GetParent<FileTabs>().UpdateStuff(coolTab, fart);
-        coolTab.AddChild(new Label {
-            Text = $"tab {Tabs} :)",
-            AnchorRight = 1,
-            AnchorBottom = 1,
-            Align = Label.AlignEnum.Center,
-            Valign = Label.VAlign.Center,
-            ThemeTypeVariation = "Header"
-        });
 
         FileTabs bruh = GetParent<FileTabs>();
         bruh.TabContent.Add(coolTab);

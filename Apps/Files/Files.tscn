@@ -187,10 +187,9 @@ custom_constants/separation = 0
 script = ExtResource( 7 )
 
 [node name="Add" type="Button" parent="Leltab/HBoxContainer"]
-margin_left = 625.0
-margin_right = 668.0
+margin_right = 41.0
 margin_bottom = 45.0
-custom_constants/hseparation = 0
+theme_type_variation = "PanelButton"
 icon = ExtResource( 6 )
-flat = true
+icon_align = 1
 script = ExtResource( 8 )
