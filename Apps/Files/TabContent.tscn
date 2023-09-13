@@ -58,9 +58,14 @@ margin_left = 2.0
 margin_top = 1.0
 margin_bottom = -1.0
 
-[node name="ItemList" type="ItemList" parent="."]
+[node name="Content" type="HSplitContainer" parent="."]
 margin_left = 108.0
 margin_right = 1280.0
+margin_bottom = 675.0
+split_offset = 300
+
+[node name="ItemList" type="ItemList" parent="Content"]
+margin_right = 300.0
 margin_bottom = 675.0
 allow_rmb_select = true
 max_text_lines = 2
@@ -69,3 +74,22 @@ same_column_width = true
 icon_mode = 0
 fixed_icon_size = Vector2( 40, 40 )
 script = ExtResource( 2 )
+
+[node name="Inspector" type="Control" parent="Content"]
+margin_left = 308.0
+margin_right = 1172.0
+margin_bottom = 675.0
+
+[node name="VSeparator" type="VSeparator" parent="Content/Inspector"]
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_top = 1.0
+margin_bottom = -1.0
+
+[node name="Label" type="Label" parent="Content/Inspector"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Yes."
+align = 1
+valign = 1
+autowrap = true

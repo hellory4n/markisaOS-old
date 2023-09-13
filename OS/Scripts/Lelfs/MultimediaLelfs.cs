@@ -19,6 +19,7 @@ public class Picture : BaseLelfs {
         Metadata.Add("Description", description);
         Metadata.Add("Camera", camera);
         Metadata.Add("ClaimRights", claimRights);
+        Type = "Picture";
     }
 
     public Texture GetResource() {
@@ -45,6 +46,7 @@ public class AnimatedPicture : BaseLelfs {
         Metadata.Add("Description", description);
         Metadata.Add("Camera", camera);
         Metadata.Add("ClaimRights", claimRights);
+        Type = "AnimatedPicture";
     }
 }
 
@@ -69,6 +71,7 @@ public class Audio : BaseLelfs {
         Metadata.Add("Genre", genre);
         Metadata.Add("TrackNumber", trackNumber);
         CoverArt = coverArt;
+        Type = "Audio";
     }
 
     public AudioStream GetResource() {
@@ -94,6 +97,7 @@ public class Video : BaseLelfs {
         Metadata.Add("Location", location);
         Metadata.Add("Language", language);
         Thumbnail = thumbnail;
+        Type = "Video";
     }
 
     public VideoStream GetResource() {
