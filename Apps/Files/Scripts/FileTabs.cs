@@ -11,7 +11,9 @@ public class FileTabs : HBoxContainer {
     public override void _Ready() {
         base._Ready();
         HSplitContainer coolTab = Home.Instance<HSplitContainer>();
-        
+        // i have to set a theme at that scene so godot lets me put the correct sizes and stuff
+        coolTab.Theme = null;
+
         TabThing fart = TabThing.Instance<TabThing>();
         fart.TabContent = coolTab;
         fart.Text = "Home";
