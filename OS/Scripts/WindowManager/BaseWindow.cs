@@ -26,6 +26,18 @@ public class BaseWindow : WindowDialog {
         AnchorRight = 1,
         AnchorBottom = 1,
     };
+    /// <summary>
+    /// A panel used to display the texture of the window.
+    /// </summary>
+    public Panel TitleTexture;
+    /// <summary>
+    /// The maximize button of the window.
+    /// </summary>
+    public Button Maximize;
+    /// <summary>
+    /// The minimize button of the window.
+    /// </summary>
+    public Button Minimize;
 
     public override void _Ready() {
         base._Ready();
@@ -36,18 +48,18 @@ public class BaseWindow : WindowDialog {
             Theme = null;
 
         PackedScene maximize = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Maximize.tscn");
-        Button yes = (Button)maximize.Instance();
-        AddChild(yes);
+        Maximize = (Button)maximize.Instance();
+        AddChild(Maximize);
 
         PackedScene minimize = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Minimize.tscn");
-        Button perhaps = (Button)minimize.Instance();
-        AddChild(perhaps);
+        Minimize = (Button)minimize.Instance();
+        AddChild(Minimize);
 
         PackedScene title = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/TitleTexture.tscn");
-        Panel probably = (Panel)title.Instance();
-        AddChild(probably);
-        MoveChild(probably, 0);
-        probably.GetNode<Label>("Label").Text = WindowTitle;
+        TitleTexture = (Panel)title.Instance();
+        AddChild(TitleTexture);
+        MoveChild(TitleTexture, 0);
+        TitleTexture.GetNode<Label>("Label").Text = WindowTitle;
 
         // epic animation for opening the window, very important indeed
         animation = GetNode<AnimationPlayer>("AnimationPlayer");
@@ -127,5 +139,13 @@ public class BaseWindow : WindowDialog {
             }
         }
         base._GuiInput(@event);
+    }
+
+    /// <summary>
+    /// Closes the window.
+    /// </summary>
+    public void Close() {
+        // in the _Process function it will see that this variable has changed and actually run the close script
+        Visible = false;
     }
 }

@@ -13,7 +13,7 @@ public class DisplaySettingsRevert : Button {
         // since the settings aren't actually saved we can just do this
         resolutionManager.Update();
 
-        GetParent<BaseWindow>().Visible = false;
+        GetParent<BaseWindow>().Close();
         GetParent().GetNode<Timer>("Timer").QueueFree();
     }
 }

@@ -43,7 +43,7 @@ public class NewFile : BaseWindow {
         newFile.Metadata.Add("Author", SavingManager.CurrentUser);
         newFile.Save();
 
-        Visible = false;
+        Close();
         ThingThatINeedToRefresh.Refresh(gkfngof);
     }
 }

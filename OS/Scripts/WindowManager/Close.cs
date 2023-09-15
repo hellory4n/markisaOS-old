@@ -8,6 +8,6 @@ public class Close : Button {
     }
 
     public void Click() {
-        GetParent<BaseWindow>().Visible = false;
+        GetParent<BaseWindow>().Close();
     }
 }
