@@ -8,6 +8,7 @@ public class FileView : ItemList {
     readonly Texture FileIcon = ResourceLoader.Load<Texture>("res://Apps/Files/Assets/File.png");
     List<string> CoolFiles = new List<string>();
     public string Path = "/";
+    public Button TabThing;
 
     public override void _Ready() {
         base._Ready();
@@ -21,6 +22,11 @@ public class FileView : ItemList {
 
     public void Refresh(string pathThingSomething) {
         Path = pathThingSomething;
+        // couldn't be bothered to do this properly
+        if (pathThingSomething != "/")
+            TabThing.Text = pathThingSomething.Split("/").Last();
+        else
+            TabThing.Text = "/";
 
         // clear previous list :)))))
         for (int i = 0; i < Items.Count; i++) {
@@ -94,8 +100,8 @@ public class FileView : ItemList {
 
     void Open(int index) {
         BaseLelfs pain = LelfsManager.LoadById<BaseLelfs>(CoolFiles[index]);
-        GetNode<LineEdit>("../Toolbar/Path").Text = pain.Path;
         if (pain.Type == "Folder") {
+            GetNode<LineEdit>("../Toolbar/Path").Text = pain.Path;
             Refresh(pain.Path);
         }
         // TODO: add a thing that opens files :)

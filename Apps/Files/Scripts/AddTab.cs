@@ -24,6 +24,7 @@ public class AddTab : Button {
         TabThing fart = TabThing.Instance<TabThing>();
         fart.TabContent = coolTab;
         fart.Text = $"/";
+        coolTab.GetNode<FileView>("Content/ContentThing/ItemList").TabThing = fart;
         
         GetParent().AddChild(fart);
         GetParent().GetParent().GetParent().AddChild(coolTab);
