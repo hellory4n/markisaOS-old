@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Apps/Files/Scripts/FileView.cs" type="Script" id=2]
 [ext_resource path="res://OS/Scripts/Lelsktop/Overlay/TextPeek.cs" type="Script" id=3]
 [ext_resource path="res://Apps/Files/Scripts/NewFileOpen.cs" type="Script" id=4]
 [ext_resource path="res://Apps/Files/Scripts/NewFolderOpen.cs" type="Script" id=5]
+[ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/Copy.cs" type="Script" id=6]
 
 [node name="TabContent" type="HSplitContainer"]
 anchor_right = 1.0
@@ -137,10 +138,38 @@ margin_left = -1.0
 margin_top = 1.0
 margin_bottom = -1.0
 
-[node name="Label" type="Label" parent="Content/Inspector"]
+[node name="M" type="VBoxContainer" parent="Content/Inspector"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="Content/Inspector/M"]
+margin_right = 614.0
+margin_bottom = 22.0
 text = "Yes."
 align = 1
 valign = 1
 autowrap = true
+
+[node name="CopyID" type="Button" parent="Content/Inspector/M"]
+margin_left = 244.0
+margin_top = 32.0
+margin_right = 369.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 125, 0 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_type_variation = "SecondaryButton"
+text = "Copy ID"
+script = ExtResource( 6 )
+
+[node name="CopyPath" type="Button" parent="Content/Inspector/M"]
+margin_left = 244.0
+margin_top = 82.0
+margin_right = 369.0
+margin_bottom = 122.0
+rect_min_size = Vector2( 125, 0 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_type_variation = "SecondaryButton"
+text = "Copy Path"
+script = ExtResource( 6 )

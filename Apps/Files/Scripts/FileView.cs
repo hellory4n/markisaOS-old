@@ -58,8 +58,7 @@ public class FileView : ItemList {
                 CoolFiles.Add(pain.Id);
             }
 
-            // update the inspector
-            GetNode<Label>("../../Inspector/Label").Text = "My Computer";
+            UpdateInspector("/");
         } else {
             Folder nkbn = LelfsManager.Load<Folder>(pathThingSomething);
             foreach (var item in nkbn.Items) {
@@ -80,11 +79,7 @@ public class FileView : ItemList {
                 CoolFiles.Add(pain.Id);
             }
 
-            // update the inspector
-            GetNode<Label>("../../Inspector/Label").Text = $"{nkbn.Name}\nPath: {nkbn.Path}\nID: {nkbn.Id}\nParent ID: {nkbn.Parent}\nType: {nkbn.Type}\n\nMetadata:\n";
-            foreach (var metadata in nkbn.Metadata) {
-                GetNode<Label>("../../Inspector/Label").Text += $"{metadata.Key}: {metadata.Value}\n";
-            }
+            UpdateInspector(pathThingSomething);
         }
     }
 
@@ -92,10 +87,7 @@ public class FileView : ItemList {
         BaseLelfs pain = LelfsManager.LoadById<BaseLelfs>(CoolFiles[index]);
 
         // update the inspector
-        GetNode<Label>("../../Inspector/Label").Text = $"{pain.Name}\nPath: {pain.Path}\nID: {pain.Id}\nParent ID: {pain.Parent}\nType: {pain.Type}\n\nMetadata:\n";
-        foreach (var metadata in pain.Metadata) {
-            GetNode<Label>("../../Inspector/Label").Text += $"{metadata.Key}: {metadata.Value}\n";
-        }
+        UpdateInspector(pain.Path);
     }
 
     void Open(int index) {
@@ -108,16 +100,8 @@ public class FileView : ItemList {
     }
 
     void NothingSelected() {
-        // updates the inspector to have information of the current folder
-        if (Path == "/") {
-            GetNode<Label>("../../Inspector/Label").Text = "My Computer";
-        } else {
-            Folder nkbn = LelfsManager.Load<Folder>(Path);
-            GetNode<Label>("../../Inspector/Label").Text = $"{nkbn.Name}\nPath: {nkbn.Path}\nID: {nkbn.Id}\nParent ID: {nkbn.Parent}\nType: {nkbn.Type}\n\nMetadata:\n";
-            foreach (var metadata in nkbn.Metadata) {
-                GetNode<Label>("../../Inspector/Label").Text += $"{metadata.Key}: {metadata.Value}\n";
-            }
-        }
+        // updates the inspector to have information of the current folder :)
+        UpdateInspector(Path);
     }
 
     void PathEdit(string path) {
@@ -144,5 +128,23 @@ public class FileView : ItemList {
         yes.AddItem("Cool Item 4");
         GetParent().AddChild(yes);
         yes.Popup_();
+    }
+
+    void UpdateInspector(string path) {
+        if (path == "/") {
+            GetNode<Label>("../../Inspector/M/Label").Text = "My Computer";
+            GetNode<Copy>("../../Inspector/M/CopyID").Visible = false;
+            GetNode<Copy>("../../Inspector/M/CopyPath").Visible = false;
+        } else {
+            BaseLelfs nkbn = LelfsManager.Load<BaseLelfs>(path);
+            GetNode<Label>("../../Inspector/M/Label").Text = $"{nkbn.Name}\nType: {nkbn.Type}\n\nMetadata:\n";
+            foreach (var metadata in nkbn.Metadata) {
+                GetNode<Label>("../../Inspector/M/Label").Text += $"{metadata.Key}: {metadata.Value}\n";
+            }
+            GetNode<Copy>("../../Inspector/M/CopyID").Visible = true;
+            GetNode<Copy>("../../Inspector/M/CopyPath").Visible = true;
+            GetNode<Copy>("../../Inspector/M/CopyID").TextToCopy = nkbn.Id;
+            GetNode<Copy>("../../Inspector/M/CopyPath").TextToCopy = path;
+        }
     }
 }
