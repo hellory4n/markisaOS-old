@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Apps/Files/Scripts/FileView.cs" type="Script" id=2]
 [ext_resource path="res://OS/Scripts/Lelsktop/Overlay/TextPeek.cs" type="Script" id=3]
+[ext_resource path="res://Apps/Files/Scripts/NewFileOpen.cs" type="Script" id=4]
 
 [node name="TabContent" type="HSplitContainer"]
 anchor_right = 1.0
@@ -63,10 +64,10 @@ margin_bottom = -1.0
 margin_left = 108.0
 margin_right = 1280.0
 margin_bottom = 675.0
-split_offset = 400
+split_offset = 550
 
 [node name="ContentThing" type="Control" parent="Content"]
-margin_right = 400.0
+margin_right = 550.0
 margin_bottom = 675.0
 
 [node name="Toolbar" type="HBoxContainer" parent="Content/ContentThing"]
@@ -76,18 +77,36 @@ margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
 
 [node name="Path" type="LineEdit" parent="Content/ContentThing/Toolbar"]
-margin_right = 400.0
+margin_right = 360.0
 margin_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
 text = "/"
 align = 1
 script = ExtResource( 3 )
 
+[node name="NewFile" type="Button" parent="Content/ContentThing/Toolbar"]
+margin_left = 370.0
+margin_right = 550.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_type_variation = "SecondaryButton"
+text = "New File"
+script = ExtResource( 4 )
+
+[node name="HSeparator" type="HSeparator" parent="Content/ContentThing"]
+anchor_right = 1.0
+margin_left = -3.0
+margin_top = 60.0
+margin_right = 6.0
+margin_bottom = 2.0
+
 [node name="ItemList" type="ItemList" parent="Content/ContentThing"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 60.0
+margin_top = 70.0
 allow_rmb_select = true
 max_text_lines = 2
 max_columns = 8
@@ -97,7 +116,7 @@ fixed_icon_size = Vector2( 40, 40 )
 script = ExtResource( 2 )
 
 [node name="Inspector" type="Control" parent="Content"]
-margin_left = 408.0
+margin_left = 558.0
 margin_right = 1172.0
 margin_bottom = 675.0
 

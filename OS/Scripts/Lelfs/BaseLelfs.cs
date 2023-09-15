@@ -83,9 +83,11 @@ public class BaseLelfs {
             LelfsManager.Paths.Add(Path, Id);
             LelfsManager.SavePaths();
 
-            Folder pain = LelfsManager.LoadById<Folder>(Parent);
-            pain.Items.Add(Id);
-            pain.Save();
+            if (Parent != null) {
+                Folder pain = LelfsManager.LoadById<Folder>(Parent);
+                pain.Items.Add(Id);
+                pain.Save();
+            }
         }
 
         file.Open($"user://Users/{SavingManager.CurrentUser}/Files/{Id}.json", File.ModeFlags.Write);

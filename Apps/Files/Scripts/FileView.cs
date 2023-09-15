@@ -7,7 +7,7 @@ public class FileView : ItemList {
     readonly Texture FolderIcon = ResourceLoader.Load<Texture>("res://Apps/Files/Assets/IconDock.png");
     readonly Texture FileIcon = ResourceLoader.Load<Texture>("res://Apps/Files/Assets/File.png");
     List<string> CoolFiles = new List<string>();
-    string Path = "/";
+    public string Path = "/";
 
     public override void _Ready() {
         base._Ready();
@@ -19,7 +19,7 @@ public class FileView : ItemList {
         GetNode<LineEdit>("../Toolbar/Path").Connect("text_entered", this, nameof(PathEdit));
     }
 
-    void Refresh(string pathThingSomething) {
+    public void Refresh(string pathThingSomething) {
         Path = pathThingSomething;
 
         // clear previous list :)))))
