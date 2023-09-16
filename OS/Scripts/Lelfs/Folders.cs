@@ -27,7 +27,7 @@ public class Folder : BaseLelfs {
     /// <param name="name">The name of the new folder.</param>
     /// <param name="parent">The ID of the parent of the new folder.</param>
     /// <returns>The ID of the copied folder.</returns>
-    public string CopyFolder(string name, string parent = null) {
+    public string Copy(string name, string parent = null) {
         // MemberwiseClone() is no worky xd
         string fghjrnewhjoerthlk = JsonConvert.SerializeObject(this, new JsonSerializerSettings {
             TypeNameHandling = TypeNameHandling.All,
@@ -66,10 +66,13 @@ public class Folder : BaseLelfs {
         gaming.Save();
 
         foreach (string item in funni) {
-            BaseLelfs m = LelfsManager.LoadById<dynamic>(item);
-            m.Copy(m.Name, gaming.Id);
+            BaseLelfs m = LelfsManager.LoadById<BaseLelfs>(item);
+            gaming.Items.Add(
+                LelfsManager.Copy(item, m.Name, gaming.Id, false)
+            );
         }
 
+        gaming.Save();
         return gaming.Id;
     }
 

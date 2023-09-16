@@ -125,67 +125,6 @@ public class BaseLelfs {
     }
 
     /// <summary>
-    /// Copies the current file. NOTE: Use <c>CopyFolder</c> if this is a folder.
-    /// </summary>
-    /// <typeparam name="T">The type of the new file.</typeparam>
-    /// <param name="name">The name of the new file.</param>
-    /// <param name="parent">The parent of the new file.</param>
-    /// <param name="addToParentItems">Parameter used by Folder.CopyFolder() so it doesn't save things too many times when copying its items.</param>
-    /// <returns>The copied file.</returns>
-    public virtual string Copy(string name, string parent = null, bool addToParentItems = true) {
-        // MemberwiseClone() is no worky xd
-        string fghjrnewhjoerthlk = JsonConvert.SerializeObject(this, new JsonSerializerSettings {
-            TypeNameHandling = TypeNameHandling.All,
-        });
-        // deserializing the object will lose data, so i have to do this lol
-        JObject gaming = JObject.Parse(fghjrnewhjoerthlk);
-        GD.Print(gaming.ToString());
-
-        gaming["Name"] = name;
-        gaming["Parent"] = parent;
-        GD.Print(gaming.ToString());
-
-        if (parent != null) {
-            BaseLelfs m = LelfsManager.LoadById<BaseLelfs>(parent);
-            gaming["Parent"] = $"{m.Path}/{gaming["Name"]}";
-        } else {
-            gaming["Parent"] = $"/{gaming["Name"]}";
-        }
-
-        // make new id for the thing :)
-        gaming["Id"] = "";
-        string[] possibleCharacters = {
-            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J",
-            "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d",
-            "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x",
-            "y", "z", "-", "_"
-        };
-        Random random = new Random();
-        for (int i = 0; i < 20; i++) {
-            gaming["Id"] += possibleCharacters[random.Next(0, 63)];
-        }
-
-        if (!LelfsManager.Paths.ContainsKey(gaming.Path)) {
-            LelfsManager.Paths.Add(gaming["Path"].ToString(), gaming["Id"].ToString());
-            LelfsManager.SavePaths();
-        }
-
-        // custom save system since Save() isn't on jobjects
-        
-
-        // yes
-        if (addToParentItems) {
-            if (parent != null) {
-                Folder pain = LelfsManager.LoadById<Folder>(parent);
-                pain.Items.Add(gaming["Id"].ToString());
-                pain.Save();
-            }
-        }
-
-        return gaming["Id"].ToString();
-    }
-
-    /// <summary>
     /// Renames this file.
     /// </summary>
     /// <param name="name">The new name of the file.</param>

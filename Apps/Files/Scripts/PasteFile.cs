@@ -36,18 +36,20 @@ public class PasteFile : BaseWindow {
         BaseLelfs oldFile = LelfsManager.LoadById<BaseLelfs>(OldFile);
         if (oldFile.Type != "Folder") {
             if (Parent != "/")
-                oldFile.Copy(filename, Parent);
+                LelfsManager.Copy(oldFile.Id, filename, Parent);
             else
-                oldFile.Copy(filename);
+                LelfsManager.Copy(oldFile.Id, filename);
         } else {
             Folder oldFileButItsAFolder = LelfsManager.LoadById<Folder>(OldFile);
             if (Parent != "/")
-                oldFileButItsAFolder.CopyFolder(filename, Parent);
+                oldFileButItsAFolder.Copy(filename, Parent);
             else
-                oldFileButItsAFolder.CopyFolder(filename);
+                oldFileButItsAFolder.Copy(filename);
         }
 
         Close();
+        ThingThatINeedToRefresh.ToCopy = null;
+        ThingThatINeedToRefresh.Selected = null;
         ThingThatINeedToRefresh.Refresh(gkfngof);
     }
 }
