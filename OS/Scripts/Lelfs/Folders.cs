@@ -13,7 +13,7 @@ public class Folder : BaseLelfs {
     public List<string> Items = new List<string>();
 
     /// <summary>
-    /// Initializes a Lelfs folder. NOTE: Use <c>NewId</c> after this if you're creating new files.
+    /// Initializes a Lelfs folder.
     /// </summary>
     /// <param name="name">The name of the folder.</param>
     /// <param name="parent">The ID of the parent of the folder.</param>
@@ -26,9 +26,16 @@ public class Folder : BaseLelfs {
     /// </summary>
     /// <param name="name">The name of the new folder.</param>
     /// <param name="parent">The ID of the parent of the new folder.</param>
-    /// <returns>The copied folder.</returns>
-    public Folder CopyFolder(string name, string parent = null) {
-        Folder gaming = (Folder)MemberwiseClone();
+    /// <returns>The ID of the copied folder.</returns>
+    public string CopyFolder(string name, string parent = null) {
+        // MemberwiseClone() is no worky xd
+        string fghjrnewhjoerthlk = JsonConvert.SerializeObject(this, new JsonSerializerSettings {
+            TypeNameHandling = TypeNameHandling.All,
+        });
+        var gaming = JsonConvert.DeserializeObject<Folder>(fghjrnewhjoerthlk, new JsonSerializerSettings {
+            TypeNameHandling = TypeNameHandling.All,
+        });
+
         gaming.Name = name;
         gaming.Parent = parent;
 
@@ -60,41 +67,17 @@ public class Folder : BaseLelfs {
 
         foreach (string item in funni) {
             BaseLelfs m = LelfsManager.LoadById<BaseLelfs>(item);
-            // TODO: update this when making new types
-            switch (m.Type) {
-                case "Picture":
-                    Picture pain1 = m.Copy<Picture>(m.Name, gaming.Id);
-                    gaming.Items.Add(pain1.Id);
-                    break;
-                case "AnimatedPicture":
-                    AnimatedPicture pain2 = m.Copy<AnimatedPicture>(m.Name, gaming.Id);
-                    gaming.Items.Add(pain2.Id);
-                    break;
-                case "Audio":
-                    Audio pain3 = m.Copy<Audio>(m.Name, gaming.Id);
-                    gaming.Items.Add(pain3.Id);
-                    break;
-                case "Video":
-                    Video pain4 = m.Copy<Video>(m.Name, gaming.Id);
-                    gaming.Items.Add(pain4.Id);
-                    break;
-                default:
-                    BaseLelfs pain = m.Copy<BaseLelfs>(m.Name, gaming.Id);
-                    gaming.Items.Add(pain.Id);
-                    break;
-            }
-            
+            m.Copy<BaseLelfs>(m.Name, gaming.Id);
         }
 
-        gaming.Save();
-        return gaming;
+        return gaming.Id;
     }
 
     /// <summary>
     /// Renames this folder and updates the paths of its items.
     /// </summary>
     /// <param name="name">The new name of the folder.</param>
-    public new void Rename(string name) {
+    public override void Rename(string name) {
         if (Name == name)
             return;
 
@@ -128,7 +111,7 @@ public class Folder : BaseLelfs {
     /// <summary>
     /// Deletes this folder and all of its items.
     /// </summary>
-    public new void Delete() {
+    public override void Delete() {
         Directory directory = new Directory();
         if (directory.FileExists($"user://Users/{SavingManager.CurrentUser}/Files/{Id}.json")) {
             foreach (var item in Items) {

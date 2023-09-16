@@ -35,38 +35,16 @@ public class PasteFile : BaseWindow {
         // actually copy the file :)
         BaseLelfs oldFile = LelfsManager.LoadById<BaseLelfs>(OldFile);
         if (oldFile.Type != "Folder") {
-            BaseLelfs newFile;
             if (Parent != "/")
-                newFile = oldFile.Copy<BaseLelfs>(filename, Parent);
+                oldFile.Copy<BaseLelfs>(filename, Parent);
             else
-                newFile = oldFile.Copy<BaseLelfs>(filename);
-
-            // TODO: make an actual time system thing
-            if (newFile.Metadata.ContainsKey("CreationDate") || newFile.Metadata.ContainsKey("Author")) {
-                newFile.Metadata["CreationDate"] = DateTime.Now;
-                newFile.Metadata["Author"] = SavingManager.CurrentUser;
-            } else {
-                newFile.Metadata.Add("CreationDate", DateTime.Now);
-                newFile.Metadata.Add("Author", SavingManager.CurrentUser);
-            }
-            newFile.Save();
+                oldFile.Copy<BaseLelfs>(filename);
         } else {
             Folder oldFileButItsAFolder = LelfsManager.LoadById<Folder>(OldFile);
-            Folder newFile;
             if (Parent != "/")
-                newFile = oldFileButItsAFolder.CopyFolder(filename, Parent);
+                oldFileButItsAFolder.CopyFolder(filename, Parent);
             else
-                newFile = oldFileButItsAFolder.CopyFolder(filename);
-
-            // TODO: make an actual time system thing
-            if (newFile.Metadata.ContainsKey("CreationDate") || newFile.Metadata.ContainsKey("Author")) {
-                newFile.Metadata["CreationDate"] = DateTime.Now;
-                newFile.Metadata["Author"] = SavingManager.CurrentUser;
-            } else {
-                newFile.Metadata.Add("CreationDate", DateTime.Now);
-                newFile.Metadata.Add("Author", SavingManager.CurrentUser);
-            }
-            newFile.Save();
+                oldFileButItsAFolder.CopyFolder(filename);
         }
 
         Close();

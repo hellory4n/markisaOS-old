@@ -73,7 +73,7 @@ public class BaseLelfs {
     /// <summary>
     /// Saves this file, or creates a new one if it hasn't been saved yet.
     /// </summary>
-    public void Save() {
+    public virtual void Save() {
         Directory directory = new Directory();
         File file = new File();
         directory.MakeDirRecursive($"user://Users/{SavingManager.CurrentUser}/Files/");
@@ -92,7 +92,9 @@ public class BaseLelfs {
 
         file.Open($"user://Users/{SavingManager.CurrentUser}/Files/{Id}.json", File.ModeFlags.Write);
         file.StoreString(
-            JsonConvert.SerializeObject(this)
+            JsonConvert.SerializeObject(this, new JsonSerializerSettings {
+                TypeNameHandling = TypeNameHandling.All,
+            })
         );
         file.Close();
     }
@@ -129,10 +131,14 @@ public class BaseLelfs {
     /// <param name="parent">The parent of the new file.</param>
     /// <param name="addToParentItems">Parameter used by Folder.CopyFolder() so it doesn't save things too many times when copying its items.</param>
     /// <returns>The copied file.</returns>
-    public T Copy<T>(string name, string parent = null, bool addToParentItems = true) where T : BaseLelfs {
+    public virtual string Copy<T>(string name, string parent = null, bool addToParentItems = true) where T : BaseLelfs {
         // MemberwiseClone() is no worky xd
-        string fghjrnewhjoerthlk = JsonConvert.SerializeObject(this);
-        T gaming = JsonConvert.DeserializeObject<T>(fghjrnewhjoerthlk);
+        string fghjrnewhjoerthlk = JsonConvert.SerializeObject(this, new JsonSerializerSettings {
+            TypeNameHandling = TypeNameHandling.All,
+        });
+        var gaming = JsonConvert.DeserializeObject<T>(fghjrnewhjoerthlk, new JsonSerializerSettings {
+            TypeNameHandling = TypeNameHandling.All,
+        });
 
         gaming.Name = name;
         gaming.Parent = parent;
@@ -173,14 +179,14 @@ public class BaseLelfs {
             }
         }
 
-        return gaming;
+        return gaming.Id;
     }
 
     /// <summary>
     /// Renames this file.
     /// </summary>
     /// <param name="name">The new name of the file.</param>
-    public void Rename(string name) {
+    public virtual void Rename(string name) {
         if (Name == name)
             return;
 
@@ -204,7 +210,7 @@ public class BaseLelfs {
     /// <summary>
     /// Deletes this file permanently.
     /// </summary>
-    public void Delete() {
+    public virtual void Delete() {
         Directory directory = new Directory();
         if (directory.FileExists($"user://Users/{SavingManager.CurrentUser}/Files/{Id}.json")) {
             directory.Remove($"user://Users/{SavingManager.CurrentUser}/Files/{Id}.json");
