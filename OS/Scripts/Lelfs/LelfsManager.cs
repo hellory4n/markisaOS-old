@@ -132,7 +132,6 @@ public class LelfsManager : Node {
         }
 
         JObject gaming = JObject.Parse(fghjrnewhjoerthlk);
-        GD.Print(gaming.ToString());
 
         gaming["Name"] = name;
         gaming["Parent"] = parent;
