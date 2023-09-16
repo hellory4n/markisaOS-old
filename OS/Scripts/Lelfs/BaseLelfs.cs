@@ -127,9 +127,13 @@ public class BaseLelfs {
     /// <typeparam name="T">The type of the new file.</typeparam>
     /// <param name="name">The name of the new file.</param>
     /// <param name="parent">The parent of the new file.</param>
+    /// <param name="addToParentItems">Parameter used by Folder.CopyFolder() so it doesn't save things too many times when copying its items.</param>
     /// <returns>The copied file.</returns>
-    public T Copy<T>(string name, string parent = null) where T : BaseLelfs {
-        var gaming = (T)MemberwiseClone();
+    public T Copy<T>(string name, string parent = null, bool addToParentItems = true) where T : BaseLelfs {
+        // MemberwiseClone() is no worky xd
+        string fghjrnewhjoerthlk = JsonConvert.SerializeObject(this);
+        T gaming = JsonConvert.DeserializeObject<T>(fghjrnewhjoerthlk);
+
         gaming.Name = name;
         gaming.Parent = parent;
 
@@ -140,12 +144,35 @@ public class BaseLelfs {
             gaming.Path = $"/{gaming.Name}";
         }
 
+        // make new id for the thing :)
+        gaming.Id = "";
+        string[] possibleCharacters = {
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J",
+            "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d",
+            "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x",
+            "y", "z", "-", "_"
+        };
+        Random random = new Random();
+        for (int i = 0; i < 20; i++) {
+            gaming.Id += possibleCharacters[random.Next(0, 63)];
+        }
+
         if (!LelfsManager.Paths.ContainsKey(gaming.Path)) {
             LelfsManager.Paths.Add(gaming.Path, gaming.Id);
             LelfsManager.SavePaths();
         }
 
         gaming.Save();
+
+        // yes
+        if (addToParentItems) {
+            if (parent != null) {
+                Folder pain = LelfsManager.LoadById<Folder>(parent);
+                pain.Items.Add(gaming.Id);
+                pain.Save();
+            }
+        }
+
         return gaming;
     }
 

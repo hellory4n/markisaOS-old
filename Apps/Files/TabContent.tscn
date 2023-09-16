@@ -115,6 +115,15 @@ margin_top = 60.0
 margin_right = 6.0
 margin_bottom = 2.0
 
+[node name="HSeparator2" type="HSeparator" parent="Content/ContentThing"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -3.0
+margin_top = -60.0
+margin_right = 6.0
+margin_bottom = -58.0
+
 [node name="ItemList" type="ItemList" parent="Content/ContentThing"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -126,6 +135,31 @@ same_column_width = true
 icon_mode = 0
 fixed_icon_size = Vector2( 40, 40 )
 script = ExtResource( 2 )
+
+[node name="FileOperations" type="HBoxContainer" parent="Content/ContentThing"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -50.0
+margin_bottom = -10.0
+rect_min_size = Vector2( 0, 40 )
+alignment = 1
+
+[node name="Copy" type="Button" parent="Content/ContentThing/FileOperations"]
+margin_left = 170.0
+margin_right = 270.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 100, 0 )
+theme_type_variation = "SecondaryButton"
+text = "Copy"
+
+[node name="Paste" type="Button" parent="Content/ContentThing/FileOperations"]
+margin_left = 280.0
+margin_right = 380.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 100, 0 )
+theme_type_variation = "SecondaryButton"
+text = "Paste"
 
 [node name="Inspector" type="Control" parent="Content"]
 margin_left = 558.0

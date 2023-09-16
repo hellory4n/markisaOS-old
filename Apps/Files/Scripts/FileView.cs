@@ -9,6 +9,8 @@ public class FileView : ItemList {
     List<string> CoolFiles = new List<string>();
     public string Path = "/";
     public Button TabThing;
+    public string Selected;
+    public string ToCopy;
 
     public override void _Ready() {
         base._Ready();
@@ -18,6 +20,14 @@ public class FileView : ItemList {
         Connect("nothing_selected", this, nameof(NothingSelected));
         Connect("item_rmb_selected", this, nameof(ContextMenu));
         GetNode<LineEdit>("../Toolbar/Path").Connect("text_entered", this, nameof(PathEdit));
+        GetNode<Button>("../FileOperations/Copy").Connect("pressed", this, nameof(CopyFile));
+        GetNode<Button>("../FileOperations/Paste").Connect("pressed", this, nameof(PasteFile));
+    }
+
+    public override void _Process(float delta) {
+        base._Process(delta);
+        GetNode<Button>("../FileOperations/Copy").Disabled = Selected == null;
+        GetNode<Button>("../FileOperations/Paste").Disabled = ToCopy == null;
     }
 
     public void Refresh(string pathThingSomething) {
@@ -85,9 +95,8 @@ public class FileView : ItemList {
 
     void ItemSelected(int index) {
         BaseLelfs pain = LelfsManager.LoadById<BaseLelfs>(CoolFiles[index]);
-
-        // update the inspector
         UpdateInspector(pain.Path);
+        Selected = pain.Id;
     }
 
     void Open(int index) {
@@ -102,6 +111,7 @@ public class FileView : ItemList {
     void NothingSelected() {
         // updates the inspector to have information of the current folder :)
         UpdateInspector(Path);
+        Selected = null;
     }
 
     void PathEdit(string path) {
@@ -146,5 +156,27 @@ public class FileView : ItemList {
             GetNode<Copy>("../../Inspector/M/CopyID").TextToCopy = nkbn.Id;
             GetNode<Copy>("../../Inspector/M/CopyPath").TextToCopy = path;
         }
+    }
+
+    void CopyFile() {
+        ToCopy = Selected;
+    }
+
+    void PasteFile() {
+        WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
+        PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Files/Paste.tscn");
+        PasteFile jjkn = m.Instance<PasteFile>();
+
+        // pain
+        if (Path != "/") {
+            BaseLelfs dfggfdf = LelfsManager.Load<BaseLelfs>(Path);
+            jjkn.Parent = dfggfdf.Id;
+        } else {
+            jjkn.Parent = "/";
+        }
+        jjkn.ThingThatINeedToRefresh = this;
+        jjkn.OldFile = ToCopy;
+
+        wm.AddWindow(jjkn);
     }
 }
