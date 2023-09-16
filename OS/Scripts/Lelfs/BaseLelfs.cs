@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 /// <summary>
 /// Base for all Lelfs file formats.
@@ -131,27 +132,28 @@ public class BaseLelfs {
     /// <param name="parent">The parent of the new file.</param>
     /// <param name="addToParentItems">Parameter used by Folder.CopyFolder() so it doesn't save things too many times when copying its items.</param>
     /// <returns>The copied file.</returns>
-    public virtual string Copy<T>(string name, string parent = null, bool addToParentItems = true) where T : BaseLelfs {
+    public virtual string Copy(string name, string parent = null, bool addToParentItems = true) {
         // MemberwiseClone() is no worky xd
         string fghjrnewhjoerthlk = JsonConvert.SerializeObject(this, new JsonSerializerSettings {
             TypeNameHandling = TypeNameHandling.All,
         });
-        var gaming = JsonConvert.DeserializeObject<T>(fghjrnewhjoerthlk, new JsonSerializerSettings {
-            TypeNameHandling = TypeNameHandling.All,
-        });
+        // deserializing the object will lose data, so i have to do this lol
+        JObject gaming = JObject.Parse(fghjrnewhjoerthlk);
+        GD.Print(gaming.ToString());
 
-        gaming.Name = name;
-        gaming.Parent = parent;
+        gaming["Name"] = name;
+        gaming["Parent"] = parent;
+        GD.Print(gaming.ToString());
 
         if (parent != null) {
             BaseLelfs m = LelfsManager.LoadById<BaseLelfs>(parent);
-            gaming.Path = $"{m.Path}/{gaming.Name}";
+            gaming["Parent"] = $"{m.Path}/{gaming["Name"]}";
         } else {
-            gaming.Path = $"/{gaming.Name}";
+            gaming["Parent"] = $"/{gaming["Name"]}";
         }
 
         // make new id for the thing :)
-        gaming.Id = "";
+        gaming["Id"] = "";
         string[] possibleCharacters = {
             "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J",
             "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d",
@@ -160,26 +162,27 @@ public class BaseLelfs {
         };
         Random random = new Random();
         for (int i = 0; i < 20; i++) {
-            gaming.Id += possibleCharacters[random.Next(0, 63)];
+            gaming["Id"] += possibleCharacters[random.Next(0, 63)];
         }
 
         if (!LelfsManager.Paths.ContainsKey(gaming.Path)) {
-            LelfsManager.Paths.Add(gaming.Path, gaming.Id);
+            LelfsManager.Paths.Add(gaming["Path"].ToString(), gaming["Id"].ToString());
             LelfsManager.SavePaths();
         }
 
-        gaming.Save();
+        // custom save system since Save() isn't on jobjects
+        
 
         // yes
         if (addToParentItems) {
             if (parent != null) {
                 Folder pain = LelfsManager.LoadById<Folder>(parent);
-                pain.Items.Add(gaming.Id);
+                pain.Items.Add(gaming["Id"].ToString());
                 pain.Save();
             }
         }
 
-        return gaming.Id;
+        return gaming["Id"].ToString();
     }
 
     /// <summary>

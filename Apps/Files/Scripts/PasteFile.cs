@@ -36,9 +36,9 @@ public class PasteFile : BaseWindow {
         BaseLelfs oldFile = LelfsManager.LoadById<BaseLelfs>(OldFile);
         if (oldFile.Type != "Folder") {
             if (Parent != "/")
-                oldFile.Copy<BaseLelfs>(filename, Parent);
+                oldFile.Copy(filename, Parent);
             else
-                oldFile.Copy<BaseLelfs>(filename);
+                oldFile.Copy(filename);
         } else {
             Folder oldFileButItsAFolder = LelfsManager.LoadById<Folder>(OldFile);
             if (Parent != "/")

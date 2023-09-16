@@ -66,8 +66,8 @@ public class Folder : BaseLelfs {
         gaming.Save();
 
         foreach (string item in funni) {
-            BaseLelfs m = LelfsManager.LoadById<BaseLelfs>(item);
-            m.Copy<BaseLelfs>(m.Name, gaming.Id);
+            BaseLelfs m = LelfsManager.LoadById<dynamic>(item);
+            m.Copy(m.Name, gaming.Id);
         }
 
         return gaming.Id;
