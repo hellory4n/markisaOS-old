@@ -31,6 +31,7 @@ public class FileView : ItemList {
         GetNode<Button>("../Toolbar/Back").Connect("pressed", this, nameof(Back));
         GetNode<Button>("../Toolbar/Forward").Connect("pressed", this, nameof(Forward));
         GetNode<Button>("../Toolbar/Up").Connect("pressed", this, nameof(Up));
+        GetNode<Button>("../Toolbar/Refresh").Connect("pressed", this, nameof(RefreshButton));
     }
 
     public override void _Process(float delta) {
@@ -41,7 +42,74 @@ public class FileView : ItemList {
         GetNode<Button>("../Toolbar/Back").Disabled = PathIndex == 0;
         GetNode<Button>("../Toolbar/Forward").Disabled = PathIndex == Paths.Count-1;
         GetNode<Button>("../Toolbar/Up").Disabled = Path == "/";
-    }
+
+        // shortcuts :)
+        if (Input.IsActionJustReleased("back") && GetParent().GetParent().GetParent().GetParent<BaseWindow>()
+        .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab" && !GetNode<Button>("../Toolbar/Back").Disabled) {
+            Back();
+        }
+
+        if (Input.IsActionJustReleased("forward") && GetParent().GetParent().GetParent().GetParent<BaseWindow>()
+        .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab" && !GetNode<Button>("../Toolbar/Forward").Disabled) {
+            Forward();
+        }
+
+        if (Input.IsActionJustReleased("up") && GetParent().GetParent().GetParent().GetParent<BaseWindow>()
+        .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab" && Path != "/") {
+            Up();
+        }
+
+        if (Input.IsActionJustReleased("refresh") && GetParent().GetParent().GetParent().GetParent<BaseWindow>()
+        .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab") {
+            Refresh(Path, false);
+        }
+
+        if (Input.IsActionJustReleased("copy") && GetParent().GetParent().GetParent().GetParent<BaseWindow>()
+        .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab" && Selected != null) {
+            CopyFile();
+        }
+
+        if (Input.IsActionJustReleased("paste") && GetParent().GetParent().GetParent().GetParent<BaseWindow>()
+        .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab" && ToCopy != null) {
+            PasteFile();
+        }
+
+        if (Input.IsActionJustReleased("new_but_different") && GetParent().GetParent().GetParent().GetParent<BaseWindow>()
+        .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab") {
+            WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
+            PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Files/NewFolder.tscn");
+            NewFolder jjkn = m.Instance<NewFolder>();
+
+            // pain
+            if (Path != "/") {
+                BaseLelfs dfggfdf = LelfsManager.Load<BaseLelfs>(Path);
+                jjkn.Parent = dfggfdf.Id;
+            } else {
+                jjkn.Parent = "/";
+            }
+            jjkn.ThingThatINeedToRefresh = this;
+
+            wm.AddWindow(jjkn);
+        }
+
+        if (Input.IsActionJustReleased("new") && GetParent().GetParent().GetParent().GetParent<BaseWindow>()
+        .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab") {
+            WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
+            PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Files/NewFile.tscn");
+            NewFile jjkn = m.Instance<NewFile>();
+
+            // pain
+            if (Path != "/") {
+                BaseLelfs dfggfdf = LelfsManager.Load<BaseLelfs>(Path);
+                jjkn.Parent = dfggfdf.Id;
+            } else {
+                jjkn.Parent = "/";
+            }
+            jjkn.ThingThatINeedToRefresh = this;
+
+            wm.AddWindow(jjkn);
+        }
+    }    
 
     public void Refresh(string pathThingSomething, bool addToHistory = true) {
         Path = pathThingSomething;
@@ -230,5 +298,9 @@ public class FileView : ItemList {
             BaseLelfs g = LelfsManager.LoadById<BaseLelfs>(currentThing.Parent);
             Refresh(g.Path);
         }
+    }
+
+    void RefreshButton() {
+        Refresh(Path, false);
     }
 }
