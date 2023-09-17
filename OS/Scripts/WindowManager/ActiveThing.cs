@@ -14,7 +14,7 @@ public class ActiveThing : Control {
             if (m.Pressed) {
                 if (GetRect().HasPoint(m.Position)) {
                     // getparent
-                    if (GetParent().GetIndex() != GetParent().GetParent().GetChildCount()-1) {
+                    if (!GetParent<BaseWindow>().IsActive()) {
                         GetParent().Raise();
                     }
                 }

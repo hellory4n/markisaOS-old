@@ -8,6 +8,11 @@ public class AddTab : Button {
     public override void _Ready() {
         base._Ready();
         Connect("pressed", this, nameof(Click));
+        InputEventKey shortcut = new InputEventKey {
+            Scancode = (uint)KeyList.T,
+            Control = true
+        };
+        GetParent().GetParent().GetParent<BaseWindow>().AddShortcut("AddTab", shortcut, nameof(Click));
     }
 
     public override void _Process(float delta) {

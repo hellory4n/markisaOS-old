@@ -31,7 +31,7 @@ public class OpenWindowButton : Button {
         Color invisible = new Color(1, 1, 1, 0);
 
         // minimize the window if it's active :)
-        if (epicWindow.GetIndex() == epicWindow.GetParent().GetChildCount()-1 && epicWindow.Modulate != invisible)
+        if (epicWindow.IsActive() && epicWindow.Modulate != invisible)
            animation.Play("Minimize");
         // already minimized
         else if (epicWindow.Modulate == invisible) {

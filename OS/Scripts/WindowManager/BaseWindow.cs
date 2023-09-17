@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 /// <summary>
 /// A basic window. Adds window decorations, manages opening, closing, and minimizing animations, and also manages window snapping and making windows active.
@@ -38,6 +39,8 @@ public class BaseWindow : WindowDialog {
     /// The minimize button of the window.
     /// </summary>
     public Button Minimize;
+    List<string> Shortcuts = new List<string>();
+    Dictionary<string, string> ShortcutFunctions = new Dictionary<string, string>();
 
     public override void _Ready() {
         base._Ready();
@@ -120,8 +123,7 @@ public class BaseWindow : WindowDialog {
             }
         }
 
-        // checks if the window is active
-        if (GetIndex() != GetParent().GetChildCount()-1) {
+        if (!IsActive()) {
             StupidThingForInactiveWindows.Visible = true;
         } else {
             StupidThingForInactiveWindows.Visible = false;
@@ -147,5 +149,43 @@ public class BaseWindow : WindowDialog {
     public void Close() {
         // in the _Process function it will see that this variable has changed and actually run the close script
         Visible = false;
+    }
+
+    /// <summary>
+    /// Checks whether or not the window is active.
+    /// </summary>
+    /// <returns>Whether or not the window is active.</returns>
+    public bool IsActive() {
+        return GetIndex() == GetParent().GetChildCount()-1;
+    }
+
+    public void AddShortcut(string shortcutName, InputEventKey inputEvent, string function) {
+        Shortcuts.Add(shortcutName);
+        InputMap.AddAction(shortcutName);
+        InputMap.ActionAddEvent(shortcutName, inputEvent);
+        ShortcutFunctions.Add(shortcutName, new NodePath(function));
+    }
+
+    // manage all of the shortcut stuff :)
+    public override void _Input(InputEvent @event) {
+        if (!IsActive())
+            return;
+
+        if (@event is InputEventKey m && m.Pressed) {
+            GD.Print("got key input");
+            foreach (var shortcut in Shortcuts) {
+                if (Input.IsActionJustReleased(shortcut)) {
+                    GD.Print("key was pressed");
+                    Node target = GetNodeOrNull(ShortcutFunctions[shortcut]);
+                    if (target == null)
+                        continue;
+
+                    GD.Print("calling function");
+                    target.Call(shortcut);
+                    GD.Print("everything worked");
+                }
+            }
+        }
+        base._Input(@event);
     }
 }
