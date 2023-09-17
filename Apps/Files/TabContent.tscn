@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Apps/Files/Scripts/FileView.cs" type="Script" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://Apps/Files/Scripts/NewFileOpen.cs" type="Script" id=4]
 [ext_resource path="res://Apps/Files/Scripts/NewFolderOpen.cs" type="Script" id=5]
 [ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/Copy.cs" type="Script" id=6]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/ArrowForward.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/ArrowBack.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/ArrowUp.png" type="Texture" id=9]
 
 [node name="TabContent" type="HSplitContainer"]
 anchor_right = 1.0
@@ -78,9 +81,42 @@ margin_top = 10.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
 
+[node name="Back" type="Button" parent="Content/ContentThing/Toolbar"]
+margin_right = 43.0
+margin_bottom = 43.0
+rect_min_size = Vector2( 43, 0 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_type_variation = "SecondaryButton"
+icon = ExtResource( 8 )
+icon_align = 1
+
+[node name="Forward" type="Button" parent="Content/ContentThing/Toolbar"]
+margin_left = 53.0
+margin_right = 96.0
+margin_bottom = 43.0
+rect_min_size = Vector2( 43, 0 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_type_variation = "SecondaryButton"
+icon = ExtResource( 7 )
+icon_align = 1
+
+[node name="Up" type="Button" parent="Content/ContentThing/Toolbar"]
+margin_left = 106.0
+margin_right = 149.0
+margin_bottom = 43.0
+rect_min_size = Vector2( 43, 0 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_type_variation = "SecondaryButton"
+icon = ExtResource( 9 )
+icon_align = 1
+
 [node name="Path" type="LineEdit" parent="Content/ContentThing/Toolbar"]
-margin_right = 265.0
-margin_bottom = 40.0
+margin_left = 159.0
+margin_right = 337.0
+margin_bottom = 43.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
@@ -89,9 +125,9 @@ align = 1
 script = ExtResource( 3 )
 
 [node name="NewFile" type="Button" parent="Content/ContentThing/Toolbar"]
-margin_left = 275.0
-margin_right = 407.0
-margin_bottom = 40.0
+margin_left = 347.0
+margin_right = 436.0
+margin_bottom = 43.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_type_variation = "SecondaryButton"
@@ -99,9 +135,9 @@ text = "New File"
 script = ExtResource( 4 )
 
 [node name="NewFolder" type="Button" parent="Content/ContentThing/Toolbar"]
-margin_left = 417.0
+margin_left = 446.0
 margin_right = 550.0
-margin_bottom = 40.0
+margin_bottom = 43.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_type_variation = "SecondaryButton"

@@ -50,6 +50,6 @@ public class PasteFile : BaseWindow {
         Close();
         ThingThatINeedToRefresh.ToCopy = null;
         ThingThatINeedToRefresh.Selected = null;
-        ThingThatINeedToRefresh.Refresh(gkfngof);
+        ThingThatINeedToRefresh.Refresh(gkfngof, false);
     }
 }

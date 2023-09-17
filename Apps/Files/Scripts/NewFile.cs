@@ -44,6 +44,6 @@ public class NewFile : BaseWindow {
         newFile.Save();
 
         Close();
-        ThingThatINeedToRefresh.Refresh(gkfngof);
+        ThingThatINeedToRefresh.Refresh(gkfngof, false);
     }
 }

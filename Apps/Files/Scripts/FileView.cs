@@ -12,6 +12,8 @@ public class FileView : ItemList {
     public string Selected;
     public string ToCopy;
     public PopupMenu ContextMenuThing;
+    List<string> Paths = new List<string>();
+    int PathIndex = -1;
 
     public override void _Ready() {
         base._Ready();
@@ -26,6 +28,9 @@ public class FileView : ItemList {
         ContextMenuThing = GetNode<PopupMenu>("../ContextMenu");
         ContextMenuThing.Connect("index_pressed", this, nameof(ContextMenuSelected));
         Connect("rmb_clicked", this, nameof(ContextMenuButDifferent));
+        GetNode<Button>("../Toolbar/Back").Connect("pressed", this, nameof(Back));
+        GetNode<Button>("../Toolbar/Forward").Connect("pressed", this, nameof(Forward));
+        GetNode<Button>("../Toolbar/Up").Connect("pressed", this, nameof(Up));
     }
 
     public override void _Process(float delta) {
@@ -33,10 +38,19 @@ public class FileView : ItemList {
         GetNode<Button>("../FileOperations/Copy").Disabled = Selected == null;
         GetNode<Button>("../FileOperations/Paste").Disabled = ToCopy == null;
         ContextMenuThing.SetItemDisabled(1, ToCopy == null);
+        GetNode<Button>("../Toolbar/Back").Disabled = PathIndex == 0;
+        GetNode<Button>("../Toolbar/Forward").Disabled = PathIndex == Paths.Count-1;
+        GetNode<Button>("../Toolbar/Up").Disabled = Path == "/";
     }
 
-    public void Refresh(string pathThingSomething) {
+    public void Refresh(string pathThingSomething, bool addToHistory = true) {
         Path = pathThingSomething;
+        GetNode<LineEdit>("../Toolbar/Path").Text = pathThingSomething;
+        if (addToHistory) {
+            Paths.Add(pathThingSomething);
+            PathIndex = Paths.Count-1;
+        }
+
         // couldn't be bothered to do this properly
         if (pathThingSomething != "/")
             TabThing.Text = pathThingSomething.Split("/").Last();
@@ -107,7 +121,6 @@ public class FileView : ItemList {
     void Open(int index) {
         BaseLelfs pain = LelfsManager.LoadById<BaseLelfs>(CoolFiles[index]);
         if (pain.Type == "Folder") {
-            GetNode<LineEdit>("../Toolbar/Path").Text = pain.Path;
             Refresh(pain.Path);
         }
         // TODO: add a thing that opens files :)
@@ -197,5 +210,25 @@ public class FileView : ItemList {
         ContextMenuThing.SetItemDisabled(0, true);
         ContextMenuThing.RectPosition = RectGlobalPosition + position;
         ContextMenuThing.Popup_();
+    }
+
+    void Back() {
+        PathIndex--;
+        Refresh(Paths[PathIndex], false);
+    }
+
+    void Forward() {
+        PathIndex++;
+        Refresh(Paths[PathIndex], false);
+    }
+
+    void Up() {
+        BaseLelfs currentThing = LelfsManager.Load<BaseLelfs>(Path);
+        if (currentThing.Parent == null) {
+            Refresh("/");
+        } else {
+            BaseLelfs g = LelfsManager.LoadById<BaseLelfs>(currentThing.Parent);
+            Refresh(g.Path);
+        }
     }
 }
