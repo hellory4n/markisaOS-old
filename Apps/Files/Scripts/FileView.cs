@@ -11,6 +11,7 @@ public class FileView : ItemList {
     public Button TabThing;
     public string Selected;
     public string ToCopy;
+    public PopupMenu ContextMenuThing;
 
     public override void _Ready() {
         base._Ready();
@@ -22,12 +23,16 @@ public class FileView : ItemList {
         GetNode<LineEdit>("../Toolbar/Path").Connect("text_entered", this, nameof(PathEdit));
         GetNode<Button>("../FileOperations/Copy").Connect("pressed", this, nameof(CopyFile));
         GetNode<Button>("../FileOperations/Paste").Connect("pressed", this, nameof(PasteFile));
+        ContextMenuThing = GetNode<PopupMenu>("../ContextMenu");
+        ContextMenuThing.Connect("index_pressed", this, nameof(ContextMenuSelected));
+        Connect("rmb_clicked", this, nameof(ContextMenuButDifferent));
     }
 
     public override void _Process(float delta) {
         base._Process(delta);
         GetNode<Button>("../FileOperations/Copy").Disabled = Selected == null;
         GetNode<Button>("../FileOperations/Paste").Disabled = ToCopy == null;
+        ContextMenuThing.SetItemDisabled(1, ToCopy == null);
     }
 
     public void Refresh(string pathThingSomething) {
@@ -129,15 +134,12 @@ public class FileView : ItemList {
     }
 
     void ContextMenu(int index, Vector2 position) {
-        PopupMenu yes = new PopupMenu {
-            RectPosition = GetParent<Control>().RectGlobalPosition + position
-        };
-        yes.AddItem("Cool Item 1");
-        yes.AddItem("Cool Item 2");
-        yes.AddItem("Cool Item 3");
-        yes.AddItem("Cool Item 4");
-        GetParent().AddChild(yes);
-        yes.Popup_();
+        BaseLelfs pain = LelfsManager.LoadById<BaseLelfs>(CoolFiles[index]);
+        UpdateInspector(pain.Path);
+        Selected = pain.Id;
+        ContextMenuThing.SetItemDisabled(0, false);
+        ContextMenuThing.RectPosition = RectGlobalPosition + position;
+        ContextMenuThing.Popup_();
     }
 
     void UpdateInspector(string path) {
@@ -178,5 +180,22 @@ public class FileView : ItemList {
         jjkn.OldFile = ToCopy;
 
         wm.AddWindow(jjkn);
+    }
+
+    void ContextMenuSelected(int index) {
+        switch (index) {
+            case 0:
+                CopyFile();
+                break;
+            case 1:
+                PasteFile();
+                break;
+        }
+    }
+
+    void ContextMenuButDifferent(Vector2 position) {
+        ContextMenuThing.SetItemDisabled(0, true);
+        ContextMenuThing.RectPosition = RectGlobalPosition + position;
+        ContextMenuThing.Popup_();
     }
 }

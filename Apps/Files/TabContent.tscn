@@ -128,6 +128,7 @@ margin_bottom = -58.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 70.0
+margin_bottom = -60.0
 allow_rmb_select = true
 max_text_lines = 2
 max_columns = 8
@@ -160,6 +161,11 @@ margin_bottom = 40.0
 rect_min_size = Vector2( 100, 0 )
 theme_type_variation = "SecondaryButton"
 text = "Paste"
+
+[node name="ContextMenu" type="PopupMenu" parent="Content/ContentThing"]
+margin_right = 20.0
+margin_bottom = 20.0
+items = [ "Copy", null, 0, false, false, 0, 0, null, "", false, "Paste", null, 0, false, false, 1, 0, null, "", false ]
 
 [node name="Inspector" type="Control" parent="Content"]
 margin_left = 558.0
