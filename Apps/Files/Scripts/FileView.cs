@@ -14,6 +14,7 @@ public class FileView : ItemList {
     public PopupMenu ContextMenuThing;
     List<string> Paths = new List<string>();
     int PathIndex = -1;
+    public string ToMove;
 
     public override void _Ready() {
         base._Ready();
@@ -32,13 +33,15 @@ public class FileView : ItemList {
         GetNode<Button>("../Toolbar/Forward").Connect("pressed", this, nameof(Forward));
         GetNode<Button>("../Toolbar/Up").Connect("pressed", this, nameof(Up));
         GetNode<Button>("../Toolbar/Refresh").Connect("pressed", this, nameof(RefreshButton));
+        GetNode<Button>("../FileOperations/Move").Connect("pressed", this, nameof(MoveFile));
     }
 
     public override void _Process(float delta) {
         base._Process(delta);
         GetNode<Button>("../FileOperations/Copy").Disabled = Selected == null;
-        GetNode<Button>("../FileOperations/Paste").Disabled = ToCopy == null;
-        ContextMenuThing.SetItemDisabled(1, ToCopy == null);
+        GetNode<Button>("../FileOperations/Move").Disabled = Selected == null;
+        GetNode<Button>("../FileOperations/Paste").Disabled = ToCopy == null && ToMove == null;
+        ContextMenuThing.SetItemDisabled(1, ToCopy == null && ToMove == null);
         GetNode<Button>("../Toolbar/Back").Disabled = PathIndex == 0;
         GetNode<Button>("../Toolbar/Forward").Disabled = PathIndex == Paths.Count-1;
         GetNode<Button>("../Toolbar/Up").Disabled = Path == "/";
@@ -69,8 +72,13 @@ public class FileView : ItemList {
             CopyFile();
         }
 
+        if (Input.IsActionJustReleased("cut") && GetParent().GetParent().GetParent().GetParent<BaseWindow>()
+        .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab" && Selected != null) {
+            MoveFile();
+        }
+
         if (Input.IsActionJustReleased("paste") && GetParent().GetParent().GetParent().GetParent<BaseWindow>()
-        .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab" && ToCopy != null) {
+        .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab" && ToCopy != null && ToMove != null) {
             PasteFile();
         }
 
@@ -219,6 +227,7 @@ public class FileView : ItemList {
         UpdateInspector(pain.Path);
         Selected = pain.Id;
         ContextMenuThing.SetItemDisabled(0, false);
+        ContextMenuThing.SetItemDisabled(2, false);
         ContextMenuThing.RectPosition = RectGlobalPosition + position;
         ContextMenuThing.Popup_();
     }
@@ -245,6 +254,10 @@ public class FileView : ItemList {
         ToCopy = Selected;
     }
 
+    void MoveFile() {
+        ToMove = Selected;
+    }
+
     void PasteFile() {
         WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
         PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Files/Paste.tscn");
@@ -258,7 +271,13 @@ public class FileView : ItemList {
             jjkn.Parent = "/";
         }
         jjkn.ThingThatINeedToRefresh = this;
-        jjkn.OldFile = ToCopy;
+        if (ToMove == null) {
+            jjkn.OldFile = ToCopy;
+            jjkn.Move = false;
+        } else {
+            jjkn.OldFile = ToMove;
+            jjkn.Move = true;
+        }
 
         wm.AddWindow(jjkn);
     }
@@ -271,11 +290,15 @@ public class FileView : ItemList {
             case 1:
                 PasteFile();
                 break;
+            case 2:
+                MoveFile();
+                break;
         }
     }
 
     void ContextMenuButDifferent(Vector2 position) {
         ContextMenuThing.SetItemDisabled(0, true);
+        ContextMenuThing.SetItemDisabled(2, true);
         ContextMenuThing.RectPosition = RectGlobalPosition + position;
         ContextMenuThing.Popup_();
     }
