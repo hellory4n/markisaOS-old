@@ -90,8 +90,10 @@ public class BaseWindow : WindowDialog {
         // first check if the window is moving
         if (previousPosition != RectPosition && Resizable) {
             Raise();
-
-            if (GetGlobalMousePosition().y < 60) {
+            
+            // we check the viewport thing so the window doesn't get snapped just because the
+            // mouse was on the dock/panel
+            if (GetGlobalMousePosition().y < 60 && !GetViewport().GuiDisableInput) {
                 Vector2 maximizedSize = new Vector2(screenSize.x-75, screenSize.y-85);
                 RectPosition = new Vector2(0, 85);
                 RectSize = maximizedSize;
@@ -103,7 +105,6 @@ public class BaseWindow : WindowDialog {
                 RectSize = newSize;
             }
 
-            // we check the viewport thing so the window doesn't get snapped just because the mouse was on the dock
             if (GetGlobalMousePosition().x > screenSize.x-115 && !GetViewport().GuiDisableInput) {
                 Vector2 newSize = new Vector2((screenSize.x-75)/2, screenSize.y-85);
                 RectPosition = new Vector2((screenSize.x-75)/2, 85);

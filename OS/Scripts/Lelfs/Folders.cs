@@ -94,4 +94,15 @@ public class Folder : LelfsFile {
             GD.PushError("File not saved yet!");
         }
     }
+
+    /// <summary>
+    /// Loads a file inside this folder.
+    /// </summary>
+    /// <typeparam name="T">The type of the file.</typeparam>
+    /// <param name="path">The path of the file, example: <c>FolderInsideThis/File</c></param>
+    /// <returns>The file loaded.</returns>
+    public T LoadLocal<T>(string path) where T : LelfsFile {
+        string actualPath = $"{Path}/{path}";
+        return LelfsManager.Load<T>(actualPath);
+    }
 }
