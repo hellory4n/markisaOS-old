@@ -71,6 +71,7 @@ public class LelfsFile {
         );
         gaming.Name = name;
         gaming.Parent = parent;
+        gaming.Id = LelfsManager.GenerateID();
 
         if (parent != null) {
             LelfsFile m = LelfsManager.LoadById<LelfsFile>(parent);

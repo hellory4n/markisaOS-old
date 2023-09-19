@@ -15,15 +15,13 @@ public class Folder : LelfsFile {
     /// <returns>The ID of the copied folder.</returns>
     public override string Copy(string name, string parent = null) {
         // MemberwiseClone() is no worky xd
-        string fghjrnewhjoerthlk = JsonConvert.SerializeObject(this, new JsonSerializerSettings {
-            TypeNameHandling = TypeNameHandling.All,
-        });
-        var gaming = JsonConvert.DeserializeObject<Folder>(fghjrnewhjoerthlk, new JsonSerializerSettings {
-            TypeNameHandling = TypeNameHandling.All,
-        });
+        var gaming = JsonConvert.DeserializeObject<Folder>(
+            JsonConvert.SerializeObject(this)
+        );
 
         gaming.Name = name;
         gaming.Parent = parent;
+        gaming.Id = LelfsManager.GenerateID();
 
         if (parent != "root") {
             LelfsFile m = LelfsManager.LoadById<LelfsFile>(parent);
@@ -32,14 +30,19 @@ public class Folder : LelfsFile {
             gaming.Path = $"/{name}";
         }
 
-        gaming.Id = LelfsManager.GenerateID();
+        gaming.Save();
 
         foreach (string item in LelfsManager.GetFolderItems(Path)) {
             LelfsFile m = LelfsManager.LoadById<LelfsFile>(item);
-            m.Copy(m.Name, gaming.Id);
+            if (m.Type == "Folder") {
+                Folder ha = LelfsManager.LoadById<Folder>(m.Id);
+                // haha recursion
+                ha.Copy(ha.Name, gaming.Id);
+            } else {
+                m.Copy(m.Name, gaming.Id);
+            }
         }
 
-        gaming.Save();
         return gaming.Id;
     }
 
