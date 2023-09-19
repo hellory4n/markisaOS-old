@@ -82,6 +82,11 @@ public class SavingManager : Node {
         dir.MakeDirRecursive($"user://Users/{user}/Files/");
         LelfsManager.UpdatePaths();
         LelfsRoot.CreateRoot();
+
+        File haha = new File();
+        haha.Open($"user://Users/{CurrentUser}/Files/root.json", File.ModeFlags.Write);
+        haha.StoreString("{\"$type\":\"LelfsRoot, lelcubeOS\",\"Id\":\"root\",\"Parent\":null,\"Name\":\"\",\"Metadata\":{\"$type\":\"System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Object, mscorlib]], mscorlib\"},\"Path\":\"/\",\"Type\":\"Root\",\"Data\":{\"$type\":\"System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Object, mscorlib]], mscorlib\"}}");
+        haha.Close();
     }
 
     /// <summary>

@@ -41,7 +41,16 @@ public class LelfsFile {
     /// </summary>
     /// <param name="name">The name of the file.</param>
     /// <param name="parent">The ID of the parent of the file.</param>
-    public LelfsFile(string name, string parent = null) {
+    public LelfsFile(string name, string parent, bool isRoot = false) {
+        if (isRoot) {
+            if (LelfsManager.FileExists("/")) {
+                GD.PushError("Root already exists!");
+                return;
+            }
+
+            return;
+        }
+
         // very illegal names
         if (name.Contains("/"))
             GD.PushError("Filenames can't include forward slashes (/)");
@@ -51,7 +60,7 @@ public class LelfsFile {
         Name = name;
 
         // yes :)
-        if (parent != null) {
+        if (parent != "root" || parent == null) {
             LelfsFile m = LelfsManager.LoadById<LelfsFile>(parent);
             Path = $"{m.Path}/{name}";
         } else {
@@ -127,7 +136,7 @@ public class LelfsFile {
 
         LelfsManager.Paths.Remove(Path);
 
-        if (Parent != null) {
+        if (Parent != "root") {
             LelfsFile m = LelfsManager.LoadById<LelfsFile>(Parent);
             Path = $"{m.Path}/{name}";
         } else {

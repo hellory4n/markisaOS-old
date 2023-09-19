@@ -14,7 +14,7 @@ public class NewFolder : BaseWindow {
         string filename = GetNode<LineEdit>("CenterContainer/VBoxContainer/Name").Text;
         string gkfngof = LelfsManager.LoadById<LelfsFile>(Parent).Path;
         string suffering;
-        if (Parent == "root")
+        if (gkfngof == "/")
             suffering = $"/{filename}";
         else
             suffering = $"{gkfngof}/{filename}";

@@ -12,7 +12,7 @@ public class Folder : LelfsFile {
     /// </summary>
     /// <param name="name">The name of the folder.</param>
     /// <param name="parent">The ID of the parent of the folder.</param>
-    public Folder(string name, string parent = null) : base(name, parent) {
+    public Folder(string name, string parent = null, bool isRoot = false) : base(name, parent, isRoot) {
         Type = "Folder";
     }
 
@@ -34,7 +34,7 @@ public class Folder : LelfsFile {
         gaming.Name = name;
         gaming.Parent = parent;
 
-        if (parent != null) {
+        if (parent != "root") {
             LelfsFile m = LelfsManager.LoadById<LelfsFile>(parent);
             gaming.Path = $"{m.Path}/{name}";
         } else {
@@ -64,7 +64,7 @@ public class Folder : LelfsFile {
 
         LelfsManager.Paths.Remove(Path);
 
-        if (Parent != null) {
+        if (Parent != "root") {
             LelfsFile m = LelfsManager.LoadById<LelfsFile>(Parent);
             Path = $"{m.Path}/{Name}";
         } else {

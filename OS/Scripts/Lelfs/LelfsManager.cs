@@ -116,16 +116,11 @@ public class LelfsManager : Node {
     /// <param name="path">The path of the folder.</param>
     /// <returns>An array of IDs of each file in the folder</returns>
     public static string[] GetFolderItems(string path) {
-        List<KeyValuePair<string, string>> pain;
-        if (path == "/") {
-            pain = Paths
-                .Where(kv => kv.Key.StartsWith(path) && kv.Key != path && kv.Key.Count(c => c == '/') == 1)
-                .ToList();
-        } else {
-            pain = Paths
-                .Where(kv => kv.Key.StartsWith(path) && kv.Key != path)
-                .ToList();
-        }
+        var pain = Paths
+            .Where(kv => kv.Key.StartsWith(path)
+                && kv.Key != path
+                && kv.Key.Count("/") == path.Count("/"))
+            .ToList();
         return pain.Select(item => item.Value).ToArray();
     }
 

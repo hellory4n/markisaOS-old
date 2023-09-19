@@ -5,13 +5,12 @@ using Godot;
 /// LelfsRoot is the root of Lelfs. The parent of all files. Its name is "" and its ID is "root".
 /// </summary>
 public class LelfsRoot : Folder {
-    LelfsRoot(string name, string parent = null) : base(name, parent) {
+    LelfsRoot(string name, string parent = null,bool isRoot = true) : base(name, parent, isRoot) {
         Name = "";
         Id = "root";
         Path = "/";
         Parent = null;
         Type = "Root";
-        Save();
         LelfsManager.Paths.Clear();
         LelfsManager.Paths.Add("/", "root");
         LelfsManager.SavePaths();
