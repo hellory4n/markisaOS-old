@@ -39,6 +39,7 @@ public class SavingManager : Node {
     /// <param name="user">The name of the new user.</param>
     /// <param name="info">The photo and picture of the new user.</param>
     public static void NewUser(string user, UserInfo info) {
+        CurrentUser = user;
         File file = new File();
         Directory dir = new Directory();
         dir.MakeDirRecursive($"user://Users/{user}/");
@@ -76,6 +77,11 @@ public class SavingManager : Node {
             JsonConvert.SerializeObject(new QuickLaunch())
         );
         suffer.Close();
+
+        // setup the filesystem
+        dir.MakeDirRecursive($"user://Users/{user}/Files/");
+        LelfsManager.UpdatePaths();
+        LelfsRoot.CreateRoot();
     }
 
     /// <summary>

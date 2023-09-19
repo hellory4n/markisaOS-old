@@ -28,16 +28,14 @@ public class PasteFile : BaseWindow {
 
     public void Copy() {
         string filename = GetNode<LineEdit>("CenterContainer/VBoxContainer/Name").Text;
-        string gkfngof;
         string suffering;
-        if (Parent != "/") {
-            Folder parent = LelfsManager.LoadById<Folder>(Parent);
-            gkfngof = parent.Path;
-            suffering = $"{parent.Path}/{filename}";
-        } else {
-            gkfngof = "/";
+
+        Folder parent = LelfsManager.LoadById<Folder>(Parent);
+        string gkfngof = parent.Path;
+        if (Parent == "/")
             suffering = $"/{filename}";
-        }
+        else
+            suffering = $"{parent.Path}/{filename}";
 
         // making a file that already exists would be pretty uncool
         if (LelfsManager.FileExists(suffering)) {
@@ -48,18 +46,12 @@ public class PasteFile : BaseWindow {
         }
 
         // actually copy the file :)
-        BaseLelfs oldFile = LelfsManager.LoadById<BaseLelfs>(OldFile);
+        LelfsFile oldFile = LelfsManager.LoadById<LelfsFile>(OldFile);
         if (oldFile.Type != "Folder") {
-            if (Parent != "/")
-                LelfsManager.Copy(oldFile.Id, filename, Parent);
-            else
-                LelfsManager.Copy(oldFile.Id, filename);
+            oldFile.Copy(oldFile.Name, Parent);
         } else {
             Folder oldFileButItsAFolder = LelfsManager.LoadById<Folder>(OldFile);
-            if (Parent != "/")
-                oldFileButItsAFolder.Copy(filename, Parent);
-            else
-                oldFileButItsAFolder.Copy(filename);
+            oldFileButItsAFolder.Copy(filename, Parent);
         }
 
         Close();
@@ -69,17 +61,14 @@ public class PasteFile : BaseWindow {
     }
 
     public void Cut() {
-        BaseLelfs oldFile = LelfsManager.LoadById<BaseLelfs>(OldFile);
-        string gkfngof;
+        LelfsFile oldFile = LelfsManager.LoadById<LelfsFile>(OldFile);
+        Folder parent = LelfsManager.LoadById<Folder>(Parent);
+        string gkfngof = parent.Path;
         string suffering;
-        if (Parent != "/") {
-            Folder parent = LelfsManager.LoadById<Folder>(Parent);
-            gkfngof = parent.Path;
-            suffering = $"{parent.Path}/{oldFile.Name}";
-        } else {
-            gkfngof = "/";
+        if (Parent == "root")
             suffering = $"/{oldFile.Name}";
-        }
+        else
+            suffering = $"{parent.Path}/{oldFile.Name}";
 
         // making a file that already exists would be pretty uncool
         if (LelfsManager.FileExists(suffering)) {
@@ -89,31 +78,12 @@ public class PasteFile : BaseWindow {
         }
 
         // actually move the file :)
-        if (Parent != "/") {
-            if (oldFile.Parent != null) {
-                Folder pain = LelfsManager.LoadById<Folder>(oldFile.Parent);
-                pain.Items.Remove(oldFile.Id);
-                pain.Save();
-            }
-
-            Folder dddd = LelfsManager.LoadById<Folder>(Parent);
-            dddd.Items.Add(oldFile.Id);
-            dddd.Save();
-
-            oldFile.Parent = Parent;
-            oldFile.Path = suffering;
-            oldFile.Save();
-        } else {
-            if (oldFile.Parent != null) {
-                Folder pain = LelfsManager.LoadById<Folder>(oldFile.Parent);
-                pain.Items.Remove(oldFile.Id);
-                pain.Save();
-            }
-
-            oldFile.Parent = null;
-            oldFile.Path = suffering;
-            oldFile.Save();
-        }
+        oldFile.Parent = Parent;
+        LelfsManager.Paths.Remove(oldFile.Path);
+        oldFile.Path = suffering;
+        LelfsManager.Paths.Add(oldFile.Path, oldFile.Id);
+        oldFile.Save();
+        LelfsManager.SavePaths();
 
         Close();
         ThingThatINeedToRefresh.ToMove = null;

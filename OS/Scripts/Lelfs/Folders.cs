@@ -6,12 +6,7 @@ using System.Collections.Generic;
 /// <summary>
 /// A lelfs folder.
 /// </summary>
-public class Folder : BaseLelfs {
-    /// <summary>
-    /// The IDs of the items in this folder.
-    /// </summary>
-    public List<string> Items = new List<string>();
-
+public class Folder : LelfsFile {
     /// <summary>
     /// Initializes a Lelfs folder.
     /// </summary>
@@ -27,7 +22,7 @@ public class Folder : BaseLelfs {
     /// <param name="name">The name of the new folder.</param>
     /// <param name="parent">The ID of the parent of the new folder.</param>
     /// <returns>The ID of the copied folder.</returns>
-    public string Copy(string name, string parent = null) {
+    public override string Copy(string name, string parent = null) {
         // MemberwiseClone() is no worky xd
         string fghjrnewhjoerthlk = JsonConvert.SerializeObject(this, new JsonSerializerSettings {
             TypeNameHandling = TypeNameHandling.All,
@@ -40,36 +35,17 @@ public class Folder : BaseLelfs {
         gaming.Parent = parent;
 
         if (parent != null) {
-            BaseLelfs m = LelfsManager.LoadById<BaseLelfs>(parent);
+            LelfsFile m = LelfsManager.LoadById<LelfsFile>(parent);
             gaming.Path = $"{m.Path}/{name}";
         } else {
             gaming.Path = $"/{name}";
         }
 
-        string[] funni = gaming.Items.ToArray();
-        gaming.Items.Clear();
+        gaming.Id = LelfsManager.GenerateID();
 
-        // new id for the thing :)
-        gaming.Id = "";
-        string[] possibleCharacters = {
-            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J",
-            "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d",
-            "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x",
-            "y", "z", "-", "_"
-        };
-        Random random = new Random();
-        for (int i = 0; i < 20; i++) {
-            gaming.Id += possibleCharacters[random.Next(0, 63)];
-        }
-
-        // we have to save it twice cuz yes please help me
-        gaming.Save();
-
-        foreach (string item in funni) {
-            BaseLelfs m = LelfsManager.LoadById<BaseLelfs>(item);
-            gaming.Items.Add(
-                LelfsManager.Copy(item, m.Name, gaming.Id, false)
-            );
+        foreach (string item in LelfsManager.GetFolderItems(Path)) {
+            LelfsFile m = LelfsManager.LoadById<LelfsFile>(item);
+            m.Copy(m.Name, gaming.Id);
         }
 
         gaming.Save();
@@ -89,7 +65,7 @@ public class Folder : BaseLelfs {
         LelfsManager.Paths.Remove(Path);
 
         if (Parent != null) {
-            BaseLelfs m = LelfsManager.LoadById<BaseLelfs>(Parent);
+            LelfsFile m = LelfsManager.LoadById<LelfsFile>(Parent);
             Path = $"{m.Path}/{Name}";
         } else {
             Path = $"/{Name}";
@@ -97,11 +73,9 @@ public class Folder : BaseLelfs {
 
         Save();
 
-        LelfsManager.Paths.Add(Path, Id);
-
-        foreach (string item in Items) {
-            BaseLelfs m = LelfsManager.LoadById<BaseLelfs>(item);
-            m.Parent = Path;
+        foreach (string item in LelfsManager.GetFolderItems(Path)) {
+            LelfsFile m = LelfsManager.LoadById<LelfsFile>(item);
+            m.Parent = Id;
             LelfsManager.Paths.Remove(m.Path);
             m.Path = $"{Path}/{m.Name}";
             LelfsManager.Paths.Add(m.Path, m.Id);
@@ -117,8 +91,8 @@ public class Folder : BaseLelfs {
     public override void Delete() {
         Directory directory = new Directory();
         if (directory.FileExists($"user://Users/{SavingManager.CurrentUser}/Files/{Id}.json")) {
-            foreach (var item in Items) {
-                BaseLelfs bruh = LelfsManager.LoadById<BaseLelfs>(item);
+            foreach (var item in LelfsManager.GetFolderItems(Path)) {
+                LelfsFile bruh = LelfsManager.LoadById<LelfsFile>(item);
                 bruh.Delete();
             }
 

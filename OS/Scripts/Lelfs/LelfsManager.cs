@@ -1,8 +1,8 @@
 using Godot;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 /// <summary>
 /// Manages Lelfs. NOTE: Filesystems are local to each user.
@@ -51,7 +51,7 @@ public class LelfsManager : Node {
     /// <typeparam name="T">The type of the file.</typeparam>
     /// <param name="path">The path of the file.</param>
     /// <returns>The loaded file.</returns>
-    public static T Load<T>(string path) where T : BaseLelfs {
+    public static T Load<T>(string path) where T : LelfsFile {
         if (Paths.ContainsKey(path)) {
             File file = new File();
             file.Open($"user://Users/{SavingManager.CurrentUser}/Files/{Paths[path]}.json", File.ModeFlags.Read);
@@ -73,7 +73,7 @@ public class LelfsManager : Node {
     /// <typeparam name="T">The type of the file.</typeparam>
     /// <param name="id">The ID of the file.</param>
     /// <returns>The loaded file.</returns>
-    public static T LoadById<T>(string id) where T : BaseLelfs {
+    public static T LoadById<T>(string id) where T : LelfsFile {
         File file = new File();
         if (file.FileExists($"user://Users/{SavingManager.CurrentUser}/Files/{id}.json")) {
             file.Open($"user://Users/{SavingManager.CurrentUser}/Files/{id}.json", File.ModeFlags.Read);
@@ -106,48 +106,35 @@ public class LelfsManager : Node {
     /// <param name="path">The path of a file.</param>
     /// <returns>The ID of the file.</returns>
     public static string PermanentPath(string path) {
-        BaseLelfs jbkfjbg = Load<BaseLelfs>(path);
+        LelfsFile jbkfjbg = Load<LelfsFile>(path);
         return jbkfjbg.Id;
     }
 
     /// <summary>
-    /// Copies a file from its ID.
+    /// Finds all of the files inside a certain folder.
     /// </summary>
-    /// <param name="id">The ID of the file to copy.</param>
-    /// <param name="name">The name of the new file.</param>
-    /// <param name="parent">The parent of the new file.</param>
-    /// <param name="addToParentItems">Parameter used by Folder.CopyFolder() so it doesn't save things too many times when copying its items.</param>
-    /// <returns>The copied file.</returns>
-    public static string Copy(string id, string name, string parent = null, bool addToParentItems = true) {
-        // deserializing the object will lose data, so i have to do this lol
-        string fghjrnewhjoerthlk;
-        File file = new File();
-        if (file.FileExists($"user://Users/{SavingManager.CurrentUser}/Files/{id}.json")) {
-            file.Open($"user://Users/{SavingManager.CurrentUser}/Files/{id}.json", File.ModeFlags.Read);
-            fghjrnewhjoerthlk = file.GetAsText();
-            file.Close();
+    /// <param name="path">The path of the folder.</param>
+    /// <returns>An array of IDs of each file in the folder</returns>
+    public static string[] GetFolderItems(string path) {
+        List<KeyValuePair<string, string>> pain;
+        if (path == "/") {
+            pain = Paths
+                .Where(kv => kv.Key.StartsWith(path) && kv.Key != path && kv.Key.Count(c => c == '/') == 1)
+                .ToList();
         } else {
-            GD.PushError($"File with ID \"{id}\" doesn't exist!");
-            return default;
+            pain = Paths
+                .Where(kv => kv.Key.StartsWith(path) && kv.Key != path)
+                .ToList();
         }
+        return pain.Select(item => item.Value).ToArray();
+    }
 
-        JObject gaming = JObject.Parse(fghjrnewhjoerthlk);
-
-        gaming["Name"] = name;
-        gaming["Parent"] = parent;
-
-        string path;
-        if (parent != null) {
-            BaseLelfs m = LoadById<BaseLelfs>(parent);
-            gaming["Path"] = $"{m.Path}/{gaming["Name"]}";
-            path = $"{m.Path}/{gaming["Name"]}";
-        } else {
-            gaming["Path"] = $"/{gaming["Name"]}";
-            path = $"/{gaming["Name"]}";
-        }
-
-        // make new id for the thing :)
-        string coolId = "";
+    /// <summary>
+    /// Generates an ID for files.
+    /// </summary>
+    /// <returns></returns>
+    public static string GenerateID() {
+        string id = "";
         string[] possibleCharacters = {
             "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J",
             "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d",
@@ -156,30 +143,8 @@ public class LelfsManager : Node {
         };
         Random random = new Random();
         for (int i = 0; i < 20; i++) {
-            coolId += possibleCharacters[random.Next(0, 63)];
+            id += possibleCharacters[random.Next(0, 63)];
         }
-        gaming["Id"] = coolId;
-
-        if (!Paths.ContainsKey(gaming.Path)) {
-            Paths.Add(path, coolId);
-            SavePaths();
-        }
-
-        // custom save system since BaseLelfs.Save() wouldn't work
-        File fart = new File();
-        fart.Open($"user://Users/{SavingManager.CurrentUser}/Files/{coolId}.json", File.ModeFlags.Write);
-        fart.StoreString(gaming.ToString());
-        fart.Close();
-
-        // yes
-        if (addToParentItems) {
-            if (parent != null) {
-                Folder pain = LoadById<Folder>(parent);
-                pain.Items.Add(coolId);
-                pain.Save();
-            }
-        }
-
-        return coolId;
+        return id;
     }
 }

@@ -12,16 +12,12 @@ public class NewFolder : BaseWindow {
 
     public void Click() {
         string filename = GetNode<LineEdit>("CenterContainer/VBoxContainer/Name").Text;
-        string gkfngof;
+        string gkfngof = LelfsManager.LoadById<LelfsFile>(Parent).Path;
         string suffering;
-        if (Parent != "/") {
-            Folder parent = LelfsManager.LoadById<Folder>(Parent);
-            gkfngof = parent.Path;
-            suffering = $"{parent.Path}/{filename}";
-        } else {
-            gkfngof = "/";
+        if (Parent == "root")
             suffering = $"/{filename}";
-        }
+        else
+            suffering = $"{gkfngof}/{filename}";
 
         // making a folder that already exists would be pretty uncool
         if (LelfsManager.FileExists(suffering)) {
@@ -33,10 +29,7 @@ public class NewFolder : BaseWindow {
 
         // actually make the folder :)
         Folder newFolder;
-        if (Parent != "/")
-            newFolder = new Folder(filename, Parent);
-        else
-            newFolder = new Folder(filename);
+        newFolder = new Folder(filename, Parent);
 
         // TODO: make an actual time system thing
         newFolder.Metadata.Add("CreationDate", DateTime.Now);

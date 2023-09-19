@@ -12,16 +12,12 @@ public class NewFile : BaseWindow {
 
     public void Click() {
         string filename = GetNode<LineEdit>("CenterContainer/VBoxContainer/Name").Text;
-        string gkfngof;
+        string gkfngof = LelfsManager.LoadById<LelfsFile>(Parent).Path;
         string suffering;
-        if (Parent != "/") {
-            Folder parent = LelfsManager.LoadById<Folder>(Parent);
-            gkfngof = parent.Path;
-            suffering = $"{parent.Path}/{filename}";
-        } else {
-            gkfngof = "/";
+        if (Parent == "root")
             suffering = $"/{filename}";
-        }
+        else
+            suffering = $"{gkfngof}/{filename}";
 
         // making a file that already exists would be pretty uncool
         if (LelfsManager.FileExists(suffering)) {
@@ -32,11 +28,8 @@ public class NewFile : BaseWindow {
         }
 
         // actually make the file :)
-        BaseLelfs newFile;
-        if (Parent != "/")
-            newFile = new BaseLelfs(filename, Parent);
-        else
-            newFile = new BaseLelfs(filename);
+        LelfsFile newFile;
+        newFile = new LelfsFile(filename, Parent);
 
         // TODO: make an actual time system thing
         newFile.Metadata.Add("CreationDate", DateTime.Now);

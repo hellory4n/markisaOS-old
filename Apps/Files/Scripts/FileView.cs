@@ -88,13 +88,9 @@ public class FileView : ItemList {
             PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Files/NewFolder.tscn");
             NewFolder jjkn = m.Instance<NewFolder>();
 
-            // pain
-            if (Path != "/") {
-                BaseLelfs dfggfdf = LelfsManager.Load<BaseLelfs>(Path);
-                jjkn.Parent = dfggfdf.Id;
-            } else {
-                jjkn.Parent = "/";
-            }
+            LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(Path);
+            jjkn.Parent = dfggfdf.Id;
+
             jjkn.ThingThatINeedToRefresh = this;
 
             wm.AddWindow(jjkn);
@@ -107,12 +103,9 @@ public class FileView : ItemList {
             NewFile jjkn = m.Instance<NewFile>();
 
             // pain
-            if (Path != "/") {
-                BaseLelfs dfggfdf = LelfsManager.Load<BaseLelfs>(Path);
-                jjkn.Parent = dfggfdf.Id;
-            } else {
-                jjkn.Parent = "/";
-            }
+            LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(Path);
+            jjkn.Parent = dfggfdf.Id;
+
             jjkn.ThingThatINeedToRefresh = this;
 
             wm.AddWindow(jjkn);
@@ -131,7 +124,7 @@ public class FileView : ItemList {
         if (pathThingSomething != "/")
             TabThing.Text = pathThingSomething.Split("/").Last();
         else
-            TabThing.Text = "/";
+            TabThing.Text = "root";
 
         // clear previous list :)))))
         for (int i = 0; i < Items.Count; i++) {
@@ -140,62 +133,37 @@ public class FileView : ItemList {
         }
         CoolFiles.Clear();
 
-        if (pathThingSomething == "/") {
-            // this does something
-            var fart = LelfsManager.Paths.Where(kv => kv.Key.Count(c => c == '/') == 1)
-                .ToDictionary(kv => kv.Key, kv => kv.Value);
-
-            foreach (var item in fart) {
-                BaseLelfs pain = LelfsManager.Load<BaseLelfs>(item.Key);
-                switch (pain.Type) {
-                    case "Folder":
-                        AddItem(pain.Name, FolderIcon);
-                        break;
-                    case "Picture":
-                        Picture m = (Picture)pain;
-                        AddItem(pain.Name, m.GetResource());
-                        break;
-                    default:
+        foreach (var item in LelfsManager.GetFolderItems(Path)) {
+            LelfsFile pain = LelfsManager.LoadById<LelfsFile>(item);
+            switch (pain.Type) {
+                case "Folder":
+                    AddItem(pain.Name, FolderIcon);
+                    break;
+                case "Picture":
+                    if (pain.Data.ContainsKey("Resource"))
+                        AddItem(pain.Name, ResourceLoader.Load<Texture>(pain.Data["Resource"].ToString()));
+                    else
                         AddItem(pain.Name, FileIcon);
-                        break;
-                }
-                
-                CoolFiles.Add(pain.Id);
+                    break;
+                default:
+                    AddItem(pain.Name, FileIcon);
+                    break;
             }
 
-            UpdateInspector("/");
-        } else {
-            Folder nkbn = LelfsManager.Load<Folder>(pathThingSomething);
-            foreach (var item in nkbn.Items) {
-                BaseLelfs pain = LelfsManager.LoadById<BaseLelfs>(item);
-                switch (pain.Type) {
-                    case "Folder":
-                        AddItem(pain.Name, FolderIcon);
-                        break;
-                    case "Picture":
-                        Picture m = LelfsManager.LoadById<Picture>(item);
-                        AddItem(pain.Name, m.GetResource());
-                        break;
-                    default:
-                        AddItem(pain.Name, FileIcon);
-                        break;
-                }
-
-                CoolFiles.Add(pain.Id);
-            }
-
-            UpdateInspector(pathThingSomething);
+            CoolFiles.Add(pain.Id);
         }
+
+        UpdateInspector(pathThingSomething);
     }
 
     void ItemSelected(int index) {
-        BaseLelfs pain = LelfsManager.LoadById<BaseLelfs>(CoolFiles[index]);
+        LelfsFile pain = LelfsManager.LoadById<LelfsFile>(CoolFiles[index]);
         UpdateInspector(pain.Path);
         Selected = pain.Id;
     }
 
     void Open(int index) {
-        BaseLelfs pain = LelfsManager.LoadById<BaseLelfs>(CoolFiles[index]);
+        LelfsFile pain = LelfsManager.LoadById<LelfsFile>(CoolFiles[index]);
         if (pain.Type == "Folder") {
             Refresh(pain.Path);
         }
@@ -209,13 +177,8 @@ public class FileView : ItemList {
     }
 
     void PathEdit(string path) {
-        if (path == "/") {
-            Refresh(path);
-            return;
-        }
-
         if (LelfsManager.FileExists(path)) {
-            BaseLelfs m = LelfsManager.Load<BaseLelfs>(path);
+            LelfsFile m = LelfsManager.Load<LelfsFile>(path);
             if (m.Type == "Folder") {
                 Refresh(path);
             }
@@ -223,7 +186,7 @@ public class FileView : ItemList {
     }
 
     void ContextMenu(int index, Vector2 position) {
-        BaseLelfs pain = LelfsManager.LoadById<BaseLelfs>(CoolFiles[index]);
+        LelfsFile pain = LelfsManager.LoadById<LelfsFile>(CoolFiles[index]);
         UpdateInspector(pain.Path);
         Selected = pain.Id;
         ContextMenuThing.SetItemDisabled(0, false);
@@ -238,7 +201,7 @@ public class FileView : ItemList {
             GetNode<Copy>("../../Inspector/M/CopyID").Visible = false;
             GetNode<Copy>("../../Inspector/M/CopyPath").Visible = false;
         } else {
-            BaseLelfs nkbn = LelfsManager.Load<BaseLelfs>(path);
+            LelfsFile nkbn = LelfsManager.Load<LelfsFile>(path);
             GetNode<Label>("../../Inspector/M/Label").Text = $"{nkbn.Name}\nType: {nkbn.Type}\n\nMetadata:\n";
             foreach (var metadata in nkbn.Metadata) {
                 GetNode<Label>("../../Inspector/M/Label").Text += $"{metadata.Key}: {metadata.Value}\n";
@@ -264,12 +227,9 @@ public class FileView : ItemList {
         PasteFile jjkn = m.Instance<PasteFile>();
 
         // pain
-        if (Path != "/") {
-            BaseLelfs dfggfdf = LelfsManager.Load<BaseLelfs>(Path);
-            jjkn.Parent = dfggfdf.Id;
-        } else {
-            jjkn.Parent = "/";
-        }
+        LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(Path);
+        jjkn.Parent = dfggfdf.Id;
+
         jjkn.ThingThatINeedToRefresh = this;
         if (ToMove == null) {
             jjkn.OldFile = ToCopy;
@@ -314,13 +274,9 @@ public class FileView : ItemList {
     }
 
     void Up() {
-        BaseLelfs currentThing = LelfsManager.Load<BaseLelfs>(Path);
-        if (currentThing.Parent == null) {
-            Refresh("/");
-        } else {
-            BaseLelfs g = LelfsManager.LoadById<BaseLelfs>(currentThing.Parent);
-            Refresh(g.Path);
-        }
+        LelfsFile currentThing = LelfsManager.Load<LelfsFile>(Path);
+        LelfsFile g = LelfsManager.LoadById<LelfsFile>(currentThing.Parent);
+        Refresh(g.Path);
     }
 
     void RefreshButton() {

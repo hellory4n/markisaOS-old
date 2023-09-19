@@ -14,12 +14,8 @@ public class NewFileOpen : Button {
 
         // pain
         FileView mewhenthe = GetNode<FileView>("../../ItemList");
-        if (mewhenthe.Path != "/") {
-            BaseLelfs dfggfdf = LelfsManager.Load<BaseLelfs>(mewhenthe.Path);
-            jjkn.Parent = dfggfdf.Id;
-        } else {
-            jjkn.Parent = "/";
-        }
+        LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(mewhenthe.Path);
+        jjkn.Parent = dfggfdf.Id;
         jjkn.ThingThatINeedToRefresh = mewhenthe;
 
         wm.AddWindow(jjkn);
