@@ -11,8 +11,11 @@ public class PasteFile : BaseWindow {
         base._Ready();
         // we don't need to ask for a new name to move files :)
         if (Move) {
-            RectPosition = new Vector2(78923478, 83948458);
+            RectMinSize = new Vector2(0, 0);
+            RectSize = new Vector2(0, 0);
+            RectClipContent = true;
             Click();
+            Close();
         } else {
             GetNode<Button>("CenterContainer/VBoxContainer/Create").Connect("pressed", this, nameof(Click));
         }
@@ -23,6 +26,13 @@ public class PasteFile : BaseWindow {
             Copy();
         } else {
             Cut();
+        }
+    }
+
+    public override void _Process(float delta) {
+        base._Process(delta);
+        if (Move) {
+            Close();
         }
     }
 
@@ -85,7 +95,6 @@ public class PasteFile : BaseWindow {
         oldFile.Save();
         LelfsManager.SavePaths();
 
-        Close();
         ThingThatINeedToRefresh.ToMove = null;
         ThingThatINeedToRefresh.Selected = null;
         ThingThatINeedToRefresh.Refresh(gkfngof, false);
