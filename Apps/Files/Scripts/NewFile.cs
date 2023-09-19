@@ -28,8 +28,7 @@ public class NewFile : BaseWindow {
         }
 
         // actually make the file :)
-        LelfsFile newFile;
-        newFile = new LelfsFile(filename, Parent);
+        LelfsFile newFile = LelfsManager.NewFile(filename, Parent);
 
         // TODO: make an actual time system thing
         newFile.Metadata.Add("CreationDate", DateTime.Now);

@@ -8,15 +8,6 @@ using System.Collections.Generic;
 /// </summary>
 public class Folder : LelfsFile {
     /// <summary>
-    /// Initializes a Lelfs folder.
-    /// </summary>
-    /// <param name="name">The name of the folder.</param>
-    /// <param name="parent">The ID of the parent of the folder.</param>
-    public Folder(string name, string parent = null, bool isRoot = false) : base(name, parent, isRoot) {
-        Type = "Folder";
-    }
-
-    /// <summary>
     /// Copies this folder and all of its items.
     /// </summary>
     /// <param name="name">The name of the new folder.</param>

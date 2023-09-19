@@ -142,4 +142,65 @@ public class LelfsManager : Node {
         }
         return id;
     }
+
+    /// <summary>
+    /// Initializes a Lelfs file, but doesn't save it.
+    /// </summary>
+    /// <param name="name">The name of the file.</param>
+    /// <param name="parent">The ID of the parent of the file.</param>
+    public static LelfsFile NewFile(string name, string parent) {
+        // very illegal names
+        if (name.Contains("/")) {
+            GD.PushError("Filenames can't include forward slashes (/)");
+            return default;
+        }
+
+        // setup stuff :)
+        LelfsFile yeah = new LelfsFile {
+            Parent = parent,
+            Name = name,
+            Id = GenerateID()
+        };
+
+        // yes :)
+        if (parent != "root" || parent == null) {
+            LelfsFile m = LoadById<LelfsFile>(parent);
+            yeah.Path = $"{m.Path}/{name}";
+        } else {
+            yeah.Path = $"/{name}";
+        }
+
+        return yeah;
+    }
+
+    /// <summary>
+    /// Initializes a Lelfs folder, but doesn't save it.
+    /// </summary>
+    /// <param name="name">The name of the folder.</param>
+    /// <param name="parent">The ID of the parent of the folder.</param>
+    public static Folder NewFolder(string name, string parent) {
+        // very illegal names
+        if (name.Contains("/")) {
+            GD.PushError("Filenames can't include forward slashes (/)");
+            return default;
+        }
+
+        // setup stuff :)
+        Folder yeah = new Folder {
+            Parent = parent,
+            Name = name,
+            Id = GenerateID(),
+            Type = "Folder"
+        };
+
+        // yes :)
+        if (parent != "root" || parent == null) {
+            LelfsFile m = LoadById<LelfsFile>(parent);
+            yeah.Path = $"{m.Path}/{name}";
+        } else {
+            yeah.Path = $"/{name}";
+        }
+
+        return yeah;
+    }
 }

@@ -5,7 +5,7 @@ using Godot;
 /// LelfsRoot is the root of Lelfs. The parent of all files. Its name is "" and its ID is "root".
 /// </summary>
 public class LelfsRoot : Folder {
-    LelfsRoot(string name, string parent = null,bool isRoot = true) : base(name, parent, isRoot) {
+    LelfsRoot() {
         Name = "";
         Id = "root";
         Path = "/";
@@ -51,6 +51,6 @@ public class LelfsRoot : Folder {
             return;
         }
 
-        LelfsRoot m = new LelfsRoot("m");
+        LelfsRoot m = new LelfsRoot();
     }
 }

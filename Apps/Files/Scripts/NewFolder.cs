@@ -28,8 +28,7 @@ public class NewFolder : BaseWindow {
         }
 
         // actually make the folder :)
-        Folder newFolder;
-        newFolder = new Folder(filename, Parent);
+        Folder newFolder = LelfsManager.NewFolder(filename, Parent);
 
         // TODO: make an actual time system thing
         newFolder.Metadata.Add("CreationDate", DateTime.Now);
