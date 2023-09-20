@@ -43,7 +43,7 @@ public class FileView : ItemList {
         GetNode<Button>("../FileOperations/Move").Disabled = Selected == null;
         GetNode<Button>("../FileOperations/Paste").Disabled = ToCopy == null && ToMove == null;
         GetNode<Button>("../FileOperations/Delete").Disabled = Selected == null;
-        ContextMenuThing.SetItemDisabled(1, ToCopy == null && ToMove == null);
+        ContextMenuThing.SetItemDisabled(4, ToCopy == null && ToMove == null);
         GetNode<Button>("../Toolbar/Back").Disabled = PathIndex == 0;
         GetNode<Button>("../Toolbar/Forward").Disabled = PathIndex == Paths.Count-1;
         GetNode<Button>("../Toolbar/Up").Disabled = Path == "/";
@@ -196,9 +196,9 @@ public class FileView : ItemList {
         LelfsFile pain = LelfsManager.LoadById<LelfsFile>(CoolFiles[index]);
         UpdateInspector(pain.Path);
         Selected = pain.Id;
-        ContextMenuThing.SetItemDisabled(0, false);
-        ContextMenuThing.SetItemDisabled(2, false);
         ContextMenuThing.SetItemDisabled(3, false);
+        ContextMenuThing.SetItemDisabled(5, false);
+        ContextMenuThing.SetItemDisabled(6, false);
         ContextMenuThing.RectPosition = RectGlobalPosition + position;
         ContextMenuThing.Popup_();
     }
@@ -253,24 +253,48 @@ public class FileView : ItemList {
     void ContextMenuSelected(int index) {
         switch (index) {
             case 0:
-                CopyFile();
+                WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
+                PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Files/NewFile.tscn");
+                NewFile jjkn = m.Instance<NewFile>();
+
+                // pain
+                LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(Path);
+                jjkn.Parent = dfggfdf.Id;
+                jjkn.ThingThatINeedToRefresh = this;
+
+                wm.AddWindow(jjkn);
                 break;
             case 1:
-                PasteFile();
-                break;
-            case 2:
-                MoveFile();
+                WindowManager wm1 = GetNode<WindowManager>("/root/WindowManager");
+                PackedScene m1 = ResourceLoader.Load<PackedScene>("res://Apps/Files/NewFolder.tscn");
+                NewFolder jjkn1 = m1.Instance<NewFolder>();
+
+                // pain
+                LelfsFile dfggfdf1 = LelfsManager.Load<LelfsFile>(Path);
+                jjkn1.Parent = dfggfdf1.Id;
+                jjkn1.ThingThatINeedToRefresh = this;
+
+                wm1.AddWindow(jjkn1);
                 break;
             case 3:
+                CopyFile();
+                break;
+            case 4:
+                PasteFile();
+                break;
+            case 5:
+                MoveFile();
+                break;
+            case 6:
                 DeleteFile();
                 break;
         }
     }
 
     void ContextMenuButDifferent(Vector2 position) {
-        ContextMenuThing.SetItemDisabled(0, true);
-        ContextMenuThing.SetItemDisabled(2, true);
         ContextMenuThing.SetItemDisabled(3, true);
+        ContextMenuThing.SetItemDisabled(5, true);
+        ContextMenuThing.SetItemDisabled(6, true);
         ContextMenuThing.RectPosition = RectGlobalPosition + position;
         ContextMenuThing.Popup_();
     }
