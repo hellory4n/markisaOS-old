@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Apps/Files/Scripts/PasteFile.cs" type="Script" id=2]
+[ext_resource path="res://Apps/Files/Assets/IconDock.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Close"
@@ -132,7 +133,6 @@ tracks/1/keys = {
 
 [node name="Paste" type="WindowDialog"]
 process_priority = 1
-visible = true
 margin_right = -590.0
 margin_bottom = -300.0
 rect_min_size = Vector2( 500, 250 )
@@ -140,6 +140,7 @@ theme = ExtResource( 1 )
 popup_exclusive = true
 window_title = "Copy & Paste"
 script = ExtResource( 2 )
+Icon = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 method_call_mode = 1
