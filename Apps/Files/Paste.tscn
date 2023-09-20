@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Apps/Files/Scripts/PasteFile.cs" type="Script" id=2]
 [ext_resource path="res://Apps/Files/Assets/IconDock.png" type="Texture" id=3]
+[ext_resource path="res://OS/Scripts/Lelsktop/Overlay/TextPeek.cs" type="Script" id=4]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Close"
@@ -174,6 +175,7 @@ margin_right = 250.0
 margin_bottom = 83.0
 align = 1
 placeholder_text = "Copied File"
+script = ExtResource( 4 )
 
 [node name="Create" type="Button" parent="CenterContainer/VBoxContainer"]
 margin_top = 93.0

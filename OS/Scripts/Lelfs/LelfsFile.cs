@@ -106,9 +106,6 @@ public class LelfsFile {
         }
         
         Save();
-
-        LelfsManager.Paths.Add(Path, Id);
-        LelfsManager.SavePaths();
     }
 
     /// <summary>

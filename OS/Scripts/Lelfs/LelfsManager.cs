@@ -115,15 +115,15 @@ public class LelfsManager : Node {
     /// </summary>
     /// <param name="path">The path of the folder.</param>
     /// <returns>An array of IDs of each file in the folder</returns>
-    public static string[] GetFolderItems(string path) {
+    public static LelfsFile[] GetFolderItems(string path) {
         // FIXME: this is very much not efficient and would get slower with more files, 
         // please fix this at some point for fuck's sake
         string parentId = Load<Folder>(path).Id;
-        List<string> pain = new List<string>();
+        List<LelfsFile> pain = new List<LelfsFile>();
         foreach (var item in Paths) {
             LelfsFile bruh = LoadById<LelfsFile>(item.Value);
             if (bruh.Parent == parentId)
-                pain.Add(bruh.Id);
+                pain.Add(bruh);
         }
         return pain.ToArray();
     }

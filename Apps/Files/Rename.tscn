@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
-[ext_resource path="res://Apps/Files/Scripts/NewFolder.cs" type="Script" id=2]
+[ext_resource path="res://OS/Scripts/Lelsktop/Overlay/TextPeek.cs" type="Script" id=2]
 [ext_resource path="res://Apps/Files/Assets/IconDock.png" type="Texture" id=3]
-[ext_resource path="res://OS/Scripts/Lelsktop/Overlay/TextPeek.cs" type="Script" id=4]
+[ext_resource path="res://Apps/Files/Scripts/Rename.cs" type="Script" id=4]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Close"
@@ -132,15 +132,16 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[node name="NewFolder" type="WindowDialog"]
+[node name="Rename" type="WindowDialog"]
 process_priority = 1
+visible = true
 margin_right = -590.0
 margin_bottom = -300.0
 rect_min_size = Vector2( 500, 250 )
 theme = ExtResource( 1 )
 popup_exclusive = true
-window_title = "New Folder"
-script = ExtResource( 2 )
+window_title = "Rename"
+script = ExtResource( 4 )
 Icon = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -166,7 +167,7 @@ margin_right = 250.0
 margin_bottom = 33.0
 rect_min_size = Vector2( 250, 0 )
 theme_type_variation = "Header"
-text = "Name:"
+text = "New name:"
 align = 1
 
 [node name="Name" type="LineEdit" parent="CenterContainer/VBoxContainer"]
@@ -174,11 +175,11 @@ margin_top = 43.0
 margin_right = 250.0
 margin_bottom = 83.0
 align = 1
-placeholder_text = "New Folder"
-script = ExtResource( 4 )
+placeholder_text = "Renamed File"
+script = ExtResource( 2 )
 
-[node name="Create" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Rename" type="Button" parent="CenterContainer/VBoxContainer"]
 margin_top = 93.0
 margin_right = 250.0
 margin_bottom = 133.0
-text = "Create Folder"
+text = "Rename File"

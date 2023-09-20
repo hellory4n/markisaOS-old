@@ -32,8 +32,7 @@ public class Folder : LelfsFile {
 
         gaming.Save();
 
-        foreach (string item in LelfsManager.GetFolderItems(Path)) {
-            LelfsFile m = LelfsManager.LoadById<LelfsFile>(item);
+        foreach (LelfsFile m in LelfsManager.GetFolderItems(Path)) {
             if (m.Type == "Folder") {
                 Folder ha = LelfsManager.LoadById<Folder>(m.Id);
                 // haha recursion
@@ -64,8 +63,7 @@ public class Folder : LelfsFile {
 
         Save();
 
-        foreach (string item in LelfsManager.GetFolderItems(Path)) {
-            LelfsFile m = LelfsManager.LoadById<LelfsFile>(item);
+        foreach (LelfsFile m in LelfsManager.GetFolderItems(Path)) {
             if (m.Type == "Folder") {
                 Folder ha = LelfsManager.LoadById<Folder>(m.Id);
                 // haha recursion
@@ -88,8 +86,7 @@ public class Folder : LelfsFile {
     public override void Delete() {
         Directory directory = new Directory();
         if (directory.FileExists($"user://Users/{SavingManager.CurrentUser}/Files/{Id}.json")) {
-            foreach (string item in LelfsManager.GetFolderItems(Path)) {
-                LelfsFile m = LelfsManager.LoadById<LelfsFile>(item);
+            foreach (LelfsFile m in LelfsManager.GetFolderItems(Path)) {
                 if (m.Type == "Folder") {
                     Folder ha = LelfsManager.LoadById<Folder>(m.Id);
                     // haha recursion
@@ -136,8 +133,7 @@ public class Folder : LelfsFile {
 
         Save();
 
-        foreach (string item in LelfsManager.GetFolderItems(Path)) {
-            LelfsFile m = LelfsManager.LoadById<LelfsFile>(item);
+        foreach (LelfsFile m in LelfsManager.GetFolderItems(Path)) {
             if (m.Type == "Folder") {
                 Folder ha = LelfsManager.LoadById<Folder>(m.Id);
                 // haha recursion

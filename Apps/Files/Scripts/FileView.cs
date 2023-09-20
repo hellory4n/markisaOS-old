@@ -35,6 +35,7 @@ public class FileView : ItemList {
         GetNode<Button>("../Toolbar/Refresh").Connect("pressed", this, nameof(RefreshButton));
         GetNode<Button>("../FileOperations/Move").Connect("pressed", this, nameof(MoveFile));
         GetNode<Button>("../FileOperations/Delete").Connect("pressed", this, nameof(DeleteFile));
+        GetNode<Button>("../FileOperations/Rename").Connect("pressed", this, nameof(RenameFile));
     }
 
     public override void _Process(float delta) {
@@ -43,6 +44,7 @@ public class FileView : ItemList {
         GetNode<Button>("../FileOperations/Move").Disabled = Selected == null;
         GetNode<Button>("../FileOperations/Paste").Disabled = ToCopy == null && ToMove == null;
         GetNode<Button>("../FileOperations/Delete").Disabled = Selected == null;
+        GetNode<Button>("../FileOperations/Rename").Disabled = Selected == null;
         ContextMenuThing.SetItemDisabled(4, ToCopy == null && ToMove == null);
         GetNode<Button>("../Toolbar/Back").Disabled = PathIndex == 0;
         GetNode<Button>("../Toolbar/Forward").Disabled = PathIndex == Paths.Count-1;
@@ -87,6 +89,11 @@ public class FileView : ItemList {
         if (Input.IsActionJustReleased("delete") && GetParent().GetParent().GetParent().GetParent<BaseWindow>()
         .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab" && Selected != null) {
             DeleteFile();
+        }
+
+        if (Input.IsActionJustReleased("rename") && GetParent().GetParent().GetParent().GetParent<BaseWindow>()
+        .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab" && Selected != null) {
+            RenameFile();
         }
 
         if (Input.IsActionJustReleased("new_but_different") && GetParent().GetParent().GetParent().GetParent<BaseWindow>()
@@ -140,8 +147,14 @@ public class FileView : ItemList {
         }
         CoolFiles.Clear();
 
-        foreach (var item in LelfsManager.GetFolderItems(Path)) {
-            LelfsFile pain = LelfsManager.LoadById<LelfsFile>(item);
+        // questionable way of sorting stuff :)
+        LelfsFile[] m = LelfsManager.GetFolderItems(Path);
+        var sortedStuff = m
+            .OrderByDescending(obj => obj.Type == "Folder")
+            .ThenBy(obj => obj.Name)
+            .ToArray();
+
+        foreach (var pain in sortedStuff) { 
             switch (pain.Type) {
                 case "Folder":
                     AddItem(pain.Name, FolderIcon);
@@ -161,6 +174,11 @@ public class FileView : ItemList {
         }
 
         UpdateInspector(pathThingSomething);
+    }
+
+    private void OrderBy(Func<object, object> value)
+    {
+        throw new NotImplementedException();
     }
 
     void ItemSelected(int index) {
@@ -199,6 +217,7 @@ public class FileView : ItemList {
         ContextMenuThing.SetItemDisabled(3, false);
         ContextMenuThing.SetItemDisabled(5, false);
         ContextMenuThing.SetItemDisabled(6, false);
+        ContextMenuThing.SetItemDisabled(7, false);
         ContextMenuThing.RectPosition = RectGlobalPosition + position;
         ContextMenuThing.Popup_();
     }
@@ -288,6 +307,9 @@ public class FileView : ItemList {
             case 6:
                 DeleteFile();
                 break;
+            case 7:
+                RenameFile();
+                break;
         }
     }
 
@@ -295,6 +317,7 @@ public class FileView : ItemList {
         ContextMenuThing.SetItemDisabled(3, true);
         ContextMenuThing.SetItemDisabled(5, true);
         ContextMenuThing.SetItemDisabled(6, true);
+        ContextMenuThing.SetItemDisabled(7, true);
         ContextMenuThing.RectPosition = RectGlobalPosition + position;
         ContextMenuThing.Popup_();
     }
@@ -323,6 +346,20 @@ public class FileView : ItemList {
         WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
         PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Files/Delete.tscn");
         Delete jjkn = m.Instance<Delete>();
+
+        // pain
+        LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(Path);
+        jjkn.Parent = dfggfdf.Id;
+        jjkn.ThingThatINeedToRefresh = this;
+        jjkn.CoolFile = Selected;
+
+        wm.AddWindow(jjkn);
+    }
+
+    void RenameFile() {
+        WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
+        PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Files/Rename.tscn");
+        Rename jjkn = m.Instance<Rename>();
 
         // pain
         LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(Path);
