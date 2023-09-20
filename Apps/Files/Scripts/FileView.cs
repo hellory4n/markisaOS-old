@@ -34,6 +34,7 @@ public class FileView : ItemList {
         GetNode<Button>("../Toolbar/Up").Connect("pressed", this, nameof(Up));
         GetNode<Button>("../Toolbar/Refresh").Connect("pressed", this, nameof(RefreshButton));
         GetNode<Button>("../FileOperations/Move").Connect("pressed", this, nameof(MoveFile));
+        GetNode<Button>("../FileOperations/Delete").Connect("pressed", this, nameof(DeleteFile));
     }
 
     public override void _Process(float delta) {
@@ -41,6 +42,7 @@ public class FileView : ItemList {
         GetNode<Button>("../FileOperations/Copy").Disabled = Selected == null;
         GetNode<Button>("../FileOperations/Move").Disabled = Selected == null;
         GetNode<Button>("../FileOperations/Paste").Disabled = ToCopy == null && ToMove == null;
+        GetNode<Button>("../FileOperations/Delete").Disabled = Selected == null;
         ContextMenuThing.SetItemDisabled(1, ToCopy == null && ToMove == null);
         GetNode<Button>("../Toolbar/Back").Disabled = PathIndex == 0;
         GetNode<Button>("../Toolbar/Forward").Disabled = PathIndex == Paths.Count-1;
@@ -80,6 +82,11 @@ public class FileView : ItemList {
         if (Input.IsActionJustReleased("paste") && GetParent().GetParent().GetParent().GetParent<BaseWindow>()
         .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab" && ToCopy != null && ToMove != null) {
             PasteFile();
+        }
+
+        if (Input.IsActionJustReleased("delete") && GetParent().GetParent().GetParent().GetParent<BaseWindow>()
+        .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab" && Selected != null) {
+            DeleteFile();
         }
 
         if (Input.IsActionJustReleased("new_but_different") && GetParent().GetParent().GetParent().GetParent<BaseWindow>()
@@ -191,6 +198,7 @@ public class FileView : ItemList {
         Selected = pain.Id;
         ContextMenuThing.SetItemDisabled(0, false);
         ContextMenuThing.SetItemDisabled(2, false);
+        ContextMenuThing.SetItemDisabled(3, false);
         ContextMenuThing.RectPosition = RectGlobalPosition + position;
         ContextMenuThing.Popup_();
     }
@@ -253,12 +261,16 @@ public class FileView : ItemList {
             case 2:
                 MoveFile();
                 break;
+            case 3:
+                DeleteFile();
+                break;
         }
     }
 
     void ContextMenuButDifferent(Vector2 position) {
         ContextMenuThing.SetItemDisabled(0, true);
         ContextMenuThing.SetItemDisabled(2, true);
+        ContextMenuThing.SetItemDisabled(3, true);
         ContextMenuThing.RectPosition = RectGlobalPosition + position;
         ContextMenuThing.Popup_();
     }
@@ -281,5 +293,19 @@ public class FileView : ItemList {
 
     void RefreshButton() {
         Refresh(Path, false);
+    }
+
+    void DeleteFile() {
+        WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
+        PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Files/Delete.tscn");
+        Delete jjkn = m.Instance<Delete>();
+
+        // pain
+        LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(Path);
+        jjkn.Parent = dfggfdf.Id;
+        jjkn.ThingThatINeedToRefresh = this;
+        jjkn.CoolFile = Selected;
+
+        wm.AddWindow(jjkn);
     }
 }

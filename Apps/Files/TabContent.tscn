@@ -196,11 +196,12 @@ anchor_bottom = 1.0
 margin_top = -50.0
 margin_bottom = -10.0
 rect_min_size = Vector2( 0, 40 )
+rect_clip_content = true
 alignment = 1
 
 [node name="Copy" type="Button" parent="Content/ContentThing/FileOperations"]
-margin_left = 115.0
-margin_right = 215.0
+margin_left = 60.0
+margin_right = 160.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 100, 0 )
 hint_tooltip = "Ctrl+C"
@@ -208,8 +209,8 @@ theme_type_variation = "SecondaryButton"
 text = "Copy"
 
 [node name="Paste" type="Button" parent="Content/ContentThing/FileOperations"]
-margin_left = 225.0
-margin_right = 325.0
+margin_left = 170.0
+margin_right = 270.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 100, 0 )
 hint_tooltip = "Ctrl+V"
@@ -217,18 +218,27 @@ theme_type_variation = "SecondaryButton"
 text = "Paste"
 
 [node name="Move" type="Button" parent="Content/ContentThing/FileOperations"]
-margin_left = 335.0
-margin_right = 435.0
+margin_left = 280.0
+margin_right = 380.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 100, 0 )
 hint_tooltip = "Ctrl+X"
 theme_type_variation = "SecondaryButton"
 text = "Move"
 
+[node name="Delete" type="Button" parent="Content/ContentThing/FileOperations"]
+margin_left = 390.0
+margin_right = 490.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 100, 0 )
+hint_tooltip = "Ctrl+X"
+theme_type_variation = "SecondaryButton"
+text = "Delete"
+
 [node name="ContextMenu" type="PopupMenu" parent="Content/ContentThing"]
 margin_right = 20.0
 margin_bottom = 20.0
-items = [ "Copy", null, 0, false, false, 0, 0, null, "", false, "Paste", null, 0, false, false, 1, 0, null, "", false, "Move", null, 0, false, false, 2, 0, null, "", false ]
+items = [ "Copy", null, 0, false, false, 0, 0, null, "", false, "Paste", null, 0, false, false, 1, 0, null, "", false, "Move", null, 0, false, false, 2, 0, null, "", false, "Delete", null, 0, false, false, 3, 0, null, "", false ]
 
 [node name="Inspector" type="Control" parent="Content"]
 margin_left = 558.0

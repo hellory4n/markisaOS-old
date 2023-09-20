@@ -88,12 +88,12 @@ public class PasteFile : BaseWindow {
         }
 
         // actually move the file :)
-        oldFile.Parent = Parent;
-        LelfsManager.Paths.Remove(oldFile.Path);
-        oldFile.Path = suffering;
-        LelfsManager.Paths.Add(oldFile.Path, oldFile.Id);
-        oldFile.Save();
-        LelfsManager.SavePaths();
+        if (oldFile.Type == "Folder") {
+            Folder h = LelfsManager.LoadById<Folder>(OldFile);
+            h.Move(Parent);
+        } else {
+            oldFile.Move(Parent);
+        }
 
         ThingThatINeedToRefresh.ToMove = null;
         ThingThatINeedToRefresh.Selected = null;

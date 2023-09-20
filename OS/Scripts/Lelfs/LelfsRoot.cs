@@ -43,6 +43,14 @@ public class LelfsRoot : Folder {
     }
 
     /// <summary>
+    /// You can't move root.
+    /// </summary>
+    /// <param name="parent">No.</param>
+    public override void Move(string parent) {
+        GD.PushError("Can't move root!");
+    }
+
+    /// <summary>
     /// Creates the root of the filesystem. Only use when making new users.
     /// </summary>
     public static void CreateRoot() {

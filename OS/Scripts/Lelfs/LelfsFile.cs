@@ -94,9 +94,6 @@ public class LelfsFile {
     /// </summary>
     /// <param name="name">The new name of the file.</param>
     public virtual void Rename(string name) {
-        if (Name == name)
-            return;
-
         Name = name;
 
         LelfsManager.Paths.Remove(Path);
@@ -126,5 +123,30 @@ public class LelfsFile {
         } else {
             GD.PushError("File not saved yet!");
         }
+    }
+
+    /// <summary>
+    /// Changes the parent of a file.
+    /// </summary>
+    /// <param name="parent">The ID of the new parent.</param>
+    public virtual void Move(string parent) {
+        if (Parent == parent)
+            return;
+
+        Parent = parent;
+
+        LelfsManager.Paths.Remove(Path);
+
+        if (parent != "root") {
+            LelfsFile m = LelfsManager.LoadById<LelfsFile>(parent);
+            Path = $"{m.Path}/{Name}";
+        } else {
+            Path = $"/{Name}";
+        }
+
+        Save();
+
+        LelfsManager.Paths.Add(Path, Id);
+        LelfsManager.SavePaths();
     }
 }

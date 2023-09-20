@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Warning.mp3-da6fce67a60de07673be952050997bc4.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sounds/Warning.mp3"
+dest_files=[ "res://.import/Warning.mp3-da6fce67a60de07673be952050997bc4.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

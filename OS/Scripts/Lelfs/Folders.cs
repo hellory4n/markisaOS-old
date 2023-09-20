@@ -51,29 +51,32 @@ public class Folder : LelfsFile {
     /// </summary>
     /// <param name="name">The new name of the folder.</param>
     public override void Rename(string name) {
-        if (Name == name)
-            return;
-
         Name = name;
 
         LelfsManager.Paths.Remove(Path);
 
         if (Parent != "root") {
             LelfsFile m = LelfsManager.LoadById<LelfsFile>(Parent);
-            Path = $"{m.Path}/{Name}";
+            Path = $"{m.Path}/{name}";
         } else {
-            Path = $"/{Name}";
+            Path = $"/{name}";
         }
 
         Save();
 
         foreach (string item in LelfsManager.GetFolderItems(Path)) {
             LelfsFile m = LelfsManager.LoadById<LelfsFile>(item);
-            m.Parent = Id;
-            LelfsManager.Paths.Remove(m.Path);
-            m.Path = $"{Path}/{m.Name}";
-            LelfsManager.Paths.Add(m.Path, m.Id);
-            m.Save();
+            if (m.Type == "Folder") {
+                Folder ha = LelfsManager.LoadById<Folder>(m.Id);
+                // haha recursion
+                ha.Rename(ha.Name);
+            } else {
+                m.Parent = Id;
+                LelfsManager.Paths.Remove(m.Path);
+                m.Path = $"{Path}/{m.Name}";
+                LelfsManager.Paths.Add(m.Path, m.Id);
+                m.Save();
+            }
         }
 
         LelfsManager.SavePaths();
@@ -85,9 +88,15 @@ public class Folder : LelfsFile {
     public override void Delete() {
         Directory directory = new Directory();
         if (directory.FileExists($"user://Users/{SavingManager.CurrentUser}/Files/{Id}.json")) {
-            foreach (var item in LelfsManager.GetFolderItems(Path)) {
-                LelfsFile bruh = LelfsManager.LoadById<LelfsFile>(item);
-                bruh.Delete();
+            foreach (string item in LelfsManager.GetFolderItems(Path)) {
+                LelfsFile m = LelfsManager.LoadById<LelfsFile>(item);
+                if (m.Type == "Folder") {
+                    Folder ha = LelfsManager.LoadById<Folder>(m.Id);
+                    // haha recursion
+                    ha.Delete();
+                } else {
+                    m.Delete();
+                }
             }
 
             directory.Remove($"user://Users/{SavingManager.CurrentUser}/Files/{Id}.json");
@@ -107,5 +116,41 @@ public class Folder : LelfsFile {
     public T LoadLocal<T>(string path) where T : LelfsFile {
         string actualPath = $"{Path}/{path}";
         return LelfsManager.Load<T>(actualPath);
+    }
+
+    /// <summary>
+    /// Changes the parent of this folder and all of its items.
+    /// </summary>
+    /// <param name="parent">The ID of the new parent.</param>
+    public override void Move(string parent) {
+        Parent = parent;
+
+        LelfsManager.Paths.Remove(Path);
+
+        if (Parent != "root") {
+            LelfsFile m = LelfsManager.LoadById<LelfsFile>(Parent);
+            Path = $"{m.Path}/{Name}";
+        } else {
+            Path = $"/{Name}";
+        }
+
+        Save();
+
+        foreach (string item in LelfsManager.GetFolderItems(Path)) {
+            LelfsFile m = LelfsManager.LoadById<LelfsFile>(item);
+            if (m.Type == "Folder") {
+                Folder ha = LelfsManager.LoadById<Folder>(m.Id);
+                // haha recursion
+                ha.Move(Id);
+            } else {
+                m.Parent = Id;
+                LelfsManager.Paths.Remove(m.Path);
+                m.Path = $"{Path}/{m.Name}";
+                LelfsManager.Paths.Add(m.Path, m.Id);
+                m.Save();
+            }
+        }
+
+        LelfsManager.SavePaths();
     }
 }

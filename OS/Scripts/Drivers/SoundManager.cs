@@ -13,7 +13,8 @@ public class SoundManager : Node {
         Startup,
         Shutdown,
         Error,
-        Notification
+        Notification,
+        Warning
     }
 
     // it's on a list so the number of the enum is also the index in this list or something, and also would
@@ -40,6 +41,7 @@ public class SoundManager : Node {
         SoundFiles.Add(ResourceLoader.Load<AudioStreamMP3>("res://Audio/Sounds/Shutdown.mp3"));
         SoundFiles.Add(ResourceLoader.Load<AudioStreamMP3>("res://Audio/Sounds/Error.mp3"));
         SoundFiles.Add(ResourceLoader.Load<AudioStreamMP3>("res://Audio/Sounds/Notification.mp3"));
+        SoundFiles.Add(ResourceLoader.Load<AudioStreamMP3>("res://Audio/Sounds/Warning.mp3"));
 
         AddChild(sounds);
         AddChild(music);
