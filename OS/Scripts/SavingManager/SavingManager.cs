@@ -87,7 +87,8 @@ public class SavingManager : Node {
 
         haha.Close();
         LelfsManager.UpdatePaths();
-        LelfsRoot.CreateRoot();        
+        LelfsRoot.CreateRoot();
+        LelfsManager.NewFileStructure();
     }
 
     /// <summary>

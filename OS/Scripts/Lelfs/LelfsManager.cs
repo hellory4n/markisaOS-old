@@ -207,4 +207,44 @@ public class LelfsManager : Node {
 
         return yeah;
     }
+
+    /// <summary>
+    /// Setups the file structure new users always get.
+    /// </summary>
+    public static void NewFileStructure() {
+        if (FileExists("/System") && FileExists("/Home"))
+            return;
+
+        Folder system = NewFolder("System", "root");
+        system.Metadata.Add("CreationDate", DateTime.Now);
+        system.Save();
+
+        Folder trash = NewFolder("Trash", system.Id);
+        trash.Metadata.Add("CreationDate", DateTime.Now);
+        trash.Save();
+
+        Folder home = NewFolder("Home", "root");
+        home.Metadata.Add("CreationDate", DateTime.Now);
+        home.Save();
+
+        Folder documents = NewFolder("Documents", home.Id);
+        documents.Metadata.Add("CreationDate", DateTime.Now);
+        documents.Save();
+
+        Folder downloads = NewFolder("Downloads", home.Id);
+        downloads.Metadata.Add("CreationDate", DateTime.Now);
+        downloads.Save();
+
+        Folder music = NewFolder("Music", home.Id);
+        music.Metadata.Add("CreationDate", DateTime.Now);
+        music.Save();
+
+        Folder pictures = NewFolder("Pictures", home.Id);
+        pictures.Metadata.Add("CreationDate", DateTime.Now);
+        pictures.Save();
+
+        Folder videos = NewFolder("Videos", home.Id);
+        videos.Metadata.Add("CreationDate", DateTime.Now);
+        videos.Save();
+    }
 }
