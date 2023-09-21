@@ -39,6 +39,7 @@ public class BaseWindow : WindowDialog {
     /// The minimize button of the window.
     /// </summary>
     public Button Minimize;
+    bool CanSnap = false;
 
     public override void _Ready() {
         base._Ready();
@@ -73,6 +74,15 @@ public class BaseWindow : WindowDialog {
         StupidThingForInactiveWindows.AddStyleboxOverride("hover", new StyleBoxEmpty());
         StupidThingForInactiveWindows.AddStyleboxOverride("focus", new StyleBoxEmpty());
         StupidThingForInactiveWindows.AddStyleboxOverride("disabled", new StyleBoxEmpty());
+
+        Timer jgjk = new Timer {
+            Name = "jrgjdkggooghmgdgddgsaa39933",
+            WaitTime = 0.5f,
+            Autostart = true,
+            OneShot = true
+        };
+        jgjk.Connect("timeout", this, nameof(SnapThing));
+        AddChild(jgjk);
     }
 
     public override void _Process(float delta) {
@@ -90,22 +100,19 @@ public class BaseWindow : WindowDialog {
         // first check if the window is moving
         if (previousPosition != RectPosition && Resizable) {
             Raise();
-            
-            // we check the viewport thing so the window doesn't get snapped just because the
-            // mouse was on the dock/panel
-            if (GetGlobalMousePosition().y < 60 && !GetViewport().GuiDisableInput) {
+            if (GetGlobalMousePosition().y < 60 && CanSnap) {
                 Vector2 maximizedSize = new Vector2(screenSize.x-75, screenSize.y-85);
                 RectPosition = new Vector2(0, 85);
                 RectSize = maximizedSize;
             }
 
-            if (GetGlobalMousePosition().x < 40) {
+            if (GetGlobalMousePosition().x < 40 && CanSnap) {
                 Vector2 newSize = new Vector2((screenSize.x-75)/2, screenSize.y-85);
                 RectPosition = new Vector2(0, 85);
                 RectSize = newSize;
             }
 
-            if (GetGlobalMousePosition().x > screenSize.x-115 && !GetViewport().GuiDisableInput) {
+            if (GetGlobalMousePosition().x > screenSize.x-115 && CanSnap) {
                 Vector2 newSize = new Vector2((screenSize.x-75)/2, screenSize.y-85);
                 RectPosition = new Vector2((screenSize.x-75)/2, 85);
                 RectSize = newSize;
@@ -156,5 +163,10 @@ public class BaseWindow : WindowDialog {
     /// <returns>Whether or not the window is active.</returns>
     public bool IsActive() {
         return GetIndex() == GetParent().GetChildCount()-1;
+    }
+
+    // so the window doesn't get snapped just because your mouse was in the dock when you opened it
+    void SnapThing() {
+        CanSnap = true;
     }
 }
