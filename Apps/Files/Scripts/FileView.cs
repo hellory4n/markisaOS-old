@@ -18,7 +18,7 @@ public class FileView : ItemList {
 
     public override void _Ready() {
         base._Ready();
-        Refresh("/");
+        Refresh("/Home");
         Connect("item_selected", this, nameof(ItemSelected));
         Connect("item_activated", this, nameof(Open));
         Connect("nothing_selected", this, nameof(NothingSelected));
@@ -135,10 +135,14 @@ public class FileView : ItemList {
         }
 
         // couldn't be bothered to do this properly
-        if (pathThingSomething != "/")
-            TabThing.Text = pathThingSomething.Split("/").Last();
-        else
+        if (pathThingSomething == "/System/Trash") {
+            TabThing.Text = "Trash";
+            GetNode<LineEdit>("../Toolbar/Path").Text = "Trash";
+        } else if (pathThingSomething == "/") {
             TabThing.Text = "root";
+        } else {
+            TabThing.Text = pathThingSomething.Split("/").Last();
+        }
 
         // clear previous list :)))))
         for (int i = 0; i < Items.Count; i++) {
