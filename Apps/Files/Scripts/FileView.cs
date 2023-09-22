@@ -180,11 +180,6 @@ public class FileView : ItemList {
         UpdateInspector(pathThingSomething);
     }
 
-    private void OrderBy(Func<object, object> value)
-    {
-        throw new NotImplementedException();
-    }
-
     void ItemSelected(int index) {
         LelfsFile pain = LelfsManager.LoadById<LelfsFile>(CoolFiles[index]);
         UpdateInspector(pain.Path);
@@ -193,10 +188,19 @@ public class FileView : ItemList {
 
     void Open(int index) {
         LelfsFile pain = LelfsManager.LoadById<LelfsFile>(CoolFiles[index]);
-        if (pain.Type == "Folder") {
-            Refresh(pain.Path);
+        switch (pain.Type) {
+            case "Folder":
+                Refresh(pain.Path);
+                break;
+            case "Picture":
+                WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
+                PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Observer/Observer.tscn");
+                Observer jjkn = m.Instance<Observer>();
+                jjkn.ObserverMode = Observer.Mode.Image;
+                jjkn.MediaId = pain.Id;
+                wm.AddWindow(jjkn);
+                break;
         }
-        // TODO: add a thing that opens files :)
     }
 
     void NothingSelected() {

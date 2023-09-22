@@ -10,6 +10,14 @@ public class Lelsktop : Node2D {
         Viewport pain = GetNode<Viewport>("/root/Lelsktop/Thing/Windows");
         pain.Size = bruh;
 
+        // test image file omgogogogomg
+        if (!LelfsManager.FileExists("/Home/Pictures/pain")) {
+            LelfsFile painPicture = LelfsManager.NewFile("pain", LelfsManager.PermanentPath("/Home/Pictures"));
+            painPicture.Type = "Picture";
+            painPicture.Data.Add("Resource", "res://icon.png");
+            painPicture.Save();
+        }
+
         SavingManager.ConvertOldUser(SavingManager.CurrentUser);
         UserLelsktop suffer = SavingManager.Load<UserLelsktop>(SavingManager.CurrentUser);
 
