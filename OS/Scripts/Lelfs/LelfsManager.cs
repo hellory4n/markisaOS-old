@@ -93,11 +93,16 @@ public class LelfsManager : Node {
     /// <param name="path">The path of the file.</param>
     /// <returns>Whether or not the file exists.</returns>
     public static bool FileExists(string path) {
-        if (Paths.ContainsKey(path)) {
-            return true;
-        } else {
-            return false;
-        }
+        return Paths.ContainsKey(path);
+    }
+
+    /// <summary>
+    /// Checks if there is a file with the specified ID.
+    /// </summary>
+    /// <param name="id">The ID of the file.</param>
+    /// <returns>Whether or not a file with the specified ID exists.</returns>
+    public static bool IdExists(string id) {
+        return Paths.ContainsValue(id);
     }
 
     /// <summary>

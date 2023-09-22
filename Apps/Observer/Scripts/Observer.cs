@@ -5,14 +5,19 @@ public class Observer : BaseWindow {
     public enum Mode {
         Image,
         Audio,
-        Video
+        Video,
+        Nothing
     }
 
-    public Mode ObserverMode;
+    public Mode ObserverMode = Mode.Nothing;
     public string MediaId;
 
     public override void _Ready() {
         base._Ready();
+        Load();
+    }
+
+    public void Load() {
         switch (ObserverMode) {
             case Mode.Image:
                 PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Observer/ImageView.tscn");
@@ -25,6 +30,11 @@ public class Observer : BaseWindow {
                         ResourceLoader.Load<Texture>(coolFile.Data["Resource"].ToString());
                 }
                 AddChild(coolImageThing);
+                break;
+            case Mode.Nothing:
+                PackedScene m1 = ResourceLoader.Load<PackedScene>("res://Apps/Observer/NothingLoaded.tscn");
+                CenterContainer coolNothingThing = m1.Instance<CenterContainer>();
+                AddChild(coolNothingThing);
                 break;
         }
     }
