@@ -174,7 +174,6 @@ tracks/1/keys = {
 
 [node name="LelsktopInterface" type="CanvasLayer"]
 process_priority = -69
-layer = 128
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/CloseAppMenu = SubResource( 20 )

@@ -7,9 +7,13 @@ public class TextPeek : LineEdit {
     public override void _Ready() {
         base._Ready();
         if (OS.GetName() == "Android") {
+            CanvasLayer m = new CanvasLayer {
+                Layer = 128
+            };
             PackedScene oneOfThePackedScenes = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Overlay/TextPeek.tscn");
             TextPeekThingy = (Panel)oneOfThePackedScenes.Instance();
-            GetTree().Root.AddChild(TextPeekThingy);
+            GetTree().Root.AddChild(m);
+            m.AddChild(TextPeekThingy);
             TextPeekThingy.RectGlobalPosition = new Vector2(0, 0);
             TextPeekThingy.Visible = false;
             Connect("text_changed", this, nameof(TextPeekEdit));
