@@ -82,7 +82,7 @@ public class SavingManager : Node {
         dir.MakeDirRecursive($"user://Users/{user}/Files/");
 
         File haha = new File();
-        haha.Open($"user://Users/{CurrentUser}/Files/root.json", File.ModeFlags.Write);
+        haha.Open($"user://Users/{user}/Files/root.json", File.ModeFlags.Write);
         haha.StoreString("{\"$type\":\"LelfsRoot, lelcubeOS\",\"Id\":\"root\",\"Parent\":null,\"Name\":\"\",\"Metadata\":{\"$type\":\"System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Object, mscorlib]], mscorlib\"},\"Path\":\"/\",\"Type\":\"Root\",\"Data\":{\"$type\":\"System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Object, mscorlib]], mscorlib\"}}");
 
         haha.Close();
@@ -222,6 +222,48 @@ public class SavingManager : Node {
             file.Close();
         } else {
             GD.PushError($"Failed to save settings.");
+        }
+    }
+
+    /// <summary>
+    /// Converts a save to the latest version.
+    /// </summary>
+    /// <param name="user">The user to convert.</param>
+    public static void ConvertOldUser(string user) {
+        var version = Load<BasicUser>(user);
+
+        // versions before this code existed
+        if (version.MajorVersion == 0 && version.MinorVersion < 7) {
+            // create the installed apps and quick settings thing
+            File j = new File();
+            j.Open($"user://Users/{user}/InstalledApps.json", File.ModeFlags.Write);
+            j.StoreString(
+                JsonConvert.SerializeObject(new InstalledApps())
+            );
+            j.Close();
+
+            File suffer = new File();
+            suffer.Open($"user://Users/{user}/QuickLaunch.json", File.ModeFlags.Write);
+            suffer.StoreString(
+                JsonConvert.SerializeObject(new QuickLaunch())
+            );
+            suffer.Close();
+
+            // setup the filesystem
+            Directory dir = new Directory();
+            dir.MakeDirRecursive($"user://Users/{user}/Files/");
+
+            File haha = new File();
+            haha.Open($"user://Users/{user}/Files/root.json", File.ModeFlags.Write);
+            haha.StoreString("{\"$type\":\"LelfsRoot, lelcubeOS\",\"Id\":\"root\",\"Parent\":null,\"Name\":\"\",\"Metadata\":{\"$type\":\"System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Object, mscorlib]], mscorlib\"},\"Path\":\"/\",\"Type\":\"Root\",\"Data\":{\"$type\":\"System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Object, mscorlib]], mscorlib\"}}");
+
+            haha.Close();
+            LelfsManager.UpdatePaths();
+            LelfsRoot.CreateRoot();
+            LelfsManager.NewFileStructure();
+
+            version.MinorVersion = 7;
+            Save(user, version);
         }
     }
 }

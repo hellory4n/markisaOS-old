@@ -10,10 +10,8 @@ public class Lelsktop : Node2D {
         Viewport pain = GetNode<Viewport>("/root/Lelsktop/Thing/Windows");
         pain.Size = bruh;
 
+        SavingManager.ConvertOldUser(SavingManager.CurrentUser);
         UserLelsktop suffer = SavingManager.Load<UserLelsktop>(SavingManager.CurrentUser);
-
-        // yes
-        
 
         // load the wallpaper
         string wallpaperPath = suffer.Wallpaper;

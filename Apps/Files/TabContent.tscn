@@ -27,6 +27,7 @@ margin_bottom = 675.0
 [node name="VBoxContainer" type="VBoxContainer" parent="Sidebar"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_clip_content = true
 
 [node name="Home" type="Button" parent="Sidebar/VBoxContainer"]
 margin_right = 106.0
