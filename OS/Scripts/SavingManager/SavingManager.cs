@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using Newtonsoft.Json;
+using System.Linq;
 
 /// <summary>
 /// Manages settings and progress both for users, and settings that apply for all users.
@@ -263,6 +264,20 @@ public class SavingManager : Node {
             LelfsManager.NewFileStructure();
 
             version.MinorVersion = 7;
+            Save(user, version);
+        }
+
+        // v0.8 added epic multimedia stuff :)
+        if (version.MajorVersion == 0 && version.MinorVersion == 7) {
+            var coolApps = Load<InstalledApps>(user);
+            // fun
+            coolApps.All.Append(new Lelapp("Observer", "res://Apps/Observer/Assets/IconSmall.png", "res://Apps/Observer/Observer.tscn"));
+            coolApps.Graphics.Append(new Lelapp("Observer", "res://Apps/Observer/Assets/IconSmall.png", "res://Apps/Observer/Observer.tscn"));
+            coolApps.Multimedia.Append(new Lelapp("Observer", "res://Apps/Observer/Assets/IconSmall.png", "res://Apps/Observer/Observer.tscn"));
+            coolApps.Utilities.Append(new Lelapp("Observer", "res://Apps/Observer/Assets/IconSmall.png", "res://Apps/Observer/Observer.tscn"));
+            Save(user, coolApps);
+
+            version.MinorVersion = 8;
             Save(user, version);
         }
     }
