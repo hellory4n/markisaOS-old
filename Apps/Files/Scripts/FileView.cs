@@ -6,6 +6,7 @@ using System.Linq;
 public class FileView : ItemList {
     readonly Texture FolderIcon = ResourceLoader.Load<Texture>("res://Apps/Files/Assets/IconDock.png");
     readonly Texture FileIcon = ResourceLoader.Load<Texture>("res://Apps/Files/Assets/File.png");
+    readonly Texture MusicIcon = ResourceLoader.Load<Texture>("res://Apps/Files/Assets/Music.png");
     List<string> CoolFiles = new List<string>();
     public string Path = "/";
     public Button TabThing;
@@ -168,6 +169,18 @@ public class FileView : ItemList {
                         AddItem(pain.Name, ResourceLoader.Load<Texture>(pain.Data["Resource"].ToString()));
                     else
                         AddItem(pain.Name, FileIcon);
+                    break;
+                case "Audio":
+                    if (pain.Data.ContainsKey("CoverArt")) {
+                        // yeah
+                        AddItem(pain.Name, ResourceLoader.Load<Texture>(
+                            LelfsManager.LoadById<LelfsFile>(pain.Data["CoverArt"].ToString())
+                                .Data["Resource"].ToString()
+                            )
+                        );
+                    } else {
+                        AddItem(pain.Name, MusicIcon);
+                    }
                     break;
                 default:
                     AddItem(pain.Name, FileIcon);
