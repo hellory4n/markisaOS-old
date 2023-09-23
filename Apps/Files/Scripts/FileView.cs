@@ -128,6 +128,11 @@ public class FileView : ItemList {
     }    
 
     public void Refresh(string pathThingSomething, bool addToHistory = true) {
+        // forgor to check this lol
+        if (!LelfsManager.FileExists(pathThingSomething)) {
+            return;
+        }
+
         Path = pathThingSomething;
         GetNode<LineEdit>("../Toolbar/Path").Text = pathThingSomething;
         if (addToHistory) {
