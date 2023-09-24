@@ -11,11 +11,10 @@ public class Lelsktop : Node2D {
         pain.Size = bruh;
 
         // test image file omgogogogomg
-        if (!LelfsManager.FileExists("/Home/Music/pain")) {
-            LelfsFile painPicture = LelfsManager.NewFile("pain", LelfsManager.PermanentPath("/Home/Music"));
-            painPicture.Type = "Audio";
-            painPicture.Data.Add("Resource", "res://Audio/Sounds/Startup.mp3");
-            painPicture.Data.Add("CoverArt", LelfsManager.PermanentPath("/Home/Pictures/pain"));
+        if (!LelfsManager.FileExists("/Home/Videos/pain")) {
+            LelfsFile painPicture = LelfsManager.NewFile("pain", LelfsManager.PermanentPath("/Home/Videos"));
+            painPicture.Type = "Video";
+            painPicture.Data.Add("Resource", "/home/toddynho/Videos/how to not start a video/light-or-dark.ogv");
             painPicture.Save();
         }
 

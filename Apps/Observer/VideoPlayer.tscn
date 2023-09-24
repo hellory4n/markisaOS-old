@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Apps/Observer/Scripts/VideoProgress.cs" type="Script" id=1]
+[ext_resource path="res://Apps/Observer/Scripts/PauseVideo.cs" type="Script" id=2]
+
+[node name="VideoPlayer" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="M" type="AspectRatioContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -60.0
+ratio = 1.7778
+
+[node name="Video" type="VideoPlayer" parent="M"]
+margin_left = 53.326
+margin_right = 1226.67
+margin_bottom = 660.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+autoplay = true
+bus = "Sounds"
+
+[node name="Pause" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = -50.0
+margin_right = 50.0
+margin_bottom = -10.0
+rect_min_size = Vector2( 150, 40 )
+toggle_mode = true
+text = "Pause"
+script = ExtResource( 2 )
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 170.0
+margin_top = -50.0
+margin_right = -10.0
+margin_bottom = -10.0
+rect_min_size = Vector2( 0, 40 )
+allow_greater = true
+percent_visible = false
+script = ExtResource( 1 )

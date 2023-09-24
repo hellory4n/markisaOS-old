@@ -17,7 +17,7 @@ public class LoadFileFromId : Button {
         }
 
         LelfsFile m = LelfsManager.LoadById<LelfsFile>(coolId);
-        if (m.Type != "Picture" && m.Type != "Audio") {
+        if (m.Type != "Picture" && m.Type != "Audio" && m.Type != "Video") {
             GetNode<Label>("../Label").Text = "Invalid file!";
             SoundManager soundManager = GetNode<SoundManager>("/root/SoundManager");
             soundManager.PlaySoundEffect(SoundManager.SoundEffects.Error);
@@ -27,8 +27,10 @@ public class LoadFileFromId : Button {
         // fun
         if (m.Type == "Picture")
             GetParent().GetParent().GetParent<Observer>().ObserverMode = Observer.Mode.Image;
-        else {
+        else if (m.Type == "Audio") {
             GetParent().GetParent().GetParent<Observer>().ObserverMode = Observer.Mode.Audio;
+        } else if (m.Type == "Video") {
+            GetParent().GetParent().GetParent<Observer>().ObserverMode = Observer.Mode.Video;
         }
         GetParent().GetParent().GetParent<Observer>().MediaId = coolId;
         GetParent().GetParent().GetParent<Observer>().Load();

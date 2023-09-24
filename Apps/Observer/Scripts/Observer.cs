@@ -59,6 +59,23 @@ public class Observer : BaseWindow {
 
                 AddChild(coolMusicThing);
                 break;
+            case Mode.Video:
+                PackedScene m3 = ResourceLoader.Load<PackedScene>("res://Apps/Observer/VideoPlayer.tscn");
+                Control coolVideoThing = m3.Instance<Control>();
+
+                // one of the codes of all time
+                LelfsFile majesticFile = LelfsManager.LoadById<LelfsFile>(MediaId);
+                if (majesticFile.Data.ContainsKey("Resource") && majesticFile.Data.ContainsKey("Width") &&
+                majesticFile.Data.ContainsKey("Height") && majesticFile.Data.ContainsKey("Duration")) {
+                    coolVideoThing.GetNode<VideoPlayer>("M/Video").Stream =
+                        ResourceLoader.Load<VideoStream>(majesticFile.Data["Resource"].ToString());
+                    coolVideoThing.GetNode<AspectRatioContainer>("M").Ratio = float.Parse(majesticFile.Data["Width"].ToString()) / float.Parse(majesticFile.Data["Height"].ToString());
+                    coolVideoThing.GetNode<ProgressBar>("ProgressBar").MaxValue = float.Parse(
+                        majesticFile.Data["Duration"].ToString()
+                    );
+                }
+                AddChild(coolVideoThing);
+                break;
             case Mode.Nothing:
                 PackedScene m1 = ResourceLoader.Load<PackedScene>("res://Apps/Observer/NothingLoaded.tscn");
                 CenterContainer coolNothingThing = m1.Instance<CenterContainer>();
