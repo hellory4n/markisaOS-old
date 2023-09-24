@@ -218,6 +218,14 @@ public class FileView : ItemList {
                 jjkn.MediaId = pain.Id;
                 wm.AddWindow(jjkn);
                 break;
+            case "Audio":
+                WindowManager wm1 = GetNode<WindowManager>("/root/WindowManager");
+                PackedScene m1 = ResourceLoader.Load<PackedScene>("res://Apps/Observer/Observer.tscn");
+                Observer jjkn1 = m1.Instance<Observer>();
+                jjkn1.ObserverMode = Observer.Mode.Audio;
+                jjkn1.MediaId = pain.Id;
+                wm1.AddWindow(jjkn1);
+                break;
         }
     }
 

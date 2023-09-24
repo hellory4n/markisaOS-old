@@ -67,7 +67,8 @@ public class SoundManager : Node {
     /// <param name="sound">The sound file to play.</param>
     public void PlaySound(AudioStream sound) {
         AudioStreamPlayer m = new AudioStreamPlayer {
-            Stream = sound
+            Stream = sound,
+            Bus = "Sounds"
         };
         sounds.AddChild(m);
         m.Playing = true;
@@ -82,5 +83,7 @@ public class SoundManager : Node {
 
         int m = AudioServer.GetBusIndex("Sounds");
         AudioServer.SetBusVolumeDb(m, SoundVolume);
+        int h = AudioServer.GetBusIndex("Music");
+        AudioServer.SetBusVolumeDb(h, MusicVolume);
     }
 }
