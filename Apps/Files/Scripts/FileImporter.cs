@@ -46,7 +46,7 @@ public class FileImporter : BaseWindow {
             GetNode<Label>("CenterContainer/VBoxContainer/Label2").Text = "Supported formats: .png (no HDR), .jpeg/.jpg, .webp, .svg (limited support)";
             GetNode<HBoxContainer>("CenterContainer/VBoxContainer/VideoThing").Visible = false;
         } else if (index == 1) {
-            GetNode<Label>("CenterContainer/VBoxContainer/Label2").Text = "Supported formats: .mp3, .wav, .ogg";
+            GetNode<Label>("CenterContainer/VBoxContainer/Label2").Text = "Supported formats: .ogg only, you can use websites to convert your files";
             GetNode<HBoxContainer>("CenterContainer/VBoxContainer/VideoThing").Visible = false;
         } else if (index == 2) {
             GetNode<Label>("CenterContainer/VBoxContainer/Label2").Text = "Supported formats: .ogv only due to technical limitations, you can use websites to convert your files";
