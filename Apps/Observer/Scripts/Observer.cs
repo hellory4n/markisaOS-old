@@ -27,7 +27,7 @@ public class Observer : BaseWindow {
                 if (coolFile.Data.ContainsKey("Resource")) {
                     // one of the codes of all time
                     coolImageThing.GetNode<TextureRect>("Image").Texture = 
-                        ResourceLoader.Load<Texture>(coolFile.Data["Resource"].ToString());
+                        ResourceManager.LoadImage(coolFile.Data["Resource"].ToString());
                 }
                 AddChild(coolImageThing);
                 break;
@@ -39,7 +39,7 @@ public class Observer : BaseWindow {
                 if (epicFile.Data.ContainsKey("Resource")) {
                     // one of the codes of all time
                     coolMusicThing.GetNode<AudioStreamPlayer>("M/N/O/Audio").Stream = 
-                        ResourceLoader.Load<AudioStream>(epicFile.Data["Resource"].ToString());
+                        ResourceManager.LoadAudio(epicFile.Data["Resource"].ToString());
                 }
 
                 // figure out the epic cool name :)
@@ -68,7 +68,7 @@ public class Observer : BaseWindow {
                 if (majesticFile.Data.ContainsKey("Resource") && majesticFile.Data.ContainsKey("Width") &&
                 majesticFile.Data.ContainsKey("Height") && majesticFile.Data.ContainsKey("Duration")) {
                     coolVideoThing.GetNode<VideoPlayer>("M/Video").Stream =
-                        ResourceLoader.Load<VideoStream>(majesticFile.Data["Resource"].ToString());
+                        ResourceManager.LoadVideo(majesticFile.Data["Resource"].ToString());
                     coolVideoThing.GetNode<AspectRatioContainer>("M").Ratio = float.Parse(majesticFile.Data["Width"].ToString()) / float.Parse(majesticFile.Data["Height"].ToString());
                     coolVideoThing.GetNode<ProgressBar>("ProgressBar").MaxValue = float.Parse(
                         majesticFile.Data["Duration"].ToString()

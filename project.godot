@@ -29,6 +29,7 @@ ResolutionManager="*res://OS/Scripts/Drivers/ResolutionManager.cs"
 WindowManager="*res://OS/Scripts/WindowManager/WindowManager.cs"
 SoundManager="*res://OS/Scripts/Drivers/SoundManager.cs"
 NotificationManager="*res://OS/Scripts/Lelsktop/Overlay/NotificationManager.cs"
+ResourceManager="*res://OS/Scripts/Drivers/ResourceManager.cs"
 
 [display]
 

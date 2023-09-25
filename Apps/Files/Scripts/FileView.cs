@@ -172,14 +172,14 @@ public class FileView : ItemList {
                     break;
                 case "Picture":
                     if (pain.Data.ContainsKey("Resource"))
-                        AddItem(pain.Name, ResourceLoader.Load<Texture>(pain.Data["Resource"].ToString()));
+                        AddItem(pain.Name, ResourceManager.LoadImage(pain.Data["Resource"].ToString()));
                     else
                         AddItem(pain.Name, FileIcon);
                     break;
                 case "Audio":
                     if (pain.Data.ContainsKey("CoverArt")) {
                         // yeah
-                        AddItem(pain.Name, ResourceLoader.Load<Texture>(
+                        AddItem(pain.Name, ResourceManager.LoadImage(
                             LelfsManager.LoadById<LelfsFile>(pain.Data["CoverArt"].ToString())
                                 .Data["Resource"].ToString()
                             )
