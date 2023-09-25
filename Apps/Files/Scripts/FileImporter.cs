@@ -55,6 +55,16 @@ public class FileImporter : BaseWindow {
     }
 
     public void ImportFile(string path) {
+        // make sure the file isn't something unsupported
+        if (!path.EndsWith(".png") && !path.EndsWith(".jpg") && !path.EndsWith(".jpeg")
+        && !path.EndsWith(".webp") && !path.EndsWith(".svg") && !path.EndsWith(".ogg") &&
+        !path.EndsWith(".ogv")) {
+            var notificationManager = GetNode<NotificationManager>("/root/NotificationManager");
+            notificationManager.ShowErrorNotification("Invalid file type!");
+            Close();
+            return;
+        }
+
         // import file
         Directory dir = new Directory();
         dir.MakeDirRecursive("user://ImportedFiles/");
@@ -82,6 +92,9 @@ public class FileImporter : BaseWindow {
             LelfsFile file = LelfsManager.NewFile($"Video {random.Next(0, 999999)}", Parent);
             file.Type = "Video";
             file.Data.Add("Resource", newPath);
+            file.Data.Add("Width", (int)GetNode<SpinBox>("CenterContainer/VBoxContainer/VideoThing/Width").Value);
+            file.Data.Add("Height", (int)GetNode<SpinBox>("CenterContainer/VBoxContainer/VideoThing/Height").Value);
+            file.Data.Add("Duration", (int)GetNode<SpinBox>("CenterContainer/VBoxContainer/VideoThing/Duration").Value);
             file.Metadata.Add("CreationDate", DateTime.Now);
             file.Save();
         }
