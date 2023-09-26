@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
-[ext_resource path="res://Apps/WindowManagerTest/Scripts/EpicCoolAmazingBeautifulGorgeousFantasticMajesticButton.cs" type="Script" id=2]
 [ext_resource path="res://Apps/Notebook/Assets/IconDock.png" type="Texture" id=3]
 [ext_resource path="res://OS/Scripts/WindowManager/BaseWindow.cs" type="Script" id=5]
 
@@ -136,8 +135,8 @@ tracks/1/keys = {
 process_priority = 1
 visible = true
 margin_right = 400.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 400, 100 )
+margin_bottom = 350.0
+rect_min_size = Vector2( 100, 100 )
 theme = ExtResource( 1 )
 popup_exclusive = true
 window_title = "Notebook"
@@ -152,14 +151,6 @@ anims/Minimize = SubResource( 3 )
 anims/Open = SubResource( 1 )
 anims/Restore = SubResource( 4 )
 
-[node name="Button" type="Button" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -152.5
-margin_top = -20.0
-margin_right = 152.5
-margin_bottom = 20.0
-text = "H"
-script = ExtResource( 2 )
+[node name="TextEdit" type="TextEdit" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0

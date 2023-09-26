@@ -13,7 +13,7 @@ public class ExternalStorageOpen : Button {
         FileImporter jjkn = m.Instance<FileImporter>();
 
         // pain
-        FileView mewhenthe = GetNode<FileView>("../../../Content/ContentThing/ItemList");
+        FileView mewhenthe = GetNode<FileView>("../../../../Content/ContentThing/ItemList");
         LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(mewhenthe.Path);
         jjkn.Parent = dfggfdf.Id;
         jjkn.ThingThatINeedToRefresh = mewhenthe;
