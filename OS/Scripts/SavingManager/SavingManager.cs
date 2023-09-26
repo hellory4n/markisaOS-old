@@ -275,6 +275,8 @@ public class SavingManager : Node {
             coolApps.Graphics.Append(new Lelapp("Observer", "res://Apps/Observer/Assets/IconSmall.png", "res://Apps/Observer/Observer.tscn"));
             coolApps.Multimedia.Append(new Lelapp("Observer", "res://Apps/Observer/Assets/IconSmall.png", "res://Apps/Observer/Observer.tscn"));
             coolApps.Utilities.Append(new Lelapp("Observer", "res://Apps/Observer/Assets/IconSmall.png", "res://Apps/Observer/Observer.tscn"));
+            coolApps.All.Append(new Lelapp("Notebook", "res://Apps/Notebook/Assets/IconSmall.png", "res://Apps/Notebook/Notebook.tscn"));
+            coolApps.Utilities.Append(new Lelapp("Notebook", "res://Apps/Notebook/Assets/IconSmall.png", "res://Apps/Notebook/Notebook.tscn"));
             Save(user, coolApps);
 
             version.MinorVersion = 8;
