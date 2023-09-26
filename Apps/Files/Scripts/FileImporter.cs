@@ -29,12 +29,8 @@ public class FileImporter : BaseWindow {
                 break;
         }*/
 
-        // use the correct home folder
-        if (OS.GetName() == "Android")
-            pain.CurrentDir = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-        else
-            pain.CurrentDir = System.Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile);
-
+        pain.CurrentDir = OS.GetSystemDir(OS.SystemDir.Pictures);
+        OS.RequestPermissions();
         pain.Popup_();
         pain.RectPosition = new Vector2(0, 40);
         pain.RectSize = ResolutionManager.Resolution - new Vector2(75, 40);
