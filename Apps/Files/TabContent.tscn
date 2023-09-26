@@ -34,103 +34,117 @@ margin_top = 1.0
 margin_right = 4.0
 margin_bottom = -1.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Sidebar"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Sidebar"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 150, 0 )
 
-[node name="Home" type="Button" parent="Sidebar/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Sidebar/ScrollContainer"]
+margin_right = 150.0
+margin_bottom = 440.0
+rect_min_size = Vector2( 150, 0 )
+
+[node name="Home" type="Button" parent="Sidebar/ScrollContainer/VBoxContainer"]
 margin_right = 150.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
+mouse_filter = 1
 theme_type_variation = "SidebarButton"
 text = "Home"
 align = 0
 script = ExtResource( 11 )
 Path = "/Home"
 
-[node name="Documents" type="Button" parent="Sidebar/VBoxContainer"]
+[node name="Documents" type="Button" parent="Sidebar/ScrollContainer/VBoxContainer"]
 margin_top = 50.0
 margin_right = 150.0
 margin_bottom = 90.0
 rect_min_size = Vector2( 0, 40 )
+mouse_filter = 1
 theme_type_variation = "SidebarButton"
 text = "Documents"
 align = 0
 script = ExtResource( 11 )
 Path = "/Home/Documents"
 
-[node name="Downloads" type="Button" parent="Sidebar/VBoxContainer"]
+[node name="Downloads" type="Button" parent="Sidebar/ScrollContainer/VBoxContainer"]
 margin_top = 100.0
 margin_right = 150.0
 margin_bottom = 140.0
 rect_min_size = Vector2( 0, 40 )
+mouse_filter = 1
 theme_type_variation = "SidebarButton"
 text = "Downloads"
 align = 0
 script = ExtResource( 11 )
 Path = "/Home/Downloads"
 
-[node name="Music" type="Button" parent="Sidebar/VBoxContainer"]
+[node name="Music" type="Button" parent="Sidebar/ScrollContainer/VBoxContainer"]
 margin_top = 150.0
 margin_right = 150.0
 margin_bottom = 190.0
 rect_min_size = Vector2( 0, 40 )
+mouse_filter = 1
 theme_type_variation = "SidebarButton"
 text = "Music"
 align = 0
 script = ExtResource( 11 )
 Path = "/Home/Music"
 
-[node name="Pictures" type="Button" parent="Sidebar/VBoxContainer"]
+[node name="Pictures" type="Button" parent="Sidebar/ScrollContainer/VBoxContainer"]
 margin_top = 200.0
 margin_right = 150.0
 margin_bottom = 240.0
 rect_min_size = Vector2( 0, 40 )
+mouse_filter = 1
 theme_type_variation = "SidebarButton"
 text = "Pictures"
 align = 0
 script = ExtResource( 11 )
 Path = "/Home/Pictures"
 
-[node name="Videos" type="Button" parent="Sidebar/VBoxContainer"]
+[node name="Videos" type="Button" parent="Sidebar/ScrollContainer/VBoxContainer"]
 margin_top = 250.0
 margin_right = 150.0
 margin_bottom = 290.0
 rect_min_size = Vector2( 0, 40 )
+mouse_filter = 1
 theme_type_variation = "SidebarButton"
 text = "Videos"
 align = 0
 script = ExtResource( 11 )
 Path = "/Home/Videos"
 
-[node name="Trash" type="Button" parent="Sidebar/VBoxContainer"]
+[node name="Trash" type="Button" parent="Sidebar/ScrollContainer/VBoxContainer"]
 margin_top = 300.0
 margin_right = 150.0
 margin_bottom = 340.0
 rect_min_size = Vector2( 0, 40 )
+mouse_filter = 1
 theme_type_variation = "SidebarButton"
 text = "Trash"
 align = 0
 script = ExtResource( 11 )
 Path = "/System/Trash"
 
-[node name="Root" type="Button" parent="Sidebar/VBoxContainer"]
+[node name="Root" type="Button" parent="Sidebar/ScrollContainer/VBoxContainer"]
 margin_top = 350.0
 margin_right = 150.0
 margin_bottom = 390.0
 rect_min_size = Vector2( 0, 40 )
+mouse_filter = 1
 theme_type_variation = "SidebarButton"
 text = "Computer"
 align = 0
 script = ExtResource( 11 )
 Path = "/"
 
-[node name="ExternalStorage" type="Button" parent="Sidebar/VBoxContainer"]
+[node name="ExternalStorage" type="Button" parent="Sidebar/ScrollContainer/VBoxContainer"]
 margin_top = 400.0
 margin_right = 150.0
 margin_bottom = 440.0
 rect_min_size = Vector2( 0, 40 )
+mouse_filter = 1
 theme_type_variation = "SidebarButton"
 text = "External Storage"
 align = 0
