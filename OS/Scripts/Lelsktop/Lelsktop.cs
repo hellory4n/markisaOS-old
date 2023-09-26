@@ -22,9 +22,35 @@ public class Lelsktop : Node2D {
         UserLelsktop suffer = SavingManager.Load<UserLelsktop>(SavingManager.CurrentUser);
 
         // load the wallpaper
-        string wallpaperPath = suffer.Wallpaper;
-        Texture wallpaper = ResourceLoader.Load<Texture>(wallpaperPath);
-        GetNode<Sprite>("Wallpaper").Texture = wallpaper;
+        // is it a default wallpaper?
+        if (ResourceLoader.Exists(suffer.Wallpaper)) {
+            string wallpaperPath = suffer.Wallpaper;
+            Texture wallpaper = ResourceLoader.Load<Texture>(wallpaperPath);
+            GetNode<Sprite>("Wallpaper").Texture = wallpaper;
+        // is it a lelfs file?
+        } else if (LelfsManager.IdExists(suffer.Wallpaper)) {
+            var epicFile = LelfsManager.LoadById<LelfsFile>(suffer.Wallpaper);
+            Texture wallpaper = ResourceManager.LoadImage(epicFile.Data["Resource"].ToString());
+            GetNode<Sprite>("Wallpaper").Texture = wallpaper;
+
+            // scale wallpaper thing :))))
+            GetNode<ImageBackground>("Wallpaper").OriginalSize = wallpaper.GetSize();
+            float scale;
+            if (bruh > wallpaper.GetSize()) {
+                scale = (Mathf.Max(bruh.x, bruh.y) - Mathf.Max(wallpaper.GetSize().x, wallpaper.GetSize().y)) /
+                    Mathf.Max(wallpaper.GetSize().x, wallpaper.GetSize().y);
+                scale += 1;
+            } else {
+                scale = Mathf.Max(bruh.x, bruh.y) / Mathf.Max(wallpaper.GetSize().x, wallpaper.GetSize().y);
+            }
+            GetNode<Sprite>("Wallpaper").Scale = new Vector2(scale, scale);
+            GetNode<Sprite>("Wallpaper").Position = bruh/2;
+
+        // ok it's broken, just load the default wallpaper
+        } else {
+            var wallpaper = ResourceLoader.Load<Texture>("res://Assets/Wallpapers/HighPeaks.jpg");
+            GetNode<Sprite>("Wallpaper").Texture = wallpaper;
+        }
 
         // startup sound :)
         SoundManager sounds = GetNode<SoundManager>("/root/SoundManager");

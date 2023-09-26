@@ -18,7 +18,6 @@ public class WallpaperThing : OptionButton {
     }
 
     public void PreviewThing(int index) {
-        Sprite preview = GetNode<Sprite>("../Control/Preview");
         switch (index) {
             case 0:
                 Wallpaper = ResourceLoader.Load<Texture>("res://Assets/Wallpapers/HighPeaks.jpg");
@@ -37,7 +36,6 @@ public class WallpaperThing : OptionButton {
                 WallpaperPath = "res://Assets/Wallpapers/Space.png";
                 break;
             case 4:
-                Wallpaper = ResourceLoader.Load<Texture>("res://Assets/Wallpapers/Mountains.png");
                 WallpaperPath = "res://Assets/Wallpapers/Mountains.png";
                 break;
             case 5:
@@ -45,6 +43,5 @@ public class WallpaperThing : OptionButton {
                 WallpaperPath = "res://Assets/Wallpapers/Aurora.png";
                 break;
         }
-        preview.Texture = Wallpaper;
     }
 }
