@@ -36,6 +36,12 @@ public class Leltabs : HBoxContainer {
         if (TabButtons.Count == 0 && !pain.IsClosing) {
             pain.Visible = false;
         }
+
+        // epic tab titles :))))
+        for (int i = 0; i < TabContent.Count; i++) {
+            Control dhjhdjhjjghfj = TabContent[i];
+            TabButtons[i].Text = dhjhdjhjjghfj.GetNode<Label>("TabTitle").Text;
+        }
     }
 
     public void UpdateStuff(Control activeContent, LeltabsTab activeButton) {

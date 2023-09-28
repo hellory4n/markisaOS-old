@@ -15,5 +15,16 @@ margin_left = 5.0
 margin_top = 5.0
 margin_right = -5.0
 margin_bottom = -5.0
+highlight_current_line = true
+show_line_numbers = true
+draw_tabs = true
+deselect_on_focus_loss_enabled = false
+wrap_enabled = true
 minimap_draw = true
 minimap_width = 60
+
+[node name="TabTitle" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 22.0
+text = "Very Epic Tab Title"
