@@ -22,7 +22,6 @@ public class FileView : ItemList {
         base._Ready();
         Refresh("/Home");
         Connect("item_selected", this, nameof(ItemSelected));
-        Connect("item_activated", this, nameof(Open));
         Connect("nothing_selected", this, nameof(NothingSelected));
         Connect("item_rmb_selected", this, nameof(ContextMenu));
         GetNode<LineEdit>("../Toolbar/Path").Connect("text_entered", this, nameof(PathEdit));
@@ -205,6 +204,9 @@ public class FileView : ItemList {
     void ItemSelected(int index) {
         LelfsFile pain = LelfsManager.LoadById<LelfsFile>(CoolFiles[index]);
         UpdateInspector(pain.Path);
+        if (pain.Id == Selected) {
+            Open(index);
+        }
         Selected = pain.Id;
     }
 
