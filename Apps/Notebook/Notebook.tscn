@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
+[ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/LeltabsAdd.cs" type="Script" id=2]
 [ext_resource path="res://Apps/Notebook/Assets/IconDock.png" type="Texture" id=3]
+[ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/Leltabs.cs" type="Script" id=4]
 [ext_resource path="res://OS/Scripts/WindowManager/BaseWindow.cs" type="Script" id=5]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Add.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Close"
@@ -133,7 +136,6 @@ tracks/1/keys = {
 
 [node name="Notebook" type="WindowDialog"]
 process_priority = 1
-visible = true
 margin_right = 400.0
 margin_bottom = 350.0
 rect_min_size = Vector2( 100, 100 )
@@ -154,3 +156,31 @@ anims/Restore = SubResource( 4 )
 [node name="TextEdit" type="TextEdit" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 50.0
+margin_right = -5.0
+margin_bottom = -5.0
+minimap_draw = true
+minimap_width = 60
+
+[node name="Leltab" type="Panel" parent="."]
+anchor_right = 1.0
+margin_bottom = 45.0
+rect_clip_content = true
+theme_type_variation = "Leltab"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Leltab"]
+anchor_right = 1.0
+margin_bottom = 45.0
+theme_type_variation = "LeltabContainer"
+custom_constants/separation = 0
+script = ExtResource( 4 )
+TabContentThing = "res://Apps/Notebook/TabContent.tscn"
+
+[node name="Add" type="Button" parent="Leltab/HBoxContainer"]
+margin_right = 41.0
+margin_bottom = 45.0
+theme_type_variation = "PanelButton"
+icon = ExtResource( 6 )
+icon_align = 1
+script = ExtResource( 2 )
