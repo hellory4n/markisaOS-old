@@ -23,15 +23,23 @@ margin_right = -10.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 0, 40 )
 
+[node name="Open" type="Button" parent="Toolbar"]
+margin_right = 413.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+theme_type_variation = "SecondaryButton"
+text = "Open"
+
 [node name="Save" type="Button" parent="Toolbar"]
-margin_right = 625.0
+margin_left = 423.0
+margin_right = 836.0
 margin_bottom = 40.0
 size_flags_horizontal = 3
 theme_type_variation = "SecondaryButton"
 text = "Save"
 
 [node name="SaveAs" type="Button" parent="Toolbar"]
-margin_left = 635.0
+margin_left = 846.0
 margin_right = 1260.0
 margin_bottom = 40.0
 size_flags_horizontal = 3

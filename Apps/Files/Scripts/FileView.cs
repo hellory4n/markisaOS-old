@@ -8,6 +8,7 @@ public class FileView : ItemList {
     readonly Texture FileIcon = ResourceLoader.Load<Texture>("res://Apps/Files/Assets/File.png");
     readonly Texture MusicIcon = ResourceLoader.Load<Texture>("res://Apps/Files/Assets/Music.png");
     readonly Texture VideoIcon = ResourceLoader.Load<Texture>("res://Apps/Files/Assets/Video.png");
+    readonly Texture TextIcon = ResourceLoader.Load<Texture>("res://Apps/Files/Assets/Text.png");
     List<string> CoolFiles = new List<string>();
     public string Path = "/";
     public Button TabThing;
@@ -190,6 +191,9 @@ public class FileView : ItemList {
                 case "Video":
                     AddItem(pain.Name, VideoIcon);
                     break;
+                case "Text":
+                    AddItem(pain.Name, TextIcon);
+                    break;
                 default:
                     AddItem(pain.Name, FileIcon);
                     break;
@@ -239,6 +243,14 @@ public class FileView : ItemList {
                 jjkn2.ObserverMode = Observer.Mode.Video;
                 jjkn2.MediaId = pain.Id;
                 wm2.AddWindow(jjkn2);
+                break;
+            case "Text":
+                WindowManager wm3 = GetNode<WindowManager>("/root/WindowManager");
+                PackedScene m3 = ResourceLoader.Load<PackedScene>("res://Apps/Notebook/Notebook.tscn");
+                var jjkn3 = m3.Instance<Notebook>();
+                wm3.AddWindow(jjkn3);
+                jjkn3.Suffer = true;
+                jjkn3.Fhgkfdlkjgjkhgjf = pain.Id;
                 break;
         }
     }
