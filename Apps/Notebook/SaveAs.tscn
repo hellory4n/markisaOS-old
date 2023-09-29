@@ -1,11 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
-[ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/LeltabsAdd.cs" type="Script" id=2]
-[ext_resource path="res://Apps/Notebook/Assets/IconDock.png" type="Texture" id=3]
-[ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/Leltabs.cs" type="Script" id=4]
-[ext_resource path="res://OS/Scripts/WindowManager/BaseWindow.cs" type="Script" id=5]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Add.png" type="Texture" id=6]
+[ext_resource path="res://Apps/Notebook/Assets/IconDock.png" type="Texture" id=2]
+[ext_resource path="res://OS/Scripts/Lelsktop/Overlay/TextPeek.cs" type="Script" id=3]
+[ext_resource path="res://Apps/Notebook/Scripts/NotebookSaveAs.cs" type="Script" id=4]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Close"
@@ -134,17 +132,17 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[node name="Notebook" type="WindowDialog"]
+[node name="SaveAs" type="WindowDialog"]
 process_priority = 1
-margin_right = 400.0
-margin_bottom = 350.0
-rect_min_size = Vector2( 100, 100 )
+margin_right = 300.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 350, 300 )
 theme = ExtResource( 1 )
 popup_exclusive = true
-window_title = "Notebook"
+window_title = "Save As"
 resizable = true
-script = ExtResource( 5 )
-Icon = ExtResource( 3 )
+script = ExtResource( 4 )
+Icon = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 method_call_mode = 1
@@ -153,24 +151,51 @@ anims/Minimize = SubResource( 3 )
 anims/Open = SubResource( 1 )
 anims/Restore = SubResource( 4 )
 
-[node name="Leltab" type="Panel" parent="."]
+[node name="M" type="CenterContainer" parent="."]
 anchor_right = 1.0
-margin_bottom = 45.0
-rect_clip_content = true
-theme_type_variation = "Leltab"
+anchor_bottom = 1.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Leltab"]
-anchor_right = 1.0
-margin_bottom = 45.0
-theme_type_variation = "LeltabContainer"
-custom_constants/separation = 0
-script = ExtResource( 4 )
-TabContentThing = "res://Apps/Notebook/TabContent.tscn"
+[node name="H" type="VBoxContainer" parent="M"]
+margin_left = 50.0
+margin_top = 37.0
+margin_right = 300.0
+margin_bottom = 263.0
 
-[node name="Add" type="Button" parent="Leltab/HBoxContainer"]
-margin_right = 41.0
-margin_bottom = 45.0
-theme_type_variation = "PanelButton"
-icon = ExtResource( 6 )
-icon_align = 1
-script = ExtResource( 2 )
+[node name="Label" type="Label" parent="M/H"]
+margin_right = 250.0
+margin_bottom = 33.0
+theme_type_variation = "Header"
+text = "Save in:"
+align = 1
+
+[node name="Path" type="LineEdit" parent="M/H"]
+margin_top = 43.0
+margin_right = 250.0
+margin_bottom = 83.0
+rect_min_size = Vector2( 250, 0 )
+align = 1
+placeholder_text = "/Home/Documents"
+script = ExtResource( 3 )
+
+[node name="Label2" type="Label" parent="M/H"]
+margin_top = 93.0
+margin_right = 250.0
+margin_bottom = 126.0
+theme_type_variation = "Header"
+text = "As:"
+align = 1
+
+[node name="Name" type="LineEdit" parent="M/H"]
+margin_top = 136.0
+margin_right = 250.0
+margin_bottom = 176.0
+rect_min_size = Vector2( 250, 0 )
+align = 1
+placeholder_text = "New File"
+script = ExtResource( 3 )
+
+[node name="Save" type="Button" parent="M/H"]
+margin_top = 186.0
+margin_right = 250.0
+margin_bottom = 226.0
+text = "Save"

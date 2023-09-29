@@ -252,4 +252,18 @@ public class LelfsManager : Node {
         videos.Metadata.Add("CreationDate", DateTime.Now);
         videos.Save();
     }
+
+    /// <summary>
+    /// Generates a correct file path based on whether or not it's located in root.
+    /// </summary>
+    /// <param name="parentPath">The path of the parent.</param>
+    /// <param name="name">The name of the new file</param>
+    /// <returns>The path generated.</returns>
+    public static string NewPath(string parentPath, string name) {
+        if (parentPath != "/") {
+            return $"/{name}";
+        } else {
+            return $"{parentPath}/{name}";
+        }
+    }
 }
