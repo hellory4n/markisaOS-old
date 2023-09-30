@@ -36,6 +36,7 @@ public class WallpaperThing : OptionButton {
                 WallpaperPath = "res://Assets/Wallpapers/Space.png";
                 break;
             case 4:
+                Wallpaper = ResourceLoader.Load<Texture>("res://Assets/Wallpapers/Mountains.png");
                 WallpaperPath = "res://Assets/Wallpapers/Mountains.png";
                 break;
             case 5:

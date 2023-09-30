@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/DefaultOpenWindowButton.cs" type="Script" id=1]
 [ext_resource path="res://OS/Scripts/Lelsktop/Time.cs" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Search.png" type="Texture" id=9]
 [ext_resource path="res://OS/Scripts/Lelsktop/AppMenu/OpenAppMenu.cs" type="Script" id=10]
 [ext_resource path="res://OS/Scripts/Lelsktop/AppMenu/OpenCategory.cs" type="Script" id=11]
+[ext_resource path="res://OS/Scripts/Lelsktop/Workspaces/SwitchWorkspace.cs" type="Script" id=12]
 [ext_resource path="res://OS/Scripts/Lelsktop/QuickSettings/QuickSettingsUserIcon.cs" type="Script" id=13]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Sound.png" type="Texture" id=14]
 [ext_resource path="res://Assets/UserIcons/Cat.png" type="Texture" id=15]
@@ -30,6 +31,7 @@
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Office.png" type="Texture" id=29]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/System.png" type="Texture" id=30]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Accessories.png" type="Texture" id=31]
+[ext_resource path="res://OS/Scripts/Lelsktop/Workspaces/OpenWorkspaces.cs" type="Script" id=32]
 
 [sub_resource type="Animation" id=20]
 resource_name = "CloseAppMenu"
@@ -76,6 +78,34 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("QuickSettings:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 0.37 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "CloseWorkspaces"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Workspaces:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 0.37 ),
+"update": 0,
+"values": [ Vector2( 1055, 64 ), Vector2( 1280, 64 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Workspaces:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
 tracks/1/imported = false
@@ -143,6 +173,34 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
+[sub_resource type="Animation" id=26]
+resource_name = "OpenWorkspaces"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Workspaces:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.37, 1 ),
+"update": 0,
+"values": [ Vector2( 1280, 64 ), Vector2( 1055, 64 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Workspaces:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.37, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
 [sub_resource type="Animation" id=8]
 resource_name = "Startup"
 length = 0.5
@@ -179,8 +237,10 @@ process_priority = -69
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/CloseAppMenu = SubResource( 20 )
 anims/CloseQuickSettings = SubResource( 22 )
+anims/CloseWorkspaces = SubResource( 25 )
 anims/OpenAppMenu = SubResource( 21 )
 anims/OpenQuickSettings = SubResource( 23 )
+anims/OpenWorkspaces = SubResource( 26 )
 anims/Startup = SubResource( 8 )
 
 [node name="WindowSpace" type="Control" parent="."]
@@ -189,6 +249,70 @@ anchor_bottom = 1.0
 margin_top = 40.0
 margin_bottom = -75.0
 script = ExtResource( 21 )
+
+[node name="Workspaces" type="Panel" parent="."]
+process_priority = -69
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 64.0
+margin_right = 150.0
+margin_bottom = -456.0
+rect_min_size = Vector2( 150, 200 )
+theme = ExtResource( 3 )
+
+[node name="M" type="VBoxContainer" parent="Workspaces"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+custom_constants/separation = 0
+alignment = 1
+
+[node name="1" type="Button" parent="Workspaces/M"]
+margin_right = 130.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_type_variation = "PanelButton"
+text = "Workspace 1"
+script = ExtResource( 12 )
+
+[node name="2" type="Button" parent="Workspaces/M"]
+margin_top = 45.0
+margin_right = 130.0
+margin_bottom = 90.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_type_variation = "PanelButton"
+text = "Workspace 2"
+script = ExtResource( 12 )
+Workspace = 2
+
+[node name="3" type="Button" parent="Workspaces/M"]
+margin_top = 90.0
+margin_right = 130.0
+margin_bottom = 135.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_type_variation = "PanelButton"
+text = "Workspace 3"
+script = ExtResource( 12 )
+Workspace = 3
+
+[node name="4" type="Button" parent="Workspaces/M"]
+margin_top = 135.0
+margin_right = 130.0
+margin_bottom = 180.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_type_variation = "PanelButton"
+text = "Workspace 4"
+script = ExtResource( 12 )
+Workspace = 4
 
 [node name="Dock" type="Panel" parent="."]
 process_priority = -69
@@ -230,7 +354,7 @@ icon_align = 1
 script = ExtResource( 1 )
 WindowScene = "res://Apps/QuickLaunchSetup/QuickLaunchSetup.tscn"
 
-[node name="Appomg2" type="Button" parent="Dock/DockStuff/QuickLaunch"]
+[node name="Workspaces" type="Button" parent="Dock/DockStuff/QuickLaunch"]
 margin_left = 5.0
 margin_top = 64.0
 margin_right = 69.0
@@ -241,10 +365,10 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_type_variation = "DockButton"
 custom_styles/normal = SubResource( 24 )
+toggle_mode = true
 icon = ExtResource( 8 )
 icon_align = 1
-script = ExtResource( 1 )
-WindowScene = "res://Apps/QuickLaunchSetup/QuickLaunchSetup.tscn"
+script = ExtResource( 32 )
 
 [node name="Running" type="VBoxContainer" parent="Dock/DockStuff"]
 margin_top = 140.0
@@ -253,7 +377,6 @@ margin_bottom = 140.0
 mouse_filter = 0
 size_flags_horizontal = 3
 size_flags_vertical = 0
-custom_constants/separation = 0
 alignment = 1
 
 [node name="QuickSettings" type="Panel" parent="."]
@@ -261,9 +384,9 @@ modulate = Color( 1, 1, 1, 0 )
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -340.0
-margin_top = -241.0
+margin_top = -200.0
 margin_right = -40.0
-margin_bottom = -1.0
+margin_bottom = 40.0
 rect_min_size = Vector2( 300, 240 )
 theme = ExtResource( 3 )
 
@@ -354,9 +477,9 @@ WindowScene = "res://OS/Lelsktop/Shutdown.tscn"
 
 [node name="AppMenu" type="Panel" parent="."]
 modulate = Color( 1, 1, 1, 0 )
-margin_top = -400.0
+margin_top = -360.0
 margin_right = 416.0
-margin_bottom = 10.0
+margin_bottom = 50.0
 theme = ExtResource( 3 )
 
 [node name="Categories" type="ScrollContainer" parent="AppMenu"]

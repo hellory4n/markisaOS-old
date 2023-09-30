@@ -84,6 +84,23 @@ public class Lelsktop : Node2D {
         
         lelsktopInterface.GetNode<AnimationPlayer>("AnimationPlayer").Play("Startup");
 
+        // and the workspace menu
+        Animation an = lelsktopInterface.GetNode<AnimationPlayer>("AnimationPlayer").
+            GetAnimation("OpenWorkspaces");
+        int keySta = an.TrackFindKey(0, 0);
+        int keyEn = an.TrackFindKey(0, 0.5f);
+        an.TrackSetKeyValue(0, keySta, new Vector2(bruh.x, 64));
+        an.TrackSetKeyValue(0, keyEn, new Vector2(bruh.x-225, 64));
+
+        Animation ani = lelsktopInterface.GetNode<AnimationPlayer>("AnimationPlayer").
+            GetAnimation("CloseWorkspaces");
+        int keyStar = ani.TrackFindKey(0, 0);
+        int keyEndnbnbgf = ani.TrackFindKey(0, 0.5f);
+        ani.TrackSetKeyValue(0, keyStar, new Vector2(bruh.x-225, 64));
+        ani.TrackSetKeyValue(0, keyEndnbnbgf, new Vector2(bruh.x, 64));
+        
+        lelsktopInterface.GetNode<AnimationPlayer>("AnimationPlayer").Play("Startup");
+
         // load theme
         Theme theme = ResourceLoader.Load<Theme>($"res://Assets/Themes/{suffer.Theme}/Theme.tres");
         GetNode<Control>("1/Windows/ThemeThing").Theme = theme;
@@ -116,19 +133,26 @@ public class Lelsktop : Node2D {
         Viewport bruh4 = GetNode<Viewport>("/root/Lelsktop/4/Windows");
         Panel appMenu = GetNode<Panel>("/root/LelsktopInterface/AppMenu");
         Panel quickSettings = GetNode<Panel>("/root/LelsktopInterface/QuickSettings");
+        Panel workspaces = GetNode<Panel>("/root/LelsktopInterface/Workspaces");
         Color invisible = new Color(1, 1, 1, 0);
 
         if (GetGlobalMousePosition().y < 40 || GetGlobalMousePosition().x > pain.x-75 ||
-        appMenu.Modulate != invisible || quickSettings.Modulate != invisible) {
+        appMenu.Modulate != invisible || quickSettings.Modulate != invisible
+        || workspaces.Modulate != invisible) {
             bruh1.GuiDisableInput = true;
             bruh2.GuiDisableInput = true;
             bruh3.GuiDisableInput = true;
             bruh4.GuiDisableInput = true;
         } else {
-            bruh1.GuiDisableInput = false;
-            bruh2.GuiDisableInput = false;
-            bruh3.GuiDisableInput = false;
-            bruh4.GuiDisableInput = false;
+            // suffering
+            if (WindowManager.CurrentWorkspace == bruh1)
+                bruh1.GuiDisableInput = false;
+            if (WindowManager.CurrentWorkspace == bruh2)
+                bruh2.GuiDisableInput = false;
+            if (WindowManager.CurrentWorkspace == bruh3)
+                bruh3.GuiDisableInput = false;
+            if (WindowManager.CurrentWorkspace == bruh4)
+                bruh4.GuiDisableInput = false;
         }
     }
 }
