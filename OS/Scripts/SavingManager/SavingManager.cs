@@ -267,7 +267,7 @@ public class SavingManager : Node {
             Save(user, version);
         }
 
-        // v0.8 added epic multimedia stuff :)
+        // v0.8 added epic multimedia stuff and very cool utilities :)
         if (version.MajorVersion == 0 && version.MinorVersion == 7) {
             var coolApps = Load<InstalledApps>(user);
             // fun
@@ -277,6 +277,8 @@ public class SavingManager : Node {
             coolApps.Utilities.Append(new Lelapp("Observer", "res://Apps/Observer/Assets/IconSmall.png", "res://Apps/Observer/Observer.tscn"));
             coolApps.All.Append(new Lelapp("Notebook", "res://Apps/Notebook/Assets/IconSmall.png", "res://Apps/Notebook/Notebook.tscn"));
             coolApps.Utilities.Append(new Lelapp("Notebook", "res://Apps/Notebook/Assets/IconSmall.png", "res://Apps/Notebook/Notebook.tscn"));
+            coolApps.All.Append(new Lelapp("Calculator", "res://Apps/Calculator/Assets/IconSmall.png", "res://Apps/Calculator/Calculator.tscn"));
+            coolApps.Utilities.Append(new Lelapp("Calculator", "res://Apps/Calculator/Assets/IconSmall.png", "res://Apps/Calculator/Calculator.tscn"));
             Save(user, coolApps);
 
             version.MinorVersion = 8;
