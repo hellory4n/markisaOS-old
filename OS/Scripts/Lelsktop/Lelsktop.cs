@@ -7,16 +7,12 @@ public class Lelsktop : Node2D {
 
         Vector2 bruh = ResolutionManager.Resolution;
 
-        Viewport pain = GetNode<Viewport>("/root/Lelsktop/Thing/Windows");
-        pain.Size = bruh;
+        GetNode<Viewport>("1/Windows").Size = bruh;
+        GetNode<Viewport>("2/Windows").Size = bruh;
+        GetNode<Viewport>("3/Windows").Size = bruh;
+        GetNode<Viewport>("4/Windows").Size = bruh;
 
-        // test image file omgogogogomg
-        if (!LelfsManager.FileExists("/Home/Videos/pain")) {
-            LelfsFile painPicture = LelfsManager.NewFile("pain", LelfsManager.PermanentPath("/Home/Videos"));
-            painPicture.Type = "Video";
-            painPicture.Data.Add("Resource", "/home/toddynho/Videos/how to not start a video/light-or-dark.ogv");
-            painPicture.Save();
-        }
+        WindowManager.CurrentWorkspace = GetNode<Viewport>("1/Windows");
 
         SavingManager.ConvertOldUser(SavingManager.CurrentUser);
         UserLelsktop suffer = SavingManager.Load<UserLelsktop>(SavingManager.CurrentUser);
@@ -90,7 +86,10 @@ public class Lelsktop : Node2D {
 
         // load theme
         Theme theme = ResourceLoader.Load<Theme>($"res://Assets/Themes/{suffer.Theme}/Theme.tres");
-        pain.GetNode<Control>("ThemeThing").Theme = theme;
+        GetNode<Control>("1/Windows/ThemeThing").Theme = theme;
+        GetNode<Control>("2/Windows/ThemeThing").Theme = theme;
+        GetNode<Control>("3/Windows/ThemeThing").Theme = theme;
+        GetNode<Control>("4/Windows/ThemeThing").Theme = theme;
         lelsktopInterface.GetNode<Panel>("Dock").Theme = theme;
         lelsktopInterface.GetNode<Panel>("QuickSettings").Theme = theme;
         lelsktopInterface.GetNode<Panel>("AppMenu").Theme = theme;
@@ -111,16 +110,25 @@ public class Lelsktop : Node2D {
     public override void _Process(float delta) {
         base._Process(delta);
         Vector2 pain = ResolutionManager.Resolution;
-        Viewport bruh = GetNode<Viewport>("/root/Lelsktop/Thing/Windows");
+        Viewport bruh1 = GetNode<Viewport>("/root/Lelsktop/1/Windows");
+        Viewport bruh2 = GetNode<Viewport>("/root/Lelsktop/2/Windows");
+        Viewport bruh3 = GetNode<Viewport>("/root/Lelsktop/3/Windows");
+        Viewport bruh4 = GetNode<Viewport>("/root/Lelsktop/4/Windows");
         Panel appMenu = GetNode<Panel>("/root/LelsktopInterface/AppMenu");
         Panel quickSettings = GetNode<Panel>("/root/LelsktopInterface/QuickSettings");
         Color invisible = new Color(1, 1, 1, 0);
 
         if (GetGlobalMousePosition().y < 40 || GetGlobalMousePosition().x > pain.x-75 ||
         appMenu.Modulate != invisible || quickSettings.Modulate != invisible) {
-            bruh.GuiDisableInput = true;
+            bruh1.GuiDisableInput = true;
+            bruh2.GuiDisableInput = true;
+            bruh3.GuiDisableInput = true;
+            bruh4.GuiDisableInput = true;
         } else {
-            bruh.GuiDisableInput = false;
+            bruh1.GuiDisableInput = false;
+            bruh2.GuiDisableInput = false;
+            bruh3.GuiDisableInput = false;
+            bruh4.GuiDisableInput = false;
         }
     }
 }

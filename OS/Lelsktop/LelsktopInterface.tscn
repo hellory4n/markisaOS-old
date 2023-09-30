@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/DefaultOpenWindowButton.cs" type="Script" id=1]
 [ext_resource path="res://OS/Scripts/Lelsktop/Time.cs" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Settings.png" type="Texture" id=5]
 [ext_resource path="res://OS/Scripts/Lelsktop/AppMenu/ListApps.cs" type="Script" id=6]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Favorites.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Workspaces.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Search.png" type="Texture" id=9]
 [ext_resource path="res://OS/Scripts/Lelsktop/AppMenu/OpenAppMenu.cs" type="Script" id=10]
 [ext_resource path="res://OS/Scripts/Lelsktop/AppMenu/OpenCategory.cs" type="Script" id=11]
@@ -207,11 +208,11 @@ custom_constants/autohide = 0
 
 [node name="QuickLaunch" type="VBoxContainer" parent="Dock/DockStuff"]
 margin_right = 75.0
-margin_bottom = 64.0
+margin_bottom = 128.0
 mouse_filter = 0
 size_flags_horizontal = 3
 size_flags_vertical = 0
-custom_constants/separation = 10
+custom_constants/separation = 0
 alignment = 1
 
 [node name="Appomg" type="Button" parent="Dock/DockStuff/QuickLaunch"]
@@ -229,14 +230,30 @@ icon_align = 1
 script = ExtResource( 1 )
 WindowScene = "res://Apps/QuickLaunchSetup/QuickLaunchSetup.tscn"
 
+[node name="Appomg2" type="Button" parent="Dock/DockStuff/QuickLaunch"]
+margin_left = 5.0
+margin_top = 64.0
+margin_right = 69.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 64, 64 )
+hint_tooltip = "Workspaces"
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_type_variation = "DockButton"
+custom_styles/normal = SubResource( 24 )
+icon = ExtResource( 8 )
+icon_align = 1
+script = ExtResource( 1 )
+WindowScene = "res://Apps/QuickLaunchSetup/QuickLaunchSetup.tscn"
+
 [node name="Running" type="VBoxContainer" parent="Dock/DockStuff"]
-margin_top = 76.0
+margin_top = 140.0
 margin_right = 75.0
-margin_bottom = 76.0
+margin_bottom = 140.0
 mouse_filter = 0
 size_flags_horizontal = 3
 size_flags_vertical = 0
-custom_constants/separation = 10
+custom_constants/separation = 0
 alignment = 1
 
 [node name="QuickSettings" type="Panel" parent="."]

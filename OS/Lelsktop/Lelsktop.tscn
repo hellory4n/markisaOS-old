@@ -36,16 +36,61 @@ texture = ExtResource( 4 )
 script = ExtResource( 5 )
 OriginalSize = Vector2( 4096, 2304 )
 
-[node name="Thing" type="ViewportContainer" parent="."]
+[node name="1" type="ViewportContainer" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="Windows" type="Viewport" parent="Thing"]
+[node name="Windows" type="Viewport" parent="1"]
 size = Vector2( 1366, 766 )
 transparent_bg = true
 handle_input_locally = false
 render_target_update_mode = 3
 
-[node name="ThemeThing" type="Control" parent="Thing/Windows"]
+[node name="ThemeThing" type="Control" parent="1/Windows"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="2" type="ViewportContainer" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Windows" type="Viewport" parent="2"]
+size = Vector2( 1366, 766 )
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 0
+
+[node name="ThemeThing" type="Control" parent="2/Windows"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="3" type="ViewportContainer" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Windows" type="Viewport" parent="3"]
+size = Vector2( 1366, 766 )
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 0
+
+[node name="ThemeThing" type="Control" parent="3/Windows"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="4" type="ViewportContainer" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Windows" type="Viewport" parent="4"]
+size = Vector2( 1366, 766 )
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 0
+
+[node name="ThemeThing" type="Control" parent="4/Windows"]
 margin_right = 40.0
 margin_bottom = 40.0

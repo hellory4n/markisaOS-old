@@ -7,6 +7,7 @@ using System.Collections.Generic;
 /// </summary>
 public class WindowManager : Node2D {
     PackedScene OpenWindow;
+    public static Viewport CurrentWorkspace;
 
     public override void _Ready() {
         base._Ready();
@@ -18,7 +19,7 @@ public class WindowManager : Node2D {
     /// </summary>
     /// <param name="window">The window to open.</param>
     public void AddWindow(BaseWindow window) {
-        Control lelsktop = GetNode<Control>("/root/Lelsktop/Thing/Windows/ThemeThing");
+        Control lelsktop = CurrentWorkspace.GetNode<Control>("ThemeThing");
         lelsktop.AddChild(window);
         // using window.Popup_() makes it only work with 1 window, so this is a hack to bypass that
         window.Visible = true;

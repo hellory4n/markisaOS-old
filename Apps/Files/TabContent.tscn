@@ -270,6 +270,7 @@ allow_rmb_select = true
 max_text_lines = 2
 max_columns = 8
 same_column_width = true
+fixed_column_width = 160
 icon_mode = 0
 fixed_icon_size = Vector2( 40, 40 )
 script = ExtResource( 2 )

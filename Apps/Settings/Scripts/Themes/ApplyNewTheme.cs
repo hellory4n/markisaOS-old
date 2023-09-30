@@ -48,7 +48,10 @@ public class ApplyNewTheme : Button {
         }
 
         // apply the theme :)))))))))))))))))))))))))))))
-        GetNode<Control>("/root/Lelsktop/Thing/Windows/ThemeThing").Theme = theme;
+        GetNode<Control>("/root/Lelsktop/1/Windows/ThemeThing").Theme = theme;
+        GetNode<Control>("/root/Lelsktop/2/Windows/ThemeThing").Theme = theme;
+        GetNode<Control>("/root/Lelsktop/3/Windows/ThemeThing").Theme = theme;
+        GetNode<Control>("/root/Lelsktop/4/Windows/ThemeThing").Theme = theme;
         CanvasLayer lelsktopInterface = GetNode<CanvasLayer>("/root/LelsktopInterface");
         lelsktopInterface.GetNode<Panel>("Dock").Theme = theme;
         lelsktopInterface.GetNode<Panel>("QuickSettings").Theme = theme;
