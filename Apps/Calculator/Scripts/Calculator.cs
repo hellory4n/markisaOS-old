@@ -46,11 +46,17 @@ public class Calculator : Button {
     void Backspace() {
         // this is ridiculous
         if (next) {
+            if (number2 == "")
+                return;
+
             number2 = number2.Remove(number2.Length-1, 1);
             if (number2.EndsWith("."))
                 number2 = number2.Remove(number2.Length-1, 1);
             expressionThing.Text = number2;
         } else {
+            if (number1 == "")
+                return;
+
             number1 = number1.Remove(number1.Length-1, 1);
             if (number1.EndsWith("."))
                 number1 = number1.Remove(number1.Length-1, 1);
@@ -149,10 +155,10 @@ public class Calculator : Button {
 
     void Four() {
         if (next) {
-            number2 += "9";
+            number2 += "4";
             expressionThing.Text = number2;
         } else {
-            number1 += "9";
+            number1 += "4";
             expressionThing.Text = number1;
         }
     }

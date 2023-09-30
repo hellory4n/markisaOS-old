@@ -158,6 +158,7 @@ margin_top = 10.0
 margin_right = -10.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
+theme_type_variation = "Header"
 align = 2
 valign = 1
 
