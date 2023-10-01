@@ -271,14 +271,14 @@ public class SavingManager : Node {
         if (version.MajorVersion == 0 && version.MinorVersion == 7) {
             var coolApps = Load<InstalledApps>(user);
             // fun
-            coolApps.All.Append(new Lelapp("Observer", "res://Apps/Observer/Assets/IconSmall.png", "res://Apps/Observer/Observer.tscn"));
-            coolApps.Graphics.Append(new Lelapp("Observer", "res://Apps/Observer/Assets/IconSmall.png", "res://Apps/Observer/Observer.tscn"));
-            coolApps.Multimedia.Append(new Lelapp("Observer", "res://Apps/Observer/Assets/IconSmall.png", "res://Apps/Observer/Observer.tscn"));
-            coolApps.Utilities.Append(new Lelapp("Observer", "res://Apps/Observer/Assets/IconSmall.png", "res://Apps/Observer/Observer.tscn"));
-            coolApps.All.Append(new Lelapp("Notebook", "res://Apps/Notebook/Assets/IconSmall.png", "res://Apps/Notebook/Notebook.tscn"));
-            coolApps.Utilities.Append(new Lelapp("Notebook", "res://Apps/Notebook/Assets/IconSmall.png", "res://Apps/Notebook/Notebook.tscn"));
-            coolApps.All.Append(new Lelapp("Calculator", "res://Apps/Calculator/Assets/IconSmall.png", "res://Apps/Calculator/Calculator.tscn"));
-            coolApps.Utilities.Append(new Lelapp("Calculator", "res://Apps/Calculator/Assets/IconSmall.png", "res://Apps/Calculator/Calculator.tscn"));
+            coolApps.All = coolApps.All.Append(new Lelapp("Observer", "res://Apps/Observer/Assets/IconSmall.png", "res://Apps/Observer/Observer.tscn")).ToArray();
+            coolApps.Graphics = coolApps.Graphics.Append(new Lelapp("Observer", "res://Apps/Observer/Assets/IconSmall.png", "res://Apps/Observer/Observer.tscn")).ToArray();
+            coolApps.Multimedia = coolApps.Multimedia.Append(new Lelapp("Observer", "res://Apps/Observer/Assets/IconSmall.png", "res://Apps/Observer/Observer.tscn")).ToArray();
+            coolApps.Utilities = coolApps.Utilities.Append(new Lelapp("Observer", "res://Apps/Observer/Assets/IconSmall.png", "res://Apps/Observer/Observer.tscn")).ToArray();
+            coolApps.All = coolApps.All.Append(new Lelapp("Notebook", "res://Apps/Notebook/Assets/IconSmall.png", "res://Apps/Notebook/Notebook.tscn")).ToArray();
+            coolApps.Utilities = coolApps.Utilities.Append(new Lelapp("Notebook", "res://Apps/Notebook/Assets/IconSmall.png", "res://Apps/Notebook/Notebook.tscn")).ToArray();
+            coolApps.All = coolApps.All.Append(new Lelapp("Calculator", "res://Apps/Calculator/Assets/IconSmall.png", "res://Apps/Calculator/Calculator.tscn")).ToArray();
+            coolApps.Utilities = coolApps.Utilities.Append(new Lelapp("Calculator", "res://Apps/Calculator/Assets/IconSmall.png", "res://Apps/Calculator/Calculator.tscn")).ToArray();
             Save(user, coolApps);
 
             version.MinorVersion = 8;
