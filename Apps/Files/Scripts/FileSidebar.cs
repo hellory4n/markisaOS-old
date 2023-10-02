@@ -13,6 +13,6 @@ public class FileSidebar : Button {
     public void Click() {
         // pain
         if (LelfsManager.FileExists(Path))
-            GetNode<FileView>("../../../Content/ContentThing/ItemList").Refresh(Path);
+            GetNode<FileView>("../../../../Content/ContentThing/ItemList").Refresh(Path);
     }
 }
