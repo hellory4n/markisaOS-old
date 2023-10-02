@@ -136,9 +136,9 @@ tracks/1/keys = {
 
 [node name="Websites" type="WindowDialog"]
 process_priority = 1
-margin_right = 400.0
-margin_bottom = 350.0
-rect_min_size = Vector2( 100, 100 )
+margin_right = 760.0
+margin_bottom = 655.0
+rect_min_size = Vector2( 760, 455 )
 theme = ExtResource( 1 )
 popup_exclusive = true
 window_title = "Websites"
