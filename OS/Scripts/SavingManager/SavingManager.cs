@@ -155,7 +155,7 @@ public class SavingManager : Node {
                 filename = $"user://Users/{user}/UserLelsktop.json";
                 break;
             case nameof(InstalledApps):
-                filename = $"user://Users/{user}/UserLelsktop.json";
+                filename = $"user://Users/{user}/InstalledApps.json";
                 break;
             case nameof(QuickLaunch):
                 filename = $"user://Users/{user}/QuickLaunch.json";
