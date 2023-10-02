@@ -16,20 +16,4 @@ margin_right = 88.0
 margin_bottom = 14.0
 text = "some bullshit"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -370.0
-margin_right = 370.0
-margin_bottom = 675.0
-rect_min_size = Vector2( 740, 0 )
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
-margin_right = 720.0
-margin_bottom = 720.0
-
-[node name="Control" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 720.0
-margin_bottom = 720.0
+[node name="Control" parent="." instance=ExtResource( 2 )]
