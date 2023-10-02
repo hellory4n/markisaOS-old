@@ -292,5 +292,21 @@ public class SavingManager : Node {
             version.MinorVersion = 8;
             Save(user, version);
         }
+
+        // v0.9 added the web browser :)
+        if (version.MajorVersion == 0 && version.MinorVersion == 8) {
+            var coolApps = Load<InstalledApps>(user);
+            // fun
+            var fuckAll = coolApps.All.ToList();
+            fuckAll.Add(new Lelapp("Websites", "res://Apps/Websites/Assets/IconSmall.png", "res://Apps/Websites/Websites.tscn"));
+            coolApps.All = fuckAll.ToArray();
+            var fuckInternet = coolApps.Internet.ToList();
+            fuckInternet.Add(new Lelapp("Websites", "res://Apps/Websites/Assets/IconSmall.png", "res://Apps/Websites/Websites.tscn"));
+            coolApps.Internet = fuckInternet.ToArray();
+            Save(user, coolApps);
+
+            version.MinorVersion = 9;
+            Save(user, version);
+        }
     }
 }

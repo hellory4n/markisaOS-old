@@ -121,7 +121,8 @@ public class InstalledApps {
             new Lelapp("Files", "res://Apps/Files/Assets/IconSmall.png", "res://Apps/Files/Files.tscn"),
             new Lelapp("Observer", "res://Apps/Observer/Assets/IconSmall.png", "res://Apps/Observer/Observer.tscn"),
             new Lelapp("Notebook", "res://Apps/Notebook/Assets/IconSmall.png", "res://Apps/Notebook/Notebook.tscn"),
-            new Lelapp("Calculator", "res://Apps/Calculator/Assets/IconSmall.png", "res://Apps/Calculator/Calculator.tscn")
+            new Lelapp("Calculator", "res://Apps/Calculator/Assets/IconSmall.png", "res://Apps/Calculator/Calculator.tscn"),
+            new Lelapp("Websites", "res://Apps/Websites/Assets/IconSmall.png", "res://Apps/Websites/Websites.tscn")
         };
         Accessories = new Lelapp[]{
             new Lelapp("Settings", "res://Assets/Themes/Leltheme-Dark-Blue/Icons/Accessories.png", "res://Apps/Settings/Settings.tscn"),
@@ -132,6 +133,9 @@ public class InstalledApps {
         };
         Graphics = new Lelapp[]{
             new Lelapp("Observer", "res://Apps/Observer/Assets/IconSmall.png", "res://Apps/Observer/Observer.tscn")
+        };
+        Internet = new Lelapp[]{
+            new Lelapp("Websites", "res://Apps/Websites/Assets/IconSmall.png", "res://Apps/Websites/Websites.tscn")
         };
         Multimedia = new Lelapp[]{
             new Lelapp("Observer", "res://Apps/Observer/Assets/IconSmall.png", "res://Apps/Observer/Observer.tscn")
