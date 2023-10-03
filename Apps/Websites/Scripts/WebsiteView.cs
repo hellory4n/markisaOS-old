@@ -7,7 +7,7 @@ public class WebsiteView : Control {
     string coolAddress = "web://passionfruit.com/lelcubeos/me/home.tscn";
     Control previousThing;
     List<string> addresses = new List<string>();
-    int addressIndex;
+    int addressIndex = -1;
 
     public override void _Ready() {
         base._Ready();
@@ -22,13 +22,13 @@ public class WebsiteView : Control {
 
     public void LoadStuff(string newText) {
         if (addresses.Count > 0) {
-            if (addresses.Last() != newText) {
+            if (addresses[addressIndex] != newText) {
                 addresses.Add(newText);
-                addressIndex = addresses.Count-1;
+                addressIndex++;
             }
         } else {
             addresses.Add(newText);
-            addressIndex = addresses.Count-1;
+            addressIndex++;
         }
 
         GetNode<LineEdit>("Toolbar/Address").Text = newText;
