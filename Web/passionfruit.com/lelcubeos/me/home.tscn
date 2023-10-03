@@ -9,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 400, 400 )
 rect_clip_content = true
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 2 )
@@ -16,6 +17,7 @@ theme = ExtResource( 2 )
 [node name="CoolBackground" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 7

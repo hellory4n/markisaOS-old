@@ -1,17 +1,37 @@
 using Godot;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 public class WebsiteView : Control {
     string coolAddress = "web://passionfruit.com/lelcubeos/me/home.tscn";
     Control previousThing;
+    List<string> addresses = new List<string>();
+    int addressIndex;
 
     public override void _Ready() {
         base._Ready();
-        //GetNode<LineEdit>("Toolbar/Address").Connect("text_entered", this, nameof(LoadStuff));
         LoadStuff(coolAddress);
     }
 
+    public override void _Process(float delta) {
+        base._Process(delta);
+        GetNode<Button>("Toolbar/Back").Disabled = addressIndex == 0;
+        GetNode<Button>("Toolbar/Forward").Disabled = addressIndex == addresses.Count-1;
+    }
+
     public void LoadStuff(string newText) {
+        if (addresses.Count > 0) {
+            if (addresses.Last() != newText) {
+                addresses.Add(newText);
+                addressIndex = addresses.Count-1;
+            }
+        } else {
+            addresses.Add(newText);
+            addressIndex = addresses.Count-1;
+        }
+
+        GetNode<LineEdit>("Toolbar/Address").Text = newText;
         coolAddress = newText;
         // parse the address :)
         string h = coolAddress.Replace("web://", "res://Web/");
@@ -50,5 +70,19 @@ public class WebsiteView : Control {
             previousThing = m;
             GetNode<Label>("TabTitle").Text = tabTitle;
         }
+    }
+
+    public void Forward() {
+        addressIndex++;
+        LoadStuff(addresses[addressIndex]);
+    }
+
+    public void Back() {
+        addressIndex--;
+        LoadStuff(addresses[addressIndex]);
+    }
+
+    public void Refresh() {
+        LoadStuff(addresses[addressIndex]);
     }
 }

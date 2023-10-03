@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
-[ext_resource path="res://Web/passionfruit.com/lelcubeos/me/home.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Apps/Websites/Scripts/WebsiteView.cs" type="Script" id=3]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/ArrowBack.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/ArrowForward.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Refresh.png" type="Texture" id=6]
 
 [node name="WebsiteView" type="Control"]
 anchor_right = 1.0
@@ -18,20 +20,53 @@ margin_right = 88.0
 margin_bottom = 14.0
 text = "some bullshit"
 
-[node name="Control" parent="." instance=ExtResource( 2 )]
-margin_top = 60.0
-
 [node name="Toolbar" type="HBoxContainer" parent="."]
 anchor_right = 1.0
 margin_left = 10.0
-margin_top = 10.0
+margin_top = 8.0
 margin_right = -10.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 0, 40 )
 
+[node name="Back" type="Button" parent="Toolbar"]
+margin_right = 43.0
+margin_bottom = 43.0
+rect_min_size = Vector2( 43, 0 )
+hint_tooltip = "Go back (Alt+Left)"
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_type_variation = "SecondaryButton"
+icon = ExtResource( 4 )
+icon_align = 1
+
+[node name="Forward" type="Button" parent="Toolbar"]
+margin_left = 53.0
+margin_right = 96.0
+margin_bottom = 43.0
+rect_min_size = Vector2( 43, 0 )
+hint_tooltip = "Go forward (Alt+Right)"
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_type_variation = "SecondaryButton"
+icon = ExtResource( 5 )
+icon_align = 1
+
+[node name="Refresh" type="Button" parent="Toolbar"]
+margin_left = 106.0
+margin_right = 149.0
+margin_bottom = 43.0
+rect_min_size = Vector2( 43, 0 )
+hint_tooltip = "List the files of the current folder again (F5)"
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_type_variation = "SecondaryButton"
+icon = ExtResource( 6 )
+icon_align = 1
+
 [node name="Address" type="LineEdit" parent="Toolbar"]
+margin_left = 159.0
 margin_right = 1260.0
-margin_bottom = 40.0
+margin_bottom = 43.0
 size_flags_horizontal = 3
 text = "web://passionfruit.com/lelcubeos/me/home.tscn"
 align = 1
@@ -42,4 +77,7 @@ anchor_right = 1.0
 margin_top = 58.0
 margin_bottom = 2.0
 
+[connection signal="pressed" from="Toolbar/Back" to="." method="Back"]
+[connection signal="pressed" from="Toolbar/Forward" to="." method="Forward"]
+[connection signal="pressed" from="Toolbar/Refresh" to="." method="Refresh"]
 [connection signal="text_entered" from="Toolbar/Address" to="." method="LoadStuff"]
