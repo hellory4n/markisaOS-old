@@ -31,7 +31,9 @@ public class WebsiteView : Control {
         tabTitle = tabTitle.Substring(0, tabTitle.IndexOf('/'));
 
         // actually load the website :)
-        if (!ResourceLoader.Exists(h)) {
+        // we need to check if it's on the web folder so you can't just ask the browser
+        // to load the login screen
+        if (!ResourceLoader.Exists(h) || !h.StartsWith("res://Web/")) {
             previousThing?.QueueFree();
             var ohShoes = ResourceLoader.Load<PackedScene>("res://Web/404/home.tscn");
             var m = ohShoes.Instance<Control>();
