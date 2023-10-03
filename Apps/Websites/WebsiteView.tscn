@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Home.png" type="Texture" id=2]
 [ext_resource path="res://Apps/Websites/Scripts/WebsiteView.cs" type="Script" id=3]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/ArrowBack.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/ArrowForward.png" type="Texture" id=5]
@@ -63,8 +64,20 @@ theme_type_variation = "SecondaryButton"
 icon = ExtResource( 6 )
 icon_align = 1
 
-[node name="Address" type="LineEdit" parent="Toolbar"]
+[node name="Home" type="Button" parent="Toolbar"]
 margin_left = 159.0
+margin_right = 202.0
+margin_bottom = 43.0
+rect_min_size = Vector2( 43, 0 )
+hint_tooltip = "List the files of the current folder again (F5)"
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_type_variation = "SecondaryButton"
+icon = ExtResource( 2 )
+icon_align = 1
+
+[node name="Address" type="LineEdit" parent="Toolbar"]
+margin_left = 212.0
 margin_right = 1260.0
 margin_bottom = 43.0
 size_flags_horizontal = 3
@@ -80,4 +93,5 @@ margin_bottom = 2.0
 [connection signal="pressed" from="Toolbar/Back" to="." method="Back"]
 [connection signal="pressed" from="Toolbar/Forward" to="." method="Forward"]
 [connection signal="pressed" from="Toolbar/Refresh" to="." method="Refresh"]
+[connection signal="pressed" from="Toolbar/Home" to="." method="Home"]
 [connection signal="text_entered" from="Toolbar/Address" to="." method="LoadStuff"]

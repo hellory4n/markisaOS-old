@@ -1,7 +1,6 @@
 using Godot;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 public class WebsiteView : Control {
     string coolAddress = "web://passionfruit.com/lelcubeos/me/home.tscn";
@@ -84,5 +83,9 @@ public class WebsiteView : Control {
 
     public void Refresh() {
         LoadStuff(addresses[addressIndex]);
+    }
+
+    public void Home() {
+        LoadStuff("web://passionfruit.com/lelcubeos/me/home.tscn");
     }
 }
