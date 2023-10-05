@@ -1,0 +1,217 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
+[ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/SidebarButton.cs" type="Script" id=2]
+[ext_resource path="res://Apps/Messages/Assets/IconDock.png" type="Texture" id=3]
+[ext_resource path="res://Apps/Messages/Assets/IconSmall.png" type="Texture" id=4]
+[ext_resource path="res://Apps/Notebook/Scripts/Notebook.cs" type="Script" id=5]
+
+[sub_resource type="Animation" id=2]
+resource_name = "Close"
+length = 0.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.37, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.37, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Minimize"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.37, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "Open"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 0.37 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 0.37 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Restore"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 0.37 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[node name="Messages" type="WindowDialog"]
+process_priority = 1
+visible = true
+margin_right = 760.0
+margin_bottom = 655.0
+rect_min_size = Vector2( 760, 455 )
+theme = ExtResource( 1 )
+popup_exclusive = true
+window_title = "Messages"
+resizable = true
+script = ExtResource( 5 )
+Icon = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+method_call_mode = 1
+anims/Close = SubResource( 2 )
+anims/Minimize = SubResource( 3 )
+anims/Open = SubResource( 1 )
+anims/Restore = SubResource( 4 )
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_clip_content = true
+mouse_filter = 1
+split_offset = 75
+
+[node name="Sidebar" type="Control" parent="HSplitContainer"]
+margin_right = 225.0
+margin_bottom = 655.0
+rect_min_size = Vector2( 150, 0 )
+mouse_filter = 1
+
+[node name="CoolSidebarLineThing" type="VSeparator" parent="HSplitContainer/Sidebar"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 1.0
+margin_bottom = -1.0
+mouse_filter = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/Sidebar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Sidebar/ScrollContainer"]
+margin_right = 217.0
+margin_bottom = 40.0
+custom_constants/separation = 0
+
+[node name="Button2" type="Button" parent="HSplitContainer/Sidebar/ScrollContainer/VBoxContainer"]
+margin_right = 217.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+mouse_filter = 1
+theme_type_variation = "SidebarButton"
+text = "Passionfruit Support"
+icon = ExtResource( 4 )
+align = 0
+script = ExtResource( 2 )
+Category = NodePath("../../../../Content/CategoryHome")
+
+[node name="Content" type="Control" parent="HSplitContainer"]
+margin_left = 233.0
+margin_right = 760.0
+margin_bottom = 655.0
+mouse_filter = 1
+
+[node name="CategoryHome" type="CenterContainer" parent="HSplitContainer/Content"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="HSplitContainer/Content/CategoryHome"]
+margin_left = 83.0
+margin_top = 311.0
+margin_right = 444.0
+margin_bottom = 344.0
+theme_type_variation = "Header"
+text = "Welcome to the Messages app!"
+align = 1

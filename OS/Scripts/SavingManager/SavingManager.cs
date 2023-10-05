@@ -299,9 +299,11 @@ public class SavingManager : Node {
             // fun
             var fuckAll = coolApps.All.ToList();
             fuckAll.Add(new Lelapp("Websites", "res://Apps/Websites/Assets/IconSmall.png", "res://Apps/Websites/Websites.tscn"));
+            fuckAll.Add(new Lelapp("Messages", "res://Apps/Messages/Assets/IconSmall.png", "res://Apps/Messages/Messages.tscn"));
             coolApps.All = fuckAll.ToArray();
             var fuckInternet = coolApps.Internet.ToList();
             fuckInternet.Add(new Lelapp("Websites", "res://Apps/Websites/Assets/IconSmall.png", "res://Apps/Websites/Websites.tscn"));
+            fuckInternet.Add(new Lelapp("Messages", "res://Apps/Messages/Assets/IconSmall.png", "res://Apps/Messages/Messages.tscn"));
             coolApps.Internet = fuckInternet.ToArray();
             Save(user, coolApps);
 
