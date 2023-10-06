@@ -116,6 +116,9 @@ public class SavingManager : Node {
             case nameof(QuickLaunch):
                 filename = $"user://Users/{user}/QuickLaunch.json";
                 break;
+            case nameof(SocialStuff):
+                filename = $"user://Users/{user}/SocialStuff.json";
+                break;
             default:
                 GD.PushError("Invalid user info type!");
                 return default;
@@ -159,6 +162,9 @@ public class SavingManager : Node {
                 break;
             case nameof(QuickLaunch):
                 filename = $"user://Users/{user}/QuickLaunch.json";
+                break;
+            case nameof(SocialStuff):
+                filename = $"user://Users/{user}/SocialStuff.json";
                 break;
             default:
                 GD.PushError("Invalid user info type!");

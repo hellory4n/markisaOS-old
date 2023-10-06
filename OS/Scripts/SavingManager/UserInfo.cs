@@ -1,3 +1,6 @@
+using System;
+
+
 /// <summary>
 /// Stores the version of the game used by a user. Useful when converting saves between versions.
 /// </summary>
@@ -158,4 +161,54 @@ public class QuickLaunch {
     /// The apps in the quick launcher.
     /// </summary>
     public Lelapp[] Apps = new Lelapp[]{};
+}
+
+/// <summary>
+/// Used for storing the user's conversations.
+/// </summary>
+public class SocialStuff {
+    /// <summary>
+    /// The user's conversations.
+    /// </summary>
+    public Conversation[] Conversations = new Conversation[]{};
+}
+
+/// <summary>
+/// A conversation.
+/// </summary>
+public class Conversation {
+    /// <summary>
+    /// The name of the conversation.
+    /// </summary>
+    public string Name = "";
+    /// <summary>
+    /// The path of the icon for the conversation. (28x28)
+    /// </summary>
+    public string Icon = "res://Apps/Messages/Assets/IconSmall.png";
+    /// <summary>
+    /// The choices the user can use to continue the conversation.
+    /// </summary>
+    public string[] Choices = new string[]{};
+    /// <summary>
+    /// The callbacks for the current choices the user can use to continue the conversation.
+    /// </summary>
+    public Func<string[]>[] ChoiceFunctions;
+    /// <summary>
+    /// The messages of the conversation.
+    /// </summary>
+    public Message[] Messages = new Message[]{};
+}
+
+/// <summary>
+/// A message.
+/// </summary>
+public class Message {
+    /// <summary>
+    /// The author of the message. ("You" for the user)
+    /// </summary>
+    public string Author = "";
+    /// <summary>
+    /// The text of the message.
+    /// </summary>
+    public string Text = "";
 }
