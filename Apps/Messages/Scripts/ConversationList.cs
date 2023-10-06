@@ -25,9 +25,12 @@ public class ConversationList : VBoxContainer {
         foreach (var conversation in conversations) {
             var h = MessageThingy.Instance<SidebarButton>();
             h.Icon = ResourceLoader.Load<Texture>(conversation.Icon);
+            h.Text = conversation.Name;
             var bullshit = Shit.Instance<Control>();
             // the sidebar button thing requires the content's name to start with "Category" :)))
             bullshit.Name = $"Category{LelfsManager.GenerateID()}";
+            bullshit.Visible = false;
+            bullshit.Theme = null;
             // quite the mouthful
             GetParent().GetParent().GetParent().GetNode<Control>("Content").AddChild(bullshit);
             h.Category = bullshit.GetPath();

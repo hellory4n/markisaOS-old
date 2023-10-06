@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 
@@ -183,17 +184,11 @@ public class SocialStuff {
                     Text = $"Hello, {SavingManager.CurrentUser}! How could i help you?"
                 }
             },
-            Choices = new string[]{
-                "I need help with lelcubeOS Me apps",
-                "I need help with my device",
-                "I want a refund for my device",
-                "I am going to sue you"
-            },
-            ChoiceFunctions = new Action[]{
-                PassionfruitSupportConversation.HelpApps,
-                PassionfruitSupportConversation.HelpDevice,
-                PassionfruitSupportConversation.Refund,
-                PassionfruitSupportConversation.Lawsuit
+            Choices = new Dictionary<string, MessagingManager.Messages>(){
+                {"I need help with lelcubeOS Me apps", MessagingManager.Messages.PassionfruitSupportApps},
+                {"I need help with my device", MessagingManager.Messages.PassionfruitSupportDevice},
+                {"I want a refund for my device", MessagingManager.Messages.PassionfruitSupportRefund},
+                {"I am going to sue you", MessagingManager.Messages.PassionfruitSupportLawsuit}
             }
         }).ToArray();
     }
@@ -214,11 +209,7 @@ public class Conversation {
     /// <summary>
     /// The choices the user can use to continue the conversation.
     /// </summary>
-    public string[] Choices = new string[]{};
-    /// <summary>
-    /// The callbacks for the current choices the user can use to continue the conversation. Must return a reply and new choices.
-    /// </summary>
-    public Action[] ChoiceFunctions;
+    public Dictionary<string, MessagingManager.Messages> Choices = new Dictionary<string, MessagingManager.Messages>();
     /// <summary>
     /// The messages of the conversation.
     /// </summary>

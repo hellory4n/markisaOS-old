@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 public class PassionfruitSupportConversation {
@@ -13,13 +14,9 @@ public class PassionfruitSupportConversation {
             Author = "Passionfruit Support",
             Text = "Have you tried restarting your device?"
         });
-        socialStuff.Conversations[h].Choices = new string[]{
-            "Yes",
-            "No"
-        };
-        socialStuff.Conversations[h].ChoiceFunctions = new Action[]{
-            Yes,
-            No
+        socialStuff.Conversations[h].Choices = new Dictionary<string, MessagingManager.Messages>(){
+            {"Yes", MessagingManager.Messages.PassionfruitSupportYes},
+            {"No", MessagingManager.Messages.PassionfruitSupportNo}
         };
     }
 
@@ -34,13 +31,9 @@ public class PassionfruitSupportConversation {
             Author = "Passionfruit Support",
             Text = "Have you tried smashing your device with a hammer?"
         });
-        socialStuff.Conversations[h].Choices = new string[]{
-            "Yes",
-            "No"
-        };
-        socialStuff.Conversations[h].ChoiceFunctions = new Action[]{
-            Yes,
-            No
+        socialStuff.Conversations[h].Choices = new Dictionary<string, MessagingManager.Messages>(){
+            {"Yes", MessagingManager.Messages.PassionfruitSupportYes},
+            {"No", MessagingManager.Messages.PassionfruitSupportNo}
         };
     }
 
@@ -55,8 +48,7 @@ public class PassionfruitSupportConversation {
             Author = "Passionfruit Support",
             Text = "No."
         });
-        socialStuff.Conversations[h].Choices = new string[]{};
-        socialStuff.Conversations[h].ChoiceFunctions = new Action[]{};
+        socialStuff.Conversations[h].Choices = new Dictionary<string, MessagingManager.Messages>();
     }
 
     public static void Lawsuit() {
@@ -70,8 +62,7 @@ public class PassionfruitSupportConversation {
             Author = "Passionfruit Support",
             Text = "I invoke the fifth"
         });
-        socialStuff.Conversations[h].Choices = new string[]{};
-        socialStuff.Conversations[h].ChoiceFunctions = new Action[]{};
+        socialStuff.Conversations[h].Choices = new Dictionary<string, MessagingManager.Messages>();
     }
 
     public static void Yes() {
@@ -85,8 +76,7 @@ public class PassionfruitSupportConversation {
             Author = "Passionfruit Support",
             Text = "Oh ok."
         });
-        socialStuff.Conversations[h].Choices = new string[]{};
-        socialStuff.Conversations[h].ChoiceFunctions = new Action[]{};
+        socialStuff.Conversations[h].Choices = new Dictionary<string, MessagingManager.Messages>();
     }
 
     public static void No() {
@@ -100,7 +90,6 @@ public class PassionfruitSupportConversation {
             Author = "Passionfruit Support",
             Text = "Then do it NOW!"
         });
-        socialStuff.Conversations[h].Choices = new string[]{};
-        socialStuff.Conversations[h].ChoiceFunctions = new Action[]{};
+        socialStuff.Conversations[h].Choices = new Dictionary<string, MessagingManager.Messages>();
     }
 }
