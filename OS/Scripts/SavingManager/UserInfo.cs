@@ -174,7 +174,7 @@ public class SocialStuff {
     public Conversation[] Conversations = new Conversation[]{};
 
     public SocialStuff() {
-        Conversations.Append(new Conversation {
+        Conversations = Conversations.Append(new Conversation {
             Name = "Passionfruit Support",
             Icon = "res://Apps/Messages/Assets/Support.png",
             Messages = new Message[]{
@@ -195,7 +195,7 @@ public class SocialStuff {
                 PassionfruitSupportConversation.Refund,
                 PassionfruitSupportConversation.Lawsuit
             }
-        });
+        }).ToArray();
     }
 }
 

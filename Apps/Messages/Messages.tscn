@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
-[ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/SidebarButton.cs" type="Script" id=2]
+[ext_resource path="res://Apps/Messages/Scripts/ConversationList.cs" type="Script" id=2]
 [ext_resource path="res://Apps/Messages/Assets/IconDock.png" type="Texture" id=3]
-[ext_resource path="res://Apps/Messages/Assets/IconSmall.png" type="Texture" id=4]
-[ext_resource path="res://Apps/Notebook/Scripts/Notebook.cs" type="Script" id=5]
+[ext_resource path="res://OS/Scripts/WindowManager/BaseWindow.cs" type="Script" id=4]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Close"
@@ -143,7 +142,7 @@ theme = ExtResource( 1 )
 popup_exclusive = true
 window_title = "Messages"
 resizable = true
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 Icon = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -153,20 +152,20 @@ anims/Minimize = SubResource( 3 )
 anims/Open = SubResource( 1 )
 anims/Restore = SubResource( 4 )
 
-[node name="HSplitContainer" type="HSplitContainer" parent="."]
+[node name="M" type="HSplitContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_clip_content = true
 mouse_filter = 1
 split_offset = 75
 
-[node name="Sidebar" type="Control" parent="HSplitContainer"]
+[node name="Sidebar" type="Control" parent="M"]
 margin_right = 225.0
 margin_bottom = 655.0
 rect_min_size = Vector2( 150, 0 )
 mouse_filter = 1
 
-[node name="CoolSidebarLineThing" type="VSeparator" parent="HSplitContainer/Sidebar"]
+[node name="CoolSidebarLineThing" type="VSeparator" parent="M/Sidebar"]
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -175,39 +174,26 @@ margin_top = 1.0
 margin_bottom = -1.0
 mouse_filter = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/Sidebar"]
+[node name="H" type="ScrollContainer" parent="M/Sidebar"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Sidebar/ScrollContainer"]
-margin_right = 217.0
-margin_bottom = 40.0
+[node name="ConversationList" type="VBoxContainer" parent="M/Sidebar/H"]
 custom_constants/separation = 0
-
-[node name="Button2" type="Button" parent="HSplitContainer/Sidebar/ScrollContainer/VBoxContainer"]
-margin_right = 217.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
-mouse_filter = 1
-theme_type_variation = "SidebarButton"
-text = "Passionfruit Support"
-icon = ExtResource( 4 )
-align = 0
 script = ExtResource( 2 )
-Category = NodePath("../../../../Content/CategoryHome")
 
-[node name="Content" type="Control" parent="HSplitContainer"]
+[node name="Content" type="Control" parent="M"]
 margin_left = 233.0
 margin_right = 760.0
 margin_bottom = 655.0
 mouse_filter = 1
 
-[node name="CategoryHome" type="CenterContainer" parent="HSplitContainer/Content"]
+[node name="CategoryHome" type="CenterContainer" parent="M/Content"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="HSplitContainer/Content/CategoryHome"]
+[node name="Label" type="Label" parent="M/Content/CategoryHome"]
 margin_left = 83.0
 margin_top = 311.0
 margin_right = 444.0

@@ -79,6 +79,13 @@ public class SavingManager : Node {
         );
         suffer.Close();
 
+        File sdfhjjhgf = new File();
+        sdfhjjhgf.Open($"user://Users/{user}/SocialStuff.json", File.ModeFlags.Write);
+        sdfhjjhgf.StoreString(
+            JsonConvert.SerializeObject(new SocialStuff())
+        );
+        sdfhjjhgf.Close();
+
         // setup the filesystem
         dir.MakeDirRecursive($"user://Users/{user}/Files/");
 
@@ -127,14 +134,17 @@ public class SavingManager : Node {
         File file = new File();
         if (file.FileExists(filename)) {
             file.Open(filename, File.ModeFlags.Read);
-            T m = JsonConvert.DeserializeObject<T>(file.GetAsText());
+            T m = JsonConvert.DeserializeObject<T>(file.GetAsText(), new JsonSerializerSettings {
+                TypeNameHandling = TypeNameHandling.All
+            });
             file.Close();
             return m;
         } else {
             file.Open(filename, File.ModeFlags.Write);
             file.StoreString(
-                JsonConvert.SerializeObject(Activator.CreateInstance<T>())
-            );
+                JsonConvert.SerializeObject(Activator.CreateInstance<T>(), new JsonSerializerSettings {
+                TypeNameHandling = TypeNameHandling.All
+            }));
             return Activator.CreateInstance<T>();
         }
     }
@@ -173,7 +183,9 @@ public class SavingManager : Node {
 
         File file = new File();
         if (file.Open(filename, File.ModeFlags.Write) == Error.Ok) {
-            file.StoreString(JsonConvert.SerializeObject(data));
+            file.StoreString(JsonConvert.SerializeObject(data, new JsonSerializerSettings {
+                TypeNameHandling = TypeNameHandling.All
+            }));
             file.Close();
         } else {
             GD.PushError($"Failed to save data from user \"{user}\", are you sure it exists?");
@@ -198,7 +210,9 @@ public class SavingManager : Node {
 
         File file = new File();
         if (file.Open(filename, File.ModeFlags.Read) == Error.Ok) {
-            T m = JsonConvert.DeserializeObject<T>(file.GetAsText());
+            T m = JsonConvert.DeserializeObject<T>(file.GetAsText(), new JsonSerializerSettings {
+                TypeNameHandling = TypeNameHandling.All
+            });
             file.Close();
             return m;
         } else {
@@ -225,7 +239,9 @@ public class SavingManager : Node {
 
         File file = new File();
         if (file.Open(filename, File.ModeFlags.Write) == Error.Ok) {
-            file.StoreString(JsonConvert.SerializeObject(data));
+            file.StoreString(JsonConvert.SerializeObject(data, new JsonSerializerSettings {
+                TypeNameHandling = TypeNameHandling.All
+            }));
             file.Close();
         } else {
             GD.PushError($"Failed to save settings.");
@@ -245,15 +261,17 @@ public class SavingManager : Node {
             File j = new File();
             j.Open($"user://Users/{user}/InstalledApps.json", File.ModeFlags.Write);
             j.StoreString(
-                JsonConvert.SerializeObject(new InstalledApps())
-            );
+                JsonConvert.SerializeObject(new InstalledApps(), new JsonSerializerSettings {
+                    TypeNameHandling = TypeNameHandling.All
+            }));
             j.Close();
 
             File suffer = new File();
             suffer.Open($"user://Users/{user}/QuickLaunch.json", File.ModeFlags.Write);
             suffer.StoreString(
-                JsonConvert.SerializeObject(new QuickLaunch())
-            );
+                JsonConvert.SerializeObject(new QuickLaunch(), new JsonSerializerSettings {
+                    TypeNameHandling = TypeNameHandling.All
+            }));
             suffer.Close();
 
             // setup the filesystem
@@ -299,7 +317,7 @@ public class SavingManager : Node {
             Save(user, version);
         }
 
-        // v0.9 added the web browser :)
+        // v0.9 added the web browser and messaging app and stuff :)
         if (version.MajorVersion == 0 && version.MinorVersion == 8) {
             var coolApps = Load<InstalledApps>(user);
             // fun
@@ -312,6 +330,14 @@ public class SavingManager : Node {
             fuckInternet.Add(new Lelapp("Messages", "res://Apps/Messages/Assets/IconSmall.png", "res://Apps/Messages/Messages.tscn"));
             coolApps.Internet = fuckInternet.ToArray();
             Save(user, coolApps);
+
+            File suffer = new File();
+            suffer.Open($"user://Users/{user}/SocialStuff.json", File.ModeFlags.Write);
+            suffer.StoreString(
+                JsonConvert.SerializeObject(new SocialStuff(), new JsonSerializerSettings {
+                    TypeNameHandling = TypeNameHandling.All
+            }));
+            suffer.Close();
 
             version.MinorVersion = 9;
             Save(user, version);

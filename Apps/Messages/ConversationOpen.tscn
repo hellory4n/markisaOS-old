@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Apps/Messages/Assets/IconSmall.png" type="Texture" id=1]
+[ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/SidebarButton.cs" type="Script" id=2]
+
+[node name="H" type="Button"]
+margin_right = 216.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+mouse_filter = 1
+theme_type_variation = "SidebarButton"
+text = "Fuck"
+icon = ExtResource( 1 )
+align = 0
+script = ExtResource( 2 )
+Category = NodePath("../../../../Content/CategoryHome")

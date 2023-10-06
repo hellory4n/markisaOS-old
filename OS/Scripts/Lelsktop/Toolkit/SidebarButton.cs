@@ -3,7 +3,7 @@ using System;
 
 public class SidebarButton : Button {
     [Export]
-    NodePath Category;
+    public NodePath Category;
 
     public override void _Ready() {
         base._Ready();
