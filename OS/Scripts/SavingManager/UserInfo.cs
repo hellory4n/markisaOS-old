@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 
 /// <summary>
@@ -171,6 +172,31 @@ public class SocialStuff {
     /// The user's conversations.
     /// </summary>
     public Conversation[] Conversations = new Conversation[]{};
+
+    public SocialStuff() {
+        Conversations.Append(new Conversation {
+            Name = "Passionfruit Support",
+            Icon = "res://Apps/Messages/Assets/Support.png",
+            Messages = new Message[]{
+                new Message {
+                    Author = "Passionfruit Support",
+                    Text = $"Hello, {SavingManager.CurrentUser}! How could i help you?"
+                }
+            },
+            Choices = new string[]{
+                "I need help with lelcubeOS Me apps",
+                "I need help with my device",
+                "I want a refund for my device",
+                "I am going to sue you"
+            },
+            ChoiceFunctions = new Action[]{
+                PassionfruitSupportConversation.HelpApps,
+                PassionfruitSupportConversation.HelpDevice,
+                PassionfruitSupportConversation.Refund,
+                PassionfruitSupportConversation.Lawsuit
+            }
+        });
+    }
 }
 
 /// <summary>
@@ -190,9 +216,9 @@ public class Conversation {
     /// </summary>
     public string[] Choices = new string[]{};
     /// <summary>
-    /// The callbacks for the current choices the user can use to continue the conversation.
+    /// The callbacks for the current choices the user can use to continue the conversation. Must return a reply and new choices.
     /// </summary>
-    public Func<string[]>[] ChoiceFunctions;
+    public Action[] ChoiceFunctions;
     /// <summary>
     /// The messages of the conversation.
     /// </summary>
