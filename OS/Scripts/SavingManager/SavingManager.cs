@@ -324,15 +324,11 @@ public class SavingManager : Node {
             var fuckAll = coolApps.All.ToList();
             fuckAll.Add(new Lelapp("Websites", "res://Apps/Websites/Assets/IconSmall.png", "res://Apps/Websites/Websites.tscn"));
             fuckAll.Add(new Lelapp("Messages", "res://Apps/Messages/Assets/IconSmall.png", "res://Apps/Messages/Messages.tscn"));
-            fuckAll.Add(new Lelapp("Revolutionary", "res://Apps/Revolutionary/Assets/IconSmall.png", "res://Apps/Revolutionary/Revolutionary.tscn"));
             coolApps.All = fuckAll.ToArray();
             var fuckInternet = coolApps.Internet.ToList();
             fuckInternet.Add(new Lelapp("Websites", "res://Apps/Websites/Assets/IconSmall.png", "res://Apps/Websites/Websites.tscn"));
             fuckInternet.Add(new Lelapp("Messages", "res://Apps/Messages/Assets/IconSmall.png", "res://Apps/Messages/Messages.tscn"));
             coolApps.Internet = fuckInternet.ToArray();
-            var fuckAccessories = coolApps.Accessories.ToList();
-            fuckAccessories.Add(new Lelapp("Revolutionary", "res://Apps/Revolutionary/Assets/IconSmall.png", "res://Apps/Revolutionary/Revolutionary.tscn"));
-            coolApps.Accessories = fuckAccessories.ToArray();
             Save(user, coolApps);
 
             File suffer = new File();

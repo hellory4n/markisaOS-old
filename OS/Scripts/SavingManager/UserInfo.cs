@@ -128,13 +128,11 @@ public class InstalledApps {
             new Lelapp("Notebook", "res://Apps/Notebook/Assets/IconSmall.png", "res://Apps/Notebook/Notebook.tscn"),
             new Lelapp("Calculator", "res://Apps/Calculator/Assets/IconSmall.png", "res://Apps/Calculator/Calculator.tscn"),
             new Lelapp("Websites", "res://Apps/Websites/Assets/IconSmall.png", "res://Apps/Websites/Websites.tscn"),
-            new Lelapp("Messages", "res://Apps/Messages/Assets/IconSmall.png", "res://Apps/Messages/Messages.tscn"),
-            new Lelapp("Revolutionary", "res://Apps/Revolutionary/Assets/IconSmall.png", "res://Apps/Revolutionary/Revolutionary.tscn")
+            new Lelapp("Messages", "res://Apps/Messages/Assets/IconSmall.png", "res://Apps/Messages/Messages.tscn")
         };
         Accessories = new Lelapp[]{
             new Lelapp("Settings", "res://Assets/Themes/Leltheme-Dark-Blue/Icons/Accessories.png", "res://Apps/Settings/Settings.tscn"),
-            new Lelapp("Files", "res://Apps/Files/Assets/IconSmall.png", "res://Apps/Files/Files.tscn"),
-            new Lelapp("Revolutionary", "res://Apps/Revolutionary/Assets/IconSmall.png", "res://Apps/Revolutionary/Revolutionary.tscn")
+            new Lelapp("Files", "res://Apps/Files/Assets/IconSmall.png", "res://Apps/Files/Files.tscn")
         };
         System = new Lelapp[]{
             new Lelapp("Settings", "res://Assets/Themes/Leltheme-Dark-Blue/Icons/Accessories.png", "res://Apps/Settings/Settings.tscn")
