@@ -11,20 +11,28 @@ public class ComputerNoisesManager : Node {
 
     public override void _Ready() {
         base._Ready();
+        // h
+        float seepeeyou = 10;
+        float geepeeyou = 5;
+        float storage = 10;
+        seepeeyou = Math.Min(seepeeyou, 100)/100;
+        geepeeyou = Math.Min(geepeeyou, 100)/100;
+        storage = Math.Min(storage, 100)/100;
+
         Fan = new AudioStreamPlayer {
             Stream = FanSound,
             Autoplay = true,
-            VolumeDb = GD.Linear2Db(0.5f)
+            VolumeDb = GD.Linear2Db(seepeeyou/1.5f)
         };
         GpuFan = new AudioStreamPlayer {
             Stream = GpuFanSound,
             Autoplay = true,
-            VolumeDb = GD.Linear2Db(0.0333333333333f)
+            VolumeDb = GD.Linear2Db(geepeeyou/1.25f)
         };
         Hdd = new AudioStreamPlayer {
             Stream = HddSound,
             Autoplay = true,
-            VolumeDb = GD.Linear2Db(0.0666666666667f)
+            VolumeDb = GD.Linear2Db(storage*1.25f)
         };
         AddChild(Fan);
         AddChild(GpuFan);
@@ -80,6 +88,6 @@ public class ComputerNoisesManager : Node {
 
         Fan.VolumeDb = GD.Linear2Db(seepeeyou/2);
         GpuFan.VolumeDb = GD.Linear2Db(geepeeyou/1.5f);
-        Hdd.VolumeDb = GD.Linear2Db(storage/1.5f);
+        Hdd.VolumeDb = GD.Linear2Db(storage);
     }
 }
