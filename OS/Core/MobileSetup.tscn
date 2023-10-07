@@ -70,3 +70,6 @@ text = "Button"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 autoplay = true
+__meta__ = {
+"_editor_description_": ""
+}
