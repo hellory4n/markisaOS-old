@@ -22,19 +22,22 @@ public class ConversationList : VBoxContainer {
             .Conversations;
         
         // indeed
+        int i = 0;
         foreach (var conversation in conversations) {
             var h = MessageThingy.Instance<SidebarButton>();
             h.Icon = ResourceLoader.Load<Texture>(conversation.Icon);
             h.Text = conversation.Name;
-            var bullshit = Shit.Instance<Control>();
+            var bullshit = Shit.Instance<MessagingInterface>();
             // the sidebar button thing requires the content's name to start with "Category" :)))
             bullshit.Name = $"Category{LelfsManager.GenerateID()}";
             bullshit.Visible = false;
             bullshit.Theme = null;
+            bullshit.ConversationIndex = i;
             // quite the mouthful
             GetParent().GetParent().GetParent().GetNode<Control>("Content").AddChild(bullshit);
             h.Category = bullshit.GetPath();
             AddChild(h);
+            i++;
         }
     }
 }

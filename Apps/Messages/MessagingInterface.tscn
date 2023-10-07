@@ -1,12 +1,16 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
+[ext_resource path="res://Apps/Messages/Scripts/MessagingInterface.cs" type="Script" id=2]
+
+[sub_resource type="ButtonGroup" id=1]
 
 [node name="CategoryFsdfgg" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 theme = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="M" type="VSplitContainer" parent="."]
 anchor_right = 1.0
@@ -19,64 +23,18 @@ dragger_visibility = 1
 
 [node name="H" type="ScrollContainer" parent="M"]
 margin_right = 1260.0
-margin_bottom = 598.0
+margin_bottom = 648.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Messages" type="VBoxContainer" parent="M/H"]
 margin_right = 1260.0
-margin_bottom = 215.0
 size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="M/H/Messages"]
-margin_right = 1260.0
-margin_bottom = 33.0
-theme_type_variation = "Header"
-text = "You"
-
-[node name="Label2" type="Label" parent="M/H/Messages"]
-margin_top = 43.0
-margin_right = 1260.0
-margin_bottom = 65.0
-size_flags_horizontal = 3
-text = "Insert some bullshit here."
-autowrap = true
-
-[node name="Label3" type="Label" parent="M/H/Messages"]
-margin_top = 75.0
-margin_right = 1260.0
-margin_bottom = 108.0
-theme_type_variation = "Header"
-text = "Someone else"
-
-[node name="Label4" type="Label" parent="M/H/Messages"]
-margin_top = 118.0
-margin_right = 1260.0
-margin_bottom = 140.0
-size_flags_horizontal = 3
-text = "So true!"
-autowrap = true
-
-[node name="Label5" type="Label" parent="M/H/Messages"]
-margin_top = 150.0
-margin_right = 1260.0
-margin_bottom = 183.0
-theme_type_variation = "Header"
-text = "You"
-
-[node name="Label6" type="Label" parent="M/H/Messages"]
-margin_top = 193.0
-margin_right = 1260.0
-margin_bottom = 215.0
-size_flags_horizontal = 3
-text = "Indeed."
-autowrap = true
 
 [node name="Choices" type="GridContainer" parent="M"]
-margin_top = 610.0
+margin_top = 660.0
 margin_right = 1260.0
 margin_bottom = 700.0
-rect_min_size = Vector2( 0, 40 )
 columns = 2
 
 [node name="Button" type="Button" parent="M/Choices"]
@@ -85,7 +43,9 @@ margin_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_type_variation = "SecondaryButton"
-text = "Explode the entire planet"
+toggle_mode = true
+group = SubResource( 1 )
+text = "FUCK"
 
 [node name="Button2" type="Button" parent="M/Choices"]
 margin_left = 635.0
@@ -94,23 +54,6 @@ margin_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_type_variation = "SecondaryButton"
-text = "Admit that you are planning to commit felonies"
-
-[node name="Button3" type="Button" parent="M/Choices"]
-margin_top = 50.0
-margin_right = 625.0
-margin_bottom = 90.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_type_variation = "SecondaryButton"
-text = "Actually commit felonies"
-
-[node name="Button4" type="Button" parent="M/Choices"]
-margin_left = 635.0
-margin_top = 50.0
-margin_right = 1260.0
-margin_bottom = 90.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_type_variation = "SecondaryButton"
-text = "Say something outrageous"
+toggle_mode = true
+group = SubResource( 1 )
+text = "FUCK"
