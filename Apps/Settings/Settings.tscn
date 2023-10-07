@@ -147,6 +147,7 @@ tracks/1/keys = {
 
 [node name="Settings" type="WindowDialog"]
 process_priority = 1
+visible = true
 margin_right = 750.0
 margin_bottom = 500.0
 rect_min_size = Vector2( 500, 350 )
@@ -549,6 +550,15 @@ margin_top = 216.0
 margin_right = 316.0
 margin_bottom = 218.0
 mouse_filter = 2
+
+[node name="Button2" type="Button" parent="HSplitContainer/Content/CategorySystem/VBoxContainer"]
+margin_top = 228.0
+margin_right = 316.0
+margin_bottom = 268.0
+theme_type_variation = "SecondaryButton"
+text = "Credits"
+script = ExtResource( 15 )
+WindowScene = "res://Apps/Settings/Credits.tscn"
 
 [node name="Button" type="Button" parent="HSplitContainer/Content/CategorySystem/VBoxContainer"]
 margin_top = 228.0
