@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
-[ext_resource path="res://Apps/Settings/Assets/IconDock.png" type="Texture" id=2]
-[ext_resource path="res://OS/Scripts/WindowManager/BaseWindow.cs" type="Script" id=5]
+[ext_resource path="res://Assets/Boot/OnboardingBackground.png" type="Texture" id=2]
+[ext_resource path="res://Apps/Notebook/Scripts/Notebook.cs" type="Script" id=3]
+[ext_resource path="res://Apps/Revolutionary/Assets/IconDock.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Close"
@@ -131,18 +132,19 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[node name="Credits" type="WindowDialog"]
+[node name="Revolutionary" type="WindowDialog"]
 process_priority = 1
-visible = true
-margin_right = -590.0
-margin_bottom = -300.0
-rect_min_size = Vector2( 500, 455 )
+margin_right = 400.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 100, 100 )
 theme = ExtResource( 1 )
 popup_exclusive = true
-window_title = "Credits"
+window_title = "Revolutionary"
 resizable = true
-script = ExtResource( 5 )
-Icon = ExtResource( 2 )
+script = ExtResource( 3 )
+Icon = ExtResource( 4 )
+CpuUse = 2
+StorageUse = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 method_call_mode = 1
@@ -151,138 +153,10 @@ anims/Minimize = SubResource( 3 )
 anims/Open = SubResource( 1 )
 anims/Restore = SubResource( 4 )
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.392157 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_clip_content = false
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
-margin_right = 484.0
-margin_bottom = 1299.0
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer"]
-margin_right = 484.0
-margin_bottom = 44.0
-text = "Developed by hellory4n
-Audio by alex343xd"
-align = 1
-autowrap = true
-
-[node name="Label4" type="Label" parent="ScrollContainer/VBoxContainer"]
-margin_top = 54.0
-margin_right = 484.0
-margin_bottom = 87.0
-theme_type_variation = "Header"
-text = "Startup/Shutdown Sound"
-align = 1
-
-[node name="Label5" type="Label" parent="ScrollContainer/VBoxContainer"]
-margin_top = 97.0
-margin_right = 484.0
-margin_bottom = 207.0
-text = "Melody thing by alex343xd
-There's also the Zorin OS 16.x startup sound with some effects and the Ubuntu 6.10 - 18.04 shutdown sound (composed by Peter Savage) with some more effects
-I'm pretty sure it's transformative and as such fair use"
-align = 1
-autowrap = true
-
-[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer"]
-margin_top = 217.0
-margin_right = 484.0
-margin_bottom = 250.0
-theme_type_variation = "Header"
-text = "Wallpapers"
-align = 1
-
-[node name="Label3" type="Label" parent="ScrollContainer/VBoxContainer"]
-margin_top = 260.0
-margin_right = 484.0
-margin_bottom = 392.0
-text = "High Peaks: Nisarg Patel
-Flowers: Aaron Burden
-Beach: Derek Thomson
-Space: Tengyart
-Mountains: Leila Azevedo
-Aurora: Sami Matias"
-align = 1
-autowrap = true
-
-[node name="Label6" type="Label" parent="ScrollContainer/VBoxContainer"]
-margin_top = 402.0
-margin_right = 484.0
-margin_bottom = 435.0
-theme_type_variation = "Header"
-text = "User Icons"
-align = 1
-
-[node name="Label7" type="Label" parent="ScrollContainer/VBoxContainer"]
-margin_top = 445.0
-margin_right = 484.0
-margin_bottom = 665.0
-text = "Cat: Andriyko Podilnyk
-Flower: Aaron Burden
-Balloon: Kyle Hinkson
-Car: Sven D
-Dog: Jamie Street
-Duck: Timothy Dykes
-Pancakes: nikldn
-Brushes: nikldn
-Rocket: NASA
-Football: Wesley Tingey"
-align = 1
-autowrap = true
-
-[node name="Label10" type="Label" parent="ScrollContainer/VBoxContainer"]
-margin_top = 675.0
-margin_right = 484.0
-margin_bottom = 708.0
-theme_type_variation = "Header"
-text = "Computer Noises"
-align = 1
-
-[node name="Label11" type="Label" parent="ScrollContainer/VBoxContainer"]
-margin_top = 718.0
-margin_right = 484.0
-margin_bottom = 784.0
-text = "Fan: saphe
-GPU Fan: soundofscienceupf
-HDD: sad3d"
-align = 1
-autowrap = true
-
-[node name="Label8" type="Label" parent="ScrollContainer/VBoxContainer"]
-margin_top = 794.0
-margin_right = 484.0
-margin_bottom = 827.0
-theme_type_variation = "Header"
-text = "Special Thanks"
-align = 1
-
-[node name="Label9" type="Label" parent="ScrollContainer/VBoxContainer"]
-margin_top = 837.0
-margin_right = 484.0
-margin_bottom = 1299.0
-text = "My parents
-My cats
-Godot developers
-Figma developers
-parfesan
-Tha Muffin
-Bricked
-alex343xd
-Rubi
-RThreeFive
-ten9⁵
-Newton Gametone
-MashedFig
-Artifyber (R3DZ3R)
-Aliorio
-Telcaum
-Clustra
-DeafSalute
-matt7ress
-Martin Magni
-You :)"
-align = 1
-autowrap = true
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 7
