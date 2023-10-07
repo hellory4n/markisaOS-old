@@ -40,6 +40,14 @@ public class BaseWindow : WindowDialog {
     /// </summary>
     public Button Minimize;
     bool CanSnap = false;
+    [Export(PropertyHint.Range, "1,10")]
+    public int CpuUse = 1;
+    [Export(PropertyHint.Range, "1,10")]
+    public int GpuUse = 1;
+    [Export(PropertyHint.Range, "1,10")]
+    public int MemoryUse = 1;
+    [Export(PropertyHint.Range, "1,10")]
+    public int StorageUse = 1;
 
     public override void _Ready() {
         base._Ready();

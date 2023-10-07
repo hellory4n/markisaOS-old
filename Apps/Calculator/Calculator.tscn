@@ -134,7 +134,6 @@ tracks/1/keys = {
 
 [node name="Calculator" type="WindowDialog"]
 process_priority = 1
-visible = true
 margin_right = 290.0
 margin_bottom = 400.0
 rect_min_size = Vector2( 290, 410 )

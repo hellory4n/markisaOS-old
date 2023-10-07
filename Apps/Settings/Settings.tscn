@@ -156,6 +156,9 @@ window_title = "Settings"
 resizable = true
 script = ExtResource( 3 )
 Icon = ExtResource( 4 )
+CpuUse = 2
+MemoryUse = 2
+StorageUse = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 method_call_mode = 1

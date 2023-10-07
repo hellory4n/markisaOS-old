@@ -145,6 +145,10 @@ window_title = "Websites"
 resizable = true
 script = ExtResource( 5 )
 Icon = ExtResource( 3 )
+CpuUse = 5
+GpuUse = 3
+MemoryUse = 7
+StorageUse = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 method_call_mode = 1

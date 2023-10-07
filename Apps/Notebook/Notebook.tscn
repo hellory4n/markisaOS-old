@@ -145,6 +145,8 @@ window_title = "Notebook"
 resizable = true
 script = ExtResource( 5 )
 Icon = ExtResource( 3 )
+CpuUse = 2
+StorageUse = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 method_call_mode = 1

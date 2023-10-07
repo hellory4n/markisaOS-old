@@ -134,7 +134,6 @@ tracks/1/keys = {
 
 [node name="Messages" type="WindowDialog"]
 process_priority = 1
-visible = true
 margin_right = 760.0
 margin_bottom = 655.0
 rect_min_size = Vector2( 760, 455 )
@@ -144,6 +143,8 @@ window_title = "Messages"
 resizable = true
 script = ExtResource( 4 )
 Icon = ExtResource( 3 )
+CpuUse = 2
+MemoryUse = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 method_call_mode = 1
