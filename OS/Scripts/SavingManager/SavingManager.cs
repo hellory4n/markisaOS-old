@@ -342,5 +342,17 @@ public class SavingManager : Node {
             version.MinorVersion = 9;
             Save(user, version);
         }
+
+        // v0.10 added the games of all time :)
+        if (version.MajorVersion == 0 && version.MinorVersion == 9) {
+            var coolApps = Load<InstalledApps>(user);
+            // fun
+            coolApps.All = coolApps.All.Append(new Lelapp("Block Game", "res://Apps/BlockGame/Assets/IconSmall.png", "res://Apps/BlockGame/BlockGame.tscn")).ToArray();
+            coolApps.Games = coolApps.Games.Append(new Lelapp("Block Game", "res://Apps/BlockGame/Assets/IconSmall.png", "res://Apps/BlockGame/BlockGame.tscn")).ToArray();
+            Save(user, coolApps);
+
+            version.MinorVersion = 10;
+            Save(user, version);
+        }
     }
 }

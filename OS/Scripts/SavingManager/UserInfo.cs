@@ -128,7 +128,8 @@ public class InstalledApps {
             new Lelapp("Notebook", "res://Apps/Notebook/Assets/IconSmall.png", "res://Apps/Notebook/Notebook.tscn"),
             new Lelapp("Calculator", "res://Apps/Calculator/Assets/IconSmall.png", "res://Apps/Calculator/Calculator.tscn"),
             new Lelapp("Websites", "res://Apps/Websites/Assets/IconSmall.png", "res://Apps/Websites/Websites.tscn"),
-            new Lelapp("Messages", "res://Apps/Messages/Assets/IconSmall.png", "res://Apps/Messages/Messages.tscn")
+            new Lelapp("Messages", "res://Apps/Messages/Assets/IconSmall.png", "res://Apps/Messages/Messages.tscn"),
+            new Lelapp("Block Game", "res://Apps/BlockGame/Assets/IconSmall.png", "res://Apps/BlockGame/BlockGame.tscn")
         };
         Accessories = new Lelapp[]{
             new Lelapp("Settings", "res://Assets/Themes/Leltheme-Dark-Blue/Icons/Accessories.png", "res://Apps/Settings/Settings.tscn"),
@@ -151,6 +152,9 @@ public class InstalledApps {
             new Lelapp("Observer", "res://Apps/Observer/Assets/IconSmall.png", "res://Apps/Observer/Observer.tscn"),
             new Lelapp("Notebook", "res://Apps/Notebook/Assets/IconSmall.png", "res://Apps/Notebook/Notebook.tscn"),
             new Lelapp("Calculator", "res://Apps/Calculator/Assets/IconSmall.png", "res://Apps/Calculator/Calculator.tscn")
+        };
+        Games = new Lelapp[]{
+            new Lelapp("Block Game", "res://Apps/BlockGame/Assets/IconSmall.png", "res://Apps/BlockGame/BlockGame.tscn")
         };
     }
 }
