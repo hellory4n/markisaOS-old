@@ -15,11 +15,19 @@ public class BlockGame : Control {
         Square,
         Straight
     }
+    List<TextureRect> fallingPieces = new List<TextureRect>();
 
     public override void _Ready() {
         base._Ready();
         foreach (var h in MakePiece(Pieces.T, new Vector2(60, 0))) {
             AddChild(h);
+            fallingPieces.Add(h);
+        }
+    }
+
+    public void MakeStuffFall() {
+        foreach (var dfgmhe in fallingPieces) {
+            dfgmhe.RectPosition += new Vector2(0, 20);
         }
     }
 
