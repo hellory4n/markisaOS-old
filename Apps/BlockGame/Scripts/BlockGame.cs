@@ -25,9 +25,37 @@ public class BlockGame : Control {
         }
     }
 
+    public override void _Process(float delta) {
+        base._Process(delta);
+
+        // help
+        if (Input.IsActionJustReleased("ui_left") && GetParent<BaseWindow>().IsActive())
+            MoveLeft();
+        if (Input.IsActionJustReleased("ui_right") && GetParent<BaseWindow>().IsActive())
+            MoveRight();
+    }
+
     public void MakeStuffFall() {
         foreach (var dfgmhe in fallingPieces) {
             dfgmhe.RectPosition += new Vector2(0, 20);
+        }
+    }
+
+    public void MoveLeft() {
+        if (fallingPieces[0].RectPosition.x == 0)
+            return;
+
+        foreach (var dfgmhe in fallingPieces) {
+            dfgmhe.RectPosition -= new Vector2(20, 0);
+        }
+    }
+
+    public void MoveRight() {
+        if (fallingPieces[0].RectPosition.x == 120)
+            return;
+
+        foreach (var dfgmhe in fallingPieces) {
+            dfgmhe.RectPosition += new Vector2(20, 0);
         }
     }
 
