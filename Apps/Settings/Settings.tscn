@@ -147,7 +147,6 @@ tracks/1/keys = {
 
 [node name="Settings" type="WindowDialog"]
 process_priority = 1
-visible = true
 margin_right = 750.0
 margin_bottom = 500.0
 rect_min_size = Vector2( 500, 350 )
@@ -507,9 +506,9 @@ mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategorySystem"]
 margin_left = 118.0
-margin_top = 116.0
+margin_top = 91.0
 margin_right = 434.0
-margin_bottom = 384.0
+margin_bottom = 409.0
 
 [node name="Control" type="Control" parent="HSplitContainer/Content/CategorySystem/VBoxContainer"]
 margin_right = 316.0
@@ -526,7 +525,7 @@ centered = false
 margin_top = 74.0
 margin_right = 316.0
 margin_bottom = 140.0
-text = "lelcubeOS v0.9.0
+text = "lelcubeOS v0.10.0
 © Passionfruit 2069
 Running on Device™"
 align = 1

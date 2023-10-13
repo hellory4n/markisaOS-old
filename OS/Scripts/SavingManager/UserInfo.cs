@@ -14,7 +14,7 @@ public class BasicUser {
     /// <summary>
     /// Increased with smaller new versions, usually some new features and improvements.
     /// </summary>
-    public int MinorVersion = 9;
+    public int MinorVersion = 10;
     /// <summary>
     /// Increased with very small new versions, such as bug fixes.
     /// </summary>
