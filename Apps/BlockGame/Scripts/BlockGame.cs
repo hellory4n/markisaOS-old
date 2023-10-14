@@ -119,9 +119,9 @@ public class BlockGame : Control {
                         break;
                     case 1:
                         var t1r1 = new TextureRect {
-                            RectPosition = position - new Vector2(0, -20),
+                            RectPosition = position + new Vector2(20, -20),
                             Texture = TPiece,
-                            Name = $"{position.x/20},{(position.y/20)-1}",
+                            Name = $"{(position.x/20)+1},{(position.y/20)-1}",
                             RectSize = new Vector2(20, 20)
                         };
                         var t2r1 = new TextureRect {
@@ -137,9 +137,9 @@ public class BlockGame : Control {
                             RectSize = new Vector2(20, 20)
                         };
                         var t4r1 = new TextureRect {
-                            RectPosition = position + new Vector2(-20, 0),
+                            RectPosition = position + new Vector2(40, 0),
                             Texture = TPiece,
-                            Name = $"{(position.x/20)-1},{position.y/20}",
+                            Name = $"{(position.x/20)+2},{position.y/20}",
                             RectSize = new Vector2(20, 20)
                         };
                         m.AddRange(new TextureRect[]{
@@ -169,9 +169,9 @@ public class BlockGame : Control {
                             RectSize = new Vector2(20, 20)
                         };
                         var t4r2 = new TextureRect {
-                            RectPosition = position + new Vector2(40, 0),
+                            RectPosition = position + new Vector2(0, 40),
                             Texture = TPiece,
-                            Name = $"{(position.x/20)+2},{position.y/20}",
+                            Name = $"{position.x/20},{(position.y/20)+2}",
                             RectSize = new Vector2(20, 20)
                         };
                         m.AddRange(new TextureRect[]{
@@ -183,9 +183,9 @@ public class BlockGame : Control {
                         break;
                     case 3:
                         var t1r3 = new TextureRect {
-                            RectPosition = position - new Vector2(20, 20),
+                            RectPosition = position + new Vector2(20, 0),
                             Texture = TPiece,
-                            Name = $"{(position.x/20)-1},{(position.y/20)-1}",
+                            Name = $"{(position.x/20)+1},{(position.y/20)-1}",
                             RectSize = new Vector2(20, 20)
                         };
                         var t2r3 = new TextureRect {
@@ -195,7 +195,7 @@ public class BlockGame : Control {
                             RectSize = new Vector2(20, 20)
                         };
                         var t3r3 = new TextureRect {
-                            RectPosition = position - new Vector2(0, 20),
+                            RectPosition = position + new Vector2(0, -20),
                             Texture = TPiece,
                             Name = $"{position.x/20},{(position.y/20)-1}",
                             RectSize = new Vector2(20, 20)
