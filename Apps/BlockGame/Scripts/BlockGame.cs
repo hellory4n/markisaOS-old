@@ -137,9 +137,9 @@ public class BlockGame : Control {
                             RectSize = new Vector2(20, 20)
                         };
                         var t4r1 = new TextureRect {
-                            RectPosition = position + new Vector2(20, 0),
+                            RectPosition = position + new Vector2(-20, 0),
                             Texture = TPiece,
-                            Name = $"{position.x/20},{(position.y/20)+1}",
+                            Name = $"{(position.x/20)-1},{position.y/20}",
                             RectSize = new Vector2(20, 20)
                         };
                         m.AddRange(new TextureRect[]{
