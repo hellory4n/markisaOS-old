@@ -16,9 +16,11 @@ public class BlockGame : Control {
         Straight
     }
     List<TextureRect> fallingPieces = new List<TextureRect>();
+    int thingToMakeItNotGoTooMuchToTheRight = 0;
 
     public override void _Ready() {
         base._Ready();
+        thingToMakeItNotGoTooMuchToTheRight = GetThingForTheVariableWhoseNameIsTooLong(Pieces.T);
         foreach (var h in MakePiece(Pieces.T, new Vector2(60, 0))) {
             AddChild(h);
             fallingPieces.Add(h);
@@ -51,7 +53,7 @@ public class BlockGame : Control {
     }
 
     public void MoveRight() {
-        if (fallingPieces[0].RectPosition.x == 120)
+        if (fallingPieces[0].RectPosition.x == thingToMakeItNotGoTooMuchToTheRight)
             return;
 
         foreach (var dfgmhe in fallingPieces) {
@@ -225,5 +227,22 @@ public class BlockGame : Control {
                 break;
         }
         return m;
+    }
+
+    int GetThingForTheVariableWhoseNameIsTooLong(Pieces piece) {
+        switch (piece) {
+            case Pieces.T:
+                return 140;
+            case Pieces.L:
+                return 160;
+            case Pieces.Square:
+                return 160;
+            case Pieces.S:
+                return 160;
+            case Pieces.Straight:
+                return 120;
+            default:
+                return 69;
+        }
     }
 }
