@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://OS/Scripts/WindowManager/BaseWindow.cs" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://OS/Scripts/Installel/InstallelCustomWindowOpenerThing.cs" type="Script" id=6]
 [ext_resource path="res://Assets/Boot/Installel.png" type="Texture" id=7]
 [ext_resource path="res://OS/Scripts/Installel/InstallelProgressbar.cs" type="Script" id=8]
+[ext_resource path="res://OS/Scripts/Installel/InstallelSteps.cs" type="Script" id=9]
 
 [sub_resource type="StreamTexture" id=19]
 flags = 4
@@ -1027,6 +1028,7 @@ margin_left = 10.0
 margin_top = -77.0
 rect_min_size = Vector2( 0, 60 )
 text = "Doing something probably"
+script = ExtResource( 9 )
 
 [node name="ProgressBar" type="ProgressBar" parent="Step4"]
 anchor_top = 1.0
