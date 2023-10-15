@@ -8,3 +8,10 @@ class DisplaySettings {
     public float ScalingFactor = 1;
     public bool AlreadySetup = false;
 }
+
+/// <summary>
+/// This is just used to check if the installer should be shown
+/// </summary>
+class InstallerInfo {
+    public bool IsInstalled = false;
+}

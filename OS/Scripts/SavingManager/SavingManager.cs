@@ -32,6 +32,16 @@ public class SavingManager : Node {
             );
             displaySettings.Close();
         }
+
+        // yes
+        File installerInfo = new File();
+        if (!installerInfo.FileExists("user://Settings/InstallerInfo.json")) {
+            installerInfo.Open("user://Settings/InstallerInfo.json", File.ModeFlags.Write);
+            installerInfo.StoreString(
+                JsonConvert.SerializeObject(new InstallerInfo())
+            );
+            installerInfo.Close();
+        }
     }
 
     /// <summary>
@@ -203,9 +213,12 @@ public class SavingManager : Node {
             case nameof(DisplaySettings):
                 filename = $"user://Settings/DisplaySettings.json";
                 break;
+            case nameof(InstallerInfo):
+                filename = $"user://Settings/InstallerInfo.json";
+                break;
             default:
                 GD.PushError("Invalid settings type!");
-                break;
+                return default;
         }
 
         File file = new File();
@@ -232,9 +245,12 @@ public class SavingManager : Node {
             case nameof(DisplaySettings):
                 filename = $"user://Settings/DisplaySettings.json";
                 break;
+            case nameof(InstallerInfo):
+                filename = $"user://Settings/InstallerInfo.json";
+                break;
             default:
                 GD.PushError("Invalid settings type!");
-                break;
+                return;
         }
 
         File file = new File();
