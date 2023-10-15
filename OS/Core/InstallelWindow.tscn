@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://OS/Scripts/WindowManager/BaseWindow.cs" type="Script" id=2]
 [ext_resource path="res://Assets/Boot/Logo.png" type="Texture" id=3]
 [ext_resource path="res://OS/Scripts/Installel/InstallerNormalNext.cs" type="Script" id=4]
 [ext_resource path="res://OS/Scripts/Installel/InstallerLicenseNext.cs" type="Script" id=5]
+[ext_resource path="res://OS/Scripts/Installel/InstallelCustomWindowOpenerThing.cs" type="Script" id=6]
+[ext_resource path="res://Assets/Installel/Slideshow1.png" type="Texture" id=7]
 
 [sub_resource type="StreamTexture" id=19]
 flags = 4
@@ -162,6 +164,7 @@ anims/Open = SubResource( 1 )
 anims/Restore = SubResource( 4 )
 
 [node name="Step1" type="CenterContainer" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -199,7 +202,7 @@ autowrap = true
 margin_top = 171.0
 margin_right = 404.0
 margin_bottom = 211.0
-text = "Start Installation"
+text = "Next"
 script = ExtResource( 4 )
 nextThing = NodePath("../../../Step2")
 previousThing = NodePath("../..")
@@ -935,3 +938,103 @@ rect_min_size = Vector2( 150, 0 )
 disabled = true
 text = "Next"
 script = ExtResource( 5 )
+nextThing = NodePath("../../Step3")
+previousThing = NodePath("..")
+
+[node name="Step3" type="CenterContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Step3"]
+margin_left = 395.0
+margin_top = 186.0
+margin_right = 784.0
+margin_bottom = 388.0
+
+[node name="Label" type="Label" parent="Step3/VBoxContainer"]
+margin_right = 389.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+theme_type_variation = "Header"
+text = "Where you will install lelcubeOS?"
+align = 1
+valign = 1
+
+[node name="OptionButton" type="OptionButton" parent="Step3/VBoxContainer"]
+margin_top = 50.0
+margin_right = 389.0
+margin_bottom = 90.0
+theme_type_variation = "SecondaryButton"
+text = "Lelstorage (5 TB)"
+align = 1
+items = [ "Lelstorage (5 TB)", null, false, 0, null, "lelcubeOS Me Installel (128 GB)", null, true, 1, null ]
+selected = 0
+
+[node name="Button" type="Button" parent="Step3/VBoxContainer"]
+margin_top = 100.0
+margin_right = 389.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 150, 0 )
+text = "Start Installation"
+script = ExtResource( 4 )
+nextThing = NodePath("../../../Step4")
+previousThing = NodePath("../..")
+
+[node name="HSeparator" type="HSeparator" parent="Step3/VBoxContainer"]
+margin_top = 150.0
+margin_right = 389.0
+margin_bottom = 152.0
+
+[node name="Button2" type="Button" parent="Step3/VBoxContainer"]
+margin_top = 162.0
+margin_right = 389.0
+margin_bottom = 202.0
+rect_min_size = Vector2( 150, 0 )
+theme_type_variation = "SecondaryButton"
+text = "Advanced Options"
+script = ExtResource( 6 )
+WindowScene = "res://OS/Core/InstallelPartitions.tscn"
+
+[node name="Step4" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_default_cursor_shape = 4
+
+[node name="Label" type="Label" parent="Step4"]
+anchor_right = 1.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 0, 40 )
+theme_type_variation = "Header"
+text = "Installing lelcubeOS Me..."
+align = 1
+valign = 1
+
+[node name="TextureRect" type="TextureRect" parent="Step4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 40.0
+margin_bottom = -80.0
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 7
+
+[node name="Label2" type="Label" parent="Step4"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = -77.0
+rect_min_size = Vector2( 0, 60 )
+text = "Doing something probably"
+
+[node name="ProgressBar" type="ProgressBar" parent="Step4"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = -50.0
+margin_right = -10.0
+margin_bottom = -10.0
+rect_min_size = Vector2( 0, 40 )
+value = 32.0
