@@ -133,7 +133,6 @@ tracks/1/keys = {
 
 [node name="Credits" type="WindowDialog"]
 process_priority = 1
-visible = true
 margin_right = -590.0
 margin_bottom = -300.0
 rect_min_size = Vector2( 500, 455 )
@@ -154,10 +153,9 @@ anims/Restore = SubResource( 4 )
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_clip_content = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
-margin_right = 484.0
+margin_right = 500.0
 margin_bottom = 1299.0
 size_flags_horizontal = 3
 
