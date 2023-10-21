@@ -17,7 +17,6 @@ public class InstallelHiUhCanYouRestartYourComputerCheersMate : Button {
         GetTree().Root.AddChild(timer);
         timer.Connect("timeout", this, nameof(Bruh));
         GetNode<Node2D>("/root/Installel").Position = new Vector2(69420, 69420);
-        GetNode("/root/Installel/Music").QueueFree();
     }
 
     public void Bruh() {

@@ -142,6 +142,8 @@ tracks/1/keys = {
 
 [node name="Installel" type="WindowDialog"]
 process_priority = 1
+visible = true
+modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 50.0
@@ -149,6 +151,7 @@ margin_top = 95.0
 margin_right = -50.0
 margin_bottom = -50.0
 rect_min_size = Vector2( 400, 100 )
+rect_scale = Vector2( 1e-05, 1e-05 )
 theme = ExtResource( 1 )
 popup_exclusive = true
 window_title = "Installel"
@@ -212,8 +215,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="M" type="VBoxContainer" parent="Step2"]
-margin_right = 690.0
-margin_bottom = 331.0
+margin_right = 1180.0
+margin_bottom = 575.0
 rect_min_size = Vector2( 690, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3

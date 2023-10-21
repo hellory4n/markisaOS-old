@@ -8,6 +8,9 @@ public class InstallelYes : Node2D {
         GetNode<Viewport>("1/Windows").Size = bruh;
 
         var hfbjgfj = GetNode<BaseWindow>("1/Windows/ThemeThing/Installel");
+        // j
+        if (Name == "InstallelOobe")
+            hfbjgfj.RectPosition = new Vector2(74892839, 89958439);
         hfbjgfj.Visible = true;
         hfbjgfj.Minimize.Visible = false;
         hfbjgfj.Maximize.Visible = false;

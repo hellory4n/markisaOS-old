@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://OS/Scripts/WindowManager/BaseWindow.cs" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/Boot/Installel.png" type="Texture" id=7]
 [ext_resource path="res://OS/Scripts/Installel/InstallelProgressbar.cs" type="Script" id=8]
 [ext_resource path="res://OS/Scripts/Installel/InstallelSteps.cs" type="Script" id=9]
+[ext_resource path="res://Audio/Music/Installation.mp3" type="AudioStream" id=10]
 
 [sub_resource type="StreamTexture" id=19]
 flags = 4
@@ -1039,5 +1040,9 @@ margin_top = -50.0
 margin_right = -10.0
 margin_bottom = -10.0
 rect_min_size = Vector2( 0, 40 )
-max_value = 500.0
+max_value = 2.0
 script = ExtResource( 8 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+autoplay = true
