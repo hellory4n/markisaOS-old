@@ -12,8 +12,5 @@ public class InstallelYes : Node2D {
         hfbjgfj.Minimize.Visible = false;
         hfbjgfj.Maximize.Visible = false;
         hfbjgfj.GetCloseButton().Visible = false;
-
-        SoundManager sounds = GetNode<SoundManager>("/root/SoundManager");
-        sounds.PlaySoundEffect(SoundManager.SoundEffects.Startup);
     }
 }

@@ -42,7 +42,7 @@ public class ComputerNoisesManager : Node {
     public override void _Process(float delta) {
         base._Process(delta);
 
-        if (GetNodeOrNull("/root/Lelsktop") == null && GetNodeOrNull("/root/Installel") == null)
+        if (GetNodeOrNull("/root/Lelsktop") == null)
             return;
 
         // first we need to get how much the device is suffering
@@ -52,39 +52,32 @@ public class ComputerNoisesManager : Node {
         float memory = 10;
         float storage = 10;
 
-        if (GetNodeOrNull("/root/Lelsktop") != null) {
-            foreach (BaseWindow window in GetNode("/root/Lelsktop/1/Windows/ThemeThing").GetChildren()) {
-                seepeeyou += window.CpuUse;
-                geepeeyou += window.GpuUse;
-                memory += window.MemoryUse;
-                storage += window.StorageUse;
-            }
+        foreach (BaseWindow window in GetNode("/root/Lelsktop/1/Windows/ThemeThing").GetChildren()) {
+            seepeeyou += window.CpuUse;
+            geepeeyou += window.GpuUse;
+            memory += window.MemoryUse;
+            storage += window.StorageUse;
+        }
 
-            foreach (BaseWindow window in GetNode("/root/Lelsktop/2/Windows/ThemeThing").GetChildren()) {
-                seepeeyou += window.CpuUse;
-                geepeeyou += window.GpuUse;
-                memory += window.MemoryUse;
-                storage += window.StorageUse;
-            }
+        foreach (BaseWindow window in GetNode("/root/Lelsktop/2/Windows/ThemeThing").GetChildren()) {
+            seepeeyou += window.CpuUse;
+            geepeeyou += window.GpuUse;
+            memory += window.MemoryUse;
+            storage += window.StorageUse;
+        }
 
-            foreach (BaseWindow window in GetNode("/root/Lelsktop/3/Windows/ThemeThing").GetChildren()) {
-                seepeeyou += window.CpuUse;
-                geepeeyou += window.GpuUse;
-                memory += window.MemoryUse;
-                storage += window.StorageUse;
-            }
+        foreach (BaseWindow window in GetNode("/root/Lelsktop/3/Windows/ThemeThing").GetChildren()) {
+            seepeeyou += window.CpuUse;
+            geepeeyou += window.GpuUse;
+            memory += window.MemoryUse;
+            storage += window.StorageUse;
+        }
 
-            foreach (BaseWindow window in GetNode("/root/Lelsktop/4/Windows/ThemeThing").GetChildren()) {
-                seepeeyou += window.CpuUse;
-                geepeeyou += window.GpuUse;
-                memory += window.MemoryUse;
-                storage += window.StorageUse;
-            }
-        } else {
-            // installel :)
-            seepeeyou = 50;
-            memory = 75;
-            storage = 100;
+        foreach (BaseWindow window in GetNode("/root/Lelsktop/4/Windows/ThemeThing").GetChildren()) {
+            seepeeyou += window.CpuUse;
+            geepeeyou += window.GpuUse;
+            memory += window.MemoryUse;
+            storage += window.StorageUse;
         }
 
         // if we use 200% of the cpu the computer is gonna explode
