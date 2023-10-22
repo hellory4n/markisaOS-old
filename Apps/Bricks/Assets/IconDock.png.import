@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SPiece.png-9aaf6baa19ea150b416565fe725684d4.stex"
+path="res://.import/IconDock.png-5183af817356ad3b3ac7202e806ad798.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Apps/BlockGame/Assets/SPiece.png"
-dest_files=[ "res://.import/SPiece.png-9aaf6baa19ea150b416565fe725684d4.stex" ]
+source_file="res://Apps/Bricks/Assets/IconDock.png"
+dest_files=[ "res://.import/IconDock.png-5183af817356ad3b3ac7202e806ad798.stex" ]
 
 [params]
 

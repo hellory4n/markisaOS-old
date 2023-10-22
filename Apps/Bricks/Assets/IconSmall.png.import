@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/IconSmall.png-0c457e88264e7a61bcec44619d156001.stex"
+path="res://.import/IconSmall.png-8b8c06b47e299054a761a6617526447e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Apps/BlockGame/Assets/IconSmall.png"
-dest_files=[ "res://.import/IconSmall.png-0c457e88264e7a61bcec44619d156001.stex" ]
+source_file="res://Apps/Bricks/Assets/IconSmall.png"
+dest_files=[ "res://.import/IconSmall.png-8b8c06b47e299054a761a6617526447e.stex" ]
 
 [params]
 
