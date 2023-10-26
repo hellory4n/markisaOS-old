@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Apps/Bricks/Assets/Background.png" type="Texture" id=2]
 [ext_resource path="res://Apps/Bricks/Assets/IconDock.png" type="Texture" id=3]
+[ext_resource path="res://Apps/Bricks/Scripts/BricksPaddle.cs" type="Script" id=4]
 [ext_resource path="res://OS/Scripts/WindowManager/BaseWindow.cs" type="Script" id=5]
+[ext_resource path="res://Apps/Bricks/Assets/Paddle.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Close"
@@ -152,19 +154,21 @@ anims/Minimize = SubResource( 3 )
 anims/Open = SubResource( 1 )
 anims/Restore = SubResource( 4 )
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-rect_clip_content = true
-ratio = 1.8846
-
-[node name="Control" type="Control" parent="AspectRatioContainer"]
-margin_left = 0.0019989
-margin_right = 489.998
+[node name="Ye" type="Control" parent="."]
+margin_right = 490.0
 margin_bottom = 260.0
+rect_min_size = Vector2( 490, 260 )
+rect_clip_content = true
 
-[node name="Sprite" type="TextureRect" parent="AspectRatioContainer/Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="Background" type="TextureRect" parent="Ye"]
+margin_right = 495.0
+margin_bottom = 260.0
 texture = ExtResource( 2 )
-expand = true
+
+[node name="Paddle" type="TextureRect" parent="Ye"]
+margin_left = 217.0
+margin_top = 218.0
+margin_right = 272.0
+margin_bottom = 248.0
+texture = ExtResource( 6 )
+script = ExtResource( 4 )

@@ -170,7 +170,7 @@ public class BaseWindow : WindowDialog {
     /// </summary>
     /// <returns>Whether or not the window is active.</returns>
     public bool IsActive() {
-        return GetIndex() == GetParent().GetChildCount()-1;
+        return GetIndex() == GetParent().GetChildCount()-1 && !GetViewport().GuiDisableInput;
     }
 
     // so the window doesn't get snapped just because your mouse was in the dock when you opened it
