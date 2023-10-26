@@ -2,12 +2,11 @@ using Godot;
 using System;
 
 public class BricksPaddle : TextureRect {
-
     public override void _Process(float delta) {
         base._Process(delta);
-
-        RectPosition = new Vector2(
-            Mathf.Max(0, GetGlobalMousePosition().x - RectGlobalPosition.x), 218
+        RectGlobalPosition = new Vector2(
+            GetViewport().GetMousePosition().x - RectGlobalPosition.x,
+            GetParent<Control>().RectGlobalPosition.y-218
         );
     }
 }

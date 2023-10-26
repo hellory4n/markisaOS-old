@@ -157,8 +157,7 @@ anims/Restore = SubResource( 4 )
 [node name="Ye" type="Control" parent="."]
 margin_right = 490.0
 margin_bottom = 260.0
-rect_min_size = Vector2( 490, 260 )
-rect_clip_content = true
+rect_min_size = Vector2( 495, 260 )
 
 [node name="Background" type="TextureRect" parent="Ye"]
 margin_right = 495.0
@@ -170,5 +169,6 @@ margin_left = 217.0
 margin_top = 218.0
 margin_right = 272.0
 margin_bottom = 248.0
+rect_min_size = Vector2( 55, 30 )
 texture = ExtResource( 6 )
 script = ExtResource( 4 )
