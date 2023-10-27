@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/Boot/OnboardingBackground.png" type="Texture" id=2]
 [ext_resource path="res://Apps/Mines/Assets/IconDock.png" type="Texture" id=3]
+[ext_resource path="res://Apps/Mines/Assets/Thingy.png" type="Texture" id=4]
 [ext_resource path="res://OS/Scripts/WindowManager/BaseWindow.cs" type="Script" id=5]
 
 [sub_resource type="Animation" id=2]
@@ -159,3 +160,565 @@ anchor_bottom = 1.0
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 7
+
+[node name="G" type="GridContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -225.0
+margin_top = -225.0
+margin_right = 225.0
+margin_bottom = 225.0
+custom_constants/vseparation = 0
+custom_constants/hseparation = 0
+columns = 9
+
+[node name="Yes" type="TextureButton" parent="G"]
+margin_right = 50.0
+margin_bottom = 50.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes2" type="TextureButton" parent="G"]
+margin_left = 50.0
+margin_right = 100.0
+margin_bottom = 50.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes3" type="TextureButton" parent="G"]
+margin_left = 100.0
+margin_right = 150.0
+margin_bottom = 50.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes4" type="TextureButton" parent="G"]
+margin_left = 150.0
+margin_right = 200.0
+margin_bottom = 50.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes5" type="TextureButton" parent="G"]
+margin_left = 200.0
+margin_right = 250.0
+margin_bottom = 50.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes6" type="TextureButton" parent="G"]
+margin_left = 250.0
+margin_right = 300.0
+margin_bottom = 50.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes7" type="TextureButton" parent="G"]
+margin_left = 300.0
+margin_right = 350.0
+margin_bottom = 50.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes8" type="TextureButton" parent="G"]
+margin_left = 350.0
+margin_right = 400.0
+margin_bottom = 50.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes9" type="TextureButton" parent="G"]
+margin_left = 400.0
+margin_right = 450.0
+margin_bottom = 50.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes10" type="TextureButton" parent="G"]
+margin_top = 50.0
+margin_right = 50.0
+margin_bottom = 100.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes11" type="TextureButton" parent="G"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 100.0
+margin_bottom = 100.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes12" type="TextureButton" parent="G"]
+margin_left = 100.0
+margin_top = 50.0
+margin_right = 150.0
+margin_bottom = 100.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes13" type="TextureButton" parent="G"]
+margin_left = 150.0
+margin_top = 50.0
+margin_right = 200.0
+margin_bottom = 100.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes14" type="TextureButton" parent="G"]
+margin_left = 200.0
+margin_top = 50.0
+margin_right = 250.0
+margin_bottom = 100.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes15" type="TextureButton" parent="G"]
+margin_left = 250.0
+margin_top = 50.0
+margin_right = 300.0
+margin_bottom = 100.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes16" type="TextureButton" parent="G"]
+margin_left = 300.0
+margin_top = 50.0
+margin_right = 350.0
+margin_bottom = 100.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes17" type="TextureButton" parent="G"]
+margin_left = 350.0
+margin_top = 50.0
+margin_right = 400.0
+margin_bottom = 100.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes18" type="TextureButton" parent="G"]
+margin_left = 400.0
+margin_top = 50.0
+margin_right = 450.0
+margin_bottom = 100.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes19" type="TextureButton" parent="G"]
+margin_top = 100.0
+margin_right = 50.0
+margin_bottom = 150.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes20" type="TextureButton" parent="G"]
+margin_left = 50.0
+margin_top = 100.0
+margin_right = 100.0
+margin_bottom = 150.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes21" type="TextureButton" parent="G"]
+margin_left = 100.0
+margin_top = 100.0
+margin_right = 150.0
+margin_bottom = 150.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes22" type="TextureButton" parent="G"]
+margin_left = 150.0
+margin_top = 100.0
+margin_right = 200.0
+margin_bottom = 150.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes23" type="TextureButton" parent="G"]
+margin_left = 200.0
+margin_top = 100.0
+margin_right = 250.0
+margin_bottom = 150.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes24" type="TextureButton" parent="G"]
+margin_left = 250.0
+margin_top = 100.0
+margin_right = 300.0
+margin_bottom = 150.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes25" type="TextureButton" parent="G"]
+margin_left = 300.0
+margin_top = 100.0
+margin_right = 350.0
+margin_bottom = 150.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes26" type="TextureButton" parent="G"]
+margin_left = 350.0
+margin_top = 100.0
+margin_right = 400.0
+margin_bottom = 150.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes27" type="TextureButton" parent="G"]
+margin_left = 400.0
+margin_top = 100.0
+margin_right = 450.0
+margin_bottom = 150.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes28" type="TextureButton" parent="G"]
+margin_top = 150.0
+margin_right = 50.0
+margin_bottom = 200.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes29" type="TextureButton" parent="G"]
+margin_left = 50.0
+margin_top = 150.0
+margin_right = 100.0
+margin_bottom = 200.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes30" type="TextureButton" parent="G"]
+margin_left = 100.0
+margin_top = 150.0
+margin_right = 150.0
+margin_bottom = 200.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes31" type="TextureButton" parent="G"]
+margin_left = 150.0
+margin_top = 150.0
+margin_right = 200.0
+margin_bottom = 200.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes32" type="TextureButton" parent="G"]
+margin_left = 200.0
+margin_top = 150.0
+margin_right = 250.0
+margin_bottom = 200.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes33" type="TextureButton" parent="G"]
+margin_left = 250.0
+margin_top = 150.0
+margin_right = 300.0
+margin_bottom = 200.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes34" type="TextureButton" parent="G"]
+margin_left = 300.0
+margin_top = 150.0
+margin_right = 350.0
+margin_bottom = 200.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes35" type="TextureButton" parent="G"]
+margin_left = 350.0
+margin_top = 150.0
+margin_right = 400.0
+margin_bottom = 200.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes36" type="TextureButton" parent="G"]
+margin_left = 400.0
+margin_top = 150.0
+margin_right = 450.0
+margin_bottom = 200.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes37" type="TextureButton" parent="G"]
+margin_top = 200.0
+margin_right = 50.0
+margin_bottom = 250.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes38" type="TextureButton" parent="G"]
+margin_left = 50.0
+margin_top = 200.0
+margin_right = 100.0
+margin_bottom = 250.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes39" type="TextureButton" parent="G"]
+margin_left = 100.0
+margin_top = 200.0
+margin_right = 150.0
+margin_bottom = 250.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes40" type="TextureButton" parent="G"]
+margin_left = 150.0
+margin_top = 200.0
+margin_right = 200.0
+margin_bottom = 250.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes41" type="TextureButton" parent="G"]
+margin_left = 200.0
+margin_top = 200.0
+margin_right = 250.0
+margin_bottom = 250.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes42" type="TextureButton" parent="G"]
+margin_left = 250.0
+margin_top = 200.0
+margin_right = 300.0
+margin_bottom = 250.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes43" type="TextureButton" parent="G"]
+margin_left = 300.0
+margin_top = 200.0
+margin_right = 350.0
+margin_bottom = 250.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes44" type="TextureButton" parent="G"]
+margin_left = 350.0
+margin_top = 200.0
+margin_right = 400.0
+margin_bottom = 250.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes45" type="TextureButton" parent="G"]
+margin_left = 400.0
+margin_top = 200.0
+margin_right = 450.0
+margin_bottom = 250.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes46" type="TextureButton" parent="G"]
+margin_top = 250.0
+margin_right = 50.0
+margin_bottom = 300.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes47" type="TextureButton" parent="G"]
+margin_left = 50.0
+margin_top = 250.0
+margin_right = 100.0
+margin_bottom = 300.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes48" type="TextureButton" parent="G"]
+margin_left = 100.0
+margin_top = 250.0
+margin_right = 150.0
+margin_bottom = 300.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes49" type="TextureButton" parent="G"]
+margin_left = 150.0
+margin_top = 250.0
+margin_right = 200.0
+margin_bottom = 300.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes50" type="TextureButton" parent="G"]
+margin_left = 200.0
+margin_top = 250.0
+margin_right = 250.0
+margin_bottom = 300.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes51" type="TextureButton" parent="G"]
+margin_left = 250.0
+margin_top = 250.0
+margin_right = 300.0
+margin_bottom = 300.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes52" type="TextureButton" parent="G"]
+margin_left = 300.0
+margin_top = 250.0
+margin_right = 350.0
+margin_bottom = 300.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes53" type="TextureButton" parent="G"]
+margin_left = 350.0
+margin_top = 250.0
+margin_right = 400.0
+margin_bottom = 300.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes54" type="TextureButton" parent="G"]
+margin_left = 400.0
+margin_top = 250.0
+margin_right = 450.0
+margin_bottom = 300.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes55" type="TextureButton" parent="G"]
+margin_top = 300.0
+margin_right = 50.0
+margin_bottom = 350.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes56" type="TextureButton" parent="G"]
+margin_left = 50.0
+margin_top = 300.0
+margin_right = 100.0
+margin_bottom = 350.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes57" type="TextureButton" parent="G"]
+margin_left = 100.0
+margin_top = 300.0
+margin_right = 150.0
+margin_bottom = 350.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes58" type="TextureButton" parent="G"]
+margin_left = 150.0
+margin_top = 300.0
+margin_right = 200.0
+margin_bottom = 350.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes59" type="TextureButton" parent="G"]
+margin_left = 200.0
+margin_top = 300.0
+margin_right = 250.0
+margin_bottom = 350.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes60" type="TextureButton" parent="G"]
+margin_left = 250.0
+margin_top = 300.0
+margin_right = 300.0
+margin_bottom = 350.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes61" type="TextureButton" parent="G"]
+margin_left = 300.0
+margin_top = 300.0
+margin_right = 350.0
+margin_bottom = 350.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes62" type="TextureButton" parent="G"]
+margin_left = 350.0
+margin_top = 300.0
+margin_right = 400.0
+margin_bottom = 350.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes63" type="TextureButton" parent="G"]
+margin_left = 400.0
+margin_top = 300.0
+margin_right = 450.0
+margin_bottom = 350.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes64" type="TextureButton" parent="G"]
+margin_top = 350.0
+margin_right = 50.0
+margin_bottom = 400.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes65" type="TextureButton" parent="G"]
+margin_left = 50.0
+margin_top = 350.0
+margin_right = 100.0
+margin_bottom = 400.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes66" type="TextureButton" parent="G"]
+margin_left = 100.0
+margin_top = 350.0
+margin_right = 150.0
+margin_bottom = 400.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes67" type="TextureButton" parent="G"]
+margin_left = 150.0
+margin_top = 350.0
+margin_right = 200.0
+margin_bottom = 400.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes68" type="TextureButton" parent="G"]
+margin_left = 200.0
+margin_top = 350.0
+margin_right = 250.0
+margin_bottom = 400.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes69" type="TextureButton" parent="G"]
+margin_left = 250.0
+margin_top = 350.0
+margin_right = 300.0
+margin_bottom = 400.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes70" type="TextureButton" parent="G"]
+margin_left = 300.0
+margin_top = 350.0
+margin_right = 350.0
+margin_bottom = 400.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes71" type="TextureButton" parent="G"]
+margin_left = 350.0
+margin_top = 350.0
+margin_right = 400.0
+margin_bottom = 400.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes72" type="TextureButton" parent="G"]
+margin_left = 400.0
+margin_top = 350.0
+margin_right = 450.0
+margin_bottom = 400.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes73" type="TextureButton" parent="G"]
+margin_top = 400.0
+margin_right = 50.0
+margin_bottom = 450.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes74" type="TextureButton" parent="G"]
+margin_left = 50.0
+margin_top = 400.0
+margin_right = 100.0
+margin_bottom = 450.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes75" type="TextureButton" parent="G"]
+margin_left = 100.0
+margin_top = 400.0
+margin_right = 150.0
+margin_bottom = 450.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes76" type="TextureButton" parent="G"]
+margin_left = 150.0
+margin_top = 400.0
+margin_right = 200.0
+margin_bottom = 450.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes77" type="TextureButton" parent="G"]
+margin_left = 200.0
+margin_top = 400.0
+margin_right = 250.0
+margin_bottom = 450.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes78" type="TextureButton" parent="G"]
+margin_left = 250.0
+margin_top = 400.0
+margin_right = 300.0
+margin_bottom = 450.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes79" type="TextureButton" parent="G"]
+margin_left = 300.0
+margin_top = 400.0
+margin_right = 350.0
+margin_bottom = 450.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes80" type="TextureButton" parent="G"]
+margin_left = 350.0
+margin_top = 400.0
+margin_right = 400.0
+margin_bottom = 450.0
+texture_normal = ExtResource( 4 )
+
+[node name="Yes81" type="TextureButton" parent="G"]
+margin_left = 400.0
+margin_top = 400.0
+margin_right = 450.0
+margin_bottom = 450.0
+texture_normal = ExtResource( 4 )
