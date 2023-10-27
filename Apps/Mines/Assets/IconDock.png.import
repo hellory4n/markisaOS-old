@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Paddle.png-c8b176e9d1b8bbc6ac8706ce400abefc.stex"
+path="res://.import/IconDock.png-b9b3fb9048e3afbbec76e4c2ababeb4c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Apps/Bricks/Assets/Paddle.png"
-dest_files=[ "res://.import/Paddle.png-c8b176e9d1b8bbc6ac8706ce400abefc.stex" ]
+source_file="res://Apps/Mines/Assets/IconDock.png"
+dest_files=[ "res://.import/IconDock.png-b9b3fb9048e3afbbec76e4c2ababeb4c.stex" ]
 
 [params]
 

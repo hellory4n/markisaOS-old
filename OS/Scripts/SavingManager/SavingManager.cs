@@ -363,8 +363,8 @@ public class SavingManager : Node {
         if (version.MajorVersion == 0 && version.MinorVersion == 9) {
             var coolApps = Load<InstalledApps>(user);
             // fun
-            coolApps.All = coolApps.All.Append(new Lelapp("Bricks", "res://Apps/Bricks/Assets/IconSmall.png", "res://Apps/Bricks/Bricks.tscn")).ToArray();
-            coolApps.Games = coolApps.Games.Append(new Lelapp("Bricks", "res://Apps/Bricks/Assets/IconSmall.png", "res://Apps/Bricks/Bricks.tscn")).ToArray();
+            coolApps.All = coolApps.All.Append(new Lelapp("Mines", "res://Apps/Mines/Assets/IconSmall.png", "res://Apps/Mines/Mines.tscn")).ToArray();
+            coolApps.Games = coolApps.Games.Append(new Lelapp("Mines", "res://Apps/Mines/Assets/IconSmall.png", "res://Apps/Mines/Mines.tscn")).ToArray();
             Save(user, coolApps);
 
             version.MinorVersion = 10;

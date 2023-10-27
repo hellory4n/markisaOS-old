@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/IconDock.png-5183af817356ad3b3ac7202e806ad798.stex"
+path="res://.import/IconSmall.png-f61a68ce50fb00e39a18467705825dab.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Apps/Bricks/Assets/IconDock.png"
-dest_files=[ "res://.import/IconDock.png-5183af817356ad3b3ac7202e806ad798.stex" ]
+source_file="res://Apps/Mines/Assets/IconSmall.png"
+dest_files=[ "res://.import/IconSmall.png-f61a68ce50fb00e39a18467705825dab.stex" ]
 
 [params]
 

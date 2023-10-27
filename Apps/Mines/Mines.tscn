@@ -1,11 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
-[ext_resource path="res://Apps/Bricks/Assets/Background.png" type="Texture" id=2]
-[ext_resource path="res://Apps/Bricks/Assets/IconDock.png" type="Texture" id=3]
-[ext_resource path="res://Apps/Bricks/Scripts/BricksPaddle.cs" type="Script" id=4]
+[ext_resource path="res://Assets/Boot/OnboardingBackground.png" type="Texture" id=2]
+[ext_resource path="res://Apps/Mines/Assets/IconDock.png" type="Texture" id=3]
 [ext_resource path="res://OS/Scripts/WindowManager/BaseWindow.cs" type="Script" id=5]
-[ext_resource path="res://Apps/Bricks/Assets/Paddle.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Close"
@@ -134,15 +132,15 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[node name="Bricks" type="WindowDialog"]
+[node name="Mines" type="WindowDialog"]
 process_priority = 1
 visible = true
-margin_right = 490.0
-margin_bottom = 260.0
-rect_min_size = Vector2( 490, 260 )
+margin_right = 400.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 450, 450 )
 theme = ExtResource( 1 )
 popup_exclusive = true
-window_title = "Bricks"
+window_title = "Mines"
 resizable = true
 script = ExtResource( 5 )
 Icon = ExtResource( 3 )
@@ -154,21 +152,10 @@ anims/Minimize = SubResource( 3 )
 anims/Open = SubResource( 1 )
 anims/Restore = SubResource( 4 )
 
-[node name="Ye" type="Control" parent="."]
-margin_right = 490.0
-margin_bottom = 260.0
-rect_min_size = Vector2( 495, 260 )
-
-[node name="Background" type="TextureRect" parent="Ye"]
-margin_right = 495.0
-margin_bottom = 260.0
+[node name="EpicBackground" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.388235 )
+anchor_right = 1.0
+anchor_bottom = 1.0
 texture = ExtResource( 2 )
-
-[node name="Paddle" type="TextureRect" parent="Ye"]
-margin_left = 217.0
-margin_top = 218.0
-margin_right = 272.0
-margin_bottom = 248.0
-rect_min_size = Vector2( 55, 30 )
-texture = ExtResource( 6 )
-script = ExtResource( 4 )
+expand = true
+stretch_mode = 7
