@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Mines.ogg-99619438ab038713e6081783d266416e.oggstr"
+
+[deps]
+
+source_file="res://Apps/Mines/Assets/Mines.ogg"
+dest_files=[ "res://.import/Mines.ogg-99619438ab038713e6081783d266416e.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/Boot/OnboardingBackground.png" type="Texture" id=2]
@@ -6,6 +6,10 @@
 [ext_resource path="res://Apps/Mines/Scripts/MinesGameGenerator9000.cs" type="Script" id=4]
 [ext_resource path="res://OS/Scripts/WindowManager/BaseWindow.cs" type="Script" id=5]
 [ext_resource path="res://Apps/Mines/Assets/Thingy2.png" type="Texture" id=6]
+[ext_resource path="res://Apps/Mines/Assets/Mines.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Apps/Mines/Assets/Thingy.png" type="Texture" id=8]
+[ext_resource path="res://Apps/Mines/Scripts/MinesShowStuffAndStuff.cs" type="Script" id=9]
+[ext_resource path="res://Apps/Mines/Scripts/MinesRestart.cs" type="Script" id=10]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Close"
@@ -137,9 +141,9 @@ tracks/1/keys = {
 [node name="Mines" type="WindowDialog"]
 process_priority = 1
 visible = true
-margin_right = 400.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 450, 450 )
+margin_right = 450.0
+margin_bottom = 510.0
+rect_min_size = Vector2( 450, 510 )
 theme = ExtResource( 1 )
 popup_exclusive = true
 window_title = "Mines"
@@ -165,89 +169,108 @@ stretch_mode = 7
 [node name="GameGenerator9000" type="Node" parent="."]
 script = ExtResource( 4 )
 
-[node name="Stuff" type="GridContainer" parent="."]
+[node name="Why" type="VBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -225.0
-margin_top = -225.0
+margin_top = -255.0
 margin_right = 225.0
-margin_bottom = 225.0
+margin_bottom = 255.0
+rect_min_size = Vector2( 450, 510 )
+
+[node name="Restart" type="Button" parent="Why"]
+margin_left = 150.0
+margin_right = 300.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 150, 0 )
+size_flags_horizontal = 4
+theme_type_variation = "SecondaryButton"
+text = "Restart"
+script = ExtResource( 10 )
+
+[node name="A" type="Control" parent="Why"]
+margin_top = 50.0
+margin_right = 450.0
+margin_bottom = 500.0
+rect_min_size = Vector2( 0, 450 )
+
+[node name="Stuff" type="GridContainer" parent="Why/A"]
 custom_constants/vseparation = 0
 custom_constants/hseparation = 0
 columns = 9
 
-[node name="1x1" type="TextureRect" parent="Stuff"]
+[node name="1x1" type="TextureRect" parent="Why/A/Stuff"]
 margin_right = 50.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="2x1" type="TextureRect" parent="Stuff"]
+[node name="2x1" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 50.0
 margin_right = 100.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="3x1" type="TextureRect" parent="Stuff"]
+[node name="3x1" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 100.0
 margin_right = 150.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="4x1" type="TextureRect" parent="Stuff"]
+[node name="4x1" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 150.0
 margin_right = 200.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="5x1" type="TextureRect" parent="Stuff"]
+[node name="5x1" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 200.0
 margin_right = 250.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="6x1" type="TextureRect" parent="Stuff"]
+[node name="6x1" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 250.0
 margin_right = 300.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="7x1" type="TextureRect" parent="Stuff"]
+[node name="7x1" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 300.0
 margin_right = 350.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="8x1" type="TextureRect" parent="Stuff"]
+[node name="8x1" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 350.0
 margin_right = 400.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="9x1" type="TextureRect" parent="Stuff"]
+[node name="9x1" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 400.0
 margin_right = 450.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="1x2" type="TextureRect" parent="Stuff"]
+[node name="1x2" type="TextureRect" parent="Why/A/Stuff"]
 margin_top = 50.0
 margin_right = 50.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="2x2" type="TextureRect" parent="Stuff"]
+[node name="2x2" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 50.0
 margin_top = 50.0
 margin_right = 100.0
@@ -255,7 +278,7 @@ margin_bottom = 100.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="3x2" type="TextureRect" parent="Stuff"]
+[node name="3x2" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 100.0
 margin_top = 50.0
 margin_right = 150.0
@@ -263,7 +286,7 @@ margin_bottom = 100.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="4x2" type="TextureRect" parent="Stuff"]
+[node name="4x2" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 150.0
 margin_top = 50.0
 margin_right = 200.0
@@ -271,7 +294,7 @@ margin_bottom = 100.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="5x2" type="TextureRect" parent="Stuff"]
+[node name="5x2" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 200.0
 margin_top = 50.0
 margin_right = 250.0
@@ -279,7 +302,7 @@ margin_bottom = 100.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="6x2" type="TextureRect" parent="Stuff"]
+[node name="6x2" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 250.0
 margin_top = 50.0
 margin_right = 300.0
@@ -287,7 +310,7 @@ margin_bottom = 100.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="7x2" type="TextureRect" parent="Stuff"]
+[node name="7x2" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 300.0
 margin_top = 50.0
 margin_right = 350.0
@@ -295,7 +318,7 @@ margin_bottom = 100.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="8x2" type="TextureRect" parent="Stuff"]
+[node name="8x2" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 350.0
 margin_top = 50.0
 margin_right = 400.0
@@ -303,7 +326,7 @@ margin_bottom = 100.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="9x2" type="TextureRect" parent="Stuff"]
+[node name="9x2" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 400.0
 margin_top = 50.0
 margin_right = 450.0
@@ -311,14 +334,14 @@ margin_bottom = 100.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="1x3" type="TextureRect" parent="Stuff"]
+[node name="1x3" type="TextureRect" parent="Why/A/Stuff"]
 margin_top = 100.0
 margin_right = 50.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="2x3" type="TextureRect" parent="Stuff"]
+[node name="2x3" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 50.0
 margin_top = 100.0
 margin_right = 100.0
@@ -326,7 +349,7 @@ margin_bottom = 150.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="3x3" type="TextureRect" parent="Stuff"]
+[node name="3x3" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 100.0
 margin_top = 100.0
 margin_right = 150.0
@@ -334,7 +357,7 @@ margin_bottom = 150.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="4x3" type="TextureRect" parent="Stuff"]
+[node name="4x3" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 150.0
 margin_top = 100.0
 margin_right = 200.0
@@ -342,7 +365,7 @@ margin_bottom = 150.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="5x3" type="TextureRect" parent="Stuff"]
+[node name="5x3" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 200.0
 margin_top = 100.0
 margin_right = 250.0
@@ -350,7 +373,7 @@ margin_bottom = 150.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="6x3" type="TextureRect" parent="Stuff"]
+[node name="6x3" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 250.0
 margin_top = 100.0
 margin_right = 300.0
@@ -358,7 +381,7 @@ margin_bottom = 150.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="7x3" type="TextureRect" parent="Stuff"]
+[node name="7x3" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 300.0
 margin_top = 100.0
 margin_right = 350.0
@@ -366,7 +389,7 @@ margin_bottom = 150.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="8x3" type="TextureRect" parent="Stuff"]
+[node name="8x3" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 350.0
 margin_top = 100.0
 margin_right = 400.0
@@ -374,7 +397,7 @@ margin_bottom = 150.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="9x3" type="TextureRect" parent="Stuff"]
+[node name="9x3" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 400.0
 margin_top = 100.0
 margin_right = 450.0
@@ -382,14 +405,14 @@ margin_bottom = 150.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="1x4" type="TextureRect" parent="Stuff"]
+[node name="1x4" type="TextureRect" parent="Why/A/Stuff"]
 margin_top = 150.0
 margin_right = 50.0
 margin_bottom = 200.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="2x4" type="TextureRect" parent="Stuff"]
+[node name="2x4" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 50.0
 margin_top = 150.0
 margin_right = 100.0
@@ -397,7 +420,7 @@ margin_bottom = 200.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="3x4" type="TextureRect" parent="Stuff"]
+[node name="3x4" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 100.0
 margin_top = 150.0
 margin_right = 150.0
@@ -405,7 +428,7 @@ margin_bottom = 200.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="4x4" type="TextureRect" parent="Stuff"]
+[node name="4x4" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 150.0
 margin_top = 150.0
 margin_right = 200.0
@@ -413,7 +436,7 @@ margin_bottom = 200.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="5x4" type="TextureRect" parent="Stuff"]
+[node name="5x4" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 200.0
 margin_top = 150.0
 margin_right = 250.0
@@ -421,7 +444,7 @@ margin_bottom = 200.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="6x4" type="TextureRect" parent="Stuff"]
+[node name="6x4" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 250.0
 margin_top = 150.0
 margin_right = 300.0
@@ -429,7 +452,7 @@ margin_bottom = 200.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="7x4" type="TextureRect" parent="Stuff"]
+[node name="7x4" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 300.0
 margin_top = 150.0
 margin_right = 350.0
@@ -437,7 +460,7 @@ margin_bottom = 200.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="8x4" type="TextureRect" parent="Stuff"]
+[node name="8x4" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 350.0
 margin_top = 150.0
 margin_right = 400.0
@@ -445,7 +468,7 @@ margin_bottom = 200.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="9x4" type="TextureRect" parent="Stuff"]
+[node name="9x4" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 400.0
 margin_top = 150.0
 margin_right = 450.0
@@ -453,14 +476,14 @@ margin_bottom = 200.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="1x5" type="TextureRect" parent="Stuff"]
+[node name="1x5" type="TextureRect" parent="Why/A/Stuff"]
 margin_top = 200.0
 margin_right = 50.0
 margin_bottom = 250.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="2x5" type="TextureRect" parent="Stuff"]
+[node name="2x5" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 50.0
 margin_top = 200.0
 margin_right = 100.0
@@ -468,7 +491,7 @@ margin_bottom = 250.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="3x5" type="TextureRect" parent="Stuff"]
+[node name="3x5" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 100.0
 margin_top = 200.0
 margin_right = 150.0
@@ -476,7 +499,7 @@ margin_bottom = 250.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="4x5" type="TextureRect" parent="Stuff"]
+[node name="4x5" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 150.0
 margin_top = 200.0
 margin_right = 200.0
@@ -484,7 +507,7 @@ margin_bottom = 250.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="5x5" type="TextureRect" parent="Stuff"]
+[node name="5x5" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 200.0
 margin_top = 200.0
 margin_right = 250.0
@@ -492,7 +515,7 @@ margin_bottom = 250.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="6x5" type="TextureRect" parent="Stuff"]
+[node name="6x5" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 250.0
 margin_top = 200.0
 margin_right = 300.0
@@ -500,7 +523,7 @@ margin_bottom = 250.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="7x5" type="TextureRect" parent="Stuff"]
+[node name="7x5" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 300.0
 margin_top = 200.0
 margin_right = 350.0
@@ -508,7 +531,7 @@ margin_bottom = 250.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="8x5" type="TextureRect" parent="Stuff"]
+[node name="8x5" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 350.0
 margin_top = 200.0
 margin_right = 400.0
@@ -516,7 +539,7 @@ margin_bottom = 250.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="9x5" type="TextureRect" parent="Stuff"]
+[node name="9x5" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 400.0
 margin_top = 200.0
 margin_right = 450.0
@@ -524,14 +547,14 @@ margin_bottom = 250.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="1x6" type="TextureRect" parent="Stuff"]
+[node name="1x6" type="TextureRect" parent="Why/A/Stuff"]
 margin_top = 250.0
 margin_right = 50.0
 margin_bottom = 300.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="2x6" type="TextureRect" parent="Stuff"]
+[node name="2x6" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 50.0
 margin_top = 250.0
 margin_right = 100.0
@@ -539,7 +562,7 @@ margin_bottom = 300.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="3x6" type="TextureRect" parent="Stuff"]
+[node name="3x6" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 100.0
 margin_top = 250.0
 margin_right = 150.0
@@ -547,7 +570,7 @@ margin_bottom = 300.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="4x6" type="TextureRect" parent="Stuff"]
+[node name="4x6" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 150.0
 margin_top = 250.0
 margin_right = 200.0
@@ -555,7 +578,7 @@ margin_bottom = 300.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="5x6" type="TextureRect" parent="Stuff"]
+[node name="5x6" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 200.0
 margin_top = 250.0
 margin_right = 250.0
@@ -563,7 +586,7 @@ margin_bottom = 300.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="6x6" type="TextureRect" parent="Stuff"]
+[node name="6x6" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 250.0
 margin_top = 250.0
 margin_right = 300.0
@@ -571,7 +594,7 @@ margin_bottom = 300.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="7x6" type="TextureRect" parent="Stuff"]
+[node name="7x6" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 300.0
 margin_top = 250.0
 margin_right = 350.0
@@ -579,7 +602,7 @@ margin_bottom = 300.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="8x6" type="TextureRect" parent="Stuff"]
+[node name="8x6" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 350.0
 margin_top = 250.0
 margin_right = 400.0
@@ -587,7 +610,7 @@ margin_bottom = 300.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="9x6" type="TextureRect" parent="Stuff"]
+[node name="9x6" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 400.0
 margin_top = 250.0
 margin_right = 450.0
@@ -595,14 +618,14 @@ margin_bottom = 300.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="1x7" type="TextureRect" parent="Stuff"]
+[node name="1x7" type="TextureRect" parent="Why/A/Stuff"]
 margin_top = 300.0
 margin_right = 50.0
 margin_bottom = 350.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="2x7" type="TextureRect" parent="Stuff"]
+[node name="2x7" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 50.0
 margin_top = 300.0
 margin_right = 100.0
@@ -610,7 +633,7 @@ margin_bottom = 350.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="3x7" type="TextureRect" parent="Stuff"]
+[node name="3x7" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 100.0
 margin_top = 300.0
 margin_right = 150.0
@@ -618,7 +641,7 @@ margin_bottom = 350.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="4x7" type="TextureRect" parent="Stuff"]
+[node name="4x7" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 150.0
 margin_top = 300.0
 margin_right = 200.0
@@ -626,7 +649,7 @@ margin_bottom = 350.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="5x7" type="TextureRect" parent="Stuff"]
+[node name="5x7" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 200.0
 margin_top = 300.0
 margin_right = 250.0
@@ -634,7 +657,7 @@ margin_bottom = 350.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="6x7" type="TextureRect" parent="Stuff"]
+[node name="6x7" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 250.0
 margin_top = 300.0
 margin_right = 300.0
@@ -642,7 +665,7 @@ margin_bottom = 350.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="7x7" type="TextureRect" parent="Stuff"]
+[node name="7x7" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 300.0
 margin_top = 300.0
 margin_right = 350.0
@@ -650,7 +673,7 @@ margin_bottom = 350.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="8x7" type="TextureRect" parent="Stuff"]
+[node name="8x7" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 350.0
 margin_top = 300.0
 margin_right = 400.0
@@ -658,7 +681,7 @@ margin_bottom = 350.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="9x7" type="TextureRect" parent="Stuff"]
+[node name="9x7" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 400.0
 margin_top = 300.0
 margin_right = 450.0
@@ -666,14 +689,14 @@ margin_bottom = 350.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="1x8" type="TextureRect" parent="Stuff"]
+[node name="1x8" type="TextureRect" parent="Why/A/Stuff"]
 margin_top = 350.0
 margin_right = 50.0
 margin_bottom = 400.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="2x8" type="TextureRect" parent="Stuff"]
+[node name="2x8" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 50.0
 margin_top = 350.0
 margin_right = 100.0
@@ -681,7 +704,7 @@ margin_bottom = 400.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="3x8" type="TextureRect" parent="Stuff"]
+[node name="3x8" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 100.0
 margin_top = 350.0
 margin_right = 150.0
@@ -689,7 +712,7 @@ margin_bottom = 400.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="4x8" type="TextureRect" parent="Stuff"]
+[node name="4x8" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 150.0
 margin_top = 350.0
 margin_right = 200.0
@@ -697,7 +720,7 @@ margin_bottom = 400.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="5x8" type="TextureRect" parent="Stuff"]
+[node name="5x8" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 200.0
 margin_top = 350.0
 margin_right = 250.0
@@ -705,7 +728,7 @@ margin_bottom = 400.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="6x8" type="TextureRect" parent="Stuff"]
+[node name="6x8" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 250.0
 margin_top = 350.0
 margin_right = 300.0
@@ -713,7 +736,7 @@ margin_bottom = 400.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="7x8" type="TextureRect" parent="Stuff"]
+[node name="7x8" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 300.0
 margin_top = 350.0
 margin_right = 350.0
@@ -721,7 +744,7 @@ margin_bottom = 400.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="8x8" type="TextureRect" parent="Stuff"]
+[node name="8x8" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 350.0
 margin_top = 350.0
 margin_right = 400.0
@@ -729,7 +752,7 @@ margin_bottom = 400.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="9x8" type="TextureRect" parent="Stuff"]
+[node name="9x8" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 400.0
 margin_top = 350.0
 margin_right = 450.0
@@ -737,14 +760,14 @@ margin_bottom = 400.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="1x9" type="TextureRect" parent="Stuff"]
+[node name="1x9" type="TextureRect" parent="Why/A/Stuff"]
 margin_top = 400.0
 margin_right = 50.0
 margin_bottom = 450.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="2x9" type="TextureRect" parent="Stuff"]
+[node name="2x9" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 50.0
 margin_top = 400.0
 margin_right = 100.0
@@ -752,7 +775,7 @@ margin_bottom = 450.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="3x9" type="TextureRect" parent="Stuff"]
+[node name="3x9" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 100.0
 margin_top = 400.0
 margin_right = 150.0
@@ -760,7 +783,7 @@ margin_bottom = 450.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="4x9" type="TextureRect" parent="Stuff"]
+[node name="4x9" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 150.0
 margin_top = 400.0
 margin_right = 200.0
@@ -768,7 +791,7 @@ margin_bottom = 450.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="5x9" type="TextureRect" parent="Stuff"]
+[node name="5x9" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 200.0
 margin_top = 400.0
 margin_right = 250.0
@@ -776,7 +799,7 @@ margin_bottom = 450.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="6x9" type="TextureRect" parent="Stuff"]
+[node name="6x9" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 250.0
 margin_top = 400.0
 margin_right = 300.0
@@ -784,7 +807,7 @@ margin_bottom = 450.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="7x9" type="TextureRect" parent="Stuff"]
+[node name="7x9" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 300.0
 margin_top = 400.0
 margin_right = 350.0
@@ -792,7 +815,7 @@ margin_bottom = 450.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="8x9" type="TextureRect" parent="Stuff"]
+[node name="8x9" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 350.0
 margin_top = 400.0
 margin_right = 400.0
@@ -800,10 +823,733 @@ margin_bottom = 450.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
 
-[node name="9x9" type="TextureRect" parent="Stuff"]
+[node name="9x9" type="TextureRect" parent="Why/A/Stuff"]
 margin_left = 400.0
 margin_top = 400.0
 margin_right = 450.0
 margin_bottom = 450.0
 rect_min_size = Vector2( 50, 50 )
 texture = ExtResource( 6 )
+
+[node name="ClickingStuff" type="GridContainer" parent="Why/A"]
+margin_right = 450.0
+margin_bottom = 450.0
+custom_constants/vseparation = 0
+custom_constants/hseparation = 0
+columns = 9
+
+[node name="1x1" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="2x1" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 50.0
+margin_right = 100.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="3x1" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 100.0
+margin_right = 150.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="4x1" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 150.0
+margin_right = 200.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="5x1" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 200.0
+margin_right = 250.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="6x1" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 250.0
+margin_right = 300.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="7x1" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 300.0
+margin_right = 350.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="8x1" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 350.0
+margin_right = 400.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="9x1" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 400.0
+margin_right = 450.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="1x2" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_top = 50.0
+margin_right = 50.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="2x2" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="3x2" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 100.0
+margin_top = 50.0
+margin_right = 150.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="4x2" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 150.0
+margin_top = 50.0
+margin_right = 200.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="5x2" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 200.0
+margin_top = 50.0
+margin_right = 250.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="6x2" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 250.0
+margin_top = 50.0
+margin_right = 300.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="7x2" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 300.0
+margin_top = 50.0
+margin_right = 350.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="8x2" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 350.0
+margin_top = 50.0
+margin_right = 400.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="9x2" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 400.0
+margin_top = 50.0
+margin_right = 450.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="1x3" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_top = 100.0
+margin_right = 50.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="2x3" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 50.0
+margin_top = 100.0
+margin_right = 100.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="3x3" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 100.0
+margin_top = 100.0
+margin_right = 150.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="4x3" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 150.0
+margin_top = 100.0
+margin_right = 200.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="5x3" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 200.0
+margin_top = 100.0
+margin_right = 250.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="6x3" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 250.0
+margin_top = 100.0
+margin_right = 300.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="7x3" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 300.0
+margin_top = 100.0
+margin_right = 350.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="8x3" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 350.0
+margin_top = 100.0
+margin_right = 400.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="9x3" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 400.0
+margin_top = 100.0
+margin_right = 450.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="1x4" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_top = 150.0
+margin_right = 50.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="2x4" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 50.0
+margin_top = 150.0
+margin_right = 100.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="3x4" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 100.0
+margin_top = 150.0
+margin_right = 150.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="4x4" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 150.0
+margin_top = 150.0
+margin_right = 200.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="5x4" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 200.0
+margin_top = 150.0
+margin_right = 250.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="6x4" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 250.0
+margin_top = 150.0
+margin_right = 300.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="7x4" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 300.0
+margin_top = 150.0
+margin_right = 350.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="8x4" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 350.0
+margin_top = 150.0
+margin_right = 400.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="9x4" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 400.0
+margin_top = 150.0
+margin_right = 450.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="1x5" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_top = 200.0
+margin_right = 50.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="2x5" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 50.0
+margin_top = 200.0
+margin_right = 100.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="3x5" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 100.0
+margin_top = 200.0
+margin_right = 150.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="4x5" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 150.0
+margin_top = 200.0
+margin_right = 200.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="5x5" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 200.0
+margin_top = 200.0
+margin_right = 250.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="6x5" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 250.0
+margin_top = 200.0
+margin_right = 300.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="7x5" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 300.0
+margin_top = 200.0
+margin_right = 350.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="8x5" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 350.0
+margin_top = 200.0
+margin_right = 400.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="9x5" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 400.0
+margin_top = 200.0
+margin_right = 450.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="1x6" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_top = 250.0
+margin_right = 50.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="2x6" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 50.0
+margin_top = 250.0
+margin_right = 100.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="3x6" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 100.0
+margin_top = 250.0
+margin_right = 150.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="4x6" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 150.0
+margin_top = 250.0
+margin_right = 200.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="5x6" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 200.0
+margin_top = 250.0
+margin_right = 250.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="6x6" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 250.0
+margin_top = 250.0
+margin_right = 300.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="7x6" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 300.0
+margin_top = 250.0
+margin_right = 350.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="8x6" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 350.0
+margin_top = 250.0
+margin_right = 400.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="9x6" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 400.0
+margin_top = 250.0
+margin_right = 450.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="1x7" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_top = 300.0
+margin_right = 50.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="2x7" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 50.0
+margin_top = 300.0
+margin_right = 100.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="3x7" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 100.0
+margin_top = 300.0
+margin_right = 150.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="4x7" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 150.0
+margin_top = 300.0
+margin_right = 200.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="5x7" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 200.0
+margin_top = 300.0
+margin_right = 250.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="6x7" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 250.0
+margin_top = 300.0
+margin_right = 300.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="7x7" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 300.0
+margin_top = 300.0
+margin_right = 350.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="8x7" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 350.0
+margin_top = 300.0
+margin_right = 400.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="9x7" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 400.0
+margin_top = 300.0
+margin_right = 450.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="1x8" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_top = 350.0
+margin_right = 50.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="2x8" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 50.0
+margin_top = 350.0
+margin_right = 100.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="3x8" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 100.0
+margin_top = 350.0
+margin_right = 150.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="4x8" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 150.0
+margin_top = 350.0
+margin_right = 200.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="5x8" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 200.0
+margin_top = 350.0
+margin_right = 250.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="6x8" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 250.0
+margin_top = 350.0
+margin_right = 300.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="7x8" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 300.0
+margin_top = 350.0
+margin_right = 350.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="8x8" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 350.0
+margin_top = 350.0
+margin_right = 400.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="9x8" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 400.0
+margin_top = 350.0
+margin_right = 450.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="1x9" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_top = 400.0
+margin_right = 50.0
+margin_bottom = 450.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="2x9" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 50.0
+margin_top = 400.0
+margin_right = 100.0
+margin_bottom = 450.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="3x9" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 100.0
+margin_top = 400.0
+margin_right = 150.0
+margin_bottom = 450.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="4x9" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 150.0
+margin_top = 400.0
+margin_right = 200.0
+margin_bottom = 450.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="5x9" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 200.0
+margin_top = 400.0
+margin_right = 250.0
+margin_bottom = 450.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="6x9" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 250.0
+margin_top = 400.0
+margin_right = 300.0
+margin_bottom = 450.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="7x9" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 300.0
+margin_top = 400.0
+margin_right = 350.0
+margin_bottom = 450.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="8x9" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 350.0
+margin_top = 400.0
+margin_right = 400.0
+margin_bottom = 450.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="9x9" type="TextureButton" parent="Why/A/ClickingStuff"]
+margin_left = 400.0
+margin_top = 400.0
+margin_right = 450.0
+margin_bottom = 450.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 9 )
+
+[node name="Bullshit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+autoplay = true
+bus = "Music"
