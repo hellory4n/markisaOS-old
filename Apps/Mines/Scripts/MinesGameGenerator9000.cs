@@ -8,6 +8,11 @@ public class MinesGameGenerator9000 : Node {
         ResourceLoader.Load<Texture>("res://Apps/Mines/Assets/One.png"),
         ResourceLoader.Load<Texture>("res://Apps/Mines/Assets/Two.png"),
         ResourceLoader.Load<Texture>("res://Apps/Mines/Assets/Three.png"),
+        ResourceLoader.Load<Texture>("res://Apps/Mines/Assets/Four.png"),
+        ResourceLoader.Load<Texture>("res://Apps/Mines/Assets/Five.png"),
+        ResourceLoader.Load<Texture>("res://Apps/Mines/Assets/Six.png"),
+        ResourceLoader.Load<Texture>("res://Apps/Mines/Assets/Seven.png"),
+        ResourceLoader.Load<Texture>("res://Apps/Mines/Assets/Eight.png"),
     };
     public readonly Texture Nothingness = ResourceLoader.Load<Texture>("res://Apps/Mines/Assets/Nothingness.png");
     Random random = new Random();
@@ -44,28 +49,31 @@ public class MinesGameGenerator9000 : Node {
             if (mines.Contains(position))
                 continue;
 
-            // we do the loop backwards cuz closer mines get priority or something
-            for (int i = 3; i >= 1 ; i--) {
-                // we need to check the thing in all 8 sides of the squares
-                Vector2[] epicPlaces = new Vector2[] {
-                    new Vector2(position.x+i, position.y),
-                    new Vector2(position.x+i, position.y+i),
-                    new Vector2(position.x, position.y+i),
-                    new Vector2(position.x-i, position.y+i),
-                    new Vector2(position.x-i, position.y),
-                    new Vector2(position.x-i, position.y-i),
-                };
+            int nearbyMines = 0;
+            // we need to check the thing in all 8 sides of the squares
+            Vector2[] epicPlaces = new Vector2[] {
+                new Vector2(position.x+1, position.y),
+                new Vector2(position.x+1, position.y+1),
+                new Vector2(position.x, position.y+1),
+                new Vector2(position.x-1, position.y+1),
+                new Vector2(position.x-1, position.y),
+                new Vector2(position.x-1, position.y-1),
+                new Vector2(position.x, position.y-1),
+                new Vector2(position.x+1, position.y-1)
+            };
 
-                foreach (var place in epicPlaces) {
-                    TextureRect thingy1 = GetNodeOrNull<TextureRect>($"../Why/A/Stuff/{place.x}x{place.y}");
+            foreach (var place in epicPlaces) {
+                TextureRect thingy1 = GetNodeOrNull<TextureRect>($"../Why/A/Stuff/{place.x}x{place.y}");
 
-                    if (thingy1 == null)
-                        continue;
-                    
-                    if (thingy1.Texture == Mine)
-                        square.Texture = NumberStuff[i-1];
-                }
+                if (thingy1 == null)
+                    continue;
+                
+                if (thingy1.Texture == Mine)
+                    nearbyMines++;
             }
+
+            if (nearbyMines > 0)
+                square.Texture = NumberStuff[nearbyMines-1];
         }
 
         // yes.
