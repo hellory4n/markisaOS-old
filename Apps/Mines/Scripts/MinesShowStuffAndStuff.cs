@@ -7,6 +7,7 @@ public class MinesShowStuffAndStuff : TextureButton {
     Texture OhNoes;
     Texture[] NumberStuff;
     Texture Nothingness;
+    Texture EmptySquare;
 
     public override void _Ready() {
         base._Ready();
@@ -21,6 +22,7 @@ public class MinesShowStuffAndStuff : TextureButton {
         OhNoes = bruh.Mine;
         NumberStuff = bruh.NumberStuff;
         Nothingness = bruh.Nothingness;
+        EmptySquare = bruh.EmptySquare;
 
         Connect("pressed", this, nameof(Click));
     }
@@ -45,24 +47,21 @@ public class MinesShowStuffAndStuff : TextureButton {
 
     public void ShowEmptySquare(MinesGameGenerator9000 bruh, Vector2 epicPosition) {
         var square = GetNode<TextureRect>($"../../Stuff/{epicPosition.x}x{epicPosition.y}");
+        var squareButButton = GetNode<TextureButton>($"../{epicPosition.x}x{epicPosition.y}");
         
-        if (NumberStuff.Contains(square.Texture)) {
+        if (square.Texture != EmptySquare || squareButButton.TextureNormal == Nothingness) {
             return;
         }
 
-        GetNode<TextureButton>($"../{epicPosition.x}x{epicPosition.y}").TextureNormal = Nothingness;
+        squareButButton.TextureNormal = Nothingness;
         bruh.ShownStuff++;
         
         // then try checking all of the corners stuff
         Vector2[] epicPlaces = new Vector2[] {
             new Vector2(epicPosition.x+1, epicPosition.y),
-            new Vector2(epicPosition.x+1, epicPosition.y+1),
             new Vector2(epicPosition.x, epicPosition.y+1),
-            new Vector2(epicPosition.x-1, epicPosition.y+1),
             new Vector2(epicPosition.x-1, epicPosition.y),
-            new Vector2(epicPosition.x-1, epicPosition.y-1),
             new Vector2(epicPosition.x, epicPosition.y-1),
-            new Vector2(epicPosition.x+1, epicPosition.y-1)
         };
 
         foreach (var place in epicPlaces) {

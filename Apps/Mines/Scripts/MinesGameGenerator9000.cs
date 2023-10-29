@@ -15,6 +15,7 @@ public class MinesGameGenerator9000 : Node {
         ResourceLoader.Load<Texture>("res://Apps/Mines/Assets/Eight.png"),
     };
     public readonly Texture Nothingness = ResourceLoader.Load<Texture>("res://Apps/Mines/Assets/Nothingness.png");
+    public readonly Texture EmptySquare = ResourceLoader.Load<Texture>("res://Apps/Mines/Assets/Thingy2.png");
     Random random = new Random();
     [Export]
     Vector2 Grid = new Vector2(9, 9);
