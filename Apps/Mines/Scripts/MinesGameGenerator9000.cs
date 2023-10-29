@@ -36,23 +36,34 @@ public class MinesGameGenerator9000 : Node {
         }
 
         // then we put the number stuff :)
-        foreach (var mine in mines) {
+        foreach (TextureRect square in GetNode("../Why/A/Stuff").GetChildren()) {
+            // get the position thingy :)
+            string[] yes = square.Name.Split("x");
+            var position = new Vector2(int.Parse(yes[0]), int.Parse(yes[1]));
+
+            if (mines.Contains(position))
+                continue;
+
             // we do the loop backwards cuz closer mines get priority or something
             for (int i = 3; i >= 1 ; i--) {
-                // we need to check the thing in all 8 sides of the mine lol
+                // we need to check the thing in all 8 sides of the squares
                 Vector2[] epicPlaces = new Vector2[] {
-                    new Vector2(mine.x+i, mine.y),
-                    new Vector2(mine.x+i, mine.y+i),
-                    new Vector2(mine.x, mine.y+i),
-                    new Vector2(mine.x-i, mine.y+i),
-                    new Vector2(mine.x-i, mine.y),
-                    new Vector2(mine.x-i, mine.y-i),
+                    new Vector2(position.x+i, position.y),
+                    new Vector2(position.x+i, position.y+i),
+                    new Vector2(position.x, position.y+i),
+                    new Vector2(position.x-i, position.y+i),
+                    new Vector2(position.x-i, position.y),
+                    new Vector2(position.x-i, position.y-i),
                 };
 
                 foreach (var place in epicPlaces) {
                     TextureRect thingy1 = GetNodeOrNull<TextureRect>($"../Why/A/Stuff/{place.x}x{place.y}");
-                    if (thingy1 != null && !mines.Contains(place))
-                        thingy1.Texture = NumberStuff[i-1];
+
+                    if (thingy1 == null)
+                        continue;
+                    
+                    if (thingy1.Texture == Mine)
+                        square.Texture = NumberStuff[i-1];
                 }
             }
         }
