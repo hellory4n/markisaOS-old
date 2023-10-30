@@ -8,7 +8,7 @@ public class PauseMusic : Button {
     }
 
     public void Click() {
-        GetNode<MusicPlayer>("../Audio").Paused = Pressed;
+        GetNode<MusicPlayer>("../Audio").SetPaused(Pressed);
     }
 
     public override void _Process(float delta) {

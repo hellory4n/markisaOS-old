@@ -1,16 +1,13 @@
 using Godot;
 using System;
 
-public class MusicPlayer : Node {
+public class WebMusicPlayer : Node {
     [Export]
     public AudioStream Music;
     [Export]
     public float PitchScale = 1;
     [Export]
-    public NodePath WindowPath = "";
-    [Export]
-    public bool UseCustomCheck = false;
-    public bool CanPlay = true;
+    public NodePath TabContentRoot = "";
     MusicManager musicManager;
     public int PlayerIndex;
 
@@ -23,18 +20,12 @@ public class MusicPlayer : Node {
     public override void _Process(float delta) {
         base._Process(delta);
         // yes.
-        if (GetNodeOrNull(WindowPath) != null) {
-            if (GetNode<BaseWindow>(WindowPath).IsClosing) {
-                musicManager.DeletePlayer(PlayerIndex);
-                return;
-            }
+        if (GetNode(TabContentRoot).GetParent<BaseWindow>().IsClosing) {
+            musicManager.DeletePlayer(PlayerIndex);
+            return;
         }
 
-        if (!UseCustomCheck) {
-            CanPlay = GetNode<BaseWindow>(WindowPath).IsActive();
-        }
-
-        if (CanPlay) {
+        if (GetNode(TabContentRoot).GetNodeOrNull("IsActiveTab") != null) {
             musicManager.SetActiveMusic(PlayerIndex);
         }
 

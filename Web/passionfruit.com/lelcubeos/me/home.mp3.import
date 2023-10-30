@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/home.mp3-6b19ada497598e334ff0a465b7365ee4.mp3str"
+
+[deps]
+
+source_file="res://Web/passionfruit.com/lelcubeos/me/home.mp3"
+dest_files=[ "res://.import/home.mp3-6b19ada497598e334ff0a465b7365ee4.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
