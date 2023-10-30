@@ -27,9 +27,10 @@ SavingManager="*res://OS/Scripts/SavingManager/SavingManager.cs"
 LelfsManager="*res://OS/Scripts/Lelfs/LelfsManager.cs"
 ResolutionManager="*res://OS/Scripts/Drivers/ResolutionManager.cs"
 WindowManager="*res://OS/Scripts/WindowManager/WindowManager.cs"
-SoundManager="*res://OS/Scripts/Drivers/SoundManager.cs"
-NotificationManager="*res://OS/Scripts/Lelsktop/Overlay/NotificationManager.cs"
 ResourceManager="*res://OS/Scripts/Drivers/ResourceManager.cs"
+SoundManager="*res://OS/Scripts/Drivers/SoundManager.cs"
+MusicManager="*res://OS/Scripts/Drivers/MusicManager.cs"
+NotificationManager="*res://OS/Scripts/Lelsktop/Overlay/NotificationManager.cs"
 ComputerNoisesManager="*res://OS/Scripts/Drivers/ComputerNoisesManager.cs"
 
 [display]
@@ -47,15 +48,6 @@ script_templates_search_path="res://ScriptTemplates"
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
-
-[importer_defaults]
-
-mp3={
-"loop": false
-}
-ogg_vorbis={
-"loop": false
-}
 
 [input]
 

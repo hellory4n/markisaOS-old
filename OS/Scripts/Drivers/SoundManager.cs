@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 
 /// <summary>
-/// Manages sound effects and music.
+/// Manages sound effects.
 /// </summary>
 public class SoundManager : Node {
     /// <summary>
@@ -23,17 +23,10 @@ public class SoundManager : Node {
     public Node sounds = new Node {
         Name = "Sounds"
     };
-    public Node music = new Node {
-        Name = "Music"
-    };
     /// <summary>
     /// The volume of sound effects in decibels, I think.
     /// </summary>
-    public float SoundVolume = 1;
-    /// <summary>
-    /// The volume of music in decibels, I think.
-    /// </summary>
-    public float MusicVolume = 1;
+    public float SoundVolume = 0;
 
     public override void _Ready() {
         base._Ready();
@@ -44,7 +37,6 @@ public class SoundManager : Node {
         SoundFiles.Add(ResourceLoader.Load<AudioStreamMP3>("res://Audio/Sounds/Warning.mp3"));
 
         AddChild(sounds);
-        AddChild(music);
     }
 
     /// <summary>
@@ -83,7 +75,5 @@ public class SoundManager : Node {
 
         int m = AudioServer.GetBusIndex("Sounds");
         AudioServer.SetBusVolumeDb(m, SoundVolume);
-        int h = AudioServer.GetBusIndex("Music");
-        AudioServer.SetBusVolumeDb(h, MusicVolume);
     }
 }

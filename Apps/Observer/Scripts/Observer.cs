@@ -38,7 +38,7 @@ public class Observer : BaseWindow {
                 LelfsFile epicFile = LelfsManager.LoadById<LelfsFile>(MediaId);
                 if (epicFile.Data.ContainsKey("Resource")) {
                     // one of the codes of all time
-                    coolMusicThing.GetNode<AudioStreamPlayer>("M/N/O/Audio").Stream = 
+                    coolMusicThing.GetNode<MusicPlayer>("M/N/O/Audio").Music = 
                         ResourceManager.LoadAudio(epicFile.Data["Resource"].ToString());
                 }
 

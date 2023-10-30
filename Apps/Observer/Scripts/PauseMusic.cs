@@ -8,6 +8,12 @@ public class PauseMusic : Button {
     }
 
     public void Click() {
-        GetNode<AudioStreamPlayer>("../Audio").StreamPaused = Pressed;
+        GetNode<MusicPlayer>("../Audio").Paused = Pressed;
+    }
+
+    public override void _Process(float delta) {
+        base._Process(delta);
+        // BLOODY HELL
+        GetNode<MusicPlayer>("../Audio").CanPlay = GetParent().GetParent().GetParent().GetParent().GetParent<BaseWindow>().IsActive();
     }
 }

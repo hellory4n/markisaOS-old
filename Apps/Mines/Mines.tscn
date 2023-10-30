@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/Boot/OnboardingBackground.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Apps/Mines/Assets/Thingy.png" type="Texture" id=8]
 [ext_resource path="res://Apps/Mines/Scripts/MinesShowStuffAndStuff.cs" type="Script" id=9]
 [ext_resource path="res://Apps/Mines/Scripts/MinesRestart.cs" type="Script" id=10]
+[ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/MusicPlayer.cs" type="Script" id=11]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Close"
@@ -140,7 +141,6 @@ tracks/1/keys = {
 
 [node name="Mines" type="WindowDialog"]
 process_priority = 1
-visible = true
 margin_right = 450.0
 margin_bottom = 510.0
 rect_min_size = Vector2( 450, 510 )
@@ -158,11 +158,6 @@ anims/Minimize = SubResource( 3 )
 anims/Open = SubResource( 1 )
 anims/Restore = SubResource( 4 )
 
-[node name="Bullshit" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 7 )
-autoplay = true
-bus = "Music"
-
 [node name="EpicBackground" type="TextureRect" parent="."]
 modulate = Color( 1, 1, 1, 0.388235 )
 anchor_right = 1.0
@@ -173,6 +168,11 @@ stretch_mode = 7
 
 [node name="GameGenerator9000" type="Node" parent="."]
 script = ExtResource( 4 )
+
+[node name="MusicPlayer" type="Node" parent="."]
+script = ExtResource( 11 )
+Music = ExtResource( 7 )
+WindowPath = NodePath("..")
 
 [node name="Why" type="VBoxContainer" parent="."]
 anchor_left = 0.5
