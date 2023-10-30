@@ -14,12 +14,12 @@ public class MusicPlayer : Node {
     public bool UseCustomCheck = false;
     public bool CanPlay = true;
     MusicManager musicManager;
-    int thing;
+    public int PlayerIndex;
 
     public override void _Ready() {
         base._Ready();
         musicManager = GetNode<MusicManager>("/root/MusicManager");
-        thing = musicManager.AddMusic(Music);
+        PlayerIndex = musicManager.AddMusic(Music);
     }
 
     public override void _Process(float delta) {
@@ -27,7 +27,7 @@ public class MusicPlayer : Node {
         // yes.
         if (GetNodeOrNull(WindowPath) != null) {
             if (GetNode<BaseWindow>(WindowPath).IsClosing) {
-                musicManager.DeletePlayer(thing);
+                musicManager.DeletePlayer(PlayerIndex);
                 return;
             }
         }
@@ -37,10 +37,10 @@ public class MusicPlayer : Node {
         }
 
         if (CanPlay && !Paused) {
-            musicManager.SetActiveMusic(thing);
+            musicManager.SetActiveMusic(PlayerIndex);
         }
 
-        musicManager.SetPitchScale(thing, PitchScale);
+        musicManager.SetPitchScale(PlayerIndex, PitchScale);
 
         // test :)))))
         if (Input.IsActionJustReleased("skip_boot")) {
@@ -53,6 +53,6 @@ public class MusicPlayer : Node {
     /// </summary>
     /// <returns>The position in the AudioStream in seconds.</returns>
     public float GetPlaybackPosition() {
-        return musicManager.GetChild<AudioStreamPlayer>(thing).GetPlaybackPosition();
+        return musicManager.GetChild<AudioStreamPlayer>(PlayerIndex).GetPlaybackPosition();
     }
 }

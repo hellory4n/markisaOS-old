@@ -15,5 +15,9 @@ public class PauseMusic : Button {
         base._Process(delta);
         // BLOODY HELL
         GetNode<MusicPlayer>("../Audio").CanPlay = GetParent().GetParent().GetParent().GetParent().GetParent<BaseWindow>().IsActive();
+
+        if (GetParent().GetParent().GetParent().GetParent().GetParent<BaseWindow>().IsClosing) {
+            GetNode<MusicManager>("/root/MusicManager").DeletePlayer(GetNode<MusicPlayer>("../Audio").PlayerIndex);
+        }
     }
 }
