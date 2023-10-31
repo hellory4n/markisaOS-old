@@ -7,6 +7,7 @@ using System.Collections.Generic;
 /// </summary>
 public class MusicManager : Node {
     List<AudioStreamPlayer> Players = new List<AudioStreamPlayer>();
+    public List<bool> PausedPlayers = new List<bool>();
     int ActiveMusic = 0;
     public float MusicVolume = 0;
 
@@ -19,6 +20,7 @@ public class MusicManager : Node {
         };
         AddChild(player);
         Players.Add(player);
+        PausedPlayers.Add(false);
         return Players.Count-1;
     }
 
@@ -39,7 +41,10 @@ public class MusicManager : Node {
         base._Process(delta);
         for (int i = 0; i < Players.Count; i++) {
             AudioStreamPlayer yes = Players[i];
-            yes.StreamPaused = !(i == ActiveMusic);
+            if (!PausedPlayers[i])
+                yes.StreamPaused = !(i == ActiveMusic);
+            else
+                yes.StreamPaused = true;
         }
 
         int m = AudioServer.GetBusIndex("Music");

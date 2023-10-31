@@ -50,10 +50,10 @@ public class MusicPlayer : Node {
     }
 
     public void SetPaused(bool pause) {
-        musicManager.GetChild<AudioStreamPlayer>(PlayerIndex).StreamPaused = pause;
+        musicManager.PausedPlayers[PlayerIndex] = pause;
     }
 
     public bool GetPaused() {
-        return musicManager.GetChild<AudioStreamPlayer>(PlayerIndex).StreamPaused; 
+        return musicManager.PausedPlayers[PlayerIndex];
     }
 }
