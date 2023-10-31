@@ -1,8 +1,14 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Apps/SausageClicker/Assets/IconDock.png" type="Texture" id=2]
+[ext_resource path="res://Apps/SausageClicker/Assets/Sausage.png" type="Texture" id=3]
+[ext_resource path="res://Fonts/RedHatText-BoldItalic.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://OS/Scripts/WindowManager/BaseWindow.cs" type="Script" id=5]
+[ext_resource path="res://Apps/SausageClicker/Assets/Background.png" type="Texture" id=6]
+[ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/MusicPlayer.cs" type="Script" id=7]
+[ext_resource path="res://Apps/SausageClicker/Assets/SausageTheme.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Apps/SausageClicker/Scripts/Sausage.cs" type="Script" id=9]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Close"
@@ -131,11 +137,41 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
+[sub_resource type="Animation" id=12]
+resource_name = "SausageLol"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("SausageLol:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -25.0, 25.0, -25.0 ]
+}
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="DynamicFont" id=11]
+font_data = ExtResource( 4 )
+
 [node name="SausageClicker" type="WindowDialog"]
 process_priority = 1
 visible = true
 margin_right = 400.0
-margin_bottom = 100.0
+margin_bottom = 355.0
 rect_min_size = Vector2( 400, 355 )
 theme = ExtResource( 1 )
 popup_exclusive = true
@@ -152,9 +188,53 @@ anims/Minimize = SubResource( 3 )
 anims/Open = SubResource( 1 )
 anims/Restore = SubResource( 4 )
 
-[node name="Label" type="Label" parent="."]
+[node name="OtherAnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "SausageLol"
+method_call_mode = 1
+anims/SausageLol = SubResource( 12 )
+
+[node name="MusicPlayer" type="Node" parent="."]
+script = ExtResource( 7 )
+Music = ExtResource( 8 )
+WindowPath = NodePath("..")
+
+[node name="VeryEpicBackgroundIndeedTeeBeeEich" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-text = "hi :)"
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 7
+
+[node name="SausageLol" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -25.0
+margin_top = -100.0
+margin_right = 25.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 50, 200 )
+rect_rotation = -25.0
+rect_pivot_offset = Vector2( 25, 100 )
+texture = ExtResource( 3 )
+
+[node name="SausageButClick" type="Button" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+hint_tooltip = "this is sausage"
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/disabled = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
+script = ExtResource( 9 )
+
+[node name="Score" type="Label" parent="."]
+anchor_right = 1.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 0, 50 )
+custom_fonts/font = SubResource( 11 )
+text = "0 sausages"
 align = 1
 valign = 1
