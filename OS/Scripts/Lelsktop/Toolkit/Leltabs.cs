@@ -9,6 +9,7 @@ public class Leltabs : HBoxContainer {
     public string TabThing = "res://OS/Lelsktop/TabThing.tscn";
     [Export(PropertyHint.File, "*.tscn")]
     public string TabContentThing = "";
+    public Control ActiveTab;
 
     public override void _Ready() {
         base._Ready();
@@ -56,16 +57,8 @@ public class Leltabs : HBoxContainer {
         foreach (var jcnkv in TabContent) {
             if (jcnkv == activeContent) {
                 jcnkv.Visible = true;
-                // used by tabs to check if this is the active tab
-                activeContent.AddChild(new Node {
-                    Name = "IsActiveTab"
-                });
             } else {
                 jcnkv.Visible = false;
-                // used by tabs to check if this is the active tab
-                if (activeContent.GetNodeOrNull("IsActiveTab") != null) {
-                    GetNode("IsActiveTab").QueueFree();
-                }
             }
         }
     }

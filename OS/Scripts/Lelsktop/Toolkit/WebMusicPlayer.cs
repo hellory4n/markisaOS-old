@@ -7,25 +7,27 @@ public class WebMusicPlayer : Node {
     [Export]
     public float PitchScale = 1;
     [Export]
-    public NodePath TabContentRoot = "";
+    public NodePath WebsiteRoot = "";
     MusicManager musicManager;
     public int PlayerIndex;
+    Leltabs Leltabs;
 
     public override void _Ready() {
         base._Ready();
         musicManager = GetNode<MusicManager>("/root/MusicManager");
         PlayerIndex = musicManager.AddMusic(Music);
+        Leltabs = GetNode(WebsiteRoot).GetParent().GetParent().GetNode<Leltabs>("Leltabs/Tabs");
     }
 
     public override void _Process(float delta) {
         base._Process(delta);
         // yes.
-        if (GetNode(TabContentRoot).GetParent<BaseWindow>().IsClosing) {
+        if (GetNode(WebsiteRoot).GetParent().GetParent<BaseWindow>().IsClosing) {
             musicManager.DeletePlayer(PlayerIndex);
             return;
         }
 
-        if (GetNode(TabContentRoot).GetNodeOrNull("IsActiveTab") != null) {
+        if (Leltabs.ActiveTab == GetNode(WebsiteRoot)) {
             musicManager.SetActiveMusic(PlayerIndex);
         }
 

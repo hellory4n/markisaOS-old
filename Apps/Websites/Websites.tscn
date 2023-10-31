@@ -157,13 +157,13 @@ anims/Minimize = SubResource( 3 )
 anims/Open = SubResource( 1 )
 anims/Restore = SubResource( 4 )
 
-[node name="Leltab" type="Panel" parent="."]
+[node name="Leltabs" type="Panel" parent="."]
 anchor_right = 1.0
 margin_bottom = 45.0
 rect_clip_content = true
 theme_type_variation = "Leltab"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Leltab"]
+[node name="Tabs" type="HBoxContainer" parent="Leltabs"]
 anchor_right = 1.0
 margin_bottom = 45.0
 theme_type_variation = "LeltabContainer"
@@ -171,7 +171,7 @@ custom_constants/separation = 0
 script = ExtResource( 4 )
 TabContentThing = "res://Apps/Websites/WebsiteView.tscn"
 
-[node name="Add" type="Button" parent="Leltab/HBoxContainer"]
+[node name="Add" type="Button" parent="Leltabs/Tabs"]
 margin_right = 41.0
 margin_bottom = 45.0
 theme_type_variation = "PanelButton"
