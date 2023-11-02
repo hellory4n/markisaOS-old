@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/DefaultOpenWindowButton.cs" type="Script" id=1]
 [ext_resource path="res://OS/Scripts/Lelsktop/Time.cs" type="Script" id=2]
@@ -34,6 +34,8 @@
 [ext_resource path="res://OS/Scripts/Lelsktop/Workspaces/OpenWorkspaces.cs" type="Script" id=32]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Sunny.png" type="Texture" id=33]
 [ext_resource path="res://OS/Scripts/Lelsktop/SystemMonitorThingy.cs" type="Script" id=34]
+[ext_resource path="res://OS/Scripts/Lelsktop/ShowDesktop.cs" type="Script" id=35]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/ShowDesktop.png" type="Texture" id=36]
 
 [sub_resource type="Animation" id=20]
 resource_name = "CloseAppMenu"
@@ -249,7 +251,7 @@ anims/Startup = SubResource( 8 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 40.0
-margin_bottom = -75.0
+margin_right = -75.0
 script = ExtResource( 21 )
 
 [node name="Workspaces" type="Panel" parent="."]
@@ -346,7 +348,7 @@ margin_left = 5.0
 margin_right = 69.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
-hint_tooltip = "Quick Launch Setup"
+hint_tooltip = "Change pinned apps in Quick Launch"
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_type_variation = "DockButton"
@@ -362,7 +364,7 @@ margin_top = 64.0
 margin_right = 69.0
 margin_bottom = 128.0
 rect_min_size = Vector2( 64, 64 )
-hint_tooltip = "Workspaces"
+hint_tooltip = "Switch between workspaces"
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_type_variation = "DockButton"
@@ -2615,6 +2617,7 @@ theme_type_variation = "LelsktopPanel"
 [node name="Apps" type="Button" parent="Panel"]
 margin_right = 200.0
 margin_bottom = 40.0
+hint_tooltip = "Launch applications here"
 theme_type_variation = "PanelButton"
 toggle_mode = true
 text = "Applications"
@@ -2625,17 +2628,34 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -200.0
+margin_left = -260.0
 margin_top = -20.0
-margin_right = -100.0
+margin_right = -60.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 200, 40 )
+hint_tooltip = "Here you can quickly adjust volume settings, access the settings app, see how much resources are being used, and turn off your computer."
 theme_type_variation = "PanelButton"
 toggle_mode = true
 icon = ExtResource( 9 )
 align = 2
 icon_align = 1
 script = ExtResource( 19 )
+
+[node name="ShowDesktop" type="Button" parent="Panel"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -60.0
+margin_top = -20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 60, 40 )
+hint_tooltip = "Show desktop"
+theme_type_variation = "PanelButton"
+toggle_mode = true
+icon = ExtResource( 36 )
+icon_align = 1
+script = ExtResource( 35 )
 
 [node name="InfoThingy" type="HBoxContainer" parent="Panel"]
 anchor_left = 0.5
