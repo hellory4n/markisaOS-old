@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Apps/SausageClicker/Assets/IconDock.png" type="Texture" id=2]
@@ -15,6 +15,8 @@
 [ext_resource path="res://Apps/SausageClicker/Assets/StoreBackground.png" type="Texture" id=13]
 [ext_resource path="res://Apps/SausageClicker/Scripts/CloseStore.cs" type="Script" id=14]
 [ext_resource path="res://Apps/SausageClicker/Scripts/OpenStore.cs" type="Script" id=15]
+[ext_resource path="res://Apps/SausageClicker/Scripts/BuyFactories.cs" type="Script" id=16]
+[ext_resource path="res://Apps/SausageClicker/Scripts/HireWellPaidChineseWorkers.cs" type="Script" id=17]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Close"
@@ -251,6 +253,8 @@ tracks/2/keys = {
 [sub_resource type="StyleBoxTexture" id=15]
 texture = ExtResource( 12 )
 region_rect = Rect2( 0, 0, 230, 80 )
+margin_left = 40.0
+margin_right = 40.0
 expand_margin_left = 15.0
 expand_margin_right = 15.0
 expand_margin_top = 11.0
@@ -259,6 +263,8 @@ expand_margin_bottom = 19.0
 [sub_resource type="StyleBoxTexture" id=14]
 texture = ExtResource( 10 )
 region_rect = Rect2( 0, 0, 230, 80 )
+margin_left = 40.0
+margin_right = 40.0
 expand_margin_left = 15.0
 expand_margin_right = 15.0
 expand_margin_top = 11.0
@@ -269,6 +275,8 @@ expand_margin_bottom = 19.0
 [sub_resource type="StyleBoxTexture" id=16]
 texture = ExtResource( 11 )
 region_rect = Rect2( 0, 0, 230, 80 )
+margin_left = 40.0
+margin_right = 40.0
 expand_margin_left = 15.0
 expand_margin_right = 15.0
 expand_margin_top = 11.0
@@ -386,6 +394,7 @@ rect_clip_content = true
 mouse_filter = 2
 
 [node name="StoreLmao" type="Control" parent="Lmao"]
+modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -395,7 +404,8 @@ margin_top = -143.5
 margin_right = 190.0
 margin_bottom = 143.5
 rect_min_size = Vector2( 380, 287 )
-rect_rotation = 360.0
+rect_rotation = -360.0
+rect_scale = Vector2( 1e-05, 1e-05 )
 rect_pivot_offset = Vector2( 190, 143 )
 
 [node name="Bullshit" type="PanelContainer" parent="Lmao/StoreLmao"]
@@ -408,16 +418,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Help" type="VBoxContainer" parent="Lmao/StoreLmao/h"]
-margin_left = 90.0
-margin_top = 42.0
-margin_right = 290.0
-margin_bottom = 244.0
+margin_left = 52.0
+margin_top = 14.0
+margin_right = 327.0
+margin_bottom = 272.0
+custom_constants/separation = 5
 
 [node name="Close" type="Button" parent="Lmao/StoreLmao/h/Help"]
-margin_right = 200.0
+margin_right = 275.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 200, 50 )
-size_flags_horizontal = 4
 custom_styles/hover = SubResource( 15 )
 custom_styles/pressed = SubResource( 14 )
 custom_styles/focus = SubResource( 17 )
@@ -425,33 +435,46 @@ custom_styles/normal = SubResource( 16 )
 text = "close store :)"
 script = ExtResource( 14 )
 
-[node name="Label" type="Label" parent="Lmao/StoreLmao/h/Help"]
-margin_top = 60.0
-margin_right = 200.0
-margin_bottom = 82.0
-text = "awesome upgrades"
+[node name="IndustrialRevolution" type="Label" parent="Lmao/StoreLmao/h/Help"]
+margin_top = 55.0
+margin_right = 275.0
+margin_bottom = 99.0
+rect_min_size = Vector2( 275, 0 )
+text = "Factories - 0 owned
+Automatically create more sausages"
 align = 1
+autowrap = true
 
 [node name="Store4" type="Button" parent="Lmao/StoreLmao/h/Help"]
-margin_top = 92.0
-margin_right = 200.0
-margin_bottom = 142.0
+margin_top = 104.0
+margin_right = 275.0
+margin_bottom = 154.0
 rect_min_size = Vector2( 200, 50 )
-size_flags_horizontal = 4
 custom_styles/hover = SubResource( 15 )
 custom_styles/pressed = SubResource( 14 )
 custom_styles/focus = SubResource( 17 )
 custom_styles/normal = SubResource( 16 )
-text = "upgrade 1"
+text = "buy for 25 sausages"
+script = ExtResource( 16 )
+
+[node name="WellPaidChineseWorkers" type="Label" parent="Lmao/StoreLmao/h/Help"]
+margin_top = 159.0
+margin_right = 275.0
+margin_bottom = 203.0
+rect_min_size = Vector2( 275, 0 )
+text = "Workers - 1 hired
+Make more sausages per click"
+align = 1
+autowrap = true
 
 [node name="Store3" type="Button" parent="Lmao/StoreLmao/h/Help"]
-margin_top = 152.0
-margin_right = 200.0
-margin_bottom = 202.0
+margin_top = 208.0
+margin_right = 275.0
+margin_bottom = 258.0
 rect_min_size = Vector2( 200, 50 )
-size_flags_horizontal = 4
 custom_styles/hover = SubResource( 15 )
 custom_styles/pressed = SubResource( 14 )
 custom_styles/focus = SubResource( 17 )
 custom_styles/normal = SubResource( 16 )
-text = "upgrade 2"
+text = "buy for 5 sausages"
+script = ExtResource( 17 )
