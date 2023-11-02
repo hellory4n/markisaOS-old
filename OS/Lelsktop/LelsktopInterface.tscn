@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/DefaultOpenWindowButton.cs" type="Script" id=1]
 [ext_resource path="res://OS/Scripts/Lelsktop/Time.cs" type="Script" id=2]
@@ -8,7 +8,7 @@
 [ext_resource path="res://OS/Scripts/Lelsktop/AppMenu/ListApps.cs" type="Script" id=6]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Favorites.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Workspaces.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Search.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/QuickSettings.png" type="Texture" id=9]
 [ext_resource path="res://OS/Scripts/Lelsktop/AppMenu/OpenAppMenu.cs" type="Script" id=10]
 [ext_resource path="res://OS/Scripts/Lelsktop/AppMenu/OpenCategory.cs" type="Script" id=11]
 [ext_resource path="res://OS/Scripts/Lelsktop/Workspaces/SwitchWorkspace.cs" type="Script" id=12]
@@ -32,6 +32,8 @@
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/System.png" type="Texture" id=30]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Accessories.png" type="Texture" id=31]
 [ext_resource path="res://OS/Scripts/Lelsktop/Workspaces/OpenWorkspaces.cs" type="Script" id=32]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Sunny.png" type="Texture" id=33]
+[ext_resource path="res://OS/Scripts/Lelsktop/SystemMonitorThingy.cs" type="Script" id=34]
 
 [sub_resource type="Animation" id=20]
 resource_name = "CloseAppMenu"
@@ -74,7 +76,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 0.37 ),
 "update": 0,
-"values": [ Vector2( 940, 40 ), Vector2( 940, -200 ) ]
+"values": [ Vector2( 905, 40 ), Vector2( 905, -475 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("QuickSettings:modulate")
@@ -158,7 +160,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 0.37, 1 ),
 "update": 0,
-"values": [ Vector2( 940, -200 ), Vector2( 940, 40 ) ]
+"values": [ Vector2( 905, -475 ), Vector2( 905, 40 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("QuickSettings:modulate")
@@ -383,11 +385,10 @@ alignment = 1
 modulate = Color( 1, 1, 1, 0 )
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -340.0
-margin_top = -200.0
-margin_right = -40.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 300, 240 )
+margin_left = -375.0
+margin_top = -475.0
+margin_right = -75.0
+rect_min_size = Vector2( 300, 475 )
 theme = ExtResource( 3 )
 
 [node name="UserIcon" type="Sprite" parent="QuickSettings"]
@@ -474,6 +475,91 @@ icon = ExtResource( 20 )
 align = 0
 script = ExtResource( 1 )
 WindowScene = "res://OS/Lelsktop/Shutdown.tscn"
+
+[node name="Ghjkbhkg" type="Label" parent="QuickSettings"]
+margin_top = 245.0
+margin_right = 300.0
+margin_bottom = 270.0
+rect_min_size = Vector2( 300, 25 )
+text = "System Monitor"
+align = 1
+valign = 1
+
+[node name="Cpu" type="ProgressBar" parent="QuickSettings"]
+margin_left = 10.0
+margin_top = 275.0
+margin_right = 290.0
+margin_bottom = 315.0
+rect_min_size = Vector2( 280, 40 )
+hint_tooltip = "The CPU is the part of the computer that processes stuff."
+script = ExtResource( 34 )
+Thingy = "CPU"
+
+[node name="Ghjkbhkg2" type="Label" parent="QuickSettings"]
+margin_left = 10.0
+margin_top = 275.0
+margin_right = 280.0
+margin_bottom = 315.0
+text = "Processor"
+align = 2
+valign = 1
+
+[node name="Gpu" type="ProgressBar" parent="QuickSettings"]
+margin_left = 10.0
+margin_top = 325.0
+margin_right = 290.0
+margin_bottom = 365.0
+rect_min_size = Vector2( 280, 40 )
+hint_tooltip = "The GPU is the part of the computer responsible for processing graphics."
+script = ExtResource( 34 )
+Thingy = "GPU"
+
+[node name="Ghjkbhkg3" type="Label" parent="QuickSettings"]
+margin_left = 10.0
+margin_top = 325.0
+margin_right = 280.0
+margin_bottom = 365.0
+text = "Graphics"
+align = 2
+valign = 1
+
+[node name="Memory" type="ProgressBar" parent="QuickSettings"]
+margin_left = 10.0
+margin_top = 375.0
+margin_right = 290.0
+margin_bottom = 415.0
+rect_min_size = Vector2( 280, 40 )
+hint_tooltip = "The memory is the part of the computer with all of the values it's currently using."
+script = ExtResource( 34 )
+Thingy = "Memory"
+
+[node name="Ghjkbhkg4" type="Label" parent="QuickSettings"]
+margin_left = 10.0
+margin_top = 375.0
+margin_right = 280.0
+margin_bottom = 415.0
+text = "Memory"
+align = 2
+valign = 1
+
+[node name="Storage" type="ProgressBar" parent="QuickSettings"]
+margin_left = 10.0
+margin_top = 425.0
+margin_right = 290.0
+margin_bottom = 465.0
+rect_min_size = Vector2( 280, 40 )
+hint_tooltip = "This indicates how much apps are currently reading and writing to disk, not how much space is available."
+script = ExtResource( 34 )
+Thingy = "Storage"
+
+[node name="Ghjkbhkg5" type="Label" parent="QuickSettings"]
+margin_left = 10.0
+margin_top = 425.0
+margin_right = 280.0
+margin_bottom = 465.0
+text = "Storage"
+align = 2
+valign = 1
 
 [node name="AppMenu" type="Panel" parent="."]
 modulate = Color( 1, 1, 1, 0 )
@@ -2534,28 +2620,6 @@ toggle_mode = true
 text = "Applications"
 script = ExtResource( 10 )
 
-[node name="Search" type="Button" parent="Panel"]
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -100.0
-margin_top = -20.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 100, 40 )
-theme_type_variation = "PanelButton"
-icon = ExtResource( 9 )
-icon_align = 1
-
-[node name="Time" type="Button" parent="Panel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-rect_min_size = Vector2( 40, 40 )
-mouse_filter = 2
-theme_type_variation = "PanelButton"
-text = "06/09/2069 06:09"
-script = ExtResource( 2 )
-
 [node name="Settings" type="Button" parent="Panel"]
 anchor_left = 1.0
 anchor_top = 0.5
@@ -2565,10 +2629,42 @@ margin_left = -200.0
 margin_top = -20.0
 margin_right = -100.0
 margin_bottom = 20.0
-rect_min_size = Vector2( 100, 40 )
+rect_min_size = Vector2( 200, 40 )
 theme_type_variation = "PanelButton"
 toggle_mode = true
-icon = ExtResource( 5 )
+icon = ExtResource( 9 )
 align = 2
 icon_align = 1
 script = ExtResource( 19 )
+
+[node name="InfoThingy" type="HBoxContainer" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -141.5
+margin_top = -20.0
+margin_right = 141.5
+margin_bottom = 20.0
+
+[node name="Weather" type="Button" parent="Panel/InfoThingy"]
+margin_right = 107.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+hint_tooltip = "Sunny (really fucking hot)"
+mouse_filter = 1
+size_flags_horizontal = 4
+theme_type_variation = "PanelButton"
+text = "42.0 °C"
+icon = ExtResource( 33 )
+
+[node name="Time" type="Button" parent="Panel/InfoThingy"]
+margin_left = 117.0
+margin_right = 283.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+mouse_filter = 2
+size_flags_horizontal = 4
+theme_type_variation = "PanelButton"
+text = "06/09/2069 06:09"
+script = ExtResource( 2 )

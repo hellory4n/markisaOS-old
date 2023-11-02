@@ -8,31 +8,32 @@ public class ComputerNoisesManager : Node {
     AudioStreamPlayer Fan;
     AudioStreamPlayer GpuFan;
     AudioStreamPlayer Hdd;
+    public float CpuUsage = 10;
+    public float GpuUsage = 5;
+    public float StorageUsage = 10;
+    public float MemoryUsage = 10;
 
     public override void _Ready() {
         base._Ready();
         // h
-        float seepeeyou = 10;
-        float geepeeyou = 5;
-        float storage = 10;
-        seepeeyou = Math.Min(seepeeyou, 100)/100;
-        geepeeyou = Math.Min(geepeeyou, 100)/100;
-        storage = Math.Min(storage, 100)/100;
+        CpuUsage = Math.Min(CpuUsage, 100)/100;
+        GpuUsage = Math.Min(GpuUsage, 100)/100;
+        StorageUsage = Math.Min(StorageUsage, 100)/100;
 
         Fan = new AudioStreamPlayer {
             Stream = FanSound,
             Autoplay = true,
-            VolumeDb = GD.Linear2Db(seepeeyou/1.5f)
+            VolumeDb = GD.Linear2Db(CpuUsage/1.5f)
         };
         GpuFan = new AudioStreamPlayer {
             Stream = GpuFanSound,
             Autoplay = true,
-            VolumeDb = GD.Linear2Db(geepeeyou/1.25f)
+            VolumeDb = GD.Linear2Db(GpuUsage/1.25f)
         };
         Hdd = new AudioStreamPlayer {
             Stream = HddSound,
             Autoplay = true,
-            VolumeDb = GD.Linear2Db(storage*1.25f)
+            VolumeDb = GD.Linear2Db(StorageUsage*1.25f)
         };
         AddChild(Fan);
         AddChild(GpuFan);
@@ -46,48 +47,48 @@ public class ComputerNoisesManager : Node {
             return;
 
         // first we need to get how much the device is suffering
+        float cpuOmg = 10;
+        float gpuOmg = 5;
+        float memoryOmg = 10;
+        float storageOmg = 10;
         // we need to check every single workspace :))))))))
-        float seepeeyou = 10;
-        float geepeeyou = 5;
-        float memory = 10;
-        float storage = 10;
 
         foreach (BaseWindow window in GetNode("/root/Lelsktop/1/Windows/ThemeThing").GetChildren()) {
-            seepeeyou += window.CpuUse;
-            geepeeyou += window.GpuUse;
-            memory += window.MemoryUse;
-            storage += window.StorageUse;
+            cpuOmg += window.CpuUse;
+            gpuOmg += window.GpuUse;
+            memoryOmg += window.MemoryUse;
+            storageOmg += window.StorageUse;
         }
 
         foreach (BaseWindow window in GetNode("/root/Lelsktop/2/Windows/ThemeThing").GetChildren()) {
-            seepeeyou += window.CpuUse;
-            geepeeyou += window.GpuUse;
-            memory += window.MemoryUse;
-            storage += window.StorageUse;
+            cpuOmg += window.CpuUse;
+            gpuOmg += window.GpuUse;
+            memoryOmg += window.MemoryUse;
+            storageOmg += window.StorageUse;
         }
 
         foreach (BaseWindow window in GetNode("/root/Lelsktop/3/Windows/ThemeThing").GetChildren()) {
-            seepeeyou += window.CpuUse;
-            geepeeyou += window.GpuUse;
-            memory += window.MemoryUse;
-            storage += window.StorageUse;
+            cpuOmg += window.CpuUse;
+            gpuOmg += window.GpuUse;
+            memoryOmg += window.MemoryUse;
+            storageOmg += window.StorageUse;
         }
 
         foreach (BaseWindow window in GetNode("/root/Lelsktop/4/Windows/ThemeThing").GetChildren()) {
-            seepeeyou += window.CpuUse;
-            geepeeyou += window.GpuUse;
-            memory += window.MemoryUse;
-            storage += window.StorageUse;
+            cpuOmg += window.CpuUse;
+            gpuOmg += window.GpuUse;
+            memoryOmg += window.MemoryUse;
+            storageOmg += window.StorageUse;
         }
 
         // if we use 200% of the cpu the computer is gonna explode
-        seepeeyou = Math.Min(seepeeyou, 100)/100;
-        geepeeyou = Math.Min(geepeeyou, 100)/100;
-        memory = Math.Min(memory, 100)/100;
-        storage = Math.Min(storage, 100)/100;
+        CpuUsage = Math.Min(cpuOmg, 100)/100;
+        GpuUsage = Math.Min(gpuOmg, 100)/100;
+        MemoryUsage = Math.Min(memoryOmg, 100)/100;
+        StorageUsage = Math.Min(storageOmg, 100)/100;
 
-        Fan.VolumeDb = GD.Linear2Db(seepeeyou/2);
-        GpuFan.VolumeDb = GD.Linear2Db(geepeeyou/1.5f);
-        Hdd.VolumeDb = GD.Linear2Db(storage);
+        Fan.VolumeDb = GD.Linear2Db(CpuUsage/2);
+        GpuFan.VolumeDb = GD.Linear2Db(GpuUsage/1.5f);
+        Hdd.VolumeDb = GD.Linear2Db(StorageUsage);
     }
 }

@@ -50,4 +50,14 @@ public class MusicManager : Node {
         int m = AudioServer.GetBusIndex("Music");
         AudioServer.SetBusVolumeDb(m, MusicVolume);
     }
+
+    public void ExplodeEverything() {
+        Players.Clear();
+        PausedPlayers.Clear();
+        ActiveMusic = 0;
+
+        foreach (Node item in GetChildren()) {
+            item.QueueFree();
+        }
+    }
 }

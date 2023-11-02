@@ -13,5 +13,6 @@ public class Logout : Button {
         GetTree().Root.AddChild(aNode);
         GetNode("/root/Lelsktop").QueueFree();
         GetNode("/root/LelsktopInterface").QueueFree();
+        GetNode<MusicManager>("/root/MusicManager").ExplodeEverything();
     }
 }
