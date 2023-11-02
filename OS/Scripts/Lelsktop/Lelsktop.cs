@@ -79,8 +79,8 @@ public class Lelsktop : Node2D {
             GetAnimation("CloseQuickSettings");
         int keyStartButDifferent = animationButDifferent.TrackFindKey(0, 0);
         int keyEndButDifferent = animationButDifferent.TrackFindKey(0, 0.5f);
-        animationButDifferent.TrackSetKeyValue(0, keyStartButDifferent, new Vector2(bruh.x-475, 40));
-        animationButDifferent.TrackSetKeyValue(0, keyEndButDifferent, new Vector2(bruh.x-475, -475));
+        animationButDifferent.TrackSetKeyValue(0, keyStartButDifferent, new Vector2(bruh.x-375, 40));
+        animationButDifferent.TrackSetKeyValue(0, keyEndButDifferent, new Vector2(bruh.x-375, -475));
         
         lelsktopInterface.GetNode<AnimationPlayer>("AnimationPlayer").Play("Startup");
 

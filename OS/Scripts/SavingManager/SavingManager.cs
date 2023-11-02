@@ -96,6 +96,13 @@ public class SavingManager : Node {
         );
         sdfhjjhgf.Close();
 
+        File fgbfg = new File();
+        fgbfg.Open($"user://Users/{user}/LelsktopPinboard.json", File.ModeFlags.Write);
+        fgbfg.StoreString(
+            JsonConvert.SerializeObject(new LelsktopPinboard())
+        );
+        fgbfg.Close();
+
         // setup the filesystem
         dir.MakeDirRecursive($"user://Users/{user}/Files/");
 
@@ -135,6 +142,9 @@ public class SavingManager : Node {
                 break;
             case nameof(SocialStuff):
                 filename = $"user://Users/{user}/SocialStuff.json";
+                break;
+            case nameof(LelsktopPinboard):
+                filename = $"user://Users/{user}/LelsktopPinboard.json";
                 break;
             default:
                 GD.PushError("Invalid user info type!");
@@ -185,6 +195,9 @@ public class SavingManager : Node {
                 break;
             case nameof(SocialStuff):
                 filename = $"user://Users/{user}/SocialStuff.json";
+                break;
+            case nameof(LelsktopPinboard):
+                filename = $"user://Users/{user}/LelsktopPinboard.json";
                 break;
             default:
                 GD.PushError("Invalid user info type!");
@@ -359,7 +372,7 @@ public class SavingManager : Node {
             Save(user, version);
         }
 
-        // v0.10 added the games of all time :)
+        // v0.10 added the games of all time and epic lelsktop updates :)
         if (version.MajorVersion == 0 && version.MinorVersion == 9) {
             var coolApps = Load<InstalledApps>(user);
             // fun
@@ -368,6 +381,13 @@ public class SavingManager : Node {
             coolApps.Games = coolApps.Games.Append(new Lelapp("Mines", "res://Apps/Mines/Assets/IconSmall.png", "res://Apps/Mines/Mines.tscn")).ToArray();
             coolApps.Games = coolApps.Games.Append(new Lelapp("Sausage Clicker", "res://Apps/SausageClicker/Assets/IconSmall.png", "res://Apps/SausageClicker/SausageClicker.tscn")).ToArray();
             Save(user, coolApps);
+
+            File fgbfg = new File();
+            fgbfg.Open($"user://Users/{user}/LelsktopPinboard.json", File.ModeFlags.Write);
+            fgbfg.StoreString(
+                JsonConvert.SerializeObject(new LelsktopPinboard())
+            );
+            fgbfg.Close();
 
             version.MinorVersion = 10;
             Save(user, version);

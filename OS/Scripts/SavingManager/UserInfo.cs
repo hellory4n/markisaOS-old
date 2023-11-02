@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 
 
 /// <summary>
@@ -234,4 +235,18 @@ public class Message {
     /// The text of the message.
     /// </summary>
     public string Text = "";
+}
+
+public class PinboardItem {
+    public bool IsStickyNote = false;
+    public Vector2 Position = new Vector2(0, 0);
+    public Vector2 Size = new Vector2(0, 0);
+    public float Rotation = 0;
+    public string Text = "";
+    public string TexturePath = "";
+}
+
+public class LelsktopPinboard {
+    public string[] ImportedTextures = new string[]{};
+    public PinboardItem[] PinboardItems = new PinboardItem[]{};
 }
