@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Numerics;
+using Godot;
 
 
 /// <summary>
@@ -247,6 +247,5 @@ public class PinboardItem {
 }
 
 public class LelsktopPinboard {
-    public string[] ImportedTextures = new string[]{};
-    public PinboardItem[] PinboardItems = new PinboardItem[]{};
+    public PinboardItem[] Items = new PinboardItem[]{};
 }

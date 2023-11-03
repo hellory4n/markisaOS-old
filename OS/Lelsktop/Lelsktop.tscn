@@ -36,6 +36,8 @@ texture = ExtResource( 4 )
 script = ExtResource( 5 )
 OriginalSize = Vector2( 4096, 2304 )
 
+[node name="Pinboard" type="Node2D" parent="."]
+
 [node name="1" type="ViewportContainer" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
