@@ -7,12 +7,16 @@ public class ResourceManager : Node {
     /// </summary>
     /// <param name="path">The path of the image (not in lelfs).</param>
     /// <returns>The image loaded.</returns>
-    public static ImageTexture LoadImage(string path) {
-        Image image = new Image();
-        image.Load(path);
-        ImageTexture texture = new ImageTexture();
-        texture.CreateFromImage(image);
-        return texture;
+    public static Texture LoadImage(string path) {
+        if (path.StartsWith("res://")) {
+            return ResourceLoader.Load<StreamTexture>(path);
+        } else {
+            Image image = new Image();
+            image.Load(path);
+            ImageTexture texture = new ImageTexture();
+            texture.CreateFromImage(image);
+            return texture;
+        }
     }
 
     /// <summary>
@@ -21,16 +25,20 @@ public class ResourceManager : Node {
     /// <param name="path">The path of the audio (not in lelfs).</param>
     /// <returns>The audio loaded.</returns>
     public static AudioStream LoadAudio(string path) {
-        if (path.EndsWith(".ogg")) {
-            var ohGeeGee = new AudioStreamOGGVorbis();
-            File file2 = new File();
-            file2.Open(path, File.ModeFlags.Read);
-            ohGeeGee.Data = file2.GetBuffer((long)file2.GetLen());
-            file2.Close();
-            return ohGeeGee;
+        if (path.StartsWith("res://")) {
+            return ResourceLoader.Load<AudioStream>(path);
         } else {
-            GD.PushError("Invalid file!");
-            return default;
+            if (path.EndsWith(".ogg")) {
+                var ohGeeGee = new AudioStreamOGGVorbis();
+                File file2 = new File();
+                file2.Open(path, File.ModeFlags.Read);
+                ohGeeGee.Data = file2.GetBuffer((long)file2.GetLen());
+                file2.Close();
+                return ohGeeGee;
+            } else {
+                GD.PushError("Invalid file!");
+                return default;
+            }
         }
     }
 

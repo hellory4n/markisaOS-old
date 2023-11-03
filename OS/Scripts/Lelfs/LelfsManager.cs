@@ -251,6 +251,52 @@ public class LelfsManager : Node {
         Folder videos = NewFolder("Videos", home.Id);
         videos.Metadata.Add("CreationDate", DateTime.Now);
         videos.Save();
+
+        Folder samplePictures = NewFolder("Sample Pictures", pictures.Id);
+        samplePictures.Metadata.Add("CreationDate", DateTime.Now);
+        samplePictures.Save();
+
+        LelfsFile highPeaks = NewFile("High Peaks", samplePictures.Id);
+        highPeaks.Type = "Picture";
+        highPeaks.Data.Add("Resource", "res://Assets/Wallpapers/HighPeaks.jpg");
+        highPeaks.Metadata.Add("CreationDate", DateTime.Now);
+        highPeaks.Save();
+
+        LelfsFile flowers = NewFile("Flowers", samplePictures.Id);
+        flowers.Type = "Picture";
+        flowers.Data.Add("Resource", "res://Assets/Wallpapers/Flowers.png");
+        flowers.Metadata.Add("CreationDate", DateTime.Now);
+        flowers.Save();
+
+        LelfsFile beaches = NewFile("Beaches", samplePictures.Id);
+        beaches.Type = "Picture";
+        beaches.Data.Add("Resource", "res://Assets/Wallpapers/Beaches.png");
+        beaches.Metadata.Add("CreationDate", DateTime.Now);
+        beaches.Save();
+
+        LelfsFile aurora = NewFile("Aurora", samplePictures.Id);
+        aurora.Type = "Picture";
+        aurora.Data.Add("Resource", "res://Assets/Wallpapers/Aurora.png");
+        aurora.Metadata.Add("CreationDate", DateTime.Now);
+        aurora.Save();
+
+        LelfsFile mountains = NewFile("Mountains", samplePictures.Id);
+        mountains.Type = "Picture";
+        mountains.Data.Add("Resource", "res://Assets/Wallpapers/Mountains.png");
+        mountains.Metadata.Add("CreationDate", DateTime.Now);
+        mountains.Save();
+
+        LelfsFile space = NewFile("Space", samplePictures.Id);
+        space.Type = "Picture";
+        space.Data.Add("Resource", "res://Assets/Wallpapers/Space.png");
+        space.Metadata.Add("CreationDate", DateTime.Now);
+        space.Save();
+
+        LelfsFile logo = NewFile("lelcubeOS", pictures.Id);
+        logo.Type = "Picture";
+        logo.Data.Add("Resource", "res://Assets/Boot/Logo2.png");
+        logo.Metadata.Add("CreationDate", DateTime.Now);
+        logo.Save();
     }
 
     /// <summary>
