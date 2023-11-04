@@ -14,7 +14,6 @@ public class AddSticker : TextureButton {
         // save the sticker
         var pinboard = SavingManager.Load<LelsktopPinboard>(SavingManager.CurrentUser);
         var sticker = new PinboardItem {
-            Size = texture.GetSize(),
             TexturePath = texture.ResourcePath,
             Position = new Vector2(15, 55)
         };
@@ -25,7 +24,8 @@ public class AddSticker : TextureButton {
         GetNode("/root/Lelsktop/Pinboard").AddChild(new TextureRect {
             Expand = true,
             Texture = texture,
-            RectSize = sticker.Size,
+            RectSize = texture.GetSize(),
+            RectPivotOffset = texture.GetSize()/2,
             RectPosition = sticker.Position
         });
 

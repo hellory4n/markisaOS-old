@@ -240,7 +240,7 @@ public class Message {
 public class PinboardItem {
     public bool IsStickyNote = false;
     public Vector2 Position = new Vector2(0, 0);
-    public Vector2 Size = new Vector2(0, 0);
+    public float Scale = 1;
     public float Rotation = 0;
     public string Text = "";
     public string TexturePath = "";
