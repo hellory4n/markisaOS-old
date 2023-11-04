@@ -126,17 +126,18 @@ public class Lelsktop : Node2D {
         // load the pinboard stuff :)))
         PinboardItem[] items = SavingManager.Load<LelsktopPinboard>(SavingManager.CurrentUser).Items;
         var pinboard = GetNode<Node2D>("Pinboard");
+        var ftgkvtfyu = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Sticker.tscn");
         foreach (var item in items) {
             Texture texture = ResourceManager.LoadImage(item.TexturePath);
-            pinboard.AddChild(new TextureRect {
-                Expand = true,
-                Texture = texture,
-                RectPosition = item.Position,
-                RectPivotOffset = texture.GetSize()/2,
-                RectRotation = item.Rotation,
-                RectSize = texture.GetSize(),
-                RectScale = new Vector2(item.Scale, item.Scale)
-            });
+            var sticker = ftgkvtfyu.Instance<KinematicBody2D>();
+            sticker.Position = item.Position;
+            sticker.Rotation = item.Rotation;
+            sticker.Scale = new Vector2(item.Scale, item.Scale);
+            sticker.GetNode<Sprite>("Sprite").Texture = texture;
+            sticker.GetNode<CollisionShape2D>("Collision").Shape = new RectangleShape2D {
+                Extents = texture.GetSize()/2
+            };
+            pinboard.AddChild(sticker);
         }
     }
 
