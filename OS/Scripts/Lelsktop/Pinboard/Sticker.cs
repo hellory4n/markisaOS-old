@@ -14,6 +14,7 @@ public class Sticker : Sprite {
     Vector2 MousePosition;
     public int PinboardIndex;
     Vector2 EpicOffset;
+    static Sticker SelectedSticker;
 
     public override void _Process(float delta) {
         base._Process(delta);
@@ -38,8 +39,10 @@ public class Sticker : Sprite {
                     );
 
                     if (aRect.HasPoint(yes.Position)) {
+                        Raise();
                         Status = StatusThingy.Clicked;
                         EpicOffset = Position - yes.Position;
+                        SelectedSticker = this;
                     }
                 } else if (Status == StatusThingy.Dragging && !yes.Pressed) {
                     Status = StatusThingy.Released;
@@ -48,11 +51,13 @@ public class Sticker : Sprite {
                     var pinboard = SavingManager.Load<LelsktopPinboard>(SavingManager.CurrentUser);
                     pinboard.Items[PinboardIndex].Position = Position;
                     SavingManager.Save(SavingManager.CurrentUser, pinboard);
+
+                    SelectedSticker = null;
                 }
             }
         }
 
-        if (Status == StatusThingy.Clicked && @event is InputEventMouseMotion) {
+        if (Status == StatusThingy.Clicked && SelectedSticker == this && @event is InputEventMouseMotion) {
             Status = StatusThingy.Dragging;
         }
     }
