@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public class Lelsktop : Node2D {
     /// <summary>
@@ -129,20 +130,18 @@ public class Lelsktop : Node2D {
         }
 
         // load the pinboard stuff :)))
-        PinboardItem[] items = SavingManager.Load<LelsktopPinboard>(SavingManager.CurrentUser).Items;
+        Dictionary<string, PinboardItem> items = SavingManager.Load<LelsktopPinboard>(SavingManager.CurrentUser).Items;
         var pinboard = GetNode<Node2D>("Pinboard");
         var ftgkvtfyu = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Sticker.tscn");
 
-        int i = 0;
         foreach (var item in items) {
             var sticker = ftgkvtfyu.Instance<Sticker>();
-            sticker.Position = item.Position;
-            sticker.Rotation = item.Rotation;
-            sticker.Scale = new Vector2(item.Scale, item.Scale);
-            sticker.Texture = ResourceManager.LoadImage(item.TexturePath);
-            sticker.PinboardIndex = i;
+            sticker.Position = item.Value.Position;
+            sticker.Rotation = item.Value.Rotation;
+            sticker.Scale = new Vector2(item.Value.Scale, item.Value.Scale);
+            sticker.Texture = ResourceManager.LoadImage(item.Value.TexturePath);
+            sticker.PinboardItem = item.Key;
             pinboard.AddChild(sticker);
-            i++;
         }
     }
 

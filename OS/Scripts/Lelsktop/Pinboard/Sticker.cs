@@ -12,7 +12,7 @@ public class Sticker : Sprite {
 
     StatusThingy Status = StatusThingy.None;
     Vector2 MousePosition;
-    public int PinboardIndex;
+    public string PinboardItem;
     Vector2 EpicOffset;
     static Sticker SelectedSticker;
 
@@ -49,7 +49,7 @@ public class Sticker : Sprite {
 
                     // we need to save the position :)))
                     var pinboard = SavingManager.Load<LelsktopPinboard>(SavingManager.CurrentUser);
-                    pinboard.Items[PinboardIndex].Position = Position;
+                    pinboard.Items[PinboardItem].Position = Position;
                     SavingManager.Save(SavingManager.CurrentUser, pinboard);
 
                     SelectedSticker = null;

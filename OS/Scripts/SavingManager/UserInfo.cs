@@ -247,5 +247,5 @@ public class PinboardItem {
 }
 
 public class LelsktopPinboard {
-    public PinboardItem[] Items = new PinboardItem[]{};
+    public Dictionary<string, PinboardItem> Items = new Dictionary<string, PinboardItem>();
 }

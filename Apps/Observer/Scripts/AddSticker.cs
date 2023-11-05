@@ -17,9 +17,10 @@ public class AddSticker : TextureButton {
         var pinboard = SavingManager.Load<LelsktopPinboard>(SavingManager.CurrentUser);
         var stickerdbgfdf = new PinboardItem {
             TexturePath = TexturePath,
-            Position = new Vector2(15, 55)
+            Position = ResolutionManager.Resolution/2
         };
-        pinboard.Items = pinboard.Items.Append(stickerdbgfdf).ToArray();
+        string bullshit = LelfsManager.GenerateID();
+        pinboard.Items.Add(bullshit, stickerdbgfdf);
         SavingManager.Save(SavingManager.CurrentUser, pinboard);
 
         // add it and stuff :)
@@ -27,7 +28,7 @@ public class AddSticker : TextureButton {
         var sticker = ftgkvtfyu.Instance<Sticker>();
         sticker.Position = stickerdbgfdf.Position;
         sticker.Texture = texture;
-        sticker.PinboardIndex = pinboard.Items.Length-1;
+        sticker.PinboardItem = bullshit;
         GetNode("/root/Lelsktop/Pinboard").AddChild(sticker);
 
         var notifications = GetNode<NotificationManager>("/root/NotificationManager");
