@@ -2,6 +2,11 @@ using Godot;
 using System;
 
 public class Lelsktop : Node2D {
+    /// <summary>
+    /// If true, the user is currently using either the dock, panel, app menu, quick settings, or the workspace switcher.
+    /// </summary>
+    public static bool InteractingWithLelsktopInterface = false;
+
     public override void _Ready() {
         base._Ready();
 
@@ -160,6 +165,8 @@ public class Lelsktop : Node2D {
             bruh2.GuiDisableInput = true;
             bruh3.GuiDisableInput = true;
             bruh4.GuiDisableInput = true;
+            
+            InteractingWithLelsktopInterface = true;
         } else {
             // suffering
             if (WindowManager.CurrentWorkspace == bruh1)
@@ -170,6 +177,8 @@ public class Lelsktop : Node2D {
                 bruh3.GuiDisableInput = false;
             if (WindowManager.CurrentWorkspace == bruh4)
                 bruh4.GuiDisableInput = false;
+
+            InteractingWithLelsktopInterface = false;
         }
     }
 }
