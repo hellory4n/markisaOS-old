@@ -1,21 +1,59 @@
 using Godot;
 using System;
 
-public class Sticker : KinematicBody2D {
-    bool CanDrag = false;
-    Vector2 GrabbedOffset = new Vector2();
-
-    public override void _InputEvent(Godot.Object viewport, InputEvent @event, int shapeIdx) {
-        if (@event is InputEventMouseButton) {
-            CanDrag = @event.IsPressed();
-            GrabbedOffset = Position - GetGlobalMousePosition();
-        }
-        base._InputEvent(viewport, @event, shapeIdx);
+public class Sticker : Sprite {
+    // this is stolen from https://gist.github.com/angstyloop/08200c6d816347c82ea1aed56c219f17
+    enum StatusThingy {
+        None,
+        Clicked,
+        Released,
+        Dragging
     }
 
+    StatusThingy Status = StatusThingy.None;
+    Vector2 MousePosition;
+    public int PinboardIndex;
+    Vector2 EpicOffset;
+
     public override void _Process(float delta) {
-        if (Input.IsMouseButtonPressed((int)ButtonList.Left) && CanDrag) 
-            Position = GetGlobalMousePosition() + GrabbedOffset;
         base._Process(delta);
+        if (Status == StatusThingy.Dragging) {
+            Position = MousePosition + EpicOffset;
+        }
+    }
+
+    public override void _Input(InputEvent @event) {
+        base._Input(@event);
+
+        if (@event is InputEventMouse m) {
+            MousePosition = m.Position;
+        }
+
+        if (@event is InputEventMouseButton yes) {
+            if (yes.ButtonIndex == (int)ButtonList.Left) {
+                if (Status != StatusThingy.Dragging && yes.Pressed) {
+                    Rect2 aRect = new Rect2(
+                        Position.x - Texture.GetSize().x * Scale.x / 2, Position.y - Texture.GetSize().y * Scale.y / 2,
+                        Texture.GetSize().x * Scale.x, Texture.GetSize().y * Scale.y
+                    );
+
+                    if (aRect.HasPoint(yes.Position)) {
+                        Status = StatusThingy.Clicked;
+                        EpicOffset = Position - yes.Position;
+                    }
+                } else if (Status == StatusThingy.Dragging && !yes.Pressed) {
+                    Status = StatusThingy.Released;
+
+                    // we need to save the position :)))
+                    var pinboard = SavingManager.Load<LelsktopPinboard>(SavingManager.CurrentUser);
+                    pinboard.Items[PinboardIndex].Position = Position;
+                    SavingManager.Save(SavingManager.CurrentUser, pinboard);
+                }
+            }
+        }
+
+        if (Status == StatusThingy.Clicked && @event is InputEventMouseMotion) {
+            Status = StatusThingy.Dragging;
+        }
     }
 }

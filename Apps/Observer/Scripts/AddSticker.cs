@@ -24,12 +24,10 @@ public class AddSticker : TextureButton {
 
         // add it and stuff :)
         var ftgkvtfyu = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Sticker.tscn");
-        var sticker = ftgkvtfyu.Instance<KinematicBody2D>();
+        var sticker = ftgkvtfyu.Instance<Sticker>();
         sticker.Position = stickerdbgfdf.Position;
-        sticker.GetNode<Sprite>("Sprite").Texture = texture;
-        sticker.GetNode<CollisionShape2D>("Collision").Shape = new RectangleShape2D {
-            Extents = texture.GetSize()/2
-        };
+        sticker.Texture = texture;
+        sticker.PinboardIndex = pinboard.Items.Length-1;
         GetNode("/root/Lelsktop/Pinboard").AddChild(sticker);
 
         var notifications = GetNode<NotificationManager>("/root/NotificationManager");
