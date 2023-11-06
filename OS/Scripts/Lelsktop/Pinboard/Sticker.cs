@@ -40,6 +40,16 @@ public class Sticker : Sprite {
         // change size :)))))
         Smaller.Paused = !PinboardSelectThingy.DecreaseSize.Intersects(aRect);
         Bigger.Paused = !PinboardSelectThingy.IncreaseSize.Intersects(aRect);
+
+        // delete sticker :)))))))))))))))
+        if (PinboardSelectThingy.RemoveSticker.Intersects(aRect)) {
+            var pinboard = SavingManager.Load<LelsktopPinboard>(SavingManager.CurrentUser);
+            pinboard.Items.Remove(PinboardItem);
+            SavingManager.Save(SavingManager.CurrentUser, pinboard);
+
+            SelectedSticker = null;
+            QueueFree();
+        }
     }
 
     public override void _Input(InputEvent @event) {

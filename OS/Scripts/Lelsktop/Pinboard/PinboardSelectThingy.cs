@@ -11,9 +11,9 @@ public class PinboardSelectThingy : Node2D {
         base._Ready();
         Yes = GetNode<Control>("Yes");
         Yes.RectSize = ResolutionManager.Resolution;
-        IncreaseSize = Yes.GetNode<Panel>("IncreaseSize").GetRect();
-        DecreaseSize = Yes.GetNode<Panel>("DecreaseSize").GetRect();
-        RemoveSticker = Yes.GetNode<Panel>("Delete").GetRect();
+        IncreaseSize = Yes.GetNode<Panel>("IncreaseSize").GetRect().GrowIndividual(-80, -20, -80, -20);
+        DecreaseSize = Yes.GetNode<Panel>("DecreaseSize").GetRect().GrowIndividual(-80, -20, -80, -20);
+        RemoveSticker = Yes.GetNode<Panel>("Delete").GetRect().GrowIndividual(-80, -20, -80, -20);
     }
 
     public override void _Process(float delta) {

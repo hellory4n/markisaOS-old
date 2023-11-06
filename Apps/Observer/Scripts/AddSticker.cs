@@ -19,6 +19,11 @@ public class AddSticker : TextureButton {
             TexturePath = TexturePath,
             Position = ResolutionManager.Resolution/2
         };
+        
+        // yes.
+        if (texture.GetSize() > ResolutionManager.Resolution)
+            stickerdbgfdf.Scale = 0.2f;
+
         string bullshit = LelfsManager.GenerateID();
         pinboard.Items.Add(bullshit, stickerdbgfdf);
         SavingManager.Save(SavingManager.CurrentUser, pinboard);
@@ -29,6 +34,7 @@ public class AddSticker : TextureButton {
         sticker.Position = stickerdbgfdf.Position;
         sticker.Texture = texture;
         sticker.PinboardItem = bullshit;
+        sticker.Scale = new Vector2(stickerdbgfdf.Scale, stickerdbgfdf.Scale);
         GetNode("/root/Lelsktop/Pinboard").AddChild(sticker);
 
         var notifications = GetNode<NotificationManager>("/root/NotificationManager");
