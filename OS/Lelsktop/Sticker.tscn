@@ -7,9 +7,11 @@ script = ExtResource( 1 )
 
 [node name="Smaller" type="Timer" parent="."]
 wait_time = 0.5
+autostart = true
 
 [node name="Bigger" type="Timer" parent="."]
 wait_time = 0.5
+autostart = true
 
 [connection signal="timeout" from="Smaller" to="." method="GetSmallerOmgomgomg"]
 [connection signal="timeout" from="Bigger" to="." method="GetBiggerOmgomgomg"]

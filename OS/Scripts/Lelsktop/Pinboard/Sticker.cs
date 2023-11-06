@@ -22,6 +22,8 @@ public class Sticker : Sprite {
         base._Ready();
         Smaller = GetNode<Timer>("Smaller");
         Bigger = GetNode<Timer>("Bigger");
+        Smaller.Paused = true;
+        Bigger.Paused = true;
     }
 
     public override void _Process(float delta) {
@@ -29,6 +31,15 @@ public class Sticker : Sprite {
         if (Status == StatusThingy.Dragging && !Lelsktop.InteractingWithLelsktopInterface) {
             Position = MousePosition + EpicOffset;
         }
+        
+        Rect2 aRect = new Rect2(
+            Position.x - Texture.GetSize().x * Scale.x / 2, Position.y - Texture.GetSize().y * Scale.y / 2,
+            Texture.GetSize().x * Scale.x, Texture.GetSize().y * Scale.y
+        );
+
+        // change size :)))))
+        Smaller.Paused = !PinboardSelectThingy.DecreaseSize.Intersects(aRect);
+        Bigger.Paused = !PinboardSelectThingy.IncreaseSize.Intersects(aRect);
     }
 
     public override void _Input(InputEvent @event) {
@@ -51,19 +62,6 @@ public class Sticker : Sprite {
                         Status = StatusThingy.Clicked;
                         EpicOffset = Position - yes.Position;
                         SelectedSticker = this;
-
-                        // change size :)))))
-                        if (PinboardSelectThingy.DecreaseSize.Intersects(aRect)) {
-                            Smaller.Start();
-                        } else {
-                            Smaller.Stop();
-                        }
-
-                        if (PinboardSelectThingy.IncreaseSize.Intersects(aRect)) {
-                            Bigger.Start();
-                        } else {
-                            Bigger.Stop();
-                        }
                     }
                 } else if (Status == StatusThingy.Dragging && !yes.Pressed) {
                     Status = StatusThingy.Released;
@@ -85,7 +83,7 @@ public class Sticker : Sprite {
 
     public void GetSmallerOmgomgomg() {
         float nfjggjfg = (float)Math.Log(Scale.x + 0.1, 10);
-        float help = (float)Math.Pow(10, nfjggjfg - 0.2);
+        float help = (float)Math.Pow(10, nfjggjfg - 0.1);
 
         Scale = new Vector2(help, help);
 
@@ -96,7 +94,7 @@ public class Sticker : Sprite {
 
     public void GetBiggerOmgomgomg() {
         float nfjggjfg = (float)Math.Log(Scale.x + 0.1, 10);
-        float help = (float)Math.Pow(10, nfjggjfg + 0.2);
+        float help = (float)Math.Pow(10, nfjggjfg + 0.1);
 
         Scale = new Vector2(help, help);
 
