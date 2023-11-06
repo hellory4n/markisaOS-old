@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/DefaultOpenWindowButton.cs" type="Script" id=1]
 [ext_resource path="res://OS/Scripts/Lelsktop/Time.cs" type="Script" id=2]
@@ -36,7 +36,6 @@
 [ext_resource path="res://OS/Scripts/Lelsktop/SystemMonitorThingy.cs" type="Script" id=34]
 [ext_resource path="res://OS/Scripts/Lelsktop/ShowDesktop.cs" type="Script" id=35]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/ShowDesktop.png" type="Texture" id=36]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/PinboardEditor.png" type="Texture" id=37]
 
 [sub_resource type="Animation" id=20]
 resource_name = "CloseAppMenu"
@@ -389,9 +388,9 @@ modulate = Color( 1, 1, 1, 0 )
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -375.0
-margin_top = -515.0
+margin_top = -475.0
 margin_right = -75.0
-rect_min_size = Vector2( 300, 515 )
+rect_min_size = Vector2( 300, 475 )
 theme = ExtResource( 3 )
 
 [node name="UserIcon" type="Sprite" parent="QuickSettings"]
@@ -437,23 +436,11 @@ max_value = 1.0
 step = 0.001
 value = 1.0
 
-[node name="PinboardEditor" type="Button" parent="QuickSettings"]
+[node name="Settings" type="Button" parent="QuickSettings"]
 margin_left = 4.0
 margin_top = 120.0
 margin_right = 300.0
 margin_bottom = 160.0
-rect_min_size = Vector2( 296, 40 )
-theme_type_variation = "PanelButton"
-custom_constants/hseparation = 0
-text = "    Pinboard Editor"
-icon = ExtResource( 37 )
-align = 0
-
-[node name="Settings" type="Button" parent="QuickSettings"]
-margin_left = 4.0
-margin_top = 160.0
-margin_right = 300.0
-margin_bottom = 200.0
 rect_min_size = Vector2( 296, 40 )
 theme_type_variation = "PanelButton"
 custom_constants/hseparation = 4
@@ -465,9 +452,9 @@ WindowScene = "res://Apps/Settings/Settings.tscn"
 
 [node name="Logout" type="Button" parent="QuickSettings"]
 margin_left = 4.0
-margin_top = 200.0
+margin_top = 160.0
 margin_right = 300.0
-margin_bottom = 240.0
+margin_bottom = 200.0
 rect_min_size = Vector2( 296, 40 )
 theme_type_variation = "PanelButton"
 custom_constants/hseparation = 4
@@ -479,9 +466,9 @@ WindowScene = "res://OS/Lelsktop/Logout.tscn"
 
 [node name="Turnoff" type="Button" parent="QuickSettings"]
 margin_left = 4.0
-margin_top = 240.0
+margin_top = 200.0
 margin_right = 300.0
-margin_bottom = 280.0
+margin_bottom = 240.0
 rect_min_size = Vector2( 296, 40 )
 theme_type_variation = "PanelButton"
 custom_constants/hseparation = 4
@@ -492,9 +479,9 @@ script = ExtResource( 1 )
 WindowScene = "res://OS/Lelsktop/Shutdown.tscn"
 
 [node name="Ghjkbhkg" type="Label" parent="QuickSettings"]
-margin_top = 285.0
+margin_top = 245.0
 margin_right = 300.0
-margin_bottom = 310.0
+margin_bottom = 270.0
 rect_min_size = Vector2( 300, 25 )
 text = "System Monitor"
 align = 1
@@ -502,9 +489,9 @@ valign = 1
 
 [node name="Cpu" type="ProgressBar" parent="QuickSettings"]
 margin_left = 10.0
-margin_top = 315.0
+margin_top = 275.0
 margin_right = 290.0
-margin_bottom = 355.0
+margin_bottom = 315.0
 rect_min_size = Vector2( 280, 40 )
 hint_tooltip = "The CPU is the part of the computer that processes stuff."
 script = ExtResource( 34 )
@@ -512,18 +499,18 @@ Thingy = "CPU"
 
 [node name="Ghjkbhkg2" type="Label" parent="QuickSettings"]
 margin_left = 10.0
-margin_top = 315.0
+margin_top = 275.0
 margin_right = 280.0
-margin_bottom = 355.0
+margin_bottom = 315.0
 text = "Processor"
 align = 2
 valign = 1
 
 [node name="Gpu" type="ProgressBar" parent="QuickSettings"]
 margin_left = 10.0
-margin_top = 365.0
+margin_top = 325.0
 margin_right = 290.0
-margin_bottom = 405.0
+margin_bottom = 365.0
 rect_min_size = Vector2( 280, 40 )
 hint_tooltip = "The GPU is the part of the computer responsible for processing graphics."
 script = ExtResource( 34 )
@@ -531,18 +518,18 @@ Thingy = "GPU"
 
 [node name="Ghjkbhkg3" type="Label" parent="QuickSettings"]
 margin_left = 10.0
-margin_top = 365.0
+margin_top = 325.0
 margin_right = 280.0
-margin_bottom = 405.0
+margin_bottom = 365.0
 text = "Graphics"
 align = 2
 valign = 1
 
 [node name="Memory" type="ProgressBar" parent="QuickSettings"]
 margin_left = 10.0
-margin_top = 415.0
+margin_top = 375.0
 margin_right = 290.0
-margin_bottom = 455.0
+margin_bottom = 415.0
 rect_min_size = Vector2( 280, 40 )
 hint_tooltip = "The memory is the part of the computer with all of the values it's currently using."
 script = ExtResource( 34 )
@@ -550,18 +537,18 @@ Thingy = "Memory"
 
 [node name="Ghjkbhkg4" type="Label" parent="QuickSettings"]
 margin_left = 10.0
-margin_top = 415.0
+margin_top = 375.0
 margin_right = 280.0
-margin_bottom = 455.0
+margin_bottom = 415.0
 text = "Memory"
 align = 2
 valign = 1
 
 [node name="Storage" type="ProgressBar" parent="QuickSettings"]
 margin_left = 10.0
-margin_top = 465.0
+margin_top = 425.0
 margin_right = 290.0
-margin_bottom = 505.0
+margin_bottom = 465.0
 rect_min_size = Vector2( 280, 40 )
 hint_tooltip = "This indicates how much apps are currently reading and writing to disk, not how much space is available."
 script = ExtResource( 34 )
@@ -569,9 +556,9 @@ Thingy = "Storage"
 
 [node name="Ghjkbhkg5" type="Label" parent="QuickSettings"]
 margin_left = 10.0
-margin_top = 465.0
+margin_top = 425.0
 margin_right = 280.0
-margin_bottom = 505.0
+margin_bottom = 465.0
 text = "Storage"
 align = 2
 valign = 1
