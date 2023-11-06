@@ -1,6 +1,4 @@
 using Godot;
-using System;
-using System.Linq;
 
 public class AddSticker : TextureButton {
     public string TexturePath;

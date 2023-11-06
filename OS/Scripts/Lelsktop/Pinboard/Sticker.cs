@@ -42,7 +42,7 @@ public class Sticker : Sprite {
         Bigger.Paused = !PinboardSelectThingy.IncreaseSize.Intersects(aRect);
 
         // delete sticker :)))))))))))))))
-        if (PinboardSelectThingy.RemoveSticker.Intersects(aRect)) {
+        if (PinboardSelectThingy.RemoveSticker.Intersects(aRect) && SelectedSticker == this) {
             var pinboard = SavingManager.Load<LelsktopPinboard>(SavingManager.CurrentUser);
             pinboard.Items.Remove(PinboardItem);
             SavingManager.Save(SavingManager.CurrentUser, pinboard);
@@ -92,6 +92,11 @@ public class Sticker : Sprite {
     }
 
     public void GetSmallerOmgomgomg() {
+        if (SelectedSticker != this) {
+            Smaller.Paused = true;
+            return;
+        }
+
         float nfjggjfg = (float)Math.Log(Scale.x + 0.1, 10);
         float help = (float)Math.Pow(10, nfjggjfg - 0.1);
 
@@ -103,6 +108,11 @@ public class Sticker : Sprite {
     }
 
     public void GetBiggerOmgomgomg() {
+        if (SelectedSticker != this) {
+            Bigger.Paused = true;
+            return;
+        }
+
         float nfjggjfg = (float)Math.Log(Scale.x + 0.1, 10);
         float help = (float)Math.Pow(10, nfjggjfg + 0.1);
 
