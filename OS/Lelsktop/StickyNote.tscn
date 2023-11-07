@@ -6,8 +6,7 @@
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/StickyNotes/Header.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Yellow/Theme.tres" type="Theme" id=5]
 
-[sub_resource type="DynamicFont" id=1]
-size = 18
+[sub_resource type="DynamicFont" id=3]
 font_data = ExtResource( 3 )
 
 [sub_resource type="StyleBoxTexture" id=2]
@@ -16,23 +15,22 @@ content_margin_right = 10.0
 content_margin_top = 10.0
 content_margin_bottom = 10.0
 texture = ExtResource( 2 )
-region_rect = Rect2( 0, 0, 400, 380 )
+region_rect = Rect2( 0, 0, 300, 300 )
 
 [node name="Sticker" type="Sprite"]
 texture = ExtResource( 4 )
 script = ExtResource( 1 )
 
 [node name="Text" type="TextEdit" parent="."]
-margin_left = -200.0
-margin_top = 35.0
-margin_right = 200.0
-margin_bottom = 415.0
-rect_min_size = Vector2( 400, 380 )
+margin_left = -150.0
+margin_top = 25.0
+margin_right = 150.0
+margin_bottom = 325.0
 theme = ExtResource( 5 )
 custom_colors/selection_color = Color( 1, 0.756863, 0.027451, 1 )
 custom_colors/caret_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0.129412, 0.129412, 0.129412, 1 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 custom_styles/focus = SubResource( 2 )
 custom_styles/normal = SubResource( 2 )
 text = "Write text here..."
