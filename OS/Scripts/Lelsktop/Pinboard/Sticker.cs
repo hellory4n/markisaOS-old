@@ -17,9 +17,13 @@ public class Sticker : Sprite {
     public static Sticker SelectedSticker;
     Timer Smaller;
     Timer Bigger;
+    public bool DoTheStickerThingy = true;
 
     public override void _Ready() {
         base._Ready();
+        if (!DoTheStickerThingy)
+            return;
+
         Smaller = GetNode<Timer>("Smaller");
         Bigger = GetNode<Timer>("Bigger");
         Smaller.Paused = true;
@@ -38,8 +42,10 @@ public class Sticker : Sprite {
         );
 
         // change size :)))))
-        Smaller.Paused = !PinboardSelectThingy.DecreaseSize.Intersects(aRect);
-        Bigger.Paused = !PinboardSelectThingy.IncreaseSize.Intersects(aRect);
+        if (DoTheStickerThingy) {
+            Smaller.Paused = !PinboardSelectThingy.DecreaseSize.Intersects(aRect);
+            Bigger.Paused = !PinboardSelectThingy.IncreaseSize.Intersects(aRect);
+        }
 
         // delete sticker :)))))))))))))))
         if (PinboardSelectThingy.RemoveSticker.Intersects(aRect) && SelectedSticker == this) {

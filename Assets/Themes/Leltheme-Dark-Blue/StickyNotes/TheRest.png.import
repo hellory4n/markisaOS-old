@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Search.png-62e0020eb3a024c186fc9397d9208e16.stex"
+path="res://.import/TheRest.png-018115d1de8328111fc8d25b64efd89f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Search.png"
-dest_files=[ "res://.import/Search.png-62e0020eb3a024c186fc9397d9208e16.stex" ]
+source_file="res://Assets/Themes/Leltheme-Dark-Blue/StickyNotes/TheRest.png"
+dest_files=[ "res://.import/TheRest.png-018115d1de8328111fc8d25b64efd89f.stex" ]
 
 [params]
 

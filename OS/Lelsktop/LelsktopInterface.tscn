@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/DefaultOpenWindowButton.cs" type="Script" id=1]
 [ext_resource path="res://OS/Scripts/Lelsktop/Time.cs" type="Script" id=2]
@@ -36,6 +36,8 @@
 [ext_resource path="res://OS/Scripts/Lelsktop/SystemMonitorThingy.cs" type="Script" id=34]
 [ext_resource path="res://OS/Scripts/Lelsktop/ShowDesktop.cs" type="Script" id=35]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/ShowDesktop.png" type="Texture" id=36]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/AddStickyNote.png" type="Texture" id=37]
+[ext_resource path="res://OS/Scripts/Lelsktop/Pinboard/AddStickyNote.cs" type="Script" id=38]
 
 [sub_resource type="Animation" id=20]
 resource_name = "CloseAppMenu"
@@ -336,7 +338,7 @@ custom_constants/autohide = 0
 
 [node name="QuickLaunch" type="VBoxContainer" parent="Dock/DockStuff"]
 margin_right = 75.0
-margin_bottom = 128.0
+margin_bottom = 192.0
 mouse_filter = 0
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -374,10 +376,26 @@ icon = ExtResource( 8 )
 icon_align = 1
 script = ExtResource( 32 )
 
+[node name="AddStickyNote" type="Button" parent="Dock/DockStuff/QuickLaunch"]
+margin_left = 5.0
+margin_top = 128.0
+margin_right = 69.0
+margin_bottom = 192.0
+rect_min_size = Vector2( 64, 64 )
+hint_tooltip = "Add sticky note to the pinboard"
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_type_variation = "DockButton"
+custom_styles/normal = SubResource( 24 )
+toggle_mode = true
+icon = ExtResource( 37 )
+icon_align = 1
+script = ExtResource( 38 )
+
 [node name="Running" type="VBoxContainer" parent="Dock/DockStuff"]
-margin_top = 140.0
+margin_top = 204.0
 margin_right = 75.0
-margin_bottom = 140.0
+margin_bottom = 204.0
 mouse_filter = 0
 size_flags_horizontal = 3
 size_flags_vertical = 0

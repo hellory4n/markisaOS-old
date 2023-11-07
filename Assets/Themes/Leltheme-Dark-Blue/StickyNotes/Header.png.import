@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/AddSticker.png-e774e27bfb8049dedf92a8dcdbb22b9d.stex"
+path="res://.import/Header.png-48508d474b42299e2f36a0f873115f8e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Themes/Leltheme-Dark-Blue/Icons/AddSticker.png"
-dest_files=[ "res://.import/AddSticker.png-e774e27bfb8049dedf92a8dcdbb22b9d.stex" ]
+source_file="res://Assets/Themes/Leltheme-Dark-Blue/StickyNotes/Header.png"
+dest_files=[ "res://.import/Header.png-48508d474b42299e2f36a0f873115f8e.stex" ]
 
 [params]
 
