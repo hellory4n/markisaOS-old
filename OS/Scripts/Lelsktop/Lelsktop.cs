@@ -133,15 +133,24 @@ public class Lelsktop : Node2D {
         Dictionary<string, PinboardItem> items = SavingManager.Load<LelsktopPinboard>(SavingManager.CurrentUser).Items;
         var pinboard = GetNode<Node2D>("Pinboard");
         var ftgkvtfyu = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Sticker.tscn");
+        var bhsdffgyu = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/StickyNote.tscn");
 
         foreach (var item in items) {
-            var sticker = ftgkvtfyu.Instance<Sticker>();
-            sticker.Position = item.Value.Position;
-            sticker.Rotation = item.Value.Rotation;
-            sticker.Scale = new Vector2(item.Value.Scale, item.Value.Scale);
-            sticker.Texture = ResourceManager.LoadImage(item.Value.TexturePath);
-            sticker.PinboardItem = item.Key;
-            pinboard.AddChild(sticker);
+            if (item.Value.IsStickyNote) {
+                var bullshit = bhsdffgyu.Instance<StickyNote>();
+                bullshit.Position = item.Value.Position;
+                bullshit.PinboardItem = item.Key;
+                pinboard.AddChild(bullshit);
+                bullshit.GetNode<TextEdit>("Text").Text = item.Value.Text;
+            } else {
+                var sticker = ftgkvtfyu.Instance<Sticker>();
+                sticker.Position = item.Value.Position;
+                sticker.Rotation = item.Value.Rotation;
+                sticker.Scale = new Vector2(item.Value.Scale, item.Value.Scale);
+                sticker.Texture = ResourceManager.LoadImage(item.Value.TexturePath);
+                sticker.PinboardItem = item.Key;
+                pinboard.AddChild(sticker);
+            }
         }
     }
 

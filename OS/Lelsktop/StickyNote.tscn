@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://OS/Scripts/Lelsktop/Pinboard/StickyNote.cs" type="Script" id=1]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/StickyNotes/TheRest.png" type="Texture" id=2]
 [ext_resource path="res://Fonts/Solitreo-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/StickyNotes/Header.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Yellow/Theme.tres" type="Theme" id=5]
+[ext_resource path="res://OS/Scripts/Lelsktop/Pinboard/StickyNoteText.cs" type="Script" id=6]
 
 [sub_resource type="DynamicFont" id=3]
 font_data = ExtResource( 3 )
@@ -17,7 +18,7 @@ content_margin_bottom = 10.0
 texture = ExtResource( 2 )
 region_rect = Rect2( 0, 0, 300, 300 )
 
-[node name="Sticker" type="Sprite"]
+[node name="StickyNote" type="Sprite"]
 texture = ExtResource( 4 )
 script = ExtResource( 1 )
 
@@ -35,3 +36,10 @@ custom_styles/focus = SubResource( 2 )
 custom_styles/normal = SubResource( 2 )
 text = "Write text here..."
 wrap_enabled = true
+script = ExtResource( 6 )
+
+[node name="Autosave" type="Timer" parent="Text"]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Text/Autosave" to="Text" method="ActuallySaveAndStuff"]
