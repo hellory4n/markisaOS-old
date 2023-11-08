@@ -39,20 +39,6 @@ OriginalSize = Vector2( 4096, 2304 )
 
 [node name="Pinboard" type="Node2D" parent="."]
 
-[node name="AddStickyNote" type="TextureButton" parent="."]
-margin_left = 571.0
-margin_top = 65.0
-margin_right = 635.0
-margin_bottom = 129.0
-rect_min_size = Vector2( 64, 64 )
-hint_tooltip = "Add sticky note"
-texture_normal = ExtResource( 4 )
-texture_pressed = ExtResource( 4 )
-texture_hover = ExtResource( 4 )
-texture_disabled = ExtResource( 4 )
-texture_focused = ExtResource( 4 )
-script = ExtResource( 3 )
-
 [node name="PinboardSelectThingy" type="Node2D" parent="."]
 script = ExtResource( 1 )
 
@@ -170,3 +156,17 @@ render_target_update_mode = 0
 [node name="ThemeThing" type="Control" parent="4/Windows"]
 margin_right = 40.0
 margin_bottom = 40.0
+
+[node name="AddStickyNote" type="TextureButton" parent="."]
+margin_left = 571.0
+margin_top = 65.0
+margin_right = 635.0
+margin_bottom = 129.0
+rect_min_size = Vector2( 64, 64 )
+hint_tooltip = "Add sticky note"
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 4 )
+texture_focused = ExtResource( 4 )
+script = ExtResource( 3 )

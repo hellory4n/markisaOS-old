@@ -13,6 +13,7 @@ public class Pinboard : Button {
         GetNode<ViewportContainer>("/root/Lelsktop/2").Visible = !yes;
         GetNode<ViewportContainer>("/root/Lelsktop/3").Visible = !yes;
         GetNode<ViewportContainer>("/root/Lelsktop/4").Visible = !yes;
+        GetNode<Control>("/root/LelsktopInterface/WindowSpace").Visible = !yes;
         EditingPinboard = yes;
     }
 }
