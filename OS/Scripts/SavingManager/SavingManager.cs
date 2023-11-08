@@ -378,9 +378,11 @@ public class SavingManager : Node {
             // fun
             coolApps.All = coolApps.All.Append(new Lelapp("Mines", "res://Apps/Mines/Assets/IconSmall.png", "res://Apps/Mines/Mines.tscn")).ToArray();
             coolApps.All = coolApps.All.Append(new Lelapp("Sausage Clicker", "res://Apps/SausageClicker/Assets/IconSmall.png", "res://Apps/SausageClicker/SausageClicker.tscn")).ToArray();
+            coolApps.All = coolApps.All.Append(new Lelapp("Tour", "res://Apps/Tour/Assets/IconSmall.png", "res://Apps/Tour/Tour.tscn")).ToArray();
             coolApps.Games = coolApps.Games.Append(new Lelapp("Mines", "res://Apps/Mines/Assets/IconSmall.png", "res://Apps/Mines/Mines.tscn")).ToArray();
             coolApps.Games = coolApps.Games.Append(new Lelapp("Sausage Clicker", "res://Apps/SausageClicker/Assets/IconSmall.png", "res://Apps/SausageClicker/SausageClicker.tscn")).ToArray();
             Save(user, coolApps);
+            coolApps.Utilities = coolApps.Utilities.Append(new Lelapp("Tour", "res://Apps/Tour/Assets/IconSmall.png", "res://Apps/Tour/Tour.tscn")).ToArray();
 
             File fgbfg = new File();
             fgbfg.Open($"user://Users/{user}/LelsktopPinboard.json", File.ModeFlags.Write);
