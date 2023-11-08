@@ -147,6 +147,13 @@ public class Lelsktop : Node2D {
 
     public override void _Process(float delta) {
         base._Process(delta);
+
+        // if the user is editing the pinboard stuff we don't need to process this shit anyway
+        if (Pinboard.EditingPinboard) {
+            InteractingWithLelsktopInterface = false;
+            return;
+        }
+
         Vector2 pain = ResolutionManager.Resolution;
         Viewport bruh1 = GetNode<Viewport>("/root/Lelsktop/1/Windows");
         Viewport bruh2 = GetNode<Viewport>("/root/Lelsktop/2/Windows");

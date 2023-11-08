@@ -32,6 +32,10 @@ public class Sticker : Sprite {
 
     public override void _Process(float delta) {
         base._Process(delta);
+
+        if (!Pinboard.EditingPinboard)
+            return;
+
         if (Status == StatusThingy.Dragging && !Lelsktop.InteractingWithLelsktopInterface) {
             Position = MousePosition + EpicOffset;
         }
@@ -60,6 +64,9 @@ public class Sticker : Sprite {
 
     public override void _Input(InputEvent @event) {
         base._Input(@event);
+
+        if (!Pinboard.EditingPinboard)
+            return;
 
         if (@event is InputEventMouse m) {
             MousePosition = m.Position;

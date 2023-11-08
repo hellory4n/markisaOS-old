@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://OS/Scripts/Lelsktop/Pinboard/PinboardSelectThingy.cs" type="Script" id=1]
 [ext_resource path="res://OS/Scripts/Lelsktop/Lelsktop.cs" type="Script" id=2]
+[ext_resource path="res://OS/Scripts/Lelsktop/Pinboard/AddStickyNote.cs" type="Script" id=3]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/AddStickyNote.png" type="Texture" id=4]
 [ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/ImageBackground.cs" type="Script" id=5]
 
 [sub_resource type="Animation" id=2]
@@ -36,6 +38,20 @@ script = ExtResource( 5 )
 OriginalSize = Vector2( 4096, 2304 )
 
 [node name="Pinboard" type="Node2D" parent="."]
+
+[node name="AddStickyNote" type="TextureButton" parent="."]
+margin_left = 571.0
+margin_top = 65.0
+margin_right = 635.0
+margin_bottom = 129.0
+rect_min_size = Vector2( 64, 64 )
+hint_tooltip = "Add sticky note"
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 4 )
+texture_focused = ExtResource( 4 )
+script = ExtResource( 3 )
 
 [node name="PinboardSelectThingy" type="Node2D" parent="."]
 script = ExtResource( 1 )

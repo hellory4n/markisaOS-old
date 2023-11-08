@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/DefaultOpenWindowButton.cs" type="Script" id=1]
 [ext_resource path="res://OS/Scripts/Lelsktop/Time.cs" type="Script" id=2]
@@ -37,7 +37,8 @@
 [ext_resource path="res://OS/Scripts/Lelsktop/ShowDesktop.cs" type="Script" id=35]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/ShowDesktop.png" type="Texture" id=36]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/PinboardEditor.png" type="Texture" id=37]
-[ext_resource path="res://OS/Scripts/Lelsktop/Pinboard/AddStickyNote.cs" type="Script" id=38]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Applications.png" type="Texture" id=38]
+[ext_resource path="res://OS/Scripts/Lelsktop/Pinboard/Pinboard.cs" type="Script" id=39]
 
 [sub_resource type="Animation" id=20]
 resource_name = "CloseAppMenu"
@@ -2623,21 +2624,19 @@ hint_tooltip = "Launch applications here"
 theme_type_variation = "PanelButton"
 toggle_mode = true
 text = "Applications"
+icon = ExtResource( 38 )
 script = ExtResource( 10 )
 
-[node name="AddStickyNote" type="Button" parent="Panel"]
+[node name="PinboardEditor" type="Button" parent="Panel"]
 margin_left = 200.0
-margin_right = 240.0
+margin_right = 400.0
 margin_bottom = 40.0
-rect_min_size = Vector2( 60, 40 )
-hint_tooltip = "Edit the pinboard"
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_type_variation = "DockButton"
-custom_styles/normal = SubResource( 24 )
+hint_tooltip = "Launch applications here"
+theme_type_variation = "PanelButton"
+toggle_mode = true
+text = "Edit Pinboard"
 icon = ExtResource( 37 )
-icon_align = 1
-script = ExtResource( 38 )
+script = ExtResource( 39 )
 
 [node name="Settings" type="Button" parent="Panel"]
 anchor_left = 1.0
@@ -2674,13 +2673,13 @@ icon_align = 1
 script = ExtResource( 35 )
 
 [node name="InfoThingy" type="HBoxContainer" parent="Panel"]
-anchor_left = 0.5
+anchor_left = 1.0
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -141.5
+margin_left = -543.0
 margin_top = -20.0
-margin_right = 141.5
+margin_right = -260.0
 margin_bottom = 20.0
 
 [node name="Weather" type="Button" parent="Panel/InfoThingy"]
@@ -2704,3 +2703,5 @@ size_flags_horizontal = 4
 theme_type_variation = "PanelButton"
 text = "06/09/2069 06:09"
 script = ExtResource( 2 )
+
+[connection signal="toggled" from="Panel/PinboardEditor" to="Panel/PinboardEditor" method="Toggled"]

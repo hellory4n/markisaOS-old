@@ -1,10 +1,13 @@
 using Godot;
 using System;
 
-public class AddStickyNote : Button {
+public class AddStickyNote : TextureButton {
     public override void _Ready() {
         base._Ready();
         Connect("pressed", this, nameof(Click));
+
+        // the 69 is not a joke i swear
+        RectPosition = new Vector2(ResolutionManager.Resolution.x/2 - 69, 65);
     }
 
     public void Click() {
@@ -27,8 +30,11 @@ public class AddStickyNote : Button {
         sticker.GetNode<TextEdit>("Text").Text = stickerdbgfdf.Text;
         sticker.PinboardItem = bullshit;
         GetNode("/root/Lelsktop/Pinboard").AddChild(sticker);
+    }
 
-        var notifications = GetNode<NotificationManager>("/root/NotificationManager");
-        notifications.ShowNotification("A sticky note has been added to your pinboard.");
+    public override void _Process(float delta) {
+        base._Process(delta);
+        // so true
+        Visible = Pinboard.EditingPinboard;
     }
 }
