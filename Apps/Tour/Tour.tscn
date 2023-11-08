@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Apps/Tour/Assets/IconDock.png" type="Texture" id=2]
+[ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/MusicPlayer.cs" type="Script" id=3]
+[ext_resource path="res://Apps/Tour/Assets/Tour.mp3" type="AudioStream" id=4]
 [ext_resource path="res://OS/Scripts/WindowManager/BaseWindow.cs" type="Script" id=5]
+[ext_resource path="res://Assets/Boot/Logo.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Close"
@@ -135,7 +138,7 @@ tracks/1/keys = {
 process_priority = 1
 visible = true
 margin_right = 400.0
-margin_bottom = 100.0
+margin_bottom = 355.0
 rect_min_size = Vector2( 400, 355 )
 theme = ExtResource( 1 )
 popup_exclusive = true
@@ -151,9 +154,106 @@ anims/Minimize = SubResource( 3 )
 anims/Open = SubResource( 1 )
 anims/Restore = SubResource( 4 )
 
-[node name="Label" type="Label" parent="."]
-margin_left = 44.0
-margin_top = 41.0
-margin_right = 345.0
-margin_bottom = 183.0
-text = "fghjhjgdfghk"
+[node name="MusicPlayer" type="Node" parent="."]
+script = ExtResource( 3 )
+Music = ExtResource( 4 )
+WindowPath = NodePath("..")
+
+[node name="Page1" type="CenterContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="M" type="VBoxContainer" parent="Page1"]
+margin_left = 46.0
+margin_top = 43.0
+margin_right = 353.0
+margin_bottom = 312.0
+
+[node name="Label" type="Label" parent="Page1/M"]
+margin_right = 307.0
+margin_bottom = 33.0
+theme_type_variation = "Header"
+text = "Welcome to lelcubeOS Me"
+align = 1
+
+[node name="Label2" type="Label" parent="Page1/M"]
+margin_top = 43.0
+margin_right = 307.0
+margin_bottom = 109.0
+text = "This app will guide you through everything you need to known to get started with lelcubeOS."
+align = 1
+autowrap = true
+
+[node name="TextureRect" type="TextureRect" parent="Page1/M"]
+margin_top = 119.0
+margin_right = 307.0
+margin_bottom = 219.0
+rect_min_size = Vector2( 0, 100 )
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 6
+
+[node name="vjklkb" type="HBoxContainer" parent="Page1/M"]
+margin_top = 229.0
+margin_right = 307.0
+margin_bottom = 269.0
+
+[node name="Button2" type="Button" parent="Page1/M/vjklkb"]
+margin_right = 148.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+theme_type_variation = "SecondaryButton"
+text = "Back"
+
+[node name="Button" type="Button" parent="Page1/M/vjklkb"]
+margin_left = 158.0
+margin_right = 307.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+text = "Next"
+
+[node name="Page2" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="M" type="VBoxContainer" parent="Page2"]
+margin_left = 46.0
+margin_top = 87.0
+margin_right = 353.0
+margin_bottom = 268.0
+
+[node name="Label" type="Label" parent="Page2/M"]
+margin_right = 307.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 307, 0 )
+theme_type_variation = "Header"
+text = "The panel"
+align = 1
+
+[node name="Label2" type="Label" parent="Page2/M"]
+margin_top = 43.0
+margin_right = 307.0
+margin_bottom = 131.0
+text = "The panel is where you can launch applications, open the quick settings, as well as checking the current date, time, and weather."
+align = 1
+autowrap = true
+
+[node name="vjklkb" type="HBoxContainer" parent="Page2/M"]
+margin_top = 141.0
+margin_right = 307.0
+margin_bottom = 181.0
+
+[node name="Button2" type="Button" parent="Page2/M/vjklkb"]
+margin_right = 148.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+theme_type_variation = "SecondaryButton"
+text = "Back"
+
+[node name="Button" type="Button" parent="Page2/M/vjklkb"]
+margin_left = 158.0
+margin_right = 307.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+text = "Next"
