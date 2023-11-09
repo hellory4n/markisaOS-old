@@ -2,4 +2,4 @@
 
 my new game lol
 
-note: this still uses godot 3.5, i'll update it when godot 4.2 comes out
+note: this is currently going through the transition to godot 4 so everything is broken, check the 0.10 branch to see code that works
