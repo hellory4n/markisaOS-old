@@ -1,16 +1,16 @@
 using Godot;
 using System;
 
-public class TextEditThing : TextEdit {
+public partial class TextEditThing : TextEdit {
     public string EpicFilename;
     public string SavedText;
     public string CoolId;
 
     public override void _Ready() {
         base._Ready();
-        GetNode<Button>("../Toolbar/Save").Connect("pressed", this, nameof(Save));
-        GetNode<Button>("../Toolbar/SaveAs").Connect("pressed", this, nameof(SaveAs));
-        GetNode<Button>("../Toolbar/Open").Connect("pressed", this, nameof(Open));
+        GetNode<Button>("../Toolbar/Save").Connect("pressed", new Callable(this, nameof(Save)));
+        GetNode<Button>("../Toolbar/SaveAs").Connect("pressed", new Callable(this, nameof(SaveAs)));
+        GetNode<Button>("../Toolbar/Open").Connect("pressed", new Callable(this, nameof(Open)));
     }
 
     public override void _Process(float delta) {

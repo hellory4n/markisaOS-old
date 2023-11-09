@@ -2,8 +2,8 @@
 
 [ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/SetSizeToScreenResolution.cs" type="Script" id=1]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=2]
-[ext_resource path="res://Assets/Boot/OnboardingBackground.png" type="Texture" id=3]
-[ext_resource path="res://Fonts/RedHatText-Bold.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Assets/Boot/OnboardingBackground.png" type="Texture2D" id=3]
+[ext_resource path="res://Fonts/RedHatText-Bold.ttf" type="FontFile" id=4]
 [ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/OpenSceneButton.cs" type="Script" id=5]
 [ext_resource path="res://OS/Scripts/Lelsktop/Time.cs" type="Script" id=6]
 [ext_resource path="res://OS/Scripts/Core/UserList.cs" type="Script" id=7]
@@ -20,8 +20,8 @@ tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -32,13 +32,13 @@ tracks/1/loop_wrap = false
 tracks/1/imported = false
 tracks/1/enabled = false
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.37, 1 ),
+"times": PackedFloat32Array( 0, 0.5 ),
+"transitions": PackedFloat32Array( 0.37, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="FontFile" id=4]
 size = 24
 font_data = ExtResource( 4 )
 
@@ -55,7 +55,7 @@ font_data = ExtResource( 4 )
 [node name="Onboarding" type="Node2D"]
 script = ExtResource( 9 )
 
-[node name="OnboardingBackground" type="Sprite" parent="."]
+[node name="OnboardingBackground" type="Sprite2D" parent="."]
 position = Vector2( 648, 355.5 )
 scale = Vector2( 0.345703, 0.351128 )
 texture = ExtResource( 3 )
@@ -67,36 +67,36 @@ autoplay = "OnboardingStart"
 anims/OnboardingStart = SubResource( 3 )
 
 [node name="Control" type="Control" parent="."]
-margin_right = 1280.0
-margin_bottom = 720.0
+offset_right = 1280.0
+offset_bottom = 720.0
 theme = ExtResource( 2 )
 script = ExtResource( 1 )
 
-[node name="Thing" type="WindowDialog" parent="Control"]
+[node name="Thing" type="Window" parent="Control"]
 visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -200.0
-margin_top = -250.0
-margin_right = 200.0
-margin_bottom = 250.0
-popup_exclusive = true
+offset_left = -200.0
+offset_top = -250.0
+offset_right = 200.0
+offset_bottom = 250.0
+exclusive = true
 window_title = "Onboarding"
 
 [node name="TitleTexture" type="Panel" parent="Control/Thing"]
 anchor_right = 1.0
-margin_top = -45.0
-rect_min_size = Vector2( 45, 45 )
+offset_top = -45.0
+custom_minimum_size = Vector2( 45, 45 )
 mouse_filter = 2
 theme = ExtResource( 2 )
 theme_type_variation = "WindowTitle"
 
 [node name="Label" type="Label" parent="Control/Thing/TitleTexture"]
 anchor_right = 1.0
-margin_bottom = 22.0
-rect_min_size = Vector2( 0, 45 )
+offset_bottom = 22.0
+custom_minimum_size = Vector2( 0, 45 )
 theme_type_variation = "WindowTitleText"
 text = "Onboarding"
 align = 1
@@ -107,39 +107,39 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="CenterContainer" type="CenterContainer" parent="Control/Thing/ScrollContainer"]
-margin_right = 300.0
-margin_bottom = 60.0
+offset_right = 300.0
+offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/Thing/ScrollContainer/CenterContainer"]
-margin_right = 300.0
-margin_bottom = 60.0
+offset_right = 300.0
+offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 script = ExtResource( 7 )
 
 [node name="Button" type="Button" parent="Control/Thing/ScrollContainer/CenterContainer/VBoxContainer"]
-margin_right = 300.0
-margin_bottom = 60.0
-rect_min_size = Vector2( 300, 60 )
-custom_fonts/font = SubResource( 4 )
+offset_right = 300.0
+offset_bottom = 60.0
+custom_minimum_size = Vector2( 300, 60 )
+theme_override_fonts/font = SubResource( 4 )
 text = "New User"
 script = ExtResource( 5 )
 Scene = "res://OS/Core/NewUser.tscn"
 
 [node name="Time" type="Button" parent="Control"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 40.0
-margin_bottom = 22.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 40.0
+offset_bottom = 22.0
 theme_type_variation = "Header"
-custom_styles/hover = SubResource( 5 )
-custom_styles/pressed = SubResource( 6 )
-custom_styles/focus = SubResource( 7 )
-custom_styles/disabled = SubResource( 8 )
-custom_styles/normal = SubResource( 9 )
+theme_override_styles/hover = SubResource( 5 )
+theme_override_styles/pressed = SubResource( 6 )
+theme_override_styles/focus = SubResource( 7 )
+theme_override_styles/disabled = SubResource( 8 )
+theme_override_styles/normal = SubResource( 9 )
 disabled = true
 text = "ergergnhgfgn"
 script = ExtResource( 6 )

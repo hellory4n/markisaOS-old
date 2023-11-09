@@ -1,9 +1,9 @@
 using Godot;
 using System;
 
-public class VideoProgress : ProgressBar {
+public partial class VideoProgress : ProgressBar {
     public override void _Process(float delta) {
         base._Process(delta);
-        Value = GetNode<VideoPlayer>("../M/Video").StreamPosition;
+        Value = GetNode<VideoStreamPlayer>("../M/Video").StreamPosition;
     }
 }

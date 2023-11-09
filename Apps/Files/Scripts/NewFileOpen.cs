@@ -1,10 +1,10 @@
 using Godot;
 using System;
 
-public class NewFileOpen : Button {
+public partial class NewFileOpen : Button {
     public override void _Ready() {
         base._Ready();
-        Connect("pressed", this, nameof(Click));
+        Connect("pressed", new Callable(this, nameof(Click)));
     }
 
     public void Click() {
@@ -14,7 +14,7 @@ public class NewFileOpen : Button {
 
         // pain
         FileView mewhenthe = GetNode<FileView>("../../ItemList");
-        LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(mewhenthe.Path);
+        LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(mewhenthe.Path3D);
         jjkn.Parent = dfggfdf.Id;
         jjkn.ThingThatINeedToRefresh = mewhenthe;
 

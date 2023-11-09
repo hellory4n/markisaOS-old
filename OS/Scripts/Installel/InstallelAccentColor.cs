@@ -1,10 +1,10 @@
 using Godot;
 using System;
 
-public class InstallelAccentColor : OptionButton {
+public partial class InstallelAccentColor : OptionButton {
     public override void _Ready() {
         base._Ready();
-        Connect("item_selected", this, nameof(Click));
+        Connect("item_selected", new Callable(this, nameof(Click)));
     }
 
     public void Click(int index) {

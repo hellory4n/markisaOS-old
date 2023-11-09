@@ -1,14 +1,14 @@
 using Godot;
 using System;
 
-public class ApplyWallpaper : Button {
+public partial class ApplyWallpaper : Button {
     public override void _Ready() {
         base._Ready();
-        Connect("pressed", this, nameof(Click));
+        Connect("pressed", new Callable(this, nameof(Click)));
     }
 
     public void Click() {
-        Texture wallpaper;
+        Texture2D wallpaper;
         string wallpaperSaveThing;
         // is there a custom image the user chose?
         string coolWallpaperId = GetNode<LineEdit>("../LineEdit").Text;
@@ -34,7 +34,7 @@ public class ApplyWallpaper : Button {
         }
 
         // actually apply the wallpaper
-        GetNode<Sprite>("/root/Lelsktop/Wallpaper").Texture = wallpaper;
+        GetNode<Sprite2D>("/root/Lelsktop/Wallpaper").Texture2D = wallpaper;
 
         // scale wallpaper :))))))))
         GetNode<ImageBackground>("/root/Lelsktop/Wallpaper").OriginalSize = wallpaper.GetSize();
@@ -47,8 +47,8 @@ public class ApplyWallpaper : Button {
         } else {
             scale = Mathf.Max(bruh.x, bruh.y) / Mathf.Max(wallpaper.GetSize().x, wallpaper.GetSize().y);
         }
-        GetNode<Sprite>("/root/Lelsktop/Wallpaper").Scale = new Vector2(scale, scale);
-        GetNode<Sprite>("/root/Lelsktop/Wallpaper").Position = bruh/2;
+        GetNode<Sprite2D>("/root/Lelsktop/Wallpaper").Scale = new Vector2(scale, scale);
+        GetNode<Sprite2D>("/root/Lelsktop/Wallpaper").Position = bruh/2;
 
         // then save the new settings
         UserLelsktop m = SavingManager.Load<UserLelsktop>(SavingManager.CurrentUser);

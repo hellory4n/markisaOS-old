@@ -1,53 +1,53 @@
 using Godot;
 using System;
 
-public class QuickSettingsUserIcon : Sprite {
+public partial class QuickSettingsUserIcon : Sprite2D {
     public override void _Ready() {
         base._Ready();
-        Texture cat = ResourceLoader.Load<Texture>("res://Assets/UserIcons/Cat.png");
-        Texture flower = ResourceLoader.Load<Texture>("res://Assets/UserIcons/Flower.png");
-        Texture balloons = ResourceLoader.Load<Texture>("res://Assets/UserIcons/Balloons.png");
-        Texture car = ResourceLoader.Load<Texture>("res://Assets/UserIcons/Car.png");
-        Texture dog = ResourceLoader.Load<Texture>("res://Assets/UserIcons/Dog.png");
-        Texture duck = ResourceLoader.Load<Texture>("res://Assets/UserIcons/Duck.png");
-        Texture pancakes = ResourceLoader.Load<Texture>("res://Assets/UserIcons/Pancakes.png");
-        Texture brushes = ResourceLoader.Load<Texture>("res://Assets/UserIcons/Brushes.png");
-        Texture shuttle = ResourceLoader.Load<Texture>("res://Assets/UserIcons/Shuttle.png");
-        Texture football = ResourceLoader.Load<Texture>("res://Assets/UserIcons/Football.png");
+        Texture2D cat = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Cat.png");
+        Texture2D flower = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Flower.png");
+        Texture2D balloons = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Balloons.png");
+        Texture2D car = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Car.png");
+        Texture2D dog = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Dog.png");
+        Texture2D duck = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Duck.png");
+        Texture2D pancakes = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Pancakes.png");
+        Texture2D brushes = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Brushes.png");
+        Texture2D shuttle = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Shuttle.png");
+        Texture2D football = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Football.png");
                 
         // cool user photo
         string photo = SavingManager.Load<UserInfo>(SavingManager.CurrentUser).Photo;
 
         switch (photo) {
             case "Cat":
-                Texture = cat;
+                Texture2D = cat;
                 break;
             case "Flower":
-                Texture = flower;
+                Texture2D = flower;
                 break;
             case "Balloon":
-                Texture = balloons;
+                Texture2D = balloons;
                 break;
             case "Car":
-                Texture = car;
+                Texture2D = car;
                 break;
             case "Dog":
-                Texture = dog;
+                Texture2D = dog;
                 break;
             case "Duck":
-                Texture = duck;
+                Texture2D = duck;
                 break;
             case "Pancakes":
-                Texture = pancakes;
+                Texture2D = pancakes;
                 break;
             case "Brushes":
-                Texture = brushes;
+                Texture2D = brushes;
                 break;
             case "Shuttle":
-                Texture = shuttle;
+                Texture2D = shuttle;
                 break;
             case "Football":
-                Texture = football;
+                Texture2D = football;
                 break;
         }
     }

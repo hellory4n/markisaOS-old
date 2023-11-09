@@ -2,14 +2,18 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/Installation.mp3-6e67d8ad7e760a16ae79142807ee72f6.mp3str"
+uid="uid://dx2a30nsr6vjn"
+path="res://.godot/imported/Installation.mp3-6e67d8ad7e760a16ae79142807ee72f6.mp3str"
 
 [deps]
 
 source_file="res://Audio/Music/Installation.mp3"
-dest_files=[ "res://.import/Installation.mp3-6e67d8ad7e760a16ae79142807ee72f6.mp3str" ]
+dest_files=["res://.godot/imported/Installation.mp3-6e67d8ad7e760a16ae79142807ee72f6.mp3str"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,10 +1,10 @@
 using Godot;
 using System;
 
-public class InstallelRestart : Timer {
+public partial class InstallelRestart : Timer {
     public override void _Ready() {
         base._Ready();
-        Connect("timeout", this, nameof(Thing));
+        Connect("timeout", new Callable(this, nameof(Thing)));
     }
 
     public override void _Process(float delta) {

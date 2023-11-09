@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/App.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/App.png" type="Texture2D" id=1]
 [ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/DefaultOpenWindowButton.cs" type="Script" id=2]
 
 [node name="TestApp2" type="Button"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"

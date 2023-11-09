@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class ComputerNoisesManager : Node {
+public partial class ComputerNoisesManager : Node {
     readonly AudioStream FanSound = ResourceLoader.Load<AudioStream>("res://Audio/Sounds/ComputerNoises/194890__saphe__computer-fan.ogg");
     readonly AudioStream GpuFanSound = ResourceLoader.Load<AudioStream>("res://Audio/Sounds/ComputerNoises/463482__soundsofscienceupf__gpu-fan.wav");
     readonly AudioStream HddSound = ResourceLoader.Load<AudioStream>("res://Audio/Sounds/ComputerNoises/500168__sad3d__pc-hard-drive-noises.wav");
@@ -23,17 +23,17 @@ public class ComputerNoisesManager : Node {
         Fan = new AudioStreamPlayer {
             Stream = FanSound,
             Autoplay = true,
-            VolumeDb = GD.Linear2Db(CpuUsage/1.5f)
+            VolumeDb = GD.LinearToDb(CpuUsage/1.5f)
         };
         GpuFan = new AudioStreamPlayer {
             Stream = GpuFanSound,
             Autoplay = true,
-            VolumeDb = GD.Linear2Db(GpuUsage/1.25f)
+            VolumeDb = GD.LinearToDb(GpuUsage/1.25f)
         };
         Hdd = new AudioStreamPlayer {
             Stream = HddSound,
             Autoplay = true,
-            VolumeDb = GD.Linear2Db(StorageUsage*1.25f)
+            VolumeDb = GD.LinearToDb(StorageUsage*1.25f)
         };
         AddChild(Fan);
         AddChild(GpuFan);
@@ -87,8 +87,8 @@ public class ComputerNoisesManager : Node {
         MemoryUsage = Math.Min(memoryOmg, 100)/100;
         StorageUsage = Math.Min(storageOmg, 100)/100;
 
-        Fan.VolumeDb = GD.Linear2Db(CpuUsage/2);
-        GpuFan.VolumeDb = GD.Linear2Db(GpuUsage/1.5f);
-        Hdd.VolumeDb = GD.Linear2Db(StorageUsage);
+        Fan.VolumeDb = GD.LinearToDb(CpuUsage/2);
+        GpuFan.VolumeDb = GD.LinearToDb(GpuUsage/1.5f);
+        Hdd.VolumeDb = GD.LinearToDb(StorageUsage);
     }
 }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 /// <summary>
 /// Manages music. NOTE: You should avoid using this class directly and instead use the MusicPlayer node.
 /// </summary>
-public class MusicManager : Node {
+public partial class MusicManager : Node {
     List<AudioStreamPlayer> Players = new List<AudioStreamPlayer>();
     public List<bool> PausedPlayers = new List<bool>();
     int ActiveMusic = 0;

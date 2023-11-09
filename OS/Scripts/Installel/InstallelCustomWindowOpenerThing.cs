@@ -1,13 +1,13 @@
 using Godot;
 using System;
 
-public class InstallelCustomWindowOpenerThing : Button {
+public partial class InstallelCustomWindowOpenerThing : Button {
     [Export(PropertyHint.File, "*.tscn")]
     public string WindowScene;
 
     public override void _Ready() {
         base._Ready();
-        Connect("pressed", this, nameof(Click));
+        Connect("pressed", new Callable(this, nameof(Click)));
     }
 
     public void Click() {

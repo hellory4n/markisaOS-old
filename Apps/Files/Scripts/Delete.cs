@@ -1,15 +1,15 @@
 using Godot;
 using System;
 
-public class Delete : BaseWindow {
+public partial class Delete : BaseWindow {
     public string Parent;
     public FileView ThingThatINeedToRefresh;
     public string CoolFile;
 
     public override void _Ready() {
         base._Ready();
-        GetNode<Button>("CenterContainer/VBoxContainer/M/Delete").Connect("pressed", this, nameof(Click));
-        GetNode<Button>("CenterContainer/VBoxContainer/M/Nvm").Connect("pressed", this, nameof(NvmLol));
+        GetNode<Button>("CenterContainer/VBoxContainer/M/Delete").Connect("pressed", new Callable(this, nameof(Click)));
+        GetNode<Button>("CenterContainer/VBoxContainer/M/Nvm").Connect("pressed", new Callable(this, nameof(NvmLol)));
         var soundManager = GetNode<SoundManager>("/root/SoundManager");
         soundManager.PlaySoundEffect(SoundManager.SoundEffects.Warning);
     }
@@ -50,7 +50,7 @@ public class Delete : BaseWindow {
         }
 
         Close();
-        ThingThatINeedToRefresh.Refresh(ThingThatINeedToRefresh.Path, false);
+        ThingThatINeedToRefresh.Refresh(ThingThatINeedToRefresh.Path3D, false);
     }
 
     public void NvmLol() {

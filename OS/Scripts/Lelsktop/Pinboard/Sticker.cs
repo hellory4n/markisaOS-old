@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Sticker : Sprite {
+public partial class Sticker : Sprite2D {
     // this is stolen from https://gist.github.com/angstyloop/08200c6d816347c82ea1aed56c219f17
     enum StatusThingy {
         None,
@@ -41,8 +41,8 @@ public class Sticker : Sprite {
         }
         
         Rect2 aRect = new Rect2(
-            Position.x - Texture.GetSize().x * Scale.x / 2, Position.y - Texture.GetSize().y * Scale.y / 2,
-            Texture.GetSize().x * Scale.x, Texture.GetSize().y * Scale.y
+            Position.x - Texture2D.GetSize().x * Scale.x / 2, Position.y - Texture2D.GetSize().y * Scale.y / 2,
+            Texture2D.GetSize().x * Scale.x, Texture2D.GetSize().y * Scale.y
         );
 
         // change size :)))))
@@ -76,8 +76,8 @@ public class Sticker : Sprite {
             if (yes.ButtonIndex == (int)ButtonList.Left) {
                 if (Status != StatusThingy.Dragging && yes.Pressed) {
                     Rect2 aRect = new Rect2(
-                        Position.x - Texture.GetSize().x * Scale.x / 2, Position.y - Texture.GetSize().y * Scale.y / 2,
-                        Texture.GetSize().x * Scale.x, Texture.GetSize().y * Scale.y
+                        Position.x - Texture2D.GetSize().x * Scale.x / 2, Position.y - Texture2D.GetSize().y * Scale.y / 2,
+                        Texture2D.GetSize().x * Scale.x, Texture2D.GetSize().y * Scale.y
                     );
 
                     if (aRect.HasPoint(yes.Position)) {

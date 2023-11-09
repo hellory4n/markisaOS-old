@@ -2,16 +2,16 @@
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://OS/Scripts/WindowManager/BaseWindow.cs" type="Script" id=2]
-[ext_resource path="res://Assets/Boot/Logo.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Boot/Logo.png" type="Texture2D" id=3]
 [ext_resource path="res://OS/Scripts/Installel/InstallerNormalNext.cs" type="Script" id=4]
 [ext_resource path="res://OS/Scripts/Installel/InstallerLicenseNext.cs" type="Script" id=5]
 [ext_resource path="res://OS/Scripts/Installel/InstallelCustomWindowOpenerThing.cs" type="Script" id=6]
-[ext_resource path="res://Assets/Boot/Installel.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Boot/Installel.png" type="Texture2D" id=7]
 [ext_resource path="res://OS/Scripts/Installel/InstallelProgressbar.cs" type="Script" id=8]
 [ext_resource path="res://OS/Scripts/Installel/InstallelSteps.cs" type="Script" id=9]
 [ext_resource path="res://Audio/Music/Installation.mp3" type="AudioStream" id=10]
 
-[sub_resource type="StreamTexture" id=19]
+[sub_resource type="CompressedTexture2D" id=19]
 flags = 4
 load_path = "res://.import/Dashboard.png-a2c0f627fcaddca1aedcb876f8e7a940.stex"
 
@@ -20,14 +20,14 @@ resource_name = "Close"
 length = 0.2
 step = 0.01
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_scale")
+tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 0.37, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 0.37, 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
 }
@@ -38,8 +38,8 @@ tracks/1/loop_wrap = false
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 0.37, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 0.37, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
@@ -50,8 +50,8 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.2 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0.2 ),
+"transitions": PackedFloat32Array( 1 ),
 "values": [ {
 "args": [  ],
 "method": "queue_free"
@@ -68,20 +68,20 @@ tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 0.37, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 0.37, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:rect_scale")
+tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 1,
 "values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
 }
@@ -90,14 +90,14 @@ tracks/1/keys = {
 resource_name = "Open"
 length = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_scale")
+tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 2
 tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 0.37 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 0.37 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
 }
@@ -108,8 +108,8 @@ tracks/1/loop_wrap = false
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 0.37 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 0.37 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -124,35 +124,35 @@ tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 0.37 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 0.37 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:rect_scale")
+tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[node name="Installel" type="WindowDialog"]
+[node name="Installel" type="Window"]
 process_priority = 1
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 50.0
-margin_top = 95.0
-margin_right = -50.0
-margin_bottom = -50.0
-rect_min_size = Vector2( 400, 100 )
+offset_left = 50.0
+offset_top = 95.0
+offset_right = -50.0
+offset_bottom = -50.0
+custom_minimum_size = Vector2( 400, 100 )
 theme = ExtResource( 1 )
-popup_exclusive = true
+exclusive = true
 window_title = "Installel"
 script = ExtResource( 2 )
 Icon = SubResource( 19 )
@@ -170,39 +170,39 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Step1"]
-margin_left = 388.0
-margin_top = 182.0
-margin_right = 792.0
-margin_bottom = 393.0
+offset_left = 388.0
+offset_top = 182.0
+offset_right = 792.0
+offset_bottom = 393.0
 
 [node name="Logo" type="TextureRect" parent="Step1/VBoxContainer"]
-margin_right = 404.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 316, 64 )
+offset_right = 404.0
+offset_bottom = 64.0
+custom_minimum_size = Vector2( 316, 64 )
 texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
 
 [node name="Label" type="Label" parent="Step1/VBoxContainer"]
-margin_top = 74.0
-margin_right = 404.0
-margin_bottom = 107.0
+offset_top = 74.0
+offset_right = 404.0
+offset_bottom = 107.0
 theme_type_variation = "Header"
 text = "Thank you for choosing lelcubeOS"
 align = 1
 
 [node name="Label2" type="Label" parent="Step1/VBoxContainer"]
-margin_top = 117.0
-margin_right = 404.0
-margin_bottom = 161.0
+offset_top = 117.0
+offset_right = 404.0
+offset_bottom = 161.0
 text = "The Installel app will help you setup lelcubeOS on your new computer."
 align = 1
 autowrap = true
 
 [node name="Button" type="Button" parent="Step1/VBoxContainer"]
-margin_top = 171.0
-margin_right = 404.0
-margin_bottom = 211.0
+offset_top = 171.0
+offset_right = 404.0
+offset_bottom = 211.0
 text = "Next"
 script = ExtResource( 4 )
 nextThing = NodePath("../../../Step2")
@@ -215,8 +215,8 @@ anchor_bottom = 1.0
 
 [node name="Label" type="Label" parent="Step2"]
 anchor_right = 1.0
-margin_bottom = 33.0
-rect_min_size = Vector2( 0, 40 )
+offset_bottom = 33.0
+custom_minimum_size = Vector2( 0, 40 )
 theme_type_variation = "Header"
 text = "License"
 align = 1
@@ -225,20 +225,20 @@ valign = 1
 [node name="QuiteABitOfText" type="ScrollContainer" parent="Step2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 50.0
-margin_right = -10.0
-margin_bottom = -60.0
+offset_left = 10.0
+offset_top = 50.0
+offset_right = -10.0
+offset_bottom = -60.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Step2/QuiteABitOfText"]
-margin_right = 1160.0
-margin_bottom = 14872.0
+offset_right = 1160.0
+offset_bottom = 14872.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="Step2/QuiteABitOfText/VBoxContainer"]
-margin_right = 1144.0
-margin_bottom = 14872.0
+offset_right = 1144.0
+offset_bottom = 14872.0
 size_flags_horizontal = 3
 text = "GNU GENERAL PUBLIC LICENSE
 Version 3, 29 June 2007
@@ -921,9 +921,9 @@ autowrap = true
 [node name="CheckBox" type="CheckBox" parent="Step2"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = -60.0
-margin_right = 33.0
+offset_left = 10.0
+offset_top = -60.0
+offset_right = 33.0
 text = "I agree with this license"
 
 [node name="Button" type="Button" parent="Step2"]
@@ -931,11 +931,11 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -160.0
-margin_top = -50.0
-margin_right = -10.0
-margin_bottom = -10.0
-rect_min_size = Vector2( 150, 0 )
+offset_left = -160.0
+offset_top = -50.0
+offset_right = -10.0
+offset_bottom = -10.0
+custom_minimum_size = Vector2( 150, 0 )
 disabled = true
 text = "Next"
 script = ExtResource( 5 )
@@ -948,24 +948,24 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Step3"]
-margin_left = 395.0
-margin_top = 186.0
-margin_right = 784.0
-margin_bottom = 388.0
+offset_left = 395.0
+offset_top = 186.0
+offset_right = 784.0
+offset_bottom = 388.0
 
 [node name="Label" type="Label" parent="Step3/VBoxContainer"]
-margin_right = 389.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
+offset_right = 389.0
+offset_bottom = 40.0
+custom_minimum_size = Vector2( 0, 40 )
 theme_type_variation = "Header"
 text = "Where you will install lelcubeOS?"
 align = 1
 valign = 1
 
 [node name="OptionButton" type="OptionButton" parent="Step3/VBoxContainer"]
-margin_top = 50.0
-margin_right = 389.0
-margin_bottom = 90.0
+offset_top = 50.0
+offset_right = 389.0
+offset_bottom = 90.0
 theme_type_variation = "SecondaryButton"
 text = "Lelstorage (5 TB)"
 align = 1
@@ -973,25 +973,25 @@ items = [ "Lelstorage (5 TB)", null, false, 0, null, "lelcubeOS Me Installel (12
 selected = 0
 
 [node name="Button" type="Button" parent="Step3/VBoxContainer"]
-margin_top = 100.0
-margin_right = 389.0
-margin_bottom = 140.0
-rect_min_size = Vector2( 150, 0 )
+offset_top = 100.0
+offset_right = 389.0
+offset_bottom = 140.0
+custom_minimum_size = Vector2( 150, 0 )
 text = "Start Installation"
 script = ExtResource( 4 )
 nextThing = NodePath("../../../Step4")
 previousThing = NodePath("../..")
 
 [node name="HSeparator" type="HSeparator" parent="Step3/VBoxContainer"]
-margin_top = 150.0
-margin_right = 389.0
-margin_bottom = 152.0
+offset_top = 150.0
+offset_right = 389.0
+offset_bottom = 152.0
 
 [node name="Button2" type="Button" parent="Step3/VBoxContainer"]
-margin_top = 162.0
-margin_right = 389.0
-margin_bottom = 202.0
-rect_min_size = Vector2( 150, 0 )
+offset_top = 162.0
+offset_right = 389.0
+offset_bottom = 202.0
+custom_minimum_size = Vector2( 150, 0 )
 theme_type_variation = "SecondaryButton"
 text = "Advanced Options"
 script = ExtResource( 6 )
@@ -1005,8 +1005,8 @@ mouse_default_cursor_shape = 4
 
 [node name="Label" type="Label" parent="Step4"]
 anchor_right = 1.0
-margin_bottom = 33.0
-rect_min_size = Vector2( 0, 40 )
+offset_bottom = 33.0
+custom_minimum_size = Vector2( 0, 40 )
 theme_type_variation = "Header"
 text = "Do not turn off your computer"
 align = 1
@@ -1015,8 +1015,8 @@ valign = 1
 [node name="TextureRect" type="TextureRect" parent="Step4"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 40.0
-margin_bottom = -80.0
+offset_top = 40.0
+offset_bottom = -80.0
 texture = ExtResource( 7 )
 expand = true
 stretch_mode = 7
@@ -1025,9 +1025,9 @@ stretch_mode = 7
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = -77.0
-rect_min_size = Vector2( 0, 60 )
+offset_left = 10.0
+offset_top = -77.0
+custom_minimum_size = Vector2( 0, 60 )
 text = "Doing something probably"
 script = ExtResource( 9 )
 
@@ -1035,11 +1035,11 @@ script = ExtResource( 9 )
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = -50.0
-margin_right = -10.0
-margin_bottom = -10.0
-rect_min_size = Vector2( 0, 40 )
+offset_left = 10.0
+offset_top = -50.0
+offset_right = -10.0
+offset_bottom = -10.0
+custom_minimum_size = Vector2( 0, 40 )
 max_value = 500.0
 script = ExtResource( 8 )
 

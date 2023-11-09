@@ -2,14 +2,18 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/Shutdown.mp3-fb6e2e176e5d396052e0f41efb4243d2.mp3str"
+uid="uid://0iyumw5joge2"
+path="res://.godot/imported/Shutdown.mp3-fb6e2e176e5d396052e0f41efb4243d2.mp3str"
 
 [deps]
 
 source_file="res://Audio/Sounds/Shutdown.mp3"
-dest_files=[ "res://.import/Shutdown.mp3-fb6e2e176e5d396052e0f41efb4243d2.mp3str" ]
+dest_files=["res://.godot/imported/Shutdown.mp3-fb6e2e176e5d396052e0f41efb4243d2.mp3str"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

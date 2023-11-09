@@ -3,18 +3,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-public class AddToQuickLaunch : Button {
+public partial class AddToQuickLaunch : Button {
     public Lelapp App;
 
     public override void _Ready() {
         base._Ready();
-        Connect("pressed", this, nameof(Click));
+        Connect("pressed", new Callable(this, nameof(Click)));
     }
 
     public void Click() {
         PackedScene packedScene = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/QuickLaunchButton.tscn");
         DefaultOpenWindowButton yes = packedScene.Instance<DefaultOpenWindowButton>();
-        yes.Icon = ResourceLoader.Load<Texture>(App.Icon);
+        yes.Icon = ResourceLoader.Load<Texture2D>(App.Icon);
         yes.WindowScene = App.Scene;
         GetNode<VBoxContainer>("/root/LelsktopInterface/Dock/DockStuff/QuickLaunch").AddChild(yes);
 

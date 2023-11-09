@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public class Leltabs : HBoxContainer {
+public partial class Leltabs : HBoxContainer {
     public List<LeltabsTab> TabButtons = new List<LeltabsTab>();
     public List<Control> TabContent = new List<Control>();
     [Export(PropertyHint.File, "*.tscn")]

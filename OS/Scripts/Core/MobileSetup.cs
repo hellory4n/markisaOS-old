@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class MobileSetup : Control {
+public partial class MobileSetup : Control {
     int SuccessfulAttempts = 0;
 
     public override void _Ready() {
@@ -17,8 +17,8 @@ public class MobileSetup : Control {
             GetTree().Root.CallDeferred("add_child", aNode);
             GetParent().QueueFree();
         } else {
-            RectSize = m.Resolution/m.ScalingFactor;
-            GetNode<Button>("Button").Connect("pressed", this, nameof(Thing));
+            Size = m.Resolution/m.ScalingFactor;
+            GetNode<Button>("Button").Connect("pressed", new Callable(this, nameof(Thing)));
         }
     }
 
@@ -34,7 +34,7 @@ public class MobileSetup : Control {
                 m.Update();
 
                 // then update the ui
-                RectSize = display.Resolution / display.ScalingFactor;
+                Size = display.Resolution / display.ScalingFactor;
                 GetNode<Label>("Title").Text = "Let's try again";
                 GetNode<Label>("Text").Text = "We have updated the UI, try again to see if that works for you";
                 
@@ -48,9 +48,9 @@ public class MobileSetup : Control {
                     scale = Mathf.Max((display.Resolution/display.ScalingFactor).x,
                         (display.Resolution/display.ScalingFactor).y) / 1280;
                 }
-                GetParent().GetNode<Sprite>("Background").Scale = new Vector2(scale, scale);
+                GetParent().GetNode<Sprite2D>("Background").Scale = new Vector2(scale, scale);
                 // idk why just diving the resolution by 2 doesn't work
-                GetParent().GetNode<Sprite>("Background").Position = new Vector2(
+                GetParent().GetNode<Sprite2D>("Background").Position = new Vector2(
                     display.Resolution.x/display.ScalingFactor, display.Resolution.y/display.ScalingFactor
                 ) / 2;
 

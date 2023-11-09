@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class MessagingInterface : Control {
+public partial class MessagingInterface : Control {
     public int ConversationIndex = 0;
 
     public override void _Ready() {
@@ -47,7 +47,7 @@ public class MessagingInterface : Control {
                 };
                 GetNode("M/Choices").AddChild(bhfbghudidfg);    
             }
-            buttonGroup.Connect("pressed", this, nameof(Reply));
+            buttonGroup.Connect("pressed", new Callable(this, nameof(Reply)));
         } else {
             GetNode("M/H/Messages").AddChild(new Label {
                 Text = "Conversation has ended."

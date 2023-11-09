@@ -5,7 +5,7 @@ using System.Collections.Generic;
 /// <summary>
 /// A basic window. Adds window decorations, manages opening, closing, and minimizing animations, and also manages window snapping and making windows active.
 /// </summary>
-public class BaseWindow : WindowDialog {
+public partial class BaseWindow : Window {
     Vector2 screenSize;
     Vector2 previousPosition = new Vector2(0, 0);
     AnimationPlayer animation;
@@ -13,7 +13,7 @@ public class BaseWindow : WindowDialog {
     /// The icon used for the button on the dock.
     /// </summary>
     [Export]
-    public Texture Icon;
+    public Texture2D Icon;
     /// <summary>
     /// Used by the button on the dock to check if it should delete itself, as if it checked if the window was queued for deletion, there would be a little delay before it actually deleted the button.
     /// </summary>
@@ -77,11 +77,11 @@ public class BaseWindow : WindowDialog {
 
         // pain
         AddChild(StupidThingForInactiveWindows);
-        StupidThingForInactiveWindows.AddStyleboxOverride("normal", new StyleBoxEmpty());
-        StupidThingForInactiveWindows.AddStyleboxOverride("pressed", new StyleBoxEmpty());
-        StupidThingForInactiveWindows.AddStyleboxOverride("hover", new StyleBoxEmpty());
-        StupidThingForInactiveWindows.AddStyleboxOverride("focus", new StyleBoxEmpty());
-        StupidThingForInactiveWindows.AddStyleboxOverride("disabled", new StyleBoxEmpty());
+        StupidThingForInactiveWindows.AddThemeStyleboxOverride("normal", new StyleBoxEmpty());
+        StupidThingForInactiveWindows.AddThemeStyleboxOverride("pressed", new StyleBoxEmpty());
+        StupidThingForInactiveWindows.AddThemeStyleboxOverride("hover", new StyleBoxEmpty());
+        StupidThingForInactiveWindows.AddThemeStyleboxOverride("focus", new StyleBoxEmpty());
+        StupidThingForInactiveWindows.AddThemeStyleboxOverride("disabled", new StyleBoxEmpty());
 
         Timer jgjk = new Timer {
             Name = "jrgjdkggooghmgdgddgsaa39933",
@@ -89,7 +89,7 @@ public class BaseWindow : WindowDialog {
             Autostart = true,
             OneShot = true
         };
-        jgjk.Connect("timeout", this, nameof(SnapThing));
+        jgjk.Connect("timeout", new Callable(this, nameof(SnapThing)));
         AddChild(jgjk);
     }
 
@@ -106,28 +106,28 @@ public class BaseWindow : WindowDialog {
 
         // window snapping :)
         // first check if the window is moving
-        if (previousPosition != RectPosition && Resizable) {
+        if (previousPosition != Position && Resizable) {
             Raise();
             if (GetGlobalMousePosition().y < 60 && CanSnap) {
                 Vector2 maximizedSize = new Vector2(screenSize.x-75, screenSize.y-85);
-                RectPosition = new Vector2(0, 85);
-                RectSize = maximizedSize;
+                Position = new Vector2(0, 85);
+                Size = maximizedSize;
             }
 
             if (GetGlobalMousePosition().x < 40 && CanSnap) {
                 Vector2 newSize = new Vector2((screenSize.x-75)/2, screenSize.y-85);
-                RectPosition = new Vector2(0, 85);
-                RectSize = newSize;
+                Position = new Vector2(0, 85);
+                Size = newSize;
             }
 
             if (GetGlobalMousePosition().x > screenSize.x-115 && CanSnap) {
                 Vector2 newSize = new Vector2((screenSize.x-75)/2, screenSize.y-85);
-                RectPosition = new Vector2((screenSize.x-75)/2, 85);
-                RectSize = newSize;
+                Position = new Vector2((screenSize.x-75)/2, 85);
+                Size = newSize;
             }
         }
 
-        previousPosition = RectPosition;
+        previousPosition = Position;
 
         // so true
         Control jkbmjdg = GetFocusOwner();

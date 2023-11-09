@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class InstallelProgressbar : ProgressBar {
+public partial class InstallelProgressbar : ProgressBar {
     Random random = new Random();
 
     public override void _Process(float delta) {

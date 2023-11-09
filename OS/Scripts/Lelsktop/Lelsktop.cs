@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public class Lelsktop : Node2D {
+public partial class Lelsktop : Node2D {
     /// <summary>
     /// If true, the user is currently using either the dock, panel, app menu, quick settings, or the workspace switcher.
     /// </summary>
@@ -13,12 +13,12 @@ public class Lelsktop : Node2D {
 
         Vector2 bruh = ResolutionManager.Resolution;
 
-        GetNode<Viewport>("1/Windows").Size = bruh;
-        GetNode<Viewport>("2/Windows").Size = bruh;
-        GetNode<Viewport>("3/Windows").Size = bruh;
-        GetNode<Viewport>("4/Windows").Size = bruh;
+        GetNode<SubViewport>("1/Windows").Size = bruh;
+        GetNode<SubViewport>("2/Windows").Size = bruh;
+        GetNode<SubViewport>("3/Windows").Size = bruh;
+        GetNode<SubViewport>("4/Windows").Size = bruh;
 
-        WindowManager.CurrentWorkspace = GetNode<Viewport>("1/Windows");
+        WindowManager.CurrentWorkspace = GetNode<SubViewport>("1/Windows");
 
         SavingManager.ConvertOldUser(SavingManager.CurrentUser);
         UserLelsktop suffer = SavingManager.Load<UserLelsktop>(SavingManager.CurrentUser);
@@ -27,13 +27,13 @@ public class Lelsktop : Node2D {
         // is it a default wallpaper?
         if (ResourceLoader.Exists(suffer.Wallpaper)) {
             string wallpaperPath = suffer.Wallpaper;
-            Texture wallpaper = ResourceLoader.Load<Texture>(wallpaperPath);
-            GetNode<Sprite>("Wallpaper").Texture = wallpaper;
+            Texture2D wallpaper = ResourceLoader.Load<Texture2D>(wallpaperPath);
+            GetNode<Sprite2D>("Wallpaper").Texture2D = wallpaper;
         // is it a lelfs file?
         } else if (LelfsManager.IdExists(suffer.Wallpaper)) {
             var epicFile = LelfsManager.LoadById<LelfsFile>(suffer.Wallpaper);
-            Texture wallpaper = ResourceManager.LoadImage(epicFile.Data["Resource"].ToString());
-            GetNode<Sprite>("Wallpaper").Texture = wallpaper;
+            Texture2D wallpaper = ResourceManager.LoadImage(epicFile.Data["Resource"].ToString());
+            GetNode<Sprite2D>("Wallpaper").Texture2D = wallpaper;
 
             // scale wallpaper thing :))))
             GetNode<ImageBackground>("Wallpaper").OriginalSize = wallpaper.GetSize();
@@ -45,13 +45,13 @@ public class Lelsktop : Node2D {
             } else {
                 scale = Mathf.Max(bruh.x, bruh.y) / Mathf.Max(wallpaper.GetSize().x, wallpaper.GetSize().y);
             }
-            GetNode<Sprite>("Wallpaper").Scale = new Vector2(scale, scale);
-            GetNode<Sprite>("Wallpaper").Position = bruh/2;
+            GetNode<Sprite2D>("Wallpaper").Scale = new Vector2(scale, scale);
+            GetNode<Sprite2D>("Wallpaper").Position = bruh/2;
 
         // ok it's broken, just load the default wallpaper
         } else {
-            var wallpaper = ResourceLoader.Load<Texture>("res://Assets/Wallpapers/HighPeaks.jpg");
-            GetNode<Sprite>("Wallpaper").Texture = wallpaper;
+            var wallpaper = ResourceLoader.Load<Texture2D>("res://Assets/Wallpapers/HighPeaks.jpg");
+            GetNode<Sprite2D>("Wallpaper").Texture2D = wallpaper;
         }
 
         // startup sound :)
@@ -62,7 +62,7 @@ public class Lelsktop : Node2D {
         PackedScene m = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/LelsktopInterface.tscn");
         CanvasLayer lelsktopInterface = (CanvasLayer)m.Instance();
         GetTree().Root.CallDeferred("add_child", lelsktopInterface);
-        lelsktopInterface.GetNode<Panel>("Dock").RectSize = new Vector2(75, bruh.y);
+        lelsktopInterface.GetNode<Panel>("Dock").Size = new Vector2(75, bruh.y);
 
         // play the animation for the dock and make sure the position on the animation is correct :)
         Animation animationomg = lelsktopInterface.GetNode<AnimationPlayer>("AnimationPlayer").GetAnimation("Startup");
@@ -123,9 +123,9 @@ public class Lelsktop : Node2D {
         foreach (var app in apps) {
             PackedScene packedScene = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/QuickLaunchButton.tscn");
             DefaultOpenWindowButton yes = packedScene.Instance<DefaultOpenWindowButton>();
-            yes.Icon = ResourceLoader.Load<Texture>(app.Icon);
+            yes.Icon = ResourceLoader.Load<Texture2D>(app.Icon);
             yes.WindowScene = app.Scene;
-            yes.HintTooltip = app.Name;
+            yes.TooltipText = app.Name;
             lelsktopInterface.GetNode<VBoxContainer>("Dock/DockStuff/QuickLaunch").AddChild(yes);
         }
 
@@ -147,7 +147,7 @@ public class Lelsktop : Node2D {
                 sticker.Position = item.Value.Position;
                 sticker.Rotation = item.Value.Rotation;
                 sticker.Scale = new Vector2(item.Value.Scale, item.Value.Scale);
-                sticker.Texture = ResourceManager.LoadImage(item.Value.TexturePath);
+                sticker.Texture2D = ResourceManager.LoadImage(item.Value.TexturePath);
                 sticker.PinboardItem = item.Key;
                 pinboard.AddChild(sticker);
             }
@@ -164,10 +164,10 @@ public class Lelsktop : Node2D {
         }
 
         Vector2 pain = ResolutionManager.Resolution;
-        Viewport bruh1 = GetNode<Viewport>("/root/Lelsktop/1/Windows");
-        Viewport bruh2 = GetNode<Viewport>("/root/Lelsktop/2/Windows");
-        Viewport bruh3 = GetNode<Viewport>("/root/Lelsktop/3/Windows");
-        Viewport bruh4 = GetNode<Viewport>("/root/Lelsktop/4/Windows");
+        SubViewport bruh1 = GetNode<SubViewport>("/root/Lelsktop/1/Windows");
+        SubViewport bruh2 = GetNode<SubViewport>("/root/Lelsktop/2/Windows");
+        SubViewport bruh3 = GetNode<SubViewport>("/root/Lelsktop/3/Windows");
+        SubViewport bruh4 = GetNode<SubViewport>("/root/Lelsktop/4/Windows");
         Panel appMenu = GetNode<Panel>("/root/LelsktopInterface/AppMenu");
         Panel quickSettings = GetNode<Panel>("/root/LelsktopInterface/QuickSettings");
         Panel workspaces = GetNode<Panel>("/root/LelsktopInterface/Workspaces");

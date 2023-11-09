@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class WebMusicPlayer : Node {
+public partial class WebMusicPlayer : Node {
     [Export]
     public AudioStream Music;
     [Export]
@@ -16,7 +16,7 @@ public class WebMusicPlayer : Node {
         base._Ready();
         musicManager = GetNode<MusicManager>("/root/MusicManager");
         PlayerIndex = musicManager.AddMusic(Music);
-        Leltabs = GetNode(WebsiteRoot).GetParent().GetParent().GetNode<Leltabs>("Leltabs/Tabs");
+        Leltabs = GetNode(WebsiteRoot).GetParent().GetParent().GetNode<Leltabs>("Leltabs/TabBar");
     }
 
     public override void _Process(float delta) {

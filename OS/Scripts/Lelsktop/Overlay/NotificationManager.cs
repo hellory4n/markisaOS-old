@@ -4,7 +4,7 @@ using System;
 /// <summary>
 /// Manages notifications.
 /// </summary>
-public class NotificationManager : Node {
+public partial class NotificationManager : Node {
     /// <summary>
     /// Shows a notification.
     /// </summary>

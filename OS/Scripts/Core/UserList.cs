@@ -1,23 +1,23 @@
 using Godot;
 using System;
 
-public class UserList : VBoxContainer {
+public partial class UserList : VBoxContainer {
     public override void _Ready() {
         base._Ready();
 
         PackedScene stupidity = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/UserButton.tscn");
-        Texture cat = ResourceLoader.Load<Texture>("res://Assets/UserIcons/Cat.png");
-        Texture flower = ResourceLoader.Load<Texture>("res://Assets/UserIcons/Flower.png");
-        Texture balloons = ResourceLoader.Load<Texture>("res://Assets/UserIcons/Balloons.png");
-        Texture car = ResourceLoader.Load<Texture>("res://Assets/UserIcons/Car.png");
-        Texture dog = ResourceLoader.Load<Texture>("res://Assets/UserIcons/Dog.png");
-        Texture duck = ResourceLoader.Load<Texture>("res://Assets/UserIcons/Duck.png");
-        Texture pancakes = ResourceLoader.Load<Texture>("res://Assets/UserIcons/Pancakes.png");
-        Texture brushes = ResourceLoader.Load<Texture>("res://Assets/UserIcons/Brushes.png");
-        Texture shuttle = ResourceLoader.Load<Texture>("res://Assets/UserIcons/Shuttle.png");
-        Texture football = ResourceLoader.Load<Texture>("res://Assets/UserIcons/Football.png");
+        Texture2D cat = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Cat.png");
+        Texture2D flower = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Flower.png");
+        Texture2D balloons = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Balloons.png");
+        Texture2D car = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Car.png");
+        Texture2D dog = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Dog.png");
+        Texture2D duck = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Duck.png");
+        Texture2D pancakes = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Pancakes.png");
+        Texture2D brushes = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Brushes.png");
+        Texture2D shuttle = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Shuttle.png");
+        Texture2D football = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Football.png");
 
-        Directory dir = new Directory();
+        DirAccess dir = new DirAccess();
         if (dir.DirExists("user://Users/")) {
             dir.Open("user://Users/");
             dir.ListDirBegin(true);

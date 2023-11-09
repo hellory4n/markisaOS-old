@@ -7,7 +7,7 @@ using Godot;
 /// <summary>
 /// Stores the version of the game used by a user. Useful when converting saves between versions.
 /// </summary>
-public class BasicUser {
+public partial class BasicUser {
     /// <summary>
     /// Increased with major new versions, with a lot of new stuff, and that probably breaks old stuff.
     /// </summary>
@@ -25,7 +25,7 @@ public class BasicUser {
 /// <summary>
 /// Stores the photo and lelnet username of a user.
 /// </summary>
-public class UserInfo {
+public partial class UserInfo {
     /// <summary>
     /// The photo used by the user. I should probably use an enum or a file path.
     /// </summary>
@@ -39,7 +39,7 @@ public class UserInfo {
 /// <summary>
 /// Stores the appearance settings of a user.
 /// </summary>
-public class UserLelsktop {
+public partial class UserLelsktop {
     /// <summary>
     /// A file path to the wallpaper used by the user.
     /// </summary>
@@ -54,7 +54,7 @@ public class UserLelsktop {
 /// Type commonly used for listing apps.
 /// </summary>
 
-public class Lelapp {
+public partial class Lelapp {
     /// <summary>
     /// The name of the app.
     /// </summary>
@@ -78,7 +78,7 @@ public class Lelapp {
 /// <summary>
 /// Used by the app menu to list installed apps.
 /// </summary>
-public class InstalledApps {
+public partial class InstalledApps {
     /// <summary>
     /// Every single app installed in the device.
     /// </summary>
@@ -167,7 +167,7 @@ public class InstalledApps {
 /// <summary>
 /// Used for storing the apps pinned in the dock.
 /// </summary>
-public class QuickLaunch {
+public partial class QuickLaunch {
     /// <summary>
     /// The apps in the quick launcher.
     /// </summary>
@@ -177,7 +177,7 @@ public class QuickLaunch {
 /// <summary>
 /// Used for storing the user's conversations.
 /// </summary>
-public class SocialStuff {
+public partial class SocialStuff {
     /// <summary>
     /// The user's conversations.
     /// </summary>
@@ -206,7 +206,7 @@ public class SocialStuff {
 /// <summary>
 /// A conversation.
 /// </summary>
-public class Conversation {
+public partial class Conversation {
     /// <summary>
     /// The name of the conversation.
     /// </summary>
@@ -228,7 +228,7 @@ public class Conversation {
 /// <summary>
 /// A message.
 /// </summary>
-public class Message {
+public partial class Message {
     /// <summary>
     /// The author of the message. ("You" for the user)
     /// </summary>
@@ -239,7 +239,7 @@ public class Message {
     public string Text = "";
 }
 
-public class PinboardItem {
+public partial class PinboardItem {
     public bool IsStickyNote = false;
     public Vector2 Position = new Vector2(0, 0);
     public float Scale = 1;
@@ -248,6 +248,6 @@ public class PinboardItem {
     public string TexturePath = "";
 }
 
-public class LelsktopPinboard {
+public partial class LelsktopPinboard {
     public Dictionary<string, PinboardItem> Items = new Dictionary<string, PinboardItem>();
 }

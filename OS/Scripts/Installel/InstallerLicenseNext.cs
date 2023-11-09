@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class InstallerLicenseNext : Button {
+public partial class InstallerLicenseNext : Button {
     [Export]
     NodePath nextThing = "";
     [Export]
@@ -9,7 +9,7 @@ public class InstallerLicenseNext : Button {
 
     public override void _Ready() {
         base._Ready();
-        Connect("pressed", this, nameof(Click));
+        Connect("pressed", new Callable(this, nameof(Click)));
     }
 
     public override void _Process(float delta) {

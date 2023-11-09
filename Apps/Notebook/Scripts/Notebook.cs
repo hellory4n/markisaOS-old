@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Notebook : BaseWindow {
+public partial class Notebook : BaseWindow {
     public bool Suffer = false;
     public bool J = true;
     public string Fhgkfdlkjgjkhgjf = "";

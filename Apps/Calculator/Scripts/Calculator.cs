@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Calculator : Button {
+public partial class Calculator : Button {
     string number1 = "";
     string number2 = "";
     double currentResult = 0;
@@ -13,25 +13,25 @@ public class Calculator : Button {
         base._Ready();
         expressionThing = GetNode<Label>("../Expression");
         // this is fine
-        GetNode<Button>("../Clear").Connect("pressed", this, nameof(Clear));
-        GetNode<Button>("../Undo").Connect("pressed", this, nameof(Backspace));
-        GetNode<Button>("../Negate").Connect("pressed", this, nameof(Negate));
-        GetNode<Button>("../Divide").Connect("pressed", this, nameof(Divide));
-        GetNode<Button>("../Multiply").Connect("pressed", this, nameof(Multiply));
-        GetNode<Button>("../Seven").Connect("pressed", this, nameof(Seven));
-        GetNode<Button>("../Eight").Connect("pressed", this, nameof(Eight));
-        GetNode<Button>("../Nine").Connect("pressed", this, nameof(Nine));
-        GetNode<Button>("../Subtract").Connect("pressed", this, nameof(Subtract));
-        GetNode<Button>("../Four").Connect("pressed", this, nameof(Four));
-        GetNode<Button>("../Five").Connect("pressed", this, nameof(Five));
-        GetNode<Button>("../Six").Connect("pressed", this, nameof(Six));
-        GetNode<Button>("../Add").Connect("pressed", this, nameof(Add));
-        GetNode<Button>("../One").Connect("pressed", this, nameof(One));
-        GetNode<Button>("../Two").Connect("pressed", this, nameof(Two));
-        GetNode<Button>("../Three").Connect("pressed", this, nameof(Three));
-        GetNode<Button>("../Zero").Connect("pressed", this, nameof(Zero));
-        GetNode<Button>("../Dot").Connect("pressed", this, nameof(Dot));
-        Connect("pressed", this, nameof(Equal));
+        GetNode<Button>("../Clear").Connect("pressed", new Callable(this, nameof(Clear)));
+        GetNode<Button>("../Undo").Connect("pressed", new Callable(this, nameof(Backspace)));
+        GetNode<Button>("../Negate").Connect("pressed", new Callable(this, nameof(Negate)));
+        GetNode<Button>("../Divide").Connect("pressed", new Callable(this, nameof(Divide)));
+        GetNode<Button>("../Multiply").Connect("pressed", new Callable(this, nameof(Multiply)));
+        GetNode<Button>("../Seven").Connect("pressed", new Callable(this, nameof(Seven)));
+        GetNode<Button>("../Eight").Connect("pressed", new Callable(this, nameof(Eight)));
+        GetNode<Button>("../Nine").Connect("pressed", new Callable(this, nameof(Nine)));
+        GetNode<Button>("../Subtract").Connect("pressed", new Callable(this, nameof(Subtract)));
+        GetNode<Button>("../Four").Connect("pressed", new Callable(this, nameof(Four)));
+        GetNode<Button>("../Five").Connect("pressed", new Callable(this, nameof(Five)));
+        GetNode<Button>("../Six").Connect("pressed", new Callable(this, nameof(Six)));
+        GetNode<Button>("../Add").Connect("pressed", new Callable(this, nameof(Add)));
+        GetNode<Button>("../One").Connect("pressed", new Callable(this, nameof(One)));
+        GetNode<Button>("../Two").Connect("pressed", new Callable(this, nameof(Two)));
+        GetNode<Button>("../Three").Connect("pressed", new Callable(this, nameof(Three)));
+        GetNode<Button>("../Zero").Connect("pressed", new Callable(this, nameof(Zero)));
+        GetNode<Button>("../Dot").Connect("pressed", new Callable(this, nameof(Dot)));
+        Connect("pressed", new Callable(this, nameof(Equal)));
     }
 
     void Clear() {

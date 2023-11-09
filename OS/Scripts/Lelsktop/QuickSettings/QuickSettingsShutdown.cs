@@ -1,10 +1,10 @@
 using Godot;
 using System;
 
-public class QuickSettingsShutdown : Button {
+public partial class QuickSettingsShutdown : Button {
     public override void _Ready() {
         base._Ready();
-        Connect("pressed", this, nameof(Click));
+        Connect("pressed", new Callable(this, nameof(Click)));
     }
 
     public void Click() {

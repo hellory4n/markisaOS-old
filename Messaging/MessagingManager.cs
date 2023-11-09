@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class MessagingManager : Node {
+public partial class MessagingManager : Node {
     // haha yes
     public enum Messages {
         PassionfruitSupportApps,

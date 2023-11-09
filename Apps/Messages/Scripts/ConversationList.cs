@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class ConversationList : VBoxContainer {
+public partial class ConversationList : VBoxContainer {
     // quite the mouthful
     readonly PackedScene MessageThingy = ResourceLoader.Load<PackedScene>("res://Apps/Messages/ConversationOpen.tscn");
     readonly PackedScene Shit = ResourceLoader.Load<PackedScene>("res://Apps/Messages/MessagingInterface.tscn");
@@ -25,7 +25,7 @@ public class ConversationList : VBoxContainer {
         int i = 0;
         foreach (var conversation in conversations) {
             var h = MessageThingy.Instance<SidebarButton>();
-            h.Icon = ResourceLoader.Load<Texture>(conversation.Icon);
+            h.Icon = ResourceLoader.Load<Texture2D>(conversation.Icon);
             h.Text = conversation.Name;
             var bullshit = Shit.Instance<MessagingInterface>();
             // the sidebar button thing requires the content's name to start with "Category" :)))

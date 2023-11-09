@@ -4,54 +4,54 @@
 [ext_resource path="res://OS/Scripts/Lelsktop/Time.cs" type="Script" id=2]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=3]
 [ext_resource path="res://OS/Scripts/Lelsktop/QuickSettings/SoundSlider.cs" type="Script" id=4]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Settings.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Settings.png" type="Texture2D" id=5]
 [ext_resource path="res://OS/Scripts/Lelsktop/AppMenu/ListApps.cs" type="Script" id=6]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Favorites.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Workspaces.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/QuickSettings.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Favorites.png" type="Texture2D" id=7]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Workspaces.png" type="Texture2D" id=8]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/QuickSettings.png" type="Texture2D" id=9]
 [ext_resource path="res://OS/Scripts/Lelsktop/AppMenu/OpenAppMenu.cs" type="Script" id=10]
 [ext_resource path="res://OS/Scripts/Lelsktop/AppMenu/OpenCategory.cs" type="Script" id=11]
 [ext_resource path="res://OS/Scripts/Lelsktop/Workspaces/SwitchWorkspace.cs" type="Script" id=12]
 [ext_resource path="res://OS/Scripts/Lelsktop/QuickSettings/QuickSettingsUserIcon.cs" type="Script" id=13]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Sound.png" type="Texture" id=14]
-[ext_resource path="res://Assets/UserIcons/Cat.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Sound.png" type="Texture2D" id=14]
+[ext_resource path="res://Assets/UserIcons/Cat.png" type="Texture2D" id=15]
 [ext_resource path="res://OS/Scripts/Lelsktop/QuickSettings/QuickSettingsUserName.cs" type="Script" id=16]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Music.png" type="Texture" id=17]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Logout.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Music.png" type="Texture2D" id=17]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Logout.png" type="Texture2D" id=18]
 [ext_resource path="res://OS/Scripts/Lelsktop/QuickSettings/OpenQuickSettings.cs" type="Script" id=19]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Power.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Power.png" type="Texture2D" id=20]
 [ext_resource path="res://OS/Scripts/Lelsktop/WindowSpace.cs" type="Script" id=21]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/App.png" type="Texture" id=22]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Utilities.png" type="Texture" id=23]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Development.png" type="Texture" id=24]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Games.png" type="Texture" id=25]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Graphics.png" type="Texture" id=26]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Internet.png" type="Texture" id=27]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Multimedia.png" type="Texture" id=28]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Office.png" type="Texture" id=29]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/System.png" type="Texture" id=30]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Accessories.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/App.png" type="Texture2D" id=22]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Utilities.png" type="Texture2D" id=23]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Development.png" type="Texture2D" id=24]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Games.png" type="Texture2D" id=25]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Graphics.png" type="Texture2D" id=26]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Internet.png" type="Texture2D" id=27]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Multimedia.png" type="Texture2D" id=28]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Office.png" type="Texture2D" id=29]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/System.png" type="Texture2D" id=30]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Accessories.png" type="Texture2D" id=31]
 [ext_resource path="res://OS/Scripts/Lelsktop/Workspaces/OpenWorkspaces.cs" type="Script" id=32]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Sunny.png" type="Texture" id=33]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Sunny.png" type="Texture2D" id=33]
 [ext_resource path="res://OS/Scripts/Lelsktop/SystemMonitorThingy.cs" type="Script" id=34]
 [ext_resource path="res://OS/Scripts/Lelsktop/ShowDesktop.cs" type="Script" id=35]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/ShowDesktop.png" type="Texture" id=36]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/PinboardEditor.png" type="Texture" id=37]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Applications.png" type="Texture" id=38]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/ShowDesktop.png" type="Texture2D" id=36]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/PinboardEditor.png" type="Texture2D" id=37]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Applications.png" type="Texture2D" id=38]
 [ext_resource path="res://OS/Scripts/Lelsktop/Pinboard/Pinboard.cs" type="Script" id=39]
 
 [sub_resource type="Animation" id=20]
 resource_name = "CloseAppMenu"
 length = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("AppMenu:rect_position")
+tracks/0/path = NodePath("AppMenu:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 0.37 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 0.37 ),
 "update": 0,
 "values": [ Vector2( 0, 40 ), Vector2( 0, -360 ) ]
 }
@@ -62,8 +62,8 @@ tracks/1/loop_wrap = false
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 0.37 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 0.37 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
@@ -72,14 +72,14 @@ tracks/1/keys = {
 resource_name = "CloseQuickSettings"
 length = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("QuickSettings:rect_position")
+tracks/0/path = NodePath("QuickSettings:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 0.37 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 0.37 ),
 "update": 0,
 "values": [ Vector2( 905, 40 ), Vector2( 905, -515 ) ]
 }
@@ -90,8 +90,8 @@ tracks/1/loop_wrap = false
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 0.37 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 0.37 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
@@ -100,14 +100,14 @@ tracks/1/keys = {
 resource_name = "CloseWorkspaces"
 length = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("Workspaces:rect_position")
+tracks/0/path = NodePath("Workspaces:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 0.37 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 0.37 ),
 "update": 0,
 "values": [ Vector2( 1055, 64 ), Vector2( 1280, 64 ) ]
 }
@@ -118,8 +118,8 @@ tracks/1/loop_wrap = false
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 0.37 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 0.37 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
@@ -128,14 +128,14 @@ tracks/1/keys = {
 resource_name = "OpenAppMenu"
 length = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("AppMenu:rect_position")
+tracks/0/path = NodePath("AppMenu:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 0.37, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 0.37, 1 ),
 "update": 0,
 "values": [ Vector2( 0, -360 ), Vector2( 0, 40 ) ]
 }
@@ -146,8 +146,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 0.37, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 0.37, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -156,14 +156,14 @@ tracks/1/keys = {
 resource_name = "OpenQuickSettings"
 length = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("QuickSettings:rect_position")
+tracks/0/path = NodePath("QuickSettings:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 0.37, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 0.37, 1 ),
 "update": 0,
 "values": [ Vector2( 905, -515 ), Vector2( 905, 40 ) ]
 }
@@ -174,8 +174,8 @@ tracks/1/loop_wrap = false
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 0.37, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 0.37, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -184,14 +184,14 @@ tracks/1/keys = {
 resource_name = "OpenWorkspaces"
 length = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("Workspaces:rect_position")
+tracks/0/path = NodePath("Workspaces:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 0.37, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 0.37, 1 ),
 "update": 0,
 "values": [ Vector2( 1280, 64 ), Vector2( 1055, 64 ) ]
 }
@@ -202,8 +202,8 @@ tracks/1/loop_wrap = false
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 0.37, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 0.37, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -212,26 +212,26 @@ tracks/1/keys = {
 resource_name = "Startup"
 length = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Dock:rect_position")
+tracks/0/path = NodePath("Dock:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.37, 1 ),
+"times": PackedFloat32Array( 0, 0.5 ),
+"transitions": PackedFloat32Array( 0.37, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 720 ), Vector2( 0, 645 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Panel:rect_position")
+tracks/1/path = NodePath("Panel:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.37, 1 ),
+"times": PackedFloat32Array( 0, 0.5 ),
+"transitions": PackedFloat32Array( 0.37, 1 ),
 "update": 0,
 "values": [ Vector2( 0, -40 ), Vector2( 0, 0 ) ]
 }
@@ -253,8 +253,8 @@ anims/Startup = SubResource( 8 )
 [node name="WindowSpace" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 40.0
-margin_right = -75.0
+offset_top = 40.0
+offset_right = -75.0
 script = ExtResource( 21 )
 
 [node name="Workspaces" type="Panel" parent="."]
@@ -263,25 +263,25 @@ modulate = Color( 1, 1, 1, 0 )
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 64.0
-margin_right = 150.0
-margin_bottom = -456.0
-rect_min_size = Vector2( 150, 200 )
+offset_top = 64.0
+offset_right = 150.0
+offset_bottom = -456.0
+custom_minimum_size = Vector2( 150, 200 )
 theme = ExtResource( 3 )
 
 [node name="M" type="VBoxContainer" parent="Workspaces"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 10.0
-margin_right = -10.0
-margin_bottom = -10.0
-custom_constants/separation = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+theme_override_constants/separation = 0
 alignment = 1
 
 [node name="1" type="Button" parent="Workspaces/M"]
-margin_right = 130.0
-margin_bottom = 45.0
+offset_right = 130.0
+offset_bottom = 45.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_type_variation = "PanelButton"
@@ -289,9 +289,9 @@ text = "Workspace 1"
 script = ExtResource( 12 )
 
 [node name="2" type="Button" parent="Workspaces/M"]
-margin_top = 45.0
-margin_right = 130.0
-margin_bottom = 90.0
+offset_top = 45.0
+offset_right = 130.0
+offset_bottom = 90.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_type_variation = "PanelButton"
@@ -300,9 +300,9 @@ script = ExtResource( 12 )
 Workspace = 2
 
 [node name="3" type="Button" parent="Workspaces/M"]
-margin_top = 90.0
-margin_right = 130.0
-margin_bottom = 135.0
+offset_top = 90.0
+offset_right = 130.0
+offset_bottom = 135.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_type_variation = "PanelButton"
@@ -311,9 +311,9 @@ script = ExtResource( 12 )
 Workspace = 3
 
 [node name="4" type="Button" parent="Workspaces/M"]
-margin_top = 135.0
-margin_right = 130.0
-margin_bottom = 180.0
+offset_top = 135.0
+offset_right = 130.0
+offset_bottom = 180.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_type_variation = "PanelButton"
@@ -326,61 +326,61 @@ process_priority = -69
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -75.0
-rect_min_size = Vector2( 75, 0 )
+offset_left = -75.0
+custom_minimum_size = Vector2( 75, 0 )
 theme = ExtResource( 3 )
 theme_type_variation = "Dock"
 
 [node name="DockStuff" type="VSplitContainer" parent="Dock"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_min_size = Vector2( 0, 64 )
-custom_constants/autohide = 0
+custom_minimum_size = Vector2( 0, 64 )
+theme_override_constants/autohide = 0
 
 [node name="QuickLaunch" type="VBoxContainer" parent="Dock/DockStuff"]
-margin_right = 75.0
-margin_bottom = 128.0
+offset_right = 75.0
+offset_bottom = 128.0
 mouse_filter = 0
 size_flags_horizontal = 3
 size_flags_vertical = 0
-custom_constants/separation = 0
+theme_override_constants/separation = 0
 alignment = 1
 
 [node name="Appomg" type="Button" parent="Dock/DockStuff/QuickLaunch"]
-margin_left = 5.0
-margin_right = 69.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 64, 64 )
-hint_tooltip = "Change pinned apps in Quick Launch"
+offset_left = 5.0
+offset_right = 69.0
+offset_bottom = 64.0
+custom_minimum_size = Vector2( 64, 64 )
+tooltip_text = "Change pinned apps in Quick Launch"
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_type_variation = "DockButton"
-custom_styles/normal = SubResource( 24 )
+theme_override_styles/normal = SubResource( 24 )
 icon = ExtResource( 7 )
-icon_align = 1
+icon_alignment = 1
 script = ExtResource( 1 )
 WindowScene = "res://Apps/QuickLaunchSetup/QuickLaunchSetup.tscn"
 
 [node name="Workspaces" type="Button" parent="Dock/DockStuff/QuickLaunch"]
-margin_left = 5.0
-margin_top = 64.0
-margin_right = 69.0
-margin_bottom = 128.0
-rect_min_size = Vector2( 64, 64 )
-hint_tooltip = "Switch between workspaces"
+offset_left = 5.0
+offset_top = 64.0
+offset_right = 69.0
+offset_bottom = 128.0
+custom_minimum_size = Vector2( 64, 64 )
+tooltip_text = "Switch between workspaces"
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_type_variation = "DockButton"
-custom_styles/normal = SubResource( 24 )
+theme_override_styles/normal = SubResource( 24 )
 toggle_mode = true
 icon = ExtResource( 8 )
-icon_align = 1
+icon_alignment = 1
 script = ExtResource( 32 )
 
 [node name="Running" type="VBoxContainer" parent="Dock/DockStuff"]
-margin_top = 140.0
-margin_right = 75.0
-margin_bottom = 140.0
+offset_top = 140.0
+offset_right = 75.0
+offset_bottom = 140.0
 mouse_filter = 0
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -390,13 +390,13 @@ alignment = 1
 modulate = Color( 1, 1, 1, 0 )
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -375.0
-margin_top = -475.0
-margin_right = -75.0
-rect_min_size = Vector2( 300, 475 )
+offset_left = -375.0
+offset_top = -475.0
+offset_right = -75.0
+custom_minimum_size = Vector2( 300, 475 )
 theme = ExtResource( 3 )
 
-[node name="UserIcon" type="Sprite" parent="QuickSettings"]
+[node name="UserIcon" type="Sprite2D" parent="QuickSettings"]
 position = Vector2( 4, 4 )
 scale = Vector2( 0.33, 0.33 )
 texture = ExtResource( 15 )
@@ -404,49 +404,49 @@ centered = false
 script = ExtResource( 13 )
 
 [node name="Name" type="Label" parent="QuickSettings"]
-margin_left = 40.0
-margin_right = 300.0
-margin_bottom = 40.0
+offset_left = 40.0
+offset_right = 300.0
+offset_bottom = 40.0
 text = "Cool user :)"
 valign = 1
 clip_text = true
 script = ExtResource( 16 )
 
-[node name="Sound" type="Sprite" parent="QuickSettings"]
+[node name="Sound" type="Sprite2D" parent="QuickSettings"]
 position = Vector2( 4, 44 )
 texture = ExtResource( 14 )
 centered = false
 
 [node name="SoundSlider" type="HSlider" parent="QuickSettings"]
-margin_left = 40.0
-margin_top = 44.0
-margin_right = 290.0
-margin_bottom = 76.0
+offset_left = 40.0
+offset_top = 44.0
+offset_right = 290.0
+offset_bottom = 76.0
 value = 100.0
 script = ExtResource( 4 )
 
-[node name="Music" type="Sprite" parent="QuickSettings"]
+[node name="Music" type="Sprite2D" parent="QuickSettings"]
 position = Vector2( 4, 84 )
 texture = ExtResource( 17 )
 centered = false
 
 [node name="MusicSlider" type="HSlider" parent="QuickSettings"]
-margin_left = 40.0
-margin_top = 84.0
-margin_right = 290.0
-margin_bottom = 116.0
+offset_left = 40.0
+offset_top = 84.0
+offset_right = 290.0
+offset_bottom = 116.0
 max_value = 1.0
 step = 0.001
 value = 1.0
 
 [node name="Settings" type="Button" parent="QuickSettings"]
-margin_left = 4.0
-margin_top = 120.0
-margin_right = 300.0
-margin_bottom = 160.0
-rect_min_size = Vector2( 296, 40 )
+offset_left = 4.0
+offset_top = 120.0
+offset_right = 300.0
+offset_bottom = 160.0
+custom_minimum_size = Vector2( 296, 40 )
 theme_type_variation = "PanelButton"
-custom_constants/hseparation = 4
+theme_override_constants/h_separation = 4
 text = "Settings"
 icon = ExtResource( 5 )
 align = 0
@@ -454,13 +454,13 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/Settings/Settings.tscn"
 
 [node name="Logout" type="Button" parent="QuickSettings"]
-margin_left = 4.0
-margin_top = 160.0
-margin_right = 300.0
-margin_bottom = 200.0
-rect_min_size = Vector2( 296, 40 )
+offset_left = 4.0
+offset_top = 160.0
+offset_right = 300.0
+offset_bottom = 200.0
+custom_minimum_size = Vector2( 296, 40 )
 theme_type_variation = "PanelButton"
-custom_constants/hseparation = 4
+theme_override_constants/h_separation = 4
 text = "Logout"
 icon = ExtResource( 18 )
 align = 0
@@ -468,13 +468,13 @@ script = ExtResource( 1 )
 WindowScene = "res://OS/Lelsktop/Logout.tscn"
 
 [node name="Turnoff" type="Button" parent="QuickSettings"]
-margin_left = 4.0
-margin_top = 200.0
-margin_right = 300.0
-margin_bottom = 240.0
-rect_min_size = Vector2( 296, 40 )
+offset_left = 4.0
+offset_top = 200.0
+offset_right = 300.0
+offset_bottom = 240.0
+custom_minimum_size = Vector2( 296, 40 )
 theme_type_variation = "PanelButton"
-custom_constants/hseparation = 4
+theme_override_constants/h_separation = 4
 text = "Turn off"
 icon = ExtResource( 20 )
 align = 0
@@ -482,110 +482,110 @@ script = ExtResource( 1 )
 WindowScene = "res://OS/Lelsktop/Shutdown.tscn"
 
 [node name="Ghjkbhkg" type="Label" parent="QuickSettings"]
-margin_top = 245.0
-margin_right = 300.0
-margin_bottom = 270.0
-rect_min_size = Vector2( 300, 25 )
+offset_top = 245.0
+offset_right = 300.0
+offset_bottom = 270.0
+custom_minimum_size = Vector2( 300, 25 )
 text = "System Monitor"
 align = 1
 valign = 1
 
 [node name="Cpu" type="ProgressBar" parent="QuickSettings"]
-margin_left = 10.0
-margin_top = 275.0
-margin_right = 290.0
-margin_bottom = 315.0
-rect_min_size = Vector2( 280, 40 )
-hint_tooltip = "The CPU is the part of the computer that processes stuff."
+offset_left = 10.0
+offset_top = 275.0
+offset_right = 290.0
+offset_bottom = 315.0
+custom_minimum_size = Vector2( 280, 40 )
+tooltip_text = "The CPU is the part of the computer that processes stuff."
 script = ExtResource( 34 )
 Thingy = "CPU"
 
 [node name="Ghjkbhkg2" type="Label" parent="QuickSettings"]
-margin_left = 10.0
-margin_top = 275.0
-margin_right = 280.0
-margin_bottom = 315.0
+offset_left = 10.0
+offset_top = 275.0
+offset_right = 280.0
+offset_bottom = 315.0
 text = "Processor"
 align = 2
 valign = 1
 
 [node name="Gpu" type="ProgressBar" parent="QuickSettings"]
-margin_left = 10.0
-margin_top = 325.0
-margin_right = 290.0
-margin_bottom = 365.0
-rect_min_size = Vector2( 280, 40 )
-hint_tooltip = "The GPU is the part of the computer responsible for processing graphics."
+offset_left = 10.0
+offset_top = 325.0
+offset_right = 290.0
+offset_bottom = 365.0
+custom_minimum_size = Vector2( 280, 40 )
+tooltip_text = "The GPU is the part of the computer responsible for processing graphics."
 script = ExtResource( 34 )
 Thingy = "GPU"
 
 [node name="Ghjkbhkg3" type="Label" parent="QuickSettings"]
-margin_left = 10.0
-margin_top = 325.0
-margin_right = 280.0
-margin_bottom = 365.0
+offset_left = 10.0
+offset_top = 325.0
+offset_right = 280.0
+offset_bottom = 365.0
 text = "Graphics"
 align = 2
 valign = 1
 
 [node name="Memory" type="ProgressBar" parent="QuickSettings"]
-margin_left = 10.0
-margin_top = 375.0
-margin_right = 290.0
-margin_bottom = 415.0
-rect_min_size = Vector2( 280, 40 )
-hint_tooltip = "The memory is the part of the computer with all of the values it's currently using."
+offset_left = 10.0
+offset_top = 375.0
+offset_right = 290.0
+offset_bottom = 415.0
+custom_minimum_size = Vector2( 280, 40 )
+tooltip_text = "The memory is the part of the computer with all of the values it's currently using."
 script = ExtResource( 34 )
 Thingy = "Memory"
 
 [node name="Ghjkbhkg4" type="Label" parent="QuickSettings"]
-margin_left = 10.0
-margin_top = 375.0
-margin_right = 280.0
-margin_bottom = 415.0
+offset_left = 10.0
+offset_top = 375.0
+offset_right = 280.0
+offset_bottom = 415.0
 text = "Memory"
 align = 2
 valign = 1
 
 [node name="Storage" type="ProgressBar" parent="QuickSettings"]
-margin_left = 10.0
-margin_top = 425.0
-margin_right = 290.0
-margin_bottom = 465.0
-rect_min_size = Vector2( 280, 40 )
-hint_tooltip = "This indicates how much apps are currently reading and writing to disk, not how much space is available."
+offset_left = 10.0
+offset_top = 425.0
+offset_right = 290.0
+offset_bottom = 465.0
+custom_minimum_size = Vector2( 280, 40 )
+tooltip_text = "This indicates how much apps are currently reading and writing to disk, not how much space is available."
 script = ExtResource( 34 )
 Thingy = "Storage"
 
 [node name="Ghjkbhkg5" type="Label" parent="QuickSettings"]
-margin_left = 10.0
-margin_top = 425.0
-margin_right = 280.0
-margin_bottom = 465.0
+offset_left = 10.0
+offset_top = 425.0
+offset_right = 280.0
+offset_bottom = 465.0
 text = "Storage"
 align = 2
 valign = 1
 
 [node name="AppMenu" type="Panel" parent="."]
 modulate = Color( 1, 1, 1, 0 )
-margin_top = -360.0
-margin_right = 416.0
-margin_bottom = 50.0
+offset_top = -360.0
+offset_right = 416.0
+offset_bottom = 50.0
 theme = ExtResource( 3 )
 
 [node name="Categories" type="ScrollContainer" parent="AppMenu"]
-margin_right = 200.0
-margin_bottom = 400.0
+offset_right = 200.0
+offset_bottom = 400.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/Categories"]
-margin_right = 200.0
-margin_bottom = 400.0
-custom_constants/separation = 0
+offset_right = 200.0
+offset_bottom = 400.0
+theme_override_constants/separation = 0
 
 [node name="AllApps" type="Button" parent="AppMenu/Categories/VBoxContainer"]
-margin_right = 200.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 200, 40 )
+offset_right = 200.0
+offset_bottom = 40.0
+custom_minimum_size = Vector2( 200, 40 )
 theme_type_variation = "PanelButton"
 text = "All Apps"
 icon = ExtResource( 22 )
@@ -594,10 +594,10 @@ script = ExtResource( 11 )
 Category = "CategoryAllApps"
 
 [node name="Accessories" type="Button" parent="AppMenu/Categories/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 theme_type_variation = "PanelButton"
 text = "Accessories"
 icon = ExtResource( 31 )
@@ -606,10 +606,10 @@ script = ExtResource( 11 )
 Category = "CategoryAccessories"
 
 [node name="Development" type="Button" parent="AppMenu/Categories/VBoxContainer"]
-margin_top = 80.0
-margin_right = 200.0
-margin_bottom = 120.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 80.0
+offset_right = 200.0
+offset_bottom = 120.0
+custom_minimum_size = Vector2( 200, 40 )
 theme_type_variation = "PanelButton"
 text = "Development"
 icon = ExtResource( 24 )
@@ -618,10 +618,10 @@ script = ExtResource( 11 )
 Category = "CategoryDevelopment"
 
 [node name="Games" type="Button" parent="AppMenu/Categories/VBoxContainer"]
-margin_top = 120.0
-margin_right = 200.0
-margin_bottom = 160.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 120.0
+offset_right = 200.0
+offset_bottom = 160.0
+custom_minimum_size = Vector2( 200, 40 )
 theme_type_variation = "PanelButton"
 text = "Games"
 icon = ExtResource( 25 )
@@ -630,10 +630,10 @@ script = ExtResource( 11 )
 Category = "CategoryGames"
 
 [node name="Graphics" type="Button" parent="AppMenu/Categories/VBoxContainer"]
-margin_top = 160.0
-margin_right = 200.0
-margin_bottom = 200.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 160.0
+offset_right = 200.0
+offset_bottom = 200.0
+custom_minimum_size = Vector2( 200, 40 )
 theme_type_variation = "PanelButton"
 text = "Graphics"
 icon = ExtResource( 26 )
@@ -642,10 +642,10 @@ script = ExtResource( 11 )
 Category = "CategoryGraphics"
 
 [node name="Internet" type="Button" parent="AppMenu/Categories/VBoxContainer"]
-margin_top = 200.0
-margin_right = 200.0
-margin_bottom = 240.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 200.0
+offset_right = 200.0
+offset_bottom = 240.0
+custom_minimum_size = Vector2( 200, 40 )
 theme_type_variation = "PanelButton"
 text = "Internet"
 icon = ExtResource( 27 )
@@ -654,10 +654,10 @@ script = ExtResource( 11 )
 Category = "CategoryInternet"
 
 [node name="Multimedia" type="Button" parent="AppMenu/Categories/VBoxContainer"]
-margin_top = 240.0
-margin_right = 200.0
-margin_bottom = 280.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 240.0
+offset_right = 200.0
+offset_bottom = 280.0
+custom_minimum_size = Vector2( 200, 40 )
 theme_type_variation = "PanelButton"
 text = "Multimedia"
 icon = ExtResource( 28 )
@@ -666,10 +666,10 @@ script = ExtResource( 11 )
 Category = "CategoryMultimedia"
 
 [node name="Office" type="Button" parent="AppMenu/Categories/VBoxContainer"]
-margin_top = 280.0
-margin_right = 200.0
-margin_bottom = 320.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 280.0
+offset_right = 200.0
+offset_bottom = 320.0
+custom_minimum_size = Vector2( 200, 40 )
 theme_type_variation = "PanelButton"
 text = "Office"
 icon = ExtResource( 29 )
@@ -678,10 +678,10 @@ script = ExtResource( 11 )
 Category = "CategoryOffice"
 
 [node name="System" type="Button" parent="AppMenu/Categories/VBoxContainer"]
-margin_top = 320.0
-margin_right = 200.0
-margin_bottom = 360.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 320.0
+offset_right = 200.0
+offset_bottom = 360.0
+custom_minimum_size = Vector2( 200, 40 )
 theme_type_variation = "PanelButton"
 text = "System"
 icon = ExtResource( 30 )
@@ -690,10 +690,10 @@ script = ExtResource( 11 )
 Category = "CategorySystem"
 
 [node name="Utilities" type="Button" parent="AppMenu/Categories/VBoxContainer"]
-margin_top = 360.0
-margin_right = 200.0
-margin_bottom = 400.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 360.0
+offset_right = 200.0
+offset_bottom = 400.0
+custom_minimum_size = Vector2( 200, 40 )
 theme_type_variation = "PanelButton"
 text = "Utilities"
 icon = ExtResource( 23 )
@@ -702,20 +702,20 @@ script = ExtResource( 11 )
 Category = "CategoryUtilities"
 
 [node name="CategoryAllApps" type="ScrollContainer" parent="AppMenu"]
-margin_left = 200.0
-margin_right = 416.0
-margin_bottom = 407.0
+offset_left = 200.0
+offset_right = 416.0
+offset_bottom = 407.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/CategoryAllApps"]
-margin_right = 200.0
-margin_bottom = 920.0
-custom_constants/separation = 0
+offset_right = 200.0
+offset_bottom = 920.0
+theme_override_constants/separation = 0
 script = ExtResource( 6 )
 
 [node name="Settings" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
-margin_right = 200.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 200, 40 )
+offset_right = 200.0
+offset_bottom = 40.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Settings"
@@ -725,10 +725,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/Settings/Settings.tscn"
 
 [node name="TestApp3" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -738,10 +738,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp4" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
-margin_top = 80.0
-margin_right = 200.0
-margin_bottom = 120.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 80.0
+offset_right = 200.0
+offset_bottom = 120.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -751,10 +751,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp5" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
-margin_top = 120.0
-margin_right = 200.0
-margin_bottom = 160.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 120.0
+offset_right = 200.0
+offset_bottom = 160.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -764,10 +764,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp6" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
-margin_top = 160.0
-margin_right = 200.0
-margin_bottom = 200.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 160.0
+offset_right = 200.0
+offset_bottom = 200.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -777,10 +777,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp7" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
-margin_top = 200.0
-margin_right = 200.0
-margin_bottom = 240.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 200.0
+offset_right = 200.0
+offset_bottom = 240.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -790,10 +790,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp8" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
-margin_top = 240.0
-margin_right = 200.0
-margin_bottom = 280.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 240.0
+offset_right = 200.0
+offset_bottom = 280.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -803,10 +803,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp9" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
-margin_top = 280.0
-margin_right = 200.0
-margin_bottom = 320.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 280.0
+offset_right = 200.0
+offset_bottom = 320.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -816,10 +816,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp10" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
-margin_top = 320.0
-margin_right = 200.0
-margin_bottom = 360.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 320.0
+offset_right = 200.0
+offset_bottom = 360.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -829,10 +829,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp11" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
-margin_top = 360.0
-margin_right = 200.0
-margin_bottom = 400.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 360.0
+offset_right = 200.0
+offset_bottom = 400.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -842,10 +842,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp12" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
-margin_top = 400.0
-margin_right = 200.0
-margin_bottom = 440.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 400.0
+offset_right = 200.0
+offset_bottom = 440.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -855,10 +855,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp13" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
-margin_top = 440.0
-margin_right = 200.0
-margin_bottom = 480.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 440.0
+offset_right = 200.0
+offset_bottom = 480.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -868,10 +868,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp14" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
-margin_top = 480.0
-margin_right = 200.0
-margin_bottom = 520.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 480.0
+offset_right = 200.0
+offset_bottom = 520.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -881,10 +881,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp15" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
-margin_top = 520.0
-margin_right = 200.0
-margin_bottom = 560.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 520.0
+offset_right = 200.0
+offset_bottom = 560.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -894,10 +894,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp16" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
-margin_top = 560.0
-margin_right = 200.0
-margin_bottom = 600.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 560.0
+offset_right = 200.0
+offset_bottom = 600.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -907,10 +907,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp17" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
-margin_top = 600.0
-margin_right = 200.0
-margin_bottom = 640.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 600.0
+offset_right = 200.0
+offset_bottom = 640.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -920,10 +920,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp18" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
-margin_top = 640.0
-margin_right = 200.0
-margin_bottom = 680.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 640.0
+offset_right = 200.0
+offset_bottom = 680.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -933,10 +933,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp19" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
-margin_top = 680.0
-margin_right = 200.0
-margin_bottom = 720.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 680.0
+offset_right = 200.0
+offset_bottom = 720.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -946,10 +946,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp20" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
-margin_top = 720.0
-margin_right = 200.0
-margin_bottom = 760.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 720.0
+offset_right = 200.0
+offset_bottom = 760.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -959,10 +959,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp21" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
-margin_top = 760.0
-margin_right = 200.0
-margin_bottom = 800.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 760.0
+offset_right = 200.0
+offset_bottom = 800.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -972,10 +972,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp22" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
-margin_top = 800.0
-margin_right = 200.0
-margin_bottom = 840.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 800.0
+offset_right = 200.0
+offset_bottom = 840.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -985,10 +985,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp23" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
-margin_top = 840.0
-margin_right = 200.0
-margin_bottom = 880.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 840.0
+offset_right = 200.0
+offset_bottom = 880.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -998,10 +998,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp24" type="Button" parent="AppMenu/CategoryAllApps/VBoxContainer"]
-margin_top = 880.0
-margin_right = 200.0
-margin_bottom = 920.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 880.0
+offset_right = 200.0
+offset_bottom = 920.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1012,22 +1012,22 @@ WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="CategoryAccessories" type="ScrollContainer" parent="AppMenu"]
 visible = false
-margin_left = 200.0
-margin_right = 416.0
-margin_bottom = 407.0
+offset_left = 200.0
+offset_right = 416.0
+offset_bottom = 407.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/CategoryAccessories"]
-margin_right = 200.0
-margin_bottom = 320.0
-custom_constants/separation = 0
+offset_right = 200.0
+offset_bottom = 320.0
+theme_override_constants/separation = 0
 script = ExtResource( 6 )
 Category = "Accessories"
 
 [node name="TestApp" type="Button" parent="AppMenu/CategoryAccessories/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1037,10 +1037,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp2" type="Button" parent="AppMenu/CategoryAccessories/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1050,10 +1050,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp3" type="Button" parent="AppMenu/CategoryAccessories/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1063,10 +1063,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp4" type="Button" parent="AppMenu/CategoryAccessories/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1076,10 +1076,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp5" type="Button" parent="AppMenu/CategoryAccessories/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1089,10 +1089,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp6" type="Button" parent="AppMenu/CategoryAccessories/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1102,10 +1102,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp7" type="Button" parent="AppMenu/CategoryAccessories/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1115,10 +1115,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp8" type="Button" parent="AppMenu/CategoryAccessories/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1129,22 +1129,22 @@ WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="CategoryDevelopment" type="ScrollContainer" parent="AppMenu"]
 visible = false
-margin_left = 200.0
-margin_right = 416.0
-margin_bottom = 407.0
+offset_left = 200.0
+offset_right = 416.0
+offset_bottom = 407.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/CategoryDevelopment"]
-margin_right = 200.0
-margin_bottom = 280.0
-custom_constants/separation = 0
+offset_right = 200.0
+offset_bottom = 280.0
+theme_override_constants/separation = 0
 script = ExtResource( 6 )
 Category = "Development"
 
 [node name="TestApp" type="Button" parent="AppMenu/CategoryDevelopment/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1154,10 +1154,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp2" type="Button" parent="AppMenu/CategoryDevelopment/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1167,10 +1167,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp3" type="Button" parent="AppMenu/CategoryDevelopment/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1180,10 +1180,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp4" type="Button" parent="AppMenu/CategoryDevelopment/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1193,10 +1193,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp5" type="Button" parent="AppMenu/CategoryDevelopment/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1206,10 +1206,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp6" type="Button" parent="AppMenu/CategoryDevelopment/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1219,10 +1219,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp7" type="Button" parent="AppMenu/CategoryDevelopment/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1233,22 +1233,22 @@ WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="CategoryGames" type="ScrollContainer" parent="AppMenu"]
 visible = false
-margin_left = 200.0
-margin_right = 416.0
-margin_bottom = 407.0
+offset_left = 200.0
+offset_right = 416.0
+offset_bottom = 407.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/CategoryGames"]
-margin_right = 200.0
-margin_bottom = 200.0
-custom_constants/separation = 0
+offset_right = 200.0
+offset_bottom = 200.0
+theme_override_constants/separation = 0
 script = ExtResource( 6 )
 Category = "Games"
 
 [node name="TestApp" type="Button" parent="AppMenu/CategoryGames/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1258,10 +1258,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp2" type="Button" parent="AppMenu/CategoryGames/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1271,10 +1271,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp3" type="Button" parent="AppMenu/CategoryGames/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1284,10 +1284,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp4" type="Button" parent="AppMenu/CategoryGames/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1297,10 +1297,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp5" type="Button" parent="AppMenu/CategoryGames/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1311,22 +1311,22 @@ WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="CategoryGraphics" type="ScrollContainer" parent="AppMenu"]
 visible = false
-margin_left = 200.0
-margin_right = 416.0
-margin_bottom = 407.0
+offset_left = 200.0
+offset_right = 416.0
+offset_bottom = 407.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/CategoryGraphics"]
-margin_right = 200.0
-margin_bottom = 480.0
-custom_constants/separation = 0
+offset_right = 200.0
+offset_bottom = 480.0
+theme_override_constants/separation = 0
 script = ExtResource( 6 )
 Category = "Graphics"
 
 [node name="TestApp" type="Button" parent="AppMenu/CategoryGraphics/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1336,10 +1336,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp2" type="Button" parent="AppMenu/CategoryGraphics/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1349,10 +1349,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp3" type="Button" parent="AppMenu/CategoryGraphics/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1362,10 +1362,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp4" type="Button" parent="AppMenu/CategoryGraphics/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1375,10 +1375,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp5" type="Button" parent="AppMenu/CategoryGraphics/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1388,10 +1388,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp6" type="Button" parent="AppMenu/CategoryGraphics/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1401,10 +1401,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp7" type="Button" parent="AppMenu/CategoryGraphics/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1414,10 +1414,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp8" type="Button" parent="AppMenu/CategoryGraphics/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1427,10 +1427,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp9" type="Button" parent="AppMenu/CategoryGraphics/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1440,10 +1440,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp10" type="Button" parent="AppMenu/CategoryGraphics/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1453,10 +1453,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp11" type="Button" parent="AppMenu/CategoryGraphics/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1466,10 +1466,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp12" type="Button" parent="AppMenu/CategoryGraphics/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1480,22 +1480,22 @@ WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="CategoryInternet" type="ScrollContainer" parent="AppMenu"]
 visible = false
-margin_left = 200.0
-margin_right = 416.0
-margin_bottom = 407.0
+offset_left = 200.0
+offset_right = 416.0
+offset_bottom = 407.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/CategoryInternet"]
-margin_right = 200.0
-margin_bottom = 2560.0
-custom_constants/separation = 0
+offset_right = 200.0
+offset_bottom = 2560.0
+theme_override_constants/separation = 0
 script = ExtResource( 6 )
 Category = "Internet"
 
 [node name="TestApp" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1505,10 +1505,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp2" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1518,10 +1518,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp3" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1531,10 +1531,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp4" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1544,10 +1544,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp5" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1557,10 +1557,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp6" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1570,10 +1570,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp7" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1583,10 +1583,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp8" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1596,10 +1596,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp9" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1609,10 +1609,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp10" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1622,10 +1622,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp11" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1635,10 +1635,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp12" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1648,10 +1648,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp13" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1661,10 +1661,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp14" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1674,10 +1674,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp15" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1687,10 +1687,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp16" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1700,10 +1700,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp17" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1713,10 +1713,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp18" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1726,10 +1726,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp19" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1739,10 +1739,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp20" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1752,10 +1752,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp21" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1765,10 +1765,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp22" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1778,10 +1778,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp23" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1791,10 +1791,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp24" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1804,10 +1804,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp25" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1817,10 +1817,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp26" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1830,10 +1830,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp27" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1843,10 +1843,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp28" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1856,10 +1856,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp29" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1869,10 +1869,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp30" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1882,10 +1882,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp31" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1895,10 +1895,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp32" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1908,10 +1908,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp33" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1921,10 +1921,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp34" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1934,10 +1934,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp35" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1947,10 +1947,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp36" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1960,10 +1960,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp37" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1973,10 +1973,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp38" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1986,10 +1986,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp39" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -1999,10 +1999,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp40" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2012,10 +2012,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp41" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2025,10 +2025,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp42" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2038,10 +2038,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp43" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2051,10 +2051,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp44" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2064,10 +2064,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp45" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2077,10 +2077,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp46" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2090,10 +2090,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp47" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2103,10 +2103,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp48" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2116,10 +2116,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp49" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2129,10 +2129,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp50" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2142,10 +2142,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp51" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2155,10 +2155,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp52" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2168,10 +2168,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp53" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2181,10 +2181,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp54" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2194,10 +2194,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp55" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2207,10 +2207,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp56" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2220,10 +2220,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp57" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2233,10 +2233,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp58" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2246,10 +2246,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp59" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2259,10 +2259,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp60" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2272,10 +2272,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp61" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2285,10 +2285,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp62" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2298,10 +2298,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp63" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2311,10 +2311,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp64" type="Button" parent="AppMenu/CategoryInternet/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2325,22 +2325,22 @@ WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="CategoryMultimedia" type="ScrollContainer" parent="AppMenu"]
 visible = false
-margin_left = 200.0
-margin_right = 416.0
-margin_bottom = 407.0
+offset_left = 200.0
+offset_right = 416.0
+offset_bottom = 407.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/CategoryMultimedia"]
-margin_right = 200.0
-margin_bottom = 120.0
-custom_constants/separation = 0
+offset_right = 200.0
+offset_bottom = 120.0
+theme_override_constants/separation = 0
 script = ExtResource( 6 )
 Category = "Multimedia"
 
 [node name="TestApp" type="Button" parent="AppMenu/CategoryMultimedia/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2350,10 +2350,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp2" type="Button" parent="AppMenu/CategoryMultimedia/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2363,10 +2363,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp3" type="Button" parent="AppMenu/CategoryMultimedia/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2377,22 +2377,22 @@ WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="CategoryOffice" type="ScrollContainer" parent="AppMenu"]
 visible = false
-margin_left = 200.0
-margin_right = 416.0
-margin_bottom = 407.0
+offset_left = 200.0
+offset_right = 416.0
+offset_bottom = 407.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/CategoryOffice"]
-margin_right = 200.0
-margin_bottom = 520.0
-custom_constants/separation = 0
+offset_right = 200.0
+offset_bottom = 520.0
+theme_override_constants/separation = 0
 script = ExtResource( 6 )
 Category = "Office"
 
 [node name="TestApp" type="Button" parent="AppMenu/CategoryOffice/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2402,10 +2402,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp2" type="Button" parent="AppMenu/CategoryOffice/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2415,10 +2415,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp3" type="Button" parent="AppMenu/CategoryOffice/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2428,10 +2428,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp4" type="Button" parent="AppMenu/CategoryOffice/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2441,10 +2441,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp5" type="Button" parent="AppMenu/CategoryOffice/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2454,10 +2454,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp6" type="Button" parent="AppMenu/CategoryOffice/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2467,10 +2467,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp7" type="Button" parent="AppMenu/CategoryOffice/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2480,10 +2480,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp8" type="Button" parent="AppMenu/CategoryOffice/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2493,10 +2493,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp9" type="Button" parent="AppMenu/CategoryOffice/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2506,10 +2506,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp10" type="Button" parent="AppMenu/CategoryOffice/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2519,10 +2519,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp11" type="Button" parent="AppMenu/CategoryOffice/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2532,10 +2532,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp12" type="Button" parent="AppMenu/CategoryOffice/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2545,10 +2545,10 @@ script = ExtResource( 1 )
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="TestApp13" type="Button" parent="AppMenu/CategoryOffice/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2559,22 +2559,22 @@ WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="CategorySystem" type="ScrollContainer" parent="AppMenu"]
 visible = false
-margin_left = 200.0
-margin_right = 416.0
-margin_bottom = 407.0
+offset_left = 200.0
+offset_right = 416.0
+offset_bottom = 407.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/CategorySystem"]
-margin_right = 200.0
-margin_bottom = 40.0
-custom_constants/separation = 0
+offset_right = 200.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
 script = ExtResource( 6 )
 Category = "System"
 
 [node name="TestApp" type="Button" parent="AppMenu/CategorySystem/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2585,22 +2585,22 @@ WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="CategoryUtilities" type="ScrollContainer" parent="AppMenu"]
 visible = false
-margin_left = 200.0
-margin_right = 416.0
-margin_bottom = 407.0
+offset_left = 200.0
+offset_right = 416.0
+offset_bottom = 407.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/CategoryUtilities"]
-margin_right = 200.0
-margin_bottom = 40.0
-custom_constants/separation = 0
+offset_right = 200.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
 script = ExtResource( 6 )
 Category = "Utilities"
 
 [node name="TestApp" type="Button" parent="AppMenu/CategoryUtilities/VBoxContainer"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 200, 40 )
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 80.0
+custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 text = "Test App™"
@@ -2611,16 +2611,16 @@ WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
 
 [node name="Panel" type="Panel" parent="."]
 anchor_right = 1.0
-margin_right = -75.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
+offset_right = -75.0
+offset_bottom = 40.0
+custom_minimum_size = Vector2( 0, 40 )
 theme = ExtResource( 3 )
 theme_type_variation = "LelsktopPanel"
 
 [node name="Apps" type="Button" parent="Panel"]
-margin_right = 200.0
-margin_bottom = 40.0
-hint_tooltip = "Launch applications here"
+offset_right = 200.0
+offset_bottom = 40.0
+tooltip_text = "Launch applications here"
 theme_type_variation = "PanelButton"
 toggle_mode = true
 text = "Applications"
@@ -2628,10 +2628,10 @@ icon = ExtResource( 38 )
 script = ExtResource( 10 )
 
 [node name="PinboardEditor" type="Button" parent="Panel"]
-margin_left = 200.0
-margin_right = 400.0
-margin_bottom = 40.0
-hint_tooltip = "Launch applications here"
+offset_left = 200.0
+offset_right = 400.0
+offset_bottom = 40.0
+tooltip_text = "Launch applications here"
 theme_type_variation = "PanelButton"
 toggle_mode = true
 text = "Edit Pinboard"
@@ -2643,17 +2643,17 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -260.0
-margin_top = -20.0
-margin_right = -60.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 200, 40 )
-hint_tooltip = "Here you can quickly adjust volume settings, access the settings app, see how much resources are being used, and turn off your computer."
+offset_left = -260.0
+offset_top = -20.0
+offset_right = -60.0
+offset_bottom = 20.0
+custom_minimum_size = Vector2( 200, 40 )
+tooltip_text = "Here you can quickly adjust volume settings, access the settings app, see how much resources are being used, and turn off your computer."
 theme_type_variation = "PanelButton"
 toggle_mode = true
 icon = ExtResource( 9 )
 align = 2
-icon_align = 1
+icon_alignment = 1
 script = ExtResource( 19 )
 
 [node name="ShowDesktop" type="Button" parent="Panel"]
@@ -2661,15 +2661,15 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -60.0
-margin_top = -20.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 60, 40 )
-hint_tooltip = "Show desktop"
+offset_left = -60.0
+offset_top = -20.0
+offset_bottom = 20.0
+custom_minimum_size = Vector2( 60, 40 )
+tooltip_text = "Show desktop"
 theme_type_variation = "PanelButton"
 toggle_mode = true
 icon = ExtResource( 36 )
-icon_align = 1
+icon_alignment = 1
 script = ExtResource( 35 )
 
 [node name="InfoThingy" type="HBoxContainer" parent="Panel"]
@@ -2677,16 +2677,16 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -543.0
-margin_top = -20.0
-margin_right = -260.0
-margin_bottom = 20.0
+offset_left = -543.0
+offset_top = -20.0
+offset_right = -260.0
+offset_bottom = 20.0
 
 [node name="Weather" type="Button" parent="Panel/InfoThingy"]
-margin_right = 107.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 40, 40 )
-hint_tooltip = "Sunny (really fucking hot)"
+offset_right = 107.0
+offset_bottom = 40.0
+custom_minimum_size = Vector2( 40, 40 )
+tooltip_text = "Sunny (really fucking hot)"
 mouse_filter = 1
 size_flags_horizontal = 4
 theme_type_variation = "PanelButton"
@@ -2694,10 +2694,10 @@ text = "42.0 °C"
 icon = ExtResource( 33 )
 
 [node name="Time" type="Button" parent="Panel/InfoThingy"]
-margin_left = 117.0
-margin_right = 283.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 40, 40 )
+offset_left = 117.0
+offset_right = 283.0
+offset_bottom = 40.0
+custom_minimum_size = Vector2( 40, 40 )
 mouse_filter = 2
 size_flags_horizontal = 4
 theme_type_variation = "PanelButton"

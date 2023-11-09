@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/500168__sad3d__pc-hard-drive-noises.wav-5332cbd26387f9671d2f4a6fd4afd42a.sample"
+type="AudioStreamWAV"
+uid="uid://df3k438gs5kj5"
+path="res://.godot/imported/500168__sad3d__pc-hard-drive-noises.wav-5332cbd26387f9671d2f4a6fd4afd42a.sample"
 
 [deps]
 
 source_file="res://Audio/Sounds/ComputerNoises/500168__sad3d__pc-hard-drive-noises.wav"
-dest_files=[ "res://.import/500168__sad3d__pc-hard-drive-noises.wav-5332cbd26387f9671d2f4a6fd4afd42a.sample" ]
+dest_files=["res://.godot/imported/500168__sad3d__pc-hard-drive-noises.wav-5332cbd26387f9671d2f4a6fd4afd42a.sample"]
 
 [params]
 

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-public class CreateUser : Button {
+public partial class CreateUser : Button {
     LineEdit name;
     LineEdit username;
     ItemList icons;
@@ -16,7 +16,7 @@ public class CreateUser : Button {
         username = GetNode<LineEdit>("../../Username");
         icons = GetNode<ItemList>("../../Icons");
         errorThingy = GetNode<Label>("/root/NewUser/Control/ErrorThingy");
-        Connect("pressed", this, nameof(Click));
+        Connect("pressed", new Callable(this, nameof(Click)));
     }
 
     public void Click() {
@@ -69,7 +69,7 @@ public class CreateUser : Button {
 
         // make sure the user doesn't already exist :)
         List<string> users = new List<string>();
-        Directory dir = new Directory();
+        DirAccess dir = new DirAccess();
         dir.Open("user://Users/");
         dir.ListDirBegin(true);
         string filename = dir.GetNext();

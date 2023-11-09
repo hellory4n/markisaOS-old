@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Time : Button {
+public partial class Time : Button {
     public override void _Ready() {
         base._Ready();
         DateTime time = DateTime.Now;

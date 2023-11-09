@@ -1,12 +1,12 @@
 using Godot;
 using System;
 
-public class NotebookOpen : BaseWindow {
+public partial class NotebookOpen : BaseWindow {
     public TextEditThing Tfhsjkgjrrh;
 
     public override void _Ready() {
         base._Ready();
-        GetNode<Button>("M/H/Open").Connect("pressed", this, nameof(Click));
+        GetNode<Button>("M/H/Open").Connect("pressed", new Callable(this, nameof(Click)));
     }
 
     public void Click() {

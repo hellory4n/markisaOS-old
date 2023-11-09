@@ -1,15 +1,15 @@
 using Godot;
 using System;
 
-public class ResourceManager : Node {
+public partial class ResourceManager : Node {
     /// <summary>
     /// Loads an image from an specified path (not in lelfs).
     /// </summary>
     /// <param name="path">The path of the image (not in lelfs).</param>
     /// <returns>The image loaded.</returns>
-    public static Texture LoadImage(string path) {
+    public static Texture2D LoadImage(string path) {
         if (path.StartsWith("res://")) {
-            return ResourceLoader.Load<StreamTexture>(path);
+            return ResourceLoader.Load<CompressedTexture2D>(path);
         } else {
             Image image = new Image();
             image.Load(path);
@@ -29,10 +29,10 @@ public class ResourceManager : Node {
             return ResourceLoader.Load<AudioStream>(path);
         } else {
             if (path.EndsWith(".ogg")) {
-                var ohGeeGee = new AudioStreamOGGVorbis();
+                var ohGeeGee = new AudioStreamOggVorbis();
                 File file2 = new File();
                 file2.Open(path, File.ModeFlags.Read);
-                ohGeeGee.Data = file2.GetBuffer((long)file2.GetLen());
+                ohGeeGee.Data = file2.GetBuffer((long)file2.GetLength());
                 file2.Close();
                 return ohGeeGee;
             } else {

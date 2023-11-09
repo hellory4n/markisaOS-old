@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class ListApps : VBoxContainer {
+public partial class ListApps : VBoxContainer {
     [Export(PropertyHint.Enum, "All,Accessories,Development,Games,Graphics,Internet,Multimedia,Office,System,Utilities")]
     string Category = "All";
 
@@ -62,7 +62,7 @@ public class ListApps : VBoxContainer {
             foreach (var app in apps){
                 DefaultOpenWindowButton amazingApp = yes.Instance<DefaultOpenWindowButton>();
                 amazingApp.Text = app.Name;
-                amazingApp.Icon = ResourceLoader.Load<Texture>(app.Icon);
+                amazingApp.Icon = ResourceLoader.Load<Texture2D>(app.Icon);
                 amazingApp.WindowScene = app.Scene;
                 AddChild(amazingApp);
             }

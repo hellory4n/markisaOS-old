@@ -2,10 +2,10 @@ using Godot;
 using System;
 using System.Text.RegularExpressions;
 
-public class InstallelFinish : Button {
+public partial class InstallelFinish : Button {
     public override void _Ready() {
         base._Ready();
-        Connect("pressed", this, nameof(Click));
+        Connect("pressed", new Callable(this, nameof(Click)));
     }
 
     public void Click() {

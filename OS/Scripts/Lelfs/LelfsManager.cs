@@ -7,7 +7,7 @@ using System.Linq;
 /// <summary>
 /// Manages Lelfs. NOTE: Filesystems are local to each user.
 /// </summary>
-public class LelfsManager : Node {
+public partial class LelfsManager : Node {
     /// <summary>
     /// The list of paths available in the filesystem. The key is the path, and the value is the ID.
     /// </summary>
@@ -174,9 +174,9 @@ public class LelfsManager : Node {
         // yes :)
         if (parent != "root" || parent == null) {
             LelfsFile m = LoadById<LelfsFile>(parent);
-            yeah.Path = $"{m.Path}/{name}";
+            yeah.Path3D = $"{m.Path3D}/{name}";
         } else {
-            yeah.Path = $"/{name}";
+            yeah.Path3D = $"/{name}";
         }
 
         return yeah;
@@ -205,9 +205,9 @@ public class LelfsManager : Node {
         // yes :)
         if (parent != "root" || parent == null) {
             LelfsFile m = LoadById<LelfsFile>(parent);
-            yeah.Path = $"{m.Path}/{name}";
+            yeah.Path3D = $"{m.Path3D}/{name}";
         } else {
-            yeah.Path = $"/{name}";
+            yeah.Path3D = $"/{name}";
         }
 
         return yeah;

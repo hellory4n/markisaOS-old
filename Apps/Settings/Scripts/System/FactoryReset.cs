@@ -1,17 +1,17 @@
 using Godot;
 using System;
 
-public class FactoryReset : Button {
+public partial class FactoryReset : Button {
     public override void _Ready() {
         base._Ready();
-        Connect("pressed", this, nameof(Click));
+        Connect("pressed", new Callable(this, nameof(Click)));
     }
 
     public void Click() {
         // yes
         DeleteFolder("user://");
 
-        Directory mfghjh = new Directory();
+        DirAccess mfghjh = new DirAccess();
         mfghjh.Remove("user://Settings");
         mfghjh.Remove("user://Users");
 
@@ -25,7 +25,7 @@ public class FactoryReset : Button {
     }
 
     public void DeleteFolder(string path) {
-        Directory dir = new Directory();
+        DirAccess dir = new DirAccess();
         if (dir.Open(path) == Error.Ok) {
             dir.ListDirBegin(true);
             string filename = dir.GetNext();

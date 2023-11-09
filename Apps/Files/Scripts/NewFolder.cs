@@ -1,18 +1,18 @@
 using Godot;
 using System;
 
-public class NewFolder : BaseWindow {
+public partial class NewFolder : BaseWindow {
     public string Parent;
     public FileView ThingThatINeedToRefresh;
 
     public override void _Ready() {
         base._Ready();
-        GetNode<Button>("CenterContainer/VBoxContainer/Create").Connect("pressed", this, nameof(Click));
+        GetNode<Button>("CenterContainer/VBoxContainer/Create").Connect("pressed", new Callable(this, nameof(Click)));
     }
 
     public void Click() {
         string filename = GetNode<LineEdit>("CenterContainer/VBoxContainer/Name").Text;
-        string gkfngof = LelfsManager.LoadById<LelfsFile>(Parent).Path;
+        string gkfngof = LelfsManager.LoadById<LelfsFile>(Parent).Path3D;
         string suffering;
         if (gkfngof == "/")
             suffering = $"/{filename}";

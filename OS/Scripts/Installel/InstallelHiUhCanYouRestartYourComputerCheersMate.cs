@@ -1,10 +1,10 @@
 using Godot;
 using System;
 
-public class InstallelHiUhCanYouRestartYourComputerCheersMate : Button {
+public partial class InstallelHiUhCanYouRestartYourComputerCheersMate : Button {
     public override void _Ready() {
         base._Ready();
-        Connect("pressed", this, nameof(Click));
+        Connect("pressed", new Callable(this, nameof(Click)));
     }
 
     public void Click() {
@@ -15,7 +15,7 @@ public class InstallelHiUhCanYouRestartYourComputerCheersMate : Button {
             Autostart = true
         };
         GetTree().Root.AddChild(timer);
-        timer.Connect("timeout", this, nameof(Bruh));
+        timer.Connect("timeout", new Callable(this, nameof(Bruh)));
         GetNode<Node2D>("/root/Installel").Position = new Vector2(69420, 69420);
     }
 

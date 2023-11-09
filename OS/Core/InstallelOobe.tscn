@@ -3,7 +3,7 @@
 [ext_resource path="res://OS/Core/InstallelOobeWindow.tscn" type="PackedScene" id=1]
 [ext_resource path="res://OS/Scripts/Installel/InstallelIntroThingy.cs" type="Script" id=2]
 [ext_resource path="res://Assets/Boot/Intro.ogv" type="VideoStream" id=3]
-[ext_resource path="res://Assets/Wallpapers/HighPeaks.jpg" type="Texture" id=4]
+[ext_resource path="res://Assets/Wallpapers/HighPeaks.jpg" type="Texture2D" id=4]
 [ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/ImageBackground.cs" type="Script" id=5]
 [ext_resource path="res://OS/Scripts/Installel/InstallelYes.cs" type="Script" id=6]
 [ext_resource path="res://Audio/Music/Intro.mp3" type="AudioStream" id=7]
@@ -12,18 +12,18 @@
 z_index = -2
 script = ExtResource( 6 )
 
-[node name="Wallpaper" type="Sprite" parent="."]
+[node name="Wallpaper" type="Sprite2D" parent="."]
 position = Vector2( 707.5, 378.5 )
 scale = Vector2( 0.368896, 0.380642 )
 texture = ExtResource( 4 )
 script = ExtResource( 5 )
 OriginalSize = Vector2( 4096, 2304 )
 
-[node name="1" type="ViewportContainer" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="1" type="SubViewportContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Windows" type="Viewport" parent="1"]
+[node name="Windows" type="SubViewport" parent="1"]
 size = Vector2( 1366, 766 )
 transparent_bg = true
 handle_input_locally = false
@@ -32,23 +32,23 @@ render_target_update_mode = 3
 [node name="ThemeThing" type="Control" parent="1/Windows"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 40.0
-margin_bottom = 40.0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Installel" parent="1/Windows/ThemeThing" instance=ExtResource( 1 )]
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="1/Windows/ThemeThing"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 40.0
-margin_bottom = 40.0
+offset_right = 40.0
+offset_bottom = 40.0
 ratio = 1.7778
 stretch_mode = 3
 
-[node name="Lol" type="VideoPlayer" parent="1/Windows/ThemeThing/AspectRatioContainer"]
-margin_left = -29.0094
-margin_right = 1475.01
-margin_bottom = 846.0
+[node name="Lol" type="VideoStreamPlayer" parent="1/Windows/ThemeThing/AspectRatioContainer"]
+offset_left = -29.0094
+offset_right = 1475.01
+offset_bottom = 846.0
 stream = ExtResource( 3 )
 autoplay = true
 script = ExtResource( 2 )

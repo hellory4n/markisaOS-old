@@ -14,40 +14,40 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="N" type="VBoxContainer" parent="M"]
-margin_left = 515.0
-margin_top = 309.0
-margin_right = 765.0
-margin_bottom = 411.0
-rect_min_size = Vector2( 250, 0 )
+offset_left = 515.0
+offset_top = 309.0
+offset_right = 765.0
+offset_bottom = 411.0
+custom_minimum_size = Vector2( 250, 0 )
 
 [node name="Label" type="Label" parent="M/N"]
-margin_right = 250.0
-margin_bottom = 14.0
+offset_right = 250.0
+offset_bottom = 14.0
 text = "Music™"
 align = 1
 autowrap = true
 
 [node name="ProgressBar" type="ProgressBar" parent="M/N"]
-margin_top = 18.0
-margin_right = 250.0
-margin_bottom = 58.0
-rect_min_size = Vector2( 0, 40 )
+offset_top = 18.0
+offset_right = 250.0
+offset_bottom = 58.0
+custom_minimum_size = Vector2( 0, 40 )
 percent_visible = false
 script = ExtResource( 2 )
 
 [node name="O" type="HBoxContainer" parent="M/N"]
-margin_top = 62.0
-margin_right = 250.0
-margin_bottom = 102.0
+offset_top = 62.0
+offset_right = 250.0
+offset_bottom = 102.0
 
 [node name="Audio" type="Node" parent="M/N/O"]
 script = ExtResource( 3 )
 UseCustomCheck = true
 
 [node name="Button" type="Button" parent="M/N/O"]
-margin_right = 250.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
+offset_right = 250.0
+offset_bottom = 40.0
+custom_minimum_size = Vector2( 0, 40 )
 size_flags_horizontal = 3
 toggle_mode = true
 text = "Pause"

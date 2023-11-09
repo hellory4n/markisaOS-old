@@ -1,13 +1,13 @@
 using Godot;
 using System;
 
-public class CloseParent : Button {
+public partial class CloseParent : Button {
     [Export]
     int Parents = 1;
 
     public override void _Ready() {
         base._Ready();
-        Connect("pressed", this, nameof(Click));
+        Connect("pressed", new Callable(this, nameof(Click)));
     }
 
     public void Click() {

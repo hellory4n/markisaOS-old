@@ -1,18 +1,18 @@
 [gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
-[ext_resource path="res://Apps/SausageClicker/Assets/IconDock.png" type="Texture" id=2]
-[ext_resource path="res://Apps/SausageClicker/Assets/Sausage.png" type="Texture" id=3]
-[ext_resource path="res://Fonts/RedHatText-BoldItalic.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Apps/SausageClicker/Assets/IconDock.png" type="Texture2D" id=2]
+[ext_resource path="res://Apps/SausageClicker/Assets/Sausage.png" type="Texture2D" id=3]
+[ext_resource path="res://Fonts/RedHatText-BoldItalic.ttf" type="FontFile" id=4]
 [ext_resource path="res://OS/Scripts/WindowManager/BaseWindow.cs" type="Script" id=5]
-[ext_resource path="res://Apps/SausageClicker/Assets/Background.png" type="Texture" id=6]
+[ext_resource path="res://Apps/SausageClicker/Assets/Background.png" type="Texture2D" id=6]
 [ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/MusicPlayer.cs" type="Script" id=7]
 [ext_resource path="res://Apps/SausageClicker/Assets/SausageTheme.ogg" type="AudioStream" id=8]
 [ext_resource path="res://Apps/SausageClicker/Scripts/Sausage.cs" type="Script" id=9]
-[ext_resource path="res://Apps/SausageClicker/Assets/ButtonPressed.png" type="Texture" id=10]
-[ext_resource path="res://Apps/SausageClicker/Assets/Button.png" type="Texture" id=11]
-[ext_resource path="res://Apps/SausageClicker/Assets/ButtonHover.png" type="Texture" id=12]
-[ext_resource path="res://Apps/SausageClicker/Assets/StoreBackground.png" type="Texture" id=13]
+[ext_resource path="res://Apps/SausageClicker/Assets/ButtonPressed.png" type="Texture2D" id=10]
+[ext_resource path="res://Apps/SausageClicker/Assets/Button.png" type="Texture2D" id=11]
+[ext_resource path="res://Apps/SausageClicker/Assets/ButtonHover.png" type="Texture2D" id=12]
+[ext_resource path="res://Apps/SausageClicker/Assets/StoreBackground.png" type="Texture2D" id=13]
 [ext_resource path="res://Apps/SausageClicker/Scripts/CloseStore.cs" type="Script" id=14]
 [ext_resource path="res://Apps/SausageClicker/Scripts/OpenStore.cs" type="Script" id=15]
 [ext_resource path="res://Apps/SausageClicker/Scripts/BuyFactories.cs" type="Script" id=16]
@@ -23,14 +23,14 @@ resource_name = "Close"
 length = 0.2
 step = 0.01
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_scale")
+tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 0.37, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 0.37, 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
 }
@@ -41,8 +41,8 @@ tracks/1/loop_wrap = false
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 0.37, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 0.37, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
@@ -53,8 +53,8 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.2 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0.2 ),
+"transitions": PackedFloat32Array( 1 ),
 "values": [ {
 "args": [  ],
 "method": "queue_free"
@@ -71,20 +71,20 @@ tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 0.37, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 0.37, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:rect_scale")
+tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 1,
 "values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
 }
@@ -93,14 +93,14 @@ tracks/1/keys = {
 resource_name = "Open"
 length = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_scale")
+tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 2
 tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 0.37 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 0.37 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
 }
@@ -111,8 +111,8 @@ tracks/1/loop_wrap = false
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 0.37 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 0.37 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -127,20 +127,20 @@ tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 0.37 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 0.37 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:rect_scale")
+tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
 }
@@ -150,14 +150,14 @@ resource_name = "SausageLol"
 length = 4.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("SausageLol:rect_rotation")
+tracks/0/path = NodePath("SausageLol:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 2, 4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 2, 4 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 0,
 "values": [ -25.0, 25.0, -25.0 ]
 }
@@ -165,26 +165,26 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=18]
 resource_name = "StoreClose"
 tracks/0/type = "value"
-tracks/0/path = NodePath("Lmao/StoreLmao:rect_rotation")
+tracks/0/path = NodePath("Lmao/StoreLmao:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ 360.0, -360.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Lmao/StoreLmao:rect_scale")
+tracks/1/path = NodePath("Lmao/StoreLmao:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 1 ),
-"transitions": PoolRealArray( 1.74, 0.37, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.2, 0.4, 1 ),
+"transitions": PackedFloat32Array( 1.74, 0.37, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ), Vector2( 0, 0 ) ]
 }
@@ -195,8 +195,8 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
@@ -204,26 +204,26 @@ tracks/2/keys = {
 [sub_resource type="Animation" id=19]
 resource_name = "StoreOpen"
 tracks/0/type = "value"
-tracks/0/path = NodePath("Lmao/StoreLmao:rect_rotation")
+tracks/0/path = NodePath("Lmao/StoreLmao:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ -360.0, 360.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Lmao/StoreLmao:rect_scale")
+tracks/1/path = NodePath("Lmao/StoreLmao:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.6, 0.8, 1 ),
-"transitions": PoolRealArray( 1, 0.37, 3.24901, 1 ),
+"times": PackedFloat32Array( 0, 0.6, 0.8, 1 ),
+"transitions": PackedFloat32Array( 1, 0.37, 3.24901, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 1, 1 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
 }
@@ -234,8 +234,8 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 1, 1.001 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 1, 1.001 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -253,8 +253,8 @@ tracks/2/keys = {
 [sub_resource type="StyleBoxTexture" id=15]
 texture = ExtResource( 12 )
 region_rect = Rect2( 0, 0, 230, 80 )
-margin_left = 40.0
-margin_right = 40.0
+offset_left = 40.0
+offset_right = 40.0
 expand_margin_left = 15.0
 expand_margin_right = 15.0
 expand_margin_top = 11.0
@@ -263,8 +263,8 @@ expand_margin_bottom = 19.0
 [sub_resource type="StyleBoxTexture" id=14]
 texture = ExtResource( 10 )
 region_rect = Rect2( 0, 0, 230, 80 )
-margin_left = 40.0
-margin_right = 40.0
+offset_left = 40.0
+offset_right = 40.0
 expand_margin_left = 15.0
 expand_margin_right = 15.0
 expand_margin_top = 11.0
@@ -275,14 +275,14 @@ expand_margin_bottom = 19.0
 [sub_resource type="StyleBoxTexture" id=16]
 texture = ExtResource( 11 )
 region_rect = Rect2( 0, 0, 230, 80 )
-margin_left = 40.0
-margin_right = 40.0
+offset_left = 40.0
+offset_right = 40.0
 expand_margin_left = 15.0
 expand_margin_right = 15.0
 expand_margin_top = 11.0
 expand_margin_bottom = 19.0
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="FontFile" id=11]
 font_data = ExtResource( 4 )
 
 [sub_resource type="StyleBoxTexture" id=20]
@@ -293,13 +293,13 @@ expand_margin_right = 15.0
 expand_margin_top = 11.0
 expand_margin_bottom = 19.0
 
-[node name="SausageClicker" type="WindowDialog"]
+[node name="SausageClicker" type="Window"]
 process_priority = 1
-margin_right = 400.0
-margin_bottom = 355.0
-rect_min_size = Vector2( 400, 355 )
+offset_right = 400.0
+offset_bottom = 355.0
+custom_minimum_size = Vector2( 400, 355 )
 theme = ExtResource( 1 )
-popup_exclusive = true
+exclusive = true
 window_title = "Sausage Clicker"
 resizable = true
 script = ExtResource( 5 )
@@ -340,24 +340,24 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -25.0
-margin_top = -110.0
-margin_right = 25.0
-margin_bottom = 10.0
-rect_min_size = Vector2( 50, 200 )
-rect_rotation = -25.0
-rect_pivot_offset = Vector2( 25, 100 )
+offset_left = -25.0
+offset_top = -110.0
+offset_right = 25.0
+offset_bottom = 10.0
+custom_minimum_size = Vector2( 50, 200 )
+rotation = -25.0
+pivot_offset = Vector2( 25, 100 )
 texture = ExtResource( 3 )
 
 [node name="SausageButClick" type="Button" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-hint_tooltip = "this is sausage"
-custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/focus = SubResource( 8 )
-custom_styles/disabled = SubResource( 9 )
-custom_styles/normal = SubResource( 10 )
+tooltip_text = "this is sausage"
+theme_override_styles/hover = SubResource( 6 )
+theme_override_styles/pressed = SubResource( 7 )
+theme_override_styles/focus = SubResource( 8 )
+theme_override_styles/disabled = SubResource( 9 )
+theme_override_styles/normal = SubResource( 10 )
 script = ExtResource( 9 )
 
 [node name="Store" type="Button" parent="."]
@@ -365,23 +365,23 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -100.0
-margin_top = -65.0
-margin_right = 100.0
-margin_bottom = -15.0
-rect_min_size = Vector2( 200, 50 )
-custom_styles/hover = SubResource( 15 )
-custom_styles/pressed = SubResource( 14 )
-custom_styles/focus = SubResource( 17 )
-custom_styles/normal = SubResource( 16 )
+offset_left = -100.0
+offset_top = -65.0
+offset_right = 100.0
+offset_bottom = -15.0
+custom_minimum_size = Vector2( 200, 50 )
+theme_override_styles/hover = SubResource( 15 )
+theme_override_styles/pressed = SubResource( 14 )
+theme_override_styles/focus = SubResource( 17 )
+theme_override_styles/normal = SubResource( 16 )
 text = "STORE"
 script = ExtResource( 15 )
 
 [node name="Score" type="Label" parent="."]
 anchor_right = 1.0
-margin_bottom = 22.0
-rect_min_size = Vector2( 0, 50 )
-custom_fonts/font = SubResource( 11 )
+offset_bottom = 22.0
+custom_minimum_size = Vector2( 0, 50 )
+theme_override_fonts/font = SubResource( 11 )
 text = "0 sausages"
 align = 1
 valign = 1
@@ -389,7 +389,7 @@ valign = 1
 [node name="Lmao" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_clip_content = true
+clip_contents = true
 mouse_filter = 2
 
 [node name="StoreLmao" type="Control" parent="Lmao"]
@@ -398,82 +398,82 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -190.0
-margin_top = -143.5
-margin_right = 190.0
-margin_bottom = 143.5
-rect_min_size = Vector2( 380, 287 )
-rect_rotation = -360.0
-rect_scale = Vector2( 1e-05, 1e-05 )
-rect_pivot_offset = Vector2( 190, 143 )
+offset_left = -190.0
+offset_top = -143.5
+offset_right = 190.0
+offset_bottom = 143.5
+custom_minimum_size = Vector2( 380, 287 )
+rotation = -360.0
+scale = Vector2( 1e-05, 1e-05 )
+pivot_offset = Vector2( 190, 143 )
 
 [node name="Bullshit" type="PanelContainer" parent="Lmao/StoreLmao"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/panel = SubResource( 20 )
+theme_override_styles/panel = SubResource( 20 )
 
 [node name="h" type="CenterContainer" parent="Lmao/StoreLmao"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Help" type="VBoxContainer" parent="Lmao/StoreLmao/h"]
-margin_left = 52.0
-margin_top = 14.0
-margin_right = 327.0
-margin_bottom = 272.0
-custom_constants/separation = 5
+offset_left = 52.0
+offset_top = 14.0
+offset_right = 327.0
+offset_bottom = 272.0
+theme_override_constants/separation = 5
 
 [node name="Close" type="Button" parent="Lmao/StoreLmao/h/Help"]
-margin_right = 275.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 200, 50 )
-custom_styles/hover = SubResource( 15 )
-custom_styles/pressed = SubResource( 14 )
-custom_styles/focus = SubResource( 17 )
-custom_styles/normal = SubResource( 16 )
+offset_right = 275.0
+offset_bottom = 50.0
+custom_minimum_size = Vector2( 200, 50 )
+theme_override_styles/hover = SubResource( 15 )
+theme_override_styles/pressed = SubResource( 14 )
+theme_override_styles/focus = SubResource( 17 )
+theme_override_styles/normal = SubResource( 16 )
 text = "close store :)"
 script = ExtResource( 14 )
 
 [node name="IndustrialRevolution" type="Label" parent="Lmao/StoreLmao/h/Help"]
-margin_top = 55.0
-margin_right = 275.0
-margin_bottom = 99.0
-rect_min_size = Vector2( 275, 0 )
+offset_top = 55.0
+offset_right = 275.0
+offset_bottom = 99.0
+custom_minimum_size = Vector2( 275, 0 )
 text = "Factories - 0 owned
 Automatically create more sausages"
 align = 1
 autowrap = true
 
 [node name="Store4" type="Button" parent="Lmao/StoreLmao/h/Help"]
-margin_top = 104.0
-margin_right = 275.0
-margin_bottom = 154.0
-rect_min_size = Vector2( 200, 50 )
-custom_styles/hover = SubResource( 15 )
-custom_styles/pressed = SubResource( 14 )
-custom_styles/focus = SubResource( 17 )
-custom_styles/normal = SubResource( 16 )
+offset_top = 104.0
+offset_right = 275.0
+offset_bottom = 154.0
+custom_minimum_size = Vector2( 200, 50 )
+theme_override_styles/hover = SubResource( 15 )
+theme_override_styles/pressed = SubResource( 14 )
+theme_override_styles/focus = SubResource( 17 )
+theme_override_styles/normal = SubResource( 16 )
 text = "buy for 25 sausages"
 script = ExtResource( 16 )
 
 [node name="WellPaidChineseWorkers" type="Label" parent="Lmao/StoreLmao/h/Help"]
-margin_top = 159.0
-margin_right = 275.0
-margin_bottom = 203.0
-rect_min_size = Vector2( 275, 0 )
+offset_top = 159.0
+offset_right = 275.0
+offset_bottom = 203.0
+custom_minimum_size = Vector2( 275, 0 )
 text = "Workers - 1 hired
 Make more sausages per click"
 align = 1
 autowrap = true
 
 [node name="Store3" type="Button" parent="Lmao/StoreLmao/h/Help"]
-margin_top = 208.0
-margin_right = 275.0
-margin_bottom = 258.0
-rect_min_size = Vector2( 200, 50 )
-custom_styles/hover = SubResource( 15 )
-custom_styles/pressed = SubResource( 14 )
-custom_styles/focus = SubResource( 17 )
-custom_styles/normal = SubResource( 16 )
+offset_top = 208.0
+offset_right = 275.0
+offset_bottom = 258.0
+custom_minimum_size = Vector2( 200, 50 )
+theme_override_styles/hover = SubResource( 15 )
+theme_override_styles/pressed = SubResource( 14 )
+theme_override_styles/focus = SubResource( 17 )
+theme_override_styles/normal = SubResource( 16 )
 text = "buy for 5 sausages"
 script = ExtResource( 17 )

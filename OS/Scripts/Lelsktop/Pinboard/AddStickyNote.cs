@@ -1,13 +1,13 @@
 using Godot;
 using System;
 
-public class AddStickyNote : TextureButton {
+public partial class AddStickyNote : TextureButton {
     public override void _Ready() {
         base._Ready();
-        Connect("pressed", this, nameof(Click));
+        Connect("pressed", new Callable(this, nameof(Click)));
 
         // the 69 is not a joke i swear
-        RectPosition = new Vector2(ResolutionManager.Resolution.x/2 - 69, 65);
+        Position = new Vector2(ResolutionManager.Resolution.x/2 - 69, 65);
     }
 
     public void Click() {

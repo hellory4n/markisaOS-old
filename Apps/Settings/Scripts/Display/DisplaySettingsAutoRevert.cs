@@ -1,10 +1,10 @@
 using Godot;
 using System;
 
-public class DisplaySettingsAutoRevert : Timer {
+public partial class DisplaySettingsAutoRevert : Timer {
     public override void _Ready() {
         base._Ready();
-        Connect("timeout", this, nameof(Yes));
+        Connect("timeout", new Callable(this, nameof(Yes)));
     }
 
     public void Yes() {

@@ -1,14 +1,14 @@
 using Godot;
 using System;
 
-public class FileImporter : BaseWindow {
+public partial class FileImporter : BaseWindow {
     public string Parent;
     public FileView ThingThatINeedToRefresh;
 
     public override void _Ready() {
         base._Ready();
-        GetNode<Button>("CenterContainer/VBoxContainer/Next").Connect("pressed", this, nameof(Click));
-        GetNode<OptionButton>("CenterContainer/VBoxContainer/Options").Connect("item_selected", this, nameof(Thing));
+        GetNode<Button>("CenterContainer/VBoxContainer/Next").Connect("pressed", new Callable(this, nameof(Click)));
+        GetNode<OptionButton>("CenterContainer/VBoxContainer/Options").Connect("item_selected", new Callable(this, nameof(Thing)));
         Thing(0);
     }
 
@@ -32,9 +32,9 @@ public class FileImporter : BaseWindow {
         pain.CurrentDir = OS.GetSystemDir(OS.SystemDir.Pictures);
         OS.RequestPermissions();
         pain.Popup_();
-        pain.RectPosition = new Vector2(0, 40);
-        pain.RectSize = ResolutionManager.Resolution - new Vector2(75, 40);
-        pain.Connect("file_selected", this, nameof(ImportFile));
+        pain.Position = new Vector2(0, 40);
+        pain.Size = ResolutionManager.Resolution - new Vector2(75, 40);
+        pain.Connect("file_selected", new Callable(this, nameof(ImportFile)));
     }
 
     public void Thing(int index) {
@@ -62,7 +62,7 @@ public class FileImporter : BaseWindow {
         }
 
         // import file
-        Directory dir = new Directory();
+        DirAccess dir = new DirAccess();
         dir.MakeDirRecursive("user://ImportedFiles/");
         string newPath = $"user://ImportedFiles/{LelfsManager.GenerateID()}.{StringExtensions.Extension(path)}";
         dir.Copy(path, newPath);
@@ -96,6 +96,6 @@ public class FileImporter : BaseWindow {
         }
 
         Close();
-        ThingThatINeedToRefresh.Refresh(ThingThatINeedToRefresh.Path, false);
+        ThingThatINeedToRefresh.Refresh(ThingThatINeedToRefresh.Path3D, false);
     }
 }

@@ -5,9 +5,9 @@ using System.Collections.Generic;
 /// <summary>
 /// Responsible for managing all windows in the lelsktop.
 /// </summary>
-public class WindowManager : Node2D {
+public partial class WindowManager : Node2D {
     PackedScene OpenWindow;
-    public static Viewport CurrentWorkspace;
+    public static SubViewport CurrentWorkspace;
 
     public override void _Ready() {
         base._Ready();
@@ -28,7 +28,7 @@ public class WindowManager : Node2D {
         Vector2 yes = ResolutionManager.Resolution;
         yes -= new Vector2(85, 0);
         yes += new Vector2(0, 40);
-        window.RectPosition = yes/2 - (window.RectSize/2);
+        window.Position = yes/2 - (window.Size/2);
 
         // add it to the dock
         OpenWindowButton coolDockButton = (OpenWindowButton)OpenWindow.Instance();
@@ -40,8 +40,8 @@ public class WindowManager : Node2D {
         if (OS.GetName() == "Android" && window.Resizable) {
             Vector2 maximizedSize = ResolutionManager.Resolution;
             maximizedSize = new Vector2(maximizedSize.x-75, maximizedSize.y-85);
-            window.RectPosition = new Vector2(0, 85);
-            window.RectSize = maximizedSize;
+            window.Position = new Vector2(0, 85);
+            window.Size = maximizedSize;
         }
     }
 }

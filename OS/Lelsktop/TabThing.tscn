@@ -1,12 +1,12 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/LeltabsTab.cs" type="Script" id=1]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Close.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Close.png" type="Texture2D" id=2]
 [ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/LeltabsClose.cs" type="Script" id=3]
 
 [node name="FGHJkl" type="Button"]
-margin_right = 148.0
-margin_bottom = 45.0
+offset_right = 148.0
+offset_bottom = 45.0
 theme_type_variation = "ActiveTab"
 text = "H"
 align = 0
@@ -17,11 +17,11 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -43.0
-margin_top = -21.5
-margin_bottom = 21.5
+offset_left = -43.0
+offset_top = -21.5
+offset_bottom = 21.5
 theme_type_variation = "PanelButton"
-custom_constants/hseparation = 0
+theme_override_constants/h_separation = 0
 icon = ExtResource( 2 )
-icon_align = 1
+icon_alignment = 1
 script = ExtResource( 3 )

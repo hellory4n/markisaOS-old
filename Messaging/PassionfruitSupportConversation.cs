@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-public class PassionfruitSupportConversation {
+public partial class PassionfruitSupportConversation {
     public static void HelpApps() {
         var socialStuff = SavingManager.Load<SocialStuff>(SavingManager.CurrentUser);
         int h = Array.FindIndex(socialStuff.Conversations, person => person.Name == "Passionfruit Support");

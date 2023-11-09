@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/AddSticker.png" type="Texture" id=2]
+[ext_resource path="res://icon.png" type="Texture2D" id=1]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/AddSticker.png" type="Texture2D" id=2]
 [ext_resource path="res://Apps/Observer/Scripts/AddSticker.cs" type="Script" id=3]
 
 [node name="ImageView" type="Control"]
@@ -18,11 +18,11 @@ expand = true
 stretch_mode = 6
 
 [node name="AddSticker" type="TextureButton" parent="."]
-margin_left = 15.0
-margin_top = 15.0
-margin_right = 65.0
-margin_bottom = 65.0
-hint_tooltip = "Add sticker"
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 65.0
+offset_bottom = 65.0
+tooltip_text = "Add sticker"
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 2 )
 texture_hover = ExtResource( 2 )

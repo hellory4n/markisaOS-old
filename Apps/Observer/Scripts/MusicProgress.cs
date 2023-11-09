@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class MusicProgress : ProgressBar {
+public partial class MusicProgress : ProgressBar {
     public override void _Ready() {
         base._Ready();
         MaxValue = GetNode<MusicPlayer>("../O/Audio").Music.GetLength();

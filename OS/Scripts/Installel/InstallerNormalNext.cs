@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class InstallerNormalNext : Button {
+public partial class InstallerNormalNext : Button {
     [Export]
     NodePath nextThing = "";
     [Export]
@@ -9,7 +9,7 @@ public class InstallerNormalNext : Button {
 
     public override void _Ready() {
         base._Ready();
-        Connect("pressed", this, nameof(Click));
+        Connect("pressed", new Callable(this, nameof(Click)));
     }
 
     public void Click() {

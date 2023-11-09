@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Apps/Files/Scripts/NewFile.cs" type="Script" id=2]
-[ext_resource path="res://Apps/Files/Assets/IconDock.png" type="Texture" id=3]
+[ext_resource path="res://Apps/Files/Assets/IconDock.png" type="Texture2D" id=3]
 [ext_resource path="res://OS/Scripts/Lelsktop/Overlay/TextPeek.cs" type="Script" id=4]
 
 [sub_resource type="Animation" id=2]
@@ -10,14 +10,14 @@ resource_name = "Close"
 length = 0.2
 step = 0.01
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_scale")
+tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 0.37, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 0.37, 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
 }
@@ -28,8 +28,8 @@ tracks/1/loop_wrap = false
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 0.37, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 0.37, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
@@ -40,8 +40,8 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.2 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0.2 ),
+"transitions": PackedFloat32Array( 1 ),
 "values": [ {
 "args": [  ],
 "method": "queue_free"
@@ -58,20 +58,20 @@ tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 0.37, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 0.37, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:rect_scale")
+tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 1,
 "values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
 }
@@ -80,14 +80,14 @@ tracks/1/keys = {
 resource_name = "Open"
 length = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_scale")
+tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 2
 tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 0.37 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 0.37 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
 }
@@ -98,8 +98,8 @@ tracks/1/loop_wrap = false
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 0.37 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 0.37 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -114,31 +114,31 @@ tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 0.37 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 0.37 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:rect_scale")
+tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[node name="NewFile" type="WindowDialog"]
+[node name="NewFile" type="Window"]
 process_priority = 1
-margin_right = -590.0
-margin_bottom = -300.0
-rect_min_size = Vector2( 500, 250 )
+offset_right = -590.0
+offset_bottom = -300.0
+custom_minimum_size = Vector2( 500, 250 )
 theme = ExtResource( 1 )
-popup_exclusive = true
+exclusive = true
 window_title = "New File"
 script = ExtResource( 2 )
 Icon = ExtResource( 3 )
@@ -155,32 +155,32 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 125.0
-margin_top = 33.0
-margin_right = 375.0
-margin_bottom = 216.0
+offset_left = 125.0
+offset_top = 33.0
+offset_right = 375.0
+offset_bottom = 216.0
 alignment = 1
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_right = 250.0
-margin_bottom = 33.0
-rect_min_size = Vector2( 250, 0 )
+offset_right = 250.0
+offset_bottom = 33.0
+custom_minimum_size = Vector2( 250, 0 )
 theme_type_variation = "Header"
 text = "Name:"
 align = 1
 
 [node name="Name" type="LineEdit" parent="CenterContainer/VBoxContainer"]
-margin_top = 43.0
-margin_right = 250.0
-margin_bottom = 83.0
+offset_top = 43.0
+offset_right = 250.0
+offset_bottom = 83.0
 align = 1
 placeholder_text = "New File"
 script = ExtResource( 4 )
 
 [node name="OptionButton" type="OptionButton" parent="CenterContainer/VBoxContainer"]
-margin_top = 93.0
-margin_right = 250.0
-margin_bottom = 133.0
+offset_top = 93.0
+offset_right = 250.0
+offset_bottom = 133.0
 theme_type_variation = "SecondaryButton"
 text = "File :)"
 align = 1
@@ -188,7 +188,7 @@ items = [ "File :)", null, false, 0, null ]
 selected = 0
 
 [node name="Create" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 143.0
-margin_right = 250.0
-margin_bottom = 183.0
+offset_top = 143.0
+offset_right = 250.0
+offset_bottom = 183.0
 text = "Create File"

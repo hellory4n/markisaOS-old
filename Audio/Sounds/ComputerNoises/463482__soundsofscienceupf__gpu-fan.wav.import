@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/463482__soundsofscienceupf__gpu-fan.wav-368a18d2b664cdcc4884b434870a072b.sample"
+type="AudioStreamWAV"
+uid="uid://k6g02krxyako"
+path="res://.godot/imported/463482__soundsofscienceupf__gpu-fan.wav-368a18d2b664cdcc4884b434870a072b.sample"
 
 [deps]
 
 source_file="res://Audio/Sounds/ComputerNoises/463482__soundsofscienceupf__gpu-fan.wav"
-dest_files=[ "res://.import/463482__soundsofscienceupf__gpu-fan.wav-368a18d2b664cdcc4884b434870a072b.sample" ]
+dest_files=["res://.godot/imported/463482__soundsofscienceupf__gpu-fan.wav-368a18d2b664cdcc4884b434870a072b.sample"]
 
 [params]
 

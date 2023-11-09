@@ -2,12 +2,12 @@ using Godot;
 using System;
 using System.Linq;
 
-public class MinesShowStuffAndStuff : TextureButton {
+public partial class MinesShowStuffAndStuff : TextureButton {
     Vector2 Position;
-    Texture OhNoes;
-    Texture[] NumberStuff;
-    Texture Nothingness;
-    Texture EmptySquare;
+    Texture2D OhNoes;
+    Texture2D[] NumberStuff;
+    Texture2D Nothingness;
+    Texture2D EmptySquare;
 
     public override void _Ready() {
         base._Ready();
@@ -24,7 +24,7 @@ public class MinesShowStuffAndStuff : TextureButton {
         Nothingness = bruh.Nothingness;
         EmptySquare = bruh.EmptySquare;
 
-        Connect("pressed", this, nameof(Click));
+        Connect("pressed", new Callable(this, nameof(Click)));
     }
 
     public void Click() {
@@ -33,11 +33,11 @@ public class MinesShowStuffAndStuff : TextureButton {
         var bruh = GetNode<MinesGameGenerator9000>("../../../../GameGenerator9000");
 
         // if it's a number we just reveal this shit
-        if (NumberStuff.Contains(square.Texture)) {
+        if (NumberStuff.Contains(square.Texture2D)) {
             TextureNormal = Nothingness;
             bruh.ShownStuff++;
         // oh noes
-        } else if (square.Texture == OhNoes) {
+        } else if (square.Texture2D == OhNoes) {
             GetParent<GridContainer>().Visible = false;
         // this is an empty square, try showing as many empty squares as possible
         } else {
@@ -49,7 +49,7 @@ public class MinesShowStuffAndStuff : TextureButton {
         var square = GetNode<TextureRect>($"../../Stuff/{epicPosition.x}x{epicPosition.y}");
         var squareButButton = GetNode<TextureButton>($"../{epicPosition.x}x{epicPosition.y}");
         
-        if (square.Texture != EmptySquare || squareButButton.TextureNormal == Nothingness) {
+        if (square.Texture2D != EmptySquare || squareButButton.TextureNormal == Nothingness) {
             return;
         }
 

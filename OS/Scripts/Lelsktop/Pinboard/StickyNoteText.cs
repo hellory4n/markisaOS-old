@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class StickyNoteText : TextEdit {
+public partial class StickyNoteText : TextEdit {
     Timer StupidTimer;
 
     public override void _Ready() {

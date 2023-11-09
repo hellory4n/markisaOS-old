@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public class FileTabs : HBoxContainer {
+public partial class FileTabs : HBoxContainer {
     public List<TabThing> TabButtons = new List<TabThing>();
     public List<Control> TabContent = new List<Control>();
     PackedScene TabThing = ResourceLoader.Load<PackedScene>("res://Apps/Files/TabThing.tscn");

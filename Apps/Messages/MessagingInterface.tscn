@@ -15,31 +15,31 @@ script = ExtResource( 2 )
 [node name="M" type="VSplitContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 10.0
-margin_right = -10.0
-margin_bottom = -10.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
 dragger_visibility = 1
 
 [node name="H" type="ScrollContainer" parent="M"]
-margin_right = 1260.0
-margin_bottom = 648.0
+offset_right = 1260.0
+offset_bottom = 648.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Messages" type="VBoxContainer" parent="M/H"]
-margin_right = 1260.0
+offset_right = 1260.0
 size_flags_horizontal = 3
 
 [node name="Choices" type="GridContainer" parent="M"]
-margin_top = 660.0
-margin_right = 1260.0
-margin_bottom = 700.0
+offset_top = 660.0
+offset_right = 1260.0
+offset_bottom = 700.0
 columns = 2
 
 [node name="Button" type="Button" parent="M/Choices"]
-margin_right = 625.0
-margin_bottom = 40.0
+offset_right = 625.0
+offset_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_type_variation = "SecondaryButton"
@@ -48,9 +48,9 @@ group = SubResource( 1 )
 text = "FUCK"
 
 [node name="Button2" type="Button" parent="M/Choices"]
-margin_left = 635.0
-margin_right = 1260.0
-margin_bottom = 40.0
+offset_left = 635.0
+offset_right = 1260.0
+offset_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_type_variation = "SecondaryButton"

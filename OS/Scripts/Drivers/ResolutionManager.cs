@@ -4,7 +4,7 @@ using System;
 /// <summary>
 /// Adapts the resolution and UI of the game, so you can get the screen resolution on desktop, and a bigger UI on mobile to make touching things easier.
 /// </summary>
-public class ResolutionManager : Node {
+public partial class ResolutionManager : Node {
     /// <summary>
     /// We could just load the settings everytime something needs the resolution but then the game is constantly reading a single file, quite inconvenient
     /// </summary>

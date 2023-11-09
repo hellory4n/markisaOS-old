@@ -4,11 +4,11 @@ using Godot;
 /// <summary>
 /// LelfsRoot is the root of Lelfs. The parent of all files. Its name is "" and its ID is "root".
 /// </summary>
-public class LelfsRoot : Folder {
+public partial class LelfsRoot : Folder {
     LelfsRoot() {
         Name = "";
         Id = "root";
-        Path = "/";
+        Path3D = "/";
         Parent = null;
         Type = "Root";
         LelfsManager.Paths.Clear();

@@ -2,21 +2,21 @@
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Apps/Files/Scripts/FileImporter.cs" type="Script" id=2]
-[ext_resource path="res://Apps/Files/Assets/IconDock.png" type="Texture" id=3]
+[ext_resource path="res://Apps/Files/Assets/IconDock.png" type="Texture2D" id=3]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Close"
 length = 0.2
 step = 0.01
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_scale")
+tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 0.37, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 0.37, 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
 }
@@ -27,8 +27,8 @@ tracks/1/loop_wrap = false
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 0.37, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 0.37, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
@@ -39,8 +39,8 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.2 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0.2 ),
+"transitions": PackedFloat32Array( 1 ),
 "values": [ {
 "args": [  ],
 "method": "queue_free"
@@ -57,20 +57,20 @@ tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 0.37, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 0.37, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:rect_scale")
+tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 1,
 "values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
 }
@@ -79,14 +79,14 @@ tracks/1/keys = {
 resource_name = "Open"
 length = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_scale")
+tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 2
 tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 0.37 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 0.37 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
 }
@@ -97,8 +97,8 @@ tracks/1/loop_wrap = false
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 0.37 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 0.37 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -113,31 +113,31 @@ tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 0.37 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 0.37 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:rect_scale")
+tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[node name="FileImporter" type="WindowDialog"]
+[node name="FileImporter" type="Window"]
 process_priority = 1
-margin_right = -590.0
-margin_bottom = -300.0
-rect_min_size = Vector2( 650, 350 )
+offset_right = -590.0
+offset_bottom = -300.0
+custom_minimum_size = Vector2( 650, 350 )
 theme = ExtResource( 1 )
-popup_exclusive = true
+exclusive = true
 window_title = "File Importer"
 script = ExtResource( 2 )
 Icon = ExtResource( 3 )
@@ -154,32 +154,32 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 50.0
-margin_top = 92.0
-margin_right = 600.0
-margin_bottom = 257.0
+offset_left = 50.0
+offset_top = 92.0
+offset_right = 600.0
+offset_bottom = 257.0
 alignment = 1
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_right = 550.0
-margin_bottom = 33.0
-rect_min_size = Vector2( 550, 0 )
+offset_right = 550.0
+offset_bottom = 33.0
+custom_minimum_size = Vector2( 550, 0 )
 theme_type_variation = "Header"
 text = "What kind of file do you want to import?"
 align = 1
 autowrap = true
 
 [node name="Label2" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_top = 43.0
-margin_right = 550.0
-margin_bottom = 65.0
+offset_top = 43.0
+offset_right = 550.0
+offset_bottom = 65.0
 align = 1
 autowrap = true
 
 [node name="Options" type="OptionButton" parent="CenterContainer/VBoxContainer"]
-margin_top = 75.0
-margin_right = 550.0
-margin_bottom = 115.0
+offset_top = 75.0
+offset_right = 550.0
+offset_bottom = 115.0
 theme_type_variation = "SecondaryButton"
 text = "File Type"
 align = 1
@@ -188,46 +188,46 @@ selected = 0
 
 [node name="VideoThing" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 visible = false
-margin_top = 147.0
-margin_right = 550.0
-margin_bottom = 187.0
+offset_top = 147.0
+offset_right = 550.0
+offset_bottom = 187.0
 alignment = 1
 
 [node name="Width" type="SpinBox" parent="CenterContainer/VBoxContainer/VideoThing"]
-margin_right = 176.0
-margin_bottom = 40.0
+offset_right = 176.0
+offset_bottom = 40.0
 size_flags_horizontal = 3
 max_value = 10000.0
 prefix = "Width:"
 
 [node name="Height" type="SpinBox" parent="CenterContainer/VBoxContainer/VideoThing"]
-margin_left = 186.0
-margin_right = 363.0
-margin_bottom = 40.0
+offset_left = 186.0
+offset_right = 363.0
+offset_bottom = 40.0
 size_flags_horizontal = 3
 max_value = 10000.0
 prefix = "Height:"
 
 [node name="Duration" type="SpinBox" parent="CenterContainer/VBoxContainer/VideoThing"]
-margin_left = 373.0
-margin_right = 550.0
-margin_bottom = 40.0
+offset_left = 373.0
+offset_right = 550.0
+offset_bottom = 40.0
 size_flags_horizontal = 3
 max_value = 10000.0
 prefix = "Duration:"
 suffix = "seconds"
 
 [node name="Next" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 125.0
-margin_right = 550.0
-margin_bottom = 165.0
+offset_top = 125.0
+offset_right = 550.0
+offset_bottom = 165.0
 text = "Next"
 
 [node name="Pain" type="FileDialog" parent="."]
-margin_right = 896.0
-margin_bottom = 545.0
-rect_min_size = Vector2( 150, 52.5 )
-popup_exclusive = true
+offset_right = 896.0
+offset_bottom = 545.0
+custom_minimum_size = Vector2( 150, 52.5 )
+exclusive = true
 window_title = "Open a File"
 mode = 0
 access = 2

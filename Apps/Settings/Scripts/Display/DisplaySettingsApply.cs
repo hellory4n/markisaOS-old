@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class DisplaySettingsApply : Button {
+public partial class DisplaySettingsApply : Button {
     SpinBox resolutionWidth;
     SpinBox resolutionHeight;
     SpinBox scalingFactor;
@@ -19,7 +19,7 @@ public class DisplaySettingsApply : Button {
         resolutionHeight.Value = display.Resolution.y;
         scalingFactor.Value = display.ScalingFactor*100;
 
-        Connect("pressed", this, nameof(Click));
+        Connect("pressed", new Callable(this, nameof(Click)));
     }
 
     public void Click() {
@@ -40,6 +40,6 @@ public class DisplaySettingsApply : Button {
         jjkn.GetNode<DisplaySettingsActuallyApply>("Confirm").ScalingFactor = (float)(scalingFactor.Value/100);
 
         // the window manager is gonna put it on the center but using the old settings
-        jjkn.RectPosition = new Vector2(10, 90);
+        jjkn.Position = new Vector2(10, 90);
     }
 }

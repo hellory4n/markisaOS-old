@@ -6,13 +6,13 @@ using System.Linq;
 /// <summary>
 /// Manages settings and progress both for users, and settings that apply for all users.
 /// </summary>
-public class SavingManager : Node {
+public partial class SavingManager : Node {
     public static string CurrentUser = "";
 
     // setups settings files, in _EnterTree() since it needs to be ready before the things that use the settings
     public override void _EnterTree() {
         base._EnterTree();
-        Directory dir = new Directory();
+        DirAccess dir = new DirAccess();
         dir.MakeDirRecursive("user://Settings/");
 
         File displaySettings = new File();
@@ -52,7 +52,7 @@ public class SavingManager : Node {
     public static void NewUser(string user, UserInfo info) {
         CurrentUser = user;
         File file = new File();
-        Directory dir = new Directory();
+        DirAccess dir = new DirAccess();
         dir.MakeDirRecursive($"user://Users/{user}/");
         file.Open($"user://Users/{user}/BasicInfo.json", File.ModeFlags.Write);
         BasicUser m = new BasicUser();
@@ -108,7 +108,7 @@ public class SavingManager : Node {
 
         File haha = new File();
         haha.Open($"user://Users/{user}/Files/root.json", File.ModeFlags.Write);
-        haha.StoreString("{\"$type\":\"LelfsRoot, lelcubeOS\",\"Id\":\"root\",\"Parent\":null,\"Name\":\"\",\"Metadata\":{\"$type\":\"System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Object, mscorlib]], mscorlib\"},\"Path\":\"/\",\"Type\":\"Root\",\"Data\":{\"$type\":\"System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Object, mscorlib]], mscorlib\"}}");
+        haha.StoreString("{\"$type\":\"LelfsRoot, lelcubeOS\",\"Id\":\"root\",\"Parent\":null,\"Name\":\"\",\"Metadata\":{\"$type\":\"System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Object, mscorlib]], mscorlib\"},\"Path3D\":\"/\",\"Type\":\"Root\",\"Data\":{\"$type\":\"System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Object, mscorlib]], mscorlib\"}}");
 
         haha.Close();
         LelfsManager.UpdatePaths();
@@ -304,12 +304,12 @@ public class SavingManager : Node {
             suffer.Close();
 
             // setup the filesystem
-            Directory dir = new Directory();
+            DirAccess dir = new DirAccess();
             dir.MakeDirRecursive($"user://Users/{user}/Files/");
 
             File haha = new File();
             haha.Open($"user://Users/{user}/Files/root.json", File.ModeFlags.Write);
-            haha.StoreString("{\"$type\":\"LelfsRoot, lelcubeOS\",\"Id\":\"root\",\"Parent\":null,\"Name\":\"\",\"Metadata\":{\"$type\":\"System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Object, mscorlib]], mscorlib\"},\"Path\":\"/\",\"Type\":\"Root\",\"Data\":{\"$type\":\"System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Object, mscorlib]], mscorlib\"}}");
+            haha.StoreString("{\"$type\":\"LelfsRoot, lelcubeOS\",\"Id\":\"root\",\"Parent\":null,\"Name\":\"\",\"Metadata\":{\"$type\":\"System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Object, mscorlib]], mscorlib\"},\"Path3D\":\"/\",\"Type\":\"Root\",\"Data\":{\"$type\":\"System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Object, mscorlib]], mscorlib\"}}");
 
             haha.Close();
             LelfsManager.UpdatePaths();

@@ -1,16 +1,16 @@
 using Godot;
 using System;
 
-public class NotebookSaveAs : BaseWindow {
+public partial class NotebookSaveAs : BaseWindow {
     public TextEditThing Tfhsjkgjrrh;
 
     public override void _Ready() {
         base._Ready();
-        GetNode<Button>("M/H/Save").Connect("pressed", this, nameof(Click));
+        GetNode<Button>("M/H/Save").Connect("pressed", new Callable(this, nameof(Click)));
     }
 
     public void Click() {
-        string path = GetNode<LineEdit>("M/H/Path").Text;
+        string path = GetNode<LineEdit>("M/H/Path3D").Text;
         string name = GetNode<LineEdit>("M/H/Name").Text;
         NotificationManager notificationManager = GetNode<NotificationManager>("/root/NotificationManager");
 

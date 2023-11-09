@@ -1,13 +1,13 @@
 using Godot;
 using System;
 
-public class DisplaySettingsActuallyApply : Button {
+public partial class DisplaySettingsActuallyApply : Button {
     public Vector2 Resolution;
     public float ScalingFactor;
 
     public override void _Ready() {
         base._Ready();
-        Connect("pressed", this, nameof(Click));
+        Connect("pressed", new Callable(this, nameof(Click)));
     }
 
     public void Click() {

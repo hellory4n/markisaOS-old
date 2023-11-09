@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class MusicPlayer : Node {
+public partial class MusicPlayer : Node {
     [Export]
     public AudioStream Music;
     [Export]

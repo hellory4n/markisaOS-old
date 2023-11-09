@@ -1,10 +1,10 @@
 using Godot;
 using System;
 
-public class ExternalStorageOpen : Button {
+public partial class ExternalStorageOpen : Button {
     public override void _Ready() {
         base._Ready();
-        Connect("pressed", this, nameof(Click));
+        Connect("pressed", new Callable(this, nameof(Click)));
     }
 
     public void Click() {
@@ -14,7 +14,7 @@ public class ExternalStorageOpen : Button {
 
         // pain
         FileView mewhenthe = GetNode<FileView>("../../../../Content/ContentThing/ItemList");
-        LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(mewhenthe.Path);
+        LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(mewhenthe.Path3D);
         jjkn.Parent = dfggfdf.Id;
         jjkn.ThingThatINeedToRefresh = mewhenthe;
 

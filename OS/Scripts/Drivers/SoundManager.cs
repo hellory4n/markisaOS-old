@@ -5,7 +5,7 @@ using System.Collections.Generic;
 /// <summary>
 /// Manages sound effects.
 /// </summary>
-public class SoundManager : Node {
+public partial class SoundManager : Node {
     /// <summary>
     /// System sound effects.
     /// </summary>

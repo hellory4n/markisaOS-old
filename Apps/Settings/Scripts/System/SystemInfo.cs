@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Reflection;
 
-public class SystemInfo : Label {
+public partial class SystemInfo : Label {
     public override void _Ready() {
         base._Ready();
         BasicUser version = SavingManager.Load<BasicUser>(SavingManager.CurrentUser);

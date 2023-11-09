@@ -1,13 +1,13 @@
 using Godot;
 using System;
 
-public class HireWellPaidChineseWorkers : Button {
+public partial class HireWellPaidChineseWorkers : Button {
     Sausage sausage;
 
     public override void _Ready() {
         base._Ready();
         sausage = GetNode<Sausage>("../../../../../SausageButClick");
-        Connect("pressed", this, nameof(Click));
+        Connect("pressed", new Callable(this, nameof(Click)));
     }
 
     public void Click() {

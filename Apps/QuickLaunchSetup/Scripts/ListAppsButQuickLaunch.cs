@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Linq;
 
-public class ListAppsButQuickLaunch : VBoxContainer {
+public partial class ListAppsButQuickLaunch : VBoxContainer {
     public override void _Ready() {
         base._Ready();
         UpdateItems();

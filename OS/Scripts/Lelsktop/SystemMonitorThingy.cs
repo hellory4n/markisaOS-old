@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class SystemMonitorThingy : ProgressBar {
+public partial class SystemMonitorThingy : ProgressBar {
     [Export(PropertyHint.Enum, "CPU,GPU,Memory,Storage")]
     string Thingy;
 

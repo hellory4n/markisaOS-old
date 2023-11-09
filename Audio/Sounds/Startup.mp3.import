@@ -2,14 +2,18 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/Startup.mp3-216e812264d6280be6dad35165a980ef.mp3str"
+uid="uid://c32si8yifaupc"
+path="res://.godot/imported/Startup.mp3-216e812264d6280be6dad35165a980ef.mp3str"
 
 [deps]
 
 source_file="res://Audio/Sounds/Startup.mp3"
-dest_files=[ "res://.import/Startup.mp3-216e812264d6280be6dad35165a980ef.mp3str" ]
+dest_files=["res://.godot/imported/Startup.mp3-216e812264d6280be6dad35165a980ef.mp3str"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,18 +1,18 @@
 using Godot;
 using System;
 
-public class FileSidebar : Button {
+public partial class FileSidebar : Button {
     [Export]
-    public string Path = "";
+    public string Path3D = "";
 
     public override void _Ready() {
         base._Ready();
-        Connect("pressed", this, nameof(Click));
+        Connect("pressed", new Callable(this, nameof(Click)));
     }
 
     public void Click() {
         // pain
-        if (LelfsManager.FileExists(Path))
-            GetNode<FileView>("../../../../Content/ContentThing/ItemList").Refresh(Path);
+        if (LelfsManager.FileExists(Path3D))
+            GetNode<FileView>("../../../../Content/ContentThing/ItemList").Refresh(Path3D);
     }
 }

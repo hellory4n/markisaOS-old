@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public class Download : Button {
+public partial class Download : Button {
     [Export]
     string NewFilename = "";
     [Export(PropertyHint.Enum, "Text")]
@@ -16,7 +16,7 @@ public class Download : Button {
 
     public override void _Ready() {
         base._Ready();
-        Connect("pressed", this, nameof(Click));
+        Connect("pressed", new Callable(this, nameof(Click)));
     }
 
     public void Click() {

@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class ActiveThing : Control {
+public partial class ActiveThing : Control {
     public override void _Process(float delta) {
         base._Process(delta);
         // just in case the app keeps adding nodes

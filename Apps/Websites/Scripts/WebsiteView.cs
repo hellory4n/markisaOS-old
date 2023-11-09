@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public class WebsiteView : Control {
+public partial class WebsiteView : Control {
     string coolAddress = "web://passionfruit.com/lelcubeos/me/home.tscn";
     Control previousThing;
     List<string> addresses = new List<string>();
@@ -56,7 +56,7 @@ public class WebsiteView : Control {
             previousThing?.QueueFree();
             var ohShoes = ResourceLoader.Load<PackedScene>("res://Web/404/home.tscn");
             var m = ohShoes.Instance<Control>();
-            m.MarginTop = 60;
+            m.OffsetTop = 60;
             AddChild(m);
             previousThing = m;
             GetNode<Label>("TabTitle").Text = "404";
@@ -64,7 +64,7 @@ public class WebsiteView : Control {
             previousThing?.QueueFree();
             var jgkjfgkb = ResourceLoader.Load<PackedScene>(h);
             var m = jgkjfgkb.Instance<Control>();
-            m.MarginTop = 60;
+            m.OffsetTop = 60;
             AddChild(m);
             previousThing = m;
             GetNode<Label>("TabTitle").Text = tabTitle;

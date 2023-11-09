@@ -19,23 +19,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 390.0
-margin_top = 283.0
-margin_right = 890.0
-margin_bottom = 436.0
+offset_left = 390.0
+offset_top = 283.0
+offset_right = 890.0
+offset_bottom = 436.0
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_right = 500.0
-margin_bottom = 33.0
+offset_right = 500.0
+offset_bottom = 33.0
 theme_type_variation = "Header"
 text = "Website not found"
 align = 1
 
 [node name="Label2" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_top = 43.0
-margin_right = 500.0
-margin_bottom = 153.0
-rect_min_size = Vector2( 500, 0 )
+offset_top = 43.0
+offset_right = 500.0
+offset_bottom = 153.0
+custom_minimum_size = Vector2( 500, 0 )
 text = "We could not find this address. You can try the following things:
 1. Check your internet connection
 2. Check if you spelled the address correctly

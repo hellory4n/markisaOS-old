@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Observer : BaseWindow {
+public partial class Observer : BaseWindow {
     public enum Mode {
         Image,
         Audio,
@@ -26,7 +26,7 @@ public class Observer : BaseWindow {
                 LelfsFile coolFile = LelfsManager.LoadById<LelfsFile>(MediaId);
                 if (coolFile.Data.ContainsKey("Resource")) {
                     // one of the codes of all time
-                    coolImageThing.GetNode<TextureRect>("Image").Texture = 
+                    coolImageThing.GetNode<TextureRect>("Image").Texture2D = 
                         ResourceManager.LoadImage(coolFile.Data["Resource"].ToString());
                     
                     coolImageThing.GetNode<AddSticker>("AddSticker").TexturePath =
@@ -70,7 +70,7 @@ public class Observer : BaseWindow {
                 LelfsFile majesticFile = LelfsManager.LoadById<LelfsFile>(MediaId);
                 if (majesticFile.Data.ContainsKey("Resource") && majesticFile.Data.ContainsKey("Width") &&
                 majesticFile.Data.ContainsKey("Height") && majesticFile.Data.ContainsKey("Duration")) {
-                    coolVideoThing.GetNode<VideoPlayer>("M/Video").Stream =
+                    coolVideoThing.GetNode<VideoStreamPlayer>("M/Video").Stream =
                         ResourceManager.LoadVideo(majesticFile.Data["Resource"].ToString());
                     coolVideoThing.GetNode<AspectRatioContainer>("M").Ratio = float.Parse(majesticFile.Data["Width"].ToString()) / float.Parse(majesticFile.Data["Height"].ToString());
                     coolVideoThing.GetNode<ProgressBar>("ProgressBar").MaxValue = float.Parse(

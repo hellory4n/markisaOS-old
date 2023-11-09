@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class InstallelSteps : Label {
+public partial class InstallelSteps : Label {
     public override void _Process(float delta) {
         base._Process(delta);
         var yes = GetNode<ProgressBar>("../ProgressBar");

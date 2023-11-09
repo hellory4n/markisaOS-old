@@ -2,20 +2,20 @@ using Godot;
 using System;
 using System.Linq;
 
-public class MinesGameGenerator9000 : Node {
-    public readonly Texture Mine = ResourceLoader.Load<Texture>("res://Apps/Mines/Assets/OhNoes.png");
-    public readonly Texture[] NumberStuff = new Texture[]{
-        ResourceLoader.Load<Texture>("res://Apps/Mines/Assets/One.png"),
-        ResourceLoader.Load<Texture>("res://Apps/Mines/Assets/Two.png"),
-        ResourceLoader.Load<Texture>("res://Apps/Mines/Assets/Three.png"),
-        ResourceLoader.Load<Texture>("res://Apps/Mines/Assets/Four.png"),
-        ResourceLoader.Load<Texture>("res://Apps/Mines/Assets/Five.png"),
-        ResourceLoader.Load<Texture>("res://Apps/Mines/Assets/Six.png"),
-        ResourceLoader.Load<Texture>("res://Apps/Mines/Assets/Seven.png"),
-        ResourceLoader.Load<Texture>("res://Apps/Mines/Assets/Eight.png"),
+public partial class MinesGameGenerator9000 : Node {
+    public readonly Texture2D Mine = ResourceLoader.Load<Texture2D>("res://Apps/Mines/Assets/OhNoes.png");
+    public readonly Texture2D[] NumberStuff = new Texture2D[]{
+        ResourceLoader.Load<Texture2D>("res://Apps/Mines/Assets/One.png"),
+        ResourceLoader.Load<Texture2D>("res://Apps/Mines/Assets/Two.png"),
+        ResourceLoader.Load<Texture2D>("res://Apps/Mines/Assets/Three.png"),
+        ResourceLoader.Load<Texture2D>("res://Apps/Mines/Assets/Four.png"),
+        ResourceLoader.Load<Texture2D>("res://Apps/Mines/Assets/Five.png"),
+        ResourceLoader.Load<Texture2D>("res://Apps/Mines/Assets/Six.png"),
+        ResourceLoader.Load<Texture2D>("res://Apps/Mines/Assets/Seven.png"),
+        ResourceLoader.Load<Texture2D>("res://Apps/Mines/Assets/Eight.png"),
     };
-    public readonly Texture Nothingness = ResourceLoader.Load<Texture>("res://Apps/Mines/Assets/Nothingness.png");
-    public readonly Texture EmptySquare = ResourceLoader.Load<Texture>("res://Apps/Mines/Assets/Thingy2.png");
+    public readonly Texture2D Nothingness = ResourceLoader.Load<Texture2D>("res://Apps/Mines/Assets/Nothingness.png");
+    public readonly Texture2D EmptySquare = ResourceLoader.Load<Texture2D>("res://Apps/Mines/Assets/Thingy2.png");
     Random random = new Random();
     [Export]
     Vector2 Grid = new Vector2(9, 9);
@@ -38,7 +38,7 @@ public class MinesGameGenerator9000 : Node {
             }
 
             mines[i] = fun;
-            GetNode<TextureRect>($"../Why/A/Stuff/{fun.x}x{fun.y}").Texture = Mine;
+            GetNode<TextureRect>($"../Why/A/Stuff/{fun.x}x{fun.y}").Texture2D = Mine;
         }
 
         // then we put the number stuff :)
@@ -69,12 +69,12 @@ public class MinesGameGenerator9000 : Node {
                 if (thingy1 == null)
                     continue;
                 
-                if (thingy1.Texture == Mine)
+                if (thingy1.Texture2D == Mine)
                     nearbyMines++;
             }
 
             if (nearbyMines > 0)
-                square.Texture = NumberStuff[nearbyMines-1];
+                square.Texture2D = NumberStuff[nearbyMines-1];
         }
 
         // yes.

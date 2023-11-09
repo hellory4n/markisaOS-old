@@ -1,13 +1,13 @@
 using Godot;
 using System;
 
-public class AddTab : Button {
+public partial class AddTab : Button {
     readonly PackedScene TabThing = ResourceLoader.Load<PackedScene>("res://Apps/Files/TabThing.tscn");
     readonly PackedScene TabContent = ResourceLoader.Load<PackedScene>("res://Apps/Files/TabContent.tscn");
 
     public override void _Ready() {
         base._Ready();
-        Connect("pressed", this, nameof(Click));
+        Connect("pressed", new Callable(this, nameof(Click)));
     }
 
     public override void _Process(float delta) {

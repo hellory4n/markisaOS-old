@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class TextPeek : LineEdit {
+public partial class TextPeek : LineEdit {
     Panel TextPeekThingy;
 
     public override void _Ready() {
@@ -14,10 +14,10 @@ public class TextPeek : LineEdit {
             TextPeekThingy = (Panel)oneOfThePackedScenes.Instance();
             GetTree().Root.AddChild(m);
             m.AddChild(TextPeekThingy);
-            TextPeekThingy.RectGlobalPosition = new Vector2(0, 0);
+            TextPeekThingy.GlobalPosition = new Vector2(0, 0);
             TextPeekThingy.Visible = false;
-            Connect("text_changed", this, nameof(TextPeekEdit));
-            Connect("text_entered", this, nameof(TextPeekDelete));
+            Connect("text_changed", new Callable(this, nameof(TextPeekEdit)));
+            Connect("text_entered", new Callable(this, nameof(TextPeekDelete)));
         }
     }
 

@@ -1,14 +1,14 @@
 using Godot;
 using System;
 
-public class Rename : BaseWindow {
+public partial class Rename : BaseWindow {
     public string Parent;
     public FileView ThingThatINeedToRefresh;
     public string CoolFile;
 
     public override void _Ready() {
         base._Ready();
-        GetNode<Button>("CenterContainer/VBoxContainer/Rename").Connect("pressed", this, nameof(Click));
+        GetNode<Button>("CenterContainer/VBoxContainer/Rename").Connect("pressed", new Callable(this, nameof(Click)));
         LelfsFile bruh = LelfsManager.LoadById<LelfsFile>(CoolFile);
         GetNode<LineEdit>("CenterContainer/VBoxContainer/Name").Text = bruh.Name;
     }
@@ -20,9 +20,9 @@ public class Rename : BaseWindow {
         string newPath;
         if (Parent == "root") {
             LelfsFile yeah = LelfsManager.LoadById<LelfsFile>(Parent);
-            newPath = $"{yeah.Path}/{bruh.Name}";
+            newPath = $"{yeah.Path3D}/{bruh.Name}";
         } else {
-            newPath = $"/{bruh.Path}";
+            newPath = $"/{bruh.Path3D}";
         }
 
         // try to move it
@@ -41,6 +41,6 @@ public class Rename : BaseWindow {
         }
 
         Close();
-        ThingThatINeedToRefresh.Refresh(ThingThatINeedToRefresh.Path, false);
+        ThingThatINeedToRefresh.Refresh(ThingThatINeedToRefresh.Path3D, false);
     }
 }

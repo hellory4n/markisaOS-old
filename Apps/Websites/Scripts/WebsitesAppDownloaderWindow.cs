@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public class WebsitesAppDownloaderWindow : BaseWindow {
+public partial class WebsitesAppDownloaderWindow : BaseWindow {
     public string NewFilename = "";
     public string Type = "Text";
     public int ProgressBarMaxValue = 1;

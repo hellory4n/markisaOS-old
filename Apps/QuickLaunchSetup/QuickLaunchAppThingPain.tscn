@@ -3,9 +3,9 @@
 [ext_resource path="res://Apps/QuickLaunchSetup/Scripts/RemoveFromQuickLaunch.cs" type="Script" id=1]
 
 [node name="Thing" type="Control"]
-margin_right = 200.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 730, 40 )
+offset_right = 200.0
+offset_bottom = 40.0
+custom_minimum_size = Vector2( 730, 40 )
 mouse_filter = 1
 theme_type_variation = "PanelButton"
 

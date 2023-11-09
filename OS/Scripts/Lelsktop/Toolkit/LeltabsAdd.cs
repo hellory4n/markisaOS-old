@@ -2,10 +2,10 @@ using Godot;
 using System;
 using System.ComponentModel;
 
-public class LeltabsAdd : Button {
+public partial class LeltabsAdd : Button {
     public override void _Ready() {
         base._Ready();
-        Connect("pressed", this, nameof(Click));
+        Connect("pressed", new Callable(this, nameof(Click)));
     }
 
     public override void _Process(float delta) {
