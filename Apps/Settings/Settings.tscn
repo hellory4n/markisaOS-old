@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Graphics.png" type="Texture" id=2]
@@ -12,9 +12,11 @@
 [ext_resource path="res://Apps/Settings/Scripts/Wallpapers/WallpaperThing.cs" type="Script" id=10]
 [ext_resource path="res://Apps/Settings/Scripts/Wallpapers/ApplyWallpaper.cs" type="Script" id=11]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Themes.png" type="Texture" id=12]
+[ext_resource path="res://Apps/Settings/Scripts/System/SystemInfo.cs" type="Script" id=13]
 [ext_resource path="res://Apps/Settings/Scripts/Themes/ApplyNewTheme.cs" type="Script" id=14]
 [ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/DefaultOpenWindowButton.cs" type="Script" id=15]
 [ext_resource path="res://OS/Scripts/Lelsktop/Overlay/TextPeek.cs" type="Script" id=16]
+[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Lelsktop.png" type="Texture" id=17]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Close"
@@ -147,6 +149,7 @@ tracks/1/keys = {
 
 [node name="Settings" type="WindowDialog"]
 process_priority = 1
+visible = true
 margin_right = 750.0
 margin_bottom = 500.0
 rect_min_size = Vector2( 500, 350 )
@@ -229,10 +232,22 @@ align = 0
 script = ExtResource( 7 )
 Category = NodePath("../../../Content/CategoryDisplay")
 
-[node name="Button3" type="Button" parent="HSplitContainer/Sidebar/VBoxContainer"]
+[node name="Button5" type="Button" parent="HSplitContainer/Sidebar/VBoxContainer"]
 margin_top = 120.0
 margin_right = 190.0
 margin_bottom = 160.0
+rect_min_size = Vector2( 0, 40 )
+theme_type_variation = "SidebarButton"
+text = "Lelsktop"
+icon = ExtResource( 17 )
+align = 0
+script = ExtResource( 7 )
+Category = NodePath("../../../Content/CategoryLelsktop")
+
+[node name="Button3" type="Button" parent="HSplitContainer/Sidebar/VBoxContainer"]
+margin_top = 160.0
+margin_right = 190.0
+margin_bottom = 200.0
 rect_min_size = Vector2( 0, 40 )
 theme_type_variation = "SidebarButton"
 text = "System"
@@ -450,7 +465,7 @@ script = ExtResource( 14 )
 margin_top = 193.0
 margin_right = 442.0
 margin_bottom = 237.0
-text = "Custom themes will be available when modding support is added (so after the base OS is finished)"
+text = "Custom themes will be available when modding support is added (v0.12 ish probably)"
 align = 1
 autowrap = true
 
@@ -506,20 +521,16 @@ mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategorySystem"]
 margin_left = 118.0
-margin_top = 91.0
+margin_top = 124.0
 margin_right = 434.0
-margin_bottom = 409.0
+margin_bottom = 376.0
 
-[node name="Control" type="Control" parent="HSplitContainer/Content/CategorySystem/VBoxContainer"]
+[node name="Logo" type="TextureRect" parent="HSplitContainer/Content/CategorySystem/VBoxContainer"]
 margin_right = 316.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 316, 64 )
-mouse_filter = 2
-
-[node name="Logo" type="Sprite" parent="HSplitContainer/Content/CategorySystem/VBoxContainer/Control"]
-scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 8 )
-centered = false
+expand = true
 
 [node name="Label" type="Label" parent="HSplitContainer/Content/CategorySystem/VBoxContainer"]
 margin_top = 74.0
@@ -529,40 +540,71 @@ text = "lelcubeOS v0.10.0
 © Passionfruit 2069
 Running on Device™"
 align = 1
+script = ExtResource( 13 )
 
-[node name="HSeparator" type="HSeparator" parent="HSplitContainer/Content/CategorySystem/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="HSplitContainer/Content/CategorySystem/VBoxContainer"]
 margin_top = 150.0
 margin_right = 316.0
 margin_bottom = 152.0
 mouse_filter = 2
 
-[node name="Label2" type="Label" parent="HSplitContainer/Content/CategorySystem/VBoxContainer"]
+[node name="Button2" type="Button" parent="HSplitContainer/Content/CategorySystem/VBoxContainer"]
 margin_top = 162.0
 margin_right = 316.0
-margin_bottom = 206.0
-text = "Developed by hellory4n
-Audio by alex343xd"
-align = 1
-
-[node name="HSeparator2" type="HSeparator" parent="HSplitContainer/Content/CategorySystem/VBoxContainer"]
-margin_top = 216.0
-margin_right = 316.0
-margin_bottom = 218.0
-mouse_filter = 2
-
-[node name="Button2" type="Button" parent="HSplitContainer/Content/CategorySystem/VBoxContainer"]
-margin_top = 228.0
-margin_right = 316.0
-margin_bottom = 268.0
+margin_bottom = 202.0
 theme_type_variation = "SecondaryButton"
 text = "Credits"
 script = ExtResource( 15 )
 WindowScene = "res://Apps/Settings/Credits.tscn"
 
 [node name="Button" type="Button" parent="HSplitContainer/Content/CategorySystem/VBoxContainer"]
-margin_top = 228.0
+margin_top = 212.0
 margin_right = 316.0
-margin_bottom = 268.0
+margin_bottom = 252.0
+theme_type_variation = "DangerButton"
+text = "Factory Reset"
+script = ExtResource( 15 )
+WindowScene = "res://Apps/Settings/DeleteAllDataConfirm.tscn"
+
+[node name="CategoryLelsktop" type="CenterContainer" parent="HSplitContainer/Content"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryLelsktop"]
+margin_left = 199.0
+margin_top = 161.0
+margin_right = 352.0
+margin_bottom = 339.0
+
+[node name="Label" type="Label" parent="HSplitContainer/Content/CategoryLelsktop/VBoxContainer"]
+margin_right = 153.0
+margin_bottom = 66.0
+text = "lelcubeOS v0.10.0
+© Passionfruit 2069
+Running on Device™"
+align = 1
+
+[node name="HSeparator2" type="HSeparator" parent="HSplitContainer/Content/CategoryLelsktop/VBoxContainer"]
+margin_top = 76.0
+margin_right = 153.0
+margin_bottom = 78.0
+mouse_filter = 2
+
+[node name="Button2" type="Button" parent="HSplitContainer/Content/CategoryLelsktop/VBoxContainer"]
+margin_top = 88.0
+margin_right = 153.0
+margin_bottom = 128.0
+theme_type_variation = "SecondaryButton"
+text = "Credits"
+script = ExtResource( 15 )
+WindowScene = "res://Apps/Settings/Credits.tscn"
+
+[node name="Button" type="Button" parent="HSplitContainer/Content/CategoryLelsktop/VBoxContainer"]
+margin_top = 138.0
+margin_right = 153.0
+margin_bottom = 178.0
 theme_type_variation = "DangerButton"
 text = "Factory Reset"
 script = ExtResource( 15 )
