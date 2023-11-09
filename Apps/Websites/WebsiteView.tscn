@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Home.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/ArrowBack.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/ArrowForward.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Refresh.png" type="Texture" id=6]
+[ext_resource path="res://OS/Scripts/Lelsktop/Overlay/TextPeek.cs" type="Script" id=7]
 
 [node name="WebsiteView" type="Control"]
 anchor_right = 1.0
@@ -83,7 +84,8 @@ margin_bottom = 43.0
 size_flags_horizontal = 3
 text = "web://passionfruit.com/lelcubeos/me/home.tscn"
 align = 1
-placeholder_text = "web:passionfruit.com/lelcubeos/me/home.tscn"
+placeholder_text = "web://passionfruit.com/lelcubeos/me/home.tscn"
+script = ExtResource( 7 )
 
 [node name="HSeparator" type="HSeparator" parent="."]
 anchor_right = 1.0
