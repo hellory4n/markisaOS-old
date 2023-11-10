@@ -1,4 +1,5 @@
 using Godot;
+using Lelsktop.WindowManager;
 using System;
 
 public partial class Delete : Lelwindow {
@@ -16,7 +17,7 @@ public partial class Delete : Lelwindow {
 
     public void Click() {
         LelfsFile bruh = LelfsManager.LoadById<LelfsFile>(CoolFile);
-        if (GetNode<CheckBox>("CenterContainer/VBoxContainer/PermanentlyDelete").Pressed) {
+        if (GetNode<CheckBox>("CenterContainer/VBoxContainer/PermanentlyDelete").ButtonPressed) {
             // permanently delete
             if (bruh.Type == "Folder") {
                 Folder m = LelfsManager.LoadById<Folder>(CoolFile);

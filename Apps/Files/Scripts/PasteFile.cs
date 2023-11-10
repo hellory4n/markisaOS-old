@@ -1,8 +1,9 @@
 using Godot;
 using System;
+using Lelsktop.WindowManager;
 
 public partial class PasteFile : Lelwindow {
-    public string Parent;
+    /*public string Parent;
     public FileView ThingThatINeedToRefresh;
     public string OldFile;
     public bool Move;
@@ -98,5 +99,5 @@ public partial class PasteFile : Lelwindow {
         ThingThatINeedToRefresh.ToMove = null;
         ThingThatINeedToRefresh.Selected = null;
         ThingThatINeedToRefresh.Refresh(gkfngof, false);
-    }
+    }*/
 }

@@ -5,9 +5,9 @@ public partial class Calculator : Button {
     string number1 = "";
     string number2 = "";
     double currentResult = 0;
-    string @operator = "";
+    string operation = "";
     Label expressionThing;
-    bool next = false;
+    bool secondNumber = false;
 
     public override void _Ready() {
         base._Ready();
@@ -38,14 +38,14 @@ public partial class Calculator : Button {
         number1 = "";
         number2 = "";
         currentResult = 0;
-        @operator = "";
+        operation = "";
         expressionThing.Text = "";
-        next = false;
+        secondNumber = false;
     }
 
     void Backspace() {
         // this is ridiculous
-        if (next) {
+        if (secondNumber) {
             if (number2 == "")
                 return;
 
@@ -65,7 +65,7 @@ public partial class Calculator : Button {
     }
 
     void Negate() {
-        if (next) {
+        if (secondNumber) {
             double hjkgjkfgjhgekg;
             try {
                 hjkgjkfgjhgekg = double.Parse(number2);
@@ -91,29 +91,29 @@ public partial class Calculator : Button {
     }
 
     void Divide() {
-        next = true;
+        secondNumber = true;
         expressionThing.Text = "";
 
         if (number1 != "" && number2 != "") {
             Equal();
         }
 
-        @operator = "/";
+        operation = "/";
     }
 
     void Multiply() {
-        next = true;
+        secondNumber = true;
         expressionThing.Text = "";
 
         if (number1 != "" && number2 != "") {
             Equal();
         }
 
-        @operator = "*";
+        operation = "*";
     }
 
     void Seven() {
-        if (next) {
+        if (secondNumber) {
             number2 += "7";
             expressionThing.Text = number2;
         } else {
@@ -123,7 +123,7 @@ public partial class Calculator : Button {
     }
 
     void Eight() {
-        if (next) {
+        if (secondNumber) {
             number2 += "8";
             expressionThing.Text = number2;
         } else {
@@ -133,7 +133,7 @@ public partial class Calculator : Button {
     }
 
     void Nine() {
-        if (next) {
+        if (secondNumber) {
             number2 += "9";
             expressionThing.Text = number2;
         } else {
@@ -143,18 +143,18 @@ public partial class Calculator : Button {
     }
 
     void Subtract() {
-        next = true;
+        secondNumber = true;
         expressionThing.Text = "";
 
         if (number1 != "" && number2 != "") {
             Equal();
         }
 
-        @operator = "-";
+        operation = "-";
     }
 
     void Four() {
-        if (next) {
+        if (secondNumber) {
             number2 += "4";
             expressionThing.Text = number2;
         } else {
@@ -164,7 +164,7 @@ public partial class Calculator : Button {
     }
 
     void Five() {
-        if (next) {
+        if (secondNumber) {
             number2 += "5";
             expressionThing.Text = number2;
         } else {
@@ -174,7 +174,7 @@ public partial class Calculator : Button {
     }
 
     void Six() {
-        if (next) {
+        if (secondNumber) {
             number2 += "6";
             expressionThing.Text = number2;
         } else {
@@ -184,18 +184,18 @@ public partial class Calculator : Button {
     }
 
     void Add() {
-        next = true;
+        secondNumber = true;
         expressionThing.Text = "";
 
         if (number1 != "" && number2 != "") {
             Equal();
         }
 
-        @operator = "+";
+        operation = "+";
     }
 
     void One() {
-        if (next) {
+        if (secondNumber) {
             number2 += "1";
             expressionThing.Text = number2;
         } else {
@@ -205,7 +205,7 @@ public partial class Calculator : Button {
     }
 
     void Two() {
-        if (next) {
+        if (secondNumber) {
             number2 += "2";
             expressionThing.Text = number2;
         } else {
@@ -215,7 +215,7 @@ public partial class Calculator : Button {
     }
 
     void Three() {
-        if (next) {
+        if (secondNumber) {
             number2 += "3";
             expressionThing.Text = number2;
         } else {
@@ -225,7 +225,7 @@ public partial class Calculator : Button {
     }
 
     void Zero() {
-        if (next) {
+        if (secondNumber) {
             number2 += "0";
             expressionThing.Text = number2;
         } else {
@@ -235,7 +235,7 @@ public partial class Calculator : Button {
     }
 
     void Dot() {
-        if (next) {
+        if (secondNumber) {
             number2 += ".";
             expressionThing.Text = number2;
         } else {
@@ -256,7 +256,7 @@ public partial class Calculator : Button {
             return;
         }
 
-        switch (@operator) {
+        switch (operation) {
             case "+":
                 currentResult = one + two;
                 number1 = currentResult.ToString();

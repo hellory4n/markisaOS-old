@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using Lelsktop.WindowManager;
 
 public partial class Notebook : Lelwindow {
     public bool Suffer = false;

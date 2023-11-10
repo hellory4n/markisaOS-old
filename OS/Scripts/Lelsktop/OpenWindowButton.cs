@@ -3,8 +3,9 @@ using System;
 
 namespace Lelsktop.Interface;
 
-public partial class OpenWindowButton : Button {
-    WindowManager.Lelwindow epicWindow;
+public partial class OpenWindowButton : Button
+{
+    /*WindowManager.Lelwindow epicWindow;
     AnimationPlayer animation;
 
     // called when the window manager opens a window
@@ -81,5 +82,5 @@ public partial class OpenWindowButton : Button {
                     break;
             }
         }
-    }
+    }*/
 }

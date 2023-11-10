@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using Lelsktop.WindowManager;
 
 public partial class Observer : Lelwindow {
     public enum Mode {
@@ -26,7 +27,7 @@ public partial class Observer : Lelwindow {
                 LelfsFile coolFile = LelfsManager.LoadById<LelfsFile>(MediaId);
                 if (coolFile.Data.ContainsKey("Resource")) {
                     // one of the codes of all time
-                    coolImageThing.GetNode<TextureRect>("Image").Texture2D = 
+                    coolImageThing.GetNode<TextureRect>("Image").Texture = 
                         ResourceManager.LoadImage(coolFile.Data["Resource"].ToString());
                     
                     coolImageThing.GetNode<AddSticker>("AddSticker").TexturePath =

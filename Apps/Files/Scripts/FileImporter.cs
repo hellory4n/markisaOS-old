@@ -1,8 +1,9 @@
 using Godot;
 using System;
+using Lelsktop.WindowManager;
 
 public partial class FileImporter : Lelwindow {
-    public string Parent;
+    /*public string Parent;
     public FileView ThingThatINeedToRefresh;
 
     public override void _Ready() {
@@ -16,7 +17,7 @@ public partial class FileImporter : Lelwindow {
         // get the file format filter things :)
         // it didn't work
         FileDialog pain = GetNode<FileDialog>("Pain");
-        /*int index = GetNode<OptionButton>("CenterContainer/VBoxContainer/Options").Selected;
+        int index = GetNode<OptionButton>("CenterContainer/VBoxContainer/Options").Selected;
         switch (index) {
             case 0:
                 pain.Filters = new string[]{".png", ".jpeg", ".jpg", ".webp", ".svg"};
@@ -27,7 +28,7 @@ public partial class FileImporter : Lelwindow {
             case 2:
                 pain.Filters = new string[]{".ogv"};
                 break;
-        }*/
+        }
 
         pain.CurrentDir = OS.GetSystemDir(OS.SystemDir.Pictures);
         OS.RequestPermissions();
@@ -97,5 +98,5 @@ public partial class FileImporter : Lelwindow {
 
         Close();
         ThingThatINeedToRefresh.Refresh(ThingThatINeedToRefresh.Path3D, false);
-    }
+    }*/
 }

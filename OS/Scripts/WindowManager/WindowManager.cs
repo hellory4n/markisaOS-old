@@ -8,7 +8,7 @@ namespace Lelsktop.WindowManager;
 /// Responsible for managing all windows in the lelsktop.
 /// </summary>
 public partial class WindowManager : Node2D {
-    PackedScene OpenWindow;
+    /*PackedScene OpenWindow;
     public static SubViewport CurrentWorkspace;
 
     public override void _Ready() {
@@ -45,5 +45,5 @@ public partial class WindowManager : Node2D {
             window.Position = new Vector2(0, 85);
             window.Size = maximizedSize;
         }
-    }
+    }*/
 }

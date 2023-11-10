@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 namespace Websites;
 
-public partial class WebsiteView : Control {
+public partial class WebsiteView : Control 
+{
     string coolAddress = "web://passionfruit.com/lelcubeos/me/home.tscn";
     Control previousThing;
     List<string> addresses = new();

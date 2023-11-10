@@ -53,7 +53,8 @@ public partial class Lelwindow : Window
 	[Export]
 	public int StorageUse = 1;
 
-	public override void _Ready() {
+	public override void _Ready()
+	{
 		base._Ready();
 		screenSize = ResolutionManager.Resolution;
 
@@ -98,7 +99,8 @@ public partial class Lelwindow : Window
 		AddChild(jgjk);
 	}
 
-	public override void _Process(double delta) {
+	public override void _Process(double delta)
+	{
 		base._Process(delta);
 
 		/*// windowdialog's close button just makes it invisible, this plays the close animation that also deletes
@@ -150,7 +152,8 @@ public partial class Lelwindow : Window
 	/// <summary>
 	/// Closes the window.
 	/// </summary>
-	public void Close() {
+	public void Close()
+	{
 		animation.Play("Close");
 		IsClosing = true;
 	}
@@ -159,13 +162,15 @@ public partial class Lelwindow : Window
 	/// Checks whether or not the window is active.
 	/// </summary>
 	/// <returns>Whether or not the window is active.</returns>
-	public bool IsActive() {
+	public bool IsActive()
+	{
 		//return GetIndex() == GetParent().GetChildCount()-1 && !GetViewport().GuiDisableInput;
 		return true;
 	}
 
 	// so the window doesn't get snapped just because your mouse was in the dock when you opened it
-	void SnapThing() {
+	void SnapThing()
+	{
 		CanSnap = true;
 	}
 }

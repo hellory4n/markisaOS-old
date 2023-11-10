@@ -2,13 +2,15 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
+namespace Lelsktop;
+
 public partial class Lelsktop : Node2D {
 	/// <summary>
 	/// If true, the user is currently using either the dock, panel, app menu, quick settings, or the workspace switcher.
 	/// </summary>
 	public static bool InteractingWithLelsktopInterface = false;
 
-	public override void _Ready() {
+	/*public override void _Ready() {
 		base._Ready();
 
 		Vector2 bruh = ResolutionManager.Resolution;
@@ -195,5 +197,5 @@ public partial class Lelsktop : Node2D {
 
 			InteractingWithLelsktopInterface = false;
 		}
-	}
+	}*/
 }

@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using Lelsktop.WindowManager;
 
 public partial class NewFolder : Lelwindow {
     public string Parent;

@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using Lelsktop.WindowManager;
 
 public partial class NotebookSaveAs : Lelwindow {
     public TextEditThing Tfhsjkgjrrh;
