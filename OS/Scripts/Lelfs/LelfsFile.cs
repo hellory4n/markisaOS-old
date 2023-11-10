@@ -22,7 +22,7 @@ public partial class LelfsFile {
     /// <summary>
     /// The metadata for this file.
     /// </summary>
-    public Dictionary<string, object> Metadata = new Dictionary<string, object>();
+    public Dictionary<string, object> Metadata = new();
     /// <summary>
     /// The path where this file can be accessed.
     /// </summary>
@@ -34,13 +34,13 @@ public partial class LelfsFile {
     /// <summary>
     /// This is where apps write their data to.
     /// </summary>
-    public Dictionary<string, object> Data = new Dictionary<string, object>();
+    public Dictionary<string, object> Data = new();
 
     /// <summary>
     /// Saves this file, or creates a new one if it hasn't been saved yet.
     /// </summary>
     public void Save() {
-        DirAccess directory = new DirAccess();
+        DirAccess directory = new();
         File file = new File();
         directory.MakeDirRecursive($"user://Users/{SavingManager.CurrentUser}/Files/");
 
@@ -112,7 +112,7 @@ public partial class LelfsFile {
     /// Deletes this file permanently.
     /// </summary>
     public virtual void Delete() {
-        DirAccess directory = new DirAccess();
+        DirAccess directory = new();
         if (LelfsManager.FileExists(Path3D)) {
             directory.Remove($"user://Users/{SavingManager.CurrentUser}/Files/{Id}.json");
             LelfsManager.Paths.Remove(Path3D);

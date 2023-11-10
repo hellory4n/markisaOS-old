@@ -10,23 +10,23 @@ public partial class AddTab : Button {
         Connect("pressed", new Callable(this, nameof(Click)));
     }
 
-    public override void _Process(float delta) {
+    public override void _Process(double delta) {
         base._Process(delta);
         // always be in the end of the thing, i think
         Raise();
 
         // help
-        if (Input.IsActionJustReleased("add_tab") && GetParent().GetParent().GetParent<BaseWindow>().IsActive()) {
+        if (Input.IsActionJustReleased("add_tab") && GetParent().GetParent().GetParent<Lelwindow>().IsActive()) {
             Click();
         }
     }
 
     public void Click() {
-        HSplitContainer coolTab = TabContent.Instance<HSplitContainer>();
+        HSplitContainer coolTab = TabContent.Instantiate<HSplitContainer>();
         // i have to set a theme at that scene so godot lets me put the correct sizes and stuff
         coolTab.Theme = null;
 
-        TabThing fart = TabThing.Instance<TabThing>();
+        TabThing fart = TabThing.Instantiate<TabThing>();
         fart.TabContent = coolTab;
         fart.Text = $"/";
         coolTab.GetNode<FileView>("Content/ContentThing/ItemList").TabThing = fart;

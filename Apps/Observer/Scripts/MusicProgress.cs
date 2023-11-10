@@ -7,7 +7,7 @@ public partial class MusicProgress : ProgressBar {
         MaxValue = GetNode<MusicPlayer>("../O/Audio").Music.GetLength();
     }
 
-    public override void _Process(float delta) {
+    public override void _Process(double delta) {
         base._Process(delta);
         Value = GetNode<MusicPlayer>("../O/Audio").GetPlaybackPosition();
     }

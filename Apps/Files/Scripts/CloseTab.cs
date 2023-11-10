@@ -7,11 +7,11 @@ public partial class CloseTab : Button {
         Connect("pressed", new Callable(this, nameof(Click)));
     }
 
-    public override void _Process(float delta) {
+    public override void _Process(double delta) {
         base._Process(delta);
         // comically large if statement
         if (Input.IsActionJustReleased("close_tab") && GetParent<Button>().ThemeTypeVariation == "ActiveTab"
-        && GetParent().GetParent().GetParent().GetParent<BaseWindow>().IsActive()) {
+        && GetParent().GetParent().GetParent().GetParent<Lelwindow>().IsActive()) {
             Click();
         }
     }

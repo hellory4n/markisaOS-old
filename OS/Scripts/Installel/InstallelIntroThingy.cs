@@ -10,7 +10,7 @@ public partial class InstallelIntroThingy : VideoStreamPlayer {
     public void Help() {
         GetNode<AudioStreamPlayer>("../../../../../H").StreamPaused = false;
         GetNode<AnimationPlayer>("../../Installel/AnimationPlayer").Play("Open");
-        GetNode<BaseWindow>("../../Installel").Position = new Vector2(50, 95);
+        GetNode<Lelwindow>("../../Installel").Position = new Vector2(50, 95);
         QueueFree();
     }
 }

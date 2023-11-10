@@ -9,13 +9,13 @@ public partial class FileView : ItemList {
     readonly Texture2D MusicIcon = ResourceLoader.Load<Texture2D>("res://Apps/Files/Assets/Music.png");
     readonly Texture2D VideoIcon = ResourceLoader.Load<Texture2D>("res://Apps/Files/Assets/Video.png");
     readonly Texture2D TextIcon = ResourceLoader.Load<Texture2D>("res://Apps/Files/Assets/Text.png");
-    List<string> CoolFiles = new List<string>();
+    List<string> CoolFiles = new();
     public string Path3D = "/";
     public Button TabThing;
     public string Selected;
     public string ToCopy;
     public PopupMenu ContextMenuThing;
-    List<string> Paths = new List<string>();
+    List<string> Paths = new();
     int PathIndex = -1;
     public string ToMove;
 
@@ -40,7 +40,7 @@ public partial class FileView : ItemList {
         GetNode<Button>("../FileOperations/Rename").Connect("pressed", new Callable(this, nameof(RenameFile)));
     }
 
-    public override void _Process(float delta) {
+    public override void _Process(double delta) {
         base._Process(delta);
         GetNode<Button>("../FileOperations/Copy").Disabled = Selected == null;
         GetNode<Button>("../FileOperations/Move").Disabled = Selected == null;
@@ -53,56 +53,56 @@ public partial class FileView : ItemList {
         GetNode<Button>("../Toolbar/Up").Disabled = Path3D == "/";
 
         // shortcuts :)
-        if (Input.IsActionJustReleased("back") && GetParent().GetParent().GetParent().GetParent<BaseWindow>()
+        if (Input.IsActionJustReleased("back") && GetParent().GetParent().GetParent().GetParent<Lelwindow>()
         .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab" && !GetNode<Button>("../Toolbar/Back").Disabled) {
             Back();
         }
 
-        if (Input.IsActionJustReleased("forward") && GetParent().GetParent().GetParent().GetParent<BaseWindow>()
+        if (Input.IsActionJustReleased("forward") && GetParent().GetParent().GetParent().GetParent<Lelwindow>()
         .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab" && !GetNode<Button>("../Toolbar/Forward").Disabled) {
             Forward();
         }
 
-        if (Input.IsActionJustReleased("up") && GetParent().GetParent().GetParent().GetParent<BaseWindow>()
+        if (Input.IsActionJustReleased("up") && GetParent().GetParent().GetParent().GetParent<Lelwindow>()
         .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab" && Path3D != "/") {
             Up();
         }
 
-        if (Input.IsActionJustReleased("refresh") && GetParent().GetParent().GetParent().GetParent<BaseWindow>()
+        if (Input.IsActionJustReleased("refresh") && GetParent().GetParent().GetParent().GetParent<Lelwindow>()
         .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab") {
             Refresh(Path3D, false);
         }
 
-        if (Input.IsActionJustReleased("copy") && GetParent().GetParent().GetParent().GetParent<BaseWindow>()
+        if (Input.IsActionJustReleased("copy") && GetParent().GetParent().GetParent().GetParent<Lelwindow>()
         .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab" && Selected != null) {
             CopyFile();
         }
 
-        if (Input.IsActionJustReleased("cut") && GetParent().GetParent().GetParent().GetParent<BaseWindow>()
+        if (Input.IsActionJustReleased("cut") && GetParent().GetParent().GetParent().GetParent<Lelwindow>()
         .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab" && Selected != null) {
             MoveFile();
         }
 
-        if (Input.IsActionJustReleased("paste") && GetParent().GetParent().GetParent().GetParent<BaseWindow>()
+        if (Input.IsActionJustReleased("paste") && GetParent().GetParent().GetParent().GetParent<Lelwindow>()
         .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab" && ToCopy != null && ToMove != null) {
             PasteFile();
         }
 
-        if (Input.IsActionJustReleased("delete") && GetParent().GetParent().GetParent().GetParent<BaseWindow>()
+        if (Input.IsActionJustReleased("delete") && GetParent().GetParent().GetParent().GetParent<Lelwindow>()
         .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab" && Selected != null) {
             DeleteFile();
         }
 
-        if (Input.IsActionJustReleased("rename") && GetParent().GetParent().GetParent().GetParent<BaseWindow>()
+        if (Input.IsActionJustReleased("rename") && GetParent().GetParent().GetParent().GetParent<Lelwindow>()
         .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab" && Selected != null) {
             RenameFile();
         }
 
-        if (Input.IsActionJustReleased("new_but_different") && GetParent().GetParent().GetParent().GetParent<BaseWindow>()
+        if (Input.IsActionJustReleased("new_but_different") && GetParent().GetParent().GetParent().GetParent<Lelwindow>()
         .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab") {
             WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
             PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Files/NewFolder.tscn");
-            NewFolder jjkn = m.Instance<NewFolder>();
+            NewFolder jjkn = m.Instantiate<NewFolder>();
 
             LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(Path3D);
             jjkn.Parent = dfggfdf.Id;
@@ -112,11 +112,11 @@ public partial class FileView : ItemList {
             wm.AddWindow(jjkn);
         }
 
-        if (Input.IsActionJustReleased("new") && GetParent().GetParent().GetParent().GetParent<BaseWindow>()
+        if (Input.IsActionJustReleased("new") && GetParent().GetParent().GetParent().GetParent<Lelwindow>()
         .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab") {
             WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
             PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Files/NewFile.tscn");
-            NewFile jjkn = m.Instance<NewFile>();
+            NewFile jjkn = m.Instantiate<NewFile>();
 
             // pain
             LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(Path3D);
@@ -223,7 +223,7 @@ public partial class FileView : ItemList {
             case "Picture":
                 WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
                 PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Observer/Observer.tscn");
-                Observer jjkn = m.Instance<Observer>();
+                Observer jjkn = m.Instantiate<Observer>();
                 jjkn.ObserverMode = Observer.Mode.Image;
                 jjkn.MediaId = pain.Id;
                 wm.AddWindow(jjkn);
@@ -231,7 +231,7 @@ public partial class FileView : ItemList {
             case "Audio":
                 WindowManager wm1 = GetNode<WindowManager>("/root/WindowManager");
                 PackedScene m1 = ResourceLoader.Load<PackedScene>("res://Apps/Observer/Observer.tscn");
-                Observer jjkn1 = m1.Instance<Observer>();
+                Observer jjkn1 = m1.Instantiate<Observer>();
                 jjkn1.ObserverMode = Observer.Mode.Audio;
                 jjkn1.MediaId = pain.Id;
                 wm1.AddWindow(jjkn1);
@@ -239,7 +239,7 @@ public partial class FileView : ItemList {
             case "Video":
                 WindowManager wm2 = GetNode<WindowManager>("/root/WindowManager");
                 PackedScene m2 = ResourceLoader.Load<PackedScene>("res://Apps/Observer/Observer.tscn");
-                Observer jjkn2 = m2.Instance<Observer>();
+                Observer jjkn2 = m2.Instantiate<Observer>();
                 jjkn2.ObserverMode = Observer.Mode.Video;
                 jjkn2.MediaId = pain.Id;
                 wm2.AddWindow(jjkn2);
@@ -247,7 +247,7 @@ public partial class FileView : ItemList {
             case "Text":
                 WindowManager wm3 = GetNode<WindowManager>("/root/WindowManager");
                 PackedScene m3 = ResourceLoader.Load<PackedScene>("res://Apps/Notebook/Notebook.tscn");
-                var jjkn3 = m3.Instance<Notebook>();
+                var jjkn3 = m3.Instantiate<Notebook>();
                 wm3.AddWindow(jjkn3);
                 jjkn3.Suffer = true;
                 jjkn3.Fhgkfdlkjgjkhgjf = pain.Id;
@@ -311,7 +311,7 @@ public partial class FileView : ItemList {
     void PasteFile() {
         WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
         PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Files/Paste.tscn");
-        PasteFile jjkn = m.Instance<PasteFile>();
+        PasteFile jjkn = m.Instantiate<PasteFile>();
 
         // pain
         LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(Path3D);
@@ -334,7 +334,7 @@ public partial class FileView : ItemList {
             case 0:
                 WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
                 PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Files/NewFile.tscn");
-                NewFile jjkn = m.Instance<NewFile>();
+                NewFile jjkn = m.Instantiate<NewFile>();
 
                 // pain
                 LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(Path3D);
@@ -346,7 +346,7 @@ public partial class FileView : ItemList {
             case 1:
                 WindowManager wm1 = GetNode<WindowManager>("/root/WindowManager");
                 PackedScene m1 = ResourceLoader.Load<PackedScene>("res://Apps/Files/NewFolder.tscn");
-                NewFolder jjkn1 = m1.Instance<NewFolder>();
+                NewFolder jjkn1 = m1.Instantiate<NewFolder>();
 
                 // pain
                 LelfsFile dfggfdf1 = LelfsManager.Load<LelfsFile>(Path3D);
@@ -405,7 +405,7 @@ public partial class FileView : ItemList {
     void DeleteFile() {
         WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
         PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Files/Delete.tscn");
-        Delete jjkn = m.Instance<Delete>();
+        Delete jjkn = m.Instantiate<Delete>();
 
         // pain
         LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(Path3D);
@@ -419,7 +419,7 @@ public partial class FileView : ItemList {
     void RenameFile() {
         WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
         PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Files/Rename.tscn");
-        Rename jjkn = m.Instance<Rename>();
+        Rename jjkn = m.Instantiate<Rename>();
 
         // pain
         LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(Path3D);

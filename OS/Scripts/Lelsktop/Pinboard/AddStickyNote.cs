@@ -25,14 +25,14 @@ public partial class AddStickyNote : TextureButton {
 
         // add it and stuff :)
         var ftgkvtfyu = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/StickyNote.tscn");
-        var sticker = ftgkvtfyu.Instance<StickyNote>();
+        var sticker = ftgkvtfyu.Instantiate<StickyNote>();
         sticker.Position = stickerdbgfdf.Position;
         sticker.GetNode<TextEdit>("Text").Text = stickerdbgfdf.Text;
         sticker.PinboardItem = bullshit;
         GetNode("/root/Lelsktop/Pinboard").AddChild(sticker);
     }
 
-    public override void _Process(float delta) {
+    public override void _Process(double delta) {
         base._Process(delta);
         // so true
         Visible = Pinboard.EditingPinboard;

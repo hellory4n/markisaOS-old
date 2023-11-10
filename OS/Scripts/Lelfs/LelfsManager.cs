@@ -11,7 +11,7 @@ public partial class LelfsManager : Node {
     /// <summary>
     /// The list of paths available in the filesystem. The key is the path, and the value is the ID.
     /// </summary>
-    public static Dictionary<string, string> Paths = new Dictionary<string, string>();
+    public static Dictionary<string, string> Paths = new();
 
     /// <summary>
     /// Reloads the paths available in the filesystem, or creates a new one if the user doesn't have the files for the filesystem yet.
@@ -124,7 +124,7 @@ public partial class LelfsManager : Node {
         // FIXME: this is very much not efficient and would get slower with more files, 
         // please fix this at some point for fuck's sake
         string parentId = Load<Folder>(path).Id;
-        List<LelfsFile> pain = new List<LelfsFile>();
+        List<LelfsFile> pain = new();
         foreach (var item in Paths) {
             LelfsFile bruh = LoadById<LelfsFile>(item.Value);
             if (bruh.Parent == parentId)
@@ -145,7 +145,7 @@ public partial class LelfsManager : Node {
             "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x",
             "y", "z", "-", "_"
         };
-        Random random = new Random();
+        Random random = new();
         for (int i = 0; i < 20; i++) {
             id += possibleCharacters[random.Next(0, 63)];
         }
@@ -165,7 +165,8 @@ public partial class LelfsManager : Node {
         }
 
         // setup stuff :)
-        LelfsFile yeah = new LelfsFile {
+        LelfsFile yeah = new()
+        {
             Parent = parent,
             Name = name,
             Id = GenerateID()
@@ -195,7 +196,8 @@ public partial class LelfsManager : Node {
         }
 
         // setup stuff :)
-        Folder yeah = new Folder {
+        Folder yeah = new()
+        {
             Parent = parent,
             Name = name,
             Id = GenerateID(),

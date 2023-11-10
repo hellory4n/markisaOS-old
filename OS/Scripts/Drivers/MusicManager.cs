@@ -6,8 +6,8 @@ using System.Collections.Generic;
 /// Manages music. NOTE: You should avoid using this class directly and instead use the MusicPlayer node.
 /// </summary>
 public partial class MusicManager : Node {
-    List<AudioStreamPlayer> Players = new List<AudioStreamPlayer>();
-    public List<bool> PausedPlayers = new List<bool>();
+    List<AudioStreamPlayer> Players = new();
+    public List<bool> PausedPlayers = new();
     int ActiveMusic = 0;
     public float MusicVolume = 0;
 
@@ -37,7 +37,7 @@ public partial class MusicManager : Node {
         GetChild<AudioStreamPlayer>(index).VolumeDb = int.MinValue;
     }
 
-    public override void _Process(float delta) {
+    public override void _Process(double delta) {
         base._Process(delta);
         for (int i = 0; i < Players.Count; i++) {
             AudioStreamPlayer yes = Players[i];

@@ -24,10 +24,10 @@ public partial class ConversationList : VBoxContainer {
         // indeed
         int i = 0;
         foreach (var conversation in conversations) {
-            var h = MessageThingy.Instance<SidebarButton>();
+            var h = MessageThingy.Instantiate<SidebarButton>();
             h.Icon = ResourceLoader.Load<Texture2D>(conversation.Icon);
             h.Text = conversation.Name;
-            var bullshit = Shit.Instance<MessagingInterface>();
+            var bullshit = Shit.Instantiate<MessagingInterface>();
             // the sidebar button thing requires the content's name to start with "Category" :)))
             bullshit.Name = $"Category{LelfsManager.GenerateID()}";
             bullshit.Visible = false;

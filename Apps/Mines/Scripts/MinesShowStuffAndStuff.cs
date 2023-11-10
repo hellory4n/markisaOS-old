@@ -58,10 +58,10 @@ public partial class MinesShowStuffAndStuff : TextureButton {
         
         // then try checking all of the corners stuff
         Vector2[] epicPlaces = new Vector2[] {
-            new Vector2(epicPosition.x+1, epicPosition.y),
-            new Vector2(epicPosition.x, epicPosition.y+1),
-            new Vector2(epicPosition.x-1, epicPosition.y),
-            new Vector2(epicPosition.x, epicPosition.y-1),
+            new(epicPosition.x+1, epicPosition.y),
+            new(epicPosition.x, epicPosition.y+1),
+            new(epicPosition.x-1, epicPosition.y),
+            new(epicPosition.x, epicPosition.y-1),
         };
 
         foreach (var place in epicPlaces) {

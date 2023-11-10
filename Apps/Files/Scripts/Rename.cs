@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Rename : BaseWindow {
+public partial class Rename : Lelwindow {
     public string Parent;
     public FileView ThingThatINeedToRefresh;
     public string CoolFile;

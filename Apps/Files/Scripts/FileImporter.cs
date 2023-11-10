@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class FileImporter : BaseWindow {
+public partial class FileImporter : Lelwindow {
     public string Parent;
     public FileView ThingThatINeedToRefresh;
 
@@ -62,13 +62,13 @@ public partial class FileImporter : BaseWindow {
         }
 
         // import file
-        DirAccess dir = new DirAccess();
+        DirAccess dir = new();
         dir.MakeDirRecursive("user://ImportedFiles/");
         string newPath = $"user://ImportedFiles/{LelfsManager.GenerateID()}.{StringExtensions.Extension(path)}";
         dir.Copy(path, newPath);
 
         // make the file in lelfs
-        Random random = new Random();
+        Random random = new();
         if (StringExtensions.Extension(newPath) == "png" || StringExtensions.Extension(newPath) == "jpg" ||
         StringExtensions.Extension(newPath) == "jpeg" || StringExtensions.Extension(newPath) == "webp" ||
         StringExtensions.Extension(newPath) == "svg") {

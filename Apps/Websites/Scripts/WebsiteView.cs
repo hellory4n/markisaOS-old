@@ -2,10 +2,12 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
+namespace Websites;
+
 public partial class WebsiteView : Control {
     string coolAddress = "web://passionfruit.com/lelcubeos/me/home.tscn";
     Control previousThing;
-    List<string> addresses = new List<string>();
+    List<string> addresses = new();
     int addressIndex = -1;
 
     public override void _Ready() {
@@ -13,7 +15,7 @@ public partial class WebsiteView : Control {
         LoadStuff(coolAddress);
     }
 
-    public override void _Process(float delta) {
+    public override void _Process(double delta) {
         base._Process(delta);
         GetNode<Button>("Toolbar/Back").Disabled = addressIndex == 0;
         GetNode<Button>("Toolbar/Forward").Disabled = addressIndex == addresses.Count-1;
@@ -55,7 +57,7 @@ public partial class WebsiteView : Control {
         if (!ResourceLoader.Exists(h) || !h.StartsWith("res://Web/")) {
             previousThing?.QueueFree();
             var ohShoes = ResourceLoader.Load<PackedScene>("res://Web/404/home.tscn");
-            var m = ohShoes.Instance<Control>();
+            var m = ohShoes.Instantiate<Control>();
             m.OffsetTop = 60;
             AddChild(m);
             previousThing = m;
@@ -63,7 +65,7 @@ public partial class WebsiteView : Control {
         } else {
             previousThing?.QueueFree();
             var jgkjfgkb = ResourceLoader.Load<PackedScene>(h);
-            var m = jgkjfgkb.Instance<Control>();
+            var m = jgkjfgkb.Instantiate<Control>();
             m.OffsetTop = 60;
             AddChild(m);
             previousThing = m;

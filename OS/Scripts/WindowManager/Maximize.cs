@@ -7,7 +7,7 @@ public partial class Maximize : Button {
         Connect("pressed", new Callable(this, nameof(Click)));
     }
 
-    public override void _Process(float delta) {
+    public override void _Process(double delta) {
         base._Process(delta);
         Window window = (Window)GetParent();
         if (!window.Resizable) {

@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Observer : BaseWindow {
+public partial class Observer : Lelwindow {
     public enum Mode {
         Image,
         Audio,
@@ -21,7 +21,7 @@ public partial class Observer : BaseWindow {
         switch (ObserverMode) {
             case Mode.Image:
                 PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Observer/ImageView.tscn");
-                Control coolImageThing = m.Instance<Control>();
+                Control coolImageThing = m.Instantiate<Control>();
 
                 LelfsFile coolFile = LelfsManager.LoadById<LelfsFile>(MediaId);
                 if (coolFile.Data.ContainsKey("Resource")) {
@@ -36,7 +36,7 @@ public partial class Observer : BaseWindow {
                 break;
             case Mode.Audio:
                 PackedScene m2 = ResourceLoader.Load<PackedScene>("res://Apps/Observer/MusicPlayer.tscn");
-                Control coolMusicThing = m2.Instance<Control>();
+                Control coolMusicThing = m2.Instantiate<Control>();
 
                 LelfsFile epicFile = LelfsManager.LoadById<LelfsFile>(MediaId);
                 if (epicFile.Data.ContainsKey("Resource")) {
@@ -64,7 +64,7 @@ public partial class Observer : BaseWindow {
                 break;
             case Mode.Video:
                 PackedScene m3 = ResourceLoader.Load<PackedScene>("res://Apps/Observer/VideoPlayer.tscn");
-                Control coolVideoThing = m3.Instance<Control>();
+                Control coolVideoThing = m3.Instantiate<Control>();
 
                 // one of the codes of all time
                 LelfsFile majesticFile = LelfsManager.LoadById<LelfsFile>(MediaId);
@@ -81,7 +81,7 @@ public partial class Observer : BaseWindow {
                 break;
             case Mode.Nothing:
                 PackedScene m1 = ResourceLoader.Load<PackedScene>("res://Apps/Observer/NothingLoaded.tscn");
-                CenterContainer coolNothingThing = m1.Instance<CenterContainer>();
+                CenterContainer coolNothingThing = m1.Instantiate<CenterContainer>();
                 AddChild(coolNothingThing);
                 break;
         }

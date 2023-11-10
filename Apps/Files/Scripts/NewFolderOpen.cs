@@ -10,7 +10,7 @@ public partial class NewFolderOpen : Button {
     public void Click() {
         WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
         PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Files/NewFolder.tscn");
-        NewFolder jjkn = m.Instance<NewFolder>();
+        NewFolder jjkn = m.Instantiate<NewFolder>();
 
         // pain
         FileView mewhenthe = GetNode<FileView>("../../ItemList");

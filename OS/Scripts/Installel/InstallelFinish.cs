@@ -25,13 +25,13 @@ public partial class InstallelFinish : Button {
             return;
         }
 
-        Regex what = new Regex("[\"/<>:\\|?*]", RegexOptions.Compiled | RegexOptions.CultureInvariant);
+        Regex what = new("[\"/<>:\\|?*]", RegexOptions.Compiled | RegexOptions.CultureInvariant);
         if (what.Matches(name).Count > 0) {
             Shit("Names can't include the characters \\/<>:|?*", true);
             return;
         }
 
-        Regex idkman = new Regex("[^[a-z0-9._]", RegexOptions.Compiled | RegexOptions.CultureInvariant);
+        Regex idkman = new("[^[a-z0-9._]", RegexOptions.Compiled | RegexOptions.CultureInvariant);
         if (idkman.Matches(lelnetUsername).Count > 0) {
             Shit("Lelnet usernames only allow lowercase characters, numbers, underscores (_) and periods (.)", true);
             return;
@@ -53,7 +53,8 @@ public partial class InstallelFinish : Button {
         }
 
         // actually make the user :)
-        UserInfo info = new UserInfo {
+        UserInfo info = new()
+        {
             Photo = icon,
             LelnetUsername = lelnetUsername
         };
@@ -96,7 +97,7 @@ public partial class InstallelFinish : Button {
         // finally login :)))))))))))))))))))))))))))))))))
         SavingManager.CurrentUser = name;
         PackedScene packedScene = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Lelsktop.tscn");
-        Node lelsktop = packedScene.Instance();
+        Node lelsktop = packedScene.Instantiate();
         GetTree().Root.AddChild(lelsktop);
         GetNode<Node2D>("/root/InstallelOobe").QueueFree();
     }

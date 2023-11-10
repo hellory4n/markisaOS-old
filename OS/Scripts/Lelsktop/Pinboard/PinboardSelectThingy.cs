@@ -16,7 +16,7 @@ public partial class PinboardSelectThingy : Node2D {
         RemoveSticker = Yes.GetNode<Panel>("Delete").GetRect().GrowIndividual(-80, -20, -80, -20);
     }
 
-    public override void _Process(float delta) {
+    public override void _Process(double delta) {
         base._Process(delta);
         // themes are certainly cool & stuff
         Yes.Theme = GetNode<Control>("../1/Windows/ThemeThing").Theme;

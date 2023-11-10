@@ -40,7 +40,7 @@ public partial class ComputerNoisesManager : Node {
         AddChild(Hdd);
     }
 
-    public override void _Process(float delta) {
+    public override void _Process(double delta) {
         base._Process(delta);
 
         if (GetNodeOrNull("/root/Lelsktop") == null)
@@ -53,28 +53,28 @@ public partial class ComputerNoisesManager : Node {
         float storageOmg = 10;
         // we need to check every single workspace :))))))))
 
-        foreach (BaseWindow window in GetNode("/root/Lelsktop/1/Windows/ThemeThing").GetChildren()) {
+        foreach (Lelwindow window in GetNode("/root/Lelsktop/1/Windows/ThemeThing").GetChildren()) {
             cpuOmg += window.CpuUse;
             gpuOmg += window.GpuUse;
             memoryOmg += window.MemoryUse;
             storageOmg += window.StorageUse;
         }
 
-        foreach (BaseWindow window in GetNode("/root/Lelsktop/2/Windows/ThemeThing").GetChildren()) {
+        foreach (Lelwindow window in GetNode("/root/Lelsktop/2/Windows/ThemeThing").GetChildren()) {
             cpuOmg += window.CpuUse;
             gpuOmg += window.GpuUse;
             memoryOmg += window.MemoryUse;
             storageOmg += window.StorageUse;
         }
 
-        foreach (BaseWindow window in GetNode("/root/Lelsktop/3/Windows/ThemeThing").GetChildren()) {
+        foreach (Lelwindow window in GetNode("/root/Lelsktop/3/Windows/ThemeThing").GetChildren()) {
             cpuOmg += window.CpuUse;
             gpuOmg += window.GpuUse;
             memoryOmg += window.MemoryUse;
             storageOmg += window.StorageUse;
         }
 
-        foreach (BaseWindow window in GetNode("/root/Lelsktop/4/Windows/ThemeThing").GetChildren()) {
+        foreach (Lelwindow window in GetNode("/root/Lelsktop/4/Windows/ThemeThing").GetChildren()) {
             cpuOmg += window.CpuUse;
             gpuOmg += window.GpuUse;
             memoryOmg += window.MemoryUse;

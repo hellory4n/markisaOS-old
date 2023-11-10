@@ -2,6 +2,8 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
+namespace Lelsktop.WindowManager;
+
 /// <summary>
 /// Responsible for managing all windows in the lelsktop.
 /// </summary>
@@ -18,20 +20,20 @@ public partial class WindowManager : Node2D {
     /// Opens a window in the lelsktop.
     /// </summary>
     /// <param name="window">The window to open.</param>
-    public void AddWindow(BaseWindow window) {
+    public void AddWindow(Lelwindow window) {
         Control lelsktop = CurrentWorkspace.GetNode<Control>("ThemeThing");
         lelsktop.AddChild(window);
         // using window.Popup_() makes it only work with 1 window, so this is a hack to bypass that
         window.Visible = true;
 
         // put it on the center of the screen
-        Vector2 yes = ResolutionManager.Resolution;
-        yes -= new Vector2(85, 0);
-        yes += new Vector2(0, 40);
+        Vector2I yes = ResolutionManager.Resolution;
+        yes -= new Vector2I(85, 0);
+        yes += new Vector2I(0, 40);
         window.Position = yes/2 - (window.Size/2);
 
         // add it to the dock
-        OpenWindowButton coolDockButton = (OpenWindowButton)OpenWindow.Instance();
+        OpenWindowButton coolDockButton = (OpenWindowButton)OpenWindow.Instantiate();
         coolDockButton.Init(window);
         VBoxContainer dock = GetNode<VBoxContainer>("/root/LelsktopInterface/Dock/DockStuff/Running");
         dock.AddChild(coolDockButton);

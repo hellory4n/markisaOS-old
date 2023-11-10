@@ -53,14 +53,14 @@ public partial class CreateUser : Button {
         }
 
         // these characters are not allowed in windows, which isn't good since each user is a folder and stuff
-        Regex what = new Regex("[\"/<>:\\|?*]", RegexOptions.Compiled | RegexOptions.CultureInvariant);
+        Regex what = new("[\"/<>:\\|?*]", RegexOptions.Compiled | RegexOptions.CultureInvariant);
         if (what.Matches(name.Text).Count > 0) {
             errorThingy.Text = "Names can't include the characters \\/<>:|?*";
             sounds.PlaySoundEffect(SoundManager.SoundEffects.Error);
             return;
         }
 
-        Regex idkman = new Regex("[^[a-z0-9._]", RegexOptions.Compiled | RegexOptions.CultureInvariant);
+        Regex idkman = new("[^[a-z0-9._]", RegexOptions.Compiled | RegexOptions.CultureInvariant);
         if (idkman.Matches(username.Text).Count > 0) {
             errorThingy.Text = "Lelnet usernames only allow lowercase characters, numbers, underscores (_) and periods (.)";
             sounds.PlaySoundEffect(SoundManager.SoundEffects.Error);
@@ -68,8 +68,8 @@ public partial class CreateUser : Button {
         }
 
         // make sure the user doesn't already exist :)
-        List<string> users = new List<string>();
-        DirAccess dir = new DirAccess();
+        List<string> users = new();
+        DirAccess dir = new();
         dir.Open("user://Users/");
         dir.ListDirBegin(true);
         string filename = dir.GetNext();
@@ -86,7 +86,8 @@ public partial class CreateUser : Button {
         }
 
         // now we actually make the user and login
-        UserInfo info = new UserInfo {
+        UserInfo info = new()
+        {
             Photo = icon,
             LelnetUsername = username.Text
         };
@@ -94,7 +95,7 @@ public partial class CreateUser : Button {
 
         SavingManager.CurrentUser = name.Text;
         PackedScene packedScene = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Lelsktop.tscn");
-        Node lelsktop = packedScene.Instance();
+        Node lelsktop = packedScene.Instantiate();
         GetTree().Root.AddChild(lelsktop);
         GetNode<Node2D>("/root/Onboarding").QueueFree();
         GetNode<Node2D>("/root/NewUser").QueueFree();

@@ -8,6 +8,6 @@ public partial class Close : Button {
     }
 
     public void Click() {
-        GetParent<BaseWindow>().Close();
+        GetParent<Lelwindow>().Close();
     }
 }

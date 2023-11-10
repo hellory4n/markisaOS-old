@@ -8,25 +8,25 @@ public partial class LeltabsAdd : Button {
         Connect("pressed", new Callable(this, nameof(Click)));
     }
 
-    public override void _Process(float delta) {
+    public override void _Process(double delta) {
         base._Process(delta);
         // always be in the end of the thing, i think
         Raise();
 
         // help
-        if (Input.IsActionJustReleased("add_tab") && GetParent().GetParent().GetParent<BaseWindow>().IsActive()) {
+        if (Input.IsActionJustReleased("add_tab") && GetParent().GetParent().GetParent<Lelwindow>().IsActive()) {
             Click();
         }
     }
 
     public void Click() {
         var m = ResourceLoader.Load<PackedScene>(GetParent<Leltabs>().TabContentThing);
-        var coolTab = m.Instance<Control>();
+        var coolTab = m.Instantiate<Control>();
         // i have to set a theme at that scene so godot lets me put the correct sizes and stuff
         coolTab.Theme = null;
 
         var h = ResourceLoader.Load<PackedScene>(GetParent<Leltabs>().TabThing);
-        var fart = h.Instance<LeltabsTab>();
+        var fart = h.Instantiate<LeltabsTab>();
         fart.TabContent = coolTab;
         fart.Text = "New Tab";
         

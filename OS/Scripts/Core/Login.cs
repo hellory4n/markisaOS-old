@@ -15,7 +15,7 @@ public partial class Login : Button {
             LelfsManager.UpdatePaths();
 
         PackedScene packedScene = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Lelsktop.tscn");
-        Node lelsktop = packedScene.Instance();
+        Node lelsktop = packedScene.Instantiate();
         GetTree().Root.AddChild(lelsktop);
 
         GetNode<Node2D>("/root/Onboarding").QueueFree();

@@ -17,7 +17,7 @@ public partial class EndBoot : Timer {
         }
     }
 
-    public override void _Process(float delta) {
+    public override void _Process(double delta) {
         // having to wait for the boot screen everytime i test it is very dogwater
         if (Input.IsActionJustReleased("skip_boot"))
             Thing();
@@ -30,7 +30,7 @@ public partial class EndBoot : Timer {
             aPackedScene = ResourceLoader.Load<PackedScene>("res://OS/Core/Installel.tscn");
         else
             aPackedScene = ResourceLoader.Load<PackedScene>("res://OS/Core/Onboarding.tscn");
-        Node aNode = aPackedScene.Instance();
+        Node aNode = aPackedScene.Instantiate();
         GetTree().Root.AddChild(aNode);
         GetParent().QueueFree();
     }

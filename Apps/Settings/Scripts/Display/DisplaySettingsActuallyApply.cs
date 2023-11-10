@@ -11,7 +11,8 @@ public partial class DisplaySettingsActuallyApply : Button {
     }
 
     public void Click() {
-        DisplaySettings m = new DisplaySettings {
+        DisplaySettings m = new()
+        {
             Resolution = Resolution,
             ScalingFactor = ScalingFactor,
             AlreadySetup = true
@@ -19,7 +20,7 @@ public partial class DisplaySettingsActuallyApply : Button {
         SavingManager.SaveSettings(m);
 
         PackedScene aPackedScene = ResourceLoader.Load<PackedScene>("res://OS/Core/Onboarding.tscn");
-        Node aNode = aPackedScene.Instance();
+        Node aNode = aPackedScene.Instantiate();
         GetTree().Root.AddChild(aNode);
         GetNode("/root/Lelsktop").QueueFree();
         GetNode("/root/LelsktopInterface").QueueFree();

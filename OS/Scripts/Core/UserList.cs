@@ -17,13 +17,13 @@ public partial class UserList : VBoxContainer {
         Texture2D shuttle = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Shuttle.png");
         Texture2D football = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Football.png");
 
-        DirAccess dir = new DirAccess();
+        DirAccess dir = new();
         if (dir.DirExists("user://Users/")) {
             dir.Open("user://Users/");
             dir.ListDirBegin(true);
             string filename = dir.GetNext();
             while (filename != "") {
-                Button useromgomgomg = (Button)stupidity.Instance();
+                Button useromgomgomg = (Button)stupidity.Instantiate();
                 useromgomgomg.Text = filename;
                 
                 // cool user photo

@@ -12,7 +12,7 @@ public partial class InstallerLicenseNext : Button {
         Connect("pressed", new Callable(this, nameof(Click)));
     }
 
-    public override void _Process(float delta) {
+    public override void _Process(double delta) {
         base._Process(delta);
         Disabled = !GetNode<CheckBox>("../CheckBox").Pressed;
     }

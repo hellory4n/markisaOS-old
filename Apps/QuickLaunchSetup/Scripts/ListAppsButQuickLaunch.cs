@@ -32,12 +32,12 @@ public partial class ListAppsButQuickLaunch : VBoxContainer {
             }
 
             if (!nbh) {
-                Control gksnj = yes.Instance<Control>();
+                Control gksnj = yes.Instantiate<Control>();
                 gksnj.GetNode<Label>("Label").Text = app.Name;
                 gksnj.GetNode<AddToQuickLaunch>("Button").App = app;
                 AddChild(gksnj);
             } else {
-                Control gksnj = no.Instance<Control>();
+                Control gksnj = no.Instantiate<Control>();
                 gksnj.GetNode<Label>("Label").Text = app.Name;
                 gksnj.GetNode<RemoveFromQuickLaunch>("Button").App = app;
                 AddChild(gksnj);

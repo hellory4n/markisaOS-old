@@ -13,7 +13,7 @@ public partial class MobileSetup : Control {
         DisplaySettings m = SavingManager.LoadSettings<DisplaySettings>();
         if (m.AlreadySetup) {
             PackedScene aPackedScene = ResourceLoader.Load<PackedScene>("res://OS/Core/Bootscreen.tscn");
-            Node aNode = aPackedScene.Instance();
+            Node aNode = aPackedScene.Instantiate();
             GetTree().Root.CallDeferred("add_child", aNode);
             GetParent().QueueFree();
         } else {
@@ -69,7 +69,7 @@ public partial class MobileSetup : Control {
             SavingManager.SaveSettings(display);
 
             PackedScene m = ResourceLoader.Load<PackedScene>("res://OS/Core/Bootscreen.tscn");
-            Node jjkn = m.Instance();
+            Node jjkn = m.Instantiate();
             GetTree().Root.AddChild(jjkn);
             GetParent().QueueFree();
         }

@@ -19,10 +19,10 @@ public partial class WebMusicPlayer : Node {
         Leltabs = GetNode(WebsiteRoot).GetParent().GetParent().GetNode<Leltabs>("Leltabs/TabBar");
     }
 
-    public override void _Process(float delta) {
+    public override void _Process(double delta) {
         base._Process(delta);
         // yes.
-        if (GetNode(WebsiteRoot).GetParent().GetParent<BaseWindow>().IsClosing) {
+        if (GetNode(WebsiteRoot).GetParent().GetParent<Lelwindow>().IsClosing) {
             musicManager.DeletePlayer(PlayerIndex);
             return;
         }

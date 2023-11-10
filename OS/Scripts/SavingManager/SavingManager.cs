@@ -12,14 +12,15 @@ public partial class SavingManager : Node {
     // setups settings files, in _EnterTree() since it needs to be ready before the things that use the settings
     public override void _EnterTree() {
         base._EnterTree();
-        DirAccess dir = new DirAccess();
+        DirAccess dir = new();
         dir.MakeDirRecursive("user://Settings/");
 
         File displaySettings = new File();
 
         if (!displaySettings.FileExists("user://Settings/DisplaySettings.json")) {
             displaySettings.Open("user://Settings/DisplaySettings.json", File.ModeFlags.Write);
-            DisplaySettings thing = new DisplaySettings {
+            DisplaySettings thing = new()
+            {
                 Resolution = OS.GetScreenSize()
             };
 
@@ -52,10 +53,10 @@ public partial class SavingManager : Node {
     public static void NewUser(string user, UserInfo info) {
         CurrentUser = user;
         File file = new File();
-        DirAccess dir = new DirAccess();
+        DirAccess dir = new();
         dir.MakeDirRecursive($"user://Users/{user}/");
         file.Open($"user://Users/{user}/BasicInfo.json", File.ModeFlags.Write);
-        BasicUser m = new BasicUser();
+        BasicUser m = new();
         file.StoreString(
             JsonConvert.SerializeObject(m)
         );
@@ -304,7 +305,7 @@ public partial class SavingManager : Node {
             suffer.Close();
 
             // setup the filesystem
-            DirAccess dir = new DirAccess();
+            DirAccess dir = new();
             dir.MakeDirRecursive($"user://Users/{user}/Files/");
 
             File haha = new File();

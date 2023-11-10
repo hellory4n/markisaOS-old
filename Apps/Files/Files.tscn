@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Apps/Files/Assets/IconDock.png" type="Texture2D" id=2]
-[ext_resource path="res://OS/Scripts/WindowManager/BaseWindow.cs" type="Script" id=3]
+[ext_resource path="res://OS/Scripts/WindowManager/Lelwindow.cs" type="Script" id=3]
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Add.png" type="Texture2D" id=6]
 [ext_resource path="res://Apps/Files/Scripts/FileTabs.cs" type="Script" id=7]
 [ext_resource path="res://Apps/Files/Scripts/AddTab.cs" type="Script" id=8]

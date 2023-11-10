@@ -13,6 +13,6 @@ public partial class DisplaySettingsAutoRevert : Timer {
         // since the settings aren't actually saved we can just do this
         resolutionManager.Update();
 
-        GetParent<BaseWindow>().Close();
+        GetParent<Lelwindow>().Close();
     }
 }

@@ -84,7 +84,7 @@ public partial class Folder : LelfsFile {
     /// Deletes this folder and all of its items.
     /// </summary>
     public override void Delete() {
-        DirAccess directory = new DirAccess();
+        DirAccess directory = new();
         if (directory.FileExists($"user://Users/{SavingManager.CurrentUser}/Files/{Id}.json")) {
             foreach (LelfsFile m in LelfsManager.GetFolderItems(Path3D)) {
                 if (m.Type == "Folder") {

@@ -16,9 +16,9 @@ public partial class MinesGameGenerator9000 : Node {
     };
     public readonly Texture2D Nothingness = ResourceLoader.Load<Texture2D>("res://Apps/Mines/Assets/Nothingness.png");
     public readonly Texture2D EmptySquare = ResourceLoader.Load<Texture2D>("res://Apps/Mines/Assets/Thingy2.png");
-    Random random = new Random();
+    Random random = new();
     [Export]
-    Vector2 Grid = new Vector2(9, 9);
+    Vector2 Grid = new(9, 9);
     [Export]
     int Mines = 10;
     public int ShownStuff = 0;
@@ -29,7 +29,7 @@ public partial class MinesGameGenerator9000 : Node {
         // first put the mines in places
         Vector2[] mines = new Vector2[Mines];
         for (int i = 0; i < Mines; i++) {
-            Vector2 fun = new Vector2(random.Next(1, (int)Grid.x), random.Next(1, (int)Grid.x));
+            Vector2 fun = new(random.Next(1, (int)Grid.x), random.Next(1, (int)Grid.x));
 
             // if that mine was already there then try again
             if (mines.Contains(fun)) {
@@ -53,14 +53,14 @@ public partial class MinesGameGenerator9000 : Node {
             int nearbyMines = 0;
             // we need to check the thing in all 8 sides of the squares
             Vector2[] epicPlaces = new Vector2[] {
-                new Vector2(position.x+1, position.y),
-                new Vector2(position.x+1, position.y+1),
-                new Vector2(position.x, position.y+1),
-                new Vector2(position.x-1, position.y+1),
-                new Vector2(position.x-1, position.y),
-                new Vector2(position.x-1, position.y-1),
-                new Vector2(position.x, position.y-1),
-                new Vector2(position.x+1, position.y-1)
+                new(position.x+1, position.y),
+                new(position.x+1, position.y+1),
+                new(position.x, position.y+1),
+                new(position.x-1, position.y+1),
+                new(position.x-1, position.y),
+                new(position.x-1, position.y-1),
+                new(position.x, position.y-1),
+                new(position.x+1, position.y-1)
             };
 
             foreach (var place in epicPlaces) {
@@ -82,7 +82,7 @@ public partial class MinesGameGenerator9000 : Node {
         NonExplosiveSquares = totalSquares - Mines;
     }
 
-    public override void _Process(float delta) {
+    public override void _Process(double delta) {
         base._Process(delta);
         // win the game :))))
         if (ShownStuff == NonExplosiveSquares) {

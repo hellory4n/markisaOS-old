@@ -9,7 +9,8 @@ public partial class InstallelHiUhCanYouRestartYourComputerCheersMate : Button {
 
     public void Click() {
         // make the screen go black for a short period of time :)
-        Timer timer = new Timer {
+        Timer timer = new()
+        {
             WaitTime = 1,
             OneShot = true,
             Autostart = true
@@ -21,7 +22,7 @@ public partial class InstallelHiUhCanYouRestartYourComputerCheersMate : Button {
 
     public void Bruh() {
         PackedScene m = ResourceLoader.Load<PackedScene>("res://OS/Core/InstallelRestart.tscn");
-        Node jjkn = m.Instance();
+        Node jjkn = m.Instantiate();
         GetTree().Root.AddChild(jjkn);
         GetNode("/root/Installel").QueueFree();
     }

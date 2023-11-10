@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class NotebookOpen : BaseWindow {
+public partial class NotebookOpen : Lelwindow {
     public TextEditThing Tfhsjkgjrrh;
 
     public override void _Ready() {

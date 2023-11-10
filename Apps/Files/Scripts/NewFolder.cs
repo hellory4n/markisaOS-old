@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class NewFolder : BaseWindow {
+public partial class NewFolder : Lelwindow {
     public string Parent;
     public FileView ThingThatINeedToRefresh;
 

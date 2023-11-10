@@ -11,13 +11,13 @@ public partial class FactoryReset : Button {
         // yes
         DeleteFolder("user://");
 
-        DirAccess mfghjh = new DirAccess();
+        DirAccess mfghjh = new();
         mfghjh.Remove("user://Settings");
         mfghjh.Remove("user://Users");
 
         // now show the factory reset screen :)
         PackedScene m = ResourceLoader.Load<PackedScene>("res://OS/Core/FactoryReset.tscn");
-        Node jjkn = m.Instance();
+        Node jjkn = m.Instantiate();
         GetTree().Root.AddChild(jjkn);
         
         GetNode<Node2D>("/root/Lelsktop").QueueFree();
@@ -25,7 +25,7 @@ public partial class FactoryReset : Button {
     }
 
     public void DeleteFolder(string path) {
-        DirAccess dir = new DirAccess();
+        DirAccess dir = new();
         if (dir.Open(path) == Error.Ok) {
             dir.ListDirBegin(true);
             string filename = dir.GetNext();

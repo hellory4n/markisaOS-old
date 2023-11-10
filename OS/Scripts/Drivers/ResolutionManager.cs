@@ -8,7 +8,7 @@ public partial class ResolutionManager : Node {
     /// <summary>
     /// We could just load the settings everytime something needs the resolution but then the game is constantly reading a single file, quite inconvenient
     /// </summary>
-    public static Vector2 Resolution = new Vector2(1280, 1080);
+    public static Vector2I Resolution = new(1280, 1080);
 
     public override void _Ready() {
         base._Ready();

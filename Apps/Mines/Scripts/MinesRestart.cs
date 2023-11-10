@@ -11,10 +11,10 @@ public partial class MinesRestart : Button {
         // truly mind-boggling
         WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
         PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Mines/Mines.tscn");
-        BaseWindow jjkn = m.Instance<BaseWindow>();
+        Lelwindow jjkn = m.Instantiate<Lelwindow>();
         wm.AddWindow(jjkn);
-        jjkn.Position = GetParent().GetParent<BaseWindow>().Position;
-        jjkn.Size = GetParent().GetParent<BaseWindow>().Size;
-        GetParent().GetParent<BaseWindow>().Close();
+        jjkn.Position = GetParent().GetParent<Lelwindow>().Position;
+        jjkn.Size = GetParent().GetParent<Lelwindow>().Size;
+        GetParent().GetParent<Lelwindow>().Close();
     }
 }

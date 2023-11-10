@@ -19,8 +19,9 @@ public partial class SoundManager : Node {
 
     // it's on a list so the number of the enum is also the index in this list or something, and also would
     // allow people to change them
-    public List<AudioStreamMP3> SoundFiles = new List<AudioStreamMP3>();
-    public Node sounds = new Node {
+    public List<AudioStreamMP3> SoundFiles = new();
+    public Node sounds = new()
+    {
         Name = "Sounds"
     };
     /// <summary>
@@ -45,7 +46,8 @@ public partial class SoundManager : Node {
     /// <param name="sound">The sound effect to play.</param>
     public void PlaySoundEffect(SoundEffects sound) {
         int enumButNumber = (int)sound;
-        AudioStreamPlayer m = new AudioStreamPlayer {
+        AudioStreamPlayer m = new()
+        {
             Stream = SoundFiles[enumButNumber],
             Bus = "Sounds"
         };
@@ -58,7 +60,8 @@ public partial class SoundManager : Node {
     /// </summary>
     /// <param name="sound">The sound file to play.</param>
     public void PlaySound(AudioStream sound) {
-        AudioStreamPlayer m = new AudioStreamPlayer {
+        AudioStreamPlayer m = new()
+        {
             Stream = sound,
             Bus = "Sounds"
         };
@@ -66,7 +69,7 @@ public partial class SoundManager : Node {
         m.Playing = true;
     }
 
-    public override void _Process(float delta) {
+    public override void _Process(double delta) {
         base._Process(delta);
         // there's too many sound effects now, delete some of them
         if (sounds.GetChildCount() > 10) {

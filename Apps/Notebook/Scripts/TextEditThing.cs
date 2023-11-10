@@ -13,7 +13,7 @@ public partial class TextEditThing : TextEdit {
         GetNode<Button>("../Toolbar/Open").Connect("pressed", new Callable(this, nameof(Open)));
     }
 
-    public override void _Process(float delta) {
+    public override void _Process(double delta) {
         base._Process(delta);
         if (LelfsManager.IdExists(CoolId)) {
             GetNode<Label>("../TabTitle").Text = EpicFilename;
@@ -52,7 +52,7 @@ public partial class TextEditThing : TextEdit {
     public void SaveAs() {
         WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
         PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Notebook/SaveAs.tscn");
-        NotebookSaveAs jjkn = m.Instance<NotebookSaveAs>();
+        NotebookSaveAs jjkn = m.Instantiate<NotebookSaveAs>();
         jjkn.Tfhsjkgjrrh = this;
         wm.AddWindow(jjkn);
     }
@@ -60,7 +60,7 @@ public partial class TextEditThing : TextEdit {
     public void Open() {
         WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
         PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Notebook/Open.tscn");
-        var jjkn = m.Instance<NotebookOpen>();
+        var jjkn = m.Instantiate<NotebookOpen>();
         jjkn.Tfhsjkgjrrh = this;
         wm.AddWindow(jjkn);
     }

@@ -59,6 +59,6 @@ public partial class LelfsRoot : Folder {
             return;
         }
 
-        LelfsRoot m = new LelfsRoot();
+        LelfsRoot m = new();
     }
 }

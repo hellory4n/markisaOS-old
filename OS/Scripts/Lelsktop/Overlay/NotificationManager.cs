@@ -11,7 +11,7 @@ public partial class NotificationManager : Node {
     /// <param name="text">The text to show in the notification.</param>
     public void ShowNotification(string text) {
         PackedScene ye = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Overlay/Notification.tscn");
-        Panel notificationThingy = ye.Instance<Panel>();
+        Panel notificationThingy = ye.Instantiate<Panel>();
         notificationThingy.GetNode<Label>("Text").Text = text;
         AddChild(notificationThingy);
 
@@ -25,7 +25,7 @@ public partial class NotificationManager : Node {
     /// <param name="text">The text to show in the notification.</param>
     public void ShowErrorNotification(string text) {
         PackedScene ye = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Overlay/Notification.tscn");
-        Panel notificationThingy = ye.Instance<Panel>();
+        Panel notificationThingy = ye.Instantiate<Panel>();
         notificationThingy.GetNode<Label>("Text").Text = text;
         AddChild(notificationThingy);
 

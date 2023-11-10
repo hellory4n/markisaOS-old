@@ -22,7 +22,7 @@ public partial class Download : Button {
     public void Click() {
         WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
         PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Websites/Downloader.tscn");
-        WebsitesAppDownloaderWindow jjkn = m.Instance<WebsitesAppDownloaderWindow>();
+        WebsitesAppDownloaderWindow jjkn = m.Instantiate<WebsitesAppDownloaderWindow>();
         jjkn.NewFilename = NewFilename;
         jjkn.Type = Type;
         jjkn.ProgressBarMaxValue = ProgressBarMaxValue;

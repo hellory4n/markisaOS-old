@@ -12,7 +12,7 @@ public partial class OpenSceneButton : Button {
 
     public void Click() {
         PackedScene m = ResourceLoader.Load<PackedScene>(Scene);
-        Node jjkn = m.Instance();
+        Node jjkn = m.Instantiate();
         GetTree().Root.AddChild(jjkn);
     }
 }

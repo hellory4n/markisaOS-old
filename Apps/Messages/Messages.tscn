@@ -3,7 +3,7 @@
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Apps/Messages/Scripts/ConversationList.cs" type="Script" id=2]
 [ext_resource path="res://Apps/Messages/Assets/IconDock.png" type="Texture2D" id=3]
-[ext_resource path="res://OS/Scripts/WindowManager/BaseWindow.cs" type="Script" id=4]
+[ext_resource path="res://OS/Scripts/WindowManager/Lelwindow.cs" type="Script" id=4]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Close"

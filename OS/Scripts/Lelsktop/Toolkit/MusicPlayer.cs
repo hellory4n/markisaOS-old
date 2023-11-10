@@ -20,18 +20,18 @@ public partial class MusicPlayer : Node {
         PlayerIndex = musicManager.AddMusic(Music);
     }
 
-    public override void _Process(float delta) {
+    public override void _Process(double delta) {
         base._Process(delta);
         // yes.
         if (GetNodeOrNull(WindowPath) != null) {
-            if (GetNode<BaseWindow>(WindowPath).IsClosing) {
+            if (GetNode<Lelwindow>(WindowPath).IsClosing) {
                 musicManager.DeletePlayer(PlayerIndex);
                 return;
             }
         }
 
         if (!UseCustomCheck) {
-            CanPlay = GetNode<BaseWindow>(WindowPath).IsActive();
+            CanPlay = GetNode<Lelwindow>(WindowPath).IsActive();
         }
 
         if (CanPlay) {

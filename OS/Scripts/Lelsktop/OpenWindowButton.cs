@@ -1,12 +1,14 @@
 using Godot;
 using System;
 
+namespace Lelsktop.Interface;
+
 public partial class OpenWindowButton : Button {
-    BaseWindow epicWindow;
+    WindowManager.Lelwindow epicWindow;
     AnimationPlayer animation;
 
     // called when the window manager opens a window
-    public void Init(BaseWindow window) {
+    public void Init(WindowManager.Lelwindow window) {
         epicWindow = window;
     }
 
@@ -16,7 +18,7 @@ public partial class OpenWindowButton : Button {
         animation = epicWindow.GetNode<AnimationPlayer>("AnimationPlayer");
     }
 
-    public override void _Process(float delta) {
+    public override void _Process(double delta) {
         base._Process(delta);
         TooltipText = epicWindow.WindowTitle;
 
@@ -28,12 +30,12 @@ public partial class OpenWindowButton : Button {
     }
 
     public void Click() {
-        Color invisible = new Color(1, 1, 1, 0);
+        Color invisible = new(1, 1, 1, 0);
 
         // minimize the window if it's active :)
         // we wouldn't minimize a window in another workspace tho
         if (epicWindow.IsActive() && epicWindow.Modulate != invisible &&
-        WindowManager.CurrentWorkspace == epicWindow.GetViewport()) {
+        WindowManager.WindowManager.CurrentWorkspace == epicWindow.GetViewport()) {
             animation.Play("Minimize");
         // already minimized
         // we wouldn't restore a window in another workspace tho

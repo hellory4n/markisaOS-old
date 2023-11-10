@@ -6,7 +6,8 @@ public partial class Sausage : Button {
     public long Factories = 0;
     public long Workers = 1;
     public Label ScoreText;
-    Timer timer = new Timer {
+    Timer timer = new()
+    {
         WaitTime = 1,
         Autostart = true
     };

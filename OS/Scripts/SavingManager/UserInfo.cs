@@ -122,44 +122,44 @@ public partial class InstalledApps {
 
     public InstalledApps() {
         All = new Lelapp[]{
-            new Lelapp("Test App", "res://Assets/Themes/Leltheme-Dark-Blue/Icons/App.png", "res://Apps/WindowManagerTest/WindowManagerTest.tscn"),
-            new Lelapp("Settings", "res://Assets/Themes/Leltheme-Dark-Blue/Icons/Accessories.png", "res://Apps/Settings/Settings.tscn"),
-            new Lelapp("Files", "res://Apps/Files/Assets/IconSmall.png", "res://Apps/Files/Files.tscn"),
-            new Lelapp("Observer", "res://Apps/Observer/Assets/IconSmall.png", "res://Apps/Observer/Observer.tscn"),
-            new Lelapp("Notebook", "res://Apps/Notebook/Assets/IconSmall.png", "res://Apps/Notebook/Notebook.tscn"),
-            new Lelapp("Calculator", "res://Apps/Calculator/Assets/IconSmall.png", "res://Apps/Calculator/Calculator.tscn"),
-            new Lelapp("Websites", "res://Apps/Websites/Assets/IconSmall.png", "res://Apps/Websites/Websites.tscn"),
-            new Lelapp("Messages", "res://Apps/Messages/Assets/IconSmall.png", "res://Apps/Messages/Messages.tscn"),
-            new Lelapp("Mines", "res://Apps/Mines/Assets/IconSmall.png", "res://Apps/Mines/Mines.tscn"),
-            new Lelapp("Sausage Clicker", "res://Apps/SausageClicker/Assets/IconSmall.png", "res://Apps/SausageClicker/SausageClicker.tscn"),
-            new Lelapp("Tour", "res://Apps/Tour/Assets/IconSmall.png", "res://Apps/Tour/Tour.tscn")
+            new("Test App", "res://Assets/Themes/Leltheme-Dark-Blue/Icons/App.png", "res://Apps/WindowManagerTest/WindowManagerTest.tscn"),
+            new("Settings", "res://Assets/Themes/Leltheme-Dark-Blue/Icons/Accessories.png", "res://Apps/Settings/Settings.tscn"),
+            new("Files", "res://Apps/Files/Assets/IconSmall.png", "res://Apps/Files/Files.tscn"),
+            new("Observer", "res://Apps/Observer/Assets/IconSmall.png", "res://Apps/Observer/Observer.tscn"),
+            new("Notebook", "res://Apps/Notebook/Assets/IconSmall.png", "res://Apps/Notebook/Notebook.tscn"),
+            new("Calculator", "res://Apps/Calculator/Assets/IconSmall.png", "res://Apps/Calculator/Calculator.tscn"),
+            new("Websites", "res://Apps/Websites/Assets/IconSmall.png", "res://Apps/Websites/Websites.tscn"),
+            new("Messages", "res://Apps/Messages/Assets/IconSmall.png", "res://Apps/Messages/Messages.tscn"),
+            new("Mines", "res://Apps/Mines/Assets/IconSmall.png", "res://Apps/Mines/Mines.tscn"),
+            new("Sausage Clicker", "res://Apps/SausageClicker/Assets/IconSmall.png", "res://Apps/SausageClicker/SausageClicker.tscn"),
+            new("Tour", "res://Apps/Tour/Assets/IconSmall.png", "res://Apps/Tour/Tour.tscn")
         };
         Accessories = new Lelapp[]{
-            new Lelapp("Settings", "res://Assets/Themes/Leltheme-Dark-Blue/Icons/Accessories.png", "res://Apps/Settings/Settings.tscn"),
-            new Lelapp("Files", "res://Apps/Files/Assets/IconSmall.png", "res://Apps/Files/Files.tscn")
+            new("Settings", "res://Assets/Themes/Leltheme-Dark-Blue/Icons/Accessories.png", "res://Apps/Settings/Settings.tscn"),
+            new("Files", "res://Apps/Files/Assets/IconSmall.png", "res://Apps/Files/Files.tscn")
         };
         System = new Lelapp[]{
-            new Lelapp("Settings", "res://Assets/Themes/Leltheme-Dark-Blue/Icons/Accessories.png", "res://Apps/Settings/Settings.tscn"),
+            new("Settings", "res://Assets/Themes/Leltheme-Dark-Blue/Icons/Accessories.png", "res://Apps/Settings/Settings.tscn"),
         };
         Graphics = new Lelapp[]{
-            new Lelapp("Observer", "res://Apps/Observer/Assets/IconSmall.png", "res://Apps/Observer/Observer.tscn")
+            new("Observer", "res://Apps/Observer/Assets/IconSmall.png", "res://Apps/Observer/Observer.tscn")
         };
         Internet = new Lelapp[]{
-            new Lelapp("Websites", "res://Apps/Websites/Assets/IconSmall.png", "res://Apps/Websites/Websites.tscn"),
-            new Lelapp("Messages", "res://Apps/Messages/Assets/IconSmall.png", "res://Apps/Messages/Messages.tscn")
+            new("Websites", "res://Apps/Websites/Assets/IconSmall.png", "res://Apps/Websites/Websites.tscn"),
+            new("Messages", "res://Apps/Messages/Assets/IconSmall.png", "res://Apps/Messages/Messages.tscn")
         };
         Multimedia = new Lelapp[]{
-            new Lelapp("Observer", "res://Apps/Observer/Assets/IconSmall.png", "res://Apps/Observer/Observer.tscn")
+            new("Observer", "res://Apps/Observer/Assets/IconSmall.png", "res://Apps/Observer/Observer.tscn")
         };
         Utilities = new Lelapp[]{
-            new Lelapp("Observer", "res://Apps/Observer/Assets/IconSmall.png", "res://Apps/Observer/Observer.tscn"),
-            new Lelapp("Notebook", "res://Apps/Notebook/Assets/IconSmall.png", "res://Apps/Notebook/Notebook.tscn"),
-            new Lelapp("Calculator", "res://Apps/Calculator/Assets/IconSmall.png", "res://Apps/Calculator/Calculator.tscn"),
-            new Lelapp("Tour", "res://Apps/Tour/Assets/IconSmall.png", "res://Apps/Tour/Tour.tscn")
+            new("Observer", "res://Apps/Observer/Assets/IconSmall.png", "res://Apps/Observer/Observer.tscn"),
+            new("Notebook", "res://Apps/Notebook/Assets/IconSmall.png", "res://Apps/Notebook/Notebook.tscn"),
+            new("Calculator", "res://Apps/Calculator/Assets/IconSmall.png", "res://Apps/Calculator/Calculator.tscn"),
+            new("Tour", "res://Apps/Tour/Assets/IconSmall.png", "res://Apps/Tour/Tour.tscn")
         };
         Games = new Lelapp[]{
-            new Lelapp("Mines", "res://Apps/Mines/Assets/IconSmall.png", "res://Apps/Mines/Mines.tscn"),
-            new Lelapp("Sausage Clicker", "res://Apps/SausageClicker/Assets/IconSmall.png", "res://Apps/SausageClicker/SausageClicker.tscn")
+            new("Mines", "res://Apps/Mines/Assets/IconSmall.png", "res://Apps/Mines/Mines.tscn"),
+            new("Sausage Clicker", "res://Apps/SausageClicker/Assets/IconSmall.png", "res://Apps/SausageClicker/SausageClicker.tscn")
         };
     }
 }
@@ -188,7 +188,7 @@ public partial class SocialStuff {
             Name = "Passionfruit Support",
             Icon = "res://Apps/Messages/Assets/Support.png",
             Messages = new Message[]{
-                new Message {
+                new() {
                     Author = "Passionfruit Support",
                     Text = $"Hello, {SavingManager.CurrentUser}! How could i help you?"
                 }
@@ -218,7 +218,7 @@ public partial class Conversation {
     /// <summary>
     /// The choices the user can use to continue the conversation.
     /// </summary>
-    public Dictionary<string, MessagingManager.Messages> Choices = new Dictionary<string, MessagingManager.Messages>();
+    public Dictionary<string, MessagingManager.Messages> Choices = new();
     /// <summary>
     /// The messages of the conversation.
     /// </summary>
@@ -241,7 +241,7 @@ public partial class Message {
 
 public partial class PinboardItem {
     public bool IsStickyNote = false;
-    public Vector2 Position = new Vector2(0, 0);
+    public Vector2 Position = new(0, 0);
     public float Scale = 1;
     public float Rotation = 0;
     public string Text = "";
@@ -249,5 +249,5 @@ public partial class PinboardItem {
 }
 
 public partial class LelsktopPinboard {
-    public Dictionary<string, PinboardItem> Items = new Dictionary<string, PinboardItem>();
+    public Dictionary<string, PinboardItem> Items = new();
 }

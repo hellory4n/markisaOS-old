@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 public partial class ShowDesktop : Button {
-    List<AnimationPlayer> WindowAnimators = new List<AnimationPlayer>();
+    List<AnimationPlayer> WindowAnimators = new();
 
     public override void _Ready() {
         base._Ready();
@@ -29,7 +29,7 @@ public partial class ShowDesktop : Button {
         }
     }
 
-    public override void _Process(float delta) {
+    public override void _Process(double delta) {
         base._Process(delta);
         // yes.
         if (GetFocusOwner() != this) {

@@ -9,7 +9,7 @@ public partial class QuickSettingsShutdown : Button {
 
     public void Click() {
         PackedScene m = ResourceLoader.Load<PackedScene>("res://OS/Core/Shutdown.tscn");
-        Node jjkn = m.Instance();
+        Node jjkn = m.Instantiate();
         GetTree().Root.AddChild(jjkn);
         GetNode("/root/Lelsktop").QueueFree();
         GetNode("/root/LelsktopInterface").QueueFree();

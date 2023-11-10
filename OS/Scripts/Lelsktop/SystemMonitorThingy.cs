@@ -12,7 +12,7 @@ public partial class SystemMonitorThingy : ProgressBar {
         computerNoises = GetNode<ComputerNoisesManager>("/root/ComputerNoisesManager");
     }
 
-    public override void _Process(float delta) {
+    public override void _Process(double delta) {
         base._Process(delta);
         switch (Thingy) {
             case "CPU":

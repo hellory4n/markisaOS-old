@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class PasteFile : BaseWindow {
+public partial class PasteFile : Lelwindow {
     public string Parent;
     public FileView ThingThatINeedToRefresh;
     public string OldFile;
@@ -29,7 +29,7 @@ public partial class PasteFile : BaseWindow {
         }
     }
 
-    public override void _Process(float delta) {
+    public override void _Process(double delta) {
         base._Process(delta);
         if (Move) {
             Close();

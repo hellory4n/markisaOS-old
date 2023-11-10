@@ -12,7 +12,7 @@ public partial class InstallelCustomWindowOpenerThing : Button {
 
     public void Click() {
         PackedScene m = ResourceLoader.Load<PackedScene>(WindowScene);
-        BaseWindow jjkn = (BaseWindow)m.Instance();    
+        Lelwindow jjkn = (Lelwindow)m.Instantiate();    
         GetNode<Control>("/root/Installel/1/Windows/ThemeThing").AddChild(jjkn);
         jjkn.Visible = true;
     }

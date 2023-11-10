@@ -13,7 +13,7 @@ public partial class DefaultOpenWindowButton : Button {
     public void Click() {
         WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
         PackedScene m = ResourceLoader.Load<PackedScene>(WindowScene);
-        BaseWindow jjkn = (BaseWindow)m.Instance();    
+        Lelwindow jjkn = (Lelwindow)m.Instantiate();    
         wm.AddWindow(jjkn);
     }
 }

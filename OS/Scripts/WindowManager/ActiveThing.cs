@@ -2,7 +2,7 @@ using Godot;
 using System;
 
 public partial class ActiveThing : Control {
-    public override void _Process(float delta) {
+    public override void _Process(double delta) {
         base._Process(delta);
         // just in case the app keeps adding nodes
         Raise();
@@ -14,7 +14,7 @@ public partial class ActiveThing : Control {
             if (m.Pressed) {
                 if (GetRect().HasPoint(m.Position)) {
                     // getparent
-                    if (!GetParent<BaseWindow>().IsActive()) {
+                    if (!GetParent<Lelwindow>().IsActive()) {
                         GetParent().Raise();
                     }
                 }

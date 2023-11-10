@@ -1,13 +1,13 @@
 using Godot;
 using System;
 
-public partial class Notebook : BaseWindow {
+public partial class Notebook : Lelwindow {
     public bool Suffer = false;
     public bool J = true;
     public string Fhgkfdlkjgjkhgjf = "";
 
     // there was a race condition thing, it was trying to change the tab before the tab is open
-    public override void _Process(float delta) {
+    public override void _Process(double delta) {
         base._Process(delta);
         if (Suffer && J) {
             var pain = LelfsManager.LoadById<LelfsFile>(Fhgkfdlkjgjkhgjf);

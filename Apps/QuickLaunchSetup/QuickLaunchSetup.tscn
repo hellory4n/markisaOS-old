@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Apps/QuickLaunchSetup/Assets/IconDock.png" type="Texture2D" id=2]
-[ext_resource path="res://OS/Scripts/WindowManager/BaseWindow.cs" type="Script" id=3]
+[ext_resource path="res://OS/Scripts/WindowManager/Lelwindow.cs" type="Script" id=3]
 [ext_resource path="res://Apps/QuickLaunchSetup/Scripts/ListAppsButQuickLaunch.cs" type="Script" id=4]
 
 [sub_resource type="Animation" id=2]

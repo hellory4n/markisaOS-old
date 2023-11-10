@@ -23,7 +23,7 @@ public partial class DisplaySettingsApply : Button {
     }
 
     public void Click() {
-        Vector2 stupidity = new Vector2((float)resolutionWidth.Value, (float)resolutionHeight.Value);
+        Vector2 stupidity = new((float)resolutionWidth.Value, (float)resolutionHeight.Value);
         stupidity /= (float)(scalingFactor.Value / 100);
 
         // this doesn't actually save the settings
@@ -31,7 +31,7 @@ public partial class DisplaySettingsApply : Button {
 
         WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
         PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Settings/DisplayConfirm.tscn");
-        BaseWindow jjkn = (BaseWindow)m.Instance();    
+        Lelwindow jjkn = (Lelwindow)m.Instantiate();    
         wm.AddWindow(jjkn);
 
         // yes

@@ -28,7 +28,7 @@ public partial class AddSticker : TextureButton {
 
         // add it and stuff :)
         var ftgkvtfyu = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Sticker.tscn");
-        var sticker = ftgkvtfyu.Instance<Sticker>();
+        var sticker = ftgkvtfyu.Instantiate<Sticker>();
         sticker.Position = stickerdbgfdf.Position;
         sticker.Texture2D = texture;
         sticker.PinboardItem = bullshit;

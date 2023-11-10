@@ -30,7 +30,7 @@ public partial class Sticker : Sprite2D {
         Bigger.Paused = true;
     }
 
-    public override void _Process(float delta) {
+    public override void _Process(double delta) {
         base._Process(delta);
 
         if (!Pinboard.EditingPinboard)
@@ -40,7 +40,7 @@ public partial class Sticker : Sprite2D {
             Position = MousePosition + EpicOffset;
         }
         
-        Rect2 aRect = new Rect2(
+        Rect2 aRect = new(
             Position.x - Texture2D.GetSize().x * Scale.x / 2, Position.y - Texture2D.GetSize().y * Scale.y / 2,
             Texture2D.GetSize().x * Scale.x, Texture2D.GetSize().y * Scale.y
         );
@@ -75,7 +75,7 @@ public partial class Sticker : Sprite2D {
         if (@event is InputEventMouseButton yes) {
             if (yes.ButtonIndex == (int)ButtonList.Left) {
                 if (Status != StatusThingy.Dragging && yes.Pressed) {
-                    Rect2 aRect = new Rect2(
+                    Rect2 aRect = new(
                         Position.x - Texture2D.GetSize().x * Scale.x / 2, Position.y - Texture2D.GetSize().y * Scale.y / 2,
                         Texture2D.GetSize().x * Scale.x, Texture2D.GetSize().y * Scale.y
                     );

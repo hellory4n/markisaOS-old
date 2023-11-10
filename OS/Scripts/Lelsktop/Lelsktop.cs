@@ -60,7 +60,7 @@ public partial class Lelsktop : Node2D {
 
 		// cool dock :)
 		PackedScene m = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/LelsktopInterface.tscn");
-		CanvasLayer lelsktopInterface = (CanvasLayer)m.Instance();
+		CanvasLayer lelsktopInterface = (CanvasLayer)m.Instantiate();
 		GetTree().Root.CallDeferred("add_child", lelsktopInterface);
 		lelsktopInterface.GetNode<Panel>("Dock").Size = new Vector2(75, bruh.y);
 
@@ -122,7 +122,7 @@ public partial class Lelsktop : Node2D {
 		Lelapp[] apps = SavingManager.Load<QuickLaunch>(SavingManager.CurrentUser).Apps;
 		foreach (var app in apps) {
 			PackedScene packedScene = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/QuickLaunchButton.tscn");
-			DefaultOpenWindowButton yes = packedScene.Instance<DefaultOpenWindowButton>();
+			DefaultOpenWindowButton yes = packedScene.Instantiate<DefaultOpenWindowButton>();
 			yes.Icon = ResourceLoader.Load<Texture2D>(app.Icon);
 			yes.WindowScene = app.Scene;
 			yes.TooltipText = app.Name;
@@ -137,13 +137,13 @@ public partial class Lelsktop : Node2D {
 
 		foreach (var item in items) {
 			if (item.Value.IsStickyNote) {
-				var bullshit = bhsdffgyu.Instance<StickyNote>();
+				var bullshit = bhsdffgyu.Instantiate<StickyNote>();
 				bullshit.Position = item.Value.Position;
 				bullshit.PinboardItem = item.Key;
 				pinboard.AddChild(bullshit);
 				bullshit.GetNode<TextEdit>("Text").Text = item.Value.Text;
 			} else {
-				var sticker = ftgkvtfyu.Instance<Sticker>();
+				var sticker = ftgkvtfyu.Instantiate<Sticker>();
 				sticker.Position = item.Value.Position;
 				sticker.Rotation = item.Value.Rotation;
 				sticker.Scale = new Vector2(item.Value.Scale, item.Value.Scale);
@@ -154,7 +154,7 @@ public partial class Lelsktop : Node2D {
 		}
 	}
 
-	public override void _Process(float delta) {
+	public override void _Process(double delta) {
 		base._Process(delta);
 
 		// if the user is editing the pinboard stuff we don't need to process this shit anyway
@@ -171,7 +171,7 @@ public partial class Lelsktop : Node2D {
 		Panel appMenu = GetNode<Panel>("/root/LelsktopInterface/AppMenu");
 		Panel quickSettings = GetNode<Panel>("/root/LelsktopInterface/QuickSettings");
 		Panel workspaces = GetNode<Panel>("/root/LelsktopInterface/Workspaces");
-		Color invisible = new Color(1, 1, 1, 0);
+		Color invisible = new(1, 1, 1, 0);
 
 		if (GetGlobalMousePosition().y < 40 || GetGlobalMousePosition().x > pain.x-75 ||
 		appMenu.Modulate != invisible || quickSettings.Modulate != invisible

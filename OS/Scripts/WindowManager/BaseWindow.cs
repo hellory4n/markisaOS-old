@@ -2,12 +2,15 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
+namespace Lelsktop.WindowManager;
+
 /// <summary>
 /// A basic window. Adds window decorations, manages opening, closing, and minimizing animations, and also manages window snapping and making windows active.
 /// </summary>
-public partial class BaseWindow : Window {
+public partial class Lelwindow : Window
+{
 	Vector2 screenSize;
-	Vector2 previousPosition = new Vector2(0, 0);
+	Vector2 previousPosition = new(0, 0);
 	AnimationPlayer animation;
 	/// <summary>
 	/// The icon used for the button on the dock.
@@ -23,7 +26,8 @@ public partial class BaseWindow : Window {
 	/// </summary>
 	[Export]
 	public bool CustomTheme = false;
-	public Button StupidThingForInactiveWindows = new Button {
+	public Button StupidThingForInactiveWindows = new()
+    {
 		AnchorRight = 1,
 		AnchorBottom = 1,
 	};
@@ -40,13 +44,13 @@ public partial class BaseWindow : Window {
 	/// </summary>
 	public Button Minimize;
 	bool CanSnap = false;
-	[Export(PropertyHint.Range, "1,10")]
+	[Export]
 	public int CpuUse = 1;
-	[Export(PropertyHint.Range, "1,10")]
+	[Export]
 	public int GpuUse = 1;
-	[Export(PropertyHint.Range, "1,10")]
+	[Export]
 	public int MemoryUse = 1;
-	[Export(PropertyHint.Range, "1,10")]
+	[Export]
 	public int StorageUse = 1;
 
 	public override void _Ready() {
@@ -58,18 +62,18 @@ public partial class BaseWindow : Window {
 			Theme = null;
 
 		PackedScene maximize = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Maximize.tscn");
-		Maximize = (Button)maximize.Instance();
+		Maximize = (Button)maximize.Instantiate();
 		AddChild(Maximize);
 
 		PackedScene minimize = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Minimize.tscn");
-		Minimize = (Button)minimize.Instance();
+		Minimize = (Button)minimize.Instantiate();
 		AddChild(Minimize);
 
 		PackedScene title = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/TitleTexture.tscn");
-		TitleTexture = (Panel)title.Instance();
+		TitleTexture = (Panel)title.Instantiate();
 		AddChild(TitleTexture);
 		MoveChild(TitleTexture, 0);
-		TitleTexture.GetNode<Label>("Label").Text = WindowTitle;
+		TitleTexture.GetNode<Label>("Label").Text = Title;
 
 		// epic animation for opening the window, very important indeed
 		animation = GetNode<AnimationPlayer>("AnimationPlayer");
@@ -83,7 +87,8 @@ public partial class BaseWindow : Window {
 		StupidThingForInactiveWindows.AddThemeStyleboxOverride("focus", new StyleBoxEmpty());
 		StupidThingForInactiveWindows.AddThemeStyleboxOverride("disabled", new StyleBoxEmpty());
 
-		Timer jgjk = new Timer {
+		Timer jgjk = new()
+        {
 			Name = "jrgjdkggooghmgdgddgsaa39933",
 			WaitTime = 0.5f,
 			Autostart = true,
@@ -93,60 +98,45 @@ public partial class BaseWindow : Window {
 		AddChild(jgjk);
 	}
 
-	public override void _Process(float delta) {
+	public override void _Process(double delta) {
 		base._Process(delta);
 
-		// windowdialog's close button just makes it invisible, this plays the close animation that also deletes
+		/*// windowdialog's close button just makes it invisible, this plays the close animation that also deletes
 		// the window
 		if (!Visible) {
 			animation.Play("Close");
 			Visible = true;
 			IsClosing = true;
-		}
+		}*/
 
 		// window snapping :)
 		// first check if the window is moving
-		if (previousPosition != Position && Resizable) {
+		/*if (previousPosition != Position && Resizable) {
 			Raise();
 			if (GetGlobalMousePosition().y < 60 && CanSnap) {
-				Vector2 maximizedSize = new Vector2(screenSize.x-75, screenSize.y-85);
+				Vector2 maximizedSize = new(screenSize.x-75, screenSize.y-85);
 				Position = new Vector2(0, 85);
 				Size = maximizedSize;
 			}
 
 			if (GetGlobalMousePosition().x < 40 && CanSnap) {
-				Vector2 newSize = new Vector2((screenSize.x-75)/2, screenSize.y-85);
+				Vector2 newSize = new((screenSize.x-75)/2, screenSize.y-85);
 				Position = new Vector2(0, 85);
 				Size = newSize;
 			}
 
 			if (GetGlobalMousePosition().x > screenSize.x-115 && CanSnap) {
-				Vector2 newSize = new Vector2((screenSize.x-75)/2, screenSize.y-85);
+				Vector2 newSize = new((screenSize.x-75)/2, screenSize.y-85);
 				Position = new Vector2((screenSize.x-75)/2, 85);
 				Size = newSize;
 			}
 		}
 
-		previousPosition = Position;
-
-		// so true
-		Control jkbmjdg = GetFocusOwner();
-		if (jkbmjdg != null) {
-			if (jkbmjdg == StupidThingForInactiveWindows) {
-				Raise();
-			}
-		}
-
-		if (!IsActive()) {
-			StupidThingForInactiveWindows.Visible = true;
-		} else {
-			StupidThingForInactiveWindows.Visible = false;
-		}
-		StupidThingForInactiveWindows.Raise();
+		previousPosition = Position;*/
 	}
 
 	// make the window active :)
-	public override void _GuiInput(InputEvent @event) {
+	/*public override void _GuiInput(InputEvent @event) {
 		if (@event is InputEventMouseButton bruh) {
 			if (bruh.Pressed) {
 				if (GetFocusOwner() != null) {
@@ -155,14 +145,14 @@ public partial class BaseWindow : Window {
 			}
 		}
 		base._GuiInput(@event);
-	}
+	}*/
 
 	/// <summary>
 	/// Closes the window.
 	/// </summary>
 	public void Close() {
-		// in the _Process function it will see that this variable has changed and actually run the close script
-		Visible = false;
+		animation.Play("Close");
+		IsClosing = true;
 	}
 
 	/// <summary>
@@ -170,7 +160,8 @@ public partial class BaseWindow : Window {
 	/// </summary>
 	/// <returns>Whether or not the window is active.</returns>
 	public bool IsActive() {
-		return GetIndex() == GetParent().GetChildCount()-1 && !GetViewport().GuiDisableInput;
+		//return GetIndex() == GetParent().GetChildCount()-1 && !GetViewport().GuiDisableInput;
+		return true;
 	}
 
 	// so the window doesn't get snapped just because your mouse was in the dock when you opened it

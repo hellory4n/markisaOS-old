@@ -53,14 +53,15 @@ public partial class ListApps : VBoxContainer {
         }
 
         if (apps.Length == 0) {
-            Label epicbruhmoment = new Label {
+            Label epicbruhmoment = new()
+            {
                 Text = "No apps found."
             };
             AddChild(epicbruhmoment);
         } else {
             PackedScene yes = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/AppMenuApp.tscn");
             foreach (var app in apps){
-                DefaultOpenWindowButton amazingApp = yes.Instance<DefaultOpenWindowButton>();
+                DefaultOpenWindowButton amazingApp = yes.Instantiate<DefaultOpenWindowButton>();
                 amazingApp.Text = app.Name;
                 amazingApp.Icon = ResourceLoader.Load<Texture2D>(app.Icon);
                 amazingApp.WindowScene = app.Scene;

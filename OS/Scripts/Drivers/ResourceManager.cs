@@ -11,9 +11,9 @@ public partial class ResourceManager : Node {
         if (path.StartsWith("res://")) {
             return ResourceLoader.Load<CompressedTexture2D>(path);
         } else {
-            Image image = new Image();
+            Image image = new();
             image.Load(path);
-            ImageTexture texture = new ImageTexture();
+            ImageTexture texture = new();
             texture.CreateFromImage(image);
             return texture;
         }

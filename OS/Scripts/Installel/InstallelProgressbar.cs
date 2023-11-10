@@ -2,9 +2,9 @@ using Godot;
 using System;
 
 public partial class InstallelProgressbar : ProgressBar {
-    Random random = new Random();
+    Random random = new();
 
-    public override void _Process(float delta) {
+    public override void _Process(double delta) {
         base._Process(delta);
         if (!GetParent<Control>().Visible)
             return;
