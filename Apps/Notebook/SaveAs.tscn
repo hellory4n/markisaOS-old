@@ -168,7 +168,7 @@ theme_type_variation = "Header"
 text = "Save in:"
 align = 1
 
-[node name="Path3D" type="LineEdit" parent="M/H"]
+[node name="Path" type="LineEdit" parent="M/H"]
 offset_top = 43.0
 offset_right = 250.0
 offset_bottom = 83.0

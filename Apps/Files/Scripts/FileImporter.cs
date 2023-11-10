@@ -97,6 +97,6 @@ public partial class FileImporter : Lelwindow {
         }
 
         Close();
-        ThingThatINeedToRefresh.Refresh(ThingThatINeedToRefresh.Path3D, false);
+        ThingThatINeedToRefresh.Refresh(ThingThatINeedToRefresh.Path, false);
     }*/
 }

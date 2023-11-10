@@ -21,9 +21,9 @@ public partial class Rename : Lelwindow {
         string newPath;
         if (Parent == "root") {
             LelfsFile yeah = LelfsManager.LoadById<LelfsFile>(Parent);
-            newPath = $"{yeah.Path3D}/{bruh.Name}";
+            newPath = $"{yeah.Path}/{bruh.Name}";
         } else {
-            newPath = $"/{bruh.Path3D}";
+            newPath = $"/{bruh.Path}";
         }
 
         // try to move it
@@ -42,6 +42,6 @@ public partial class Rename : Lelwindow {
         }
 
         Close();
-        ThingThatINeedToRefresh.Refresh(ThingThatINeedToRefresh.Path3D, false);
+        ThingThatINeedToRefresh.Refresh(ThingThatINeedToRefresh.Path, false);
     }
 }

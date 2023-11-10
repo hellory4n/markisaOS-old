@@ -3,7 +3,8 @@ using Godot;
 /// <summary>
 /// Stores the display settings, as well as whether or not the Mobile Setup screen should be shown.
 /// </summary>
-class DisplaySettings {
+class DisplaySettings
+{
     public Vector2 Resolution = new(1280, 720);
     public float ScalingFactor = 1;
     public bool AlreadySetup = false;
@@ -12,6 +13,7 @@ class DisplaySettings {
 /// <summary>
 /// This is just used to check if the installer should be shown
 /// </summary>
-class InstallerInfo {
+class InstallerInfo
+{
     public bool IsInstalled = false;
 }

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using Godot;
 
-
 /// <summary>
 /// Stores the version of the game used by a user. Useful when converting saves between versions.
 /// </summary>
-public partial class BasicUser {
+public partial class BasicUser
+{
     /// <summary>
     /// Increased with major new versions, with a lot of new stuff, and that probably breaks old stuff.
     /// </summary>
@@ -25,7 +25,8 @@ public partial class BasicUser {
 /// <summary>
 /// Stores the photo and lelnet username of a user.
 /// </summary>
-public partial class UserInfo {
+public partial class UserInfo
+{
     /// <summary>
     /// The photo used by the user. I should probably use an enum or a file path.
     /// </summary>
@@ -39,7 +40,8 @@ public partial class UserInfo {
 /// <summary>
 /// Stores the appearance settings of a user.
 /// </summary>
-public partial class UserLelsktop {
+public partial class UserLelsktop
+{
     /// <summary>
     /// A file path to the wallpaper used by the user.
     /// </summary>
@@ -54,7 +56,8 @@ public partial class UserLelsktop {
 /// Type commonly used for listing apps.
 /// </summary>
 
-public partial class Lelapp {
+public partial class Lelapp
+{
     /// <summary>
     /// The name of the app.
     /// </summary>
@@ -68,7 +71,8 @@ public partial class Lelapp {
     /// </summary>
     public string Scene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn";
 
-    public Lelapp(string name, string icon, string scene) {
+    public Lelapp(string name, string icon, string scene)
+    {
         Name = name;
         Icon = icon;
         Scene = scene;
@@ -78,7 +82,8 @@ public partial class Lelapp {
 /// <summary>
 /// Used by the app menu to list installed apps.
 /// </summary>
-public partial class InstalledApps {
+public partial class InstalledApps
+{
     /// <summary>
     /// Every single app installed in the device.
     /// </summary>
@@ -120,8 +125,10 @@ public partial class InstalledApps {
     /// </summary>
     public Lelapp[] Utilities = new Lelapp[]{};
 
-    public InstalledApps() {
-        All = new Lelapp[]{
+    public InstalledApps()
+    {
+        All = new Lelapp[]
+        {
             new("Test App", "res://Assets/Themes/Leltheme-Dark-Blue/Icons/App.png", "res://Apps/WindowManagerTest/WindowManagerTest.tscn"),
             new("Settings", "res://Assets/Themes/Leltheme-Dark-Blue/Icons/Accessories.png", "res://Apps/Settings/Settings.tscn"),
             new("Files", "res://Apps/Files/Assets/IconSmall.png", "res://Apps/Files/Files.tscn"),
@@ -134,30 +141,37 @@ public partial class InstalledApps {
             new("Sausage Clicker", "res://Apps/SausageClicker/Assets/IconSmall.png", "res://Apps/SausageClicker/SausageClicker.tscn"),
             new("Tour", "res://Apps/Tour/Assets/IconSmall.png", "res://Apps/Tour/Tour.tscn")
         };
-        Accessories = new Lelapp[]{
+        Accessories = new Lelapp[]
+        {
             new("Settings", "res://Assets/Themes/Leltheme-Dark-Blue/Icons/Accessories.png", "res://Apps/Settings/Settings.tscn"),
             new("Files", "res://Apps/Files/Assets/IconSmall.png", "res://Apps/Files/Files.tscn")
         };
-        System = new Lelapp[]{
+        System = new Lelapp[]
+        {
             new("Settings", "res://Assets/Themes/Leltheme-Dark-Blue/Icons/Accessories.png", "res://Apps/Settings/Settings.tscn"),
         };
-        Graphics = new Lelapp[]{
+        Graphics = new Lelapp[]
+        {
             new("Observer", "res://Apps/Observer/Assets/IconSmall.png", "res://Apps/Observer/Observer.tscn")
         };
-        Internet = new Lelapp[]{
+        Internet = new Lelapp[]
+        {
             new("Websites", "res://Apps/Websites/Assets/IconSmall.png", "res://Apps/Websites/Websites.tscn"),
             new("Messages", "res://Apps/Messages/Assets/IconSmall.png", "res://Apps/Messages/Messages.tscn")
         };
-        Multimedia = new Lelapp[]{
+        Multimedia = new Lelapp[]
+        {
             new("Observer", "res://Apps/Observer/Assets/IconSmall.png", "res://Apps/Observer/Observer.tscn")
         };
-        Utilities = new Lelapp[]{
+        Utilities = new Lelapp[]
+        {
             new("Observer", "res://Apps/Observer/Assets/IconSmall.png", "res://Apps/Observer/Observer.tscn"),
             new("Notebook", "res://Apps/Notebook/Assets/IconSmall.png", "res://Apps/Notebook/Notebook.tscn"),
             new("Calculator", "res://Apps/Calculator/Assets/IconSmall.png", "res://Apps/Calculator/Calculator.tscn"),
             new("Tour", "res://Apps/Tour/Assets/IconSmall.png", "res://Apps/Tour/Tour.tscn")
         };
-        Games = new Lelapp[]{
+        Games = new Lelapp[]
+        {
             new("Mines", "res://Apps/Mines/Assets/IconSmall.png", "res://Apps/Mines/Mines.tscn"),
             new("Sausage Clicker", "res://Apps/SausageClicker/Assets/IconSmall.png", "res://Apps/SausageClicker/SausageClicker.tscn")
         };
@@ -167,7 +181,8 @@ public partial class InstalledApps {
 /// <summary>
 /// Used for storing the apps pinned in the dock.
 /// </summary>
-public partial class QuickLaunch {
+public partial class QuickLaunch
+{
     /// <summary>
     /// The apps in the quick launcher.
     /// </summary>
@@ -177,23 +192,28 @@ public partial class QuickLaunch {
 /// <summary>
 /// Used for storing the user's conversations.
 /// </summary>
-public partial class SocialStuff {
+public partial class SocialStuff
+{
     /// <summary>
     /// The user's conversations.
     /// </summary>
     public Conversation[] Conversations = new Conversation[]{};
 
-    public SocialStuff() {
+    public SocialStuff()
+    {
         Conversations = Conversations.Append(new Conversation {
             Name = "Passionfruit Support",
             Icon = "res://Apps/Messages/Assets/Support.png",
-            Messages = new Message[]{
-                new() {
+            Messages = new Message[]
+            {
+                new()
+                {
                     Author = "Passionfruit Support",
                     Text = $"Hello, {SavingManager.CurrentUser}! How could i help you?"
                 }
             },
-            Choices = new Dictionary<string, MessagingManager.Messages>(){
+            Choices = new Dictionary<string, MessagingManager.Messages>()
+            {
                 {"I need help with lelcubeOS Me apps", MessagingManager.Messages.PassionfruitSupportApps},
                 {"I need help with my device", MessagingManager.Messages.PassionfruitSupportDevice},
                 {"I want a refund for my device", MessagingManager.Messages.PassionfruitSupportRefund},
@@ -206,7 +226,8 @@ public partial class SocialStuff {
 /// <summary>
 /// A conversation.
 /// </summary>
-public partial class Conversation {
+public partial class Conversation
+{
     /// <summary>
     /// The name of the conversation.
     /// </summary>
@@ -228,7 +249,8 @@ public partial class Conversation {
 /// <summary>
 /// A message.
 /// </summary>
-public partial class Message {
+public partial class Message
+{
     /// <summary>
     /// The author of the message. ("You" for the user)
     /// </summary>
@@ -239,7 +261,8 @@ public partial class Message {
     public string Text = "";
 }
 
-public partial class PinboardItem {
+public partial class PinboardItem
+{
     public bool IsStickyNote = false;
     public Vector2 Position = new(0, 0);
     public float Scale = 1;
@@ -248,6 +271,7 @@ public partial class PinboardItem {
     public string TexturePath = "";
 }
 
-public partial class LelsktopPinboard {
+public partial class LelsktopPinboard
+{
     public Dictionary<string, PinboardItem> Items = new();
 }

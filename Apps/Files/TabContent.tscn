@@ -1,31 +1,32 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=13 format=3 uid="uid://dttb15gq01c03"]
 
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
-[ext_resource path="res://Apps/Files/Scripts/FileView.cs" type="Script" id=2]
-[ext_resource path="res://OS/Scripts/Lelsktop/Overlay/TextPeek.cs" type="Script" id=3]
-[ext_resource path="res://Apps/Files/Scripts/NewFileOpen.cs" type="Script" id=4]
-[ext_resource path="res://Apps/Files/Scripts/NewFolderOpen.cs" type="Script" id=5]
-[ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/Copy.cs" type="Script" id=6]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/ArrowForward.png" type="Texture2D" id=7]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/ArrowBack.png" type="Texture2D" id=8]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/ArrowUp.png" type="Texture2D" id=9]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Refresh.png" type="Texture2D" id=10]
-[ext_resource path="res://Apps/Files/Scripts/FileSidebar.cs" type="Script" id=11]
-[ext_resource path="res://Apps/Files/Scripts/ExternalStorageOpen.cs" type="Script" id=12]
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" id="1"]
+[ext_resource type="Script" path="res://Apps/Files/Scripts/FileView.cs" id="2"]
+[ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Overlay/TextPeek.cs" id="3"]
+[ext_resource type="Script" path="res://Apps/Files/Scripts/NewFileOpen.cs" id="4"]
+[ext_resource type="Script" path="res://Apps/Files/Scripts/NewFolderOpen.cs" id="5"]
+[ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Toolkit/Copy.cs" id="6"]
+[ext_resource type="Texture2D" uid="uid://dx16noijvcvto" path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/ArrowForward.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://b01s0p8qpc4x1" path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/ArrowBack.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://clrdc7nwew8bi" path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/ArrowUp.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://dpyjqqs4bhqci" path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Refresh.png" id="10"]
+[ext_resource type="Script" path="res://Apps/Files/Scripts/FileSidebar.cs" id="11"]
+[ext_resource type="Script" path="res://Apps/Files/Scripts/ExternalStorageOpen.cs" id="12"]
 
 [node name="TabContent" type="HSplitContainer"]
+clip_contents = true
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 45.0
-clip_contents = true
-theme = ExtResource( 1 )
+theme = ExtResource("1")
 
 [node name="Sidebar" type="Control" parent="."]
-offset_right = 150.0
-offset_bottom = 675.0
-custom_minimum_size = Vector2( 150, 0 )
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
 
 [node name="VSeparator" type="VSeparator" parent="Sidebar"]
+layout_mode = 0
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -35,216 +36,175 @@ offset_right = 4.0
 offset_bottom = -1.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Sidebar"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_minimum_size = Vector2( 150, 0 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Sidebar/ScrollContainer"]
-offset_right = 150.0
-offset_bottom = 440.0
-custom_minimum_size = Vector2( 150, 0 )
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
 
 [node name="Home" type="Button" parent="Sidebar/ScrollContainer/VBoxContainer"]
-offset_right = 150.0
-offset_bottom = 40.0
-custom_minimum_size = Vector2( 0, 40 )
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
 mouse_filter = 1
-theme_type_variation = "SidebarButton"
+theme_type_variation = &"SidebarButton"
 text = "Home"
-align = 0
-script = ExtResource( 11 )
-Path3D = "/Home"
+script = ExtResource("11")
+Path = "/Home"
 
 [node name="Documents" type="Button" parent="Sidebar/ScrollContainer/VBoxContainer"]
-offset_top = 50.0
-offset_right = 150.0
-offset_bottom = 90.0
-custom_minimum_size = Vector2( 0, 40 )
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
 mouse_filter = 1
-theme_type_variation = "SidebarButton"
+theme_type_variation = &"SidebarButton"
 text = "Documents"
-align = 0
-script = ExtResource( 11 )
-Path3D = "/Home/Documents"
+script = ExtResource("11")
+Path = "/Home/Documents"
 
 [node name="Downloads" type="Button" parent="Sidebar/ScrollContainer/VBoxContainer"]
-offset_top = 100.0
-offset_right = 150.0
-offset_bottom = 140.0
-custom_minimum_size = Vector2( 0, 40 )
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
 mouse_filter = 1
-theme_type_variation = "SidebarButton"
+theme_type_variation = &"SidebarButton"
 text = "Downloads"
-align = 0
-script = ExtResource( 11 )
-Path3D = "/Home/Downloads"
+script = ExtResource("11")
+Path = "/Home/Downloads"
 
 [node name="Music" type="Button" parent="Sidebar/ScrollContainer/VBoxContainer"]
-offset_top = 150.0
-offset_right = 150.0
-offset_bottom = 190.0
-custom_minimum_size = Vector2( 0, 40 )
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
 mouse_filter = 1
-theme_type_variation = "SidebarButton"
+theme_type_variation = &"SidebarButton"
 text = "Music"
-align = 0
-script = ExtResource( 11 )
-Path3D = "/Home/Music"
+script = ExtResource("11")
+Path = "/Home/Music"
 
 [node name="Pictures" type="Button" parent="Sidebar/ScrollContainer/VBoxContainer"]
-offset_top = 200.0
-offset_right = 150.0
-offset_bottom = 240.0
-custom_minimum_size = Vector2( 0, 40 )
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
 mouse_filter = 1
-theme_type_variation = "SidebarButton"
+theme_type_variation = &"SidebarButton"
 text = "Pictures"
-align = 0
-script = ExtResource( 11 )
-Path3D = "/Home/Pictures"
+script = ExtResource("11")
+Path = "/Home/Pictures"
 
 [node name="Videos" type="Button" parent="Sidebar/ScrollContainer/VBoxContainer"]
-offset_top = 250.0
-offset_right = 150.0
-offset_bottom = 290.0
-custom_minimum_size = Vector2( 0, 40 )
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
 mouse_filter = 1
-theme_type_variation = "SidebarButton"
+theme_type_variation = &"SidebarButton"
 text = "Videos"
-align = 0
-script = ExtResource( 11 )
-Path3D = "/Home/Videos"
+script = ExtResource("11")
+Path = "/Home/Videos"
 
 [node name="Trash" type="Button" parent="Sidebar/ScrollContainer/VBoxContainer"]
-offset_top = 300.0
-offset_right = 150.0
-offset_bottom = 340.0
-custom_minimum_size = Vector2( 0, 40 )
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
 mouse_filter = 1
-theme_type_variation = "SidebarButton"
+theme_type_variation = &"SidebarButton"
 text = "Trash"
-align = 0
-script = ExtResource( 11 )
-Path3D = "/System/Trash"
+script = ExtResource("11")
+Path = "/System/Trash"
 
 [node name="Root" type="Button" parent="Sidebar/ScrollContainer/VBoxContainer"]
-offset_top = 350.0
-offset_right = 150.0
-offset_bottom = 390.0
-custom_minimum_size = Vector2( 0, 40 )
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
 mouse_filter = 1
-theme_type_variation = "SidebarButton"
+theme_type_variation = &"SidebarButton"
 text = "Computer"
-align = 0
-script = ExtResource( 11 )
-Path3D = "/"
+script = ExtResource("11")
+Path = "/"
 
 [node name="ExternalStorage" type="Button" parent="Sidebar/ScrollContainer/VBoxContainer"]
-offset_top = 400.0
-offset_right = 150.0
-offset_bottom = 440.0
-custom_minimum_size = Vector2( 0, 40 )
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
 mouse_filter = 1
-theme_type_variation = "SidebarButton"
+theme_type_variation = &"SidebarButton"
 text = "External Storage"
-align = 0
-script = ExtResource( 12 )
+script = ExtResource("12")
 
 [node name="Content" type="HSplitContainer" parent="."]
-offset_left = 158.0
-offset_right = 1280.0
-offset_bottom = 675.0
+layout_mode = 2
 split_offset = 550
 
 [node name="ContentThing" type="Control" parent="Content"]
-offset_right = 550.0
-offset_bottom = 675.0
+layout_mode = 2
 
 [node name="Toolbar" type="HBoxContainer" parent="Content/ContentThing"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 0
 anchor_right = 1.0
 offset_top = 10.0
 offset_bottom = 40.0
-custom_minimum_size = Vector2( 0, 40 )
 
 [node name="Back" type="Button" parent="Content/ContentThing/Toolbar"]
-offset_right = 43.0
-offset_bottom = 43.0
-custom_minimum_size = Vector2( 43, 0 )
-tooltip_text = "Go back (Alt+Left)"
+custom_minimum_size = Vector2(43, 0)
+layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_type_variation = "SecondaryButton"
-icon = ExtResource( 8 )
+tooltip_text = "Go back (Alt+Left)"
+theme_type_variation = &"SecondaryButton"
+icon = ExtResource("8")
 icon_alignment = 1
 
 [node name="Forward" type="Button" parent="Content/ContentThing/Toolbar"]
-offset_left = 53.0
-offset_right = 96.0
-offset_bottom = 43.0
-custom_minimum_size = Vector2( 43, 0 )
-tooltip_text = "Go forward (Alt+Right)"
+custom_minimum_size = Vector2(43, 0)
+layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_type_variation = "SecondaryButton"
-icon = ExtResource( 7 )
+tooltip_text = "Go forward (Alt+Right)"
+theme_type_variation = &"SecondaryButton"
+icon = ExtResource("7")
 icon_alignment = 1
 
 [node name="Up" type="Button" parent="Content/ContentThing/Toolbar"]
-offset_left = 106.0
-offset_right = 149.0
-offset_bottom = 43.0
-custom_minimum_size = Vector2( 43, 0 )
-tooltip_text = "Go to the parent of the current folder (Alt+Up)"
+custom_minimum_size = Vector2(43, 0)
+layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_type_variation = "SecondaryButton"
-icon = ExtResource( 9 )
+tooltip_text = "Go to the parent of the current folder (Alt+Up)"
+theme_type_variation = &"SecondaryButton"
+icon = ExtResource("9")
 icon_alignment = 1
 
 [node name="Refresh" type="Button" parent="Content/ContentThing/Toolbar"]
-offset_left = 159.0
-offset_right = 202.0
-offset_bottom = 43.0
-custom_minimum_size = Vector2( 43, 0 )
-tooltip_text = "List the files of the current folder again (F5)"
+custom_minimum_size = Vector2(43, 0)
+layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_type_variation = "SecondaryButton"
-icon = ExtResource( 10 )
+tooltip_text = "List the files of the current folder again (F5)"
+theme_type_variation = &"SecondaryButton"
+icon = ExtResource("10")
 icon_alignment = 1
 
-[node name="Path3D" type="LineEdit" parent="Content/ContentThing/Toolbar"]
-offset_left = 212.0
-offset_right = 344.0
-offset_bottom = 43.0
+[node name="Path" type="LineEdit" parent="Content/ContentThing/Toolbar"]
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 text = "/"
-align = 1
-script = ExtResource( 3 )
+script = ExtResource("3")
 
 [node name="NewFile" type="Button" parent="Content/ContentThing/Toolbar"]
-offset_left = 354.0
-offset_right = 436.0
-offset_bottom = 43.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_type_variation = "SecondaryButton"
+theme_type_variation = &"SecondaryButton"
 text = "New File"
-script = ExtResource( 4 )
+script = ExtResource("4")
 
 [node name="NewFolder" type="Button" parent="Content/ContentThing/Toolbar"]
-offset_left = 446.0
-offset_right = 550.0
-offset_bottom = 43.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_type_variation = "SecondaryButton"
+theme_type_variation = &"SecondaryButton"
 text = "New Folder"
-script = ExtResource( 5 )
+script = ExtResource("5")
 
 [node name="HSeparator" type="HSeparator" parent="Content/ContentThing"]
+layout_mode = 0
 anchor_right = 1.0
 offset_left = -3.0
 offset_top = 60.0
@@ -252,6 +212,7 @@ offset_right = 6.0
 offset_bottom = 2.0
 
 [node name="HSeparator2" type="HSeparator" parent="Content/ContentThing"]
+layout_mode = 0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -261,6 +222,7 @@ offset_right = 6.0
 offset_bottom = -58.0
 
 [node name="ItemList" type="ItemList" parent="Content/ContentThing"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 70.0
@@ -272,112 +234,108 @@ max_columns = 8
 same_column_width = true
 fixed_column_width = 160
 icon_mode = 0
-fixed_icon_size = Vector2( 40, 40 )
-script = ExtResource( 2 )
+fixed_icon_size = Vector2i(40, 40)
+script = ExtResource("2")
 
 [node name="FileOperations" type="HBoxContainer" parent="Content/ContentThing"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -50.0
 offset_bottom = -10.0
-custom_minimum_size = Vector2( 0, 40 )
-clip_contents = true
 alignment = 1
 
 [node name="Copy" type="Button" parent="Content/ContentThing/FileOperations"]
-offset_left = 5.0
-offset_right = 105.0
-offset_bottom = 40.0
-custom_minimum_size = Vector2( 100, 0 )
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
 tooltip_text = "Ctrl+C"
-theme_type_variation = "SecondaryButton"
+theme_type_variation = &"SecondaryButton"
 text = "Copy"
 
 [node name="Paste" type="Button" parent="Content/ContentThing/FileOperations"]
-offset_left = 115.0
-offset_right = 215.0
-offset_bottom = 40.0
-custom_minimum_size = Vector2( 100, 0 )
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
 tooltip_text = "Ctrl+V"
-theme_type_variation = "SecondaryButton"
+theme_type_variation = &"SecondaryButton"
 text = "Paste"
 
 [node name="Move" type="Button" parent="Content/ContentThing/FileOperations"]
-offset_left = 225.0
-offset_right = 325.0
-offset_bottom = 40.0
-custom_minimum_size = Vector2( 100, 0 )
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
 tooltip_text = "Ctrl+X"
-theme_type_variation = "SecondaryButton"
+theme_type_variation = &"SecondaryButton"
 text = "Move"
 
 [node name="Rename" type="Button" parent="Content/ContentThing/FileOperations"]
-offset_left = 335.0
-offset_right = 435.0
-offset_bottom = 40.0
-custom_minimum_size = Vector2( 100, 0 )
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
 tooltip_text = "Ctrl+X"
-theme_type_variation = "SecondaryButton"
+theme_type_variation = &"SecondaryButton"
 text = "Rename"
 
 [node name="Delete" type="Button" parent="Content/ContentThing/FileOperations"]
-offset_left = 445.0
-offset_right = 545.0
-offset_bottom = 40.0
-custom_minimum_size = Vector2( 100, 0 )
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
 tooltip_text = "Ctrl+X"
-theme_type_variation = "SecondaryButton"
+theme_type_variation = &"SecondaryButton"
 text = "Delete"
 
 [node name="ContextMenu" type="PopupMenu" parent="Content/ContentThing"]
-offset_right = 20.0
-offset_bottom = 20.0
-items = [ "New File", null, 0, false, false, 0, 0, null, "", false, "New Folder", null, 0, false, false, 1, 0, null, "", false, "", null, 0, false, false, 2, 0, null, "", true, "Copy", null, 0, false, false, 3, 0, null, "", false, "Paste", null, 0, false, false, 4, 0, null, "", false, "Move", null, 0, false, false, 5, 0, null, "", false, "Delete", null, 0, false, false, 6, 0, null, "", false, "Rename", null, 0, false, false, 7, 0, null, "", false ]
+item_count = 8
+item_0/text = "New File"
+item_0/id = 0
+item_1/text = "New Folder"
+item_1/id = 1
+item_2/text = ""
+item_2/id = 2
+item_2/separator = true
+item_3/text = "Copy"
+item_3/id = 3
+item_4/text = "Paste"
+item_4/id = 4
+item_5/text = "Move"
+item_5/id = 5
+item_6/text = "Delete"
+item_6/id = 6
+item_7/text = "Rename"
+item_7/id = 7
 
 [node name="Inspector" type="Control" parent="Content"]
-offset_left = 558.0
-offset_right = 1122.0
-offset_bottom = 675.0
+layout_mode = 2
 
 [node name="VSeparator" type="VSeparator" parent="Content/Inspector"]
+layout_mode = 0
 anchor_bottom = 1.0
 offset_left = -1.0
 offset_top = 1.0
 offset_bottom = -1.0
 
 [node name="M" type="VBoxContainer" parent="Content/Inspector"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Label" type="Label" parent="Content/Inspector/M"]
-offset_right = 564.0
-offset_bottom = 22.0
+layout_mode = 2
 text = "Yes."
-align = 1
-valign = 1
-autowrap = true
 
 [node name="CopyID" type="Button" parent="Content/Inspector/M"]
-offset_left = 219.0
-offset_top = 32.0
-offset_right = 344.0
-offset_bottom = 72.0
-custom_minimum_size = Vector2( 125, 0 )
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_type_variation = "SecondaryButton"
+theme_type_variation = &"SecondaryButton"
 text = "Copy ID"
-script = ExtResource( 6 )
+script = ExtResource("6")
 
 [node name="CopyPath" type="Button" parent="Content/Inspector/M"]
-offset_left = 219.0
-offset_top = 82.0
-offset_right = 344.0
-offset_bottom = 122.0
-custom_minimum_size = Vector2( 125, 0 )
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_type_variation = "SecondaryButton"
-text = "Copy Path3D"
-script = ExtResource( 6 )
+theme_type_variation = &"SecondaryButton"
+text = "Copy Path"
+script = ExtResource("6")

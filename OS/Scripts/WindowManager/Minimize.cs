@@ -1,6 +1,8 @@
 using Godot;
 using System;
 
+namespace Lelsktop.WindowManager;
+
 public partial class Minimize : Button
 {
     public override void _Ready()

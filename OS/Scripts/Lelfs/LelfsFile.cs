@@ -26,7 +26,7 @@ public partial class LelfsFile {
     /// <summary>
     /// The path where this file can be accessed.
     /// </summary>
-    public string Path3D;
+    public string Path;
     /// <summary>
     /// The type of this file.
     /// </summary>
@@ -44,8 +44,8 @@ public partial class LelfsFile {
         File file = new File();
         directory.MakeDirRecursive($"user://Users/{SavingManager.CurrentUser}/Files/");
 
-        if (!LelfsManager.FileExists(Path3D)) {
-            LelfsManager.Paths.Add(Path3D, Id);
+        if (!LelfsManager.FileExists(Path)) {
+            LelfsManager.Paths.Add(Path, Id);
             LelfsManager.SavePaths();
         }
 
@@ -75,13 +75,13 @@ public partial class LelfsFile {
 
         if (parent != null) {
             LelfsFile m = LelfsManager.LoadById<LelfsFile>(parent);
-            gaming.Path3D = $"{m.Path3D}/{gaming.Name}";
+            gaming.Path = $"{m.Path}/{gaming.Name}";
         } else {
-            gaming.Path3D = $"/{gaming.Name}";
+            gaming.Path = $"/{gaming.Name}";
         }
 
-        if (!LelfsManager.FileExists(gaming.Path3D)) {
-            LelfsManager.Paths.Add(gaming.Path3D, gaming.Id);
+        if (!LelfsManager.FileExists(gaming.Path)) {
+            LelfsManager.Paths.Add(gaming.Path, gaming.Id);
             LelfsManager.SavePaths();
         }
 
@@ -96,13 +96,13 @@ public partial class LelfsFile {
     public virtual void Rename(string name) {
         Name = name;
 
-        LelfsManager.Paths.Remove(Path3D);
+        LelfsManager.Paths.Remove(Path);
 
         if (Parent != "root") {
             LelfsFile m = LelfsManager.LoadById<LelfsFile>(Parent);
-            Path3D = $"{m.Path3D}/{name}";
+            Path = $"{m.Path}/{name}";
         } else {
-            Path3D = $"/{name}";
+            Path = $"/{name}";
         }
         
         Save();
@@ -113,9 +113,9 @@ public partial class LelfsFile {
     /// </summary>
     public virtual void Delete() {
         DirAccess directory = new();
-        if (LelfsManager.FileExists(Path3D)) {
+        if (LelfsManager.FileExists(Path)) {
             directory.Remove($"user://Users/{SavingManager.CurrentUser}/Files/{Id}.json");
-            LelfsManager.Paths.Remove(Path3D);
+            LelfsManager.Paths.Remove(Path);
             LelfsManager.SavePaths();
         } else {
             GD.PushError("File not saved yet!");
@@ -132,18 +132,18 @@ public partial class LelfsFile {
 
         Parent = parent;
 
-        LelfsManager.Paths.Remove(Path3D);
+        LelfsManager.Paths.Remove(Path);
 
         if (parent != "root") {
             LelfsFile m = LelfsManager.LoadById<LelfsFile>(parent);
-            Path3D = $"{m.Path3D}/{Name}";
+            Path = $"{m.Path}/{Name}";
         } else {
-            Path3D = $"/{Name}";
+            Path = $"/{Name}";
         }
 
         Save();
 
-        LelfsManager.Paths.Add(Path3D, Id);
+        LelfsManager.Paths.Add(Path, Id);
         LelfsManager.SavePaths();
     }
 }

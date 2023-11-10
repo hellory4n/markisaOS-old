@@ -1,33 +1,36 @@
 using Godot;
 using System;
 
-public partial class Maximize : Button {
-    public override void _Ready() {
-        base._Ready();
-        Connect("pressed", new Callable(this, nameof(Click)));
-    }
+namespace Lelsktop.WindowManager;
 
-    public override void _Process(double delta) {
+public partial class Maximize : Button
+{
+    public override void _Process(double delta)
+    {
         base._Process(delta);
-        Window window = (Window)GetParent();
+        /*Window window = (Window)GetParent();
         if (!window.Resizable) {
             GetParent().GetNode<Button>("Minimize").Position = Position;
             QueueFree();
-        }
+        }*/
     }
 
-    public void Click() {
+    public override void _Pressed()
+    {
+        base._Pressed();
         Window window = (Window)GetParent();
-        Vector2 maximizedSize = ResolutionManager.Resolution;
-        maximizedSize = new Vector2(maximizedSize.x-75, maximizedSize.y-85);
+        Vector2I maximizedSize = ResolutionManager.Resolution;
+        maximizedSize = new Vector2I(maximizedSize.X-75, maximizedSize.Y-85);
 
         // check if the window is maximized
-        if (window.Position != new Vector2(0, 85) && window.Size != maximizedSize) {
-            window.Position = new Vector2(0, 85);
+        if (window.Position != new Vector2(0, 85) && window.Size != maximizedSize)
+        {
+            window.Position = new Vector2I(0, 85);
             window.Size = maximizedSize;
-        } else {
-            window.Size = window.CustomMinimumSize;
-            window.Position = new Vector2(150, 150);
+        }
+        else {
+            window.Size = window.MinSize;
+            window.Position = new Vector2I(150, 150);
         }
     }
 }

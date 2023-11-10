@@ -3,7 +3,7 @@ using System;
 
 public partial class FileSidebar : Button {
     [Export]
-    public string Path3D = "";
+    public string Path = "";
 
     public override void _Ready() {
         base._Ready();
@@ -12,7 +12,7 @@ public partial class FileSidebar : Button {
 
     public void Click() {
         // pain
-        if (LelfsManager.FileExists(Path3D))
-            GetNode<FileView>("../../../../Content/ContentThing/ItemList").Refresh(Path3D);
+        if (LelfsManager.FileExists(Path))
+            GetNode<FileView>("../../../../Content/ContentThing/ItemList").Refresh(Path);
     }
 }

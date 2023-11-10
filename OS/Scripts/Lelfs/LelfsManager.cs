@@ -175,9 +175,9 @@ public partial class LelfsManager : Node {
         // yes :)
         if (parent != "root" || parent == null) {
             LelfsFile m = LoadById<LelfsFile>(parent);
-            yeah.Path3D = $"{m.Path3D}/{name}";
+            yeah.Path = $"{m.Path}/{name}";
         } else {
-            yeah.Path3D = $"/{name}";
+            yeah.Path = $"/{name}";
         }
 
         return yeah;
@@ -207,9 +207,9 @@ public partial class LelfsManager : Node {
         // yes :)
         if (parent != "root" || parent == null) {
             LelfsFile m = LoadById<LelfsFile>(parent);
-            yeah.Path3D = $"{m.Path3D}/{name}";
+            yeah.Path = $"{m.Path}/{name}";
         } else {
-            yeah.Path3D = $"/{name}";
+            yeah.Path = $"/{name}";
         }
 
         return yeah;

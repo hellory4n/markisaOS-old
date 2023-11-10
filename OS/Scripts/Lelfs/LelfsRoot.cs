@@ -8,7 +8,7 @@ public partial class LelfsRoot : Folder {
     LelfsRoot() {
         Name = "";
         Id = "root";
-        Path3D = "/";
+        Path = "/";
         Parent = null;
         Type = "Root";
         LelfsManager.Paths.Clear();

@@ -11,7 +11,7 @@ public partial class NotebookSaveAs : Lelwindow {
     }
 
     public void Click() {
-        string path = GetNode<LineEdit>("M/H/Path3D").Text;
+        string path = GetNode<LineEdit>("M/H/Path").Text;
         string name = GetNode<LineEdit>("M/H/Name").Text;
         NotificationManager notificationManager = GetNode<NotificationManager>("/root/NotificationManager");
 

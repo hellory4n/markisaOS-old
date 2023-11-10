@@ -42,11 +42,11 @@ public partial class PasteFile : Lelwindow {
         string suffering;
 
         Folder parent = LelfsManager.LoadById<Folder>(Parent);
-        string gkfngof = parent.Path3D;
+        string gkfngof = parent.Path;
         if (Parent == "/")
             suffering = $"/{filename}";
         else
-            suffering = $"{parent.Path3D}/{filename}";
+            suffering = $"{parent.Path}/{filename}";
 
         // making a file that already exists would be pretty uncool
         if (LelfsManager.FileExists(suffering)) {
@@ -74,12 +74,12 @@ public partial class PasteFile : Lelwindow {
     public void Cut() {
         LelfsFile oldFile = LelfsManager.LoadById<LelfsFile>(OldFile);
         Folder parent = LelfsManager.LoadById<Folder>(Parent);
-        string gkfngof = parent.Path3D;
+        string gkfngof = parent.Path;
         string suffering;
         if (Parent == "root")
             suffering = $"/{oldFile.Name}";
         else
-            suffering = $"{parent.Path3D}/{oldFile.Name}";
+            suffering = $"{parent.Path}/{oldFile.Name}";
 
         // making a file that already exists would be pretty uncool
         if (LelfsManager.FileExists(suffering)) {

@@ -13,7 +13,7 @@ public partial class NewFolder : Lelwindow {
 
     public void Click() {
         string filename = GetNode<LineEdit>("CenterContainer/VBoxContainer/Name").Text;
-        string gkfngof = LelfsManager.LoadById<LelfsFile>(Parent).Path3D;
+        string gkfngof = LelfsManager.LoadById<LelfsFile>(Parent).Path;
         string suffering;
         if (gkfngof == "/")
             suffering = $"/{filename}";

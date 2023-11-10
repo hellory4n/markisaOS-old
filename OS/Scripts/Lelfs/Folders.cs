@@ -25,14 +25,14 @@ public partial class Folder : LelfsFile {
 
         if (parent != "root") {
             LelfsFile m = LelfsManager.LoadById<LelfsFile>(parent);
-            gaming.Path3D = $"{m.Path3D}/{name}";
+            gaming.Path = $"{m.Path}/{name}";
         } else {
-            gaming.Path3D = $"/{name}";
+            gaming.Path = $"/{name}";
         }
 
         gaming.Save();
 
-        foreach (LelfsFile m in LelfsManager.GetFolderItems(Path3D)) {
+        foreach (LelfsFile m in LelfsManager.GetFolderItems(Path)) {
             if (m.Type == "Folder") {
                 Folder ha = LelfsManager.LoadById<Folder>(m.Id);
                 // haha recursion
@@ -52,27 +52,27 @@ public partial class Folder : LelfsFile {
     public override void Rename(string name) {
         Name = name;
 
-        LelfsManager.Paths.Remove(Path3D);
+        LelfsManager.Paths.Remove(Path);
 
         if (Parent != "root") {
             LelfsFile m = LelfsManager.LoadById<LelfsFile>(Parent);
-            Path3D = $"{m.Path3D}/{name}";
+            Path = $"{m.Path}/{name}";
         } else {
-            Path3D = $"/{name}";
+            Path = $"/{name}";
         }
 
         Save();
 
-        foreach (LelfsFile m in LelfsManager.GetFolderItems(Path3D)) {
+        foreach (LelfsFile m in LelfsManager.GetFolderItems(Path)) {
             if (m.Type == "Folder") {
                 Folder ha = LelfsManager.LoadById<Folder>(m.Id);
                 // haha recursion
                 ha.Rename(ha.Name);
             } else {
                 m.Parent = Id;
-                LelfsManager.Paths.Remove(m.Path3D);
-                m.Path3D = $"{Path3D}/{m.Name}";
-                LelfsManager.Paths.Add(m.Path3D, m.Id);
+                LelfsManager.Paths.Remove(m.Path);
+                m.Path = $"{Path}/{m.Name}";
+                LelfsManager.Paths.Add(m.Path, m.Id);
                 m.Save();
             }
         }
@@ -86,7 +86,7 @@ public partial class Folder : LelfsFile {
     public override void Delete() {
         DirAccess directory = new();
         if (directory.FileExists($"user://Users/{SavingManager.CurrentUser}/Files/{Id}.json")) {
-            foreach (LelfsFile m in LelfsManager.GetFolderItems(Path3D)) {
+            foreach (LelfsFile m in LelfsManager.GetFolderItems(Path)) {
                 if (m.Type == "Folder") {
                     Folder ha = LelfsManager.LoadById<Folder>(m.Id);
                     // haha recursion
@@ -97,7 +97,7 @@ public partial class Folder : LelfsFile {
             }
 
             directory.Remove($"user://Users/{SavingManager.CurrentUser}/Files/{Id}.json");
-            LelfsManager.Paths.Remove(Path3D);
+            LelfsManager.Paths.Remove(Path);
             LelfsManager.SavePaths();            
         } else {
             GD.PushError("File not saved yet!");
@@ -111,7 +111,7 @@ public partial class Folder : LelfsFile {
     /// <param name="path">The path of the file, example: <c>FolderInsideThis/File</c></param>
     /// <returns>The file loaded.</returns>
     public T LoadLocal<T>(string path) where T : LelfsFile {
-        string actualPath = $"{Path3D}/{path}";
+        string actualPath = $"{Path}/{path}";
         return LelfsManager.Load<T>(actualPath);
     }
 
@@ -122,27 +122,27 @@ public partial class Folder : LelfsFile {
     public override void Move(string parent) {
         Parent = parent;
 
-        LelfsManager.Paths.Remove(Path3D);
+        LelfsManager.Paths.Remove(Path);
 
         if (Parent != "root") {
             LelfsFile m = LelfsManager.LoadById<LelfsFile>(Parent);
-            Path3D = $"{m.Path3D}/{Name}";
+            Path = $"{m.Path}/{Name}";
         } else {
-            Path3D = $"/{Name}";
+            Path = $"/{Name}";
         }
 
         Save();
 
-        foreach (LelfsFile m in LelfsManager.GetFolderItems(Path3D)) {
+        foreach (LelfsFile m in LelfsManager.GetFolderItems(Path)) {
             if (m.Type == "Folder") {
                 Folder ha = LelfsManager.LoadById<Folder>(m.Id);
                 // haha recursion
                 ha.Move(Id);
             } else {
                 m.Parent = Id;
-                LelfsManager.Paths.Remove(m.Path3D);
-                m.Path3D = $"{Path3D}/{m.Name}";
-                LelfsManager.Paths.Add(m.Path3D, m.Id);
+                LelfsManager.Paths.Remove(m.Path);
+                m.Path = $"{Path}/{m.Name}";
+                LelfsManager.Paths.Add(m.Path, m.Id);
                 m.Save();
             }
         }

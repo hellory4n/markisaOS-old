@@ -15,7 +15,7 @@ public partial class NewFileOpen : Button {
 
         // pain
         FileView mewhenthe = GetNode<FileView>("../../ItemList");
-        LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(mewhenthe.Path3D);
+        LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(mewhenthe.Path);
         jjkn.Parent = dfggfdf.Id;
         jjkn.ThingThatINeedToRefresh = mewhenthe;
 

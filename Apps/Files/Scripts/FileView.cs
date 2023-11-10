@@ -11,7 +11,7 @@ public partial class FileView : ItemList {
     readonly Texture2D VideoIcon = ResourceLoader.Load<Texture2D>("res://Apps/Files/Assets/Video.png");
     readonly Texture2D TextIcon = ResourceLoader.Load<Texture2D>("res://Apps/Files/Assets/Text.png");
     List<string> CoolFiles = new();
-    public string Path3D = "/";
+    public string Path = "/";
     public Button TabThing;
     public string Selected;
     public string ToCopy;
@@ -26,7 +26,7 @@ public partial class FileView : ItemList {
         Connect("item_selected", new Callable(this, nameof(FileSelected)));
         Connect("nothing_selected", new Callable(this, nameof(NothingSelected)));
         Connect("item_rmb_selected", new Callable(this, nameof(ContextMenu)));
-        GetNode<LineEdit>("../Toolbar/Path3D").Connect("text_entered", new Callable(this, nameof(PathEdit)));
+        GetNode<LineEdit>("../Toolbar/Path").Connect("text_entered", new Callable(this, nameof(PathEdit)));
         GetNode<Button>("../FileOperations/Copy").Connect("pressed", new Callable(this, nameof(CopyFile)));
         GetNode<Button>("../FileOperations/Paste").Connect("pressed", new Callable(this, nameof(PasteFile)));
         ContextMenuThing = GetNode<PopupMenu>("../ContextMenu");
@@ -51,7 +51,7 @@ public partial class FileView : ItemList {
         ContextMenuThing.SetItemDisabled(4, ToCopy == null && ToMove == null);
         GetNode<Button>("../Toolbar/Back").Disabled = PathIndex == 0;
         GetNode<Button>("../Toolbar/Forward").Disabled = PathIndex == Paths.Count-1;
-        GetNode<Button>("../Toolbar/Up").Disabled = Path3D == "/";
+        GetNode<Button>("../Toolbar/Up").Disabled = Path == "/";
 
         // shortcuts :)
         if (Input.IsActionJustReleased("back") && GetParent().GetParent().GetParent().GetParent<Lelwindow>()
@@ -65,13 +65,13 @@ public partial class FileView : ItemList {
         }
 
         if (Input.IsActionJustReleased("up") && GetParent().GetParent().GetParent().GetParent<Lelwindow>()
-        .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab" && Path3D != "/") {
+        .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab" && Path != "/") {
             Up();
         }
 
         if (Input.IsActionJustReleased("refresh") && GetParent().GetParent().GetParent().GetParent<Lelwindow>()
         .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab") {
-            Refresh(Path3D, false);
+            Refresh(Path, false);
         }
 
         if (Input.IsActionJustReleased("copy") && GetParent().GetParent().GetParent().GetParent<Lelwindow>()
@@ -105,7 +105,7 @@ public partial class FileView : ItemList {
             PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Files/NewFolder.tscn");
             NewFolder jjkn = m.Instantiate<NewFolder>();
 
-            LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(Path3D);
+            LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(Path);
             jjkn.Parent = dfggfdf.Id;
 
             jjkn.ThingThatINeedToRefresh = this;
@@ -120,7 +120,7 @@ public partial class FileView : ItemList {
             NewFile jjkn = m.Instantiate<NewFile>();
 
             // pain
-            LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(Path3D);
+            LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(Path);
             jjkn.Parent = dfggfdf.Id;
 
             jjkn.ThingThatINeedToRefresh = this;
@@ -135,8 +135,8 @@ public partial class FileView : ItemList {
             return;
         }
 
-        Path3D = pathThingSomething;
-        GetNode<LineEdit>("../Toolbar/Path3D").Text = pathThingSomething;
+        Path = pathThingSomething;
+        GetNode<LineEdit>("../Toolbar/Path").Text = pathThingSomething;
         if (addToHistory) {
             Paths.Add(pathThingSomething);
             PathIndex = Paths.Count-1;
@@ -145,7 +145,7 @@ public partial class FileView : ItemList {
         // couldn't be bothered to do this properly
         if (pathThingSomething == "/System/Trash") {
             TabThing.Text = "Trash";
-            GetNode<LineEdit>("../Toolbar/Path3D").Text = "Trash";
+            GetNode<LineEdit>("../Toolbar/Path").Text = "Trash";
         } else if (pathThingSomething == "/") {
             TabThing.Text = "root";
         } else {
@@ -156,7 +156,7 @@ public partial class FileView : ItemList {
         CoolFiles.Clear();
 
         // questionable way of sorting stuff :)
-        LelfsFile[] m = LelfsManager.GetFolderItems(Path3D);
+        LelfsFile[] m = LelfsManager.GetFolderItems(Path);
         var sortedStuff = m
             .OrderByDescending(obj => obj.Type == "Folder")
             .ThenBy(obj => obj.Name)
@@ -204,7 +204,7 @@ public partial class FileView : ItemList {
 
     void FileSelected(int index) {
         LelfsFile pain = LelfsManager.LoadById<LelfsFile>(CoolFiles[index]);
-        UpdateInspector(pain.Path3D);
+        UpdateInspector(pain.Path);
         if (pain.Id == Selected) {
             Open(index);
         }
@@ -215,7 +215,7 @@ public partial class FileView : ItemList {
         /*LelfsFile pain = LelfsManager.LoadById<LelfsFile>(CoolFiles[index]);
         switch (pain.Type) {
             case "Folder":
-                Refresh(pain.Path3D);
+                Refresh(pain.Path);
                 break;
             case "Picture":
                 WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
@@ -254,7 +254,7 @@ public partial class FileView : ItemList {
 
     void NothingSelected() {
         // updates the inspector to have information of the current folder :)
-        UpdateInspector(Path3D);
+        UpdateInspector(Path);
         Selected = null;
     }
 
@@ -269,7 +269,7 @@ public partial class FileView : ItemList {
 
     void ContextMenu(int index, Vector2I position) {
         LelfsFile pain = LelfsManager.LoadById<LelfsFile>(CoolFiles[index]);
-        UpdateInspector(pain.Path3D);
+        UpdateInspector(pain.Path);
         Selected = pain.Id;
         ContextMenuThing.SetItemDisabled(3, false);
         ContextMenuThing.SetItemDisabled(5, false);
@@ -311,7 +311,7 @@ public partial class FileView : ItemList {
         PasteFile jjkn = m.Instantiate<PasteFile>();
 
         // pain
-        LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(Path3D);
+        LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(Path);
         jjkn.Parent = dfggfdf.Id;
 
         jjkn.ThingThatINeedToRefresh = this;
@@ -334,7 +334,7 @@ public partial class FileView : ItemList {
                 NewFile jjkn = m.Instantiate<NewFile>();
 
                 // pain
-                LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(Path3D);
+                LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(Path);
                 jjkn.Parent = dfggfdf.Id;
                 jjkn.ThingThatINeedToRefresh = this;
 
@@ -346,7 +346,7 @@ public partial class FileView : ItemList {
                 NewFolder jjkn1 = m1.Instantiate<NewFolder>();
 
                 // pain
-                LelfsFile dfggfdf1 = LelfsManager.Load<LelfsFile>(Path3D);
+                LelfsFile dfggfdf1 = LelfsManager.Load<LelfsFile>(Path);
                 jjkn1.Parent = dfggfdf1.Id;
                 jjkn1.ThingThatINeedToRefresh = this;
 
@@ -390,13 +390,13 @@ public partial class FileView : ItemList {
     }
 
     void Up() {
-        LelfsFile currentThing = LelfsManager.Load<LelfsFile>(Path3D);
+        LelfsFile currentThing = LelfsManager.Load<LelfsFile>(Path);
         LelfsFile g = LelfsManager.LoadById<LelfsFile>(currentThing.Parent);
-        Refresh(g.Path3D);
+        Refresh(g.Path);
     }
 
     void RefreshButton() {
-        Refresh(Path3D, false);
+        Refresh(Path, false);
     }
 
     void DeleteFile() {
@@ -405,7 +405,7 @@ public partial class FileView : ItemList {
         Delete jjkn = m.Instantiate<Delete>();
 
         // pain
-        LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(Path3D);
+        LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(Path);
         jjkn.Parent = dfggfdf.Id;
         jjkn.ThingThatINeedToRefresh = this;
         jjkn.CoolFile = Selected;
@@ -419,7 +419,7 @@ public partial class FileView : ItemList {
         Rename jjkn = m.Instantiate<Rename>();
 
         // pain
-        LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(Path3D);
+        LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(Path);
         jjkn.Parent = dfggfdf.Id;
         jjkn.ThingThatINeedToRefresh = this;
         jjkn.CoolFile = Selected;
