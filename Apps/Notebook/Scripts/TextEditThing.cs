@@ -26,13 +26,13 @@ public partial class TextEditThing : TextEdit {
         }
 
         // help
-        if (Input.IsActionJustReleased("save") && GetFocusOwner() == this) {
+        if (Input.IsActionJustReleased("save") && HasFocus()) {
             Save();
         }
-        if (Input.IsActionJustReleased("save_as") && GetFocusOwner() == this) {
+        if (Input.IsActionJustReleased("save_as") && HasFocus()) {
             SaveAs();
         }
-        if (Input.IsActionJustReleased("open") && GetFocusOwner() == this) {
+        if (Input.IsActionJustReleased("open") && HasFocus()) {
             Open();
         }
     }
@@ -50,18 +50,18 @@ public partial class TextEditThing : TextEdit {
     }
 
     public void SaveAs() {
-        WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
+        /*WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
         PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Notebook/SaveAs.tscn");
         NotebookSaveAs jjkn = m.Instantiate<NotebookSaveAs>();
         jjkn.Tfhsjkgjrrh = this;
-        wm.AddWindow(jjkn);
+        wm.AddWindow(jjkn);*/
     }
 
     public void Open() {
-        WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
+        /*WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
         PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Notebook/Open.tscn");
         var jjkn = m.Instantiate<NotebookOpen>();
         jjkn.Tfhsjkgjrrh = this;
-        wm.AddWindow(jjkn);
+        wm.AddWindow(jjkn);*/
     }
 }

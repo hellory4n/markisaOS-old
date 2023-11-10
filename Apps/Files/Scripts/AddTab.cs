@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using Lelsktop.WindowManager;
 
 public partial class AddTab : Button {
     readonly PackedScene TabThing = ResourceLoader.Load<PackedScene>("res://Apps/Files/TabThing.tscn");
@@ -13,7 +14,7 @@ public partial class AddTab : Button {
     public override void _Process(double delta) {
         base._Process(delta);
         // always be in the end of the thing, i think
-        Raise();
+        MoveToFront();
 
         // help
         if (Input.IsActionJustReleased("add_tab") && GetParent().GetParent().GetParent<Lelwindow>().IsActive()) {

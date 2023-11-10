@@ -1,19 +1,18 @@
 using Godot;
 
-public partial class AddSticker : TextureButton {
+public partial class AddSticker : TextureButton
+{
     public string TexturePath;
 
-    public override void _Ready() {
-        base._Ready();
-        Connect("pressed", new Callable(this, nameof(Click)));
-    }
-
-    public void Click() {
-        Texture2D texture = GetNode<TextureRect>("../Image").Texture2D;
+    public override void _Pressed()
+    {
+        base._Pressed();
+        Texture2D texture = GetNode<TextureRect>("../Image").Texture;
 
         // save the sticker
         var pinboard = SavingManager.Load<LelsktopPinboard>(SavingManager.CurrentUser);
-        var stickerdbgfdf = new PinboardItem {
+        var stickerdbgfdf = new PinboardItem
+        {
             TexturePath = TexturePath,
             Position = ResolutionManager.Resolution/2
         };
@@ -30,7 +29,7 @@ public partial class AddSticker : TextureButton {
         var ftgkvtfyu = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Sticker.tscn");
         var sticker = ftgkvtfyu.Instantiate<Sticker>();
         sticker.Position = stickerdbgfdf.Position;
-        sticker.Texture2D = texture;
+        sticker.Texture = texture;
         sticker.PinboardItem = bullshit;
         sticker.Scale = new Vector2(stickerdbgfdf.Scale, stickerdbgfdf.Scale);
         GetNode("/root/Lelsktop/Pinboard").AddChild(sticker);

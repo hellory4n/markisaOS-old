@@ -29,7 +29,7 @@ public partial class MinesGameGenerator9000 : Node {
         // first put the mines in places
         Vector2[] mines = new Vector2[Mines];
         for (int i = 0; i < Mines; i++) {
-            Vector2 fun = new(random.Next(1, (int)Grid.x), random.Next(1, (int)Grid.x));
+            Vector2 fun = new(random.Next(1, (int)Grid.X), random.Next(1, (int)Grid.X));
 
             // if that mine was already there then try again
             if (mines.Contains(fun)) {
@@ -38,13 +38,13 @@ public partial class MinesGameGenerator9000 : Node {
             }
 
             mines[i] = fun;
-            GetNode<TextureRect>($"../Why/A/Stuff/{fun.x}x{fun.y}").Texture2D = Mine;
+            GetNode<TextureRect>($"../Why/A/Stuff/{fun.X}X{fun.Y}").Texture = Mine;
         }
 
         // then we put the number stuff :)
         foreach (TextureRect square in GetNode("../Why/A/Stuff").GetChildren()) {
             // get the position thingy :)
-            string[] yes = square.Name.Split("x");
+            string[] yes = square.Name.ToString().Split("x");
             var position = new Vector2(int.Parse(yes[0]), int.Parse(yes[1]));
 
             if (mines.Contains(position))
@@ -53,32 +53,32 @@ public partial class MinesGameGenerator9000 : Node {
             int nearbyMines = 0;
             // we need to check the thing in all 8 sides of the squares
             Vector2[] epicPlaces = new Vector2[] {
-                new(position.x+1, position.y),
-                new(position.x+1, position.y+1),
-                new(position.x, position.y+1),
-                new(position.x-1, position.y+1),
-                new(position.x-1, position.y),
-                new(position.x-1, position.y-1),
-                new(position.x, position.y-1),
-                new(position.x+1, position.y-1)
+                new(position.X+1, position.Y),
+                new(position.X+1, position.Y+1),
+                new(position.X, position.Y+1),
+                new(position.X-1, position.Y+1),
+                new(position.X-1, position.Y),
+                new(position.X-1, position.Y-1),
+                new(position.X, position.Y-1),
+                new(position.X+1, position.Y-1)
             };
 
             foreach (var place in epicPlaces) {
-                TextureRect thingy1 = GetNodeOrNull<TextureRect>($"../Why/A/Stuff/{place.x}x{place.y}");
+                TextureRect thingy1 = GetNodeOrNull<TextureRect>($"../Why/A/Stuff/{place.X}X{place.Y}");
 
                 if (thingy1 == null)
                     continue;
                 
-                if (thingy1.Texture2D == Mine)
+                if (thingy1.Texture == Mine)
                     nearbyMines++;
             }
 
             if (nearbyMines > 0)
-                square.Texture2D = NumberStuff[nearbyMines-1];
+                square.Texture = NumberStuff[nearbyMines-1];
         }
 
         // yes.
-        int totalSquares = (int)(Grid.x * Grid.y);
+        int totalSquares = (int)(Grid.X * Grid.Y);
         NonExplosiveSquares = totalSquares - Mines;
     }
 

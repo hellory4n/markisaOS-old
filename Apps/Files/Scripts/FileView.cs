@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Lelsktop.WindowManager;
 
 public partial class FileView : ItemList {
     readonly Texture2D FolderIcon = ResourceLoader.Load<Texture2D>("res://Apps/Files/Assets/IconDock.png");
@@ -22,7 +23,7 @@ public partial class FileView : ItemList {
     public override void _Ready() {
         base._Ready();
         Refresh("/Home");
-        Connect("item_selected", new Callable(this, nameof(ItemSelected)));
+        Connect("item_selected", new Callable(this, nameof(FileSelected)));
         Connect("nothing_selected", new Callable(this, nameof(NothingSelected)));
         Connect("item_rmb_selected", new Callable(this, nameof(ContextMenu)));
         GetNode<LineEdit>("../Toolbar/Path3D").Connect("text_entered", new Callable(this, nameof(PathEdit)));
@@ -98,7 +99,7 @@ public partial class FileView : ItemList {
             RenameFile();
         }
 
-        if (Input.IsActionJustReleased("new_but_different") && GetParent().GetParent().GetParent().GetParent<Lelwindow>()
+        /*if (Input.IsActionJustReleased("new_but_different") && GetParent().GetParent().GetParent().GetParent<Lelwindow>()
         .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab") {
             WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
             PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Files/NewFolder.tscn");
@@ -125,7 +126,7 @@ public partial class FileView : ItemList {
             jjkn.ThingThatINeedToRefresh = this;
 
             wm.AddWindow(jjkn);
-        }
+        }*/
     }    
 
     public void Refresh(string pathThingSomething, bool addToHistory = true) {
@@ -151,11 +152,7 @@ public partial class FileView : ItemList {
             TabThing.Text = pathThingSomething.Split("/").Last();
         }
 
-        // clear previous list :)))))
-        for (int i = 0; i < Items.Count; i++) {
-            RemoveItem(i);
-            i--;
-        }
+        Clear();
         CoolFiles.Clear();
 
         // questionable way of sorting stuff :)
@@ -205,7 +202,7 @@ public partial class FileView : ItemList {
         UpdateInspector(pathThingSomething);
     }
 
-    void ItemSelected(int index) {
+    void FileSelected(int index) {
         LelfsFile pain = LelfsManager.LoadById<LelfsFile>(CoolFiles[index]);
         UpdateInspector(pain.Path3D);
         if (pain.Id == Selected) {
@@ -215,7 +212,7 @@ public partial class FileView : ItemList {
     }
 
     void Open(int index) {
-        LelfsFile pain = LelfsManager.LoadById<LelfsFile>(CoolFiles[index]);
+        /*LelfsFile pain = LelfsManager.LoadById<LelfsFile>(CoolFiles[index]);
         switch (pain.Type) {
             case "Folder":
                 Refresh(pain.Path3D);
@@ -252,7 +249,7 @@ public partial class FileView : ItemList {
                 jjkn3.Suffer = true;
                 jjkn3.Fhgkfdlkjgjkhgjf = pain.Id;
                 break;
-        }
+        }*/
     }
 
     void NothingSelected() {
@@ -270,7 +267,7 @@ public partial class FileView : ItemList {
         }
     }
 
-    void ContextMenu(int index, Vector2 position) {
+    void ContextMenu(int index, Vector2I position) {
         LelfsFile pain = LelfsManager.LoadById<LelfsFile>(CoolFiles[index]);
         UpdateInspector(pain.Path3D);
         Selected = pain.Id;
@@ -278,8 +275,8 @@ public partial class FileView : ItemList {
         ContextMenuThing.SetItemDisabled(5, false);
         ContextMenuThing.SetItemDisabled(6, false);
         ContextMenuThing.SetItemDisabled(7, false);
-        ContextMenuThing.Position = GlobalPosition + position;
-        ContextMenuThing.Popup_();
+        ContextMenuThing.Position = (Vector2I)(GlobalPosition + position);
+        ContextMenuThing.Popup();
     }
 
     void UpdateInspector(string path) {
@@ -309,7 +306,7 @@ public partial class FileView : ItemList {
     }
 
     void PasteFile() {
-        WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
+        /*WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
         PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Files/Paste.tscn");
         PasteFile jjkn = m.Instantiate<PasteFile>();
 
@@ -326,11 +323,11 @@ public partial class FileView : ItemList {
             jjkn.Move = true;
         }
 
-        wm.AddWindow(jjkn);
+        wm.AddWindow(jjkn);*/
     }
 
     void ContextMenuSelected(int index) {
-        switch (index) {
+        /*switch (index) {
             case 0:
                 WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
                 PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Files/NewFile.tscn");
@@ -370,7 +367,7 @@ public partial class FileView : ItemList {
             case 7:
                 RenameFile();
                 break;
-        }
+        }*/
     }
 
     void ContextMenuButDifferent(Vector2 position) {
@@ -378,8 +375,8 @@ public partial class FileView : ItemList {
         ContextMenuThing.SetItemDisabled(5, true);
         ContextMenuThing.SetItemDisabled(6, true);
         ContextMenuThing.SetItemDisabled(7, true);
-        ContextMenuThing.Position = GlobalPosition + position;
-        ContextMenuThing.Popup_();
+        ContextMenuThing.Position = (Vector2I)(GlobalPosition + position);
+        ContextMenuThing.Popup();
     }
 
     void Back() {
@@ -403,7 +400,7 @@ public partial class FileView : ItemList {
     }
 
     void DeleteFile() {
-        WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
+        /*WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
         PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Files/Delete.tscn");
         Delete jjkn = m.Instantiate<Delete>();
 
@@ -413,11 +410,11 @@ public partial class FileView : ItemList {
         jjkn.ThingThatINeedToRefresh = this;
         jjkn.CoolFile = Selected;
 
-        wm.AddWindow(jjkn);
+        wm.AddWindow(jjkn);*/
     }
 
     void RenameFile() {
-        WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
+        /*WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
         PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Files/Rename.tscn");
         Rename jjkn = m.Instantiate<Rename>();
 
@@ -427,6 +424,6 @@ public partial class FileView : ItemList {
         jjkn.ThingThatINeedToRefresh = this;
         jjkn.CoolFile = Selected;
 
-        wm.AddWindow(jjkn);
+        wm.AddWindow(jjkn);*/
     }
 }

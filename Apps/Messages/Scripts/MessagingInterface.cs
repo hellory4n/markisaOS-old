@@ -41,9 +41,9 @@ public partial class MessagingInterface : Control {
                     Text = reply.Key,
                     ThemeTypeVariation = "SecondaryButton",
                     ToggleMode = true,
-                    SizeFlagsHorizontal = (int)SizeFlags.ExpandFill,
-                    SizeFlagsVertical = (int)SizeFlags.ExpandFill,
-                    Group = buttonGroup,
+                    SizeFlagsHorizontal = SizeFlags.ExpandFill,
+                    SizeFlagsVertical = SizeFlags.ExpandFill,
+                    ButtonGroup = buttonGroup,
                 };
                 GetNode("M/Choices").AddChild(bhfbghudidfg);    
             }

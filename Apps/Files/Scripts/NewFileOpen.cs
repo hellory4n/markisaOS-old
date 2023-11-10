@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using Lelsktop.WindowManager;
 
 public partial class NewFileOpen : Button {
     public override void _Ready() {
@@ -8,7 +9,7 @@ public partial class NewFileOpen : Button {
     }
 
     public void Click() {
-        WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
+        /*WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
         PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Files/NewFile.tscn");
         NewFile jjkn = m.Instantiate<NewFile>();
 
@@ -18,6 +19,6 @@ public partial class NewFileOpen : Button {
         jjkn.Parent = dfggfdf.Id;
         jjkn.ThingThatINeedToRefresh = mewhenthe;
 
-        wm.AddWindow(jjkn);
+        wm.AddWindow(jjkn);*/
     }
 }

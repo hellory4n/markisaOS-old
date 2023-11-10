@@ -26,11 +26,11 @@ public partial class LoadFileFromId : Button {
 
         // fun
         if (m.Type == "Picture")
-            GetParent().GetParent().GetParent<Observer>().ObserverMode = Observer.Mode.Image;
+            GetParent().GetParent().GetParent<Observer>().ObserverMode = Observer.OpenMode.Image;
         else if (m.Type == "Audio") {
-            GetParent().GetParent().GetParent<Observer>().ObserverMode = Observer.Mode.Audio;
+            GetParent().GetParent().GetParent<Observer>().ObserverMode = Observer.OpenMode.Audio;
         } else if (m.Type == "Video") {
-            GetParent().GetParent().GetParent<Observer>().ObserverMode = Observer.Mode.Video;
+            GetParent().GetParent().GetParent<Observer>().ObserverMode = Observer.OpenMode.Video;
         }
         GetParent().GetParent().GetParent<Observer>().MediaId = coolId;
         GetParent().GetParent().GetParent<Observer>().Load();

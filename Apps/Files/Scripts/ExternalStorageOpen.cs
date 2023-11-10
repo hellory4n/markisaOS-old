@@ -1,8 +1,9 @@
 using Godot;
 using System;
+using Lelsktop.WindowManager;
 
 public partial class ExternalStorageOpen : Button {
-    public override void _Ready() {
+    /*public override void _Ready() {
         base._Ready();
         Connect("pressed", new Callable(this, nameof(Click)));
     }
@@ -19,5 +20,5 @@ public partial class ExternalStorageOpen : Button {
         jjkn.ThingThatINeedToRefresh = mewhenthe;
 
         wm.AddWindow(jjkn);
-    }
+    }*/
 }

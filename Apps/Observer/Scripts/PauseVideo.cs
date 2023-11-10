@@ -2,12 +2,8 @@ using Godot;
 using System;
 
 public partial class PauseVideo : Button {
-    public override void _Ready() {
-        base._Ready();
-        Connect("pressed", new Callable(this, nameof(Click)));
-    }
-
-    public void Click() {
-        GetNode<VideoStreamPlayer>("../M/Video").Paused = Pressed;
+    public override void _Toggled(bool toggledOn) {
+        base._Toggled(toggledOn);
+        GetNode<VideoStreamPlayer>("../M/Video").Paused = toggledOn;
     }
 }

@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using Lelsktop.WindowManager;
 
 public partial class FileTabs : HBoxContainer {
     public List<TabThing> TabButtons = new();

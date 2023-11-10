@@ -3,14 +3,14 @@ using System;
 using Lelsktop.WindowManager;
 
 public partial class Observer : Lelwindow {
-    public enum Mode {
+    public enum OpenMode {
         Image,
         Audio,
         Video,
         Nothing
     }
 
-    public Mode ObserverMode = Mode.Nothing;
+    public OpenMode ObserverMode = OpenMode.Nothing;
     public string MediaId;
 
     public override void _Ready() {
@@ -20,7 +20,7 @@ public partial class Observer : Lelwindow {
 
     public void Load() {
         switch (ObserverMode) {
-            case Mode.Image:
+            case OpenMode.Image:
                 PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Observer/ImageView.tscn");
                 Control coolImageThing = m.Instantiate<Control>();
 
@@ -35,7 +35,7 @@ public partial class Observer : Lelwindow {
                 }
                 AddChild(coolImageThing);
                 break;
-            case Mode.Audio:
+            case OpenMode.Audio:
                 PackedScene m2 = ResourceLoader.Load<PackedScene>("res://Apps/Observer/MusicPlayer.tscn");
                 Control coolMusicThing = m2.Instantiate<Control>();
 
@@ -63,7 +63,7 @@ public partial class Observer : Lelwindow {
 
                 AddChild(coolMusicThing);
                 break;
-            case Mode.Video:
+            case OpenMode.Video:
                 PackedScene m3 = ResourceLoader.Load<PackedScene>("res://Apps/Observer/VideoPlayer.tscn");
                 Control coolVideoThing = m3.Instantiate<Control>();
 
@@ -80,7 +80,7 @@ public partial class Observer : Lelwindow {
                 }
                 AddChild(coolVideoThing);
                 break;
-            case Mode.Nothing:
+            case OpenMode.Nothing:
                 PackedScene m1 = ResourceLoader.Load<PackedScene>("res://Apps/Observer/NothingLoaded.tscn");
                 CenterContainer coolNothingThing = m1.Instantiate<CenterContainer>();
                 AddChild(coolNothingThing);

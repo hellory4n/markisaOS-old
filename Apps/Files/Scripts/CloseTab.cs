@@ -1,4 +1,5 @@
 using Godot;
+using Lelsktop.WindowManager;
 using System;
 
 public partial class CloseTab : Button {

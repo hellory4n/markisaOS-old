@@ -8,7 +8,7 @@ public partial class NewFolderOpen : Button {
     }
 
     public void Click() {
-        WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
+        /*WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
         PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Files/NewFolder.tscn");
         NewFolder jjkn = m.Instantiate<NewFolder>();
 
@@ -18,6 +18,6 @@ public partial class NewFolderOpen : Button {
         jjkn.Parent = dfggfdf.Id;
         jjkn.ThingThatINeedToRefresh = mewhenthe;
 
-        wm.AddWindow(jjkn);
+        wm.AddWindow(jjkn);*/
     }
 }
