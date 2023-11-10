@@ -1,6 +1,6 @@
 [gd_scene load_steps=49 format=3 uid="uid://510jc3bhr0on"]
 
-[ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Toolkit/DefaultOpenWindowButton.cs" id="1"]
+[ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Toolkit/OpenWindow.cs" id="1"]
 [ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Time.cs" id="2"]
 [ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" id="3"]
 [ext_resource type="Script" path="res://OS/Scripts/Lelsktop/QuickSettings/SoundSlider.cs" id="4"]

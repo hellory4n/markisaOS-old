@@ -1,8 +1,12 @@
 using Godot;
 using System;
 
-public partial class QuickSettingsUserIcon : Sprite2D {
-    public override void _Ready() {
+namespace Lelsktop.Interface;
+
+public partial class QuickSettingsUserIcon : Sprite2D
+{
+    public override void _Ready()
+    {
         base._Ready();
         Texture2D cat = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Cat.png");
         Texture2D flower = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Flower.png");
@@ -17,37 +21,37 @@ public partial class QuickSettingsUserIcon : Sprite2D {
                 
         // cool user photo
         string photo = SavingManager.Load<UserInfo>(SavingManager.CurrentUser).Photo;
-
-        switch (photo) {
+        switch (photo)
+        {
             case "Cat":
-                Texture2D = cat;
+                Texture = cat;
                 break;
             case "Flower":
-                Texture2D = flower;
+                Texture = flower;
                 break;
             case "Balloon":
-                Texture2D = balloons;
+                Texture = balloons;
                 break;
             case "Car":
-                Texture2D = car;
+                Texture = car;
                 break;
             case "Dog":
-                Texture2D = dog;
+                Texture = dog;
                 break;
             case "Duck":
-                Texture2D = duck;
+                Texture = duck;
                 break;
             case "Pancakes":
-                Texture2D = pancakes;
+                Texture = pancakes;
                 break;
             case "Brushes":
-                Texture2D = brushes;
+                Texture = brushes;
                 break;
             case "Shuttle":
-                Texture2D = shuttle;
+                Texture = shuttle;
                 break;
             case "Football":
-                Texture2D = football;
+                Texture = football;
                 break;
         }
     }

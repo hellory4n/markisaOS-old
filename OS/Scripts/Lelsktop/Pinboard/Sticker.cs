@@ -1,9 +1,14 @@
 using Godot;
 using System;
 
-public partial class Sticker : Sprite2D {
-    // this is stolen from https://gist.github.com/angstyloop/08200c6d816347c82ea1aed56c219f17
-    enum StatusThingy {
+namespace Lelsktop.Pinboard;
+
+// this is based on https://gist.github.com/angstyloop/08200c6d816347c82ea1aed56c219f17
+public partial class Sticker : Sprite2D
+{
+    
+    enum StatusThingy
+    {
         None,
         Clicked,
         Released,
@@ -19,7 +24,8 @@ public partial class Sticker : Sprite2D {
     Timer Bigger;
     public bool DoTheStickerThingy = true;
 
-    public override void _Ready() {
+    public override void _Ready()
+    {
         base._Ready();
         if (!DoTheStickerThingy)
             return;
@@ -30,29 +36,31 @@ public partial class Sticker : Sprite2D {
         Bigger.Paused = true;
     }
 
-    public override void _Process(double delta) {
+    public override void _Process(double delta)
+    {
         base._Process(delta);
 
         if (!Pinboard.EditingPinboard)
             return;
 
-        if (Status == StatusThingy.Dragging && !Lelsktop.InteractingWithLelsktopInterface) {
+        if (Status == StatusThingy.Dragging && !Lelsktop.InteractingWithLelsktopInterface)
             Position = MousePosition + EpicOffset;
-        }
         
         Rect2 aRect = new(
-            Position.x - Texture2D.GetSize().x * Scale.x / 2, Position.y - Texture2D.GetSize().y * Scale.y / 2,
-            Texture2D.GetSize().x * Scale.x, Texture2D.GetSize().y * Scale.y
+            Position.X - Texture.GetSize().X * Scale.X / 2, Position.Y - Texture.GetSize().Y * Scale.Y / 2,
+            Texture.GetSize().X * Scale.X, Texture.GetSize().Y * Scale.Y
         );
 
         // change size :)))))
-        if (DoTheStickerThingy) {
+        if (DoTheStickerThingy)
+        {
             Smaller.Paused = !PinboardSelectThingy.DecreaseSize.Intersects(aRect);
             Bigger.Paused = !PinboardSelectThingy.IncreaseSize.Intersects(aRect);
         }
 
         // delete sticker :)))))))))))))))
-        if (PinboardSelectThingy.RemoveSticker.Intersects(aRect) && SelectedSticker == this) {
+        if (PinboardSelectThingy.RemoveSticker.Intersects(aRect) && SelectedSticker == this)
+        {
             var pinboard = SavingManager.Load<LelsktopPinboard>(SavingManager.CurrentUser);
             pinboard.Items.Remove(PinboardItem);
             SavingManager.Save(SavingManager.CurrentUser, pinboard);
@@ -62,31 +70,37 @@ public partial class Sticker : Sprite2D {
         }
     }
 
-    public override void _Input(InputEvent @event) {
+    public override void _Input(InputEvent @event)
+    {
         base._Input(@event);
 
         if (!Pinboard.EditingPinboard)
             return;
 
-        if (@event is InputEventMouse m) {
+        if (@event is InputEventMouse m)
             MousePosition = m.Position;
-        }
 
-        if (@event is InputEventMouseButton yes) {
-            if (yes.ButtonIndex == (int)ButtonList.Left) {
-                if (Status != StatusThingy.Dragging && yes.Pressed) {
+        if (@event is InputEventMouseButton yes)
+        {
+            if (yes.ButtonIndex == MouseButton.Left)
+            {
+                if (Status != StatusThingy.Dragging && yes.Pressed)
+                {
                     Rect2 aRect = new(
-                        Position.x - Texture2D.GetSize().x * Scale.x / 2, Position.y - Texture2D.GetSize().y * Scale.y / 2,
-                        Texture2D.GetSize().x * Scale.x, Texture2D.GetSize().y * Scale.y
+                        Position.X - Texture.GetSize().X * Scale.X / 2, Position.Y - Texture.GetSize().Y * Scale.Y / 2,
+                        Texture.GetSize().X * Scale.X, Texture.GetSize().Y * Scale.Y
                     );
 
-                    if (aRect.HasPoint(yes.Position)) {
-                        Raise();
+                    if (aRect.HasPoint(yes.Position))
+                    {
+                        MoveToFront();
                         Status = StatusThingy.Clicked;
                         EpicOffset = Position - yes.Position;
                         SelectedSticker = this;
                     }
-                } else if (Status == StatusThingy.Dragging && !yes.Pressed) {
+                }
+                else if (Status == StatusThingy.Dragging && !yes.Pressed)
+                {
                     Status = StatusThingy.Released;
 
                     // we need to save the position :)))
@@ -99,18 +113,19 @@ public partial class Sticker : Sprite2D {
             }
         }
 
-        if (Status == StatusThingy.Clicked && SelectedSticker == this && @event is InputEventMouseMotion) {
+        if (Status == StatusThingy.Clicked && SelectedSticker == this && @event is InputEventMouseMotion)
             Status = StatusThingy.Dragging;
-        }
     }
 
-    public void GetSmallerOmgomgomg() {
-        if (SelectedSticker != this) {
+    public void GetSmallerOmgomgomg()
+    {
+        if (SelectedSticker != this)
+        {
             Smaller.Paused = true;
             return;
         }
 
-        float nfjggjfg = (float)Math.Log(Scale.x + 0.1, 10);
+        float nfjggjfg = (float)Math.Log(Scale.X + 0.1, 10);
         float help = (float)Math.Pow(10, nfjggjfg - 0.1);
 
         Scale = new Vector2(help, help);
@@ -120,13 +135,15 @@ public partial class Sticker : Sprite2D {
         SavingManager.Save(SavingManager.CurrentUser, pinboard);
     }
 
-    public void GetBiggerOmgomgomg() {
-        if (SelectedSticker != this) {
+    public void GetBiggerOmgomgomg()
+    {
+        if (SelectedSticker != this)
+        {
             Bigger.Paused = true;
             return;
         }
 
-        float nfjggjfg = (float)Math.Log(Scale.x + 0.1, 10);
+        float nfjggjfg = (float)Math.Log(Scale.X + 0.1, 10);
         float help = (float)Math.Pow(10, nfjggjfg + 0.1);
 
         Scale = new Vector2(help, help);

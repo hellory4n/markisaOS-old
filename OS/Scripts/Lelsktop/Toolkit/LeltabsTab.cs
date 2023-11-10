@@ -1,15 +1,14 @@
 using Godot;
 using System;
 
-public partial class LeltabsTab : Button {
+namespace Lelsktop.Toolkit;
+
+public partial class LeltabsTab : Button
+{
     public Control TabContent;
 
-    public override void _Ready() {
-        base._Ready();
-        Connect("pressed", new Callable(this, nameof(Click)));
-    }
-
-    public void Click() {
+    public override void _Pressed() {
+        base._Pressed();
         GetParent<Leltabs>().UpdateStuff(TabContent, this);
     }
 }

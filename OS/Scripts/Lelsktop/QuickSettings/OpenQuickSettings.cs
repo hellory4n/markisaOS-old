@@ -1,15 +1,15 @@
 using Godot;
 using System;
 
-public partial class OpenQuickSettings : Button {
-    public override void _Ready() {
-        base._Ready();
-        Connect("pressed", new Callable(this, nameof(Click)));
-    }
+namespace Lelsktop.Interface;
 
-    public void Click() {
+public partial class OpenQuickSettings : Button
+{
+    public override void _Toggled(bool toggledOn)
+    {
+        base._Toggled(toggledOn);
         AnimationPlayer animation = GetNode<AnimationPlayer>("/root/LelsktopInterface/AnimationPlayer");
-        if (!Pressed)
+        if (toggledOn)
             animation.Play("CloseQuickSettings");
         else
             animation.Play("OpenQuickSettings");

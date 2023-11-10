@@ -1,8 +1,13 @@
 using Godot;
+using Lelsktop.WindowManager;
 using System;
 using System.Collections.Generic;
 
-public partial class Leltabs : HBoxContainer {
+namespace Lelsktop.Toolkit;
+
+[GlobalClass]
+public partial class Leltabs : HBoxContainer
+{
     public List<LeltabsTab> TabButtons = new();
     public List<Control> TabContent = new();
     [Export(PropertyHint.File, "*.tscn")]
@@ -11,7 +16,8 @@ public partial class Leltabs : HBoxContainer {
     public string TabContentThing = "";
     public Control ActiveTab;
 
-    public override void _Ready() {
+    public override void _Ready()
+    {
         base._Ready();
         var m = ResourceLoader.Load<PackedScene>(TabContentThing);
         var coolTab = m.Instantiate<Control>();
@@ -31,35 +37,37 @@ public partial class Leltabs : HBoxContainer {
     }
 
     // close the window if all tabs are closed
-    public override void _Process(double delta) {
+    public override void _Process(double delta)
+    {
         base._Process(delta);
         Lelwindow pain = GetParent().GetParent<Lelwindow>();
-        if (TabButtons.Count == 0 && !pain.IsClosing) {
+        if (TabButtons.Count == 0 && !pain.IsClosing)
             pain.Visible = false;
-        }
 
         // epic tab titles :))))
-        for (int i = 0; i < TabContent.Count; i++) {
+        for (int i = 0; i < TabContent.Count; i++)
+        {
             Control dhjhdjhjjghfj = TabContent[i];
             TabButtons[i].Text = dhjhdjhjjghfj.GetNode<Label>("TabTitle").Text;
         }
     }
 
-    public void UpdateStuff(Control activeContent, LeltabsTab activeButton) {
-        foreach (var funni in TabButtons) {
-            if (funni == activeButton) {
+    public void UpdateStuff(Control activeContent, LeltabsTab activeButton)
+    {
+        foreach (var funni in TabButtons)
+        {
+            if (funni == activeButton)
                 funni.ThemeTypeVariation = "ActiveTab";
-            } else {
+            else
                 funni.ThemeTypeVariation = "InactiveTab";
-            }
         }
 
-        foreach (var jcnkv in TabContent) {
-            if (jcnkv == activeContent) {
+        foreach (var jcnkv in TabContent)
+        {
+            if (jcnkv == activeContent)
                 jcnkv.Visible = true;
-            } else {
+            else
                 jcnkv.Visible = false;
-            }
         }
     }
 }

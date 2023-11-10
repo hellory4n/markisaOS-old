@@ -1,23 +1,23 @@
 using Godot;
 using System;
+using System.Linq;
 
-public partial class SidebarButton : Button {
+namespace Lelsktop.Toolkit;
+
+[GlobalClass]
+public partial class SidebarButton : Button
+{
     [Export]
-    public NodePath Category;
+    public Control Category;
 
-    public override void _Ready() {
-        base._Ready();
-        Connect("pressed", new Callable(this, nameof(Click)));
-    }
-
-    public void Click() {
-        Control category = GetNode<Control>(Category);
-
-        category.Visible = true;
-        foreach (CanvasItem otherCategory in category.GetParent().GetChildren()) {
-            if (otherCategory.Name.StartsWith("Category") && otherCategory != category) {
+    public override void _Pressed()
+    {
+        base._Pressed();
+        Category.Visible = true;
+        foreach (CanvasItem otherCategory in Category.GetParent().GetChildren().Cast<CanvasItem>())
+        {
+            if (otherCategory.Name.ToString().StartsWith("Category") && otherCategory != Category)
                 otherCategory.Visible = false;
-            }
         }
     }
 }

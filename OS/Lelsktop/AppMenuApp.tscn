@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/App.png" type="Texture2D" id=1]
-[ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/DefaultOpenWindowButton.cs" type="Script" id=2]
+[ext_resource type="Texture2D" uid="uid://wlamqh1fgh4r" path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/App.png" id="1"]
+[ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Toolkit/OpenWindow.cs" id="2"]
 
 [node name="TestApp2" type="Button"]
 offset_top = 40.0

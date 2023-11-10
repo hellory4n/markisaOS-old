@@ -1,20 +1,17 @@
 using Godot;
 using System;
 
-public partial class CloseParent : Button {
+namespace Lelsktop.Toolkit;
+
+[GlobalClass]
+public partial class CloseParent : Button
+{
     [Export]
-    int Parents = 1;
+    Node Parent;
 
-    public override void _Ready() {
-        base._Ready();
-        Connect("pressed", new Callable(this, nameof(Click)));
-    }
-
-    public void Click() {
-        Node parent = GetParent();
-        for (int i = 0; i < Parents-1; i++) {
-            parent = parent.GetParent();
-        }
-        parent.QueueFree();
+    public override void _Pressed()
+    {
+        base._Pressed();
+        Parent.QueueFree();
     }
 }

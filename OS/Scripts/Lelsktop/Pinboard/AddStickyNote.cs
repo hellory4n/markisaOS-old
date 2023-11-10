@@ -1,19 +1,24 @@
 using Godot;
 using System;
 
-public partial class AddStickyNote : TextureButton {
-    public override void _Ready() {
-        base._Ready();
-        Connect("pressed", new Callable(this, nameof(Click)));
+namespace Lelsktop.Pinboard;
 
+public partial class AddStickyNote : TextureButton
+{
+    public override void _Ready()
+    {
+        base._Ready();
         // the 69 is not a joke i swear
-        Position = new Vector2(ResolutionManager.Resolution.x/2 - 69, 65);
+        Position = new Vector2(ResolutionManager.Resolution.X/2 - 69, 65);
     }
 
-    public void Click() {
+    public override void _Pressed()
+    {
+        base._Pressed();
         // save the sticker
         var pinboard = SavingManager.Load<LelsktopPinboard>(SavingManager.CurrentUser);
-        var stickerdbgfdf = new PinboardItem {
+        var stickerdbgfdf = new PinboardItem
+        {
             Position = new Vector2(250, 160),
             IsStickyNote = true,
             Text = "Write text here..."
@@ -32,7 +37,8 @@ public partial class AddStickyNote : TextureButton {
         GetNode("/root/Lelsktop/Pinboard").AddChild(sticker);
     }
 
-    public override void _Process(double delta) {
+    public override void _Process(double delta)
+    {
         base._Process(delta);
         // so true
         Visible = Pinboard.EditingPinboard;

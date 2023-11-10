@@ -1,10 +1,14 @@
 using Godot;
 using System;
 
-public partial class Pinboard : Button {
+namespace Lelsktop.Pinboard;
+
+public partial class Pinboard : Button
+{
     public static bool EditingPinboard = false;
 
-    public override void _Toggled(bool toggledOn) {
+    public override void _Toggled(bool toggledOn)
+    {
         base._Toggled(toggledOn);
         /*GetNode<SubViewport>("/root/Lelsktop/1/Windows").GuiDisableInput = yes;
         GetNode<SubViewport>("/root/Lelsktop/2/Windows").GuiDisableInput = yes;

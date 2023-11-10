@@ -1,11 +1,16 @@
 using Godot;
 using System;
 
-public partial class SetSizeToScreenResolution : Control {
+namespace Lelsktop.Toolkit;
+
+[GlobalClass]
+public partial class SetSizeToScreenResolution : Control
+{
     [Export]
     Vector2 Offset = new(0, 0);
 
-    public override void _Ready() {
+    public override void _Ready()
+    {
         base._Ready();
         Size = ResolutionManager.Resolution - Offset;
     }

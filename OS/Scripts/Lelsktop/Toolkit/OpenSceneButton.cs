@@ -1,16 +1,17 @@
 using Godot;
 using System;
 
-public partial class OpenSceneButton : Button {
+namespace Lelsktop.Toolkit;
+
+[GlobalClass]
+public partial class OpenSceneButton : Button
+{
     [Export(PropertyHint.File, "*.tscn")]
     public string Scene;
 
-    public override void _Ready() {
-        base._Ready();
-        Connect("pressed", new Callable(this, nameof(Click)));
-    }
-
-    public void Click() {
+    public override void _Pressed()
+    {
+        base._Pressed();
         PackedScene m = ResourceLoader.Load<PackedScene>(Scene);
         Node jjkn = m.Instantiate();
         GetTree().Root.AddChild(jjkn);

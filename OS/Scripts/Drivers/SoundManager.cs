@@ -27,7 +27,7 @@ public partial class SoundManager : Node {
     /// <summary>
     /// The volume of sound effects in decibels, I think.
     /// </summary>
-    public float SoundVolume = 0;
+    public double SoundVolume = 0;
 
     public override void _Ready() {
         base._Ready();

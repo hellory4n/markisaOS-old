@@ -1,13 +1,17 @@
 using Godot;
 using System;
 
-public partial class PinboardSelectThingy : Node2D {
+namespace Lelsktop.Pinboard;
+
+public partial class PinboardSelectThingy : Node2D
+{
     Control Yes;
     public static Rect2 IncreaseSize;
     public static Rect2 DecreaseSize;
     public static Rect2 RemoveSticker;
 
-    public override void _Ready() {
+    public override void _Ready()
+    {
         base._Ready();
         Yes = GetNode<Control>("Yes");
         Yes.Size = ResolutionManager.Resolution;
@@ -16,7 +20,8 @@ public partial class PinboardSelectThingy : Node2D {
         RemoveSticker = Yes.GetNode<Panel>("Delete").GetRect().GrowIndividual(-80, -20, -80, -20);
     }
 
-    public override void _Process(double delta) {
+    public override void _Process(double delta)
+    {
         base._Process(delta);
         // themes are certainly cool & stuff
         Yes.Theme = GetNode<Control>("../1/Windows/ThemeThing").Theme;

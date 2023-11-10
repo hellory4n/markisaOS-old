@@ -1,25 +1,27 @@
 using Godot;
 using System;
-using System.ComponentModel;
 
-public partial class LeltabsAdd : Button {
-    public override void _Ready() {
-        base._Ready();
-        Connect("pressed", new Callable(this, nameof(Click)));
-    }
+namespace Lelsktop.Toolkit;
 
-    public override void _Process(double delta) {
+[GlobalClass]
+public partial class LeltabsAdd : Button
+{
+
+    public override void _Process(double delta)
+    {
         base._Process(delta);
         // always be in the end of the thing, i think
-        Raise();
+        MoveToFront();
 
         // help
-        if (Input.IsActionJustReleased("add_tab") && GetParent().GetParent().GetParent<Lelwindow>().IsActive()) {
+        /*if (Input.IsActionJustReleased("add_tab") && GetParent().GetParent().GetParent<Lelwindow>().IsActive()) {
             Click();
-        }
+        }*/
     }
 
-    public void Click() {
+    public override void _Pressed()
+    {
+        base._Pressed();
         var m = ResourceLoader.Load<PackedScene>(GetParent<Leltabs>().TabContentThing);
         var coolTab = m.Instantiate<Control>();
         // i have to set a theme at that scene so godot lets me put the correct sizes and stuff

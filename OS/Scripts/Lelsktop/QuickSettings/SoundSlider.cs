@@ -1,14 +1,14 @@
 using Godot;
 using System;
 
-public partial class SoundSlider : HSlider {
-    public override void _Ready() {
-        base._Ready();
-        Connect("value_changed", new Callable(this, nameof(TheThing)));
-    }
+namespace Lelsktop.Interface;
 
-    public void TheThing(float yes) {
+public partial class SoundSlider : HSlider
+{
+    public override void _ValueChanged(double newValue)
+    {
+        base._ValueChanged(newValue);
         SoundManager soundManager = GetNode<SoundManager>("/root/SoundManager");
-        soundManager.SoundVolume = Mathf.Log(yes);
+        soundManager.SoundVolume = Mathf.Log(newValue);
     }
 }

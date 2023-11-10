@@ -1,6 +1,8 @@
 using Godot;
 using System;
 
+namespace Lelsktop.Interface;
+
 public partial class SystemMonitorThingy : ProgressBar {
     [Export(PropertyHint.Enum, "CPU,GPU,Memory,Storage")]
     string Thingy;
@@ -12,9 +14,11 @@ public partial class SystemMonitorThingy : ProgressBar {
         computerNoises = GetNode<ComputerNoisesManager>("/root/ComputerNoisesManager");
     }
 
-    public override void _Process(double delta) {
+    public override void _Process(double delta)
+    {
         base._Process(delta);
-        switch (Thingy) {
+        switch (Thingy)
+        {
             case "CPU":
                 Value = computerNoises.CpuUsage*100;
                 break;

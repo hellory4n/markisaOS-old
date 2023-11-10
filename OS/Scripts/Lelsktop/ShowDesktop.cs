@@ -3,20 +3,20 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-public partial class ShowDesktop : Button {
-    List<AnimationPlayer> WindowAnimators = new();
+namespace Lelsktop.Interface;
 
-    public override void _Ready() {
-        base._Ready();
-        Connect("pressed", new Callable(this, nameof(Click)));
-    }
+public partial class ShowDesktop : Button
+{
+    /*List<AnimationPlayer> WindowAnimators = new();
 
-    public void Click() {
-        if (Pressed) {
+    public override void _Toggled(bool toggledOn)
+    {
+        base._Toggled(toggledOn);
+        if (toggledOn) {
             WindowAnimators = new List<AnimationPlayer>();
 
             // find every window ever
-            foreach (Node window in WindowManager.CurrentWorkspace.GetNode("ThemeThing").GetChildren()) {
+            foreach (Node window in WindowManager.WindowManager.CurrentWorkspace.GetNode("ThemeThing").GetChildren()) {
                 WindowAnimators.Add(window.GetNode<AnimationPlayer>("AnimationPlayer"));
                 WindowAnimators.Last().Play("Minimize");
             }
@@ -35,5 +35,5 @@ public partial class ShowDesktop : Button {
         if (GetFocusOwner() != this) {
             Pressed = false;
         }
-    }
+    }*/
 }

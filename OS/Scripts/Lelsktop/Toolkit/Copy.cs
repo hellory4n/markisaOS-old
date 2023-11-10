@@ -1,16 +1,17 @@
 using Godot;
 using System;
 
-public partial class Copy : Button {
+namespace Lelsktop.Toolkit;
+
+[GlobalClass]
+public partial class Copy : Button
+{
     [Export]
     public string TextToCopy = "";
 
-    public override void _Ready() {
-        base._Ready();
-        Connect("pressed", new Callable(this, nameof(Click)));
-    }
-
-    public void Click() {
-        OS.Clipboard = TextToCopy;
+    public override void _Pressed()
+    {
+        base._Pressed();
+        DisplayServer.ClipboardSet(TextToCopy);
     }
 }
