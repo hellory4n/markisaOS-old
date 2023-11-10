@@ -12,6 +12,7 @@ config_version=5
 
 config/name="lelcubeOS"
 config/description="A game about using a computer to start a revolution lol"
+config/tags=PackedStringArray("stupidly_large")
 run/main_scene="res://OS/Core/MobileSetup.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="lelcubeOS"

@@ -1,188 +1,188 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=22 format=3 uid="uid://vpg2b056wk5y"]
 
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Graphics.png" type="Texture2D" id=2]
-[ext_resource path="res://OS/Scripts/WindowManager/BaseWindow.cs" type="Script" id=3]
-[ext_resource path="res://Apps/Settings/Assets/IconDock.png" type="Texture2D" id=4]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/System.png" type="Texture2D" id=5]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Wallpapers.png" type="Texture2D" id=6]
-[ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/SidebarButton.cs" type="Script" id=7]
-[ext_resource path="res://Assets/Boot/Logo.png" type="Texture2D" id=8]
-[ext_resource path="res://Apps/Settings/Scripts/Display/DisplaySettingsApply.cs" type="Script" id=9]
-[ext_resource path="res://Apps/Settings/Scripts/Wallpapers/WallpaperThing.cs" type="Script" id=10]
-[ext_resource path="res://Apps/Settings/Scripts/Wallpapers/ApplyWallpaper.cs" type="Script" id=11]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Themes.png" type="Texture2D" id=12]
-[ext_resource path="res://Apps/Settings/Scripts/System/SystemInfo.cs" type="Script" id=13]
-[ext_resource path="res://Apps/Settings/Scripts/Themes/ApplyNewTheme.cs" type="Script" id=14]
-[ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/DefaultOpenWindowButton.cs" type="Script" id=15]
-[ext_resource path="res://OS/Scripts/Lelsktop/Overlay/TextPeek.cs" type="Script" id=16]
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" id="1"]
+[ext_resource type="Texture2D" uid="uid://bxdjurhxjp20t" path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Graphics.png" id="2"]
+[ext_resource type="Script" path="res://OS/Scripts/WindowManager/BaseWindow.cs" id="3"]
+[ext_resource type="Texture2D" uid="uid://8h88ewrw2v33" path="res://Apps/Settings/Assets/IconDock.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://ylkkv0jt06ri" path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/System.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://bvxna03fu6xub" path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Wallpapers.png" id="6"]
+[ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Toolkit/SidebarButton.cs" id="7"]
+[ext_resource type="Texture2D" uid="uid://dln805ks7nugu" path="res://Assets/Boot/Logo.png" id="8"]
+[ext_resource type="Script" path="res://Apps/Settings/Scripts/Display/DisplaySettingsApply.cs" id="9"]
+[ext_resource type="Script" path="res://Apps/Settings/Scripts/Wallpapers/WallpaperThing.cs" id="10"]
+[ext_resource type="Script" path="res://Apps/Settings/Scripts/Wallpapers/ApplyWallpaper.cs" id="11"]
+[ext_resource type="Texture2D" uid="uid://ciyyjtu436wpj" path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Themes.png" id="12"]
+[ext_resource type="Script" path="res://Apps/Settings/Scripts/System/SystemInfo.cs" id="13"]
+[ext_resource type="Script" path="res://Apps/Settings/Scripts/Themes/ApplyNewTheme.cs" id="14"]
+[ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Toolkit/DefaultOpenWindowButton.cs" id="15"]
+[ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Overlay/TextPeek.cs" id="16"]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id="2"]
 resource_name = "Close"
 length = 0.2
 step = 0.01
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 0.37, 1 ),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.37, 1),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
+"values": [Vector2(1, 1), Vector2(0, 0)]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath(".:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 0.37, 1 ),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.37, 1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PackedFloat32Array( 0.2 ),
-"transitions": PackedFloat32Array( 1 ),
-"values": [ {
-"args": [  ],
-"method": "queue_free"
-} ]
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id="3"]
 resource_name = "Minimize"
 length = 0.2
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 0.37, 1 ),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.37, 1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
+"values": [Vector2(1, 1), Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id="1"]
 resource_name = "Open"
 length = 0.2
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 2
 tracks/0/loop_wrap = false
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 1, 0.37 ),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 0.37),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
+"values": [Vector2(0, 0), Vector2(1, 1)]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath(".:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 1, 0.37 ),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 0.37),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id="4"]
 resource_name = "Restore"
 length = 0.2
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 1, 0.37 ),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 0.37),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Vector2( 1, 1 ) ]
+"values": [Vector2(1, 1)]
 }
 
-[sub_resource type="ButtonGroup" id=5]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cwnrx"]
+_data = {
+"Close": SubResource("2"),
+"Minimize": SubResource("3"),
+"Open": SubResource("1"),
+"Restore": SubResource("4")
+}
 
 [node name="Settings" type="Window"]
 process_priority = 1
-visible = true
-offset_right = 750.0
-offset_bottom = 500.0
-custom_minimum_size = Vector2( 500, 350 )
-theme = ExtResource( 1 )
+position = Vector2i(0, 45)
 exclusive = true
-window_title = "Settings"
-resizable = true
-script = ExtResource( 3 )
-Icon = ExtResource( 4 )
+theme = ExtResource("1")
+script = ExtResource("3")
+Icon = ExtResource("4")
 CpuUse = 2
 MemoryUse = 2
 StorageUse = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-method_call_mode = 1
-anims/Close = SubResource( 2 )
-anims/Minimize = SubResource( 3 )
-anims/Open = SubResource( 1 )
-anims/Restore = SubResource( 4 )
+callback_mode_method = 1
+libraries = {
+"": SubResource("AnimationLibrary_cwnrx")
+}
 
 [node name="HSplitContainer" type="HSplitContainer" parent="."]
+clip_contents = true
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-clip_contents = true
-mouse_filter = 1
 split_offset = 150
 
 [node name="Sidebar" type="Control" parent="HSplitContainer"]
-offset_right = 190.0
-offset_bottom = 500.0
-custom_minimum_size = Vector2( 40, 0 )
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
 mouse_filter = 1
 
 [node name="CoolSidebarLineThing" type="VSeparator" parent="HSplitContainer/Sidebar"]
+layout_mode = 0
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -192,363 +192,262 @@ offset_bottom = -1.0
 mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Sidebar"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme_override_constants/separation = 0
 
 [node name="Button2" type="Button" parent="HSplitContainer/Sidebar/VBoxContainer"]
-offset_right = 190.0
-offset_bottom = 40.0
-custom_minimum_size = Vector2( 0, 40 )
-theme_type_variation = "SidebarButton"
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_type_variation = &"SidebarButton"
 text = "Wallpapers"
-icon = ExtResource( 6 )
-align = 0
-script = ExtResource( 7 )
+icon = ExtResource("6")
+script = ExtResource("7")
 Category = NodePath("../../../Content/CategoryWallpapers")
 
 [node name="Button4" type="Button" parent="HSplitContainer/Sidebar/VBoxContainer"]
-offset_top = 40.0
-offset_right = 190.0
-offset_bottom = 80.0
-custom_minimum_size = Vector2( 0, 40 )
-theme_type_variation = "SidebarButton"
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_type_variation = &"SidebarButton"
 text = "Themes"
-icon = ExtResource( 12 )
-align = 0
-script = ExtResource( 7 )
+icon = ExtResource("12")
+script = ExtResource("7")
 Category = NodePath("../../../Content/CategoryThemes")
 
 [node name="Button" type="Button" parent="HSplitContainer/Sidebar/VBoxContainer"]
-offset_top = 80.0
-offset_right = 190.0
-offset_bottom = 120.0
-custom_minimum_size = Vector2( 0, 40 )
-theme_type_variation = "SidebarButton"
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_type_variation = &"SidebarButton"
 text = "Display"
-icon = ExtResource( 2 )
-align = 0
-script = ExtResource( 7 )
+icon = ExtResource("2")
+script = ExtResource("7")
 Category = NodePath("../../../Content/CategoryDisplay")
 
 [node name="Button3" type="Button" parent="HSplitContainer/Sidebar/VBoxContainer"]
-offset_top = 120.0
-offset_right = 190.0
-offset_bottom = 160.0
-custom_minimum_size = Vector2( 0, 40 )
-theme_type_variation = "SidebarButton"
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_type_variation = &"SidebarButton"
 text = "System"
-icon = ExtResource( 5 )
-align = 0
-script = ExtResource( 7 )
+icon = ExtResource("5")
+script = ExtResource("7")
 Category = NodePath("../../../Content/CategorySystem")
 
 [node name="Content" type="Control" parent="HSplitContainer"]
-offset_left = 198.0
-offset_right = 750.0
-offset_bottom = 500.0
+layout_mode = 2
 mouse_filter = 1
 
 [node name="CategoryHome" type="CenterContainer" parent="HSplitContainer/Content"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
 [node name="Label" type="Label" parent="HSplitContainer/Content/CategoryHome"]
-offset_left = 102.0
-offset_top = 233.0
-offset_right = 449.0
-offset_bottom = 266.0
-theme_type_variation = "Header"
+layout_mode = 2
+theme_type_variation = &"Header"
 text = "Welcome to the Settings app!"
-align = 1
 
 [node name="CategoryDisplay" type="CenterContainer" parent="HSplitContainer/Content"]
 visible = false
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryDisplay"]
-offset_left = 121.0
-offset_top = 137.0
-offset_right = 431.0
-offset_bottom = 363.0
+layout_mode = 2
 alignment = 1
 
 [node name="Label" type="Label" parent="HSplitContainer/Content/CategoryDisplay/VBoxContainer"]
-offset_right = 310.0
-offset_bottom = 33.0
-theme_type_variation = "Header"
+layout_mode = 2
+theme_type_variation = &"Header"
 text = "Resolution"
-align = 1
 
 [node name="ResolutionThing" type="HBoxContainer" parent="HSplitContainer/Content/CategoryDisplay/VBoxContainer"]
-offset_top = 43.0
-offset_right = 310.0
-offset_bottom = 83.0
-custom_minimum_size = Vector2( 300, 0 )
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
 alignment = 1
 
 [node name="Width" type="SpinBox" parent="HSplitContainer/Content/CategoryDisplay/VBoxContainer/ResolutionThing"]
-offset_right = 150.0
-offset_bottom = 40.0
-custom_minimum_size = Vector2( 150, 0 )
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
 min_value = 100.0
 value = 100.0
 rounded = true
 allow_greater = true
-align = 1
 prefix = "Width:"
 
 [node name="Height" type="SpinBox" parent="HSplitContainer/Content/CategoryDisplay/VBoxContainer/ResolutionThing"]
-offset_left = 160.0
-offset_right = 310.0
-offset_bottom = 40.0
-custom_minimum_size = Vector2( 150, 0 )
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
 min_value = 100.0
 value = 100.0
 rounded = true
 allow_greater = true
-align = 1
 prefix = "Height: "
 
 [node name="Label2" type="Label" parent="HSplitContainer/Content/CategoryDisplay/VBoxContainer"]
-offset_top = 93.0
-offset_right = 310.0
-offset_bottom = 126.0
-theme_type_variation = "Header"
+layout_mode = 2
+theme_type_variation = &"Header"
 text = "Scaling Factor"
-align = 1
 
 [node name="ScalingFactor" type="SpinBox" parent="HSplitContainer/Content/CategoryDisplay/VBoxContainer"]
-offset_top = 136.0
-offset_right = 310.0
-offset_bottom = 176.0
+layout_mode = 2
 min_value = 1.0
 max_value = 99999.0
 step = -1.0
 value = 100.0
 allow_greater = true
-align = 1
 suffix = "%"
 
 [node name="Apply" type="Button" parent="HSplitContainer/Content/CategoryDisplay/VBoxContainer"]
-offset_top = 186.0
-offset_right = 310.0
-offset_bottom = 226.0
+layout_mode = 2
 text = "Apply"
-script = ExtResource( 9 )
+script = ExtResource("9")
 
 [node name="CategoryThemes" type="CenterContainer" parent="HSplitContainer/Content"]
 visible = false
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryThemes"]
-offset_left = 55.0
-offset_top = 131.0
-offset_right = 497.0
-offset_bottom = 368.0
+layout_mode = 2
 alignment = 1
 
 [node name="Label" type="Label" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer"]
-offset_right = 442.0
-offset_bottom = 33.0
-theme_type_variation = "Header"
+layout_mode = 2
+theme_type_variation = &"Header"
 text = "Accent colors"
-align = 1
 
 [node name="Grid" type="GridContainer" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer"]
-offset_top = 43.0
-offset_right = 442.0
-offset_bottom = 133.0
+layout_mode = 2
 columns = 5
 
 [node name="CheckBox" type="CheckBox" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer/Grid"]
-offset_right = 86.0
-offset_bottom = 40.0
-custom_minimum_size = Vector2( 0, 40 )
-group = SubResource( 5 )
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
 text = "Black"
 
 [node name="CheckBox43234" type="CheckBox" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer/Grid"]
-offset_left = 96.0
-offset_right = 166.0
-offset_bottom = 40.0
-custom_minimum_size = Vector2( 0, 40 )
-pressed = true
-group = SubResource( 5 )
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
 text = "Blue"
 
 [node name="CheckBox2" type="CheckBox" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer/Grid"]
-offset_left = 176.0
-offset_right = 259.0
-offset_bottom = 40.0
-custom_minimum_size = Vector2( 0, 40 )
-group = SubResource( 5 )
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
 text = "Green"
 
 [node name="CheckBox3" type="CheckBox" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer/Grid"]
-offset_left = 269.0
-offset_right = 362.0
-offset_bottom = 40.0
-custom_minimum_size = Vector2( 0, 40 )
-group = SubResource( 5 )
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
 text = "Orange"
 
 [node name="CheckBox4" type="CheckBox" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer/Grid"]
-offset_left = 372.0
-offset_right = 442.0
-offset_bottom = 40.0
-custom_minimum_size = Vector2( 0, 40 )
-group = SubResource( 5 )
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
 text = "Pink"
 
 [node name="CheckBox5" type="CheckBox" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer/Grid"]
-offset_top = 50.0
-offset_right = 86.0
-offset_bottom = 90.0
-custom_minimum_size = Vector2( 0, 40 )
-group = SubResource( 5 )
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
 text = "Purple"
 
 [node name="CheckBox6" type="CheckBox" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer/Grid"]
-offset_left = 96.0
-offset_top = 50.0
-offset_right = 166.0
-offset_bottom = 90.0
-custom_minimum_size = Vector2( 0, 40 )
-group = SubResource( 5 )
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
 text = "Red"
 
 [node name="CheckBox8" type="CheckBox" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer/Grid"]
-offset_left = 176.0
-offset_top = 50.0
-offset_right = 259.0
-offset_bottom = 90.0
-custom_minimum_size = Vector2( 0, 40 )
-group = SubResource( 5 )
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
 text = "White"
 
 [node name="CheckBox7" type="CheckBox" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer/Grid"]
-offset_left = 269.0
-offset_top = 50.0
-offset_right = 362.0
-offset_bottom = 90.0
-custom_minimum_size = Vector2( 0, 40 )
-group = SubResource( 5 )
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
 text = "Yellow"
 
 [node name="Button" type="Button" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer"]
-offset_top = 143.0
-offset_right = 442.0
-offset_bottom = 183.0
+layout_mode = 2
 text = "Apply"
-script = ExtResource( 14 )
+script = ExtResource("14")
 
 [node name="Label2" type="Label" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer"]
-offset_top = 193.0
-offset_right = 442.0
-offset_bottom = 237.0
+layout_mode = 2
 text = "Custom themes will be available when modding support is added (v0.12 ish probably)"
-align = 1
-autowrap = true
 
 [node name="CategoryWallpapers" type="CenterContainer" parent="HSplitContainer/Content"]
 visible = false
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryWallpapers"]
-offset_left = 88.0
-offset_top = 164.0
-offset_right = 463.0
-offset_bottom = 336.0
+layout_mode = 2
 alignment = 1
 
 [node name="ChooseThingy" type="OptionButton" parent="HSplitContainer/Content/CategoryWallpapers/VBoxContainer"]
-offset_right = 375.0
-offset_bottom = 40.0
-theme_type_variation = "SecondaryButton"
-text = "Choose Wallpaper"
-align = 1
-script = ExtResource( 10 )
+layout_mode = 2
+theme_type_variation = &"SecondaryButton"
+script = ExtResource("10")
 
 [node name="Label2" type="Label" parent="HSplitContainer/Content/CategoryWallpapers/VBoxContainer"]
-offset_top = 50.0
-offset_right = 375.0
-offset_bottom = 72.0
+layout_mode = 2
 text = "or, choose an image you have:"
-align = 1
 
 [node name="LineEdit" type="LineEdit" parent="HSplitContainer/Content/CategoryWallpapers/VBoxContainer"]
-offset_top = 82.0
-offset_right = 375.0
-offset_bottom = 122.0
-custom_minimum_size = Vector2( 375, 0 )
-align = 1
+custom_minimum_size = Vector2(375, 0)
+layout_mode = 2
 placeholder_text = "ID of the file, e.g. HlvWY03AIgXzDnacpw5S"
-script = ExtResource( 16 )
+script = ExtResource("16")
 
 [node name="Button" type="Button" parent="HSplitContainer/Content/CategoryWallpapers/VBoxContainer"]
-offset_top = 132.0
-offset_right = 375.0
-offset_bottom = 172.0
+layout_mode = 2
 text = "Apply"
-script = ExtResource( 11 )
+script = ExtResource("11")
 
 [node name="CategorySystem" type="CenterContainer" parent="HSplitContainer/Content"]
 visible = false
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategorySystem"]
-offset_left = 118.0
-offset_top = 124.0
-offset_right = 434.0
-offset_bottom = 376.0
+layout_mode = 2
 
 [node name="Logo" type="TextureRect" parent="HSplitContainer/Content/CategorySystem/VBoxContainer"]
-offset_right = 316.0
-offset_bottom = 64.0
-custom_minimum_size = Vector2( 316, 64 )
-texture = ExtResource( 8 )
-expand = true
+custom_minimum_size = Vector2(316, 64)
+layout_mode = 2
+texture = ExtResource("8")
+expand_mode = 1
 
 [node name="Label" type="Label" parent="HSplitContainer/Content/CategorySystem/VBoxContainer"]
-offset_top = 74.0
-offset_right = 316.0
-offset_bottom = 140.0
+layout_mode = 2
 text = "lelcubeOS v0.10.0
 © Passionfruit 2069
 Running on Device™"
-align = 1
-script = ExtResource( 13 )
+script = ExtResource("13")
 
 [node name="HSeparator2" type="HSeparator" parent="HSplitContainer/Content/CategorySystem/VBoxContainer"]
-offset_top = 150.0
-offset_right = 316.0
-offset_bottom = 152.0
+layout_mode = 2
 mouse_filter = 2
 
 [node name="Button2" type="Button" parent="HSplitContainer/Content/CategorySystem/VBoxContainer"]
-offset_top = 162.0
-offset_right = 316.0
-offset_bottom = 202.0
-theme_type_variation = "SecondaryButton"
+layout_mode = 2
+theme_type_variation = &"SecondaryButton"
 text = "Credits"
-script = ExtResource( 15 )
+script = ExtResource("15")
 WindowScene = "res://Apps/Settings/Credits.tscn"
 
 [node name="Button" type="Button" parent="HSplitContainer/Content/CategorySystem/VBoxContainer"]
-offset_top = 212.0
-offset_right = 316.0
-offset_bottom = 252.0
-theme_type_variation = "DangerButton"
+layout_mode = 2
+theme_type_variation = &"DangerButton"
 text = "Factory Reset"
-script = ExtResource( 15 )
+script = ExtResource("15")
 WindowScene = "res://Apps/Settings/DeleteAllDataConfirm.tscn"
