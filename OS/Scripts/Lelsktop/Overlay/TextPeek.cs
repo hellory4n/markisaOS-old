@@ -1,12 +1,16 @@
 using Godot;
 using System;
 
-public partial class TextPeek : LineEdit {
+namespace Lelsktop.Overlay;
+
+public partial class TextPeek : LineEdit
+{
     Panel TextPeekThingy;
 
     public override void _Ready() {
         base._Ready();
-        if (OS.GetName() == "Android") {
+        if (OS.GetName() == "Android")
+        {
             CanvasLayer m = new()
             {
                 Layer = 128
@@ -22,12 +26,14 @@ public partial class TextPeek : LineEdit {
         }
     }
 
-    public void TextPeekEdit(string text) {
+    public void TextPeekEdit(string text)
+    {
         TextPeekThingy.Visible = true;
         TextPeekThingy.GetNode<LineEdit>("Text").Text = text;
     }
 
-    public void TextPeekDelete(string text) {
+    public void TextPeekDelete(string text)
+    {
         TextPeekThingy.Visible = false;
     }
 }

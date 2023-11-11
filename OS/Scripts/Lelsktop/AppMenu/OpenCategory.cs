@@ -1,22 +1,21 @@
 using Godot;
 using System;
+using System.Linq;
 
-public partial class OpenCategory : Button {
+namespace Lelsktop.Interface;
+
+public partial class OpenCategory : Button
+{
     [Export]
-    string Category = "";
+    Control Category;
 
-    public override void _Ready() {
-        base._Ready();
-        Connect("pressed", new Callable(this, nameof(Click)));
-    }
-
-    public void Click() {
-        ScrollContainer category = GetParent().GetParent().GetParent().GetNode<ScrollContainer>(Category);
-        category.Visible = true;
-        foreach (CanvasItem otherCategory in category.GetParent().GetChildren()) {
-            if (otherCategory.Name.StartsWith("Category") && otherCategory.Name != Category) {
+    public override void _Pressed() {
+        base._Pressed();
+        Category.Visible = true;
+        foreach (CanvasItem otherCategory in Category.GetParent().GetChildren().Cast<CanvasItem>())
+        {
+            if (otherCategory.Name.ToString().StartsWith("Category") && otherCategory != Category)
                 otherCategory.Visible = false;
-            }
         }
     }
 }

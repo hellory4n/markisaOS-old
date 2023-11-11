@@ -6,7 +6,8 @@ using Newtonsoft.Json;
 /// <summary>
 /// A file in Lelfs.
 /// </summary>
-public partial class LelfsFile {
+public partial class LelfsFile
+{
     /// <summary>
     /// The unique ID for the file: A random number, encoded in base64, with 20 characters.
     /// </summary>
@@ -39,23 +40,22 @@ public partial class LelfsFile {
     /// <summary>
     /// Saves this file, or creates a new one if it hasn't been saved yet.
     /// </summary>
-    public void Save() {
-        DirAccess directory = new();
-        File file = new File();
-        directory.MakeDirRecursive($"user://Users/{SavingManager.CurrentUser}/Files/");
+    public void Save()
+    {
+        DirAccess.MakeDirRecursiveAbsolute($"user://Users/{SavingManager.CurrentUser}/Files/");
 
-        if (!LelfsManager.FileExists(Path)) {
+        if (!LelfsManager.FileExists(Path))
+        {
             LelfsManager.Paths.Add(Path, Id);
             LelfsManager.SavePaths();
         }
 
-        file.Open($"user://Users/{SavingManager.CurrentUser}/Files/{Id}.json", File.ModeFlags.Write);
+        using var file = FileAccess.Open($"user://Users/{SavingManager.CurrentUser}/Files/{Id}.json", FileAccess.ModeFlags.Write);
         file.StoreString(
             JsonConvert.SerializeObject(this, new JsonSerializerSettings {
                 TypeNameHandling = TypeNameHandling.All,
             })
         );
-        file.Close();
     }
 
     /// <summary>
@@ -65,7 +65,8 @@ public partial class LelfsFile {
     /// <param name="name">The name of the new file.</param>
     /// <param name="parent">The parent of the new file.</param>
     /// <returns>The ID of the copied file.</returns>
-    public virtual string Copy(string name, string parent = null) {
+    public virtual string Copy(string name, string parent = null)
+    {
         var gaming = JsonConvert.DeserializeObject<LelfsFile>(
             JsonConvert.SerializeObject(this)
         );
@@ -73,14 +74,16 @@ public partial class LelfsFile {
         gaming.Parent = parent;
         gaming.Id = LelfsManager.GenerateID();
 
-        if (parent != null) {
+        if (parent != null)
+        {
             LelfsFile m = LelfsManager.LoadById<LelfsFile>(parent);
             gaming.Path = $"{m.Path}/{gaming.Name}";
-        } else {
-            gaming.Path = $"/{gaming.Name}";
         }
+        else
+            gaming.Path = $"/{gaming.Name}";
 
-        if (!LelfsManager.FileExists(gaming.Path)) {
+        if (!LelfsManager.FileExists(gaming.Path))
+        {
             LelfsManager.Paths.Add(gaming.Path, gaming.Id);
             LelfsManager.SavePaths();
         }
@@ -93,17 +96,19 @@ public partial class LelfsFile {
     /// Renames this file.
     /// </summary>
     /// <param name="name">The new name of the file.</param>
-    public virtual void Rename(string name) {
+    public virtual void Rename(string name)
+    {
         Name = name;
 
         LelfsManager.Paths.Remove(Path);
 
-        if (Parent != "root") {
+        if (Parent != "root")
+        {
             LelfsFile m = LelfsManager.LoadById<LelfsFile>(Parent);
             Path = $"{m.Path}/{name}";
-        } else {
-            Path = $"/{name}";
         }
+        else
+            Path = $"/{name}";
         
         Save();
     }
@@ -111,22 +116,24 @@ public partial class LelfsFile {
     /// <summary>
     /// Deletes this file permanently.
     /// </summary>
-    public virtual void Delete() {
-        DirAccess directory = new();
-        if (LelfsManager.FileExists(Path)) {
-            directory.Remove($"user://Users/{SavingManager.CurrentUser}/Files/{Id}.json");
+    public virtual void Delete()
+    {
+        if (LelfsManager.FileExists(Path))
+        {
+            DirAccess.RemoveAbsolute($"user://Users/{SavingManager.CurrentUser}/Files/{Id}.json");
             LelfsManager.Paths.Remove(Path);
             LelfsManager.SavePaths();
-        } else {
-            GD.PushError("File not saved yet!");
         }
+        else
+            GD.PushError("File not saved yet!");
     }
 
     /// <summary>
     /// Changes the parent of a file.
     /// </summary>
     /// <param name="parent">The ID of the new parent.</param>
-    public virtual void Move(string parent) {
+    public virtual void Move(string parent)
+    {
         if (Parent == parent)
             return;
 
@@ -134,12 +141,13 @@ public partial class LelfsFile {
 
         LelfsManager.Paths.Remove(Path);
 
-        if (parent != "root") {
+        if (parent != "root")
+        {
             LelfsFile m = LelfsManager.LoadById<LelfsFile>(parent);
             Path = $"{m.Path}/{Name}";
-        } else {
-            Path = $"/{Name}";
         }
+        else
+            Path = $"/{Name}";
 
         Save();
 

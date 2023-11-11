@@ -1,23 +1,30 @@
 using Godot;
 using System;
+using Lelsktop.Toolkit;
 
-public partial class ListApps : VBoxContainer {
+namespace Lelsktop.Interface;
+
+public partial class ListApps : VBoxContainer
+{
     [Export(PropertyHint.Enum, "All,Accessories,Development,Games,Graphics,Internet,Multimedia,Office,System,Utilities")]
     string Category = "All";
 
-    public override void _Ready() {
+    public override void _Ready()
+    {
         base._Ready();
         UpdateList();
     }
 
-    public void UpdateList() {
+    public void UpdateList()
+    {
         // clear previous list
-        foreach (Node mbcicfda in GetChildren()) {
+        foreach (Node mbcicfda in GetChildren())
+        {
             mbcicfda.QueueFree();
         }
 
         // get the list stuff
-        Lelapp[] apps = new Lelapp[]{};
+        Lelapp[] apps;
         InstalledApps m = SavingManager.Load<InstalledApps>(SavingManager.CurrentUser);
         switch (Category) {
             case "All":
@@ -50,6 +57,9 @@ public partial class ListApps : VBoxContainer {
             case "Utilities":
                 apps = m.Utilities;
                 break;
+            default:
+                apps = m.All;
+                break;
         }
 
         if (apps.Length == 0) {
@@ -58,10 +68,13 @@ public partial class ListApps : VBoxContainer {
                 Text = "No apps found."
             };
             AddChild(epicbruhmoment);
-        } else {
+        }
+        else
+        {
             PackedScene yes = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/AppMenuApp.tscn");
-            foreach (var app in apps){
-                DefaultOpenWindowButton amazingApp = yes.Instantiate<DefaultOpenWindowButton>();
+            foreach (var app in apps)
+            {
+                OpenWindow amazingApp = yes.Instantiate<OpenWindow>();
                 amazingApp.Text = app.Name;
                 amazingApp.Icon = ResourceLoader.Load<Texture2D>(app.Icon);
                 amazingApp.WindowScene = app.Scene;
