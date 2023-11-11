@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=180 format=3 uid="uid://c0bcvkyvqeere"]
+[gd_resource type="Theme" load_steps=183 format=3 uid="uid://c0bcvkyvqeere"]
 
 [ext_resource type="FontFile" uid="uid://b82t6vwpkpyyc" path="res://Fonts/RedHatText-Bold.ttf" id="1"]
+[ext_resource type="Texture2D" uid="uid://b6ko7py6lenrl" path="res://Assets/Themes/Leltheme-Dark-Blue/Tabs/Active.png" id="1_etwf0"]
 [ext_resource type="FontFile" uid="uid://dgstmjhuoxpu6" path="res://Fonts/RedHatText-Medium.ttf" id="2"]
 [ext_resource type="Texture2D" uid="uid://by7dw1ccc01j3" path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Updown.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://cbnxwrxj4nej0" path="res://Assets/Themes/Leltheme-Dark-Blue/Sliders/VGrabAreaHighlight.png" id="4"]
@@ -37,21 +38,24 @@
 [ext_resource type="Texture2D" uid="uid://wvm1xiaff5e0" path="res://Assets/Themes/Leltheme-Dark-Blue/Scrollbars/VGrabPressed.png" id="35"]
 [ext_resource type="Texture2D" uid="uid://dln5hked6rdj4" path="res://Assets/Themes/Leltheme-Dark-Blue/Scrollbars/VGrab.png" id="36"]
 [ext_resource type="Texture2D" uid="uid://cekvacqhwtdcx" path="res://Assets/Themes/Leltheme-Dark-Blue/Scrollbars/HGrabHover.png" id="37"]
+[ext_resource type="Texture2D" uid="uid://csav6g52v6rbd" path="res://Assets/Themes/Leltheme-Dark-Blue/Tabs/Inactive.png" id="37_khywc"]
 [ext_resource type="Texture2D" uid="uid://b2pd7iq0x5vgc" path="res://Assets/Themes/Leltheme-Dark-Blue/Scrollbars/HGrabPressed.png" id="38"]
-[ext_resource type="Texture2D" uid="uid://bmohihr8vjjj7" path="res://Assets/Themes/Leltheme-Dark-Blue/Window/CloseHover.png" id="39"]
+[ext_resource type="Texture2D" uid="uid://c4xwxvmiu42qr" path="res://Assets/Themes/Leltheme-Dark-Blue/Other/ItemListSelected.png" id="38_o6mn1"]
 [ext_resource type="Texture2D" uid="uid://dbn1wtd7rytw1" path="res://Assets/Themes/Leltheme-Dark-Blue/Window/Close.png" id="40"]
+[ext_resource type="Texture2D" uid="uid://cwil1ljngranp" path="res://Assets/Themes/Leltheme-Dark-Blue/Tabs/Background.png" id="40_512lv"]
 [ext_resource type="Texture2D" uid="uid://7hfuw08j33os" path="res://Assets/Themes/Leltheme-Dark-Blue/DockButton/Button.png" id="41"]
+[ext_resource type="Texture2D" uid="uid://bc1ojh6wkjr4k" path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Backspace.png" id="41_smixi"]
 [ext_resource type="Texture2D" uid="uid://bwanh6k5ob2bb" path="res://Assets/Themes/Leltheme-Dark-Blue/Desktop/Menu.png" id="42"]
 [ext_resource type="Texture2D" uid="uid://coq0h551or7rl" path="res://Assets/Themes/Leltheme-Dark-Blue/DockButton/ButtonHover.png" id="43"]
 [ext_resource type="Texture2D" uid="uid://bbmbusnhewowk" path="res://Assets/Themes/Leltheme-Dark-Blue/DockButton/ButtonPressed.png" id="44"]
 [ext_resource type="Texture2D" uid="uid://dyq50libfnnia" path="res://Assets/Themes/Leltheme-Dark-Blue/DangerButtons/DangerButton.png" id="45"]
-[ext_resource type="Texture2D" uid="uid://c4t76if77klwn" path="res://Assets/Themes/Leltheme-Dark-Blue/Window/Title.png" id="46"]
 [ext_resource type="Texture2D" uid="uid://dh061rq2sh2vm" path="res://Assets/Themes/Leltheme-Dark-Blue/Desktop/Panel.png" id="47"]
 [ext_resource type="Texture2D" uid="uid://bugtijia4vunw" path="res://Assets/Themes/Leltheme-Dark-Blue/Desktop/Dock.png" id="48"]
 [ext_resource type="Texture2D" uid="uid://b26eg5bc15lk0" path="res://Assets/Themes/Leltheme-Dark-Blue/DangerButtons/DangerButtonFocus.png" id="49"]
 [ext_resource type="Texture2D" uid="uid://b2u3svpu30kyp" path="res://Assets/Themes/Leltheme-Dark-Blue/SecondaryButtons/SecondaryButtonHover.png" id="50"]
 [ext_resource type="Texture2D" uid="uid://kwfber6rdlgs" path="res://Assets/Themes/Leltheme-Dark-Blue/SecondaryButtons/SecondaryButtonPressed.png" id="51"]
 [ext_resource type="Texture2D" uid="uid://tm36gnculck7" path="res://Assets/Themes/Leltheme-Dark-Blue/DangerButtons/DangerButtonHover.png" id="52"]
+[ext_resource type="Texture2D" uid="uid://870yftb11yyc" path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/PopupSubmenu.png" id="52_yvcys"]
 [ext_resource type="Texture2D" uid="uid://yb6c8l61dv54" path="res://Assets/Themes/Leltheme-Dark-Blue/SecondaryButtons/SecondaryButton.png" id="53"]
 [ext_resource type="Texture2D" uid="uid://d2dqj6ghprhsx" path="res://Assets/Themes/Leltheme-Dark-Blue/DangerButtons/DangerButtonPressed.png" id="54"]
 [ext_resource type="Texture2D" uid="uid://crgpiibpr31h5" path="res://Assets/Themes/Leltheme-Dark-Blue/Window/MaximizeHover.png" id="55"]
@@ -62,11 +66,19 @@
 [ext_resource type="Texture2D" uid="uid://cabuo7fnsexmo" path="res://Assets/Themes/Leltheme-Dark-Blue/Window/MinimizePressed.png" id="60"]
 [ext_resource type="Texture2D" uid="uid://ckpmt8ymxrh7k" path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/HSplitContainer.png" id="61"]
 [ext_resource type="Texture2D" uid="uid://7ck24nn3vcjv" path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/VSplitContainer.png" id="65"]
+[ext_resource type="Texture2D" uid="uid://kpgu1najdg48" path="res://Assets/Themes/Leltheme-Dark-Blue/Window/ClosePressed.png" id="67_y8gs2"]
+[ext_resource type="Texture2D" uid="uid://dc4wjmno0lbum" path="res://Assets/Themes/Leltheme-Dark-Blue/Window/Background.png" id="68_todlq"]
+[ext_resource type="Texture2D" uid="uid://bdcfdtp2btn2r" path="res://Assets/Themes/Leltheme-Dark-Blue/Window/InactiveBackground.png" id="69_raedg"]
 
 [sub_resource type="StyleBoxEmpty" id="235"]
 
 [sub_resource type="StyleBoxTexture" id="236"]
 content_margin_right = 45.0
+texture = ExtResource("1_etwf0")
+texture_margin_left = 22.0
+texture_margin_top = 22.0
+texture_margin_right = 22.0
+texture_margin_bottom = 22.0
 region_rect = Rect2(0, 0, 45, 46)
 
 [sub_resource type="FontFile" id="19"]
@@ -79,43 +91,63 @@ cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="StyleBoxTexture" id="6"]
-content_margin_left = 9.0
+content_margin_left = 25.0
 content_margin_top = 9.0
-content_margin_right = 9.0
+content_margin_right = 25.0
 content_margin_bottom = 9.0
 texture = ExtResource("8")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 region_rect = Rect2(0, 0, 40, 40)
 
 [sub_resource type="StyleBoxTexture" id="9"]
-content_margin_left = 9.0
+content_margin_left = 25.0
 content_margin_top = 9.0
-content_margin_right = 9.0
+content_margin_right = 25.0
 content_margin_bottom = 9.0
 texture = ExtResource("9")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 region_rect = Rect2(0, 0, 40, 40)
 
 [sub_resource type="StyleBoxTexture" id="12"]
-content_margin_left = 9.0
+content_margin_left = 25.0
 content_margin_top = 9.0
-content_margin_right = 9.0
+content_margin_right = 25.0
 content_margin_bottom = 9.0
 texture = ExtResource("7")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 region_rect = Rect2(0, 0, 40, 40)
 
 [sub_resource type="StyleBoxTexture" id="15"]
-content_margin_left = 9.0
+content_margin_left = 25.0
 content_margin_top = 9.0
-content_margin_right = 9.0
+content_margin_right = 25.0
 content_margin_bottom = 9.0
 texture = ExtResource("13")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 region_rect = Rect2(0, 0, 40, 40)
 
 [sub_resource type="StyleBoxTexture" id="18"]
-content_margin_left = 9.0
+content_margin_left = 25.0
 content_margin_top = 9.0
-content_margin_right = 9.0
+content_margin_right = 25.0
 content_margin_bottom = 9.0
 texture = ExtResource("10")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 region_rect = Rect2(0, 0, 40, 40)
 
 [sub_resource type="FontFile" id="23"]
@@ -135,6 +167,10 @@ content_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxTexture" id="56"]
 texture = ExtResource("23")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 region_rect = Rect2(0, 0, 40, 40)
 
 [sub_resource type="StyleBoxTexture" id="139"]
@@ -159,42 +195,66 @@ cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="StyleBoxTexture" id="189"]
-content_margin_left = 9.0
+content_margin_left = 25.0
 content_margin_top = 9.0
-content_margin_right = 9.0
+content_margin_right = 25.0
 content_margin_bottom = 9.0
 texture = ExtResource("49")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 region_rect = Rect2(0, 0, 40, 40)
 
 [sub_resource type="StyleBoxTexture" id="190"]
-content_margin_left = 9.0
+content_margin_left = 25.0
 content_margin_top = 9.0
-content_margin_right = 9.0
+content_margin_right = 25.0
 content_margin_bottom = 9.0
 texture = ExtResource("52")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 region_rect = Rect2(0, 0, 40, 40)
 
 [sub_resource type="StyleBoxTexture" id="191"]
-content_margin_left = 9.0
+content_margin_left = 25.0
 content_margin_top = 9.0
-content_margin_right = 9.0
+content_margin_right = 25.0
 content_margin_bottom = 9.0
 texture = ExtResource("45")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 region_rect = Rect2(0, 0, 40, 40)
 
 [sub_resource type="StyleBoxTexture" id="192"]
-content_margin_left = 9.0
+content_margin_left = 25.0
 content_margin_top = 9.0
-content_margin_right = 9.0
+content_margin_right = 25.0
 content_margin_bottom = 9.0
 texture = ExtResource("54")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 region_rect = Rect2(0, 0, 40, 40)
 
 [sub_resource type="StyleBoxTexture" id="173"]
 texture = ExtResource("48")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 region_rect = Rect2(0, 0, 75, 75)
 
 [sub_resource type="StyleBoxEmpty" id="137"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
 
 [sub_resource type="StyleBoxTexture" id="4"]
 content_margin_left = 0.0
@@ -202,6 +262,10 @@ content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
 texture = ExtResource("43")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
 region_rect = Rect2(0, 0, 64, 64)
 
 [sub_resource type="StyleBoxTexture" id="138"]
@@ -210,6 +274,10 @@ content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
 texture = ExtResource("41")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
 region_rect = Rect2(0, 0, 64, 64)
 
 [sub_resource type="StyleBoxTexture" id="5"]
@@ -218,6 +286,10 @@ content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
 texture = ExtResource("44")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
 region_rect = Rect2(0, 0, 64, 64)
 
 [sub_resource type="FontFile" id="113"]
@@ -237,6 +309,10 @@ content_margin_top = 2.0
 content_margin_right = 2.0
 content_margin_bottom = 2.0
 texture = ExtResource("30")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
 region_rect = Rect2(0, 0, 16, 16)
 
 [sub_resource type="StyleBoxTexture" id="88"]
@@ -245,6 +321,10 @@ content_margin_top = 2.0
 content_margin_right = 2.0
 content_margin_bottom = 2.0
 texture = ExtResource("37")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
 region_rect = Rect2(0, 0, 16, 16)
 
 [sub_resource type="StyleBoxTexture" id="89"]
@@ -253,12 +333,20 @@ content_margin_top = 2.0
 content_margin_right = 2.0
 content_margin_bottom = 2.0
 texture = ExtResource("38")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
 region_rect = Rect2(0, 0, 16, 16)
 
 [sub_resource type="StyleBoxTexture" id="90"]
 content_margin_left = 0.0
 content_margin_right = 0.0
 texture = ExtResource("31")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
 region_rect = Rect2(0, 0, 16, 16)
 
 [sub_resource type="StyleBoxTexture" id="91"]
@@ -267,13 +355,17 @@ content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
 texture = ExtResource("23")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 region_rect = Rect2(0, 0, 40, 40)
 
 [sub_resource type="StyleBoxLine" id="114"]
 color = Color(0.266667, 0.541176, 1, 0.498039)
 thickness = 2
 
-[sub_resource type="Image" id="Image_lpy06"]
+[sub_resource type="Image" id="Image_cada1"]
 data = {
 "data": PackedByteArray(0, 0, 0, 0, 152, 152, 152, 121, 78, 78, 78, 49, 0, 0, 0, 0, 0, 0, 0, 0, 141, 141, 141, 121, 78, 78, 78, 49, 0, 0, 0, 0, 0, 0, 0, 0, 130, 130, 130, 121, 78, 78, 78, 49, 0, 0, 0, 0, 0, 0, 0, 0, 78, 78, 78, 49, 78, 78, 78, 28, 0, 0, 0, 0, 0, 0, 0, 0, 56, 85, 95, 0, 56, 85, 95, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 140, 172, 184, 0, 56, 85, 95, 0, 0, 0, 0, 0, 0, 0, 0, 0, 129, 162, 173, 0, 56, 85, 95, 0, 0, 0, 0, 0, 0, 0, 0, 0, 152, 152, 152, 121, 78, 78, 78, 49, 0, 0, 0, 0, 0, 0, 0, 0, 141, 141, 141, 121, 78, 78, 78, 49, 0, 0, 0, 0, 0, 0, 0, 0, 130, 130, 130, 121, 78, 78, 78, 49, 0, 0, 0, 0),
 "format": "RGBA8",
@@ -283,18 +375,30 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="58"]
-image = SubResource("Image_lpy06")
+image = SubResource("Image_cada1")
 
 [sub_resource type="StyleBoxTexture" id="59"]
 texture = ExtResource("28")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
 region_rect = Rect2(0, 0, 16, 16)
 
 [sub_resource type="StyleBoxTexture" id="60"]
 texture = ExtResource("29")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
 region_rect = Rect2(0, 0, 16, 16)
 
 [sub_resource type="StyleBoxTexture" id="61"]
 texture = ExtResource("24")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
 region_rect = Rect2(0, 0, 16, 16)
 
 [sub_resource type="StyleBoxEmpty" id="224"]
@@ -310,58 +414,60 @@ cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="StyleBoxTexture" id="238"]
 content_margin_right = 45.0
+texture = ExtResource("37_khywc")
+texture_margin_left = 22.0
+texture_margin_top = 22.0
+texture_margin_right = 22.0
+texture_margin_bottom = 22.0
 region_rect = Rect2(0, 0, 45, 46)
 
 [sub_resource type="StyleBoxEmpty" id="241"]
 
 [sub_resource type="StyleBoxEmpty" id="116"]
 
-[sub_resource type="StyleBoxTexture" id="117"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-texture = ExtResource("23")
-expand_margin_left = 1.0
-expand_margin_top = 1.0
-expand_margin_right = 1.0
-expand_margin_bottom = 1.0
-region_rect = Rect2(0, 0, 40, 40)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8qxcl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ej6m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqxbt"]
 
 [sub_resource type="StyleBoxTexture" id="118"]
 content_margin_left = 8.0
 content_margin_top = 2.0
 content_margin_right = 8.0
 content_margin_bottom = 2.0
-texture = ExtResource("23")
+texture = ExtResource("38_o6mn1")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 region_rect = Rect2(0, 0, 40, 40)
 
-[sub_resource type="StyleBoxTexture" id="119"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ad7lb"]
 content_margin_left = 8.0
 content_margin_top = 2.0
 content_margin_right = 8.0
 content_margin_bottom = 2.0
-texture = ExtResource("23")
+texture = ExtResource("38_o6mn1")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 region_rect = Rect2(0, 0, 40, 40)
 
 [sub_resource type="StyleBoxTexture" id="175"]
 texture = ExtResource("47")
+texture_margin_left = 20.0
+texture_margin_right = 20.0
 region_rect = Rect2(0, 0, 40, 40)
 
 [sub_resource type="StyleBoxTexture" id="239"]
+texture = ExtResource("40_512lv")
+texture_margin_left = 22.0
+texture_margin_top = 22.0
+texture_margin_right = 22.0
+texture_margin_bottom = 22.0
 region_rect = Rect2(0, 0, 45, 46)
-
-[sub_resource type="Image" id="Image_8sjwk"]
-data = {
-"data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 223, 88, 220, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 220, 22, 223, 88, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 223, 88, 224, 254, 224, 211, 220, 22, 0, 0, 0, 0, 0, 0, 0, 0, 220, 22, 224, 211, 224, 254, 223, 88, 0, 0, 0, 0, 0, 0, 0, 0, 219, 21, 223, 210, 224, 255, 224, 215, 224, 25, 0, 0, 0, 0, 219, 21, 223, 210, 224, 255, 224, 215, 223, 24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 219, 21, 223, 210, 224, 255, 224, 215, 224, 25, 219, 21, 223, 210, 224, 255, 224, 215, 223, 24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 219, 21, 223, 210, 224, 255, 225, 218, 224, 214, 224, 255, 224, 215, 223, 24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 219, 21, 223, 214, 224, 255, 224, 255, 224, 219, 223, 24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 219, 21, 223, 214, 224, 255, 224, 255, 224, 219, 224, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 219, 21, 223, 210, 224, 255, 223, 218, 224, 214, 224, 255, 224, 215, 224, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 219, 21, 223, 210, 224, 255, 224, 215, 223, 24, 219, 21, 223, 210, 224, 255, 224, 215, 224, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 219, 21, 223, 210, 224, 255, 224, 215, 223, 24, 0, 0, 0, 0, 219, 21, 223, 210, 224, 255, 224, 215, 224, 25, 0, 0, 0, 0, 0, 0, 0, 0, 223, 88, 224, 254, 224, 211, 220, 22, 0, 0, 0, 0, 0, 0, 0, 0, 220, 22, 224, 211, 224, 254, 223, 88, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 223, 88, 220, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 220, 22, 223, 88, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-"format": "LumAlpha8",
-"height": 16,
-"mipmaps": false,
-"width": 16
-}
-
-[sub_resource type="ImageTexture" id="37"]
-image = SubResource("Image_8sjwk")
 
 [sub_resource type="StyleBoxTexture" id="35"]
 content_margin_left = 9.0
@@ -369,6 +475,10 @@ content_margin_top = 9.0
 content_margin_right = 9.0
 content_margin_bottom = 9.0
 texture = ExtResource("22")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 region_rect = Rect2(0, 0, 40, 40)
 
 [sub_resource type="StyleBoxTexture" id="38"]
@@ -377,6 +487,10 @@ content_margin_top = 9.0
 content_margin_right = 9.0
 content_margin_bottom = 9.0
 texture = ExtResource("20")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 region_rect = Rect2(0, 0, 40, 40)
 
 [sub_resource type="StyleBoxTexture" id="41"]
@@ -385,6 +499,10 @@ content_margin_top = 9.0
 content_margin_right = 9.0
 content_margin_bottom = 9.0
 texture = ExtResource("21")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 region_rect = Rect2(0, 0, 40, 40)
 
 [sub_resource type="StyleBoxEmpty" id="202"]
@@ -417,6 +535,10 @@ region_rect = Rect2(0, 0, 32, 32)
 
 [sub_resource type="StyleBoxTexture" id="112"]
 texture = ExtResource("42")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 region_rect = Rect2(0, 0, 40, 40)
 
 [sub_resource type="FontFile" id="150"]
@@ -429,43 +551,51 @@ cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="StyleBoxEmpty" id="142"]
+content_margin_left = 25.0
+content_margin_top = 9.0
+content_margin_right = 25.0
+content_margin_bottom = 9.0
 
 [sub_resource type="StyleBoxTexture" id="143"]
-content_margin_left = 8.0
-content_margin_top = 0.0
-content_margin_right = 8.0
-content_margin_bottom = 0.0
+content_margin_left = 25.0
+content_margin_top = 9.0
+content_margin_right = 25.0
+content_margin_bottom = 9.0
 texture = ExtResource("41")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 region_rect = Rect2(0, 0, 64, 64)
 
 [sub_resource type="StyleBoxEmpty" id="144"]
-content_margin_left = 8.0
-content_margin_top = 0.0
-content_margin_right = 8.0
-content_margin_bottom = 0.0
+content_margin_left = 25.0
+content_margin_top = 9.0
+content_margin_right = 25.0
+content_margin_bottom = 9.0
 
 [sub_resource type="StyleBoxTexture" id="147"]
-content_margin_left = 8.0
-content_margin_top = 0.0
-content_margin_right = 8.0
-content_margin_bottom = 0.0
+content_margin_left = 25.0
+content_margin_top = 9.0
+content_margin_right = 25.0
+content_margin_bottom = 9.0
 texture = ExtResource("44")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 region_rect = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Image" id="Image_f1hqt"]
-data = {
-"data": PackedByteArray(224, 0, 224, 255, 224, 255, 224, 255, 223, 96, 0, 0, 0, 0, 0, 0, 224, 0, 224, 255, 224, 255, 224, 255, 224, 244, 225, 43, 0, 0, 0, 0, 224, 0, 224, 255, 224, 255, 224, 255, 224, 255, 224, 213, 232, 11, 0, 0, 224, 0, 224, 255, 224, 255, 224, 255, 224, 255, 224, 255, 225, 159, 0, 0, 224, 0, 224, 255, 224, 255, 224, 255, 224, 255, 224, 255, 225, 159, 0, 0, 224, 0, 224, 255, 224, 255, 224, 255, 224, 255, 224, 213, 232, 11, 0, 0, 224, 0, 224, 255, 224, 255, 224, 255, 224, 244, 225, 43, 0, 0, 0, 0, 224, 0, 224, 255, 224, 255, 224, 255, 223, 96, 0, 0, 0, 0, 0, 0),
-"format": "LumAlpha8",
-"height": 8,
-"mipmaps": false,
-"width": 8
-}
-
-[sub_resource type="ImageTexture" id="122"]
-image = SubResource("Image_f1hqt")
-
 [sub_resource type="StyleBoxTexture" id="123"]
+content_margin_left = 25.0
+content_margin_top = 9.0
+content_margin_right = 25.0
+content_margin_bottom = 9.0
 texture = ExtResource("41")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
 expand_margin_left = 6.0
 expand_margin_top = 2.0
 expand_margin_right = 6.0
@@ -489,9 +619,13 @@ content_margin_top = 10.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
 texture = ExtResource("42")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 region_rect = Rect2(0, 0, 40, 40)
 
-[sub_resource type="Image" id="Image_4j15l"]
+[sub_resource type="Image" id="Image_xh0da"]
 data = {
 "data": PackedByteArray(255, 0, 255, 255, 0, 255, 255, 0, 255, 255, 0, 255, 103, 122, 133, 102, 122, 134, 104, 123, 134, 104, 123, 134, 104, 123, 134, 104, 123, 134, 102, 122, 134, 103, 122, 133, 255, 0, 255, 255, 0, 255, 255, 0, 255, 255, 0, 255, 255, 0, 255, 255, 0, 255, 103, 122, 133, 102, 122, 134, 87, 81, 81, 76, 66, 64, 77, 67, 65, 77, 67, 65, 77, 67, 65, 77, 67, 65, 76, 66, 64, 87, 81, 81, 102, 122, 134, 103, 122, 133, 255, 0, 255, 255, 0, 255, 255, 0, 255, 103, 122, 133, 86, 76, 75, 76, 66, 64, 77, 68, 65, 77, 67, 65, 78, 68, 66, 78, 68, 66, 78, 68, 66, 78, 68, 66, 77, 67, 65, 77, 68, 65, 76, 66, 64, 87, 81, 81, 103, 122, 133, 255, 0, 255, 255, 0, 255, 102, 122, 134, 76, 66, 64, 76, 66, 64, 77, 67, 65, 79, 69, 67, 79, 69, 67, 79, 69, 67, 79, 69, 67, 79, 69, 67, 79, 69, 67, 77, 67, 65, 76, 66, 64, 76, 66, 64, 103, 123, 135, 255, 0, 255, 103, 122, 133, 87, 81, 81, 76, 66, 64, 76, 66, 64, 78, 68, 66, 79, 68, 67, 80, 69, 68, 82, 70, 68, 82, 70, 68, 81, 70, 69, 79, 68, 67, 78, 68, 66, 76, 66, 64, 76, 66, 64, 87, 81, 81, 103, 122, 133, 102, 122, 134, 75, 64, 63, 76, 66, 64, 77, 67, 65, 79, 68, 67, 81, 71, 69, 82, 72, 70, 83, 72, 71, 83, 72, 71, 82, 72, 70, 81, 71, 69, 79, 68, 67, 78, 68, 66, 76, 66, 64, 75, 65, 63, 103, 123, 135, 103, 123, 135, 75, 65, 63, 76, 66, 64, 77, 67, 65, 79, 68, 67, 81, 71, 69, 84, 73, 70, 85, 74, 71, 85, 73, 71, 85, 74, 71, 82, 72, 70, 80, 69, 68, 77, 67, 65, 76, 66, 64, 75, 65, 63, 104, 124, 136, 103, 123, 135, 74, 64, 62, 75, 65, 63, 77, 67, 65, 79, 69, 67, 81, 71, 69, 84, 73, 70, 85, 75, 73, 86, 77, 75, 84, 73, 70, 83, 73, 71, 80, 70, 68, 78, 68, 66, 76, 66, 64, 75, 65, 63, 104, 124, 136, 103, 123, 135, 74, 65, 62, 75, 65, 63, 76, 66, 64, 79, 69, 67, 81, 71, 69, 84, 73, 70, 85, 75, 73, 85, 75, 73, 85, 74, 71, 82, 72, 70, 80, 70, 68, 78, 68, 66, 76, 66, 64, 74, 64, 62, 104, 124, 136, 103, 123, 135, 72, 62, 60, 75, 66, 63, 75, 65, 63, 78, 68, 66, 80, 69, 68, 81, 70, 69, 83, 73, 71, 83, 73, 71, 82, 72, 70, 80, 69, 68, 78, 68, 66, 76, 66, 64, 75, 65, 63, 73, 63, 61, 104, 124, 136, 103, 123, 135, 70, 61, 60, 72, 62, 60, 74, 64, 62, 76, 66, 64, 78, 68, 66, 79, 68, 67, 80, 69, 68, 80, 69, 68, 80, 70, 68, 79, 69, 67, 76, 66, 64, 75, 64, 63, 73, 63, 61, 71, 61, 59, 103, 123, 135, 103, 122, 133, 87, 81, 81, 71, 62, 59, 73, 64, 61, 75, 65, 63, 76, 66, 64, 77, 67, 65, 78, 68, 66, 78, 68, 66, 77, 67, 65, 76, 66, 64, 75, 65, 63, 73, 63, 61, 71, 61, 59, 87, 81, 81, 104, 123, 134, 255, 0, 255, 103, 123, 135, 70, 61, 60, 71, 61, 59, 72, 62, 60, 73, 63, 61, 74, 64, 62, 75, 65, 63, 75, 65, 63, 75, 64, 63, 74, 64, 62, 72, 62, 60, 71, 62, 59, 71, 61, 59, 103, 123, 135, 255, 0, 255, 255, 0, 255, 103, 122, 133, 87, 81, 81, 69, 60, 59, 71, 61, 59, 71, 61, 59, 71, 61, 59, 72, 62, 60, 72, 62, 60, 71, 61, 59, 71, 61, 59, 71, 62, 59, 70, 61, 60, 87, 81, 81, 102, 122, 134, 255, 0, 255, 255, 0, 255, 255, 0, 255, 103, 122, 133, 103, 123, 135, 87, 81, 81, 70, 60, 58, 70, 60, 58, 71, 62, 59, 71, 62, 59, 70, 60, 58, 70, 60, 58, 87, 81, 81, 103, 123, 135, 104, 123, 134, 255, 0, 255, 255, 0, 255, 255, 0, 255, 255, 0, 255, 255, 0, 255, 255, 0, 255, 102, 122, 134, 103, 123, 135, 104, 124, 136, 104, 124, 136, 104, 124, 136, 104, 124, 136, 103, 123, 135, 104, 123, 134, 255, 0, 255, 255, 0, 255, 255, 0, 255, 255, 0, 255),
 "format": "RGB8",
@@ -501,7 +635,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="128"]
-image = SubResource("Image_4j15l")
+image = SubResource("Image_xh0da")
 
 [sub_resource type="StyleBoxTexture" id="129"]
 texture = SubResource("128")
@@ -517,6 +651,10 @@ content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
 texture = ExtResource("33")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 region_rect = Rect2(0, 0, 32, 32)
 
 [sub_resource type="StyleBoxTexture" id="95"]
@@ -525,22 +663,34 @@ content_margin_top = 1.0
 content_margin_right = 2.0
 content_margin_bottom = 1.0
 texture = ExtResource("32")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 region_rect = Rect2(0, 0, 32, 32)
 
 [sub_resource type="StyleBoxTexture" id="197"]
-content_margin_left = 9.0
+content_margin_left = 25.0
 content_margin_top = 9.0
-content_margin_right = 9.0
+content_margin_right = 25.0
 content_margin_bottom = 9.0
 texture = ExtResource("50")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 region_rect = Rect2(0, 0, 40, 40)
 
 [sub_resource type="StyleBoxTexture" id="198"]
-content_margin_left = 9.0
+content_margin_left = 25.0
 content_margin_top = 9.0
-content_margin_right = 9.0
+content_margin_right = 25.0
 content_margin_bottom = 9.0
 texture = ExtResource("53")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 region_rect = Rect2(0, 0, 40, 40)
 
 [sub_resource type="StyleBoxTexture" id="199"]
@@ -549,6 +699,10 @@ content_margin_top = 9.0
 content_margin_right = 9.0
 content_margin_bottom = 9.0
 texture = ExtResource("51")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 region_rect = Rect2(0, 0, 40, 40)
 
 [sub_resource type="FontFile" id="218"]
@@ -563,28 +717,36 @@ cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 [sub_resource type="StyleBoxEmpty" id="219"]
 
 [sub_resource type="StyleBoxTexture" id="220"]
-content_margin_left = 8.0
-content_margin_top = 0.0
-content_margin_right = 8.0
-content_margin_bottom = 0.0
+content_margin_left = 25.0
+content_margin_top = 9.0
+content_margin_right = 25.0
+content_margin_bottom = 9.0
 texture = ExtResource("41")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 region_rect = Rect2(0, 0, 64, 64)
 
 [sub_resource type="StyleBoxEmpty" id="221"]
-content_margin_left = 8.0
-content_margin_top = 0.0
-content_margin_right = 8.0
-content_margin_bottom = 0.0
+content_margin_left = 25.0
+content_margin_top = 9.0
+content_margin_right = 25.0
+content_margin_bottom = 9.0
 
 [sub_resource type="StyleBoxTexture" id="222"]
-content_margin_left = 8.0
-content_margin_top = 0.0
-content_margin_right = 8.0
-content_margin_bottom = 0.0
+content_margin_left = 25.0
+content_margin_top = 9.0
+content_margin_right = 25.0
+content_margin_bottom = 9.0
 texture = ExtResource("44")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 region_rect = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Image" id="Image_kb4re"]
+[sub_resource type="Image" id="Image_01mpl"]
 data = {
 "data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 255, 224, 255, 224, 255, 224, 255, 224, 255, 224, 255, 224, 255, 224, 255, 0, 0, 0, 0, 0, 0, 0, 0, 224, 255, 224, 255, 224, 255, 224, 255, 224, 255, 224, 255, 224, 255, 224, 255, 0, 0, 0, 0, 0, 0, 0, 0, 224, 255, 224, 255, 224, 255, 224, 255, 224, 255, 224, 255, 224, 255, 224, 255, 0, 0, 0, 0, 0, 0, 0, 0, 225, 94, 224, 244, 224, 255, 224, 255, 224, 255, 224, 255, 224, 246, 225, 102, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 223, 40, 223, 210, 224, 255, 224, 255, 224, 215, 227, 45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 232, 11, 225, 159, 225, 159, 232, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 "format": "LumAlpha8",
@@ -594,9 +756,9 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="44"]
-image = SubResource("Image_kb4re")
+image = SubResource("Image_01mpl")
 
-[sub_resource type="Image" id="Image_axoh4"]
+[sub_resource type="Image" id="Image_rna1h"]
 data = {
 "data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 255, 224, 255, 224, 255, 223, 96, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 255, 224, 255, 224, 255, 224, 244, 225, 43, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 255, 224, 255, 224, 255, 224, 255, 224, 213, 232, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 255, 224, 255, 224, 255, 224, 255, 224, 255, 225, 159, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 255, 224, 255, 224, 255, 224, 255, 224, 255, 225, 159, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 255, 224, 255, 224, 255, 224, 255, 224, 213, 232, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 255, 224, 255, 224, 255, 224, 244, 225, 43, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 255, 224, 255, 224, 255, 223, 96, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 "format": "LumAlpha8",
@@ -606,9 +768,9 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="46"]
-image = SubResource("Image_axoh4")
+image = SubResource("Image_rna1h")
 
-[sub_resource type="Image" id="Image_ac1ug"]
+[sub_resource type="Image" id="Image_2p4li"]
 data = {
 "data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 17, 255, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 18, 255, 50, 255, 50, 255, 17, 0, 0, 0, 0, 0, 0, 0, 0, 255, 18, 255, 50, 255, 50, 255, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 17, 255, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 "format": "LumAlpha8",
@@ -618,9 +780,9 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="48"]
-image = SubResource("Image_ac1ug")
+image = SubResource("Image_2p4li")
 
-[sub_resource type="Image" id="Image_yshuf"]
+[sub_resource type="Image" id="Image_inlup"]
 data = {
 "data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 89, 255, 20, 255, 20, 255, 89, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 89, 255, 20, 255, 20, 255, 89, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 89, 255, 20, 255, 20, 255, 89, 0, 0, 0, 0, 0, 0, 0, 0, 255, 89, 255, 20, 255, 20, 255, 89, 0, 0, 0, 0, 0, 0, 255, 89, 255, 20, 255, 20, 255, 89, 0, 0, 0, 0, 0, 0, 255, 89, 255, 20, 255, 20, 255, 89, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 "format": "LumAlpha8",
@@ -630,9 +792,9 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="50"]
-image = SubResource("Image_yshuf")
+image = SubResource("Image_inlup")
 
-[sub_resource type="Image" id="Image_ekstw"]
+[sub_resource type="Image" id="Image_if32v"]
 data = {
 "data": PackedByteArray(23, 22, 26, 111, 29, 28, 33, 239, 32, 30, 36, 247, 33, 31, 37, 247, 33, 31, 37, 247, 33, 31, 37, 247, 33, 31, 37, 247, 32, 30, 36, 247, 29, 28, 33, 239, 23, 22, 26, 111, 29, 28, 33, 240, 36, 34, 41, 255, 40, 38, 45, 255, 40, 38, 46, 255, 40, 38, 46, 255, 40, 38, 46, 255, 40, 38, 46, 255, 40, 38, 45, 255, 36, 34, 41, 255, 29, 28, 33, 240, 32, 30, 36, 249, 40, 38, 45, 255, 43, 42, 49, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 43, 42, 49, 255, 40, 38, 45, 255, 32, 30, 36, 249, 33, 31, 37, 247, 40, 38, 46, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 40, 38, 46, 255, 33, 31, 37, 247, 33, 31, 37, 247, 40, 38, 46, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 40, 38, 46, 255, 33, 31, 37, 247, 33, 31, 37, 247, 40, 38, 46, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 40, 38, 46, 255, 33, 31, 37, 247, 33, 31, 37, 247, 40, 38, 46, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 40, 38, 46, 255, 33, 31, 37, 247, 32, 30, 36, 249, 40, 38, 45, 255, 43, 42, 49, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 44, 42, 50, 255, 43, 42, 49, 255, 40, 38, 45, 255, 32, 30, 36, 249, 29, 28, 33, 240, 36, 34, 41, 255, 40, 38, 45, 255, 40, 38, 46, 255, 40, 38, 46, 255, 40, 38, 46, 255, 40, 38, 46, 255, 40, 38, 45, 255, 36, 34, 41, 255, 29, 28, 33, 241, 23, 22, 26, 111, 29, 28, 33, 240, 32, 30, 36, 247, 33, 31, 37, 247, 33, 31, 37, 247, 33, 31, 37, 247, 33, 31, 37, 247, 32, 30, 36, 247, 29, 28, 33, 238, 23, 22, 26, 111),
 "format": "RGBA8",
@@ -642,7 +804,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="52"]
-image = SubResource("Image_ekstw")
+image = SubResource("Image_if32v")
 
 [sub_resource type="StyleBoxTexture" id="53"]
 content_margin_left = 0.0
@@ -658,6 +820,10 @@ content_margin_top = 0.0
 content_margin_right = 8.0
 content_margin_bottom = 0.0
 texture = ExtResource("20")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 region_rect = Rect2(0, 0, 40, 40)
 
 [sub_resource type="StyleBoxTexture" id="55"]
@@ -666,6 +832,10 @@ content_margin_top = 0.0
 content_margin_right = 8.0
 content_margin_bottom = 0.0
 texture = ExtResource("21")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 region_rect = Rect2(0, 0, 40, 40)
 
 [sub_resource type="StyleBoxEmpty" id="185"]
@@ -680,6 +850,10 @@ content_margin_top = 7.0
 content_margin_right = 7.0
 content_margin_bottom = 7.0
 texture = ExtResource("42")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 region_rect = Rect2(0, 0, 40, 40)
 
 [sub_resource type="StyleBoxTexture" id="82"]
@@ -688,6 +862,10 @@ content_margin_top = 2.0
 content_margin_right = 2.0
 content_margin_bottom = 2.0
 texture = ExtResource("36")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
 region_rect = Rect2(0, 0, 16, 16)
 
 [sub_resource type="StyleBoxTexture" id="83"]
@@ -696,6 +874,10 @@ content_margin_top = 2.0
 content_margin_right = 2.0
 content_margin_bottom = 2.0
 texture = ExtResource("34")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
 region_rect = Rect2(0, 0, 16, 16)
 
 [sub_resource type="StyleBoxTexture" id="84"]
@@ -704,6 +886,10 @@ content_margin_top = 2.0
 content_margin_right = 2.0
 content_margin_bottom = 2.0
 texture = ExtResource("35")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
 region_rect = Rect2(0, 0, 16, 16)
 
 [sub_resource type="StyleBoxTexture" id="85"]
@@ -712,6 +898,10 @@ content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
 texture = ExtResource("6")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
 region_rect = Rect2(0, 0, 16, 16)
 
 [sub_resource type="StyleBoxTexture" id="86"]
@@ -720,6 +910,10 @@ content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
 texture = ExtResource("23")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 region_rect = Rect2(0, 0, 40, 40)
 
 [sub_resource type="StyleBoxLine" id="136"]
@@ -727,7 +921,7 @@ color = Color(0.266667, 0.541176, 1, 0.498039)
 thickness = 2
 vertical = true
 
-[sub_resource type="Image" id="Image_ak5qx"]
+[sub_resource type="Image" id="Image_5kjkm"]
 data = {
 "data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 130, 130, 130, 121, 141, 141, 141, 121, 152, 152, 152, 121, 129, 162, 173, 0, 140, 172, 184, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 56, 85, 95, 0, 78, 78, 78, 49, 130, 130, 130, 121, 141, 141, 141, 121, 152, 152, 152, 121, 78, 78, 78, 49, 78, 78, 78, 49, 78, 78, 78, 49, 56, 85, 95, 0, 56, 85, 95, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 56, 85, 95, 0, 78, 78, 78, 28, 78, 78, 78, 49, 78, 78, 78, 49, 78, 78, 78, 49, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 "format": "RGBA8",
@@ -737,58 +931,58 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="70"]
-image = SubResource("Image_ak5qx")
+image = SubResource("Image_5kjkm")
 
 [sub_resource type="StyleBoxTexture" id="71"]
 texture = ExtResource("28")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
 region_rect = Rect2(0, 0, 16, 16)
 
 [sub_resource type="StyleBoxTexture" id="72"]
 texture = ExtResource("4")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
 region_rect = Rect2(0, 0, 16, 16)
 
 [sub_resource type="StyleBoxTexture" id="73"]
 texture = ExtResource("5")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
 region_rect = Rect2(0, 0, 16, 16)
 
 [sub_resource type="StyleBoxEmpty" id="252"]
 
-[sub_resource type="FontFile" id="104"]
-fallbacks = Array[Font]([ExtResource("1")])
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4tgtt"]
+texture = ExtResource("68_todlq")
+texture_margin_left = 22.0
+texture_margin_top = 53.0
+texture_margin_right = 22.0
+texture_margin_bottom = 22.0
+expand_margin_left = 13.0
+expand_margin_top = 53.0
+expand_margin_right = 13.0
+expand_margin_bottom = 18.0
 
-[sub_resource type="StyleBoxFlat" id="109"]
-bg_color = Color(0.027451, 0.054902, 0.101961, 1)
-border_color = Color(0.266667, 0.541176, 1, 1)
-corner_radius_top_left = 7
-corner_radius_top_right = 7
-corner_radius_bottom_right = 7
-corner_radius_bottom_left = 7
-corner_detail = 12
-expand_margin_top = 45.0
-shadow_color = Color(0, 0, 0, 0.294118)
-shadow_size = 25
-
-[sub_resource type="StyleBoxTexture" id="161"]
-texture = ExtResource("46")
-region_rect = Rect2(0, 0, 45, 45)
-
-[sub_resource type="FontFile" id="172"]
-fallbacks = Array[Font]([ExtResource("1")])
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o5egl"]
+texture = ExtResource("69_raedg")
+texture_margin_left = 22.0
+texture_margin_top = 53.0
+texture_margin_right = 22.0
+texture_margin_bottom = 22.0
+expand_margin_left = 13.0
+expand_margin_top = 53.0
+expand_margin_right = 13.0
+expand_margin_bottom = 18.0
 
 [resource]
-default_font = SubResource("23")
+default_font = ExtResource("2")
 ActiveTab/base_type = &"Button"
 ActiveTab/styles/focus = SubResource("235")
 ActiveTab/styles/hover = SubResource("236")
@@ -796,7 +990,7 @@ ActiveTab/styles/normal = SubResource("236")
 ActiveTab/styles/pressed = SubResource("236")
 Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/font_color_disabled = Color(1, 1, 1, 1)
-Button/colors/font_color_focus = Color(0.941176, 0.941176, 0.941176, 1)
+Button/colors/font_color_focus = Color(1, 1, 1, 1)
 Button/colors/font_color_hover = Color(1, 1, 1, 1)
 Button/colors/font_color_pressed = Color(1, 1, 1, 1)
 Button/constants/hseparation = 10
@@ -907,11 +1101,11 @@ ItemList/constants/line_separation = 2
 ItemList/constants/vseparation = 2
 ItemList/fonts/font = SubResource("23")
 ItemList/styles/bg = SubResource("116")
-ItemList/styles/bg_focus = SubResource("117")
-ItemList/styles/cursor = SubResource("117")
-ItemList/styles/cursor_unfocused = SubResource("117")
+ItemList/styles/bg_focus = SubResource("StyleBoxEmpty_8qxcl")
+ItemList/styles/cursor = SubResource("StyleBoxEmpty_6ej6m")
+ItemList/styles/cursor_unfocused = SubResource("StyleBoxEmpty_bqxbt")
 ItemList/styles/selected = SubResource("118")
-ItemList/styles/selected_focus = SubResource("119")
+ItemList/styles/selected_focus = SubResource("StyleBoxTexture_ad7lb")
 Label/colors/font_color = Color(1, 1, 1, 1)
 Label/colors/font_color_shadow = Color(0, 0, 0, 1)
 Label/colors/font_outline_modulate = Color(0, 0, 0, 1)
@@ -934,7 +1128,7 @@ LineEdit/colors/font_color_uneditable = Color(1, 1, 1, 0.686275)
 LineEdit/colors/selection_color = Color(0.266667, 0.541176, 1, 0.392157)
 LineEdit/constants/minimum_spaces = 12
 LineEdit/fonts/font = SubResource("23")
-LineEdit/icons/clear = SubResource("37")
+LineEdit/icons/clear = ExtResource("41_smixi")
 LineEdit/styles/focus = SubResource("35")
 LineEdit/styles/normal = SubResource("38")
 LineEdit/styles/read_only = SubResource("41")
@@ -988,7 +1182,7 @@ PopupMenu/fonts/font_separator = SubResource("23")
 PopupMenu/icons/checked = ExtResource("14")
 PopupMenu/icons/radio_checked = ExtResource("19")
 PopupMenu/icons/radio_unchecked = ExtResource("16")
-PopupMenu/icons/submenu = SubResource("122")
+PopupMenu/icons/submenu = ExtResource("52_yvcys")
 PopupMenu/icons/unchecked = ExtResource("12")
 PopupMenu/styles/hover = SubResource("123")
 PopupMenu/styles/labeled_separator_left = SubResource("124")
@@ -1083,23 +1277,15 @@ VSlider/styles/slider = SubResource("73")
 VSplitContainer/icons/grabber = ExtResource("65")
 VSplitContainer/styles/bg = SubResource("252")
 Window/colors/title_color = Color(1, 1, 1, 1)
-Window/constants/close_h_ofs = 38
-Window/constants/close_v_ofs = 38
-Window/constants/scaleborder_size = 4
+Window/colors/title_outline_modulate = Color(1, 1, 1, 1)
+Window/constants/close_h_offset = 38
+Window/constants/close_v_offset = 38
+Window/constants/resize_margin = 4
 Window/constants/title_height = 45
-Window/fonts/title_font = SubResource("104")
+Window/constants/title_outline_size = 0
+Window/font_sizes/title_font_size = 16
+Window/fonts/title_font = ExtResource("2")
 Window/icons/close = ExtResource("40")
-Window/icons/close_highlight = ExtResource("39")
-Window/styles/panel = SubResource("109")
-WindowTitle/base_type = &"Panel"
-WindowTitle/styles/panel = SubResource("161")
-WindowTitleText/base_type = &"Label"
-WindowTitleText/colors/font_color = Color(1, 1, 1, 1)
-WindowTitleText/colors/font_color_shadow = Color(0, 0, 0, 1)
-WindowTitleText/colors/font_outline_modulate = Color(0, 0, 0, 1)
-WindowTitleText/constants/line_spacing = 0
-WindowTitleText/constants/shadow_as_outline = 0
-WindowTitleText/constants/shadow_offset_x = 0
-WindowTitleText/constants/shadow_offset_y = 0
-WindowTitleText/fonts/font = SubResource("172")
-WindowTitleText/styles/normal = null
+Window/icons/close_pressed = ExtResource("67_y8gs2")
+Window/styles/embedded_border = SubResource("StyleBoxTexture_4tgtt")
+Window/styles/embedded_unfocused_border = SubResource("StyleBoxTexture_o5egl")

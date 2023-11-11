@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Numerics;
 
 namespace Lelcore.Drivers;
 
@@ -11,7 +12,7 @@ public partial class ResolutionManager : Node
     /// <summary>
     /// We could just load the settings everytime something needs the resolution but then the game is constantly reading a single file, quite inconvenient
     /// </summary>
-    public static Vector2 Resolution = new(1280, 1080);
+    public static Vector2I Resolution = new(1280, 720);
 
     public override void _Ready()
     {
@@ -24,9 +25,9 @@ public partial class ResolutionManager : Node
     /// </summary>
     public void Update()
     {
-        /*DisplaySettings displaySettings = SavingManager.LoadSettings<DisplaySettings>();
-        Resolution = displaySettings.Resolution/displaySettings.ScalingFactor;
+        DisplaySettings displaySettings = SavingManager.LoadSettings<DisplaySettings>();
+        Resolution = (Vector2I)(displaySettings.Resolution/displaySettings.ScalingFactor);
 
-        GetTree().SetScreenStretch(SceneTree.StretchMode.Mode2d, SceneTree.StretchAspect.Keep, Resolution);*/
+        GetTree().Root.Size = (Vector2I)Resolution;
     }
 }

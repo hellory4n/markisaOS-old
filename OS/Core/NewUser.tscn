@@ -1,64 +1,75 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=3 uid="uid://dj4ctiql0xwvy"]
 
-[ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/SetSizeToScreenResolution.cs" type="Script" id=1]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=2]
-[ext_resource path="res://Assets/UserIcons/Cat.png" type="Texture2D" id=4]
-[ext_resource path="res://Assets/UserIcons/Pancakes.png" type="Texture2D" id=5]
-[ext_resource path="res://OS/Scripts/Core/OnboardingWindowStuff.cs" type="Script" id=6]
-[ext_resource path="res://Assets/UserIcons/Flower.png" type="Texture2D" id=7]
-[ext_resource path="res://Assets/UserIcons/Football.png" type="Texture2D" id=8]
-[ext_resource path="res://Assets/UserIcons/Shuttle.png" type="Texture2D" id=9]
-[ext_resource path="res://Assets/UserIcons/Brushes.png" type="Texture2D" id=10]
-[ext_resource path="res://Assets/UserIcons/Car.png" type="Texture2D" id=11]
-[ext_resource path="res://Assets/UserIcons/Duck.png" type="Texture2D" id=12]
-[ext_resource path="res://Assets/UserIcons/Dog.png" type="Texture2D" id=13]
-[ext_resource path="res://Assets/UserIcons/Balloons.png" type="Texture2D" id=14]
-[ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/CloseParent.cs" type="Script" id=15]
-[ext_resource path="res://OS/Scripts/Core/CreateUser.cs" type="Script" id=16]
-[ext_resource path="res://OS/Scripts/Lelsktop/Overlay/TextPeek.cs" type="Script" id=17]
+[ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Toolkit/SetSizeToScreenResolution.cs" id="1"]
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" id="2"]
+[ext_resource type="Texture2D" uid="uid://b3l7tqdbguhhr" path="res://Assets/UserIcons/Cat.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://b7wy4cvu1lm2x" path="res://Assets/UserIcons/Pancakes.png" id="5"]
+[ext_resource type="Script" path="res://OS/Scripts/Core/OnboardingWindowStuff.cs" id="6"]
+[ext_resource type="Texture2D" uid="uid://dqosy0scl0mth" path="res://Assets/UserIcons/Flower.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://du6u3bewvc7qg" path="res://Assets/UserIcons/Football.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://coayne1gnl7nr" path="res://Assets/UserIcons/Shuttle.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://cdo6virn4bp70" path="res://Assets/UserIcons/Brushes.png" id="10"]
+[ext_resource type="Texture2D" uid="uid://j556iaoj1n3f" path="res://Assets/UserIcons/Car.png" id="11"]
+[ext_resource type="Texture2D" uid="uid://bhkpj23xtoixq" path="res://Assets/UserIcons/Duck.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://dtxly21qk86tj" path="res://Assets/UserIcons/Dog.png" id="13"]
+[ext_resource type="Texture2D" uid="uid://dj2sx36lb02rl" path="res://Assets/UserIcons/Balloons.png" id="14"]
+[ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Toolkit/CloseParent.cs" id="15"]
+[ext_resource type="Script" path="res://OS/Scripts/Core/CreateUser.cs" id="16"]
+[ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Overlay/TextPeek.cs" id="17"]
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id="3"]
 resource_name = "OnboardingStart"
 length = 0.5
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.5 ),
-"transitions": PackedFloat32Array( 0.37, 1 ),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.37, 1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
 tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
-tracks/1/imported = false
-tracks/1/enabled = false
 tracks/1/keys = {
-"times": PackedFloat32Array( 0, 0.5 ),
-"transitions": PackedFloat32Array( 0.37, 1 ),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.37, 1),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
+"values": [Vector2(0, 0), Vector2(1, 1)]
 }
 
-[node name="NewUser" type="Node2D"]
-script = ExtResource( 6 )
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6qp8a"]
+_data = {
+"OnboardingStart": SubResource("3")
+}
+
+[node name="NewUser" type="Node2D" node_paths=PackedStringArray("Window")]
+script = ExtResource("6")
+Window = NodePath("Control/Thing")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6qp8a")
+}
 autoplay = "OnboardingStart"
-anims/OnboardingStart = SubResource( 3 )
 
 [node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
 offset_right = 1280.0
 offset_bottom = 720.0
-theme = ExtResource( 2 )
-script = ExtResource( 1 )
+theme = ExtResource("2")
+script = ExtResource("1")
 
 [node name="Control" type="Control" parent="Control"]
+anchors_preset = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -69,6 +80,7 @@ offset_right = 200.0
 offset_bottom = 240.0
 
 [node name="ErrorThingy" type="Label" parent="Control"]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -76,41 +88,15 @@ anchor_bottom = 1.0
 offset_left = -640.0
 offset_top = -40.0
 offset_right = 640.0
-theme_type_variation = "Header"
-align = 1
-valign = 1
+theme_type_variation = &"Header"
 
 [node name="Thing" type="Window" parent="Control"]
-visible = true
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -400.0
-offset_top = -250.0
-offset_right = 400.0
-offset_bottom = 250.0
+title = "New User"
+size = Vector2i(400, 400)
 exclusive = true
-window_title = "New User"
-
-[node name="TitleTexture" type="Panel" parent="Control/Thing"]
-anchor_right = 1.0
-offset_top = -45.0
-custom_minimum_size = Vector2( 45, 45 )
-mouse_filter = 2
-theme = ExtResource( 2 )
-theme_type_variation = "WindowTitle"
-
-[node name="Label" type="Label" parent="Control/Thing/TitleTexture"]
-anchor_right = 1.0
-offset_bottom = 22.0
-custom_minimum_size = Vector2( 0, 45 )
-theme_type_variation = "WindowTitleText"
-text = "New User"
-align = 1
-valign = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Control/Thing"]
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -121,89 +107,79 @@ offset_right = 400.0
 offset_bottom = 250.0
 
 [node name="CenterContainer" type="CenterContainer" parent="Control/Thing/ScrollContainer"]
-offset_right = 411.0
-offset_bottom = 677.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/Thing/ScrollContainer/CenterContainer"]
-offset_right = 411.0
-offset_bottom = 677.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 alignment = 1
 
 [node name="NameLabelThing" type="Label" parent="Control/Thing/ScrollContainer/CenterContainer/VBoxContainer"]
-offset_right = 411.0
-offset_bottom = 33.0
-theme_type_variation = "Header"
+layout_mode = 2
+theme_type_variation = &"Header"
 text = "What is your name?"
-align = 1
-valign = 1
 
 [node name="Name" type="LineEdit" parent="Control/Thing/ScrollContainer/CenterContainer/VBoxContainer"]
-offset_top = 43.0
-offset_right = 411.0
-offset_bottom = 83.0
-align = 1
+layout_mode = 2
 placeholder_text = "John Doe"
-script = ExtResource( 17 )
+script = ExtResource("17")
 
 [node name="NameLabelThing2" type="Label" parent="Control/Thing/ScrollContainer/CenterContainer/VBoxContainer"]
-offset_top = 93.0
-offset_right = 411.0
-offset_bottom = 126.0
-theme_type_variation = "Header"
+layout_mode = 2
+theme_type_variation = &"Header"
 text = "What will be your lelnet username?"
-align = 1
-valign = 1
 
 [node name="Username" type="LineEdit" parent="Control/Thing/ScrollContainer/CenterContainer/VBoxContainer"]
-offset_top = 136.0
-offset_right = 411.0
-offset_bottom = 176.0
-align = 1
+layout_mode = 2
 placeholder_text = "john.doe"
-script = ExtResource( 17 )
+script = ExtResource("17")
 
 [node name="NameLabelThing3" type="Label" parent="Control/Thing/ScrollContainer/CenterContainer/VBoxContainer"]
-offset_top = 186.0
-offset_right = 411.0
-offset_bottom = 219.0
-theme_type_variation = "Header"
+layout_mode = 2
+theme_type_variation = &"Header"
 text = "What will be your icon?"
-align = 1
-valign = 1
 
 [node name="Icons" type="ItemList" parent="Control/Thing/ScrollContainer/CenterContainer/VBoxContainer"]
-offset_top = 229.0
-offset_right = 411.0
-offset_bottom = 627.0
+layout_mode = 2
 size_flags_horizontal = 3
-items = [ "", ExtResource( 4 ), false, "", ExtResource( 7 ), false, "", ExtResource( 14 ), false, "", ExtResource( 11 ), false, "", ExtResource( 13 ), false, "", ExtResource( 12 ), false, "", ExtResource( 5 ), false, "", ExtResource( 10 ), false, "", ExtResource( 9 ), false, "", ExtResource( 8 ), false ]
 auto_height = true
+item_count = 10
 max_columns = 69
 fixed_column_width = 98
-fixed_icon_size = Vector2( 96, 96 )
+fixed_icon_size = Vector2i(96, 96)
+item_0/text = ""
+item_0/icon = ExtResource("4")
+item_1/text = ""
+item_1/icon = ExtResource("7")
+item_2/text = ""
+item_2/icon = ExtResource("14")
+item_3/text = ""
+item_3/icon = ExtResource("11")
+item_4/text = ""
+item_4/icon = ExtResource("13")
+item_5/text = ""
+item_5/icon = ExtResource("12")
+item_6/text = ""
+item_6/icon = ExtResource("5")
+item_7/text = ""
+item_7/icon = ExtResource("10")
+item_8/text = ""
+item_8/icon = ExtResource("9")
+item_9/text = ""
+item_9/icon = ExtResource("8")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/Thing/ScrollContainer/CenterContainer/VBoxContainer"]
-offset_top = 637.0
-offset_right = 411.0
-offset_bottom = 677.0
+layout_mode = 2
 
-[node name="Cancel" type="Button" parent="Control/Thing/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer"]
-offset_right = 200.0
-offset_bottom = 40.0
+[node name="Cancel" type="Button" parent="Control/Thing/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer" node_paths=PackedStringArray("Parent")]
+layout_mode = 2
 size_flags_horizontal = 3
-theme_type_variation = "SecondaryButton"
+theme_type_variation = &"SecondaryButton"
 text = "Cancel"
-script = ExtResource( 15 )
-Parents = 7
+script = ExtResource("15")
+Parent = NodePath("../../../../../../..")
 
 [node name="Create" type="Button" parent="Control/Thing/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer"]
-offset_left = 210.0
-offset_right = 411.0
-offset_bottom = 40.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Create User"
-script = ExtResource( 16 )
+script = ExtResource("16")

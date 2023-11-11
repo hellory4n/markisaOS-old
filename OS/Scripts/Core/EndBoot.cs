@@ -15,7 +15,7 @@ public partial class EndBoot : Timer
         // if we're gonna install lelcubeOS then the bootscreen should take longer and stuff
         if (!SavingManager.LoadSettings<InstallerInfo>().IsInstalled)
         {
-            WaitTime = 20;
+            WaitTime = 15;
             GetNode<Label>("../Control/Label").Text = "lelcubeOS Me is preparing the installation process.\nThis can take several seconds.";
             GetNode<Label>("../Control/Label").OffsetTop = -100;
             installing = true;

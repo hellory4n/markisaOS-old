@@ -30,8 +30,6 @@ LelfsManager="*res://OS/Scripts/Lelfs/LelfsManager.cs"
 ResolutionManager="*res://OS/Scripts/Drivers/ResolutionManager.cs"
 WindowManager="*res://OS/Scripts/WindowManager/WindowManager.cs"
 ResourceManager="*res://OS/Scripts/Drivers/ResourceManager.cs"
-SoundManager="*res://OS/Scripts/Drivers/SoundManager.cs"
-MusicManager="*res://OS/Scripts/Drivers/MusicManager.cs"
 NotificationManager="*res://OS/Scripts/Lelsktop/Overlay/NotificationManager.cs"
 ComputerNoisesManager="*res://OS/Scripts/Drivers/ComputerNoisesManager.cs"
 
@@ -39,7 +37,8 @@ ComputerNoisesManager="*res://OS/Scripts/Drivers/ComputerNoisesManager.cs"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/stretch/mode="2d"
+window/size/mode=3
+window/stretch/aspect="ignore"
 window/handheld/orientation="sensor_landscape"
 window/size/fullscreen=true
 
@@ -49,7 +48,12 @@ project/assembly_name="lelcubeOS"
 
 [editor]
 
+naming/scene_name_casing=1
 script_templates_search_path="res://ScriptTemplates"
+
+[editor_plugins]
+
+enabled=PackedStringArray()
 
 [gui]
 

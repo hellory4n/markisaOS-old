@@ -49,6 +49,8 @@ anchor_right = 1.0
 offset_bottom = 22.0
 theme_override_fonts/font = SubResource("1")
 text = "Let's setup this device"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Text" type="Label" parent="Control"]
 custom_minimum_size = Vector2(0, 40)
@@ -59,6 +61,8 @@ offset_bottom = 22.0
 theme_override_fonts/font = SubResource("2")
 text = "We need to see what button size is right for you.
 Please try tapping on the button in the center of the screen 3 times."
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Button" type="Button" parent="Control"]
 custom_minimum_size = Vector2(150, 40)

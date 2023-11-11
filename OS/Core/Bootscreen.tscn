@@ -1,77 +1,98 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=3 uid="uid://b3qoxqacf66ef"]
 
-[ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/SetSizeToScreenResolution.cs" type="Script" id=1]
-[ext_resource path="res://Assets/Boot/Boot2.png" type="Texture2D" id=2]
-[ext_resource path="res://Fonts/RedHatText-Medium.ttf" type="FontFile" id=3]
-[ext_resource path="res://Assets/Boot/Splash.png" type="Texture2D" id=4]
-[ext_resource path="res://OS/Scripts/Core/EndBoot.cs" type="Script" id=5]
+[ext_resource type="Script" path="res://OS/Scripts/Core/Boot.cs" id="1_82t8k"]
+[ext_resource type="Texture2D" uid="uid://bgapsxcfrbeew" path="res://Assets/Boot/Boot2.png" id="2"]
+[ext_resource type="FontFile" uid="uid://dgstmjhuoxpu6" path="res://Fonts/RedHatText-Medium.ttf" id="3"]
+[ext_resource type="Texture2D" uid="uid://c4jjrwy7qgiq" path="res://Assets/Boot/Splash.png" id="4"]
+[ext_resource type="Script" path="res://OS/Scripts/Core/EndBoot.cs" id="5"]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id="1"]
 resource_name = "Boot"
 length = 2.0
-loop = true
+loop_mode = 1
 tracks/0/type = "value"
-tracks/0/path = NodePath("Control/Thing/Boot2:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Boot2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 1, 2 ),
-"transitions": PackedFloat32Array( 0.757858, 1, 0.757858 ),
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(0.757858, 1, 0.757858),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="FontFile" id=2]
-size = 32
-font_data = ExtResource( 3 )
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fa5kp"]
+_data = {
+"Boot": SubResource("1")
+}
+
+[sub_resource type="FontFile" id="2"]
+fallbacks = Array[Font]([ExtResource("3")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/24/0 = Vector2(0, 0)
+cache/0/24/0/ascent = 0.0
+cache/0/24/0/descent = 0.0
+cache/0/24/0/underline_position = 0.0
+cache/0/24/0/underline_thickness = 0.0
+cache/0/24/0/scale = 1.0
+cache/0/24/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/24/0/kerning_overrides/24/0 = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7rnuv"]
+font_size = 24
 
 [node name="Bootscreen" type="Node2D"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fa5kp")
+}
 autoplay = "Boot"
-anims/Boot = SubResource( 1 )
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." node_paths=PackedStringArray("Boot1", "Boot2")]
+layout_mode = 3
+anchors_preset = 0
 offset_right = 1280.0
 offset_bottom = 720.0
-script = ExtResource( 1 )
+script = ExtResource("1_82t8k")
+Boot1 = NodePath("Boot1")
+Boot2 = NodePath("Boot2")
+metadata/_edit_use_anchors_ = true
 
-[node name="Thing" type="Control" parent="Control"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -128.0
-offset_top = -128.0
-offset_right = 128.0
-offset_bottom = 128.0
+[node name="Boot1" type="Sprite2D" parent="Control"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4")
 
-[node name="Boot1" type="Sprite2D" parent="Control/Thing"]
-position = Vector2( 128, 128 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 4 )
-
-[node name="Boot2" type="Sprite2D" parent="Control/Thing"]
-modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 128, 128 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 2 )
+[node name="Boot2" type="Sprite2D" parent="Control"]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2")
 
 [node name="Label" type="Label" parent="Control"]
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 1
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -58.0
-custom_minimum_size = Vector2( 0, 58 )
-theme_override_fonts/font = SubResource( 2 )
+offset_top = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = SubResource("2")
 text = "lelcubeOS Me is starting..."
-align = 1
-valign = 1
+label_settings = SubResource("LabelSettings_7rnuv")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 8.0
 one_shot = true
 autostart = true
-script = ExtResource( 5 )
+script = ExtResource("5")
