@@ -1,15 +1,22 @@
 using Godot;
 using System;
+using Lelsktop.WindowManager;
 
-public partial class InstallelAccentColor : OptionButton {
-    public override void _Ready() {
+namespace Lelcore.Installel;
+
+public partial class InstallelAccentColor : OptionButton
+{
+    public override void _Ready()
+    {
         base._Ready();
         Connect("item_selected", new Callable(this, nameof(Click)));
     }
 
-    public void Click(int index) {
+    public void Click(int index)
+    {
         // this is fine.
-        switch (index) {
+        switch (index)
+        {
             case 0:
                 GetNode<Lelwindow>("/root/InstallelOobe/1/Windows/ThemeThing/Installel").Theme = ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Black/Theme.tres");
                 break;

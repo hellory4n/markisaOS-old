@@ -1,8 +1,10 @@
 using Godot;
 using System;
 
+namespace Lelcore.Onboarding;
+
 public partial class OnboardingWindowStuff : Node2D {
-    public override void _Ready() {
+    /*public override void _Ready() {
         base._Ready();
 
         Window window = GetNode<Window>("Control/Thing");
@@ -28,5 +30,5 @@ public partial class OnboardingWindowStuff : Node2D {
             window.GetNode<ItemList>("ScrollContainer/CenterContainer/VBoxContainer/Icons")
                 .Position += new Vector2(17, 0);
         }
-    }
+    }*/
 }

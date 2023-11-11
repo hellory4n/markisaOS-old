@@ -1,13 +1,13 @@
 using Godot;
 using System;
 
-public partial class InstallelHiUhCanYouRestartYourComputerCheersMate : Button {
-    public override void _Ready() {
-        base._Ready();
-        Connect("pressed", new Callable(this, nameof(Click)));
-    }
+namespace Lelcore.Installel;
 
-    public void Click() {
+public partial class InstallelHiUhCanYouRestartYourComputerCheersMate : Button 
+{
+    public override void _Pressed()
+    {
+        base._Pressed();
         // make the screen go black for a short period of time :)
         Timer timer = new()
         {
@@ -20,7 +20,8 @@ public partial class InstallelHiUhCanYouRestartYourComputerCheersMate : Button {
         GetNode<Node2D>("/root/Installel").Position = new Vector2(69420, 69420);
     }
 
-    public void Bruh() {
+    public void Bruh()
+    {
         PackedScene m = ResourceLoader.Load<PackedScene>("res://OS/Core/InstallelRestart.tscn");
         Node jjkn = m.Instantiate();
         GetTree().Root.AddChild(jjkn);

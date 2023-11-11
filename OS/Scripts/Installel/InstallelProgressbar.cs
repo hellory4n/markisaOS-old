@@ -1,10 +1,14 @@
 using Godot;
 using System;
 
-public partial class InstallelProgressbar : ProgressBar {
+namespace Lelcore.Installel;
+
+public partial class InstallelProgressbar : ProgressBar
+{
     Random random = new();
 
-    public override void _Process(double delta) {
+    public override void _Process(double delta)
+    {
         base._Process(delta);
         if (!GetParent<Control>().Visible)
             return;

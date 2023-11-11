@@ -1,8 +1,11 @@
 using Godot;
 using System;
 
-public partial class Shutdown : Timer {
-    public override void _Ready() {
+namespace Lelcore.Bootloader;
+
+public partial class Shutdown : Timer
+{
+    /*public override void _Ready() {
         base._Ready();
         Connect("timeout", new Callable(this, nameof(Thing)));
         SoundManager sounds = GetNode<SoundManager>("/root/SoundManager");
@@ -11,5 +14,5 @@ public partial class Shutdown : Timer {
 
     public void Thing() {
         GetTree().Quit();
-    }
+    }*/
 }

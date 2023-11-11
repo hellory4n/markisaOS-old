@@ -1,9 +1,13 @@
 using Godot;
 using System;
 
-public partial class MessagingManager : Node {
+namespace Messaging;
+
+public partial class MessagingManager : Node
+{
     // haha yes
-    public enum Messages {
+    public enum Messages
+    {
         PassionfruitSupportApps,
         PassionfruitSupportDevice,
         PassionfruitSupportRefund,
@@ -12,8 +16,10 @@ public partial class MessagingManager : Node {
         PassionfruitSupportNo
     }
 
-    public static void Answer(Messages message) {
-        switch (message) {
+    public static void Answer(Messages message)
+    {
+        switch (message)
+        {
             case Messages.PassionfruitSupportApps:
                 PassionfruitSupportConversation.HelpApps();
                 break;

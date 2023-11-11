@@ -2,8 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-public partial class PassionfruitSupportConversation {
-    public static void HelpApps() {
+namespace Messaging;
+
+public partial class PassionfruitSupportConversation
+{
+    public static void HelpApps()
+    {
         var socialStuff = SavingManager.Load<SocialStuff>(SavingManager.CurrentUser);
         int h = Array.FindIndex(socialStuff.Conversations, person => person.Name == "Passionfruit Support");
         socialStuff.Conversations[h].Messages = socialStuff.Conversations[h].Messages.Append(new Message {
@@ -21,7 +25,8 @@ public partial class PassionfruitSupportConversation {
         SavingManager.Save(SavingManager.CurrentUser, socialStuff);
     }
 
-    public static void HelpDevice() {
+    public static void HelpDevice()
+    {
         var socialStuff = SavingManager.Load<SocialStuff>(SavingManager.CurrentUser);
         int h = Array.FindIndex(socialStuff.Conversations, person => person.Name == "Passionfruit Support");
         socialStuff.Conversations[h].Messages = socialStuff.Conversations[h].Messages.Append(new Message {
@@ -39,7 +44,8 @@ public partial class PassionfruitSupportConversation {
         SavingManager.Save(SavingManager.CurrentUser, socialStuff);
     }
 
-    public static void Refund() {
+    public static void Refund()
+    {
         var socialStuff = SavingManager.Load<SocialStuff>(SavingManager.CurrentUser);
         int h = Array.FindIndex(socialStuff.Conversations, person => person.Name == "Passionfruit Support");
         socialStuff.Conversations[h].Messages = socialStuff.Conversations[h].Messages.Append(new Message {
@@ -54,7 +60,8 @@ public partial class PassionfruitSupportConversation {
         SavingManager.Save(SavingManager.CurrentUser, socialStuff);
     }
 
-    public static void Lawsuit() {
+    public static void Lawsuit()
+    {
         var socialStuff = SavingManager.Load<SocialStuff>(SavingManager.CurrentUser);
         int h = Array.FindIndex(socialStuff.Conversations, person => person.Name == "Passionfruit Support");
         socialStuff.Conversations[h].Messages = socialStuff.Conversations[h].Messages.Append(new Message {
@@ -69,7 +76,8 @@ public partial class PassionfruitSupportConversation {
         SavingManager.Save(SavingManager.CurrentUser, socialStuff);
     }
 
-    public static void Yes() {
+    public static void Yes()
+    {
         var socialStuff = SavingManager.Load<SocialStuff>(SavingManager.CurrentUser);
         int h = Array.FindIndex(socialStuff.Conversations, person => person.Name == "Passionfruit Support");
         socialStuff.Conversations[h].Messages = socialStuff.Conversations[h].Messages.Append(new Message {
@@ -84,7 +92,8 @@ public partial class PassionfruitSupportConversation {
         SavingManager.Save(SavingManager.CurrentUser, socialStuff);
     }
 
-    public static void No() {
+    public static void No()
+    {
         var socialStuff = SavingManager.Load<SocialStuff>(SavingManager.CurrentUser);
         int h = Array.FindIndex(socialStuff.Conversations, person => person.Name == "Passionfruit Support");
         socialStuff.Conversations[h].Messages = socialStuff.Conversations[h].Messages.Append(new Message {

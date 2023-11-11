@@ -1,24 +1,24 @@
 using Godot;
 using System;
 
-public partial class InstallerLicenseNext : Button {
-    [Export]
-    NodePath nextThing = "";
-    [Export]
-    NodePath previousThing = "";
+namespace Lelcore.Installel;
 
-    public override void _Ready() {
-        base._Ready();
-        Connect("pressed", new Callable(this, nameof(Click)));
-    }
+public partial class InstallerLicenseNext : Button
+{
+    [Export]
+    Control NextThing;
+    [Export]
+    Control PreviousThing;
 
-    public override void _Process(double delta) {
+    /*public override void _Process(double delta) {
         base._Process(delta);
-        Disabled = !GetNode<CheckBox>("../CheckBox").Pressed;
-    }
+        Disabled = !GetNode<CheckBox>("../CheckBox").ToggleMode;
+    }*/
 
-    public void Click() {
-        GetNode<Control>(nextThing).Visible = true;
-        GetNode<Control>(previousThing).Visible = false;
+    public override void _Pressed()
+    {
+        base._Pressed();
+        NextThing.Visible = true;
+        PreviousThing.Visible = false;
     }
 }

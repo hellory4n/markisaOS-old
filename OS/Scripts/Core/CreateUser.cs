@@ -3,29 +3,33 @@ using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-public partial class CreateUser : Button {
+namespace Lelcore.Onboarding;
+
+public partial class CreateUser : Button
+{
     LineEdit name;
     LineEdit username;
     ItemList icons;
     Label errorThingy;
     
 
-    public override void _Ready() {
+    public override void _Ready()
+    {
         base._Ready();
         name = GetNode<LineEdit>("../../Name");
         username = GetNode<LineEdit>("../../Username");
         icons = GetNode<ItemList>("../../Icons");
         errorThingy = GetNode<Label>("/root/NewUser/Control/ErrorThingy");
-        Connect("pressed", new Callable(this, nameof(Click)));
     }
 
-    public void Click() {
-        SoundManager sounds = GetNode<SoundManager>("/root/SoundManager");
-
+    public override void _Pressed() {
+        base._Pressed();
         // make the icon be a string and not a number
         string icon = "";
-        if (icons.GetSelectedItems().Length > 0) {
-            switch (icons.GetSelectedItems()[0]) {
+        if (icons.GetSelectedItems().Length > 0)
+        {
+            switch (icons.GetSelectedItems()[0])
+            {
                 case 0: icon = "Cat"; break;
                 case 1: icon = "Flower"; break;
                 case 2: icon = "Balloon"; break;
@@ -40,48 +44,47 @@ public partial class CreateUser : Button {
         }
 
         // make sure the name and username things actually have something
-        if (name.Text == "") {
+        if (name.Text == "")
+        {
             errorThingy.Text = "Invalid name!";
-            sounds.PlaySoundEffect(SoundManager.SoundEffects.Error);
             return;
         }
 
-        if (username.Text == "") {
+        if (username.Text == "")
+        {
             errorThingy.Text = "Invalid username!";
-            sounds.PlaySoundEffect(SoundManager.SoundEffects.Error);
             return;
         }
 
         // these characters are not allowed in windows, which isn't good since each user is a folder and stuff
         Regex what = new("[\"/<>:\\|?*]", RegexOptions.Compiled | RegexOptions.CultureInvariant);
-        if (what.Matches(name.Text).Count > 0) {
+        if (what.Matches(name.Text).Count > 0)
+        {
             errorThingy.Text = "Names can't include the characters \\/<>:|?*";
-            sounds.PlaySoundEffect(SoundManager.SoundEffects.Error);
             return;
         }
 
         Regex idkman = new("[^[a-z0-9._]", RegexOptions.Compiled | RegexOptions.CultureInvariant);
-        if (idkman.Matches(username.Text).Count > 0) {
+        if (idkman.Matches(username.Text).Count > 0)
+        {
             errorThingy.Text = "Lelnet usernames only allow lowercase characters, numbers, underscores (_) and periods (.)";
-            sounds.PlaySoundEffect(SoundManager.SoundEffects.Error);
             return;
         }
 
         // make sure the user doesn't already exist :)
         List<string> users = new();
-        DirAccess dir = new();
-        dir.Open("user://Users/");
-        dir.ListDirBegin(true);
+        DirAccess dir = DirAccess.Open("user://Users/");
+        dir.ListDirBegin();
         string filename = dir.GetNext();
-        while (filename != "") {
+        while (filename != "")
+        {
             users.Add(filename);
             filename = dir.GetNext();
         }
-        dir.ListDirEnd();
 
-        if (users.Contains(name.Text)) {
+        if (users.Contains(name.Text))
+        {
             errorThingy.Text = $"User \"{name.Text}\" already exists!";
-            sounds.PlaySoundEffect(SoundManager.SoundEffects.Error);
             return;
         }
 

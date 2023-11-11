@@ -1,13 +1,13 @@
 using Godot;
 using System;
 
-public partial class Login : Button {
-    public override void _Ready() {
-        base._Ready();
-        Connect("pressed", new Callable(this, nameof(Click)));
-    }
+namespace Lelcore.Onboarding;
 
-    public void Click() {
+public partial class Login : Button
+{
+    public override void _Pressed()
+    {
+        base._Pressed();
         SavingManager.CurrentUser = Text;
         var yeah = SavingManager.Load<BasicUser>(SavingManager.CurrentUser);
         // versions before the creation of the filesystem

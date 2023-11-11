@@ -1,8 +1,13 @@
 using Godot;
 using System;
+using Lelsktop.WindowManager;
 
-public partial class InstallelSteps : Label {
-    public override void _Process(double delta) {
+namespace Lelcore.Installel;
+
+public partial class InstallelSteps : Label
+{
+    public override void _Process(double delta)
+    {
         base._Process(delta);
         var yes = GetNode<ProgressBar>("../ProgressBar");
 

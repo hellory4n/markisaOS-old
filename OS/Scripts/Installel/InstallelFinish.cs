@@ -1,45 +1,50 @@
 using Godot;
 using System;
 using System.Text.RegularExpressions;
+using Lelsktop.Overlay;
 
-public partial class InstallelFinish : Button {
-    public override void _Ready() {
-        base._Ready();
-        Connect("pressed", new Callable(this, nameof(Click)));
-    }
+namespace Lelcore.Installel;
 
-    public void Click() {
+public partial class InstallelFinish : Button
+{
+    public override void _Pressed()
+    {
+        base._Pressed();
         // first we make this idiot proof
-        // this code is mostly stealed from res://OS/Scripts/Core/CreateUser.cs
-
+        // this code is mostly stolen from res://OS/Scripts/Core/CreateUser.cs
         string name = GetNode<LineEdit>("../../../Step2/M/Name").Text;
         string lelnetUsername = GetNode<LineEdit>("../../../Step2/M/Username").Text;
 
-        if (name == "") {
+        if (name == "")
+        {
             Shit("Invalid name!", true);
             return;
         }
 
-        if (lelnetUsername == "") {
+        if (lelnetUsername == "")
+        {
             Shit("Invalid username!", true);
             return;
         }
 
         Regex what = new("[\"/<>:\\|?*]", RegexOptions.Compiled | RegexOptions.CultureInvariant);
-        if (what.Matches(name).Count > 0) {
+        if (what.Matches(name).Count > 0)
+        {
             Shit("Names can't include the characters \\/<>:|?*", true);
             return;
         }
 
         Regex idkman = new("[^[a-z0-9._]", RegexOptions.Compiled | RegexOptions.CultureInvariant);
-        if (idkman.Matches(lelnetUsername).Count > 0) {
+        if (idkman.Matches(lelnetUsername).Count > 0)
+        {
             Shit("Lelnet usernames only allow lowercase characters, numbers, underscores (_) and periods (.)", true);
             return;
         }
 
         // too lazy to make icons be an enum lol
         string icon = "";
-        switch (GetNode<OptionButton>("../../../Step2/M/Photo").Selected) {
+        switch (GetNode<OptionButton>("../../../Step2/M/Photo").Selected)
+        {
             case 0: icon = "Cat"; break;
             case 1: icon = "Flower"; break;
             case 2: icon = "Balloon"; break;
@@ -62,7 +67,8 @@ public partial class InstallelFinish : Button {
 
         // set the accent color lol
         string theme = "Leltheme-Dark-";
-        switch (GetNode<OptionButton>("../../../Step3/M/AccentColor").Selected) {
+        switch (GetNode<OptionButton>("../../../Step3/M/AccentColor").Selected)
+        {
             case 0: theme += "Black"; break;
             case 1: theme += "Blue"; break;
             case 2: theme += "Green"; break;
@@ -78,7 +84,8 @@ public partial class InstallelFinish : Button {
 
         // set the wallpaper haha yes
         string wallpaper = "";
-        switch (GetNode<OptionButton>("../../../Step3/M/Wallpaper").Selected) {
+        switch (GetNode<OptionButton>("../../../Step3/M/Wallpaper").Selected)
+        {
             case 0: wallpaper = "res://Assets/Wallpapers/HighPeaks.jpg"; break;
             case 1: wallpaper = "res://Assets/Wallpapers/Flowers.png"; break;
             case 2: wallpaper = "res://Assets/Wallpapers/Beaches.png"; break;
@@ -102,11 +109,13 @@ public partial class InstallelFinish : Button {
         GetNode<Node2D>("/root/InstallelOobe").QueueFree();
     }
 
-    public void Shit(string error, bool goToStep2) {
+    public void Shit(string error, bool goToStep2)
+    {
         var notificationManager = GetNode<NotificationManager>("/root/NotificationManager");
         notificationManager.ShowErrorNotification(error);
 
-        if (goToStep2) {
+        if (goToStep2)
+        {
             GetNode<Control>("../../../Step2").Visible = true;
             GetNode<Control>("../../../Step3").Visible = false;
         }

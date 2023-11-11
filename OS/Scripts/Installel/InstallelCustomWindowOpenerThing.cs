@@ -1,16 +1,17 @@
 using Godot;
 using System;
+using Lelsktop.WindowManager;
 
-public partial class InstallelCustomWindowOpenerThing : Button {
+namespace Lelcore.Installel;
+
+public partial class InstallelCustomWindowOpenerThing : Button
+{
     [Export(PropertyHint.File, "*.tscn")]
     public string WindowScene;
 
-    public override void _Ready() {
-        base._Ready();
-        Connect("pressed", new Callable(this, nameof(Click)));
-    }
-
-    public void Click() {
+    public override void _Pressed()
+    {
+        base._Pressed();
         PackedScene m = ResourceLoader.Load<PackedScene>(WindowScene);
         Lelwindow jjkn = (Lelwindow)m.Instantiate();    
         GetNode<Control>("/root/Installel/1/Windows/ThemeThing").AddChild(jjkn);

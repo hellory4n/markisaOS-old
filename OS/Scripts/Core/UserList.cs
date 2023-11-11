@@ -1,8 +1,12 @@
 using Godot;
 using System;
 
-public partial class UserList : VBoxContainer {
-    public override void _Ready() {
+namespace Lelcore.Onboarding;
+
+public partial class UserList : VBoxContainer
+{
+    public override void _Ready()
+    {
         base._Ready();
 
         PackedScene stupidity = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/UserButton.tscn");
@@ -17,10 +21,9 @@ public partial class UserList : VBoxContainer {
         Texture2D shuttle = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Shuttle.png");
         Texture2D football = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Football.png");
 
-        DirAccess dir = new();
-        if (dir.DirExists("user://Users/")) {
-            dir.Open("user://Users/");
-            dir.ListDirBegin(true);
+        if (DirAccess.DirExistsAbsolute("user://Users/")) {
+            DirAccess dir = DirAccess.Open("user://Users/");
+            dir.ListDirBegin();
             string filename = dir.GetNext();
             while (filename != "") {
                 Button useromgomgomg = (Button)stupidity.Instantiate();
@@ -64,7 +67,6 @@ public partial class UserList : VBoxContainer {
                 AddChild(useromgomgomg);
                 filename = dir.GetNext();
             }
-            dir.ListDirEnd();
         }
     }
 }

@@ -1,8 +1,12 @@
 using Godot;
 using System;
+using Lelsktop.WindowManager;
 
-public partial class InstallelYes : Node2D {
-    public override void _Ready() {
+namespace Lelcore.Installel;
+
+public partial class InstallelYes : Node2D
+{
+    /*public override void _Ready() {
         base._Ready();
         Vector2 bruh = ResolutionManager.Resolution;
         GetNode<SubViewport>("1/Windows").Size = bruh;
@@ -15,5 +19,5 @@ public partial class InstallelYes : Node2D {
         hfbjgfj.Minimize.Visible = false;
         hfbjgfj.Maximize.Visible = false;
         hfbjgfj.GetCloseButton().Visible = false;
-    }
+    }*/
 }

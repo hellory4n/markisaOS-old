@@ -1,7 +1,11 @@
 using Godot;
 using System;
+using Lelsktop.WindowManager;
 
-public partial class ComputerNoisesManager : Node {
+namespace Lelcore.Drivers;
+
+public partial class ComputerNoisesManager : Node
+{
     readonly AudioStream FanSound = ResourceLoader.Load<AudioStream>("res://Audio/Sounds/ComputerNoises/194890__saphe__computer-fan.ogg");
     readonly AudioStream GpuFanSound = ResourceLoader.Load<AudioStream>("res://Audio/Sounds/ComputerNoises/463482__soundsofscienceupf__gpu-fan.wav");
     readonly AudioStream HddSound = ResourceLoader.Load<AudioStream>("res://Audio/Sounds/ComputerNoises/500168__sad3d__pc-hard-drive-noises.wav");
@@ -13,10 +17,11 @@ public partial class ComputerNoisesManager : Node {
     public float StorageUsage = 10;
     public float MemoryUsage = 10;
 
-    public override void _Ready() {
+    public override void _Ready()
+    {
         base._Ready();
         // h
-        CpuUsage = Math.Min(CpuUsage, 100)/100;
+        /*CpuUsage = Math.Min(CpuUsage, 100)/100;
         GpuUsage = Math.Min(GpuUsage, 100)/100;
         StorageUsage = Math.Min(StorageUsage, 100)/100;
 
@@ -37,13 +42,14 @@ public partial class ComputerNoisesManager : Node {
         };
         AddChild(Fan);
         AddChild(GpuFan);
-        AddChild(Hdd);
+        AddChild(Hdd);*/
     }
 
-    public override void _Process(double delta) {
+    public override void _Process(double delta)
+    {
         base._Process(delta);
 
-        if (GetNodeOrNull("/root/Lelsktop") == null)
+        /*if (GetNodeOrNull("/root/Lelsktop") == null)
             return;
 
         // first we need to get how much the device is suffering
@@ -89,6 +95,6 @@ public partial class ComputerNoisesManager : Node {
 
         Fan.VolumeDb = GD.LinearToDb(CpuUsage/2);
         GpuFan.VolumeDb = GD.LinearToDb(GpuUsage/1.5f);
-        Hdd.VolumeDb = GD.LinearToDb(StorageUsage);
+        Hdd.VolumeDb = GD.LinearToDb(StorageUsage);*/
     }
 }

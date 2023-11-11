@@ -1,13 +1,11 @@
 using Godot;
 using System;
 
-public partial class InstallelWallpaper : OptionButton {
-    public override void _Ready() {
-        base._Ready();
-        Connect("item_selected", new Callable(this, nameof(Click)));
-    }
+namespace Lelcore.Installel;
 
-    public void Click(int index) {
+public partial class InstallelWallpaper : OptionButton
+{
+    /*
         // this is fine.
         switch (index) {
             case 0:
@@ -29,5 +27,5 @@ public partial class InstallelWallpaper : OptionButton {
                 GetNode<Sprite2D>("/root/InstallelOobe/Wallpaper").Texture2D = ResourceLoader.Load<Texture2D>("res://Assets/Wallpapers/Aurora.png");
                 break;
         }
-    }
+    }*/
 }

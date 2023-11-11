@@ -1,19 +1,19 @@
 using Godot;
 using System;
 
-public partial class InstallerNormalNext : Button {
-    [Export]
-    NodePath nextThing = "";
-    [Export]
-    NodePath previousThing = "";
+namespace Lelcore.Installel;
 
-    public override void _Ready() {
-        base._Ready();
-        Connect("pressed", new Callable(this, nameof(Click)));
-    }
+public partial class InstallerNormalNext : Button
+{
+    [Export]
+    Control NextThing;
+    [Export]
+    Control PreviousThing;
 
-    public void Click() {
-        GetNode<Control>(nextThing).Visible = true;
-        GetNode<Control>(previousThing).Visible = false;
+    public override void _Pressed()
+    {
+        base._Pressed();
+        NextThing.Visible = true;
+        PreviousThing.Visible = false;
     }
 }
