@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using Lelsktop.WindowManager;
+using Lelcore.Drivers;
 
 public partial class Observer : Lelwindow {
     public enum OpenMode {
@@ -35,7 +36,7 @@ public partial class Observer : Lelwindow {
                 }
                 AddChild(coolImageThing);
                 break;
-            case OpenMode.Audio:
+            /*case OpenMode.Audio:
                 PackedScene m2 = ResourceLoader.Load<PackedScene>("res://Apps/Observer/MusicPlayer.tscn");
                 Control coolMusicThing = m2.Instantiate<Control>();
 
@@ -62,7 +63,7 @@ public partial class Observer : Lelwindow {
                 coolMusicThing.GetNode<Label>("M/N/Label").Text = coolName;
 
                 AddChild(coolMusicThing);
-                break;
+                break;*/
             case OpenMode.Video:
                 PackedScene m3 = ResourceLoader.Load<PackedScene>("res://Apps/Observer/VideoPlayer.tscn");
                 Control coolVideoThing = m3.Instantiate<Control>();

@@ -1,5 +1,7 @@
 using Godot;
 using System;
+using Lelcore.Drivers;
+using Lelsktop.WindowManager;
 
 public partial class DisplaySettingsRevert : Button {
     public override void _Ready() {

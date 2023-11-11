@@ -1,4 +1,7 @@
 using Godot;
+using Lelcore.Drivers;
+using Lelsktop.Overlay;
+using Lelsktop.Pinboard;
 
 public partial class AddSticker : TextureButton
 {

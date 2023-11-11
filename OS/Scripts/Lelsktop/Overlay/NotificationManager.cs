@@ -18,9 +18,6 @@ public partial class NotificationManager : Node
         Panel notificationThingy = ye.Instantiate<Panel>();
         notificationThingy.GetNode<Label>("Text").Text = text;
         AddChild(notificationThingy);
-
-        SoundManager sounds = GetNode<SoundManager>("/root/SoundManager");
-        sounds.PlaySoundEffect(SoundManager.SoundEffects.Notification);
     }
 
     /// <summary>
@@ -33,8 +30,5 @@ public partial class NotificationManager : Node
         Panel notificationThingy = ye.Instantiate<Panel>();
         notificationThingy.GetNode<Label>("Text").Text = text;
         AddChild(notificationThingy);
-
-        SoundManager sounds = GetNode<SoundManager>("/root/SoundManager");
-        sounds.PlaySoundEffect(SoundManager.SoundEffects.Error);
     }
 }

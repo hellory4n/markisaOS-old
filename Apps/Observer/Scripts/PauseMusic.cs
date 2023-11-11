@@ -2,10 +2,10 @@ using Godot;
 using System;
 
 public partial class PauseMusic : Button {
-    public override void _Toggled(bool toggledOn) {
+    /*public override void _Toggled(bool toggledOn) {
         base._Toggled(toggledOn);
         GetNode<MusicPlayer>("../Audio").SetPaused(toggledOn);
-    }
+    }*/
 
     public override void _Process(double delta) {
         base._Process(delta);

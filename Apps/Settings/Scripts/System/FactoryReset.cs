@@ -11,9 +11,8 @@ public partial class FactoryReset : Button {
         // yes
         DeleteFolder("user://");
 
-        DirAccess mfghjh = new();
-        mfghjh.Remove("user://Settings");
-        mfghjh.Remove("user://Users");
+        DirAccess.RemoveAbsolute("user://Settings");
+        DirAccess.RemoveAbsolute("user://Users");
 
         // now show the factory reset screen :)
         PackedScene m = ResourceLoader.Load<PackedScene>("res://OS/Core/FactoryReset.tscn");
@@ -24,17 +23,21 @@ public partial class FactoryReset : Button {
         GetNode<CanvasLayer>("/root/LelsktopInterface").QueueFree();
     }
 
-    public void DeleteFolder(string path) {
-        DirAccess dir = new();
-        if (dir.Open(path) == Error.Ok) {
-            dir.ListDirBegin(true);
+    public void DeleteFolder(string path)
+    {
+        DirAccess dir = DirAccess.Open(path);
+        if (dir != null)
+        {
+            dir.ListDirBegin();
             string filename = dir.GetNext();
-            while (filename != "") {
+            while (filename != "")
+            {
                 if (dir.CurrentIsDir()) {
                     DeleteFolder($"{path}/{filename}");
                     dir.Remove($"{path}/{filename}/");
                 }
-                else {
+                else
+                {
                     dir.Remove($"{path}/{filename}");
                 }
                 filename = dir.GetNext();

@@ -5,7 +5,7 @@ public partial class SwitchWorkspace : Button {
     [Export(PropertyHint.Range, "1,4")]
     int Workspace = 1;
     
-    public override void _Ready() {
+    /*public override void _Ready() {
         base._Ready();
         Connect("pressed", new Callable(this, nameof(Click)));
     }
@@ -42,5 +42,5 @@ public partial class SwitchWorkspace : Button {
                 WindowManager.CurrentWorkspace = GetNode<SubViewport>("/root/Lelsktop/4/Windows");
                 break;
         }
-    }
+    }*/
 }

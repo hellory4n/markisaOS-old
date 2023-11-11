@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using Lelsktop.WindowManager;
+using Lelsktop.Overlay;
 
 public partial class NotebookOpen : Lelwindow {
     public TextEditThing Tfhsjkgjrrh;

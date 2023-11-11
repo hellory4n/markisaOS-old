@@ -9,43 +9,23 @@ public partial class ApplyNewTheme : Button {
 
     public void Click() {
         // a questionable way of getting the buttongroup :)))))))
-        ButtonGroup pain = GetNode<CheckBox>("../Grid/CheckBox").Group;
+        ButtonGroup pain = GetNode<CheckBox>("../Grid/CheckBox").ButtonGroup;
 
         // load the theme :))))))
         CheckBox option = (CheckBox)pain.GetPressedButton();
-        Theme theme;
-        switch (option.Text) {
-            case "Black":
-                theme = ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Black/Theme.tres");
-                break;
-            case "Blue":
-                theme = ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres");
-                break;
-            case "Green":
-                theme = ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Green/Theme.tres");
-                break;
-            case "Orange":
-                theme = ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Orange/Theme.tres");
-                break;
-            case "Pink":
-                theme = ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Pink/Theme.tres");
-                break;
-            case "Purple":
-                theme = ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Purple/Theme.tres");
-                break;
-            case "Red":
-                theme = ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Red/Theme.tres");
-                break;
-            case "White":
-                theme = ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-White/Theme.tres");
-                break;
-            case "Yellow":
-                theme = ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Yellow/Theme.tres");
-                break;
-            default:
-                theme = ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres");
-                break;
-        }
+        Theme theme = option.Text switch
+        {
+            "Black" => ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Black/Theme.tres"),
+            "Blue" => ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres"),
+            "Green" => ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Green/Theme.tres"),
+            "Orange" => ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Orange/Theme.tres"),
+            "Pink" => ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Pink/Theme.tres"),
+            "Purple" => ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Purple/Theme.tres"),
+            "Red" => ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Red/Theme.tres"),
+            "White" => ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-White/Theme.tres"),
+            "Yellow" => ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Yellow/Theme.tres"),
+            _ => ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres"),
+        };
 
         // apply the theme :)))))))))))))))))))))))))))))
         GetNode<Control>("/root/Lelsktop/1/Windows/ThemeThing").Theme = theme;

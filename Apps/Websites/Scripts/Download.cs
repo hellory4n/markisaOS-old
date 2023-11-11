@@ -14,7 +14,7 @@ public partial class Download : Button {
     [Export(PropertyHint.MultilineText)]
     string DataValue = "";
 
-    public override void _Ready() {
+    /*public override void _Ready() {
         base._Ready();
         Connect("pressed", new Callable(this, nameof(Click)));
     }
@@ -29,5 +29,5 @@ public partial class Download : Button {
         // exporting a dictionary doesn't work
         jjkn.Data.Add(DataKey, DataValue);
         wm.AddWindow(jjkn);
-    }
+    }*/
 }

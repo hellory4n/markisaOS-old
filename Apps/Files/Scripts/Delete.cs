@@ -11,8 +11,6 @@ public partial class Delete : Lelwindow {
         base._Ready();
         GetNode<Button>("CenterContainer/VBoxContainer/M/Delete").Connect("pressed", new Callable(this, nameof(Click)));
         GetNode<Button>("CenterContainer/VBoxContainer/M/Nvm").Connect("pressed", new Callable(this, nameof(NvmLol)));
-        var soundManager = GetNode<SoundManager>("/root/SoundManager");
-        soundManager.PlaySoundEffect(SoundManager.SoundEffects.Warning);
     }
 
     public void Click() {
@@ -28,8 +26,6 @@ public partial class Delete : Lelwindow {
         } else {
             // try to move it
             if (!LelfsManager.FileExists("/System/Trash")) {
-                var soundManager = GetNode<SoundManager>("/root/SoundManager");
-                soundManager.PlaySoundEffect(SoundManager.SoundEffects.Error);
                 GetNode<Label>("CenterContainer/VBoxContainer/Label").Text = "Couldn't find the trash folder! Your system could be corrupted.";
                 return;
             }

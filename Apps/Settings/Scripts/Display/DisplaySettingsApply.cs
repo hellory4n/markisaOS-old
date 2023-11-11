@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using Lelsktop.WindowManager;
 
 public partial class DisplaySettingsApply : Button {
     SpinBox resolutionWidth;
@@ -15,8 +16,8 @@ public partial class DisplaySettingsApply : Button {
 
         // set the value of the spin boxes to the current settings
         DisplaySettings display = SavingManager.LoadSettings<DisplaySettings>();
-        resolutionWidth.Value = display.Resolution.x;
-        resolutionHeight.Value = display.Resolution.y;
+        resolutionWidth.Value = display.Resolution.X;
+        resolutionHeight.Value = display.Resolution.Y;
         scalingFactor.Value = display.ScalingFactor*100;
 
         Connect("pressed", new Callable(this, nameof(Click)));
@@ -27,19 +28,19 @@ public partial class DisplaySettingsApply : Button {
         stupidity /= (float)(scalingFactor.Value / 100);
 
         // this doesn't actually save the settings
-        GetTree().SetScreenStretch(SceneTree.StretchMode.Mode2d, SceneTree.StretchAspect.Keep, stupidity);
+        //GetTree().SetScreenStretch(SceneTree.StretchMode.Mode2d, SceneTree.StretchAspect.Keep, stupidity);
 
-        WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
+        /*WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
         PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Settings/DisplayConfirm.tscn");
         Lelwindow jjkn = (Lelwindow)m.Instantiate();    
-        wm.AddWindow(jjkn);
+        wm.AddWindow(jjkn);*/
 
         // yes
-        jjkn.GetNode<DisplaySettingsActuallyApply>("Confirm").
+        /*jjkn.GetNode<DisplaySettingsActuallyApply>("Confirm").
             Resolution = new Vector2((float)resolutionWidth.Value, (float)resolutionHeight.Value);
         jjkn.GetNode<DisplaySettingsActuallyApply>("Confirm").ScalingFactor = (float)(scalingFactor.Value/100);
 
         // the window manager is gonna put it on the center but using the old settings
-        jjkn.Position = new Vector2(10, 90);
+        jjkn.Position = new Vector2I(10, 90);*/
     }
 }

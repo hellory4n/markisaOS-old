@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Godot;
+using Messaging;
 
 /// <summary>
 /// Stores the version of the game used by a user. Useful when converting saves between versions.

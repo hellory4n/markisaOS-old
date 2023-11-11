@@ -11,16 +11,12 @@ public partial class LoadFileFromId : Button {
         string coolId = GetNode<LineEdit>("../LineEdit").Text;
         if (!LelfsManager.IdExists(coolId)) {
             GetNode<Label>("../Label").Text = "File doesn't exist!";
-            SoundManager soundManager = GetNode<SoundManager>("/root/SoundManager");
-            soundManager.PlaySoundEffect(SoundManager.SoundEffects.Error);
             return;
         }
 
         LelfsFile m = LelfsManager.LoadById<LelfsFile>(coolId);
         if (m.Type != "Picture" && m.Type != "Audio" && m.Type != "Video") {
             GetNode<Label>("../Label").Text = "Invalid file!";
-            SoundManager soundManager = GetNode<SoundManager>("/root/SoundManager");
-            soundManager.PlaySoundEffect(SoundManager.SoundEffects.Error);
             return;
         }
 

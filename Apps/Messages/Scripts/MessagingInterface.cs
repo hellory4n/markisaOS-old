@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using Messaging;
 
 public partial class MessagingInterface : Control {
     public int ConversationIndex = 0;

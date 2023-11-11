@@ -23,8 +23,6 @@ public partial class NewFile : Lelwindow {
         // making a file that already exists would be pretty uncool
         if (LelfsManager.FileExists(suffering)) {
             GetNode<Label>("CenterContainer/VBoxContainer/Label").Text = "File already exists!";
-            SoundManager soundManager = GetNode<SoundManager>("/root/SoundManager");
-            soundManager.PlaySoundEffect(SoundManager.SoundEffects.Error);
             return;
         }
 

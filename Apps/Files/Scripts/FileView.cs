@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Lelsktop.WindowManager;
+using Lelcore.Drivers;
+using Lelsktop.Toolkit;
 
 public partial class FileView : ItemList {
     readonly Texture2D FolderIcon = ResourceLoader.Load<Texture2D>("res://Apps/Files/Assets/IconDock.png");

@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using Lelcore.Drivers;
 
 namespace Lelsktop.WindowManager;
 
@@ -19,7 +20,7 @@ public partial class Maximize : Button
     {
         base._Pressed();
         Window window = (Window)GetParent();
-        Vector2I maximizedSize = ResolutionManager.Resolution;
+        Vector2I maximizedSize = (Vector2I)ResolutionManager.Resolution;
         maximizedSize = new Vector2I(maximizedSize.X-75, maximizedSize.Y-85);
 
         // check if the window is maximized

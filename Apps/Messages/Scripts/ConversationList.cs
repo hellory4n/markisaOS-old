@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using Lelsktop.Toolkit;
 
 public partial class ConversationList : VBoxContainer {
     // quite the mouthful
@@ -35,7 +36,7 @@ public partial class ConversationList : VBoxContainer {
             bullshit.ConversationIndex = i;
             // quite the mouthful
             GetParent().GetParent().GetParent().GetNode<Control>("Content").AddChild(bullshit);
-            h.Category = bullshit.GetPath();
+            h.Category = bullshit;
             AddChild(h);
             i++;
         }
