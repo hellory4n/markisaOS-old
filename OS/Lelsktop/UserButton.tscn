@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bscraaauooa2k"]
 
-[ext_resource type="FontFile" uid="uid://b82t6vwpkpyyc" path="res://Fonts/RedHatText-Bold.ttf" id="1"]
+[ext_resource type="FontFile" path="res://Fonts/RedHatText-Bold.ttf" id="1"]
 [ext_resource type="Texture2D" uid="uid://dj6gard43qeg5" path="res://icon.png" id="2"]
 [ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" id="3"]
 [ext_resource type="Script" path="res://OS/Scripts/Core/Login.cs" id="4"]

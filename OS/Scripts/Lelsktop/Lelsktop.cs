@@ -15,7 +15,8 @@ public partial class Lelsktop : Node2D
 	/// </summary>
 	public static bool InteractingWithLelsktopInterface = false;
 
-	public override void _Ready() {
+	public override void _Ready()
+	{
 		base._Ready();
 
 		Vector2 bruh = ResolutionManager.Resolution;
@@ -25,19 +26,22 @@ public partial class Lelsktop : Node2D
 		GetNode<SubViewport>("3/Windows").Size = (Vector2I)bruh;
 		GetNode<SubViewport>("4/Windows").Size = (Vector2I)bruh;
 
-		// WindowManager.CurrentWorkspace = GetNode<SubViewport>("1/Windows");
+		WindowManager.CurrentWorkspace = GetNode<SubViewport>("1/Windows");
 
 		SavingManager.ConvertOldUser(SavingManager.CurrentUser);
 		UserLelsktop suffer = SavingManager.Load<UserLelsktop>(SavingManager.CurrentUser);
 
 		// load the wallpaper
 		// is it a default wallpaper?
-		if (ResourceLoader.Exists(suffer.Wallpaper)) {
+		if (ResourceLoader.Exists(suffer.Wallpaper))
+		{
 			string wallpaperPath = suffer.Wallpaper;
 			Texture2D wallpaper = GD.Load<Texture2D>(wallpaperPath);
 			GetNode<Sprite2D>("Wallpaper").Texture = wallpaper;
 		// is it a lelfs file?
-		} else if (LelfsManager.IdExists(suffer.Wallpaper)) {
+		}
+		else if (LelfsManager.IdExists(suffer.Wallpaper))
+		{
 			var epicFile = LelfsManager.LoadById<LelfsFile>(suffer.Wallpaper);
 			Texture2D wallpaper = ResourceManager.LoadImage(epicFile.Data["Resource"].ToString());
 			GetNode<Sprite2D>("Wallpaper").Texture = wallpaper;
@@ -45,18 +49,21 @@ public partial class Lelsktop : Node2D
 			// scale wallpaper thing :))))
 			GetNode<ImageBackground>("Wallpaper").OriginalSize = wallpaper.GetSize();
 			float scale;
-			if (bruh > wallpaper.GetSize()) {
+			if (bruh > wallpaper.GetSize())
+			{
 				scale = (Mathf.Max(bruh.X, bruh.Y) - Mathf.Max(wallpaper.GetSize().X, wallpaper.GetSize().Y)) /
 					Mathf.Max(wallpaper.GetSize().X, wallpaper.GetSize().X);
 				scale += 1;
-			} else {
-				scale = Mathf.Max(bruh.X, bruh.X) / Mathf.Max(wallpaper.GetSize().X, wallpaper.GetSize().Y);
 			}
+			else
+				scale = Mathf.Max(bruh.X, bruh.X) / Mathf.Max(wallpaper.GetSize().X, wallpaper.GetSize().Y);
+
 			GetNode<Sprite2D>("Wallpaper").Scale = new Vector2(scale, scale);
 			GetNode<Sprite2D>("Wallpaper").Position = bruh/2;
-
+		}
 		// ok it's broken, just load the default wallpaper
-		} else {
+		else
+		{
 			var wallpaper = GD.Load<Texture2D>("res://Assets/Wallpapers/HighPeaks.jpg");
 			GetNode<Sprite2D>("Wallpaper").Texture = wallpaper;
 		}
@@ -127,7 +134,8 @@ public partial class Lelsktop : Node2D
 
 		// quick launch stuff
 		Lelapp[] apps = SavingManager.Load<QuickLaunch>(SavingManager.CurrentUser).Apps;
-		foreach (var app in apps) {
+		foreach (var app in apps)
+		{
 			PackedScene packedScene = GD.Load<PackedScene>("res://OS/Lelsktop/QuickLaunchButton.tscn");
 			OpenWindow yes = packedScene.Instantiate<OpenWindow>();
 			yes.Icon = GD.Load<Texture2D>(app.Icon);
@@ -142,14 +150,18 @@ public partial class Lelsktop : Node2D
 		var ftgkvtfyu = GD.Load<PackedScene>("res://OS/Lelsktop/Sticker.tscn");
 		var bhsdffgyu = GD.Load<PackedScene>("res://OS/Lelsktop/StickyNote.tscn");
 
-		foreach (var item in items) {
-			if (item.Value.IsStickyNote) {
+		foreach (var item in items)
+		{
+			if (item.Value.IsStickyNote)
+			{
 				var bullshit = bhsdffgyu.Instantiate<StickyNote>();
 				bullshit.Position = item.Value.Position;
 				bullshit.PinboardItem = item.Key;
 				pinboard.AddChild(bullshit);
 				bullshit.GetNode<TextEdit>("Text").Text = item.Value.Text;
-			} else {
+			}
+			else
+			{
 				var sticker = ftgkvtfyu.Instantiate<Sticker>();
 				sticker.Position = item.Value.Position;
 				sticker.Rotation = item.Value.Rotation;
@@ -161,11 +173,13 @@ public partial class Lelsktop : Node2D
 		}
 	}
 
-	public override void _Process(double delta) {
+	public override void _Process(double delta)
+	{
 		base._Process(delta);
 
 		// if the user is editing the pinboard stuff we don't need to process this shit anyway
-		if (Pinboard.Pinboard.EditingPinboard) {
+		if (Pinboard.Pinboard.EditingPinboard)
+		{
 			InteractingWithLelsktopInterface = false;
 			return;
 		}
@@ -182,14 +196,17 @@ public partial class Lelsktop : Node2D
 
 		if (GetGlobalMousePosition().Y < 40 || GetGlobalMousePosition().X > pain.X-75 ||
 		appMenu.Modulate != invisible || quickSettings.Modulate != invisible
-		|| workspaces.Modulate != invisible) {
+		|| workspaces.Modulate != invisible)
+		{
 			bruh1.GuiDisableInput = true;
 			bruh2.GuiDisableInput = true;
 			bruh3.GuiDisableInput = true;
 			bruh4.GuiDisableInput = true;
 			
 			InteractingWithLelsktopInterface = true;
-		} else {
+		}
+		else
+		{
 			// suffering
 			if (/*WindowManager.CurrentWorkspace == bruh1*/ true)
 				bruh1.GuiDisableInput = false;

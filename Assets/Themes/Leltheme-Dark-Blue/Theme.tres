@@ -1,8 +1,8 @@
-[gd_resource type="Theme" load_steps=183 format=3 uid="uid://c0bcvkyvqeere"]
+[gd_resource type="Theme" load_steps=186 format=3 uid="uid://c0bcvkyvqeere"]
 
-[ext_resource type="FontFile" uid="uid://b82t6vwpkpyyc" path="res://Fonts/RedHatText-Bold.ttf" id="1"]
+[ext_resource type="FontFile" path="res://Fonts/RedHatText-Bold.ttf" id="1"]
 [ext_resource type="Texture2D" uid="uid://b6ko7py6lenrl" path="res://Assets/Themes/Leltheme-Dark-Blue/Tabs/Active.png" id="1_etwf0"]
-[ext_resource type="FontFile" uid="uid://dgstmjhuoxpu6" path="res://Fonts/RedHatText-Medium.ttf" id="2"]
+[ext_resource type="FontFile" path="res://Fonts/RedHatText-Medium.ttf" id="2"]
 [ext_resource type="Texture2D" uid="uid://by7dw1ccc01j3" path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Updown.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://cbnxwrxj4nej0" path="res://Assets/Themes/Leltheme-Dark-Blue/Sliders/VGrabAreaHighlight.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://byj3rkhmjbkk" path="res://Assets/Themes/Leltheme-Dark-Blue/Sliders/VSliderBody.png" id="5"]
@@ -69,6 +69,7 @@
 [ext_resource type="Texture2D" uid="uid://kpgu1najdg48" path="res://Assets/Themes/Leltheme-Dark-Blue/Window/ClosePressed.png" id="67_y8gs2"]
 [ext_resource type="Texture2D" uid="uid://dc4wjmno0lbum" path="res://Assets/Themes/Leltheme-Dark-Blue/Window/Background.png" id="68_todlq"]
 [ext_resource type="Texture2D" uid="uid://bdcfdtp2btn2r" path="res://Assets/Themes/Leltheme-Dark-Blue/Window/InactiveBackground.png" id="69_raedg"]
+[ext_resource type="FontFile" uid="uid://gx177agg2ypr" path="res://Fonts/RedHatText-VariableFont_wght.ttf" id="70_ei08s"]
 
 [sub_resource type="StyleBoxEmpty" id="235"]
 
@@ -158,6 +159,14 @@ cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/24/0 = Vector2(0, 0)
+cache/0/24/0/ascent = 0.0
+cache/0/24/0/descent = 0.0
+cache/0/24/0/underline_position = 0.0
+cache/0/24/0/underline_thickness = 0.0
+cache/0/24/0/scale = 1.0
+cache/0/24/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/24/0/kerning_overrides/24/0 = Vector2(0, 0)
 
 [sub_resource type="StyleBoxEmpty" id="32"]
 content_margin_left = 4.0
@@ -551,16 +560,16 @@ cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="StyleBoxEmpty" id="142"]
-content_margin_left = 25.0
+content_margin_left = 2.0
 content_margin_top = 7.875
-content_margin_right = 25.0
+content_margin_right = 2.0
 content_margin_bottom = 7.875
 
 [sub_resource type="StyleBoxTexture" id="143"]
-content_margin_left = 25.0
-content_margin_top = 7.875
-content_margin_right = 25.0
-content_margin_bottom = 7.875
+content_margin_left = 2.0
+content_margin_top = 4.0
+content_margin_right = 2.0
+content_margin_bottom = 4.0
 texture = ExtResource("41")
 texture_margin_left = 20.0
 texture_margin_top = 20.0
@@ -569,16 +578,16 @@ texture_margin_bottom = 20.0
 region_rect = Rect2(0, 0, 64, 64)
 
 [sub_resource type="StyleBoxEmpty" id="144"]
-content_margin_left = 25.0
-content_margin_top = 7.875
-content_margin_right = 25.0
-content_margin_bottom = 7.875
+content_margin_left = 2.0
+content_margin_top = 4.0
+content_margin_right = 2.0
+content_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxTexture" id="147"]
-content_margin_left = 25.0
-content_margin_top = 7.875
-content_margin_right = 25.0
-content_margin_bottom = 7.875
+content_margin_left = 2.0
+content_margin_top = 4.0
+content_margin_right = 2.0
+content_margin_bottom = 4.0
 texture = ExtResource("44")
 texture_margin_left = 20.0
 texture_margin_top = 20.0
@@ -645,29 +654,25 @@ region_rect = Rect2(0, 0, 16, 16)
 color = Color(1, 1, 1, 0.498039)
 thickness = 2
 
-[sub_resource type="StyleBoxTexture" id="94"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-texture = ExtResource("33")
-texture_margin_left = 20.0
-texture_margin_top = 20.0
-texture_margin_right = 20.0
-texture_margin_bottom = 20.0
-region_rect = Rect2(0, 0, 32, 32)
+[sub_resource type="FontVariation" id="FontVariation_0reyt"]
+base_font = ExtResource("70_ei08s")
+variation_opentype = {
+2003265652: 500
+}
 
-[sub_resource type="StyleBoxTexture" id="95"]
-content_margin_left = 2.0
-content_margin_top = 1.0
-content_margin_right = 2.0
-content_margin_bottom = 1.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_padvv"]
+texture = ExtResource("33")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m4fnp"]
 texture = ExtResource("32")
-texture_margin_left = 20.0
-texture_margin_top = 20.0
-texture_margin_right = 20.0
-texture_margin_bottom = 20.0
-region_rect = Rect2(0, 0, 32, 32)
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxTexture" id="197"]
 content_margin_left = 25.0
@@ -856,65 +861,42 @@ texture_margin_right = 20.0
 texture_margin_bottom = 20.0
 region_rect = Rect2(0, 0, 40, 40)
 
-[sub_resource type="StyleBoxTexture" id="82"]
-content_margin_left = 2.0
-content_margin_top = 2.0
-content_margin_right = 2.0
-content_margin_bottom = 2.0
+[sub_resource type="ImageTexture" id="ImageTexture_67345"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7vrh0"]
 texture = ExtResource("36")
 texture_margin_left = 8.0
 texture_margin_top = 8.0
 texture_margin_right = 8.0
 texture_margin_bottom = 8.0
-region_rect = Rect2(0, 0, 16, 16)
 
-[sub_resource type="StyleBoxTexture" id="83"]
-content_margin_left = 2.0
-content_margin_top = 2.0
-content_margin_right = 2.0
-content_margin_bottom = 2.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yj45h"]
 texture = ExtResource("34")
 texture_margin_left = 8.0
 texture_margin_top = 8.0
 texture_margin_right = 8.0
 texture_margin_bottom = 8.0
-region_rect = Rect2(0, 0, 16, 16)
 
-[sub_resource type="StyleBoxTexture" id="84"]
-content_margin_left = 2.0
-content_margin_top = 2.0
-content_margin_right = 2.0
-content_margin_bottom = 2.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7lg8x"]
 texture = ExtResource("35")
 texture_margin_left = 8.0
 texture_margin_top = 8.0
 texture_margin_right = 8.0
 texture_margin_bottom = 8.0
-region_rect = Rect2(0, 0, 16, 16)
 
-[sub_resource type="StyleBoxTexture" id="85"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g63gy"]
 texture = ExtResource("6")
 texture_margin_left = 8.0
 texture_margin_top = 8.0
 texture_margin_right = 8.0
 texture_margin_bottom = 8.0
-region_rect = Rect2(0, 0, 16, 16)
 
-[sub_resource type="StyleBoxTexture" id="86"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-texture = ExtResource("23")
-texture_margin_left = 20.0
-texture_margin_top = 20.0
-texture_margin_right = 20.0
-texture_margin_bottom = 20.0
-region_rect = Rect2(0, 0, 40, 40)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eq3ad"]
+texture = ExtResource("6")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
 
 [sub_resource type="StyleBoxLine" id="136"]
 color = Color(0.266667, 0.541176, 1, 0.498039)
@@ -982,7 +964,8 @@ expand_margin_right = 13.0
 expand_margin_bottom = 18.0
 
 [resource]
-default_font = ExtResource("2")
+default_font = SubResource("FontVariation_0reyt")
+default_font_size = 16
 ActiveTab/base_type = &"Button"
 ActiveTab/styles/focus = SubResource("235")
 ActiveTab/styles/hover = SubResource("236")
@@ -1190,11 +1173,13 @@ PopupMenu/styles/labeled_separator_right = SubResource("125")
 PopupMenu/styles/panel = SubResource("126")
 PopupMenu/styles/panel_disabled = SubResource("129")
 PopupMenu/styles/separator = SubResource("130")
-ProgressBar/colors/font_color = Color(1, 1, 1, 1)
-ProgressBar/colors/font_color_shadow = Color(0, 0, 0, 1)
-ProgressBar/fonts/font = SubResource("23")
-ProgressBar/styles/bg = SubResource("94")
-ProgressBar/styles/fg = SubResource("95")
+ProgressBar/colors/font_color = Color(0.95, 0.95, 0.95, 1)
+ProgressBar/colors/font_outline_color = Color(1, 1, 1, 1)
+ProgressBar/constants/outline_size = 0
+ProgressBar/font_sizes/font_size = 16
+ProgressBar/fonts/font = SubResource("FontVariation_0reyt")
+ProgressBar/styles/background = SubResource("StyleBoxTexture_padvv")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_m4fnp")
 SecondaryButton/base_type = &"Button"
 SecondaryButton/styles/hover = SubResource("197")
 SecondaryButton/styles/normal = SubResource("198")
@@ -1254,17 +1239,17 @@ TextPeek/styles/normal = SubResource("186")
 TextPeek/styles/read_only = SubResource("187")
 TooltipPanel/styles/panel = SubResource("234")
 VBoxContainer/constants/separation = 10
-VScrollBar/icons/decrement = SubResource("81")
-VScrollBar/icons/decrement_highlight = SubResource("81")
-VScrollBar/icons/decrement_pressed = SubResource("81")
-VScrollBar/icons/increment = SubResource("81")
-VScrollBar/icons/increment_highlight = SubResource("81")
-VScrollBar/icons/increment_pressed = SubResource("81")
-VScrollBar/styles/grabber = SubResource("82")
-VScrollBar/styles/grabber_highlight = SubResource("83")
-VScrollBar/styles/grabber_pressed = SubResource("84")
-VScrollBar/styles/scroll = SubResource("85")
-VScrollBar/styles/scroll_focus = SubResource("86")
+VScrollBar/icons/decrement = SubResource("ImageTexture_67345")
+VScrollBar/icons/decrement_highlight = SubResource("ImageTexture_67345")
+VScrollBar/icons/decrement_pressed = SubResource("ImageTexture_67345")
+VScrollBar/icons/increment = SubResource("ImageTexture_67345")
+VScrollBar/icons/increment_highlight = SubResource("ImageTexture_67345")
+VScrollBar/icons/increment_pressed = SubResource("ImageTexture_67345")
+VScrollBar/styles/grabber = SubResource("StyleBoxTexture_7vrh0")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_yj45h")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_7lg8x")
+VScrollBar/styles/scroll = SubResource("StyleBoxTexture_g63gy")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxTexture_eq3ad")
 VSeparator/constants/separation = 2
 VSeparator/styles/separator = SubResource("136")
 VSlider/icons/grabber = ExtResource("26")

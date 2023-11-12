@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://510jc3bhr0on"]
+[gd_scene load_steps=50 format=3 uid="uid://510jc3bhr0on"]
 
 [ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Toolkit/OpenWindow.cs" id="1"]
 [ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Time.cs" id="2"]
@@ -249,6 +249,8 @@ _data = {
 
 [sub_resource type="StyleBoxEmpty" id="24"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_bix5t"]
+
 [node name="LelsktopInterface" type="CanvasLayer"]
 process_priority = -69
 
@@ -393,8 +395,9 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -375.0
-offset_top = -475.0
+offset_top = -515.0
 offset_right = -75.0
+offset_bottom = -40.0
 theme = ExtResource("3")
 
 [node name="UserIcon" type="Sprite2D" parent="QuickSettings"]
@@ -407,10 +410,14 @@ script = ExtResource("13")
 [node name="Name" type="Label" parent="QuickSettings"]
 layout_mode = 0
 offset_left = 40.0
+offset_top = 3.0
 offset_right = 300.0
 offset_bottom = 40.0
+theme_type_variation = &"Header"
 text = "Cool user :)"
-clip_text = true
+label_settings = SubResource("LabelSettings_bix5t")
+vertical_alignment = 1
+text_overrun_behavior = 3
 script = ExtResource("16")
 
 [node name="Sound" type="Sprite2D" parent="QuickSettings"]
@@ -443,7 +450,6 @@ step = 0.001
 value = 1.0
 
 [node name="Settings" type="Button" parent="QuickSettings"]
-custom_minimum_size = Vector2(296, 40)
 layout_mode = 0
 offset_left = 4.0
 offset_top = 120.0
@@ -453,6 +459,7 @@ theme_type_variation = &"PanelButton"
 theme_override_constants/h_separation = 4
 text = "Settings"
 icon = ExtResource("5")
+alignment = 0
 script = ExtResource("1")
 WindowScene = "res://Apps/Settings/Settings.tscn"
 
@@ -467,6 +474,7 @@ theme_type_variation = &"PanelButton"
 theme_override_constants/h_separation = 4
 text = "Logout"
 icon = ExtResource("18")
+alignment = 0
 script = ExtResource("1")
 WindowScene = "res://OS/Lelsktop/Logout.tscn"
 
@@ -481,6 +489,7 @@ theme_type_variation = &"PanelButton"
 theme_override_constants/h_separation = 4
 text = "Turn off"
 icon = ExtResource("20")
+alignment = 0
 script = ExtResource("1")
 WindowScene = "res://OS/Lelsktop/Shutdown.tscn"
 
@@ -490,7 +499,10 @@ layout_mode = 0
 offset_top = 245.0
 offset_right = 300.0
 offset_bottom = 270.0
+theme_type_variation = &"Header"
 text = "System Monitor"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Cpu" type="ProgressBar" parent="QuickSettings"]
 custom_minimum_size = Vector2(280, 40)
@@ -510,6 +522,8 @@ offset_top = 275.0
 offset_right = 280.0
 offset_bottom = 315.0
 text = "Processor"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="Gpu" type="ProgressBar" parent="QuickSettings"]
 custom_minimum_size = Vector2(280, 40)
@@ -529,6 +543,8 @@ offset_top = 325.0
 offset_right = 280.0
 offset_bottom = 365.0
 text = "Graphics"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="Memory" type="ProgressBar" parent="QuickSettings"]
 custom_minimum_size = Vector2(280, 40)
@@ -548,6 +564,8 @@ offset_top = 375.0
 offset_right = 280.0
 offset_bottom = 415.0
 text = "Memory"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="Storage" type="ProgressBar" parent="QuickSettings"]
 custom_minimum_size = Vector2(280, 40)
@@ -567,6 +585,8 @@ offset_top = 425.0
 offset_right = 280.0
 offset_bottom = 465.0
 text = "Storage"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="AppMenu" type="Panel" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -584,85 +604,95 @@ offset_bottom = 400.0
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="AllApps" type="Button" parent="AppMenu/Categories/VBoxContainer"]
+[node name="AllApps" type="Button" parent="AppMenu/Categories/VBoxContainer" node_paths=PackedStringArray("Category")]
 custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
 theme_type_variation = &"PanelButton"
 text = "All Apps"
 icon = ExtResource("22")
 script = ExtResource("11")
+Category = NodePath("../../../CategoryAllApps")
 
-[node name="Accessories" type="Button" parent="AppMenu/Categories/VBoxContainer"]
+[node name="Accessories" type="Button" parent="AppMenu/Categories/VBoxContainer" node_paths=PackedStringArray("Category")]
 custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
 theme_type_variation = &"PanelButton"
 text = "Accessories"
 icon = ExtResource("31")
 script = ExtResource("11")
+Category = NodePath("../../../CategoryAccessories")
 
-[node name="Development" type="Button" parent="AppMenu/Categories/VBoxContainer"]
+[node name="Development" type="Button" parent="AppMenu/Categories/VBoxContainer" node_paths=PackedStringArray("Category")]
 custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
 theme_type_variation = &"PanelButton"
 text = "Development"
 icon = ExtResource("24")
 script = ExtResource("11")
+Category = NodePath("../../../CategoryDevelopment")
 
-[node name="Games" type="Button" parent="AppMenu/Categories/VBoxContainer"]
+[node name="Games" type="Button" parent="AppMenu/Categories/VBoxContainer" node_paths=PackedStringArray("Category")]
 custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
 theme_type_variation = &"PanelButton"
 text = "Games"
 icon = ExtResource("25")
 script = ExtResource("11")
+Category = NodePath("../../../CategoryGames")
 
-[node name="Graphics" type="Button" parent="AppMenu/Categories/VBoxContainer"]
+[node name="Graphics" type="Button" parent="AppMenu/Categories/VBoxContainer" node_paths=PackedStringArray("Category")]
 custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
 theme_type_variation = &"PanelButton"
 text = "Graphics"
 icon = ExtResource("26")
 script = ExtResource("11")
+Category = NodePath("../../../CategoryGraphics")
 
-[node name="Internet" type="Button" parent="AppMenu/Categories/VBoxContainer"]
+[node name="Internet" type="Button" parent="AppMenu/Categories/VBoxContainer" node_paths=PackedStringArray("Category")]
 custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
 theme_type_variation = &"PanelButton"
 text = "Internet"
 icon = ExtResource("27")
 script = ExtResource("11")
+Category = NodePath("../../../CategoryInternet")
 
-[node name="Multimedia" type="Button" parent="AppMenu/Categories/VBoxContainer"]
+[node name="Multimedia" type="Button" parent="AppMenu/Categories/VBoxContainer" node_paths=PackedStringArray("Category")]
 custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
 theme_type_variation = &"PanelButton"
 text = "Multimedia"
 icon = ExtResource("28")
 script = ExtResource("11")
+Category = NodePath("../../../CategoryMultimedia")
 
-[node name="Office" type="Button" parent="AppMenu/Categories/VBoxContainer"]
+[node name="Office" type="Button" parent="AppMenu/Categories/VBoxContainer" node_paths=PackedStringArray("Category")]
 custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
 theme_type_variation = &"PanelButton"
 text = "Office"
 icon = ExtResource("29")
 script = ExtResource("11")
+Category = NodePath("../../../CategoryOffice")
 
-[node name="System" type="Button" parent="AppMenu/Categories/VBoxContainer"]
+[node name="System" type="Button" parent="AppMenu/Categories/VBoxContainer" node_paths=PackedStringArray("Category")]
 custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
 theme_type_variation = &"PanelButton"
 text = "System"
 icon = ExtResource("30")
 script = ExtResource("11")
+Category = NodePath("../../../CategorySystem")
 
-[node name="Utilities" type="Button" parent="AppMenu/Categories/VBoxContainer"]
+[node name="Utilities" type="Button" parent="AppMenu/Categories/VBoxContainer" node_paths=PackedStringArray("Category")]
 custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
 theme_type_variation = &"PanelButton"
 text = "Utilities"
 icon = ExtResource("23")
 script = ExtResource("11")
+Category = NodePath("../../../CategoryUtilities")
 
 [node name="CategoryAllApps" type="ScrollContainer" parent="AppMenu"]
 layout_mode = 0

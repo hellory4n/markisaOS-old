@@ -1,21 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://1a28y02o2lfs"]
+[gd_scene load_steps=9 format=3 uid="uid://1a28y02o2lfs"]
 
 [ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Toolkit/ImageBackground.cs" id="1"]
-[ext_resource type="FontFile" uid="uid://b82t6vwpkpyyc" path="res://Fonts/RedHatText-Bold.ttf" id="2"]
 [ext_resource type="Texture2D" uid="uid://0yssrp58vxb1" path="res://Assets/Boot/OnboardingBackground.png" id="3"]
-[ext_resource type="FontFile" uid="uid://dgstmjhuoxpu6" path="res://Fonts/RedHatText-Medium.ttf" id="4"]
+[ext_resource type="FontFile" path="res://Fonts/RedHatText-Medium.ttf" id="4"]
 [ext_resource type="Script" path="res://OS/Scripts/Core/MobileSetup.cs" id="5"]
 [ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" id="6"]
 [ext_resource type="AudioStream" uid="uid://vqlniubu86pw" path="res://Audio/Music/MobileSetup.mp3" id="7"]
 
-[sub_resource type="FontFile" id="1"]
-fallbacks = Array[Font]([ExtResource("2")])
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+[sub_resource type="LabelSettings" id="LabelSettings_smagg"]
+font_size = 24
 
 [sub_resource type="FontFile" id="2"]
 fallbacks = Array[Font]([ExtResource("4")])
@@ -47,8 +40,9 @@ custom_minimum_size = Vector2(0, 40)
 layout_mode = 0
 anchor_right = 1.0
 offset_bottom = 22.0
-theme_override_fonts/font = SubResource("1")
+theme_type_variation = &"Header"
 text = "Let's setup this device"
+label_settings = SubResource("LabelSettings_smagg")
 horizontal_alignment = 1
 vertical_alignment = 1
 
