@@ -31,7 +31,7 @@ public partial class DisplaySettingsApply : Button {
         //GetTree().SetScreenStretch(SceneTree.StretchMode.Mode2d, SceneTree.StretchAspect.Keep, stupidity);
 
         /*WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
-        PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Settings/DisplayConfirm.tscn");
+        PackedScene m = GD.Load<PackedScene>("res://Apps/Settings/DisplayConfirm.tscn");
         Lelwindow jjkn = (Lelwindow)m.Instantiate();    
         wm.AddWindow(jjkn);*/
 

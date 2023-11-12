@@ -12,7 +12,7 @@ public partial class InstallelCustomWindowOpenerThing : Button
     public override void _Pressed()
     {
         base._Pressed();
-        PackedScene m = ResourceLoader.Load<PackedScene>(WindowScene);
+        PackedScene m = GD.Load<PackedScene>(WindowScene);
         Lelwindow jjkn = (Lelwindow)m.Instantiate();    
         GetNode<Control>("/root/Installel/1/Windows/ThemeThing").AddChild(jjkn);
         jjkn.Visible = true;

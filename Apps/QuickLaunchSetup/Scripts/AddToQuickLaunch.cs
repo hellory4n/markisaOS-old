@@ -13,9 +13,9 @@ public partial class AddToQuickLaunch : Button {
     }
 
     public void Click() {
-        PackedScene packedScene = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/QuickLaunchButton.tscn");
+        PackedScene packedScene = GD.Load<PackedScene>("res://OS/Lelsktop/QuickLaunchButton.tscn");
         OpenWindow yes = packedScene.Instantiate<OpenWindow>();
-        yes.Icon = ResourceLoader.Load<Texture2D>(App.Icon);
+        yes.Icon = GD.Load<Texture2D>(App.Icon);
         yes.WindowScene = App.Scene;
         GetNode<VBoxContainer>("/root/LelsktopInterface/Dock/DockStuff/QuickLaunch").AddChild(yes);
 

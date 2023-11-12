@@ -14,7 +14,7 @@ public partial class InstallelRestart : Timer
     }
 
     public override
-        var aPackedScene = ResourceLoader.Load<PackedScene>("res://OS/Core/InstallelOobe.tscn");
+        var aPackedScene = GD.Load<PackedScene>("res://OS/Core/InstallelOobe.tscn");
         Node aNode = aPackedScene.Instantiate();
         GetTree().Root.AddChild(aNode);
         GetParent().QueueFree();

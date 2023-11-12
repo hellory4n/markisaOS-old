@@ -19,12 +19,12 @@ public partial class Leltabs : HBoxContainer
     public override void _Ready()
     {
         base._Ready();
-        var m = ResourceLoader.Load<PackedScene>(TabContentThing);
+        var m = GD.Load<PackedScene>(TabContentThing);
         var coolTab = m.Instantiate<Control>();
         // i have to set a theme at that scene so godot lets me put the correct sizes and stuff
         coolTab.Theme = null;
 
-        var h = ResourceLoader.Load<PackedScene>(TabThing);
+        var h = GD.Load<PackedScene>(TabThing);
         var fart = h.Instantiate<LeltabsTab>();
         fart.TabContent = coolTab;
         fart.Text = "New Tab";

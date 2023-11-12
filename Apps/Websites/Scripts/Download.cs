@@ -21,7 +21,7 @@ public partial class Download : Button {
 
     public void Click() {
         WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
-        PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Websites/Downloader.tscn");
+        PackedScene m = GD.Load<PackedScene>("res://Apps/Websites/Downloader.tscn");
         WebsitesAppDownloaderWindow jjkn = m.Instantiate<WebsitesAppDownloaderWindow>();
         jjkn.NewFilename = NewFilename;
         jjkn.Type = Type;

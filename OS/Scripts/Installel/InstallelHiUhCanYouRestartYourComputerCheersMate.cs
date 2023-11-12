@@ -22,7 +22,7 @@ public partial class InstallelHiUhCanYouRestartYourComputerCheersMate : Button
 
     public void Bruh()
     {
-        PackedScene m = ResourceLoader.Load<PackedScene>("res://OS/Core/InstallelRestart.tscn");
+        PackedScene m = GD.Load<PackedScene>("res://OS/Core/InstallelRestart.tscn");
         Node jjkn = m.Instantiate();
         GetTree().Root.AddChild(jjkn);
         GetNode("/root/Installel").QueueFree();

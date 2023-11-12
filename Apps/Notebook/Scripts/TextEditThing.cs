@@ -51,7 +51,7 @@ public partial class TextEditThing : TextEdit {
 
     public void SaveAs() {
         /*WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
-        PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Notebook/SaveAs.tscn");
+        PackedScene m = GD.Load<PackedScene>("res://Apps/Notebook/SaveAs.tscn");
         NotebookSaveAs jjkn = m.Instantiate<NotebookSaveAs>();
         jjkn.Tfhsjkgjrrh = this;
         wm.AddWindow(jjkn);*/
@@ -59,7 +59,7 @@ public partial class TextEditThing : TextEdit {
 
     public void Open() {
         /*WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
-        PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Notebook/Open.tscn");
+        PackedScene m = GD.Load<PackedScene>("res://Apps/Notebook/Open.tscn");
         var jjkn = m.Instantiate<NotebookOpen>();
         jjkn.Tfhsjkgjrrh = this;
         wm.AddWindow(jjkn);*/

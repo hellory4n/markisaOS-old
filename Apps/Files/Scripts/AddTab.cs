@@ -3,8 +3,8 @@ using System;
 using Lelsktop.WindowManager;
 
 public partial class AddTab : Button {
-    readonly PackedScene TabThing = ResourceLoader.Load<PackedScene>("res://Apps/Files/TabThing.tscn");
-    readonly PackedScene TabContent = ResourceLoader.Load<PackedScene>("res://Apps/Files/TabContent.tscn");
+    readonly PackedScene TabThing = GD.Load<PackedScene>("res://Apps/Files/TabThing.tscn");
+    readonly PackedScene TabContent = GD.Load<PackedScene>("res://Apps/Files/TabContent.tscn");
 
     public override void _Ready() {
         base._Ready();

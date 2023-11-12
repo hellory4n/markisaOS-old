@@ -15,16 +15,16 @@ public partial class ApplyNewTheme : Button {
         CheckBox option = (CheckBox)pain.GetPressedButton();
         Theme theme = option.Text switch
         {
-            "Black" => ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Black/Theme.tres"),
-            "Blue" => ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres"),
-            "Green" => ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Green/Theme.tres"),
-            "Orange" => ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Orange/Theme.tres"),
-            "Pink" => ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Pink/Theme.tres"),
-            "Purple" => ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Purple/Theme.tres"),
-            "Red" => ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Red/Theme.tres"),
-            "White" => ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-White/Theme.tres"),
-            "Yellow" => ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Yellow/Theme.tres"),
-            _ => ResourceLoader.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres"),
+            "Black" => GD.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Black/Theme.tres"),
+            "Blue" => GD.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres"),
+            "Green" => GD.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Green/Theme.tres"),
+            "Orange" => GD.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Orange/Theme.tres"),
+            "Pink" => GD.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Pink/Theme.tres"),
+            "Purple" => GD.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Purple/Theme.tres"),
+            "Red" => GD.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Red/Theme.tres"),
+            "White" => GD.Load<Theme>("res://Assets/Themes/Leltheme-Dark-White/Theme.tres"),
+            "Yellow" => GD.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Yellow/Theme.tres"),
+            _ => GD.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres"),
         };
 
         // apply the theme :)))))))))))))))))))))))))))))

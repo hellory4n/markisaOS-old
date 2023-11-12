@@ -7,11 +7,11 @@ using Lelcore.Drivers;
 using Lelsktop.Toolkit;
 
 public partial class FileView : ItemList {
-    readonly Texture2D FolderIcon = ResourceLoader.Load<Texture2D>("res://Apps/Files/Assets/IconDock.png");
-    readonly Texture2D FileIcon = ResourceLoader.Load<Texture2D>("res://Apps/Files/Assets/File.png");
-    readonly Texture2D MusicIcon = ResourceLoader.Load<Texture2D>("res://Apps/Files/Assets/Music.png");
-    readonly Texture2D VideoIcon = ResourceLoader.Load<Texture2D>("res://Apps/Files/Assets/Video.png");
-    readonly Texture2D TextIcon = ResourceLoader.Load<Texture2D>("res://Apps/Files/Assets/Text.png");
+    readonly Texture2D FolderIcon = GD.Load<Texture2D>("res://Apps/Files/Assets/IconDock.png");
+    readonly Texture2D FileIcon = GD.Load<Texture2D>("res://Apps/Files/Assets/File.png");
+    readonly Texture2D MusicIcon = GD.Load<Texture2D>("res://Apps/Files/Assets/Music.png");
+    readonly Texture2D VideoIcon = GD.Load<Texture2D>("res://Apps/Files/Assets/Video.png");
+    readonly Texture2D TextIcon = GD.Load<Texture2D>("res://Apps/Files/Assets/Text.png");
     List<string> CoolFiles = new();
     public string Path = "/";
     public Button TabThing;
@@ -104,7 +104,7 @@ public partial class FileView : ItemList {
         /*if (Input.IsActionJustReleased("new_but_different") && GetParent().GetParent().GetParent().GetParent<Lelwindow>()
         .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab") {
             WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
-            PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Files/NewFolder.tscn");
+            PackedScene m = GD.Load<PackedScene>("res://Apps/Files/NewFolder.tscn");
             NewFolder jjkn = m.Instantiate<NewFolder>();
 
             LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(Path);
@@ -118,7 +118,7 @@ public partial class FileView : ItemList {
         if (Input.IsActionJustReleased("new") && GetParent().GetParent().GetParent().GetParent<Lelwindow>()
         .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab") {
             WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
-            PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Files/NewFile.tscn");
+            PackedScene m = GD.Load<PackedScene>("res://Apps/Files/NewFile.tscn");
             NewFile jjkn = m.Instantiate<NewFile>();
 
             // pain
@@ -221,7 +221,7 @@ public partial class FileView : ItemList {
                 break;
             case "Picture":
                 WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
-                PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Observer/Observer.tscn");
+                PackedScene m = GD.Load<PackedScene>("res://Apps/Observer/Observer.tscn");
                 Observer jjkn = m.Instantiate<Observer>();
                 jjkn.ObserverMode = Observer.Mode.Image;
                 jjkn.MediaId = pain.Id;
@@ -229,7 +229,7 @@ public partial class FileView : ItemList {
                 break;
             case "Audio":
                 WindowManager wm1 = GetNode<WindowManager>("/root/WindowManager");
-                PackedScene m1 = ResourceLoader.Load<PackedScene>("res://Apps/Observer/Observer.tscn");
+                PackedScene m1 = GD.Load<PackedScene>("res://Apps/Observer/Observer.tscn");
                 Observer jjkn1 = m1.Instantiate<Observer>();
                 jjkn1.ObserverMode = Observer.Mode.Audio;
                 jjkn1.MediaId = pain.Id;
@@ -237,7 +237,7 @@ public partial class FileView : ItemList {
                 break;
             case "Video":
                 WindowManager wm2 = GetNode<WindowManager>("/root/WindowManager");
-                PackedScene m2 = ResourceLoader.Load<PackedScene>("res://Apps/Observer/Observer.tscn");
+                PackedScene m2 = GD.Load<PackedScene>("res://Apps/Observer/Observer.tscn");
                 Observer jjkn2 = m2.Instantiate<Observer>();
                 jjkn2.ObserverMode = Observer.Mode.Video;
                 jjkn2.MediaId = pain.Id;
@@ -245,7 +245,7 @@ public partial class FileView : ItemList {
                 break;
             case "Text":
                 WindowManager wm3 = GetNode<WindowManager>("/root/WindowManager");
-                PackedScene m3 = ResourceLoader.Load<PackedScene>("res://Apps/Notebook/Notebook.tscn");
+                PackedScene m3 = GD.Load<PackedScene>("res://Apps/Notebook/Notebook.tscn");
                 var jjkn3 = m3.Instantiate<Notebook>();
                 wm3.AddWindow(jjkn3);
                 jjkn3.Suffer = true;
@@ -309,7 +309,7 @@ public partial class FileView : ItemList {
 
     void PasteFile() {
         /*WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
-        PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Files/Paste.tscn");
+        PackedScene m = GD.Load<PackedScene>("res://Apps/Files/Paste.tscn");
         PasteFile jjkn = m.Instantiate<PasteFile>();
 
         // pain
@@ -332,7 +332,7 @@ public partial class FileView : ItemList {
         /*switch (index) {
             case 0:
                 WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
-                PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Files/NewFile.tscn");
+                PackedScene m = GD.Load<PackedScene>("res://Apps/Files/NewFile.tscn");
                 NewFile jjkn = m.Instantiate<NewFile>();
 
                 // pain
@@ -344,7 +344,7 @@ public partial class FileView : ItemList {
                 break;
             case 1:
                 WindowManager wm1 = GetNode<WindowManager>("/root/WindowManager");
-                PackedScene m1 = ResourceLoader.Load<PackedScene>("res://Apps/Files/NewFolder.tscn");
+                PackedScene m1 = GD.Load<PackedScene>("res://Apps/Files/NewFolder.tscn");
                 NewFolder jjkn1 = m1.Instantiate<NewFolder>();
 
                 // pain
@@ -403,7 +403,7 @@ public partial class FileView : ItemList {
 
     void DeleteFile() {
         /*WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
-        PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Files/Delete.tscn");
+        PackedScene m = GD.Load<PackedScene>("res://Apps/Files/Delete.tscn");
         Delete jjkn = m.Instantiate<Delete>();
 
         // pain
@@ -417,7 +417,7 @@ public partial class FileView : ItemList {
 
     void RenameFile() {
         /*WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
-        PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Files/Rename.tscn");
+        PackedScene m = GD.Load<PackedScene>("res://Apps/Files/Rename.tscn");
         Rename jjkn = m.Instantiate<Rename>();
 
         // pain

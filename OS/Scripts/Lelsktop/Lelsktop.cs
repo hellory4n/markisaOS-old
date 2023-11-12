@@ -30,7 +30,7 @@ public partial class Lelsktop : Node2D
 		// is it a default wallpaper?
 		if (ResourceLoader.Exists(suffer.Wallpaper)) {
 			string wallpaperPath = suffer.Wallpaper;
-			Texture2D wallpaper = ResourceLoader.Load<Texture2D>(wallpaperPath);
+			Texture2D wallpaper = GD.Load<Texture2D>(wallpaperPath);
 			GetNode<Sprite2D>("Wallpaper").Texture2D = wallpaper;
 		// is it a lelfs file?
 		} else if (LelfsManager.IdExists(suffer.Wallpaper)) {
@@ -53,7 +53,7 @@ public partial class Lelsktop : Node2D
 
 		// ok it's broken, just load the default wallpaper
 		} else {
-			var wallpaper = ResourceLoader.Load<Texture2D>("res://Assets/Wallpapers/HighPeaks.jpg");
+			var wallpaper = GD.Load<Texture2D>("res://Assets/Wallpapers/HighPeaks.jpg");
 			GetNode<Sprite2D>("Wallpaper").Texture2D = wallpaper;
 		}
 
@@ -62,7 +62,7 @@ public partial class Lelsktop : Node2D
 		sounds.PlaySoundEffect(SoundManager.SoundEffects.Startup);
 
 		// cool dock :)
-		PackedScene m = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/LelsktopInterface.tscn");
+		PackedScene m = GD.Load<PackedScene>("res://OS/Lelsktop/LelsktopInterface.tscn");
 		CanvasLayer lelsktopInterface = (CanvasLayer)m.Instantiate();
 		GetTree().Root.CallDeferred("add_child", lelsktopInterface);
 		lelsktopInterface.GetNode<Panel>("Dock").Size = new Vector2(75, bruh.y);
@@ -111,7 +111,7 @@ public partial class Lelsktop : Node2D
 		lelsktopInterface.GetNode<AnimationPlayer>("AnimationPlayer").Play("Startup");
 
 		// load theme
-		Theme theme = ResourceLoader.Load<Theme>($"res://Assets/Themes/{suffer.Theme}/Theme.tres");
+		Theme theme = GD.Load<Theme>($"res://Assets/Themes/{suffer.Theme}/Theme.tres");
 		GetNode<Control>("1/Windows/ThemeThing").Theme = theme;
 		GetNode<Control>("2/Windows/ThemeThing").Theme = theme;
 		GetNode<Control>("3/Windows/ThemeThing").Theme = theme;
@@ -124,9 +124,9 @@ public partial class Lelsktop : Node2D
 		// quick launch stuff
 		Lelapp[] apps = SavingManager.Load<QuickLaunch>(SavingManager.CurrentUser).Apps;
 		foreach (var app in apps) {
-			PackedScene packedScene = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/QuickLaunchButton.tscn");
+			PackedScene packedScene = GD.Load<PackedScene>("res://OS/Lelsktop/QuickLaunchButton.tscn");
 			DefaultOpenWindowButton yes = packedScene.Instantiate<DefaultOpenWindowButton>();
-			yes.Icon = ResourceLoader.Load<Texture2D>(app.Icon);
+			yes.Icon = GD.Load<Texture2D>(app.Icon);
 			yes.WindowScene = app.Scene;
 			yes.TooltipText = app.Name;
 			lelsktopInterface.GetNode<VBoxContainer>("Dock/DockStuff/QuickLaunch").AddChild(yes);
@@ -135,8 +135,8 @@ public partial class Lelsktop : Node2D
 		// load the pinboard stuff :)))
 		Dictionary<string, PinboardItem> items = SavingManager.Load<LelsktopPinboard>(SavingManager.CurrentUser).Items;
 		var pinboard = GetNode<Node2D>("Pinboard");
-		var ftgkvtfyu = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Sticker.tscn");
-		var bhsdffgyu = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/StickyNote.tscn");
+		var ftgkvtfyu = GD.Load<PackedScene>("res://OS/Lelsktop/Sticker.tscn");
+		var bhsdffgyu = GD.Load<PackedScene>("res://OS/Lelsktop/StickyNote.tscn");
 
 		foreach (var item in items) {
 			if (item.Value.IsStickyNote) {

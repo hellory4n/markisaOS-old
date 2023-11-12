@@ -57,7 +57,7 @@ public partial class WebsiteView : Control
         // to load the login screen
         if (!ResourceLoader.Exists(h) || !h.StartsWith("res://Web/")) {
             previousThing?.QueueFree();
-            var ohShoes = ResourceLoader.Load<PackedScene>("res://Web/404/home.tscn");
+            var ohShoes = GD.Load<PackedScene>("res://Web/404/home.tscn");
             var m = ohShoes.Instantiate<Control>();
             m.OffsetTop = 60;
             AddChild(m);
@@ -65,7 +65,7 @@ public partial class WebsiteView : Control
             GetNode<Label>("TabTitle").Text = "404";
         } else {
             previousThing?.QueueFree();
-            var jgkjfgkb = ResourceLoader.Load<PackedScene>(h);
+            var jgkjfgkb = GD.Load<PackedScene>(h);
             var m = jgkjfgkb.Instantiate<Control>();
             m.OffsetTop = 60;
             AddChild(m);

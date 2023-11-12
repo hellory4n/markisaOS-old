@@ -12,7 +12,7 @@ public partial class OpenSceneButton : Button
     public override void _Pressed()
     {
         base._Pressed();
-        PackedScene m = ResourceLoader.Load<PackedScene>(Scene);
+        PackedScene m = GD.Load<PackedScene>(Scene);
         Node jjkn = m.Instantiate();
         GetTree().Root.AddChild(jjkn);
     }

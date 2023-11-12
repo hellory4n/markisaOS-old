@@ -15,7 +15,7 @@ public partial class TextPeek : LineEdit
             {
                 Layer = 128
             };
-            PackedScene oneOfThePackedScenes = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Overlay/TextPeek.tscn");
+            PackedScene oneOfThePackedScenes = GD.Load<PackedScene>("res://OS/Lelsktop/Overlay/TextPeek.tscn");
             TextPeekThingy = (Panel)oneOfThePackedScenes.Instantiate();
             GetTree().Root.AddChild(m);
             m.AddChild(TextPeekThingy);

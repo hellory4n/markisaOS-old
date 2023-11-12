@@ -13,7 +13,7 @@ public partial class WindowManager : Node2D {
 
     public override void _Ready() {
         base._Ready();
-        OpenWindow = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/OpenWindowButton.tscn");
+        OpenWindow = GD.Load<PackedScene>("res://OS/Lelsktop/OpenWindowButton.tscn");
     }
 
     /// <summary>

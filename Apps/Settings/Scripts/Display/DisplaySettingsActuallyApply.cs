@@ -19,7 +19,7 @@ public partial class DisplaySettingsActuallyApply : Button {
         };
         SavingManager.SaveSettings(m);
 
-        PackedScene aPackedScene = ResourceLoader.Load<PackedScene>("res://OS/Core/Onboarding.tscn");
+        PackedScene aPackedScene = GD.Load<PackedScene>("res://OS/Core/Onboarding.tscn");
         Node aNode = aPackedScene.Instantiate();
         GetTree().Root.AddChild(aNode);
         GetNode("/root/Lelsktop").QueueFree();

@@ -14,7 +14,7 @@ public partial class ResourceManager : Node
     {
         if (path.StartsWith("res://"))
         {
-            return ResourceLoader.Load<CompressedTexture2D>(path);
+            return GD.Load<CompressedTexture2D>(path);
         }
         else
         {
@@ -34,7 +34,7 @@ public partial class ResourceManager : Node
     {
         /*if (path.StartsWith("res://"))
         {
-            return ResourceLoader.Load<AudioStream>(path);
+            return GD.Load<AudioStream>(path);
         }
         else
         {
@@ -50,7 +50,7 @@ public partial class ResourceManager : Node
                 return default;
             }
         }*/
-        return ResourceLoader.Load<AudioStream>(path);
+        return GD.Load<AudioStream>(path);
     }
 
     /// <summary>
@@ -60,6 +60,6 @@ public partial class ResourceManager : Node
     /// <returns>The video loaded.</returns>
     public static VideoStream LoadVideo(string path)
     {
-        return ResourceLoader.Load<VideoStream>(path);
+        return GD.Load<VideoStream>(path);
     }
 }

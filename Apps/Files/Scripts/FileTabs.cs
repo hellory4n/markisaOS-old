@@ -6,8 +6,8 @@ using Lelsktop.WindowManager;
 public partial class FileTabs : HBoxContainer {
     public List<TabThing> TabButtons = new();
     public List<Control> TabContent = new();
-    PackedScene TabThing = ResourceLoader.Load<PackedScene>("res://Apps/Files/TabThing.tscn");
-    PackedScene TabContentThing = ResourceLoader.Load<PackedScene>("res://Apps/Files/TabContent.tscn");
+    PackedScene TabThing = GD.Load<PackedScene>("res://Apps/Files/TabThing.tscn");
+    PackedScene TabContentThing = GD.Load<PackedScene>("res://Apps/Files/TabContent.tscn");
 
     public override void _Ready() {
         base._Ready();

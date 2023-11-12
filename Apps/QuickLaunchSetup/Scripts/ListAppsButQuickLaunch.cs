@@ -19,8 +19,8 @@ public partial class ListAppsButQuickLaunch : VBoxContainer {
         apps = apps.OrderBy(fart => fart.Name).ToArray();
         Lelapp[] quickLaunch = SavingManager.Load<QuickLaunch>(SavingManager.CurrentUser).Apps;
 
-        PackedScene yes = ResourceLoader.Load<PackedScene>("res://Apps/QuickLaunchSetup/QuickLaunchAppThing.tscn");
-        PackedScene no = ResourceLoader.Load<PackedScene>("res://Apps/QuickLaunchSetup/QuickLaunchAppThingPain.tscn");
+        PackedScene yes = GD.Load<PackedScene>("res://Apps/QuickLaunchSetup/QuickLaunchAppThing.tscn");
+        PackedScene no = GD.Load<PackedScene>("res://Apps/QuickLaunchSetup/QuickLaunchAppThingPain.tscn");
         foreach (var app in apps) {
             // .Contains() is no worky :(
             bool nbh = false;

@@ -15,7 +15,7 @@ public partial class FactoryReset : Button {
         DirAccess.RemoveAbsolute("user://Users");
 
         // now show the factory reset screen :)
-        PackedScene m = ResourceLoader.Load<PackedScene>("res://OS/Core/FactoryReset.tscn");
+        PackedScene m = GD.Load<PackedScene>("res://OS/Core/FactoryReset.tscn");
         Node jjkn = m.Instantiate();
         GetTree().Root.AddChild(jjkn);
         

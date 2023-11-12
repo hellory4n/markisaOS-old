@@ -71,12 +71,12 @@ public partial class ListApps : VBoxContainer
         }
         else
         {
-            PackedScene yes = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/AppMenuApp.tscn");
+            PackedScene yes = GD.Load<PackedScene>("res://OS/Lelsktop/AppMenuApp.tscn");
             foreach (var app in apps)
             {
                 OpenWindow amazingApp = yes.Instantiate<OpenWindow>();
                 amazingApp.Text = app.Name;
-                amazingApp.Icon = ResourceLoader.Load<Texture2D>(app.Icon);
+                amazingApp.Icon = GD.Load<Texture2D>(app.Icon);
                 amazingApp.WindowScene = app.Scene;
                 AddChild(amazingApp);
             }

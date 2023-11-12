@@ -22,12 +22,12 @@ public partial class LeltabsAdd : Button
     public override void _Pressed()
     {
         base._Pressed();
-        var m = ResourceLoader.Load<PackedScene>(GetParent<Leltabs>().TabContentThing);
+        var m = GD.Load<PackedScene>(GetParent<Leltabs>().TabContentThing);
         var coolTab = m.Instantiate<Control>();
         // i have to set a theme at that scene so godot lets me put the correct sizes and stuff
         coolTab.Theme = null;
 
-        var h = ResourceLoader.Load<PackedScene>(GetParent<Leltabs>().TabThing);
+        var h = GD.Load<PackedScene>(GetParent<Leltabs>().TabThing);
         var fart = h.Instantiate<LeltabsTab>();
         fart.TabContent = coolTab;
         fart.Text = "New Tab";

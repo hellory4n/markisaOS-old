@@ -30,7 +30,7 @@ public partial class AddStickyNote : TextureButton
         SavingManager.Save(SavingManager.CurrentUser, pinboard);
 
         // add it and stuff :)
-        var ftgkvtfyu = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/StickyNote.tscn");
+        var ftgkvtfyu = GD.Load<PackedScene>("res://OS/Lelsktop/StickyNote.tscn");
         var sticker = ftgkvtfyu.Instantiate<StickyNote>();
         sticker.Position = stickerdbgfdf.Position;
         sticker.GetNode<TextEdit>("Text").Text = stickerdbgfdf.Text;

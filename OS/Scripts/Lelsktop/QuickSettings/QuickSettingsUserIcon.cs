@@ -8,16 +8,16 @@ public partial class QuickSettingsUserIcon : Sprite2D
     public override void _Ready()
     {
         base._Ready();
-        Texture2D cat = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Cat.png");
-        Texture2D flower = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Flower.png");
-        Texture2D balloons = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Balloons.png");
-        Texture2D car = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Car.png");
-        Texture2D dog = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Dog.png");
-        Texture2D duck = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Duck.png");
-        Texture2D pancakes = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Pancakes.png");
-        Texture2D brushes = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Brushes.png");
-        Texture2D shuttle = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Shuttle.png");
-        Texture2D football = ResourceLoader.Load<Texture2D>("res://Assets/UserIcons/Football.png");
+        Texture2D cat = GD.Load<Texture2D>("res://Assets/UserIcons/Cat.png");
+        Texture2D flower = GD.Load<Texture2D>("res://Assets/UserIcons/Flower.png");
+        Texture2D balloons = GD.Load<Texture2D>("res://Assets/UserIcons/Balloons.png");
+        Texture2D car = GD.Load<Texture2D>("res://Assets/UserIcons/Car.png");
+        Texture2D dog = GD.Load<Texture2D>("res://Assets/UserIcons/Dog.png");
+        Texture2D duck = GD.Load<Texture2D>("res://Assets/UserIcons/Duck.png");
+        Texture2D pancakes = GD.Load<Texture2D>("res://Assets/UserIcons/Pancakes.png");
+        Texture2D brushes = GD.Load<Texture2D>("res://Assets/UserIcons/Brushes.png");
+        Texture2D shuttle = GD.Load<Texture2D>("res://Assets/UserIcons/Shuttle.png");
+        Texture2D football = GD.Load<Texture2D>("res://Assets/UserIcons/Football.png");
                 
         // cool user photo
         string photo = SavingManager.Load<UserInfo>(SavingManager.CurrentUser).Photo;

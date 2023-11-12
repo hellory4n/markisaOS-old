@@ -63,15 +63,15 @@ public partial class Lelwindow : Window
 		if (!CustomTheme)
 			Theme = null;
 
-		PackedScene maximize = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Maximize.tscn");
+		PackedScene maximize = GD.Load<PackedScene>("res://OS/Lelsktop/Maximize.tscn");
 		Maximize = (Button)maximize.Instantiate();
 		AddChild(Maximize);
 
-		PackedScene minimize = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Minimize.tscn");
+		PackedScene minimize = GD.Load<PackedScene>("res://OS/Lelsktop/Minimize.tscn");
 		Minimize = (Button)minimize.Instantiate();
 		AddChild(Minimize);
 
-		PackedScene title = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/TitleTexture.tscn");
+		PackedScene title = GD.Load<PackedScene>("res://OS/Lelsktop/TitleTexture.tscn");
 		TitleTexture = (Panel)title.Instantiate();
 		AddChild(TitleTexture);
 		MoveChild(TitleTexture, 0);

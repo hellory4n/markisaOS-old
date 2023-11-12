@@ -22,7 +22,7 @@ public partial class Observer : Lelwindow {
     public void Load() {
         switch (ObserverMode) {
             case OpenMode.Image:
-                PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Observer/ImageView.tscn");
+                PackedScene m = GD.Load<PackedScene>("res://Apps/Observer/ImageView.tscn");
                 Control coolImageThing = m.Instantiate<Control>();
 
                 LelfsFile coolFile = LelfsManager.LoadById<LelfsFile>(MediaId);
@@ -37,7 +37,7 @@ public partial class Observer : Lelwindow {
                 AddChild(coolImageThing);
                 break;
             /*case OpenMode.Audio:
-                PackedScene m2 = ResourceLoader.Load<PackedScene>("res://Apps/Observer/MusicPlayer.tscn");
+                PackedScene m2 = GD.Load<PackedScene>("res://Apps/Observer/MusicPlayer.tscn");
                 Control coolMusicThing = m2.Instantiate<Control>();
 
                 LelfsFile epicFile = LelfsManager.LoadById<LelfsFile>(MediaId);
@@ -65,7 +65,7 @@ public partial class Observer : Lelwindow {
                 AddChild(coolMusicThing);
                 break;*/
             case OpenMode.Video:
-                PackedScene m3 = ResourceLoader.Load<PackedScene>("res://Apps/Observer/VideoPlayer.tscn");
+                PackedScene m3 = GD.Load<PackedScene>("res://Apps/Observer/VideoPlayer.tscn");
                 Control coolVideoThing = m3.Instantiate<Control>();
 
                 // one of the codes of all time
@@ -82,7 +82,7 @@ public partial class Observer : Lelwindow {
                 AddChild(coolVideoThing);
                 break;
             case OpenMode.Nothing:
-                PackedScene m1 = ResourceLoader.Load<PackedScene>("res://Apps/Observer/NothingLoaded.tscn");
+                PackedScene m1 = GD.Load<PackedScene>("res://Apps/Observer/NothingLoaded.tscn");
                 CenterContainer coolNothingThing = m1.Instantiate<CenterContainer>();
                 AddChild(coolNothingThing);
                 break;

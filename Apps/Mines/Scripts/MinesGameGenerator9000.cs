@@ -4,19 +4,19 @@ using System.Linq;
 using Lelsktop.Overlay;
 
 public partial class MinesGameGenerator9000 : Node {
-    public readonly Texture2D Mine = ResourceLoader.Load<Texture2D>("res://Apps/Mines/Assets/OhNoes.png");
+    public readonly Texture2D Mine = GD.Load<Texture2D>("res://Apps/Mines/Assets/OhNoes.png");
     public readonly Texture2D[] NumberStuff = new Texture2D[]{
-        ResourceLoader.Load<Texture2D>("res://Apps/Mines/Assets/One.png"),
-        ResourceLoader.Load<Texture2D>("res://Apps/Mines/Assets/Two.png"),
-        ResourceLoader.Load<Texture2D>("res://Apps/Mines/Assets/Three.png"),
-        ResourceLoader.Load<Texture2D>("res://Apps/Mines/Assets/Four.png"),
-        ResourceLoader.Load<Texture2D>("res://Apps/Mines/Assets/Five.png"),
-        ResourceLoader.Load<Texture2D>("res://Apps/Mines/Assets/Six.png"),
-        ResourceLoader.Load<Texture2D>("res://Apps/Mines/Assets/Seven.png"),
-        ResourceLoader.Load<Texture2D>("res://Apps/Mines/Assets/Eight.png"),
+        GD.Load<Texture2D>("res://Apps/Mines/Assets/One.png"),
+        GD.Load<Texture2D>("res://Apps/Mines/Assets/Two.png"),
+        GD.Load<Texture2D>("res://Apps/Mines/Assets/Three.png"),
+        GD.Load<Texture2D>("res://Apps/Mines/Assets/Four.png"),
+        GD.Load<Texture2D>("res://Apps/Mines/Assets/Five.png"),
+        GD.Load<Texture2D>("res://Apps/Mines/Assets/Six.png"),
+        GD.Load<Texture2D>("res://Apps/Mines/Assets/Seven.png"),
+        GD.Load<Texture2D>("res://Apps/Mines/Assets/Eight.png"),
     };
-    public readonly Texture2D Nothingness = ResourceLoader.Load<Texture2D>("res://Apps/Mines/Assets/Nothingness.png");
-    public readonly Texture2D EmptySquare = ResourceLoader.Load<Texture2D>("res://Apps/Mines/Assets/Thingy2.png");
+    public readonly Texture2D Nothingness = GD.Load<Texture2D>("res://Apps/Mines/Assets/Nothingness.png");
+    public readonly Texture2D EmptySquare = GD.Load<Texture2D>("res://Apps/Mines/Assets/Thingy2.png");
     Random random = new();
     [Export]
     Vector2 Grid = new(9, 9);

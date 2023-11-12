@@ -34,9 +34,9 @@ public partial class EndBoot : Timer
     {
         PackedScene aPackedScene;
         if (installing)
-            aPackedScene = ResourceLoader.Load<PackedScene>("res://OS/Core/Installel.tscn");
+            aPackedScene = GD.Load<PackedScene>("res://OS/Core/Installel.tscn");
         else
-            aPackedScene = ResourceLoader.Load<PackedScene>("res://OS/Core/Onboarding.tscn");
+            aPackedScene = GD.Load<PackedScene>("res://OS/Core/Onboarding.tscn");
         Node aNode = aPackedScene.Instantiate();
         GetTree().Root.AddChild(aNode);
         GetParent().QueueFree();

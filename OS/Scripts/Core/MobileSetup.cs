@@ -17,7 +17,7 @@ public partial class MobileSetup : Control
         // and automatically skips the mobile setup thing if so
         DisplaySettings m = SavingManager.LoadSettings<DisplaySettings>();
         if (m.AlreadySetup) {
-            PackedScene aPackedScene = ResourceLoader.Load<PackedScene>("res://OS/Core/Bootscreen.tscn");
+            PackedScene aPackedScene = GD.Load<PackedScene>("res://OS/Core/Bootscreen.tscn");
             Node aNode = aPackedScene.Instantiate();
             GetTree().Root.CallDeferred("add_child", aNode);
             GetParent().QueueFree();
@@ -75,7 +75,7 @@ public partial class MobileSetup : Control
             display.AlreadySetup = true;
             SavingManager.SaveSettings(display);
 
-            PackedScene m = ResourceLoader.Load<PackedScene>("res://OS/Core/Bootscreen.tscn");
+            PackedScene m = GD.Load<PackedScene>("res://OS/Core/Bootscreen.tscn");
             Node jjkn = m.Instantiate();
             GetTree().Root.AddChild(jjkn);
             GetParent().QueueFree();

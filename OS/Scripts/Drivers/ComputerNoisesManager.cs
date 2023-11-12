@@ -6,9 +6,9 @@ namespace Lelcore.Drivers;
 
 public partial class ComputerNoisesManager : Node
 {
-    readonly AudioStream FanSound = ResourceLoader.Load<AudioStream>("res://Audio/Sounds/ComputerNoises/194890__saphe__computer-fan.ogg");
-    readonly AudioStream GpuFanSound = ResourceLoader.Load<AudioStream>("res://Audio/Sounds/ComputerNoises/463482__soundsofscienceupf__gpu-fan.wav");
-    readonly AudioStream HddSound = ResourceLoader.Load<AudioStream>("res://Audio/Sounds/ComputerNoises/500168__sad3d__pc-hard-drive-noises.wav");
+    readonly AudioStream FanSound = GD.Load<AudioStream>("res://Audio/Sounds/ComputerNoises/194890__saphe__computer-fan.ogg");
+    readonly AudioStream GpuFanSound = GD.Load<AudioStream>("res://Audio/Sounds/ComputerNoises/463482__soundsofscienceupf__gpu-fan.wav");
+    readonly AudioStream HddSound = GD.Load<AudioStream>("res://Audio/Sounds/ComputerNoises/500168__sad3d__pc-hard-drive-noises.wav");
     AudioStreamPlayer Fan;
     AudioStreamPlayer GpuFan;
     AudioStreamPlayer Hdd;

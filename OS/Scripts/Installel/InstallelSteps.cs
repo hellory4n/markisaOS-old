@@ -14,7 +14,7 @@ public partial class InstallelSteps : Label
         // yandere simulator
         double max = yes.MaxValue;
         if (yes.Value/max > 0.999) {
-            PackedScene m = ResourceLoader.Load<PackedScene>("res://OS/Core/InstallelFinish.tscn");
+            PackedScene m = GD.Load<PackedScene>("res://OS/Core/InstallelFinish.tscn");
             Lelwindow jjkn = (Lelwindow)m.Instantiate();    
             GetNode<Control>("/root/Installel/1/Windows/ThemeThing").AddChild(jjkn);
             jjkn.Visible = true;

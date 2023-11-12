@@ -14,7 +14,7 @@ public partial class Login : Button
         if (!(yeah.MajorVersion == 0 && yeah.MinorVersion == 6))
             LelfsManager.UpdatePaths();
 
-        PackedScene packedScene = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Lelsktop.tscn");
+        PackedScene packedScene = GD.Load<PackedScene>("res://OS/Lelsktop/Lelsktop.tscn");
         Node lelsktop = packedScene.Instantiate();
         GetTree().Root.AddChild(lelsktop);
 

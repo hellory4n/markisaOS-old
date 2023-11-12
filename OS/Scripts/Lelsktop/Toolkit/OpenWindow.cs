@@ -12,7 +12,7 @@ public partial class OpenWindow : Button
     public override void _Pressed() {
         base._Pressed();
         /*WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
-        PackedScene m = ResourceLoader.Load<PackedScene>(WindowScene);
+        PackedScene m = GD.Load<PackedScene>(WindowScene);
         Lelwindow jjkn = (Lelwindow)m.Instantiate();    
         wm.AddWindow(jjkn);*/
     }

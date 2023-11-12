@@ -10,7 +10,7 @@ public partial class ExternalStorageOpen : Button {
 
     public void Click() {
         WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
-        PackedScene m = ResourceLoader.Load<PackedScene>("res://Apps/Files/FileImporter.tscn");
+        PackedScene m = GD.Load<PackedScene>("res://Apps/Files/FileImporter.tscn");
         FileImporter jjkn = m.Instantiate<FileImporter>();
 
         // pain

@@ -97,7 +97,7 @@ public partial class CreateUser : Button
         SavingManager.NewUser(name.Text, info);
 
         SavingManager.CurrentUser = name.Text;
-        PackedScene packedScene = ResourceLoader.Load<PackedScene>("res://OS/Lelsktop/Lelsktop.tscn");
+        PackedScene packedScene = GD.Load<PackedScene>("res://OS/Lelsktop/Lelsktop.tscn");
         Node lelsktop = packedScene.Instantiate();
         GetTree().Root.AddChild(lelsktop);
         GetNode<Node2D>("/root/Onboarding").QueueFree();

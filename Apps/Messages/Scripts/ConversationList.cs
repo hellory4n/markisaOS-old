@@ -4,8 +4,8 @@ using Lelsktop.Toolkit;
 
 public partial class ConversationList : VBoxContainer {
     // quite the mouthful
-    readonly PackedScene MessageThingy = ResourceLoader.Load<PackedScene>("res://Apps/Messages/ConversationOpen.tscn");
-    readonly PackedScene Shit = ResourceLoader.Load<PackedScene>("res://Apps/Messages/MessagingInterface.tscn");
+    readonly PackedScene MessageThingy = GD.Load<PackedScene>("res://Apps/Messages/ConversationOpen.tscn");
+    readonly PackedScene Shit = GD.Load<PackedScene>("res://Apps/Messages/MessagingInterface.tscn");
 
     public override void _Ready() {
         base._Ready();
@@ -26,7 +26,7 @@ public partial class ConversationList : VBoxContainer {
         int i = 0;
         foreach (var conversation in conversations) {
             var h = MessageThingy.Instantiate<SidebarButton>();
-            h.Icon = ResourceLoader.Load<Texture2D>(conversation.Icon);
+            h.Icon = GD.Load<Texture2D>(conversation.Icon);
             h.Text = conversation.Name;
             var bullshit = Shit.Instantiate<MessagingInterface>();
             // the sidebar button thing requires the content's name to start with "Category" :)))
