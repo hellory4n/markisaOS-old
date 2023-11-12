@@ -1,6 +1,10 @@
 using Godot;
+using Lelcore.Drivers;
 using System;
 using System.Collections.Generic;
+using Lelsktop.Wm;
+using Lelsktop.Toolkit;
+using Lelsktop.Pinboard;
 
 namespace Lelsktop;
 
@@ -11,17 +15,17 @@ public partial class Lelsktop : Node2D
 	/// </summary>
 	public static bool InteractingWithLelsktopInterface = false;
 
-	/*public override void _Ready() {
+	public override void _Ready() {
 		base._Ready();
 
 		Vector2 bruh = ResolutionManager.Resolution;
 
-		GetNode<SubViewport>("1/Windows").Size = bruh;
-		GetNode<SubViewport>("2/Windows").Size = bruh;
-		GetNode<SubViewport>("3/Windows").Size = bruh;
-		GetNode<SubViewport>("4/Windows").Size = bruh;
+		GetNode<SubViewport>("1/Windows").Size = (Vector2I)bruh;
+		GetNode<SubViewport>("2/Windows").Size = (Vector2I)bruh;
+		GetNode<SubViewport>("3/Windows").Size = (Vector2I)bruh;
+		GetNode<SubViewport>("4/Windows").Size = (Vector2I)bruh;
 
-		WindowManager.CurrentWorkspace = GetNode<SubViewport>("1/Windows");
+		// WindowManager.CurrentWorkspace = GetNode<SubViewport>("1/Windows");
 
 		SavingManager.ConvertOldUser(SavingManager.CurrentUser);
 		UserLelsktop suffer = SavingManager.Load<UserLelsktop>(SavingManager.CurrentUser);
@@ -31,22 +35,22 @@ public partial class Lelsktop : Node2D
 		if (ResourceLoader.Exists(suffer.Wallpaper)) {
 			string wallpaperPath = suffer.Wallpaper;
 			Texture2D wallpaper = GD.Load<Texture2D>(wallpaperPath);
-			GetNode<Sprite2D>("Wallpaper").Texture2D = wallpaper;
+			GetNode<Sprite2D>("Wallpaper").Texture = wallpaper;
 		// is it a lelfs file?
 		} else if (LelfsManager.IdExists(suffer.Wallpaper)) {
 			var epicFile = LelfsManager.LoadById<LelfsFile>(suffer.Wallpaper);
 			Texture2D wallpaper = ResourceManager.LoadImage(epicFile.Data["Resource"].ToString());
-			GetNode<Sprite2D>("Wallpaper").Texture2D = wallpaper;
+			GetNode<Sprite2D>("Wallpaper").Texture = wallpaper;
 
 			// scale wallpaper thing :))))
 			GetNode<ImageBackground>("Wallpaper").OriginalSize = wallpaper.GetSize();
 			float scale;
 			if (bruh > wallpaper.GetSize()) {
-				scale = (Mathf.Max(bruh.x, bruh.y) - Mathf.Max(wallpaper.GetSize().x, wallpaper.GetSize().y)) /
-					Mathf.Max(wallpaper.GetSize().x, wallpaper.GetSize().y);
+				scale = (Mathf.Max(bruh.X, bruh.Y) - Mathf.Max(wallpaper.GetSize().X, wallpaper.GetSize().Y)) /
+					Mathf.Max(wallpaper.GetSize().X, wallpaper.GetSize().X);
 				scale += 1;
 			} else {
-				scale = Mathf.Max(bruh.x, bruh.y) / Mathf.Max(wallpaper.GetSize().x, wallpaper.GetSize().y);
+				scale = Mathf.Max(bruh.X, bruh.X) / Mathf.Max(wallpaper.GetSize().X, wallpaper.GetSize().Y);
 			}
 			GetNode<Sprite2D>("Wallpaper").Scale = new Vector2(scale, scale);
 			GetNode<Sprite2D>("Wallpaper").Position = bruh/2;
@@ -54,18 +58,18 @@ public partial class Lelsktop : Node2D
 		// ok it's broken, just load the default wallpaper
 		} else {
 			var wallpaper = GD.Load<Texture2D>("res://Assets/Wallpapers/HighPeaks.jpg");
-			GetNode<Sprite2D>("Wallpaper").Texture2D = wallpaper;
+			GetNode<Sprite2D>("Wallpaper").Texture = wallpaper;
 		}
 
 		// startup sound :)
-		SoundManager sounds = GetNode<SoundManager>("/root/SoundManager");
-		sounds.PlaySoundEffect(SoundManager.SoundEffects.Startup);
+		/*SoundManager sounds = GetNode<SoundManager>("/root/SoundManager");
+		sounds.PlaySoundEffect(SoundManager.SoundEffects.Startup);*/
 
 		// cool dock :)
 		PackedScene m = GD.Load<PackedScene>("res://OS/Lelsktop/LelsktopInterface.tscn");
 		CanvasLayer lelsktopInterface = (CanvasLayer)m.Instantiate();
 		GetTree().Root.CallDeferred("add_child", lelsktopInterface);
-		lelsktopInterface.GetNode<Panel>("Dock").Size = new Vector2(75, bruh.y);
+		lelsktopInterface.GetNode<Panel>("Dock").Size = new Vector2(75, bruh.Y);
 
 		// play the animation for the dock and make sure the position on the animation is correct :)
 		Animation animationomg = lelsktopInterface.GetNode<AnimationPlayer>("AnimationPlayer").GetAnimation("Startup");
@@ -73,23 +77,23 @@ public partial class Lelsktop : Node2D
 		// int track = animationomg.FindTrack("Painful/Panel"); 
 		int keyStart = animationomg.TrackFindKey(0, 0);
 		int keyEnd = animationomg.TrackFindKey(0, 0.5f);
-		animationomg.TrackSetKeyValue(0, keyStart, new Vector2(bruh.x, 0));
-		animationomg.TrackSetKeyValue(0, keyEnd, new Vector2(bruh.x-75, 0));
+		animationomg.TrackSetKeyValue(0, keyStart, new Vector2(bruh.X, 0));
+		animationomg.TrackSetKeyValue(0, keyEnd, new Vector2(bruh.X-75, 0));
 
 		// and also fix the animation for the quick settings
 		Animation animationOrSomething = lelsktopInterface.GetNode<AnimationPlayer>("AnimationPlayer").
 			GetAnimation("OpenQuickSettings");
 		int keyStartOrSomething = animationOrSomething.TrackFindKey(0, 0);
 		int keyEndOrSomething = animationOrSomething.TrackFindKey(0, 0.5f);
-		animationOrSomething.TrackSetKeyValue(0, keyStartOrSomething, new Vector2(bruh.x-375, -475));
-		animationOrSomething.TrackSetKeyValue(0, keyEndOrSomething, new Vector2(bruh.x-375, 40));
+		animationOrSomething.TrackSetKeyValue(0, keyStartOrSomething, new Vector2(bruh.X-375, -475));
+		animationOrSomething.TrackSetKeyValue(0, keyEndOrSomething, new Vector2(bruh.X-375, 40));
 
 		Animation animationButDifferent = lelsktopInterface.GetNode<AnimationPlayer>("AnimationPlayer").
 			GetAnimation("CloseQuickSettings");
 		int keyStartButDifferent = animationButDifferent.TrackFindKey(0, 0);
 		int keyEndButDifferent = animationButDifferent.TrackFindKey(0, 0.5f);
-		animationButDifferent.TrackSetKeyValue(0, keyStartButDifferent, new Vector2(bruh.x-375, 40));
-		animationButDifferent.TrackSetKeyValue(0, keyEndButDifferent, new Vector2(bruh.x-375, -475));
+		animationButDifferent.TrackSetKeyValue(0, keyStartButDifferent, new Vector2(bruh.X-375, 40));
+		animationButDifferent.TrackSetKeyValue(0, keyEndButDifferent, new Vector2(bruh.X-375, -475));
 		
 		lelsktopInterface.GetNode<AnimationPlayer>("AnimationPlayer").Play("Startup");
 
@@ -98,15 +102,15 @@ public partial class Lelsktop : Node2D
 			GetAnimation("OpenWorkspaces");
 		int keySta = an.TrackFindKey(0, 0);
 		int keyEn = an.TrackFindKey(0, 0.5f);
-		an.TrackSetKeyValue(0, keySta, new Vector2(bruh.x, 64));
-		an.TrackSetKeyValue(0, keyEn, new Vector2(bruh.x-225, 64));
+		an.TrackSetKeyValue(0, keySta, new Vector2(bruh.X, 64));
+		an.TrackSetKeyValue(0, keyEn, new Vector2(bruh.X-225, 64));
 
 		Animation ani = lelsktopInterface.GetNode<AnimationPlayer>("AnimationPlayer").
 			GetAnimation("CloseWorkspaces");
 		int keyStar = ani.TrackFindKey(0, 0);
 		int keyEndnbnbgf = ani.TrackFindKey(0, 0.5f);
-		ani.TrackSetKeyValue(0, keyStar, new Vector2(bruh.x-225, 64));
-		ani.TrackSetKeyValue(0, keyEndnbnbgf, new Vector2(bruh.x, 64));
+		ani.TrackSetKeyValue(0, keyStar, new Vector2(bruh.X-225, 64));
+		ani.TrackSetKeyValue(0, keyEndnbnbgf, new Vector2(bruh.X, 64));
 		
 		lelsktopInterface.GetNode<AnimationPlayer>("AnimationPlayer").Play("Startup");
 
@@ -125,7 +129,7 @@ public partial class Lelsktop : Node2D
 		Lelapp[] apps = SavingManager.Load<QuickLaunch>(SavingManager.CurrentUser).Apps;
 		foreach (var app in apps) {
 			PackedScene packedScene = GD.Load<PackedScene>("res://OS/Lelsktop/QuickLaunchButton.tscn");
-			DefaultOpenWindowButton yes = packedScene.Instantiate<DefaultOpenWindowButton>();
+			OpenWindow yes = packedScene.Instantiate<OpenWindow>();
 			yes.Icon = GD.Load<Texture2D>(app.Icon);
 			yes.WindowScene = app.Scene;
 			yes.TooltipText = app.Name;
@@ -150,7 +154,7 @@ public partial class Lelsktop : Node2D
 				sticker.Position = item.Value.Position;
 				sticker.Rotation = item.Value.Rotation;
 				sticker.Scale = new Vector2(item.Value.Scale, item.Value.Scale);
-				sticker.Texture2D = ResourceManager.LoadImage(item.Value.TexturePath);
+				sticker.Texture = ResourceManager.LoadImage(item.Value.TexturePath);
 				sticker.PinboardItem = item.Key;
 				pinboard.AddChild(sticker);
 			}
@@ -161,7 +165,7 @@ public partial class Lelsktop : Node2D
 		base._Process(delta);
 
 		// if the user is editing the pinboard stuff we don't need to process this shit anyway
-		if (Pinboard.EditingPinboard) {
+		if (Pinboard.Pinboard.EditingPinboard) {
 			InteractingWithLelsktopInterface = false;
 			return;
 		}
@@ -176,7 +180,7 @@ public partial class Lelsktop : Node2D
 		Panel workspaces = GetNode<Panel>("/root/LelsktopInterface/Workspaces");
 		Color invisible = new(1, 1, 1, 0);
 
-		if (GetGlobalMousePosition().y < 40 || GetGlobalMousePosition().x > pain.x-75 ||
+		if (GetGlobalMousePosition().Y < 40 || GetGlobalMousePosition().X > pain.X-75 ||
 		appMenu.Modulate != invisible || quickSettings.Modulate != invisible
 		|| workspaces.Modulate != invisible) {
 			bruh1.GuiDisableInput = true;
@@ -187,16 +191,16 @@ public partial class Lelsktop : Node2D
 			InteractingWithLelsktopInterface = true;
 		} else {
 			// suffering
-			if (WindowManager.CurrentWorkspace == bruh1)
+			if (/*WindowManager.CurrentWorkspace == bruh1*/ true)
 				bruh1.GuiDisableInput = false;
-			if (WindowManager.CurrentWorkspace == bruh2)
+			if (/*WindowManager.CurrentWorkspace == bruh2*/ true)
 				bruh2.GuiDisableInput = false;
-			if (WindowManager.CurrentWorkspace == bruh3)
+			if (/*WindowManager.CurrentWorkspace == bruh3*/ true)
 				bruh3.GuiDisableInput = false;
-			if (WindowManager.CurrentWorkspace == bruh4)
+			if (/*WindowManager.CurrentWorkspace == bruh4*/ true)
 				bruh4.GuiDisableInput = false;
 
 			InteractingWithLelsktopInterface = false;
 		}
-	}*/
+	}
 }

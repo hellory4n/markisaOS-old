@@ -72,6 +72,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme_type_variation = &"Header"
 text = "drag here to increase size"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="DecreaseSize" type="Panel" parent="PinboardSelectThingy/Yes"]
 custom_minimum_size = Vector2(320, 0)
@@ -89,6 +91,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme_type_variation = &"Header"
 text = "drag here to decrease size"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Delete" type="Panel" parent="PinboardSelectThingy/Yes"]
 self_modulate = Color(0.956863, 0.262745, 0.211765, 1)
@@ -108,6 +112,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme_type_variation = &"Header"
 text = "drag here to delete"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="1" type="SubViewportContainer" parent="."]
 offset_right = 40.0

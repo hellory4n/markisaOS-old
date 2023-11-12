@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-namespace Lelsktop.WindowManager;
+namespace Lelsktop.Wm;
 
 /// <summary>
 /// Responsible for managing all windows in the lelsktop.

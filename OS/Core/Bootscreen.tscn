@@ -67,11 +67,13 @@ Boot2 = NodePath("Boot2")
 metadata/_edit_use_anchors_ = true
 
 [node name="Boot1" type="Sprite2D" parent="Control"]
+position = Vector2(640, 360)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4")
 
 [node name="Boot2" type="Sprite2D" parent="Control"]
 modulate = Color(1, 1, 1, 0)
+position = Vector2(640, 360)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2")
 

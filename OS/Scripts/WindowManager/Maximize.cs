@@ -2,7 +2,7 @@ using Godot;
 using System;
 using Lelcore.Drivers;
 
-namespace Lelsktop.WindowManager;
+namespace Lelsktop.Wm;
 
 public partial class Maximize : Button
 {

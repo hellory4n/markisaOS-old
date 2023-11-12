@@ -591,7 +591,6 @@ theme_type_variation = &"PanelButton"
 text = "All Apps"
 icon = ExtResource("22")
 script = ExtResource("11")
-Category = "CategoryAllApps"
 
 [node name="Accessories" type="Button" parent="AppMenu/Categories/VBoxContainer"]
 custom_minimum_size = Vector2(200, 40)
@@ -600,7 +599,6 @@ theme_type_variation = &"PanelButton"
 text = "Accessories"
 icon = ExtResource("31")
 script = ExtResource("11")
-Category = "CategoryAccessories"
 
 [node name="Development" type="Button" parent="AppMenu/Categories/VBoxContainer"]
 custom_minimum_size = Vector2(200, 40)
@@ -609,7 +607,6 @@ theme_type_variation = &"PanelButton"
 text = "Development"
 icon = ExtResource("24")
 script = ExtResource("11")
-Category = "CategoryDevelopment"
 
 [node name="Games" type="Button" parent="AppMenu/Categories/VBoxContainer"]
 custom_minimum_size = Vector2(200, 40)
@@ -618,7 +615,6 @@ theme_type_variation = &"PanelButton"
 text = "Games"
 icon = ExtResource("25")
 script = ExtResource("11")
-Category = "CategoryGames"
 
 [node name="Graphics" type="Button" parent="AppMenu/Categories/VBoxContainer"]
 custom_minimum_size = Vector2(200, 40)
@@ -627,7 +623,6 @@ theme_type_variation = &"PanelButton"
 text = "Graphics"
 icon = ExtResource("26")
 script = ExtResource("11")
-Category = "CategoryGraphics"
 
 [node name="Internet" type="Button" parent="AppMenu/Categories/VBoxContainer"]
 custom_minimum_size = Vector2(200, 40)
@@ -636,7 +631,6 @@ theme_type_variation = &"PanelButton"
 text = "Internet"
 icon = ExtResource("27")
 script = ExtResource("11")
-Category = "CategoryInternet"
 
 [node name="Multimedia" type="Button" parent="AppMenu/Categories/VBoxContainer"]
 custom_minimum_size = Vector2(200, 40)
@@ -645,7 +639,6 @@ theme_type_variation = &"PanelButton"
 text = "Multimedia"
 icon = ExtResource("28")
 script = ExtResource("11")
-Category = "CategoryMultimedia"
 
 [node name="Office" type="Button" parent="AppMenu/Categories/VBoxContainer"]
 custom_minimum_size = Vector2(200, 40)
@@ -654,7 +647,6 @@ theme_type_variation = &"PanelButton"
 text = "Office"
 icon = ExtResource("29")
 script = ExtResource("11")
-Category = "CategoryOffice"
 
 [node name="System" type="Button" parent="AppMenu/Categories/VBoxContainer"]
 custom_minimum_size = Vector2(200, 40)
@@ -663,7 +655,6 @@ theme_type_variation = &"PanelButton"
 text = "System"
 icon = ExtResource("30")
 script = ExtResource("11")
-Category = "CategorySystem"
 
 [node name="Utilities" type="Button" parent="AppMenu/Categories/VBoxContainer"]
 custom_minimum_size = Vector2(200, 40)
@@ -672,7 +663,6 @@ theme_type_variation = &"PanelButton"
 text = "Utilities"
 icon = ExtResource("23")
 script = ExtResource("11")
-Category = "CategoryUtilities"
 
 [node name="CategoryAllApps" type="ScrollContainer" parent="AppMenu"]
 layout_mode = 0
@@ -2206,7 +2196,8 @@ script = ExtResource("39")
 
 [node name="Settings" type="Button" parent="Panel"]
 custom_minimum_size = Vector2(200, 40)
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -2224,14 +2215,17 @@ script = ExtResource("19")
 
 [node name="ShowDesktop" type="Button" parent="Panel"]
 custom_minimum_size = Vector2(60, 40)
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -60.0
+offset_left = -74.0
 offset_top = -20.0
 offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
 tooltip_text = "Show desktop"
 theme_type_variation = &"PanelButton"
 toggle_mode = true
@@ -2240,7 +2234,8 @@ icon_alignment = 1
 script = ExtResource("35")
 
 [node name="InfoThingy" type="HBoxContainer" parent="Panel"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -2249,6 +2244,8 @@ offset_left = -543.0
 offset_top = -20.0
 offset_right = -260.0
 offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
 
 [node name="Weather" type="Button" parent="Panel/InfoThingy"]
 custom_minimum_size = Vector2(40, 40)

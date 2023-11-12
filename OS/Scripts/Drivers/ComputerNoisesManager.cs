@@ -1,6 +1,6 @@
 using Godot;
 using System;
-using Lelsktop.WindowManager;
+using Lelsktop.Wm;
 
 namespace Lelcore.Drivers;
 

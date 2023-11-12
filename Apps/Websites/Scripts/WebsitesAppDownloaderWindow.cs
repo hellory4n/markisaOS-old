@@ -1,7 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
-using Lelsktop.WindowManager;
+using Lelsktop.Wm;
 using Lelsktop.Overlay;
 
 public partial class WebsitesAppDownloaderWindow : Lelwindow {

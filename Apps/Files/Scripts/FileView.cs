@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Lelsktop.WindowManager;
+using Lelsktop.Wm;
 using Lelcore.Drivers;
 using Lelsktop.Toolkit;
 

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using Lelcore.Drivers;
 
-namespace Lelsktop.WindowManager;
+namespace Lelsktop.Wm;
 
 /// <summary>
 /// A basic window. Adds window decorations, manages opening, closing, and minimizing animations, and also manages window snapping and making windows active.

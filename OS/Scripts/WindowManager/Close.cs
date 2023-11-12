@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-namespace Lelsktop.WindowManager;
+namespace Lelsktop.Wm;
 
 public partial class Close : Button
 {

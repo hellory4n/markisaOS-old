@@ -1,6 +1,6 @@
 using Godot;
 using System;
-using Lelsktop.WindowManager;
+using Lelsktop.Wm;
 using Lelcore.Drivers;
 
 public partial class DisplaySettingsAutoRevert : Timer {

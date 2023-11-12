@@ -1,6 +1,6 @@
 using Godot;
 using System;
-using Lelsktop.WindowManager;
+using Lelsktop.Wm;
 using Lelsktop.Overlay;
 
 public partial class NotebookOpen : Lelwindow {

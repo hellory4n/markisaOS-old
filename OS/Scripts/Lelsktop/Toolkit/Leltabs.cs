@@ -1,5 +1,5 @@
 using Godot;
-using Lelsktop.WindowManager;
+using Lelsktop.Wm;
 using System;
 using System.Collections.Generic;
 
