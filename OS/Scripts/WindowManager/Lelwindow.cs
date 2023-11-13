@@ -13,7 +13,6 @@ public partial class Lelwindow : Window
 {
 	Vector2I ScreenSize;
 	Vector2I PreviousPosition = new(0, 0);
-	AnimationPlayer Animation;
 	/// <summary>
 	/// The icon used for the button on the dock. Recommended size is 40x40.
 	/// </summary>
@@ -38,16 +37,36 @@ public partial class Lelwindow : Window
 	[Export]
 	public bool CustomCloseRequest = false;
 	Vector2I PreviousSize;
+	Sprite2D CurrentAnimationThingy;
 
 	public override void _Ready()
 	{
 		base._Ready();
 		ScreenSize = ResolutionManager.Resolution;
 
-		// epic animation for opening the window, very important indeed
-		Animation = GetNode<AnimationPlayer>("AnimationPlayer");
-		Animation.Play("Open");
+		// awesome opening animation
+		// the window node's scaling property only scales the content, and it doesn't have a modulate property,
+		// so the workaround is making a sprite from the viewport texture and animating that
+		Visible = false;
+		CurrentAnimationThingy = new()
+		{
+			Texture = GetTexture(),
+			Position = Position,
+			Scale = Vector2.Zero,
+			FlipV = true,
+			Centered = false
+		};
+		GetNode("/root/Lelsktop").AddChild(CurrentAnimationThingy);
+		Tween tween = CurrentAnimationThingy.CreateTween();
+		tween.TweenProperty(CurrentAnimationThingy, "scale", Vector2.One, 0.2).SetEase(Tween.EaseType.In);
+		tween.Finished += () => 
+		{
+			CurrentAnimationThingy.QueueFree();
+			Visible = true;
+			CurrentAnimationThingy.Visible = false;
+		};
 
+		// a window snapping just because your mouse was on the dock is quite inconvenient
 		Timer jgjk = new()
         {
 			Name = "jrgjdkggooghmgdgddgsaa39933",
@@ -79,6 +98,8 @@ public partial class Lelwindow : Window
 
 		// :)
 		GuiDisableInput = !HasFocus();
+		CurrentAnimationThingy.Texture = GetTexture();
+		CurrentAnimationThingy.Position = Position;
 
 		// window snapping :)
 		// is the window moving?
