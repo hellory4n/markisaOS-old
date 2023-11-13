@@ -8,13 +8,14 @@ namespace Lelsktop.Wm;
 /// <summary>
 /// A basic window. Adds window decorations, manages opening, closing, and minimizing animations, and also manages window snapping and making windows active.
 /// </summary>
+[GlobalClass]
 public partial class Lelwindow : Window
 {
 	Vector2 screenSize;
 	Vector2 previousPosition = new(0, 0);
 	AnimationPlayer animation;
 	/// <summary>
-	/// The icon used for the button on the dock.
+	/// The icon used for the button on the dock. Recommended size is 40x40.
 	/// </summary>
 	[Export]
 	public Texture2D Icon;
@@ -27,15 +28,6 @@ public partial class Lelwindow : Window
 	/// </summary>
 	[Export]
 	public bool CustomTheme = false;
-	public Button StupidThingForInactiveWindows = new()
-    {
-		AnchorRight = 1,
-		AnchorBottom = 1,
-	};
-	/// <summary>
-	/// A panel used to display the texture of the window.
-	/// </summary>
-	public Panel TitleTexture;
 	/// <summary>
 	/// The maximize button of the window.
 	/// </summary>
@@ -53,6 +45,11 @@ public partial class Lelwindow : Window
 	public int MemoryUse = 1;
 	[Export]
 	public int StorageUse = 1;
+	/// <summary>
+	/// If false, close requests will automatically be handled by the window.
+	/// </summary>
+	[Export]
+	public bool CustomCloseRequest = false;
 
 	public override void _Ready()
 	{
@@ -71,23 +68,9 @@ public partial class Lelwindow : Window
 		Minimize = (Button)minimize.Instantiate();
 		AddChild(Minimize);
 
-		PackedScene title = GD.Load<PackedScene>("res://OS/Lelsktop/TitleTexture.tscn");
-		TitleTexture = (Panel)title.Instantiate();
-		AddChild(TitleTexture);
-		MoveChild(TitleTexture, 0);
-		TitleTexture.GetNode<Label>("Label").Text = Title;
-
 		// epic animation for opening the window, very important indeed
 		animation = GetNode<AnimationPlayer>("AnimationPlayer");
 		animation.Play("Open");
-
-		// pain
-		AddChild(StupidThingForInactiveWindows);
-		StupidThingForInactiveWindows.AddThemeStyleboxOverride("normal", new StyleBoxEmpty());
-		StupidThingForInactiveWindows.AddThemeStyleboxOverride("pressed", new StyleBoxEmpty());
-		StupidThingForInactiveWindows.AddThemeStyleboxOverride("hover", new StyleBoxEmpty());
-		StupidThingForInactiveWindows.AddThemeStyleboxOverride("focus", new StyleBoxEmpty());
-		StupidThingForInactiveWindows.AddThemeStyleboxOverride("disabled", new StyleBoxEmpty());
 
 		Timer jgjk = new()
         {
@@ -98,19 +81,23 @@ public partial class Lelwindow : Window
 		};
 		jgjk.Connect("timeout", new Callable(this, nameof(SnapThing)));
 		AddChild(jgjk);
+
+		// so true
+		if (!CustomCloseRequest) {
+			CloseRequested += () => {
+				// animation.Play("Close");
+				QueueFree();
+				IsClosing = true;
+			};
+		}
 	}
 
 	public override void _Process(double delta)
 	{
 		base._Process(delta);
 
-		/*// windowdialog's close button just makes it invisible, this plays the close animation that also deletes
-		// the window
-		if (!Visible) {
-			animation.Play("Close");
-			Visible = true;
-			IsClosing = true;
-		}*/
+		// :)
+		GuiDisableInput = !HasFocus();
 
 		// window snapping :)
 		// first check if the window is moving
@@ -138,35 +125,10 @@ public partial class Lelwindow : Window
 		previousPosition = Position;*/
 	}
 
-	// make the window active :)
-	/*public override void _GuiInput(InputEvent @event) {
-		if (@event is InputEventMouseButton bruh) {
-			if (bruh.Pressed) {
-				if (GetFocusOwner() != null) {
-					Raise();
-				}
-			}
-		}
-		base._GuiInput(@event);
-	}*/
-
-	/// <summary>
-	/// Closes the window.
-	/// </summary>
-	public void Close()
+	void Close()
 	{
 		animation.Play("Close");
 		IsClosing = true;
-	}
-
-	/// <summary>
-	/// Checks whether or not the window is active.
-	/// </summary>
-	/// <returns>Whether or not the window is active.</returns>
-	public bool IsActive()
-	{
-		//return GetIndex() == GetParent().GetChildCount()-1 && !GetViewport().GuiDisableInput;
-		return true;
 	}
 
 	// so the window doesn't get snapped just because your mouse was in the dock when you opened it

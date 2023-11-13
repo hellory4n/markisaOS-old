@@ -41,7 +41,7 @@ public partial class Rename : Lelwindow {
             bruh.Rename(filename);
         }
 
-        Close();
+        EmitSignal(SignalName.CloseRequested);
         ThingThatINeedToRefresh.Refresh(ThingThatINeedToRefresh.Path, false);
     }
 }

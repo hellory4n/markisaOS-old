@@ -18,7 +18,7 @@ public partial class InstallelSteps : Label
             Lelwindow jjkn = (Lelwindow)m.Instantiate();    
             GetNode<Control>("/root/Installel/1/Windows/ThemeThing").AddChild(jjkn);
             jjkn.Visible = true;
-            GetParent().GetParent<Lelwindow>().Close();
+            GetParent().GetParent<Lelwindow>().EmitSignal(Lelwindow.SignalName.CloseRequested);
             QueueFree();
         } else if (yes.Value/max > 0.91) {
             Text = "Finishing installation...";

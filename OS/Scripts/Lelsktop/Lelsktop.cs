@@ -178,7 +178,7 @@ public partial class Lelsktop : Node2D
 		base._Process(delta);
 
 		// if the user is editing the pinboard stuff we don't need to process this shit anyway
-		if (Pinboard.Pinboard.EditingPinboard)
+		/*if (Pinboard.Pinboard.EditingPinboard)
 		{
 			InteractingWithLelsktopInterface = false;
 			return;
@@ -208,16 +208,16 @@ public partial class Lelsktop : Node2D
 		else
 		{
 			// suffering
-			if (/*WindowManager.CurrentWorkspace == bruh1*/ true)
+			if (WindowManager.CurrentWorkspace == bruh1 true)
 				bruh1.GuiDisableInput = false;
-			if (/*WindowManager.CurrentWorkspace == bruh2*/ true)
+			if (WindowManager.CurrentWorkspace == bruh2 true)
 				bruh2.GuiDisableInput = false;
-			if (/*WindowManager.CurrentWorkspace == bruh3*/ true)
+			if (WindowManager.CurrentWorkspace == bruh3 true)
 				bruh3.GuiDisableInput = false;
-			if (/*WindowManager.CurrentWorkspace == bruh4*/ true)
+			if (WindowManager.CurrentWorkspace == bruh4 true)
 				bruh4.GuiDisableInput = false;
 
 			InteractingWithLelsktopInterface = false;
-		}
+		}*/
 	}
 }

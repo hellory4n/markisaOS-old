@@ -46,11 +46,11 @@ public partial class Delete : Lelwindow {
             }
         }
 
-        Close();
+        EmitSignal(SignalName.CloseRequested);
         ThingThatINeedToRefresh.Refresh(ThingThatINeedToRefresh.Path, false);
     }
 
     public void NvmLol() {
-        Close();
+        EmitSignal(SignalName.CloseRequested);
     }
 }

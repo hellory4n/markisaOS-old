@@ -56,48 +56,39 @@ public partial class FileView : ItemList {
         GetNode<Button>("../Toolbar/Up").Disabled = Path == "/";
 
         // shortcuts :)
-        if (Input.IsActionJustReleased("back") && GetParent().GetParent().GetParent().GetParent<Lelwindow>()
-        .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab" && !GetNode<Button>("../Toolbar/Back").Disabled) {
+        if (Input.IsActionJustReleased("back") && TabThing.ThemeTypeVariation == "ActiveTab" && !GetNode<Button>("../Toolbar/Back").Disabled) {
             Back();
         }
 
-        if (Input.IsActionJustReleased("forward") && GetParent().GetParent().GetParent().GetParent<Lelwindow>()
-        .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab" && !GetNode<Button>("../Toolbar/Forward").Disabled) {
+        if (Input.IsActionJustReleased("forward") && TabThing.ThemeTypeVariation == "ActiveTab" && !GetNode<Button>("../Toolbar/Forward").Disabled) {
             Forward();
         }
 
-        if (Input.IsActionJustReleased("up") && GetParent().GetParent().GetParent().GetParent<Lelwindow>()
-        .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab" && Path != "/") {
+        if (Input.IsActionJustReleased("up") && TabThing.ThemeTypeVariation == "ActiveTab" && Path != "/") {
             Up();
         }
 
-        if (Input.IsActionJustReleased("refresh") && GetParent().GetParent().GetParent().GetParent<Lelwindow>()
-        .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab") {
+        if (Input.IsActionJustReleased("refresh") && TabThing.ThemeTypeVariation == "ActiveTab") {
             Refresh(Path, false);
         }
 
-        if (Input.IsActionJustReleased("copy") && GetParent().GetParent().GetParent().GetParent<Lelwindow>()
-        .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab" && Selected != null) {
+        if (Input.IsActionJustReleased("copy") && TabThing.ThemeTypeVariation == "ActiveTab" && Selected != null) {
             CopyFile();
         }
 
-        if (Input.IsActionJustReleased("cut") && GetParent().GetParent().GetParent().GetParent<Lelwindow>()
-        .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab" && Selected != null) {
+        if (Input.IsActionJustReleased("cut") && TabThing.ThemeTypeVariation == "ActiveTab" && Selected != null) {
             MoveFile();
         }
 
-        if (Input.IsActionJustReleased("paste") && GetParent().GetParent().GetParent().GetParent<Lelwindow>()
-        .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab" && ToCopy != null && ToMove != null) {
+        if (Input.IsActionJustReleased("paste") && TabThing.ThemeTypeVariation == "ActiveTab" && ToCopy != null && ToMove != null) {
             PasteFile();
         }
 
-        if (Input.IsActionJustReleased("delete") && GetParent().GetParent().GetParent().GetParent<Lelwindow>()
-        .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab" && Selected != null) {
+        if (Input.IsActionJustReleased("delete") && TabThing.ThemeTypeVariation == "ActiveTab" && Selected != null) {
             DeleteFile();
         }
 
-        if (Input.IsActionJustReleased("rename") && GetParent().GetParent().GetParent().GetParent<Lelwindow>()
-        .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab" && Selected != null) {
+        if (Input.IsActionJustReleased("rename")  && TabThing.ThemeTypeVariation == "ActiveTab" && Selected != null) {
             RenameFile();
         }
 

@@ -34,7 +34,7 @@ public partial class NewFile : Lelwindow {
         newFile.Metadata.Add("Author", SavingManager.CurrentUser);
         newFile.Save();
 
-        Close();
+        EmitSignal(SignalName.CloseRequested);
         ThingThatINeedToRefresh.Refresh(gkfngof, false);
     }
 }

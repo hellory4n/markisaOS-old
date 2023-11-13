@@ -31,6 +31,6 @@ public partial class NotebookOpen : Lelwindow {
         Tfhsjkgjrrh.EpicFilename = epicFile.Name;
         Tfhsjkgjrrh.SavedText = Tfhsjkgjrrh.Text;
         Tfhsjkgjrrh.CoolId = epicFile.Id;
-        Close();
+        EmitSignal(SignalName.CloseRequested);
     }
 }

@@ -35,7 +35,7 @@ public partial class WebsitesAppDownloaderWindow : Lelwindow {
             notificationManager.ShowNotification($"File {NewFilename} has been downloaded.");
 
             m = true;
-            Close();
+            EmitSignal(SignalName.CloseRequested);
         }
     }
 }

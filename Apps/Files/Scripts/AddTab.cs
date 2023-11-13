@@ -17,7 +17,7 @@ public partial class AddTab : Button {
         MoveToFront();
 
         // help
-        if (Input.IsActionJustReleased("add_tab") && GetParent().GetParent().GetParent<Lelwindow>().IsActive()) {
+        if (Input.IsActionJustReleased("add_tab")) {
             Click();
         }
     }

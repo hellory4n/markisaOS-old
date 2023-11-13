@@ -13,6 +13,6 @@ public partial class Close : Button
 
     public void Click()
     {
-        GetParent<Lelwindow>().Close();
+        GetParent<Lelwindow>().EmitSignal(Lelwindow.SignalName.CloseRequested);
     }
 }

@@ -11,8 +11,7 @@ public partial class CloseTab : Button {
     public override void _Process(double delta) {
         base._Process(delta);
         // comically large if statement
-        if (Input.IsActionJustReleased("close_tab") && GetParent<Button>().ThemeTypeVariation == "ActiveTab"
-        && GetParent().GetParent().GetParent().GetParent<Lelwindow>().IsActive()) {
+        if (Input.IsActionJustReleased("close_tab") && GetParent<Button>().ThemeTypeVariation == "ActiveTab") {
             Click();
         }
     }
