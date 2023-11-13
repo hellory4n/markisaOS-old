@@ -23,19 +23,6 @@ public partial class Lelwindow : Window
 	/// Used by the button on the dock to check if it should delete itself, as if it checked if the window was queued for deletion, there would be a little delay before it actually deleted the button.
 	/// </summary>
 	public bool IsClosing = false;
-	/// <summary>
-	/// Prevents the lelsktop from changing the theme of the window based on the settings the user chose.
-	/// </summary>
-	[Export]
-	public bool CustomTheme = false;
-	/// <summary>
-	/// The maximize button of the window.
-	/// </summary>
-	public Button Maximize;
-	/// <summary>
-	/// The minimize button of the window.
-	/// </summary>
-	public Button Minimize;
 	bool CanSnap = false;
 	[Export]
 	public int CpuUse = 1;
@@ -56,18 +43,6 @@ public partial class Lelwindow : Window
 	{
 		base._Ready();
 		ScreenSize = ResolutionManager.Resolution;
-
-		// makes it use the theme from the viewport where all of the windows are located
-		if (!CustomTheme)
-			Theme = null;
-
-		PackedScene maximize = GD.Load<PackedScene>("res://OS/Lelsktop/Maximize.tscn");
-		Maximize = (Button)maximize.Instantiate();
-		AddChild(Maximize);
-
-		PackedScene minimize = GD.Load<PackedScene>("res://OS/Lelsktop/Minimize.tscn");
-		Minimize = (Button)minimize.Instantiate();
-		AddChild(Minimize);
 
 		// epic animation for opening the window, very important indeed
 		Animation = GetNode<AnimationPlayer>("AnimationPlayer");
@@ -119,31 +94,34 @@ public partial class Lelwindow : Window
 			// so it doesn't immediately go back to its original state again lol
 			return;
 		}
+		
+		if (!Input.IsActionJustReleased("click"))
+			return;
 
 		// maximize
 		if (GetTree().Root.GetMousePosition().Y < 80)
 		{
+			PreviousSize = Size;
 			Vector2I newSize = new(ScreenSize.X-75, ScreenSize.Y-85);
 			Position = new Vector2I(0, 85);
-			PreviousSize = Size;
 			Size = newSize;
 		}
 
 		// snap to left side
 		if (GetTree().Root.GetMousePosition().X < 40)
 		{
+			PreviousSize = Size;
 			Vector2I newSize = new((ScreenSize.X-75)/2, ScreenSize.Y-85);
 			Position = new Vector2I(0, 85);
-			PreviousSize = Size;
 			Size = newSize;
 		}
 
 		// snap to right side
 		if (GetTree().Root.GetMousePosition().X > ScreenSize.X-115)
 		{
-			Vector2I newSize = new((ScreenSize.X-75)/2, ScreenSize.Y-85);
-			Position = new Vector2I((ScreenSize.Y-75)/2, 85);
 			PreviousSize = Size;
+			Vector2I newSize = new((ScreenSize.X-75)/2, ScreenSize.Y-85);
+			Position = new Vector2I((ScreenSize.X-75)/2, 85);
 			Size = newSize;
 		}
 
