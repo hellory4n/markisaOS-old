@@ -11,9 +11,9 @@ namespace Lelsktop.Wm;
 [GlobalClass]
 public partial class Lelwindow : Window
 {
-	Vector2 screenSize;
-	Vector2 previousPosition = new(0, 0);
-	AnimationPlayer animation;
+	Vector2I ScreenSize;
+	Vector2I PreviousPosition = new(0, 0);
+	AnimationPlayer Animation;
 	/// <summary>
 	/// The icon used for the button on the dock. Recommended size is 40x40.
 	/// </summary>
@@ -50,11 +50,12 @@ public partial class Lelwindow : Window
 	/// </summary>
 	[Export]
 	public bool CustomCloseRequest = false;
+	Vector2I PreviousSize;
 
 	public override void _Ready()
 	{
 		base._Ready();
-		screenSize = ResolutionManager.Resolution;
+		ScreenSize = ResolutionManager.Resolution;
 
 		// makes it use the theme from the viewport where all of the windows are located
 		if (!CustomTheme)
@@ -69,22 +70,27 @@ public partial class Lelwindow : Window
 		AddChild(Minimize);
 
 		// epic animation for opening the window, very important indeed
-		animation = GetNode<AnimationPlayer>("AnimationPlayer");
-		animation.Play("Open");
+		Animation = GetNode<AnimationPlayer>("AnimationPlayer");
+		Animation.Play("Open");
 
 		Timer jgjk = new()
         {
 			Name = "jrgjdkggooghmgdgddgsaa39933",
-			WaitTime = 0.5f,
+			WaitTime = 0.5,
 			Autostart = true,
 			OneShot = true
 		};
-		jgjk.Connect("timeout", new Callable(this, nameof(SnapThing)));
+		jgjk.Timeout += () =>
+		{
+			CanSnap = true;
+		};
 		AddChild(jgjk);
 
 		// so true
-		if (!CustomCloseRequest) {
-			CloseRequested += () => {
+		if (!CustomCloseRequest)
+		{
+			CloseRequested += () =>
+			{
 				// animation.Play("Close");
 				QueueFree();
 				IsClosing = true;
@@ -100,40 +106,47 @@ public partial class Lelwindow : Window
 		GuiDisableInput = !HasFocus();
 
 		// window snapping :)
-		// first check if the window is moving
-		/*if (previousPosition != Position && Resizable) {
-			Raise();
-			if (GetGlobalMousePosition().y < 60 && CanSnap) {
-				Vector2 maximizedSize = new(screenSize.x-75, screenSize.y-85);
-				Position = new Vector2(0, 85);
-				Size = maximizedSize;
-			}
-
-			if (GetGlobalMousePosition().x < 40 && CanSnap) {
-				Vector2 newSize = new((screenSize.x-75)/2, screenSize.y-85);
-				Position = new Vector2(0, 85);
-				Size = newSize;
-			}
-
-			if (GetGlobalMousePosition().x > screenSize.x-115 && CanSnap) {
-				Vector2 newSize = new((screenSize.x-75)/2, screenSize.y-85);
-				Position = new Vector2((screenSize.x-75)/2, 85);
-				Size = newSize;
-			}
+		// is the window moving?
+		if (PreviousPosition == Position || !CanSnap || Unresizable)
+			return;
+		
+		MoveToForeground();
+		
+		// restore :)
+		if (Size.Y == ScreenSize.Y-85)
+		{
+  	 	 	Size = PreviousSize;
+			// so it doesn't immediately go back to its original state again lol
+			return;
 		}
 
-		previousPosition = Position;*/
-	}
+		// maximize
+		if (GetTree().Root.GetMousePosition().Y < 80)
+		{
+			Vector2I newSize = new(ScreenSize.X-75, ScreenSize.Y-85);
+			Position = new Vector2I(0, 85);
+			PreviousSize = Size;
+			Size = newSize;
+		}
 
-	void Close()
-	{
-		animation.Play("Close");
-		IsClosing = true;
-	}
+		// snap to left side
+		if (GetTree().Root.GetMousePosition().X < 40)
+		{
+			Vector2I newSize = new((ScreenSize.X-75)/2, ScreenSize.Y-85);
+			Position = new Vector2I(0, 85);
+			PreviousSize = Size;
+			Size = newSize;
+		}
 
-	// so the window doesn't get snapped just because your mouse was in the dock when you opened it
-	void SnapThing()
-	{
-		CanSnap = true;
+		// snap to right side
+		if (GetTree().Root.GetMousePosition().X > ScreenSize.X-115)
+		{
+			Vector2I newSize = new((ScreenSize.X-75)/2, ScreenSize.Y-85);
+			Position = new Vector2I((ScreenSize.Y-75)/2, 85);
+			PreviousSize = Size;
+			Size = newSize;
+		}
+
+		PreviousPosition = Position;
 	}
 }

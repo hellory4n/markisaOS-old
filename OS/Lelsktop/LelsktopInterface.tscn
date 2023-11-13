@@ -698,7 +698,7 @@ Category = NodePath("../../../CategoryUtilities")
 layout_mode = 0
 offset_left = 200.0
 offset_right = 416.0
-offset_bottom = 407.0
+offset_bottom = 409.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/CategoryAllApps"]
 layout_mode = 2
@@ -940,7 +940,7 @@ visible = false
 layout_mode = 0
 offset_left = 200.0
 offset_right = 416.0
-offset_bottom = 407.0
+offset_bottom = 409.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/CategoryAccessories"]
 layout_mode = 2
@@ -1033,7 +1033,7 @@ visible = false
 layout_mode = 0
 offset_left = 200.0
 offset_right = 416.0
-offset_bottom = 407.0
+offset_bottom = 409.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/CategoryDevelopment"]
 layout_mode = 2
@@ -1116,7 +1116,7 @@ visible = false
 layout_mode = 0
 offset_left = 200.0
 offset_right = 416.0
-offset_bottom = 407.0
+offset_bottom = 409.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/CategoryGames"]
 layout_mode = 2
@@ -1179,7 +1179,7 @@ visible = false
 layout_mode = 0
 offset_left = 200.0
 offset_right = 416.0
-offset_bottom = 407.0
+offset_bottom = 409.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/CategoryGraphics"]
 layout_mode = 2
@@ -1312,7 +1312,7 @@ visible = false
 layout_mode = 0
 offset_left = 200.0
 offset_right = 416.0
-offset_bottom = 407.0
+offset_bottom = 409.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/CategoryInternet"]
 layout_mode = 2
@@ -1965,7 +1965,7 @@ visible = false
 layout_mode = 0
 offset_left = 200.0
 offset_right = 416.0
-offset_bottom = 407.0
+offset_bottom = 409.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/CategoryMultimedia"]
 layout_mode = 2
@@ -2008,7 +2008,7 @@ visible = false
 layout_mode = 0
 offset_left = 200.0
 offset_right = 416.0
-offset_bottom = 407.0
+offset_bottom = 409.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/CategoryOffice"]
 layout_mode = 2
@@ -2151,7 +2151,7 @@ visible = false
 layout_mode = 0
 offset_left = 200.0
 offset_right = 416.0
-offset_bottom = 407.0
+offset_bottom = 409.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/CategorySystem"]
 layout_mode = 2
@@ -2174,7 +2174,7 @@ visible = false
 layout_mode = 0
 offset_left = 200.0
 offset_right = 416.0
-offset_bottom = 407.0
+offset_bottom = 409.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AppMenu/CategoryUtilities"]
 layout_mode = 2
