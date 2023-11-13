@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Toolkit/SetSizeToScreenResolution.cs" id="1"]
 [ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" id="2"]
 [ext_resource type="Texture2D" uid="uid://0yssrp58vxb1" path="res://Assets/Boot/OnboardingBackground.png" id="3"]
-[ext_resource type="FontFile" path="res://Fonts/RedHatText-Bold.ttf" id="4"]
+[ext_resource type="FontFile" uid="uid://b82t6vwpkpyyc" path="res://Fonts/RedHatText-Bold.ttf" id="4"]
 [ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Toolkit/OpenSceneButton.cs" id="5"]
 [ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Time.cs" id="6"]
 [ext_resource type="Script" path="res://OS/Scripts/Core/UserList.cs" id="7"]

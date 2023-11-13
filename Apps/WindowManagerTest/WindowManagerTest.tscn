@@ -142,7 +142,7 @@ _data = {
 
 [node name="WindowManagerTest" type="Window"]
 process_priority = 1
-title = "Window Test"
+title = "Window"
 position = Vector2i(0, 45)
 size = Vector2i(400, 100)
 min_size = Vector2i(400, 100)
@@ -166,5 +166,5 @@ offset_left = -152.5
 offset_top = -20.0
 offset_right = 152.5
 offset_bottom = 20.0
-text = "buy something from amazon dot com"
+text = "Button"
 script = ExtResource("2")
