@@ -36,14 +36,8 @@ public partial class Leltabs : HBoxContainer
         TabButtons.Add(fart);
     }
 
-    // close the window if all tabs are closed
     public override void _Process(double delta)
     {
-        base._Process(delta);
-        Lelwindow pain = GetParent().GetParent<Lelwindow>();
-        if (TabButtons.Count == 0 && !pain.IsClosing)
-            pain.Visible = false;
-
         // epic tab titles :))))
         for (int i = 0; i < TabContent.Count; i++)
         {

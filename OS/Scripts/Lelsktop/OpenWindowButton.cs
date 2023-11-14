@@ -22,7 +22,7 @@ public partial class OpenWindowButton : Button
         TooltipText = epicWindow.Title;
 
         // if we just check if it's queued for deletion it's gonna have a bit of a delay due to the closing animation
-        if (epicWindow.IsClosing)
+        if (IsInstanceValid(epicWindow))
             QueueFree();
         else
             Icon = epicWindow.Icon;

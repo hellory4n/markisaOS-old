@@ -19,10 +19,6 @@ public partial class Lelwindow : Window
 	/// </summary>
 	[Export]
 	public Texture2D Icon;
-	/// <summary>
-	/// Used by the button on the dock to check if it should delete itself, as if it checked if the window was queued for deletion, there would be a little delay before it actually deleted the button.
-	/// </summary>
-	public bool IsClosing = false;
 	bool CanSnap = false;
 	[Export]
 	public int CpuUse = 1;
@@ -38,44 +34,17 @@ public partial class Lelwindow : Window
 	[Export]
 	public bool CustomCloseRequest = false;
 	Vector2I PreviousSize;
-	public Vector2I Origin;
 
 	public override void _Ready()
 	{
 		base._Ready();
 		ScreenSize = ResolutionManager.Resolution;
 
-		// awesome opening animation
-		Random random = new();
-		int side = random.Next(3);
-		Origin = side switch
-		{
-			0 => new(0 - Size.X, random.Next(0, ScreenSize.Y)),
-			1 => new(random.Next(0, ScreenSize.X), 0 - Size.Y),
-			2 => new(random.Next(0, ScreenSize.X), ScreenSize.Y + Size.Y),
-			_ => Vector2I.Zero
-		};
-		
-		// put it on the center of the screen
-        Vector2I finalPosition;
-		// windows are maximized by default on mobile
-		if (OS.GetName() == "Android" && !Unresizable)
-		{
-			finalPosition = new Vector2I(0, 85);
-			Size = WindowManager.WindowSpace;
-		}
-		else
-			finalPosition = WindowManager.WindowSpace/2 - (Size/2);
-
-		Position = Origin;
-		Tween tween = CreateTween();
-		tween.TweenProperty(this, "position", finalPosition, 0.2).SetEase(Tween.EaseType.OutIn);
-
 		// a window snapping just because your mouse was on the dock is quite inconvenient
 		Timer jgjk = new()
         {
 			Name = "jrgjdkggooghmgdgddgsaa39933",
-			WaitTime = 0.2,
+			WaitTime = 0.5,
 			Autostart = true,
 			OneShot = true
 		};
@@ -90,12 +59,7 @@ public partial class Lelwindow : Window
 		{
 			CloseRequested += () =>
 			{
-				Tween tween = CreateTween();
-				tween.TweenProperty(this, "position", Origin, 0.2).SetEase(Tween.EaseType.OutIn);
-				tween.Finished += () =>
-					QueueFree();
-				
-				IsClosing = true;
+				QueueFree();
 			};
 		}
 	}

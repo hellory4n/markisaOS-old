@@ -27,15 +27,6 @@ public partial class FileTabs : HBoxContainer {
         TabButtons.Add(fart);
     }
 
-    // close the window if all tabs are closed
-    public override void _Process(double delta) {
-        base._Process(delta);
-        Lelwindow pain = GetParent().GetParent<Lelwindow>();
-        if (TabButtons.Count == 0 && !pain.IsClosing) {
-            pain.Visible = false;
-        }
-    }
-
     public void UpdateStuff(Control activeContent, TabThing activeButton) {
         foreach (var funni in TabButtons) {
             if (funni == activeButton) {

@@ -34,6 +34,16 @@ public partial class WindowManager : Node2D
         Control lelsktop = CurrentWorkspace.GetNode<Control>("ThemeThing");
         lelsktop.AddChild(window);
 
+        // put it on the center of the screen
+        window.Position = WindowSpace/2 - (window.Size/2);
+        
+        // windows are maximized by default on mobile
+        if (OS.GetName() == "Android" && !window.Unresizable)
+        {
+            window.Position = new Vector2I(0, 85);
+            window.Size = WindowSpace;
+        }
+
         // add it to the dock
         OpenWindowButton coolDockButton = (OpenWindowButton)OpenWindow.Instantiate();
         coolDockButton.Init(window);
