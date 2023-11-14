@@ -6,51 +6,44 @@ namespace Lelsktop.Interface;
 
 public partial class OpenWindowButton : Button
 {
-    Lelwindow epicWindow;
-    AnimationPlayer animation;
+    Lelwindow Window;
 
     // called when the window manager opens a window
     public void Init(Lelwindow window)
     {
-        epicWindow = window;
-        animation = epicWindow.GetNode<AnimationPlayer>("AnimationPlayer");
+        Window = window;
     }
 
     public override void _Process(double delta)
     {
         base._Process(delta);
-        TooltipText = epicWindow.Title;
-
-        // if we just check if it's queued for deletion it's gonna have a bit of a delay due to the closing animation
-        if (IsInstanceValid(epicWindow))
-            QueueFree();
-        else
-            Icon = epicWindow.Icon;
+        TooltipText = Window.Title;
+        Icon = Window.Icon;
     }
 
-    public void Click()
+    public override void _Pressed()
     {
-        Color invisible = new(1, 1, 1, 0);
+        base._Pressed();
 
-        /*// minimize the window if it's active :)
+        // minimize the window if it's active :)
         // we wouldn't minimize a window in another workspace tho
-        if (epicWindow.IsActive() && epicWindow.Modulate != invisible &&
-        WindowManager.CurrentWorkspace == epicWindow.GetViewport()) {
-            animation.Play("Minimize");
+        if (Window.HasFocus() && Window.Visible /*&& WindowManager.CurrentWorkspace ==
+        Window.GetViewport()*/)
+            Window.Visible = false;
         // already minimized
         // we wouldn't restore a window in another workspace tho
-        } else if (epicWindow.Modulate == invisible &&
-        WindowManager.CurrentWorkspace == epicWindow.GetViewport()) {
-            animation.Play("Restore");
-            epicWindow.Raise();
-        } else {*/
-            epicWindow.MoveToForeground();
-        //}
+        else if (!Window.Visible /*&& WindowManager.CurrentWorkspace == Window.GetViewport()*/)
+        {
+            Window.Visible = true;
+            Window.MoveToForeground();
+        }
+        else
+            Window.MoveToForeground();
 
         // switch to a different workspace if necessary
         // pain
-        /*if (!epicWindow.GetViewport().GetParent<SubViewportContainer>().Visible) {
-            switch (epicWindow.GetViewport().GetParent().Name) {
+        /*if (!Window.GetViewport().GetParent<SubViewportContainer>().Visible) {
+            switch (Window.GetViewport().GetParent().Name) {
                 case "1":
                     GetNode<SubViewportContainer>("/root/Lelsktop/1").Visible = true;
                     GetNode<SubViewportContainer>("/root/Lelsktop/2").Visible = false;

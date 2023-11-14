@@ -49,5 +49,6 @@ public partial class WindowManager : Node2D
         coolDockButton.Init(window);
         VBoxContainer dock = GetNode<VBoxContainer>("/root/LelsktopInterface/Dock/DockStuff/Running");
         dock.AddChild(coolDockButton);
+        window.DockButton = coolDockButton;
     }
 }

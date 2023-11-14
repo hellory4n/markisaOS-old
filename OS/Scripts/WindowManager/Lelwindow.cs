@@ -34,6 +34,10 @@ public partial class Lelwindow : Window
 	[Export]
 	public bool CustomCloseRequest = false;
 	Vector2I PreviousSize;
+	/// <summary>
+	/// The button in dock corresponding to this window.
+	/// </summary>
+	public OpenWindowButton DockButton;
 
 	public override void _Ready()
 	{
@@ -60,6 +64,7 @@ public partial class Lelwindow : Window
 			CloseRequested += () =>
 			{
 				QueueFree();
+				DockButton.QueueFree();
 			};
 		}
 	}
@@ -89,33 +94,48 @@ public partial class Lelwindow : Window
 		if (!Input.IsActionJustReleased("click"))
 			return;
 
-		// maximize
 		if (GetTree().Root.GetMousePosition().Y < 80)
-		{
-			PreviousSize = Size;
-			Vector2I newSize = new(ScreenSize.X-75, ScreenSize.Y-85);
-			Position = new Vector2I(0, 85);
-			Size = newSize;
-		}
+			Maximize();
 
-		// snap to left side
 		if (GetTree().Root.GetMousePosition().X < 40)
-		{
-			PreviousSize = Size;
-			Vector2I newSize = new((ScreenSize.X-75)/2, ScreenSize.Y-85);
-			Position = new Vector2I(0, 85);
-			Size = newSize;
-		}
+			SnapToLeft();
 
-		// snap to right side
 		if (GetTree().Root.GetMousePosition().X > ScreenSize.X-115)
-		{
-			PreviousSize = Size;
-			Vector2I newSize = new((ScreenSize.X-75)/2, ScreenSize.Y-85);
-			Position = new Vector2I((ScreenSize.X-75)/2, 85);
-			Size = newSize;
-		}
+			SnapToRight();
 
 		PreviousPosition = Position;
+	}
+
+	/// <summary>
+	/// Maximizes the window.
+	/// </summary>
+	public void Maximize()
+	{
+		PreviousSize = Size;
+		Vector2I newSize = new(ScreenSize.X-75, ScreenSize.Y-85);
+		Position = new Vector2I(0, 85);
+		Size = newSize;
+	}
+
+	/// <summary>
+	/// Snaps the window to the left side of the screen.
+	/// </summary>
+	public void SnapToLeft()
+	{
+		PreviousSize = Size;
+		Vector2I newSize = new((ScreenSize.X-75)/2, ScreenSize.Y-85);
+		Position = new Vector2I(0, 85);
+		Size = newSize;
+	}
+
+	/// <summary>
+	/// Snaps the window to the right side of the screen.
+	/// </summary>
+	public void SnapToRight()
+	{
+		PreviousSize = Size;
+		Vector2I newSize = new((ScreenSize.X-75)/2, ScreenSize.Y-85);
+		Position = new Vector2I((ScreenSize.X-75)/2, 85);
+		Size = newSize;
 	}
 }
