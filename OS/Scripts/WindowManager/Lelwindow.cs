@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using Lelcore.Drivers;
+using Lelsktop.Interface;
 
 namespace Lelsktop.Wm;
 
@@ -37,7 +38,7 @@ public partial class Lelwindow : Window
 	[Export]
 	public bool CustomCloseRequest = false;
 	Vector2I PreviousSize;
-	Sprite2D CurrentAnimationThingy;
+	public Vector2I Origin;
 
 	public override void _Ready()
 	{
@@ -45,32 +46,36 @@ public partial class Lelwindow : Window
 		ScreenSize = ResolutionManager.Resolution;
 
 		// awesome opening animation
-		// the window node's scaling property only scales the content, and it doesn't have a modulate property,
-		// so the workaround is making a sprite from the viewport texture and animating that
-		Visible = false;
-		CurrentAnimationThingy = new()
+		Random random = new();
+		int side = random.Next(3);
+		Origin = side switch
 		{
-			Texture = GetTexture(),
-			Position = Position,
-			Scale = Vector2.Zero,
-			FlipV = true,
-			Centered = false
+			0 => new(0 - Size.X, random.Next(0, ScreenSize.Y)),
+			1 => new(random.Next(0, ScreenSize.X), 0 - Size.Y),
+			2 => new(random.Next(0, ScreenSize.X), ScreenSize.Y + Size.Y),
+			_ => Vector2I.Zero
 		};
-		GetNode("/root/Lelsktop").AddChild(CurrentAnimationThingy);
-		Tween tween = CurrentAnimationThingy.CreateTween();
-		tween.TweenProperty(CurrentAnimationThingy, "scale", Vector2.One, 0.2).SetEase(Tween.EaseType.In);
-		tween.Finished += () => 
+		
+		// put it on the center of the screen
+        Vector2I finalPosition;
+		// windows are maximized by default on mobile
+		if (OS.GetName() == "Android" && !Unresizable)
 		{
-			CurrentAnimationThingy.QueueFree();
-			Visible = true;
-			CurrentAnimationThingy.Visible = false;
-		};
+			finalPosition = new Vector2I(0, 85);
+			Size = WindowManager.WindowSpace;
+		}
+		else
+			finalPosition = WindowManager.WindowSpace/2 - (Size/2);
+
+		Position = Origin;
+		Tween tween = CreateTween();
+		tween.TweenProperty(this, "position", finalPosition, 0.2).SetEase(Tween.EaseType.OutIn);
 
 		// a window snapping just because your mouse was on the dock is quite inconvenient
 		Timer jgjk = new()
         {
 			Name = "jrgjdkggooghmgdgddgsaa39933",
-			WaitTime = 0.5,
+			WaitTime = 0.2,
 			Autostart = true,
 			OneShot = true
 		};
@@ -85,8 +90,11 @@ public partial class Lelwindow : Window
 		{
 			CloseRequested += () =>
 			{
-				// animation.Play("Close");
-				QueueFree();
+				Tween tween = CreateTween();
+				tween.TweenProperty(this, "position", Origin, 0.2).SetEase(Tween.EaseType.OutIn);
+				tween.Finished += () =>
+					QueueFree();
+				
 				IsClosing = true;
 			};
 		}
@@ -98,8 +106,6 @@ public partial class Lelwindow : Window
 
 		// :)
 		GuiDisableInput = !HasFocus();
-		CurrentAnimationThingy.Texture = GetTexture();
-		CurrentAnimationThingy.Position = Position;
 
 		// window snapping :)
 		// is the window moving?

@@ -13,11 +13,16 @@ public partial class WindowManager : Node2D
 {
     PackedScene OpenWindow;
     public static SubViewport CurrentWorkspace;
+    /// <summary>
+    /// The size of a maximized window.
+    /// </summary>
+    public static Vector2I WindowSpace {get; private set;}
 
     public override void _Ready()
     {
         base._Ready();
         OpenWindow = GD.Load<PackedScene>("res://OS/Lelsktop/OpenWindowButton.tscn");
+        WindowSpace = ResolutionManager.Resolution + new Vector2I(-85, 40);
     }
 
     /// <summary>
@@ -29,25 +34,10 @@ public partial class WindowManager : Node2D
         Control lelsktop = CurrentWorkspace.GetNode<Control>("ThemeThing");
         lelsktop.AddChild(window);
 
-        // put it on the center of the screen
-        Vector2I yes = ResolutionManager.Resolution;
-        yes -= new Vector2I(85, 0);
-        yes += new Vector2I(0, 40);
-        window.Position = yes/2 - (window.Size/2);
-
         // add it to the dock
         OpenWindowButton coolDockButton = (OpenWindowButton)OpenWindow.Instantiate();
         coolDockButton.Init(window);
         VBoxContainer dock = GetNode<VBoxContainer>("/root/LelsktopInterface/Dock/DockStuff/Running");
         dock.AddChild(coolDockButton);
-
-        // all windows are maximized by default on mobile
-        if (OS.GetName() == "Android" && !window.Unresizable)
-        {
-            Vector2I maximizedSize = ResolutionManager.Resolution;
-            maximizedSize = new Vector2I(maximizedSize.X-75, maximizedSize.Y-85);
-            window.Position = new Vector2I(0, 85);
-            window.Size = maximizedSize;
-        }
     }
 }
