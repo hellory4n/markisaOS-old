@@ -1,31 +1,723 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkswut7w05woa"]
+[gd_scene load_steps=9 format=3 uid="uid://bkswut7w05woa"]
 
 [ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" id="1"]
-[ext_resource type="Script" path="res://Apps/WindowManagerTest/Scripts/EpicCoolAmazingBeautifulGorgeousFantasticMajesticButton.cs" id="2"]
 [ext_resource type="Texture2D" uid="uid://wlamqh1fgh4r" path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/App.png" id="3_8r8kd"]
 [ext_resource type="Script" path="res://OS/Scripts/WindowManager/Lelwindow.cs" id="5"]
+[ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Toolkit/SidebarButton.cs" id="5_5r0g5"]
+[ext_resource type="Texture2D" uid="uid://bo0ovd3nykhg5" path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/ShowDesktop.png" id="5_t7bnl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yppid"]
+font_size = 24
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_7ufg3"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_52vkc"]
 
 [node name="WindowManagerTest" type="Window"]
 process_priority = 1
 title = "Window"
 position = Vector2i(0, 45)
-size = Vector2i(400, 355)
-min_size = Vector2i(400, 100)
+size = Vector2i(500, 355)
+min_size = Vector2i(500, 350)
 theme = ExtResource("1")
 script = ExtResource("5")
 Icon = ExtResource("3_8r8kd")
 
-[node name="Button" type="Button" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -152.5
-offset_top = -20.0
-offset_right = 152.5
-offset_bottom = 20.0
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+split_offset = 175
+
+[node name="Sidebar" type="Control" parent="HSplitContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="CoolSidebarLineThing" type="VSeparator" parent="HSplitContainer/Sidebar"]
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 1.0
+offset_bottom = -1.0
+mouse_filter = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/Sidebar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Sidebar/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Button" type="Button" parent="HSplitContainer/Sidebar/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"SidebarButton"
+text = "Label"
+alignment = 0
+script = ExtResource("5_5r0g5")
+Category = NodePath("../../../../Content/CategoryLabel")
+
+[node name="Button2" type="Button" parent="HSplitContainer/Sidebar/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"SidebarButton"
 text = "Button"
-script = ExtResource("2")
+alignment = 0
+script = ExtResource("5_5r0g5")
+Category = NodePath("../../../../Content/CategoryButton")
+
+[node name="Button3" type="Button" parent="HSplitContainer/Sidebar/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"SidebarButton"
+text = "LineEdit"
+alignment = 0
+script = ExtResource("5_5r0g5")
+Category = NodePath("../../../../Content/CategoryLineEdit")
+
+[node name="Button4" type="Button" parent="HSplitContainer/Sidebar/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"SidebarButton"
+text = "TextEdit"
+alignment = 0
+script = ExtResource("5_5r0g5")
+Category = NodePath("../../../../Content/CategoryTextEdit")
+
+[node name="Button5" type="Button" parent="HSplitContainer/Sidebar/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"SidebarButton"
+text = "CheckBox"
+alignment = 0
+script = ExtResource("5_5r0g5")
+Category = NodePath("../../../../Content/CategoryCheckBox")
+
+[node name="Button6" type="Button" parent="HSplitContainer/Sidebar/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"SidebarButton"
+text = "MenuButton"
+alignment = 0
+script = ExtResource("5_5r0g5")
+Category = NodePath("../../../../Content/CategoryMenuButton")
+
+[node name="Button7" type="Button" parent="HSplitContainer/Sidebar/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"SidebarButton"
+text = "OptionButton"
+alignment = 0
+script = ExtResource("5_5r0g5")
+Category = NodePath("../../../../Content/CategoryOptionButton")
+
+[node name="Button8" type="Button" parent="HSplitContainer/Sidebar/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"SidebarButton"
+text = "LinkButton"
+alignment = 0
+script = ExtResource("5_5r0g5")
+Category = NodePath("../../../../Content/CategoryLinkButton")
+
+[node name="Button9" type="Button" parent="HSplitContainer/Sidebar/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"SidebarButton"
+text = "ColorRect"
+alignment = 0
+script = ExtResource("5_5r0g5")
+Category = NodePath("../../../../Content/CategoryColorRect")
+
+[node name="Button10" type="Button" parent="HSplitContainer/Sidebar/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"SidebarButton"
+text = "ProgressBar"
+alignment = 0
+script = ExtResource("5_5r0g5")
+Category = NodePath("../../../../Content/CategoryProgressBar")
+
+[node name="Button11" type="Button" parent="HSplitContainer/Sidebar/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"SidebarButton"
+text = "SpinBox"
+alignment = 0
+script = ExtResource("5_5r0g5")
+Category = NodePath("../../../../Content/CategorySpinBox")
+
+[node name="Button12" type="Button" parent="HSplitContainer/Sidebar/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"SidebarButton"
+text = "ScrollBar"
+alignment = 0
+script = ExtResource("5_5r0g5")
+Category = NodePath("../../../../Content/CategoryScrollBar")
+
+[node name="Button13" type="Button" parent="HSplitContainer/Sidebar/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"SidebarButton"
+text = "Slider"
+alignment = 0
+script = ExtResource("5_5r0g5")
+Category = NodePath("../../../../Content/CategorySlider")
+
+[node name="Button14" type="Button" parent="HSplitContainer/Sidebar/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"SidebarButton"
+text = "Separator"
+alignment = 0
+script = ExtResource("5_5r0g5")
+Category = NodePath("../../../../Content/CategorySeparator")
+
+[node name="Button15" type="Button" parent="HSplitContainer/Sidebar/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"SidebarButton"
+text = "MenuBar"
+alignment = 0
+script = ExtResource("5_5r0g5")
+Category = NodePath("../../../../Content/CategoryMenuBar")
+
+[node name="Button16" type="Button" parent="HSplitContainer/Sidebar/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"SidebarButton"
+text = "Panel"
+alignment = 0
+script = ExtResource("5_5r0g5")
+Category = NodePath("../../../../Content/CategoryPanel")
+
+[node name="Button17" type="Button" parent="HSplitContainer/Sidebar/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"SidebarButton"
+text = "ReferenceRect"
+alignment = 0
+script = ExtResource("5_5r0g5")
+Category = NodePath("../../../../Content/CategoryReferenceRect")
+
+[node name="Button18" type="Button" parent="HSplitContainer/Sidebar/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"SidebarButton"
+text = "RichTextLabel"
+alignment = 0
+script = ExtResource("5_5r0g5")
+Category = NodePath("../../../../Content/CategoryRichTextLabel")
+
+[node name="Button19" type="Button" parent="HSplitContainer/Sidebar/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"SidebarButton"
+text = "ItemList"
+alignment = 0
+script = ExtResource("5_5r0g5")
+Category = NodePath("../../../../Content/CategoryItemList")
+
+[node name="Content" type="Control" parent="HSplitContainer"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="CategoryLabel" type="CenterContainer" parent="HSplitContainer/Content"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryLabel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HSplitContainer/Content/CategoryLabel/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"Header"
+text = "Lorem ipsum dolor sit amet"
+label_settings = SubResource("LabelSettings_yppid")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="HSplitContainer/Content/CategoryLabel/VBoxContainer"]
+layout_mode = 2
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="CategoryButton" type="CenterContainer" parent="HSplitContainer/Content"]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryButton"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="HSplitContainer/Content/CategoryButton/VBoxContainer"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+text = "Button"
+
+[node name="Button3" type="Button" parent="HSplitContainer/Content/CategoryButton/VBoxContainer"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+toggle_mode = true
+text = "Toggle"
+
+[node name="Button4" type="Button" parent="HSplitContainer/Content/CategoryButton/VBoxContainer"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+theme_type_variation = &"SecondaryButton"
+text = "Secondary"
+
+[node name="Button6" type="Button" parent="HSplitContainer/Content/CategoryButton/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+theme_type_variation = &"SecondaryButton"
+toggle_mode = true
+text = "Secondary Toggle"
+
+[node name="Button5" type="Button" parent="HSplitContainer/Content/CategoryButton/VBoxContainer"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+theme_type_variation = &"DangerButton"
+text = "Danger"
+
+[node name="Button2" type="Button" parent="HSplitContainer/Content/CategoryButton/VBoxContainer"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+disabled = true
+text = "Disabled"
+
+[node name="CategoryLineEdit" type="CenterContainer" parent="HSplitContainer/Content"]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryLineEdit"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="HSplitContainer/Content/CategoryLineEdit/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+placeholder_text = "Placeholder"
+alignment = 1
+
+[node name="LineEdit2" type="LineEdit" parent="HSplitContainer/Content/CategoryLineEdit/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+text = "Read-only"
+alignment = 1
+editable = false
+
+[node name="CategoryTextEdit" type="CenterContainer" parent="HSplitContainer/Content"]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryTextEdit"]
+layout_mode = 2
+
+[node name="TextEdit" type="TextEdit" parent="HSplitContainer/Content/CategoryTextEdit/VBoxContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+placeholder_text = "Placeholder"
+wrap_mode = 1
+
+[node name="CategoryCheckBox" type="CenterContainer" parent="HSplitContainer/Content"]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryCheckBox"]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="HSplitContainer/Content/CategoryCheckBox/VBoxContainer"]
+layout_mode = 2
+text = "Checkbox"
+
+[node name="CheckBox2" type="CheckBox" parent="HSplitContainer/Content/CategoryCheckBox/VBoxContainer"]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_7ufg3")
+text = "Radio button"
+
+[node name="CheckBox3" type="CheckBox" parent="HSplitContainer/Content/CategoryCheckBox/VBoxContainer"]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_7ufg3")
+text = "Radio button"
+
+[node name="CheckBox4" type="CheckBox" parent="HSplitContainer/Content/CategoryCheckBox/VBoxContainer"]
+layout_mode = 2
+disabled = true
+button_group = SubResource("ButtonGroup_7ufg3")
+text = "Disabled"
+
+[node name="CheckBox7" type="CheckBox" parent="HSplitContainer/Content/CategoryCheckBox/VBoxContainer"]
+layout_mode = 2
+disabled = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_52vkc")
+text = "Disabled"
+
+[node name="CheckBox5" type="CheckBox" parent="HSplitContainer/Content/CategoryCheckBox/VBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Disabled"
+
+[node name="CheckBox6" type="CheckBox" parent="HSplitContainer/Content/CategoryCheckBox/VBoxContainer"]
+layout_mode = 2
+disabled = true
+button_pressed = true
+text = "Disabled"
+
+[node name="CategoryMenuButton" type="CenterContainer" parent="HSplitContainer/Content"]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryMenuButton"]
+layout_mode = 2
+
+[node name="MenuButton" type="MenuButton" parent="HSplitContainer/Content/CategoryMenuButton/VBoxContainer"]
+layout_mode = 2
+text = "MenuButton"
+item_count = 5
+popup/item_0/text = "Item 1"
+popup/item_0/id = 0
+popup/item_1/text = "Item 2"
+popup/item_1/id = 1
+popup/item_2/text = "Separator"
+popup/item_2/id = 2
+popup/item_2/separator = true
+popup/item_3/text = "Item 3"
+popup/item_3/checkable = 1
+popup/item_3/id = 3
+popup/item_4/text = "Item"
+popup/item_4/id = 4
+popup/item_4/disabled = true
+
+[node name="CategoryOptionButton" type="CenterContainer" parent="HSplitContainer/Content"]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryOptionButton"]
+layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="HSplitContainer/Content/CategoryOptionButton/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"SecondaryButton"
+alignment = 1
+item_count = 5
+selected = 0
+popup/item_0/text = "Option 1"
+popup/item_0/id = 0
+popup/item_1/text = "Option 2"
+popup/item_1/id = 1
+popup/item_2/text = "Option 3"
+popup/item_2/id = 2
+popup/item_2/disabled = true
+popup/item_3/text = "Separator"
+popup/item_3/id = 3
+popup/item_3/separator = true
+popup/item_4/text = "Option 4"
+popup/item_4/icon = ExtResource("5_t7bnl")
+popup/item_4/id = 4
+
+[node name="CategoryLinkButton" type="CenterContainer" parent="HSplitContainer/Content"]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryLinkButton"]
+layout_mode = 2
+
+[node name="LinkButton" type="LinkButton" parent="HSplitContainer/Content/CategoryLinkButton/VBoxContainer"]
+layout_mode = 2
+text = "LinkButton"
+uri = "https://youtu.be/cSAp9sBzPbc"
+
+[node name="CategoryColorRect" type="CenterContainer" parent="HSplitContainer/Content"]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryColorRect"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="HSplitContainer/Content/CategoryColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+color = Color(0.129412, 0.588235, 0.952941, 1)
+
+[node name="CategoryProgressBar" type="CenterContainer" parent="HSplitContainer/Content"]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryProgressBar"]
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="HSplitContainer/Content/CategoryProgressBar/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+value = 50.0
+
+[node name="CategorySpinBox" type="CenterContainer" parent="HSplitContainer/Content"]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategorySpinBox"]
+layout_mode = 2
+
+[node name="SpinBox" type="SpinBox" parent="HSplitContainer/Content/CategorySpinBox/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+alignment = 1
+prefix = "Prefix"
+suffix = "suffix"
+
+[node name="CategoryScrollBar" type="CenterContainer" parent="HSplitContainer/Content"]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryScrollBar"]
+layout_mode = 2
+
+[node name="HScrollBar" type="HScrollBar" parent="HSplitContainer/Content/CategoryScrollBar/VBoxContainer"]
+custom_minimum_size = Vector2(200, 16)
+layout_mode = 2
+page = 25.0
+
+[node name="VScrollBar" type="VScrollBar" parent="HSplitContainer/Content/CategoryScrollBar/VBoxContainer"]
+custom_minimum_size = Vector2(16, 200)
+layout_mode = 2
+page = 25.0
+
+[node name="CategorySlider" type="CenterContainer" parent="HSplitContainer/Content"]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategorySlider"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="HSplitContainer/Content/CategorySlider/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="VSlider" type="VSlider" parent="HSplitContainer/Content/CategorySlider/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="CategorySeparator" type="CenterContainer" parent="HSplitContainer/Content"]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategorySeparator"]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="HSplitContainer/Content/CategorySeparator/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="HSplitContainer/Content/CategorySeparator/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="CategoryMenuBar" type="CenterContainer" parent="HSplitContainer/Content"]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryMenuBar"]
+layout_mode = 2
+
+[node name="MenuBar" type="MenuBar" parent="HSplitContainer/Content/CategoryMenuBar/VBoxContainer"]
+layout_mode = 2
+prefer_global_menu = false
+
+[node name="Menu1" type="PopupMenu" parent="HSplitContainer/Content/CategoryMenuBar/VBoxContainer/MenuBar"]
+size = Vector2i(104, 100)
+item_count = 3
+item_0/text = "Item 1"
+item_0/id = 0
+item_1/text = "Item 2"
+item_1/id = 1
+item_2/text = "Item 3"
+item_2/id = 2
+
+[node name="Menu2" type="PopupMenu" parent="HSplitContainer/Content/CategoryMenuBar/VBoxContainer/MenuBar"]
+size = Vector2i(104, 100)
+item_count = 3
+item_0/text = "Item 1"
+item_0/id = 0
+item_1/text = "Item 2"
+item_1/id = 1
+item_2/text = "Item 3"
+item_2/id = 2
+
+[node name="Menu3" type="PopupMenu" parent="HSplitContainer/Content/CategoryMenuBar/VBoxContainer/MenuBar"]
+size = Vector2i(104, 100)
+item_count = 3
+item_0/text = "Item 1"
+item_0/id = 0
+item_1/text = "Item 2"
+item_1/id = 1
+item_2/text = "Item 3"
+item_2/id = 2
+
+[node name="CategoryPanel" type="CenterContainer" parent="HSplitContainer/Content"]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryPanel"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="HSplitContainer/Content/CategoryPanel/VBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="CategoryReferenceRect" type="CenterContainer" parent="HSplitContainer/Content"]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryReferenceRect"]
+layout_mode = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="HSplitContainer/Content/CategoryReferenceRect/VBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+border_width = 2.0
+editor_only = false
+
+[node name="CategoryRichTextLabel" type="CenterContainer" parent="HSplitContainer/Content"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HSplitContainer/Content/CategoryRichTextLabel"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+focus_mode = 2
+bbcode_enabled = true
+text = "Normal text
+[b]Bold[/b]
+[i]Italic[/i]
+[u]Underline[/u]
+[s]Strikethrough[/s]
+[code]Code[/code]
+[center]Center[/center]
+[left]Left[/left]
+[right]Right[/right]
+[fill]Fill[/fill]
+[indent]Indent[/indent]
+[url=https://youtu.be/cSAp9sBzPbc]URL[/url]
+[hint=Tooltip]Hint[/hint]
+[img]res://icon.png[/img]
+[font=res://Fonts/Solitreo-Regular.ttf]Font[/font]
+[font_size=24]Font size[/font_size]
+[color=red]Color[/color]
+[bgcolor=red]Background color[/bgcolor]
+[fgcolor=red]Foreground color[/fgcolor]
+[table=3][cell]Cell[/cell][cell]Cell[/cell][cell]Cell[/cell][cell]Cell[/cell][cell]Cell[/cell][cell]Cell[/cell][cell]Cell[/cell][cell]Cell[/cell][cell]Cell[/cell][/table]
+[ul]Unordered list
+Unordered list
+Unordered list[/ul]
+[ol]Ordered list
+Ordered list
+Ordered list[/ol]"
+selection_enabled = true
+
+[node name="CategoryItemList" type="CenterContainer" parent="HSplitContainer/Content"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryItemList"]
+layout_mode = 2
+
+[node name="ItemList" type="ItemList" parent="HSplitContainer/Content/CategoryItemList/VBoxContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+item_count = 3
+item_0/text = "Item"
+item_1/text = "Item"
+item_2/text = "Item"
