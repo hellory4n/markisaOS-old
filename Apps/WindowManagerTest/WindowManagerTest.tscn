@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bkswut7w05woa"]
 
-[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" id="1"]
+[ext_resource type="Theme" uid="uid://djc781nabd1cv" path="res://Assets/Themes/Leltheme-Dark-Pink/Theme.tres" id="1_woekr"]
 [ext_resource type="Texture2D" uid="uid://wlamqh1fgh4r" path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/App.png" id="3_8r8kd"]
 [ext_resource type="Script" path="res://OS/Scripts/WindowManager/Lelwindow.cs" id="5"]
 [ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Toolkit/SidebarButton.cs" id="5_5r0g5"]
@@ -16,10 +16,10 @@ font_size = 24
 [node name="WindowManagerTest" type="Window"]
 process_priority = 1
 title = "Window"
-position = Vector2i(0, 45)
+position = Vector2i(0, 46)
 size = Vector2i(500, 355)
 min_size = Vector2i(500, 350)
-theme = ExtResource("1")
+theme = ExtResource("1_woekr")
 script = ExtResource("5")
 Icon = ExtResource("3_8r8kd")
 
@@ -106,16 +106,6 @@ text = "CheckBox"
 alignment = 0
 script = ExtResource("5_5r0g5")
 Category = NodePath("../../../../Content/CategoryCheckBox")
-
-[node name="Button6" type="Button" parent="HSplitContainer/Sidebar/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("Category")]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-mouse_filter = 1
-theme_type_variation = &"SidebarButton"
-text = "MenuButton"
-alignment = 0
-script = ExtResource("5_5r0g5")
-Category = NodePath("../../../../Content/CategoryMenuButton")
 
 [node name="Button7" type="Button" parent="HSplitContainer/Sidebar/ScrollContainer/VBoxContainer" node_paths=PackedStringArray("Category")]
 custom_minimum_size = Vector2(0, 40)
@@ -337,6 +327,13 @@ layout_mode = 2
 placeholder_text = "Placeholder"
 alignment = 1
 
+[node name="LineEdit3" type="LineEdit" parent="HSplitContainer/Content/CategoryLineEdit/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+text = "Clear"
+alignment = 1
+clear_button_enabled = true
+
 [node name="LineEdit2" type="LineEdit" parent="HSplitContainer/Content/CategoryLineEdit/VBoxContainer"]
 custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
@@ -408,34 +405,6 @@ disabled = true
 button_pressed = true
 text = "Disabled"
 
-[node name="CategoryMenuButton" type="CenterContainer" parent="HSplitContainer/Content"]
-visible = false
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryMenuButton"]
-layout_mode = 2
-
-[node name="MenuButton" type="MenuButton" parent="HSplitContainer/Content/CategoryMenuButton/VBoxContainer"]
-layout_mode = 2
-text = "MenuButton"
-item_count = 5
-popup/item_0/text = "Item 1"
-popup/item_0/id = 0
-popup/item_1/text = "Item 2"
-popup/item_1/id = 1
-popup/item_2/text = "Separator"
-popup/item_2/id = 2
-popup/item_2/separator = true
-popup/item_3/text = "Item 3"
-popup/item_3/checkable = 1
-popup/item_3/id = 3
-popup/item_4/text = "Item"
-popup/item_4/id = 4
-popup/item_4/disabled = true
-
 [node name="CategoryOptionButton" type="CenterContainer" parent="HSplitContainer/Content"]
 visible = false
 layout_mode = 0
@@ -447,6 +416,7 @@ mouse_filter = 2
 layout_mode = 2
 
 [node name="OptionButton" type="OptionButton" parent="HSplitContainer/Content/CategoryOptionButton/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_type_variation = &"SecondaryButton"
 alignment = 1
@@ -507,7 +477,7 @@ mouse_filter = 2
 layout_mode = 2
 
 [node name="ProgressBar" type="ProgressBar" parent="HSplitContainer/Content/CategoryProgressBar/VBoxContainer"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
 value = 50.0
 
