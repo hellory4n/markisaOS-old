@@ -1,157 +1,26 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=6 format=3 uid="uid://b7yflipnl5is5"]
 
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
-[ext_resource path="res://Apps/Settings/Assets/IconDock.png" type="Texture2D" id=2]
-[ext_resource path="res://OS/Scripts/WindowManager/Close.cs" type="Script" id=3]
-[ext_resource path="res://Apps/Settings/Scripts/System/FactoryReset.cs" type="Script" id=4]
-[ext_resource path="res://OS/Scripts/WindowManager/Lelwindow.cs" type="Script" id=5]
-
-[sub_resource type="Animation" id=2]
-resource_name = "Close"
-length = 0.2
-step = 0.01
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 0.37, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 0.37, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PackedFloat32Array( 0.2 ),
-"transitions": PackedFloat32Array( 1 ),
-"values": [ {
-"args": [  ],
-"method": "queue_free"
-} ]
-}
-
-[sub_resource type="Animation" id=3]
-resource_name = "Minimize"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 0.37, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 1, 1 ),
-"update": 1,
-"values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
-}
-
-[sub_resource type="Animation" id=1]
-resource_name = "Open"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = false
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 1, 0.37 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 1, 0.37 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=4]
-resource_name = "Restore"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 1, 0.37 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" id="1"]
+[ext_resource type="Texture2D" uid="uid://8h88ewrw2v33" path="res://Apps/Settings/Assets/IconDock.png" id="2"]
+[ext_resource type="Script" path="res://OS/Scripts/WindowManager/Close.cs" id="3"]
+[ext_resource type="Script" path="res://Apps/Settings/Scripts/System/FactoryReset.cs" id="4"]
+[ext_resource type="Script" path="res://OS/Scripts/WindowManager/Lelwindow.cs" id="5"]
 
 [node name="FactoryResetConfirm" type="Window"]
 process_priority = 1
-offset_right = -590.0
-offset_bottom = -300.0
-custom_minimum_size = Vector2( 500, 250 )
-theme = ExtResource( 1 )
-exclusive = true
-window_title = "Confirm Factory Reset"
-script = ExtResource( 5 )
-Icon = ExtResource( 2 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-method_call_mode = 1
-anims/Close = SubResource( 2 )
-anims/Minimize = SubResource( 3 )
-anims/Open = SubResource( 1 )
-anims/Restore = SubResource( 4 )
+title = "Factory Reset"
+position = Vector2i(0, 45)
+size = Vector2i(500, 250)
+unresizable = true
+min_size = Vector2i(500, 250)
+max_size = Vector2i(500, 250)
+theme = ExtResource("1")
+script = ExtResource("5")
+Icon = ExtResource("2")
 
 [node name="Cancel" type="Button" parent="."]
+custom_minimum_size = Vector2(0, 40)
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -159,12 +28,13 @@ offset_left = 6.0
 offset_top = -47.0
 offset_right = -255.0
 offset_bottom = -7.0
-custom_minimum_size = Vector2( 0, 40 )
-theme_type_variation = "SecondaryButton"
+theme_type_variation = &"SecondaryButton"
 text = "Nevermind"
-script = ExtResource( 3 )
+script = ExtResource("3")
 
 [node name="Confirm" type="Button" parent="."]
+custom_minimum_size = Vector2(0, 40)
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -172,18 +42,19 @@ offset_left = 254.0
 offset_top = -47.0
 offset_right = -7.0
 offset_bottom = -7.0
-custom_minimum_size = Vector2( 0, 40 )
-theme_type_variation = "DangerButton"
+theme_type_variation = &"DangerButton"
 text = "Delete it all!"
-script = ExtResource( 4 )
+script = ExtResource("4")
 
 [node name="Label" type="Label" parent="."]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_bottom = -47.0
 text = "Are you sure you want to delete ALL data saved in your device? All settings, apps installed, every file every user ever saved in this device will be gone forever, replaced with the state it was in when you got this device! You cannot undo this action!
 
+
 NOTE: This requires a restart."
-align = 1
-valign = 1
-autowrap = true
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

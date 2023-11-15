@@ -1,180 +1,40 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=10 format=3 uid="uid://doflhaf32mwil"]
 
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
-[ext_resource path="res://Assets/Boot/OnboardingBackground.png" type="Texture2D" id=2]
-[ext_resource path="res://Apps/Mines/Assets/IconDock.png" type="Texture2D" id=3]
-[ext_resource path="res://Apps/Mines/Scripts/MinesGameGenerator9000.cs" type="Script" id=4]
-[ext_resource path="res://OS/Scripts/WindowManager/Lelwindow.cs" type="Script" id=5]
-[ext_resource path="res://Apps/Mines/Assets/Thingy2.png" type="Texture2D" id=6]
-[ext_resource path="res://Apps/Mines/Assets/Mines.ogg" type="AudioStream" id=7]
-[ext_resource path="res://Apps/Mines/Assets/Thingy.png" type="Texture2D" id=8]
-[ext_resource path="res://Apps/Mines/Scripts/MinesShowStuffAndStuff.cs" type="Script" id=9]
-[ext_resource path="res://Apps/Mines/Scripts/MinesRestart.cs" type="Script" id=10]
-[ext_resource path="res://OS/Scripts/Lelsktop/Toolkit/MusicPlayer.cs" type="Script" id=11]
-
-[sub_resource type="Animation" id=2]
-resource_name = "Close"
-length = 0.2
-step = 0.01
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 0.37, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 0.37, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PackedFloat32Array( 0.2 ),
-"transitions": PackedFloat32Array( 1 ),
-"values": [ {
-"args": [  ],
-"method": "queue_free"
-} ]
-}
-
-[sub_resource type="Animation" id=3]
-resource_name = "Minimize"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 0.37, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 1, 1 ),
-"update": 1,
-"values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
-}
-
-[sub_resource type="Animation" id=1]
-resource_name = "Open"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = false
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 1, 0.37 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 1, 0.37 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=4]
-resource_name = "Restore"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 1, 0.37 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" id="1"]
+[ext_resource type="Texture2D" uid="uid://0yssrp58vxb1" path="res://Assets/Boot/OnboardingBackground.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://lni0mvy5boc" path="res://Apps/Mines/Assets/IconDock.png" id="3"]
+[ext_resource type="Script" path="res://Apps/Mines/Scripts/MinesGameGenerator9000.cs" id="4"]
+[ext_resource type="Script" path="res://OS/Scripts/WindowManager/Lelwindow.cs" id="5"]
+[ext_resource type="Texture2D" uid="uid://btuqt6orldxtq" path="res://Apps/Mines/Assets/Thingy2.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://dtfnvciomrjrk" path="res://Apps/Mines/Assets/Thingy.png" id="8"]
+[ext_resource type="Script" path="res://Apps/Mines/Scripts/MinesShowStuffAndStuff.cs" id="9"]
+[ext_resource type="Script" path="res://Apps/Mines/Scripts/MinesRestart.cs" id="10"]
 
 [node name="Mines" type="Window"]
 process_priority = 1
-offset_right = 450.0
-offset_bottom = 510.0
-custom_minimum_size = Vector2( 450, 510 )
-theme = ExtResource( 1 )
-exclusive = true
-window_title = "Mines"
-resizable = true
-script = ExtResource( 5 )
-Icon = ExtResource( 3 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-method_call_mode = 1
-anims/Close = SubResource( 2 )
-anims/Minimize = SubResource( 3 )
-anims/Open = SubResource( 1 )
-anims/Restore = SubResource( 4 )
+title = "Mines"
+size = Vector2i(450, 510)
+unresizable = true
+min_size = Vector2i(450, 510)
+theme = ExtResource("1")
+script = ExtResource("5")
+Icon = ExtResource("3")
 
 [node name="EpicBackground" type="TextureRect" parent="."]
-modulate = Color( 1, 1, 1, 0.388235 )
+modulate = Color(1, 1, 1, 0.388235)
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 2 )
-expand = true
-stretch_mode = 7
+texture = ExtResource("2")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="GameGenerator9000" type="Node" parent="."]
-script = ExtResource( 4 )
-
-[node name="MusicPlayer" type="Node" parent="."]
-script = ExtResource( 11 )
-Music = ExtResource( 7 )
-WindowPath = NodePath("..")
+script = ExtResource("4")
 
 [node name="Why" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(450, 510)
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -183,1373 +43,920 @@ offset_left = -225.0
 offset_top = -255.0
 offset_right = 225.0
 offset_bottom = 255.0
-custom_minimum_size = Vector2( 450, 510 )
 
 [node name="Restart" type="Button" parent="Why"]
-offset_left = 150.0
-offset_right = 300.0
-offset_bottom = 40.0
-custom_minimum_size = Vector2( 150, 0 )
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
 size_flags_horizontal = 4
-theme_type_variation = "SecondaryButton"
+theme_type_variation = &"SecondaryButton"
 text = "Restart"
-script = ExtResource( 10 )
+script = ExtResource("10")
 
 [node name="A" type="Control" parent="Why"]
-offset_top = 50.0
-offset_right = 450.0
-offset_bottom = 500.0
-custom_minimum_size = Vector2( 0, 450 )
+custom_minimum_size = Vector2(0, 450)
+layout_mode = 2
 
 [node name="Stuff" type="GridContainer" parent="Why/A"]
-theme_override_constants/v_separation = 0
+layout_mode = 0
 theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
 columns = 9
 
 [node name="1x1" type="TextureRect" parent="Why/A/Stuff"]
-offset_right = 50.0
-offset_bottom = 50.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="2x1" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 50.0
-offset_right = 100.0
-offset_bottom = 50.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="3x1" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 100.0
-offset_right = 150.0
-offset_bottom = 50.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="4x1" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 150.0
-offset_right = 200.0
-offset_bottom = 50.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="5x1" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 200.0
-offset_right = 250.0
-offset_bottom = 50.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="6x1" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 250.0
-offset_right = 300.0
-offset_bottom = 50.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="7x1" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 300.0
-offset_right = 350.0
-offset_bottom = 50.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="8x1" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 350.0
-offset_right = 400.0
-offset_bottom = 50.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="9x1" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 400.0
-offset_right = 450.0
-offset_bottom = 50.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="1x2" type="TextureRect" parent="Why/A/Stuff"]
-offset_top = 50.0
-offset_right = 50.0
-offset_bottom = 100.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="2x2" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 50.0
-offset_top = 50.0
-offset_right = 100.0
-offset_bottom = 100.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="3x2" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 100.0
-offset_top = 50.0
-offset_right = 150.0
-offset_bottom = 100.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="4x2" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 150.0
-offset_top = 50.0
-offset_right = 200.0
-offset_bottom = 100.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="5x2" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 200.0
-offset_top = 50.0
-offset_right = 250.0
-offset_bottom = 100.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="6x2" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 250.0
-offset_top = 50.0
-offset_right = 300.0
-offset_bottom = 100.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="7x2" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 300.0
-offset_top = 50.0
-offset_right = 350.0
-offset_bottom = 100.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="8x2" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 350.0
-offset_top = 50.0
-offset_right = 400.0
-offset_bottom = 100.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="9x2" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 400.0
-offset_top = 50.0
-offset_right = 450.0
-offset_bottom = 100.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="1x3" type="TextureRect" parent="Why/A/Stuff"]
-offset_top = 100.0
-offset_right = 50.0
-offset_bottom = 150.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="2x3" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 50.0
-offset_top = 100.0
-offset_right = 100.0
-offset_bottom = 150.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="3x3" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 100.0
-offset_top = 100.0
-offset_right = 150.0
-offset_bottom = 150.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="4x3" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 150.0
-offset_top = 100.0
-offset_right = 200.0
-offset_bottom = 150.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="5x3" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 200.0
-offset_top = 100.0
-offset_right = 250.0
-offset_bottom = 150.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="6x3" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 250.0
-offset_top = 100.0
-offset_right = 300.0
-offset_bottom = 150.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="7x3" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 300.0
-offset_top = 100.0
-offset_right = 350.0
-offset_bottom = 150.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="8x3" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 350.0
-offset_top = 100.0
-offset_right = 400.0
-offset_bottom = 150.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="9x3" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 400.0
-offset_top = 100.0
-offset_right = 450.0
-offset_bottom = 150.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="1x4" type="TextureRect" parent="Why/A/Stuff"]
-offset_top = 150.0
-offset_right = 50.0
-offset_bottom = 200.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="2x4" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 50.0
-offset_top = 150.0
-offset_right = 100.0
-offset_bottom = 200.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="3x4" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 100.0
-offset_top = 150.0
-offset_right = 150.0
-offset_bottom = 200.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="4x4" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 150.0
-offset_top = 150.0
-offset_right = 200.0
-offset_bottom = 200.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="5x4" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 200.0
-offset_top = 150.0
-offset_right = 250.0
-offset_bottom = 200.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="6x4" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 250.0
-offset_top = 150.0
-offset_right = 300.0
-offset_bottom = 200.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="7x4" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 300.0
-offset_top = 150.0
-offset_right = 350.0
-offset_bottom = 200.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="8x4" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 350.0
-offset_top = 150.0
-offset_right = 400.0
-offset_bottom = 200.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="9x4" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 400.0
-offset_top = 150.0
-offset_right = 450.0
-offset_bottom = 200.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="1x5" type="TextureRect" parent="Why/A/Stuff"]
-offset_top = 200.0
-offset_right = 50.0
-offset_bottom = 250.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="2x5" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 50.0
-offset_top = 200.0
-offset_right = 100.0
-offset_bottom = 250.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="3x5" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 100.0
-offset_top = 200.0
-offset_right = 150.0
-offset_bottom = 250.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="4x5" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 150.0
-offset_top = 200.0
-offset_right = 200.0
-offset_bottom = 250.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="5x5" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 200.0
-offset_top = 200.0
-offset_right = 250.0
-offset_bottom = 250.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="6x5" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 250.0
-offset_top = 200.0
-offset_right = 300.0
-offset_bottom = 250.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="7x5" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 300.0
-offset_top = 200.0
-offset_right = 350.0
-offset_bottom = 250.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="8x5" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 350.0
-offset_top = 200.0
-offset_right = 400.0
-offset_bottom = 250.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="9x5" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 400.0
-offset_top = 200.0
-offset_right = 450.0
-offset_bottom = 250.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="1x6" type="TextureRect" parent="Why/A/Stuff"]
-offset_top = 250.0
-offset_right = 50.0
-offset_bottom = 300.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="2x6" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 50.0
-offset_top = 250.0
-offset_right = 100.0
-offset_bottom = 300.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="3x6" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 100.0
-offset_top = 250.0
-offset_right = 150.0
-offset_bottom = 300.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="4x6" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 150.0
-offset_top = 250.0
-offset_right = 200.0
-offset_bottom = 300.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="5x6" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 200.0
-offset_top = 250.0
-offset_right = 250.0
-offset_bottom = 300.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="6x6" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 250.0
-offset_top = 250.0
-offset_right = 300.0
-offset_bottom = 300.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="7x6" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 300.0
-offset_top = 250.0
-offset_right = 350.0
-offset_bottom = 300.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="8x6" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 350.0
-offset_top = 250.0
-offset_right = 400.0
-offset_bottom = 300.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="9x6" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 400.0
-offset_top = 250.0
-offset_right = 450.0
-offset_bottom = 300.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="1x7" type="TextureRect" parent="Why/A/Stuff"]
-offset_top = 300.0
-offset_right = 50.0
-offset_bottom = 350.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="2x7" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 50.0
-offset_top = 300.0
-offset_right = 100.0
-offset_bottom = 350.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="3x7" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 100.0
-offset_top = 300.0
-offset_right = 150.0
-offset_bottom = 350.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="4x7" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 150.0
-offset_top = 300.0
-offset_right = 200.0
-offset_bottom = 350.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="5x7" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 200.0
-offset_top = 300.0
-offset_right = 250.0
-offset_bottom = 350.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="6x7" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 250.0
-offset_top = 300.0
-offset_right = 300.0
-offset_bottom = 350.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="7x7" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 300.0
-offset_top = 300.0
-offset_right = 350.0
-offset_bottom = 350.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="8x7" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 350.0
-offset_top = 300.0
-offset_right = 400.0
-offset_bottom = 350.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="9x7" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 400.0
-offset_top = 300.0
-offset_right = 450.0
-offset_bottom = 350.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="1x8" type="TextureRect" parent="Why/A/Stuff"]
-offset_top = 350.0
-offset_right = 50.0
-offset_bottom = 400.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="2x8" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 50.0
-offset_top = 350.0
-offset_right = 100.0
-offset_bottom = 400.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="3x8" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 100.0
-offset_top = 350.0
-offset_right = 150.0
-offset_bottom = 400.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="4x8" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 150.0
-offset_top = 350.0
-offset_right = 200.0
-offset_bottom = 400.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="5x8" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 200.0
-offset_top = 350.0
-offset_right = 250.0
-offset_bottom = 400.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="6x8" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 250.0
-offset_top = 350.0
-offset_right = 300.0
-offset_bottom = 400.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="7x8" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 300.0
-offset_top = 350.0
-offset_right = 350.0
-offset_bottom = 400.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="8x8" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 350.0
-offset_top = 350.0
-offset_right = 400.0
-offset_bottom = 400.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="9x8" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 400.0
-offset_top = 350.0
-offset_right = 450.0
-offset_bottom = 400.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="1x9" type="TextureRect" parent="Why/A/Stuff"]
-offset_top = 400.0
-offset_right = 50.0
-offset_bottom = 450.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="2x9" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 50.0
-offset_top = 400.0
-offset_right = 100.0
-offset_bottom = 450.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="3x9" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 100.0
-offset_top = 400.0
-offset_right = 150.0
-offset_bottom = 450.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="4x9" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 150.0
-offset_top = 400.0
-offset_right = 200.0
-offset_bottom = 450.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="5x9" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 200.0
-offset_top = 400.0
-offset_right = 250.0
-offset_bottom = 450.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="6x9" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 250.0
-offset_top = 400.0
-offset_right = 300.0
-offset_bottom = 450.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="7x9" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 300.0
-offset_top = 400.0
-offset_right = 350.0
-offset_bottom = 450.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="8x9" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 350.0
-offset_top = 400.0
-offset_right = 400.0
-offset_bottom = 450.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="9x9" type="TextureRect" parent="Why/A/Stuff"]
-offset_left = 400.0
-offset_top = 400.0
-offset_right = 450.0
-offset_bottom = 450.0
-custom_minimum_size = Vector2( 50, 50 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("6")
 
 [node name="ClickingStuff" type="GridContainer" parent="Why/A"]
+layout_mode = 0
 offset_right = 450.0
 offset_bottom = 450.0
-theme_override_constants/v_separation = 0
 theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
 columns = 9
 
 [node name="1x1" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_right = 50.0
-offset_bottom = 50.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="2x1" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 50.0
-offset_right = 100.0
-offset_bottom = 50.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="3x1" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 100.0
-offset_right = 150.0
-offset_bottom = 50.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="4x1" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 150.0
-offset_right = 200.0
-offset_bottom = 50.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="5x1" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 200.0
-offset_right = 250.0
-offset_bottom = 50.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="6x1" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 250.0
-offset_right = 300.0
-offset_bottom = 50.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="7x1" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 300.0
-offset_right = 350.0
-offset_bottom = 50.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="8x1" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 350.0
-offset_right = 400.0
-offset_bottom = 50.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="9x1" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 400.0
-offset_right = 450.0
-offset_bottom = 50.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="1x2" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_top = 50.0
-offset_right = 50.0
-offset_bottom = 100.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="2x2" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 50.0
-offset_top = 50.0
-offset_right = 100.0
-offset_bottom = 100.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="3x2" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 100.0
-offset_top = 50.0
-offset_right = 150.0
-offset_bottom = 100.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="4x2" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 150.0
-offset_top = 50.0
-offset_right = 200.0
-offset_bottom = 100.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="5x2" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 200.0
-offset_top = 50.0
-offset_right = 250.0
-offset_bottom = 100.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="6x2" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 250.0
-offset_top = 50.0
-offset_right = 300.0
-offset_bottom = 100.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="7x2" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 300.0
-offset_top = 50.0
-offset_right = 350.0
-offset_bottom = 100.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="8x2" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 350.0
-offset_top = 50.0
-offset_right = 400.0
-offset_bottom = 100.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="9x2" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 400.0
-offset_top = 50.0
-offset_right = 450.0
-offset_bottom = 100.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="1x3" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_top = 100.0
-offset_right = 50.0
-offset_bottom = 150.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="2x3" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 50.0
-offset_top = 100.0
-offset_right = 100.0
-offset_bottom = 150.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="3x3" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 100.0
-offset_top = 100.0
-offset_right = 150.0
-offset_bottom = 150.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="4x3" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 150.0
-offset_top = 100.0
-offset_right = 200.0
-offset_bottom = 150.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="5x3" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 200.0
-offset_top = 100.0
-offset_right = 250.0
-offset_bottom = 150.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="6x3" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 250.0
-offset_top = 100.0
-offset_right = 300.0
-offset_bottom = 150.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="7x3" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 300.0
-offset_top = 100.0
-offset_right = 350.0
-offset_bottom = 150.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="8x3" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 350.0
-offset_top = 100.0
-offset_right = 400.0
-offset_bottom = 150.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="9x3" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 400.0
-offset_top = 100.0
-offset_right = 450.0
-offset_bottom = 150.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="1x4" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_top = 150.0
-offset_right = 50.0
-offset_bottom = 200.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="2x4" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 50.0
-offset_top = 150.0
-offset_right = 100.0
-offset_bottom = 200.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="3x4" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 100.0
-offset_top = 150.0
-offset_right = 150.0
-offset_bottom = 200.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="4x4" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 150.0
-offset_top = 150.0
-offset_right = 200.0
-offset_bottom = 200.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="5x4" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 200.0
-offset_top = 150.0
-offset_right = 250.0
-offset_bottom = 200.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="6x4" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 250.0
-offset_top = 150.0
-offset_right = 300.0
-offset_bottom = 200.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="7x4" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 300.0
-offset_top = 150.0
-offset_right = 350.0
-offset_bottom = 200.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="8x4" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 350.0
-offset_top = 150.0
-offset_right = 400.0
-offset_bottom = 200.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="9x4" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 400.0
-offset_top = 150.0
-offset_right = 450.0
-offset_bottom = 200.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="1x5" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_top = 200.0
-offset_right = 50.0
-offset_bottom = 250.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="2x5" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 50.0
-offset_top = 200.0
-offset_right = 100.0
-offset_bottom = 250.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="3x5" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 100.0
-offset_top = 200.0
-offset_right = 150.0
-offset_bottom = 250.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="4x5" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 150.0
-offset_top = 200.0
-offset_right = 200.0
-offset_bottom = 250.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="5x5" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 200.0
-offset_top = 200.0
-offset_right = 250.0
-offset_bottom = 250.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="6x5" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 250.0
-offset_top = 200.0
-offset_right = 300.0
-offset_bottom = 250.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="7x5" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 300.0
-offset_top = 200.0
-offset_right = 350.0
-offset_bottom = 250.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="8x5" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 350.0
-offset_top = 200.0
-offset_right = 400.0
-offset_bottom = 250.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="9x5" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 400.0
-offset_top = 200.0
-offset_right = 450.0
-offset_bottom = 250.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="1x6" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_top = 250.0
-offset_right = 50.0
-offset_bottom = 300.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="2x6" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 50.0
-offset_top = 250.0
-offset_right = 100.0
-offset_bottom = 300.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="3x6" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 100.0
-offset_top = 250.0
-offset_right = 150.0
-offset_bottom = 300.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="4x6" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 150.0
-offset_top = 250.0
-offset_right = 200.0
-offset_bottom = 300.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="5x6" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 200.0
-offset_top = 250.0
-offset_right = 250.0
-offset_bottom = 300.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="6x6" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 250.0
-offset_top = 250.0
-offset_right = 300.0
-offset_bottom = 300.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="7x6" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 300.0
-offset_top = 250.0
-offset_right = 350.0
-offset_bottom = 300.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="8x6" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 350.0
-offset_top = 250.0
-offset_right = 400.0
-offset_bottom = 300.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="9x6" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 400.0
-offset_top = 250.0
-offset_right = 450.0
-offset_bottom = 300.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="1x7" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_top = 300.0
-offset_right = 50.0
-offset_bottom = 350.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="2x7" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 50.0
-offset_top = 300.0
-offset_right = 100.0
-offset_bottom = 350.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="3x7" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 100.0
-offset_top = 300.0
-offset_right = 150.0
-offset_bottom = 350.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="4x7" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 150.0
-offset_top = 300.0
-offset_right = 200.0
-offset_bottom = 350.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="5x7" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 200.0
-offset_top = 300.0
-offset_right = 250.0
-offset_bottom = 350.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="6x7" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 250.0
-offset_top = 300.0
-offset_right = 300.0
-offset_bottom = 350.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="7x7" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 300.0
-offset_top = 300.0
-offset_right = 350.0
-offset_bottom = 350.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="8x7" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 350.0
-offset_top = 300.0
-offset_right = 400.0
-offset_bottom = 350.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="9x7" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 400.0
-offset_top = 300.0
-offset_right = 450.0
-offset_bottom = 350.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="1x8" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_top = 350.0
-offset_right = 50.0
-offset_bottom = 400.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="2x8" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 50.0
-offset_top = 350.0
-offset_right = 100.0
-offset_bottom = 400.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="3x8" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 100.0
-offset_top = 350.0
-offset_right = 150.0
-offset_bottom = 400.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="4x8" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 150.0
-offset_top = 350.0
-offset_right = 200.0
-offset_bottom = 400.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="5x8" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 200.0
-offset_top = 350.0
-offset_right = 250.0
-offset_bottom = 400.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="6x8" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 250.0
-offset_top = 350.0
-offset_right = 300.0
-offset_bottom = 400.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="7x8" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 300.0
-offset_top = 350.0
-offset_right = 350.0
-offset_bottom = 400.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="8x8" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 350.0
-offset_top = 350.0
-offset_right = 400.0
-offset_bottom = 400.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="9x8" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 400.0
-offset_top = 350.0
-offset_right = 450.0
-offset_bottom = 400.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="1x9" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_top = 400.0
-offset_right = 50.0
-offset_bottom = 450.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="2x9" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 50.0
-offset_top = 400.0
-offset_right = 100.0
-offset_bottom = 450.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="3x9" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 100.0
-offset_top = 400.0
-offset_right = 150.0
-offset_bottom = 450.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="4x9" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 150.0
-offset_top = 400.0
-offset_right = 200.0
-offset_bottom = 450.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="5x9" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 200.0
-offset_top = 400.0
-offset_right = 250.0
-offset_bottom = 450.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="6x9" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 250.0
-offset_top = 400.0
-offset_right = 300.0
-offset_bottom = 450.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="7x9" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 300.0
-offset_top = 400.0
-offset_right = 350.0
-offset_bottom = 450.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="8x9" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 350.0
-offset_top = 400.0
-offset_right = 400.0
-offset_bottom = 450.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")
 
 [node name="9x9" type="TextureButton" parent="Why/A/ClickingStuff"]
-offset_left = 400.0
-offset_top = 400.0
-offset_right = 450.0
-offset_bottom = 450.0
-custom_minimum_size = Vector2( 50, 50 )
-texture_normal = ExtResource( 8 )
-script = ExtResource( 9 )
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("8")
+script = ExtResource("9")

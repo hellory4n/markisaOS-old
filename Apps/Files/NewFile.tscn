@@ -1,194 +1,54 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://s7gu68ojexh"]
 
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
-[ext_resource path="res://Apps/Files/Scripts/NewFile.cs" type="Script" id=2]
-[ext_resource path="res://Apps/Files/Assets/IconDock.png" type="Texture2D" id=3]
-[ext_resource path="res://OS/Scripts/Lelsktop/Overlay/TextPeek.cs" type="Script" id=4]
-
-[sub_resource type="Animation" id=2]
-resource_name = "Close"
-length = 0.2
-step = 0.01
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 0.37, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 0.37, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PackedFloat32Array( 0.2 ),
-"transitions": PackedFloat32Array( 1 ),
-"values": [ {
-"args": [  ],
-"method": "queue_free"
-} ]
-}
-
-[sub_resource type="Animation" id=3]
-resource_name = "Minimize"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 0.37, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 1, 1 ),
-"update": 1,
-"values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
-}
-
-[sub_resource type="Animation" id=1]
-resource_name = "Open"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = false
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 1, 0.37 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 1, 0.37 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=4]
-resource_name = "Restore"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 1, 0.37 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" id="1"]
+[ext_resource type="Script" path="res://Apps/Files/Scripts/NewFile.cs" id="2"]
+[ext_resource type="Texture2D" uid="uid://dwmc5o0qypr3r" path="res://Apps/Files/Assets/IconDock.png" id="3"]
+[ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Overlay/TextPeek.cs" id="4"]
 
 [node name="NewFile" type="Window"]
 process_priority = 1
-offset_right = -590.0
-offset_bottom = -300.0
-custom_minimum_size = Vector2( 500, 250 )
-theme = ExtResource( 1 )
-exclusive = true
-window_title = "New File"
-script = ExtResource( 2 )
-Icon = ExtResource( 3 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-method_call_mode = 1
-anims/Close = SubResource( 2 )
-anims/Minimize = SubResource( 3 )
-anims/Open = SubResource( 1 )
-anims/Restore = SubResource( 4 )
+title = "New File"
+position = Vector2i(0, 45)
+size = Vector2i(500, 250)
+unresizable = true
+min_size = Vector2i(500, 250)
+max_size = Vector2i(500, 250)
+theme = ExtResource("1")
+script = ExtResource("2")
+Icon = ExtResource("3")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-offset_left = 125.0
-offset_top = 33.0
-offset_right = 375.0
-offset_bottom = 216.0
+layout_mode = 2
 alignment = 1
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
-offset_right = 250.0
-offset_bottom = 33.0
-custom_minimum_size = Vector2( 250, 0 )
-theme_type_variation = "Header"
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_type_variation = &"Header"
 text = "Name:"
-align = 1
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Name" type="LineEdit" parent="CenterContainer/VBoxContainer"]
-offset_top = 43.0
-offset_right = 250.0
-offset_bottom = 83.0
-align = 1
+layout_mode = 2
 placeholder_text = "New File"
-script = ExtResource( 4 )
+alignment = 1
+script = ExtResource("4")
 
 [node name="OptionButton" type="OptionButton" parent="CenterContainer/VBoxContainer"]
-offset_top = 93.0
-offset_right = 250.0
-offset_bottom = 133.0
-theme_type_variation = "SecondaryButton"
-text = "File :)"
-align = 1
-items = [ "File :)", null, false, 0, null ]
+layout_mode = 2
+theme_type_variation = &"SecondaryButton"
+alignment = 1
+item_count = 1
 selected = 0
+popup/item_0/text = "File."
+popup/item_0/id = 0
 
 [node name="Create" type="Button" parent="CenterContainer/VBoxContainer"]
-offset_top = 143.0
-offset_right = 250.0
-offset_bottom = 183.0
+layout_mode = 2
 text = "Create File"

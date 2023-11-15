@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dgmakobncq5nx"]
+[gd_scene load_steps=32 format=3 uid="uid://dgmakobncq5nx"]
 
 [ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" id="1"]
 [ext_resource type="Texture2D" uid="uid://djomdwnorfe1e" path="res://Apps/SausageClicker/Assets/IconDock.png" id="2"]
@@ -6,8 +6,6 @@
 [ext_resource type="FontFile" uid="uid://3bdi3nljrpe3" path="res://Fonts/RedHatText-BoldItalic.ttf" id="4"]
 [ext_resource type="Script" path="res://OS/Scripts/WindowManager/Lelwindow.cs" id="5"]
 [ext_resource type="Texture2D" uid="uid://v03jb32abutx" path="res://Apps/SausageClicker/Assets/Background.png" id="6"]
-[ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Toolkit/MusicPlayer.cs" id="7"]
-[ext_resource type="AudioStream" uid="uid://bwpif21o11l8n" path="res://Apps/SausageClicker/Assets/SausageTheme.ogg" id="8"]
 [ext_resource type="Script" path="res://Apps/SausageClicker/Scripts/Sausage.cs" id="9"]
 [ext_resource type="Texture2D" uid="uid://b2vuh2y5bv8j4" path="res://Apps/SausageClicker/Assets/ButtonPressed.png" id="10"]
 [ext_resource type="Texture2D" uid="uid://4tolvy3dm2i4" path="res://Apps/SausageClicker/Assets/Button.png" id="11"]
@@ -17,141 +15,6 @@
 [ext_resource type="Script" path="res://Apps/SausageClicker/Scripts/OpenStore.cs" id="15"]
 [ext_resource type="Script" path="res://Apps/SausageClicker/Scripts/BuyFactories.cs" id="16"]
 [ext_resource type="Script" path="res://Apps/SausageClicker/Scripts/HireWellPaidChineseWorkers.cs" id="17"]
-
-[sub_resource type="Animation" id="2"]
-resource_name = "Close"
-length = 0.2
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(0.37, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(0.37, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"queue_free"
-}]
-}
-
-[sub_resource type="Animation" id="3"]
-resource_name = "Minimize"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(0.37, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [Vector2(1, 1), Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="1"]
-resource_name = "Open"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 0.37),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 0.37),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="4"]
-resource_name = "Restore"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 0.37),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_w76ua"]
-_data = {
-"Close": SubResource("2"),
-"Minimize": SubResource("3"),
-"Open": SubResource("1"),
-"Restore": SubResource("4")
-}
 
 [sub_resource type="Animation" id="12"]
 resource_name = "SausageLol"
@@ -314,17 +177,14 @@ region_rect = Rect2(0, 0, 410, 317)
 
 [node name="SausageClicker" type="Window"]
 process_priority = 1
-exclusive = true
+title = "Sausage Clicker"
+position = Vector2i(0, 45)
+size = Vector2i(400, 355)
+min_size = Vector2i(400, 355)
 theme = ExtResource("1")
 script = ExtResource("5")
 Icon = ExtResource("2")
 GpuUse = 2
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-callback_mode_method = 1
-libraries = {
-"": SubResource("AnimationLibrary_w76ua")
-}
 
 [node name="OtherAnimationPlayer" type="AnimationPlayer" parent="."]
 callback_mode_method = 1
@@ -338,11 +198,6 @@ callback_mode_method = 1
 libraries = {
 "": SubResource("AnimationLibrary_b3oq2")
 }
-
-[node name="MusicPlayer" type="Node" parent="."]
-script = ExtResource("7")
-Music = ExtResource("8")
-WindowPath = NodePath("..")
 
 [node name="VeryEpicBackgroundIndeedTeeBeeEich" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -404,6 +259,8 @@ anchor_right = 1.0
 offset_bottom = 22.0
 theme_override_fonts/font = SubResource("11")
 text = "0 sausages"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Lmao" type="Control" parent="."]
 clip_contents = true

@@ -1,172 +1,35 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://37hmu7vt4hhd"]
 
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
-[ext_resource path="res://Apps/Messages/Scripts/ConversationList.cs" type="Script" id=2]
-[ext_resource path="res://Apps/Messages/Assets/IconDock.png" type="Texture2D" id=3]
-[ext_resource path="res://OS/Scripts/WindowManager/Lelwindow.cs" type="Script" id=4]
-
-[sub_resource type="Animation" id=2]
-resource_name = "Close"
-length = 0.2
-step = 0.01
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 0.37, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 0.37, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PackedFloat32Array( 0.2 ),
-"transitions": PackedFloat32Array( 1 ),
-"values": [ {
-"args": [  ],
-"method": "queue_free"
-} ]
-}
-
-[sub_resource type="Animation" id=3]
-resource_name = "Minimize"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 0.37, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 1, 1 ),
-"update": 1,
-"values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
-}
-
-[sub_resource type="Animation" id=1]
-resource_name = "Open"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = false
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 1, 0.37 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 1, 0.37 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=4]
-resource_name = "Restore"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 1, 0.37 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" id="1"]
+[ext_resource type="Script" path="res://Apps/Messages/Scripts/ConversationList.cs" id="2"]
+[ext_resource type="Texture2D" uid="uid://q3m38rmbge15" path="res://Apps/Messages/Assets/IconDock.png" id="3"]
+[ext_resource type="Script" path="res://OS/Scripts/WindowManager/Lelwindow.cs" id="4"]
 
 [node name="Messages" type="Window"]
 process_priority = 1
-offset_right = 760.0
-offset_bottom = 300.0
-custom_minimum_size = Vector2( 760, 300 )
-theme = ExtResource( 1 )
-exclusive = true
-window_title = "Messages"
-resizable = true
-script = ExtResource( 4 )
-Icon = ExtResource( 3 )
+title = "Messages"
+size = Vector2i(600, 400)
+min_size = Vector2i(500, 300)
+theme = ExtResource("1")
+script = ExtResource("4")
+Icon = ExtResource("3")
 CpuUse = 2
 MemoryUse = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-method_call_mode = 1
-anims/Close = SubResource( 2 )
-anims/Minimize = SubResource( 3 )
-anims/Open = SubResource( 1 )
-anims/Restore = SubResource( 4 )
-
 [node name="M" type="HSplitContainer" parent="."]
+clip_contents = true
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-clip_contents = true
-mouse_filter = 1
 split_offset = 75
 
 [node name="Sidebar" type="Control" parent="M"]
-offset_right = 225.0
-offset_bottom = 300.0
-custom_minimum_size = Vector2( 150, 0 )
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
 mouse_filter = 1
 
 [node name="CoolSidebarLineThing" type="VSeparator" parent="M/Sidebar"]
+layout_mode = 0
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -176,29 +39,26 @@ offset_bottom = -1.0
 mouse_filter = 2
 
 [node name="H" type="ScrollContainer" parent="M/Sidebar"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="ConversationList" type="VBoxContainer" parent="M/Sidebar/H"]
+layout_mode = 2
 theme_override_constants/separation = 0
-script = ExtResource( 2 )
+script = ExtResource("2")
 
 [node name="Content" type="Control" parent="M"]
-offset_left = 233.0
-offset_right = 760.0
-offset_bottom = 300.0
+layout_mode = 2
 mouse_filter = 1
 
 [node name="CategoryHome" type="CenterContainer" parent="M/Content"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
 [node name="Label" type="Label" parent="M/Content/CategoryHome"]
-offset_left = 83.0
-offset_top = 133.0
-offset_right = 444.0
-offset_bottom = 166.0
-theme_type_variation = "Header"
+layout_mode = 2
+theme_type_variation = &"Header"
 text = "Welcome to the Messages app!"
-align = 1
