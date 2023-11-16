@@ -1,9 +1,9 @@
 [gd_scene load_steps=18 format=3 uid="uid://bsayv6ase0bcp"]
 
 [ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Toolkit/SetSizeToScreenResolution.cs" id="1"]
-[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" id="2"]
 [ext_resource type="Texture2D" uid="uid://0yssrp58vxb1" path="res://Assets/Boot/OnboardingBackground.png" id="3"]
 [ext_resource type="FontFile" uid="uid://b82t6vwpkpyyc" path="res://Fonts/RedHatText-Bold.ttf" id="4"]
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" id="4_h404d"]
 [ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Toolkit/OpenSceneButton.cs" id="5"]
 [ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Time.cs" id="6"]
 [ext_resource type="Script" path="res://OS/Scripts/Core/UserList.cs" id="7"]
@@ -84,7 +84,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1280.0
 offset_bottom = 720.0
-theme = ExtResource("2")
+theme = ExtResource("4_h404d")
 script = ExtResource("1")
 
 [node name="Thing" type="Window" parent="Control"]
@@ -121,6 +121,7 @@ offset_top = 10.0
 offset_right = 40.0
 offset_bottom = 22.0
 theme_type_variation = &"Header"
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
 theme_override_styles/normal = SubResource("9")
 theme_override_styles/hover = SubResource("5")
 theme_override_styles/pressed = SubResource("6")
