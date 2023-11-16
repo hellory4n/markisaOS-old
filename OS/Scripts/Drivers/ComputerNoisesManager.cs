@@ -12,10 +12,10 @@ public partial class ComputerNoisesManager : Node
     AudioStreamPlayer Fan;
     AudioStreamPlayer GpuFan;
     AudioStreamPlayer Hdd;
-    public float CpuUsage = 10;
-    public float GpuUsage = 5;
-    public float StorageUsage = 10;
-    public float MemoryUsage = 10;
+    public double CpuUsage = 0.1;
+    public double GpuUsage = 0.05;
+    public double StorageUsage = 0.1;
+    public double MemoryUsage = 0.1;
 
     public override void _Ready()
     {

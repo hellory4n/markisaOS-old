@@ -12,7 +12,6 @@ public partial class WindowSpace : Control
             Panel appMenu = GetParent().GetNode<Panel>("AppMenu");
             Panel quickSettings = GetParent().GetNode<Panel>("QuickSettings");
             Panel workspaces = GetParent().GetNode<Panel>("Workspaces");
-            AnimationPlayer animation = GetParent().GetNode<AnimationPlayer>("AnimationPlayer");
 
             if (appMenu.Position.Y > 0)
                 GetNode<Button>("/root/LelsktopInterface/Panel/Apps")._Toggled(false);

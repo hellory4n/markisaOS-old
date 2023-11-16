@@ -89,7 +89,7 @@ public partial class MinesGameGenerator9000 : Node {
         if (ShownStuff == NonExplosiveSquares) {
             GetNode<GridContainer>($"../Why/A/ClickingStuff").Visible = false;
             var notificationManager = GetNode<NotificationManager>("/root/NotificationManager");
-            notificationManager.ShowNotification("You won!");
+            notificationManager.ShowNotification("You won!", "Mines");
             ShownStuff = 894028902;
         }
     }

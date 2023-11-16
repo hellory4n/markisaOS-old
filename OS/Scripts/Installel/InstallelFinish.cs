@@ -112,7 +112,7 @@ public partial class InstallelFinish : Button
     public void Shit(string error, bool goToStep2)
     {
         var notificationManager = GetNode<NotificationManager>("/root/NotificationManager");
-        notificationManager.ShowErrorNotification(error);
+        notificationManager.ShowErrorNotification(error, "Installel");
 
         if (goToStep2)
         {

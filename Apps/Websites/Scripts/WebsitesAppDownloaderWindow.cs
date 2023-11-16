@@ -32,7 +32,7 @@ public partial class WebsitesAppDownloaderWindow : Lelwindow {
             h.Save();
 
             var notificationManager = GetNode<NotificationManager>("/root/NotificationManager");
-            notificationManager.ShowNotification($"File {NewFilename} has been downloaded.");
+            notificationManager.ShowNotification($"File {NewFilename} has been downloaded.", "Websites");
 
             m = true;
             EmitSignal(SignalName.CloseRequested);

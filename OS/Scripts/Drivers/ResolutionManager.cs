@@ -28,6 +28,6 @@ public partial class ResolutionManager : Node
         DisplaySettings displaySettings = SavingManager.LoadSettings<DisplaySettings>();
         Resolution = (Vector2I)(displaySettings.Resolution/displaySettings.ScalingFactor);
 
-        GetTree().Root.Size = (Vector2I)Resolution;
+        GetTree().Root.Size = Resolution;
     }
 }

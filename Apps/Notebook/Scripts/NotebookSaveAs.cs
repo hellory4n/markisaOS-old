@@ -18,18 +18,18 @@ public partial class NotebookSaveAs : Lelwindow {
 
         // error handling haha
         if (!LelfsManager.FileExists(path)) {
-            notificationManager.ShowErrorNotification($"Folder {path} not found!");
+            notificationManager.ShowErrorNotification($"Folder {path} not found!", "Notebook");
             return;
         }
 
         LelfsFile h = LelfsManager.Load<LelfsFile>(path);
         if (h.Type != "Folder") {
-            notificationManager.ShowErrorNotification($"{path} is not a folder!");
+            notificationManager.ShowErrorNotification($"{path} is not a folder!", "Notebook");
             return;
         }
 
         if (LelfsManager.FileExists(LelfsManager.NewPath(path, name))) {
-            notificationManager.ShowErrorNotification($"File in {LelfsManager.NewPath(path, name)} already exists!");
+            notificationManager.ShowErrorNotification($"File in {LelfsManager.NewPath(path, name)} already exists!", "Notebook");
             return;
         }
 

@@ -17,7 +17,7 @@ public partial class NotebookOpen : Lelwindow {
 
         // error handling haha
         if (!LelfsManager.IdExists(id)) {
-            notificationManager.ShowErrorNotification("File not found!");
+            notificationManager.ShowErrorNotification("File not found!", "Notebook");
             return;
         }
 

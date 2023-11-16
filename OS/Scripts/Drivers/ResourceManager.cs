@@ -13,9 +13,7 @@ public partial class ResourceManager : Node
     public static Texture2D LoadImage(string path)
     {
         if (path.StartsWith("res://"))
-        {
             return GD.Load<CompressedTexture2D>(path);
-        }
         else
         {
             Image image = new();
@@ -32,25 +30,22 @@ public partial class ResourceManager : Node
     /// <returns>The audio loaded.</returns>
     public static AudioStream LoadAudio(string path)
     {
-        /*if (path.StartsWith("res://"))
-        {
+        if (path.StartsWith("res://"))
             return GD.Load<AudioStream>(path);
-        }
         else
         {
             if (path.EndsWith(".ogg"))
             {
-                var ohGeeGee = new AudioStreamOggVorbis();
-                FileAccess file = FileAccess.Open(path, FileAccess.ModeFlags.Read);
-                ohGeeGee. = file.GetBuffer((long)file.GetLength());
-                file2.Close();
+                using FileAccess file = FileAccess.Open(path, FileAccess.ModeFlags.Read);
+                var ohGeeGee = AudioStreamOggVorbis.LoadFromBuffer(file.GetBuffer((long)file.GetLength()));
                 return ohGeeGee;
-            } else {
+            }
+            else
+            {
                 GD.PushError("Invalid file!");
                 return default;
             }
-        }*/
-        return GD.Load<AudioStream>(path);
+        }
     }
 
     /// <summary>

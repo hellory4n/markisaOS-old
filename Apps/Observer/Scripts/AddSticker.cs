@@ -38,6 +38,6 @@ public partial class AddSticker : TextureButton
         GetNode("/root/Lelsktop/Pinboard").AddChild(sticker);
 
         var notifications = GetNode<NotificationManager>("/root/NotificationManager");
-        notifications.ShowNotification("A sticker has been added to your pinboard.");
+        notifications.ShowNotification("A sticker has been added to your pinboard.", "Lelsktop");
     }
 }
