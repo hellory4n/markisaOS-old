@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bkswut7w05woa"]
 
-[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" id="1_huyxx"]
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/Leltheme-Dark-Purple/Theme.tres" id="1_huyxx"]
 [ext_resource type="Texture2D" uid="uid://wlamqh1fgh4r" path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/App.png" id="3_8r8kd"]
 [ext_resource type="Script" path="res://OS/Scripts/WindowManager/Lelwindow.cs" id="5"]
 [ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Toolkit/SidebarButton.cs" id="5_5r0g5"]

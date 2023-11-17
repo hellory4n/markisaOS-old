@@ -62,113 +62,60 @@ public partial class WindowManager : Node2D
         if (workspace < 1 || workspace > 4)
             return;
         
-        // neither making viewports invisible or changing their size worked, so i decided to multiply/divide
-        // by 10 the position of every window lol
+        // neither making viewports invisible or changing their size to Vector2I.Zero worked
         switch (workspace)
         {
             // i know
             case 1:    
-                foreach (Lelwindow window in GetNode("/root/Lelsktop/1/Windows/ThemeThing").GetChildren()
-                .Cast<Lelwindow>())
+                foreach (Lelwindow window in GetNode("/root/Lelsktop/1/Windows/ThemeThing").GetChildren())
                 {
                     if (!window.IsMinimized)
                         window.Visible = true;
                 }
-                foreach (Lelwindow window in GetNode("/root/Lelsktop/2/Windows/ThemeThing").GetChildren()
-                .Cast<Lelwindow>())
-                {
-                    if (!window.IsMinimized)
-                        window.Visible = false;
-                }
-                foreach (Lelwindow window in GetNode("/root/Lelsktop/3/Windows/ThemeThing").GetChildren()
-                .Cast<Lelwindow>())
-                {
-                    if (!window.IsMinimized)
-                        window.Visible = false;
-                }
-                foreach (Lelwindow window in GetNode("/root/Lelsktop/4/Windows/ThemeThing").GetChildren()
-                .Cast<Lelwindow>())
-                {
-                    if (!window.IsMinimized)
-                        window.Visible = false;
-                }
+                foreach (Lelwindow window in GetNode("/root/Lelsktop/2/Windows/ThemeThing").GetChildren())
+                    window.Visible = false;
+                foreach (Lelwindow window in GetNode("/root/Lelsktop/3/Windows/ThemeThing").GetChildren())
+                    window.Visible = false;
+                foreach (Lelwindow window in GetNode("/root/Lelsktop/4/Windows/ThemeThing").GetChildren())
+                    window.Visible = false;
                 break;
 
             case 2:
-                foreach (Lelwindow window in GetNode("/root/Lelsktop/1/Windows/ThemeThing").GetChildren()
-                .Cast<Lelwindow>())
-                {
-                    if (!window.IsMinimized)
-                        window.Visible = false;
-                }
-                foreach (Lelwindow window in GetNode("/root/Lelsktop/2/Windows/ThemeThing").GetChildren()
-                .Cast<Lelwindow>())
+                foreach (Lelwindow window in GetNode("/root/Lelsktop/1/Windows/ThemeThing").GetChildren())
+                    window.Visible = false;
+                foreach (Lelwindow window in GetNode("/root/Lelsktop/2/Windows/ThemeThing").GetChildren())
                 {
                     if (!window.IsMinimized)
                         window.Visible = true;
                 }
-                foreach (Lelwindow window in GetNode("/root/Lelsktop/3/Windows/ThemeThing").GetChildren()
-                .Cast<Lelwindow>())
-                {
-                    if (!window.IsMinimized)
-                        window.Visible = false;
-                }
-                foreach (Lelwindow window in GetNode("/root/Lelsktop/4/Windows/ThemeThing").GetChildren()
-                .Cast<Lelwindow>())
-                {
-                    if (!window.IsMinimized)
-                        window.Visible = false;
-                }
+                foreach (Lelwindow window in GetNode("/root/Lelsktop/3/Windows/ThemeThing").GetChildren())
+                    window.Visible = false;
+                foreach (Lelwindow window in GetNode("/root/Lelsktop/4/Windows/ThemeThing").GetChildren())
+                    window.Visible = false;
                 break;
             
             case 3:
-                foreach (Lelwindow window in GetNode("/root/Lelsktop/1/Windows/ThemeThing").GetChildren()
-                .Cast<Lelwindow>())
-                {
-                    if (!window.IsMinimized)
-                        window.Visible = false;
-                }
-                foreach (Lelwindow window in GetNode("/root/Lelsktop/2/Windows/ThemeThing").GetChildren()
-                .Cast<Lelwindow>())
-                {
-                    if (!window.IsMinimized)
-                        window.Visible = false;
-                }
-                foreach (Lelwindow window in GetNode("/root/Lelsktop/3/Windows/ThemeThing").GetChildren()
-                .Cast<Lelwindow>())
+                foreach (Lelwindow window in GetNode("/root/Lelsktop/1/Windows/ThemeThing").GetChildren())
+                    window.Visible = false;
+                foreach (Lelwindow window in GetNode("/root/Lelsktop/2/Windows/ThemeThing").GetChildren())
+                    window.Visible = false;
+                foreach (Lelwindow window in GetNode("/root/Lelsktop/3/Windows/ThemeThing").GetChildren())
                 {
                     if (!window.IsMinimized)
                         window.Visible = true;
                 }
-                foreach (Lelwindow window in GetNode("/root/Lelsktop/4/Windows/ThemeThing").GetChildren()
-                .Cast<Lelwindow>())
-                {
-                    if (!window.IsMinimized)
-                        window.Visible = false;
-                }
+                foreach (Lelwindow window in GetNode("/root/Lelsktop/4/Windows/ThemeThing").GetChildren())
+                    window.Visible = false;
                 break;
             
             case 4:
-                foreach (Lelwindow window in GetNode("/root/Lelsktop/1/Windows/ThemeThing").GetChildren()
-                .Cast<Lelwindow>())
-                {
-                    if (!window.IsMinimized)
-                        window.Visible = false;
-                }
-                foreach (Lelwindow window in GetNode("/root/Lelsktop/2/Windows/ThemeThing").GetChildren()
-                .Cast<Lelwindow>())
-                {
-                    if (!window.IsMinimized)
-                        window.Visible = false;
-                }
-                foreach (Lelwindow window in GetNode("/root/Lelsktop/3/Windows/ThemeThing").GetChildren()
-                .Cast<Lelwindow>())
-                {
-                    if (!window.IsMinimized)
-                        window.Visible = false;
-                }
-                foreach (Lelwindow window in GetNode("/root/Lelsktop/4/Windows/ThemeThing").GetChildren()
-                .Cast<Lelwindow>())
+                foreach (Lelwindow window in GetNode("/root/Lelsktop/1/Windows/ThemeThing").GetChildren())
+                    window.Visible = false;
+                foreach (Lelwindow window in GetNode("/root/Lelsktop/2/Windows/ThemeThing").GetChildren())
+                    window.Visible = false;
+                foreach (Lelwindow window in GetNode("/root/Lelsktop/3/Windows/ThemeThing").GetChildren())
+                    window.Visible = false;
+                foreach (Lelwindow window in GetNode("/root/Lelsktop/4/Windows/ThemeThing").GetChildren())
                 {
                     if (!window.IsMinimized)
                         window.Visible = true;

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Toolkit/OpenWindow.cs" id="1"]
 [ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Time.cs" id="2"]
-[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" id="3"]
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/Leltheme-Dark-Purple/Theme.tres" id="3"]
 [ext_resource type="Script" path="res://OS/Scripts/Lelsktop/QuickSettings/SoundSlider.cs" id="4"]
 [ext_resource type="Texture2D" uid="uid://bb4o818jmbkga" path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Settings.png" id="5"]
 [ext_resource type="Script" path="res://OS/Scripts/Lelsktop/AppMenu/ListApps.cs" id="6"]
