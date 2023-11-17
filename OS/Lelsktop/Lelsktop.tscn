@@ -27,10 +27,14 @@ _data = {
 "Startup": SubResource("2")
 }
 
-[node name="Lelsktop" type="Node2D"]
+[node name="Lelsktop" type="Node2D" node_paths=PackedStringArray("Workspace1", "Workspace2", "Workspace3", "Workspace4")]
 modulate = Color(1, 1, 1, 0.91596)
 z_index = -2
 script = ExtResource("2")
+Workspace1 = NodePath("1/Windows")
+Workspace2 = NodePath("2/Windows")
+Workspace3 = NodePath("3/Windows")
+Workspace4 = NodePath("4/Windows")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -122,7 +126,7 @@ offset_bottom = 40.0
 [node name="Windows" type="SubViewport" parent="1"]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(1366, 766)
+size = Vector2i(1280, 720)
 render_target_update_mode = 4
 
 [node name="ThemeThing" type="Control" parent="1/Windows"]
@@ -139,7 +143,7 @@ offset_bottom = 40.0
 [node name="Windows" type="SubViewport" parent="2"]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(1366, 766)
+size = Vector2i(1280, 720)
 render_target_update_mode = 0
 
 [node name="ThemeThing" type="Control" parent="2/Windows"]
@@ -156,7 +160,7 @@ offset_bottom = 40.0
 [node name="Windows" type="SubViewport" parent="3"]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(1366, 766)
+size = Vector2i(1280, 720)
 render_target_update_mode = 0
 
 [node name="ThemeThing" type="Control" parent="3/Windows"]
@@ -173,7 +177,7 @@ offset_bottom = 40.0
 [node name="Windows" type="SubViewport" parent="4"]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(1366, 766)
+size = Vector2i(1280, 720)
 render_target_update_mode = 0
 
 [node name="ThemeThing" type="Control" parent="4/Windows"]

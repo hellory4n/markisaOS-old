@@ -14,19 +14,27 @@ public partial class Lelsktop : Node2D
 	/// If true, the user is currently using either the dock, panel, app menu, quick settings, or the workspace switcher.
 	/// </summary>
 	public static bool InteractingWithLelsktopInterface = false;
+	[Export]
+	SubViewport Workspace1;
+	[Export]
+	SubViewport Workspace2;
+	[Export]
+	SubViewport Workspace3;
+	[Export]
+	SubViewport Workspace4;
 
 	public override void _Ready()
 	{
 		base._Ready();
 
-		Vector2 bruh = ResolutionManager.Resolution;
+		Vector2I bruh = ResolutionManager.Resolution;
 
-		GetNode<SubViewport>("1/Windows").Size = (Vector2I)bruh;
-		GetNode<SubViewport>("2/Windows").Size = (Vector2I)bruh;
-		GetNode<SubViewport>("3/Windows").Size = (Vector2I)bruh;
-		GetNode<SubViewport>("4/Windows").Size = (Vector2I)bruh;
+		Workspace1.Size = bruh;
+		Workspace2.Size = bruh;
+		Workspace3.Size = bruh;
+		Workspace4.Size = bruh;
 
-		WindowManager.CurrentWorkspace = GetNode<SubViewport>("1/Windows");
+		WindowManager.CurrentWorkspace = Workspace1;
 
 		SavingManager.ConvertOldUser(SavingManager.CurrentUser);
 		UserLelsktop suffer = SavingManager.Load<UserLelsktop>(SavingManager.CurrentUser);
@@ -123,10 +131,10 @@ public partial class Lelsktop : Node2D
 
 		// load theme
 		Theme theme = GD.Load<Theme>($"res://Assets/Themes/{suffer.Theme}/Theme.tres");
-		GetNode<Control>("1/Windows/ThemeThing").Theme = theme;
-		GetNode<Control>("2/Windows/ThemeThing").Theme = theme;
-		GetNode<Control>("3/Windows/ThemeThing").Theme = theme;
-		GetNode<Control>("4/Windows/ThemeThing").Theme = theme;
+		Workspace1.GetNode<Control>("ThemeThing").Theme = theme;
+		Workspace2.GetNode<Control>("ThemeThing").Theme = theme;
+		Workspace3.GetNode<Control>("ThemeThing").Theme = theme;
+		Workspace4.GetNode<Control>("ThemeThing").Theme = theme;
 		lelsktopInterface.GetNode<Panel>("Dock").Theme = theme;
 		lelsktopInterface.GetNode<Panel>("QuickSettings").Theme = theme;
 		lelsktopInterface.GetNode<Panel>("AppMenu").Theme = theme;

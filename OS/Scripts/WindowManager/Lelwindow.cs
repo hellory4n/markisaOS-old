@@ -38,11 +38,22 @@ public partial class Lelwindow : Window
 	/// The button in dock corresponding to this window.
 	/// </summary>
 	public OpenWindowButton DockButton;
+	/// <summary>
+	/// If true, the window is minimized.
+	/// </summary>
+	public bool IsMinimized 
+	{
+		get {return IsMinimized;}
+		set {Visible = !value;}
+	}
 
 	public override void _Ready()
 	{
 		base._Ready();
 		ScreenSize = ResolutionManager.Resolution;
+
+		// make it inherit the theme from the viewport
+		Theme = null;
 
 		// a window snapping just because your mouse was on the dock is quite inconvenient
 		Timer jgjk = new()

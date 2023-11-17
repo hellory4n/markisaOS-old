@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bkswut7w05woa"]
 
-[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/Leltheme-Dark-Purple/Theme.tres" id="1_huyxx"]
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" id="1_huyxx"]
 [ext_resource type="Texture2D" uid="uid://wlamqh1fgh4r" path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/App.png" id="3_8r8kd"]
 [ext_resource type="Script" path="res://OS/Scripts/WindowManager/Lelwindow.cs" id="5"]
 [ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Toolkit/SidebarButton.cs" id="5_5r0g5"]
@@ -17,7 +17,7 @@ font_size = 24
 process_priority = 1
 title = "Window"
 position = Vector2i(0, 46)
-size = Vector2i(500, 355)
+size = Vector2i(500, 350)
 min_size = Vector2i(500, 350)
 theme = ExtResource("1_huyxx")
 script = ExtResource("5")
