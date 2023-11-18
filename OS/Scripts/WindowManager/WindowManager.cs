@@ -68,10 +68,7 @@ public partial class WindowManager : Node2D
             // i know
             case 1:    
                 foreach (Lelwindow window in GetNode("/root/Lelsktop/1/Windows/ThemeThing").GetChildren())
-                {
-                    if (!window.IsMinimized)
-                        window.Visible = true;
-                }
+                    window.Visible = true;
                 foreach (Lelwindow window in GetNode("/root/Lelsktop/2/Windows/ThemeThing").GetChildren())
                     window.Visible = false;
                 foreach (Lelwindow window in GetNode("/root/Lelsktop/3/Windows/ThemeThing").GetChildren())
@@ -84,10 +81,7 @@ public partial class WindowManager : Node2D
                 foreach (Lelwindow window in GetNode("/root/Lelsktop/1/Windows/ThemeThing").GetChildren())
                     window.Visible = false;
                 foreach (Lelwindow window in GetNode("/root/Lelsktop/2/Windows/ThemeThing").GetChildren())
-                {
-                    if (!window.IsMinimized)
-                        window.Visible = true;
-                }
+                    window.Visible = true;
                 foreach (Lelwindow window in GetNode("/root/Lelsktop/3/Windows/ThemeThing").GetChildren())
                     window.Visible = false;
                 foreach (Lelwindow window in GetNode("/root/Lelsktop/4/Windows/ThemeThing").GetChildren())
@@ -100,10 +94,7 @@ public partial class WindowManager : Node2D
                 foreach (Lelwindow window in GetNode("/root/Lelsktop/2/Windows/ThemeThing").GetChildren())
                     window.Visible = false;
                 foreach (Lelwindow window in GetNode("/root/Lelsktop/3/Windows/ThemeThing").GetChildren())
-                {
-                    if (!window.IsMinimized)
-                        window.Visible = true;
-                }
+                    window.Visible = true;
                 foreach (Lelwindow window in GetNode("/root/Lelsktop/4/Windows/ThemeThing").GetChildren())
                     window.Visible = false;
                 break;
@@ -116,10 +107,7 @@ public partial class WindowManager : Node2D
                 foreach (Lelwindow window in GetNode("/root/Lelsktop/3/Windows/ThemeThing").GetChildren())
                     window.Visible = false;
                 foreach (Lelwindow window in GetNode("/root/Lelsktop/4/Windows/ThemeThing").GetChildren())
-                {
-                    if (!window.IsMinimized)
-                        window.Visible = true;
-                }
+                    window.Visible = true;
                 break;
         }
     }

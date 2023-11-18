@@ -39,13 +39,10 @@ public partial class Lelwindow : Window
 	/// </summary>
 	public OpenWindowButton DockButton;
 	/// <summary>
-	/// If true, the window is minimized.
+	/// This is used by the dock, don't touch it.
 	/// </summary>
-	public bool IsMinimized 
-	{
-		get {return IsMinimized;}
-		set {Visible = !value;}
-	}
+	public Vector2I PositionBeforeMinimizing;
+	readonly Vector2I MinimizedPlace = new(69420, 69420);
 
 	public override void _Ready()
 	{
@@ -148,5 +145,29 @@ public partial class Lelwindow : Window
 		Vector2I newSize = new((ScreenSize.X-75)/2, ScreenSize.Y-85);
 		Position = new Vector2I((ScreenSize.X-75)/2, 85);
 		Size = newSize;
+	}
+
+	/// <summary>
+	/// If true, the window will get minimized. If false, it will get restored.
+	/// </summary>
+	/// <param name="value">Value.</param>
+	public void Minimize(bool value)
+	{
+		if (value)
+		{
+			PositionBeforeMinimizing = Position;
+			Position = MinimizedPlace;
+		}
+		else
+			Position = PositionBeforeMinimizing;
+	}
+
+	/// <summary>
+	/// If true, the window is currently minimized.
+	/// </summary>
+	/// <returns>Whether or not the window is currently minimized.</returns>
+	public bool IsMinimized()
+	{
+		return Position == MinimizedPlace;
 	}
 }

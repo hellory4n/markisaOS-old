@@ -28,14 +28,14 @@ public partial class OpenWindowButton : Button
 
         // minimize the window if it's active :)
         // we wouldn't minimize a window in another workspace tho
-        if (Window.HasFocus() && !Window.IsMinimized /*&& WindowManager.CurrentWorkspace ==
+        if (Window.HasFocus() && !Window.IsMinimized() /*&& WindowManager.CurrentWorkspace ==
         Window.GetViewport()*/)
-            Window.IsMinimized = true;
+            Window.Minimize(true);
         // already minimized
         // we wouldn't restore a window in another workspace tho
-        else if (Window.IsMinimized /*&& WindowManager.CurrentWorkspace == Window.GetViewport()*/)
+        else if (Window.IsMinimized() /*&& WindowManager.CurrentWorkspace == Window.GetViewport()*/)
         {
-            Window.IsMinimized = false;
+            Window.Minimize(false);
             Window.MoveToForeground();
         }
         else
