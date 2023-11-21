@@ -11,6 +11,5 @@ public partial class QuickSettingsShutdown : Button
         Node jjkn = m.Instantiate();
         GetTree().Root.AddChild(jjkn);
         GetNode("/root/Lelsktop").QueueFree();
-        GetNode("/root/LelsktopInterface").QueueFree();
     }
 }
