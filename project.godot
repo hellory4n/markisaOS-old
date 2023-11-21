@@ -32,6 +32,7 @@ WindowManager="*res://OS/Scripts/WindowManager/WindowManager.cs"
 ResourceManager="*res://OS/Scripts/Drivers/ResourceManager.cs"
 NotificationManager="*res://OS/Scripts/Lelsktop/Overlay/NotificationManager.cs"
 ComputerNoisesManager="*res://OS/Scripts/Drivers/ComputerNoisesManager.cs"
+SoundManager="*res://addons/sound_manager/sound_manager.gd"
 
 [display]
 
@@ -53,7 +54,7 @@ script_templates_search_path="res://ScriptTemplates"
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/sound_manager/plugin.cfg")
 
 [gui]
 
