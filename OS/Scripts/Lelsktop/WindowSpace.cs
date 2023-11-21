@@ -11,16 +11,18 @@ public partial class WindowSpace : Control
         {
             Panel appMenu = GetParent().GetNode<Panel>("AppMenu");
             Panel quickSettings = GetParent().GetNode<Panel>("QuickSettings");
-            Panel workspaces = GetParent().GetNode<Panel>("Workspaces");
 
             if (appMenu.Position.Y > 0)
-                GetNode<Button>("/root/LelsktopInterface/Panel/Apps")._Toggled(false);
+            {
+                GetNode<Button>("/root/Lelsktop/Inter/Face/Panel/Apps").SetPressedNoSignal(false);
+                GetNode<Button>("/root/Lelsktop/Inter/Face/Panel/Apps")._Toggled(false);
+            }
             
             if (quickSettings.Position.Y > 0)
-                GetNode<Button>("/root/LelsktopInterface/Panel/Settings")._Toggled(false);
-
-            if (workspaces.Modulate != new Color(1, 1, 1, 0))
-                GetNode<Button>("/root/LelsktopInterface/Dock/DockStuff/QuickLaunch/Workspaces")._Toggled(false);
+            {
+                GetNode<Button>("/root/Lelsktop/Inter/Face/Panel/Settings").SetPressedNoSignal(false);
+                GetNode<Button>("/root/Lelsktop/Inter/Face/Panel/Settings")._Toggled(false);
+            }
         }
         base._GuiInput(@event);
     }

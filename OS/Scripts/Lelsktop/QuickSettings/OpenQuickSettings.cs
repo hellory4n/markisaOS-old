@@ -5,13 +5,15 @@ namespace Lelsktop.Interface;
 
 public partial class OpenQuickSettings : Button
 {
+    [Export]
+    AnimationPlayer Animation;
+
     public override void _Toggled(bool toggledOn)
     {
         base._Toggled(toggledOn);
-        AnimationPlayer animation = GetNode<AnimationPlayer>("/root/LelsktopInterface/AnimationPlayer");
-        if (toggledOn)
-            animation.Play("CloseQuickSettings");
+        if (!toggledOn)
+            Animation.Play("CloseQuickSettings");
         else
-            animation.Play("OpenQuickSettings");
+            Animation.Play("OpenQuickSettings");
     }
 }

@@ -1,19 +1,15 @@
 using Godot;
 using Lelcore.Drivers;
 using Lelsktop.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Lelsktop.Wm;
 
 /// <summary>
 /// Responsible for managing all windows in the lelsktop.
 /// </summary>
-public partial class WindowManager : Node2D
+public partial class WindowManager : Node
 {
     PackedScene OpenWindow;
-    public static SubViewport CurrentWorkspace;
     /// <summary>
     /// The size of a maximized window.
     /// </summary>
@@ -32,7 +28,7 @@ public partial class WindowManager : Node2D
     /// <param name="window">The window to open.</param>
     public void AddWindow(Lelwindow window)
     {
-        Control lelsktop = CurrentWorkspace.GetNode<Control>("ThemeThing");
+        Control lelsktop = GetNode<Lelsktop>("/root/Lelsktop").Windows.GetNode<Control>("ThemeThing");
         lelsktop.AddChild(window);
 
         // put it on the center of the screen
@@ -48,7 +44,7 @@ public partial class WindowManager : Node2D
         // add it to the dock
         OpenWindowButton coolDockButton = (OpenWindowButton)OpenWindow.Instantiate();
         coolDockButton.Init(window);
-        VBoxContainer dock = GetNode<VBoxContainer>("/root/LelsktopInterface/Dock/DockStuff/Running");
+        Node dock = GetNode<Lelsktop>("/root/Lelsktop").Interface.GetNode("Dock/DockStuff/Running");
         dock.AddChild(coolDockButton);
         window.DockButton = coolDockButton;
     }

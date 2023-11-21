@@ -8,33 +8,38 @@ using Lelsktop.Pinboard;
 
 namespace Lelsktop;
 
-public partial class Lelsktop : Node2D
+public partial class Lelsktop : Control
 {
 	/// <summary>
 	/// If true, the user is currently using either the dock, panel, app menu, quick settings, or the workspace switcher.
 	/// </summary>
 	public static bool InteractingWithLelsktopInterface = false;
 	[Export]
-	SubViewport Workspace1;
+	public SubViewport Windows;
 	[Export]
-	SubViewport Workspace2;
+	public SubViewport Interface;
 	[Export]
-	SubViewport Workspace3;
+	Panel Dock;
 	[Export]
-	SubViewport Workspace4;
+	Panel Panel;
+	[Export]
+	Panel QuickSettings;
+	[Export]
+	Panel AppMenu;
+	[Export]
+	AnimationPlayer Animator;
+	[Export]
+	SubViewport Pinboard;
+	[Export]
+	PackedScene Sticker;
+	[Export]
+	PackedScene StickyNote;
 
 	public override void _Ready()
 	{
 		base._Ready();
 
 		Vector2I bruh = ResolutionManager.Resolution;
-
-		Workspace1.Size = bruh;
-		Workspace2.Size = bruh;
-		Workspace3.Size = bruh;
-		Workspace4.Size = bruh;
-
-		WindowManager.CurrentWorkspace = Workspace1;
 
 		SavingManager.ConvertOldUser(SavingManager.CurrentUser);
 		UserLelsktop suffer = SavingManager.Load<UserLelsktop>(SavingManager.CurrentUser);
@@ -80,65 +85,36 @@ public partial class Lelsktop : Node2D
 		/*SoundManager sounds = GetNode<SoundManager>("/root/SoundManager");
 		sounds.PlaySoundEffect(SoundManager.SoundEffects.Startup);*/
 
-		// cool dock :)
-		PackedScene m = GD.Load<PackedScene>("res://OS/Lelsktop/LelsktopInterface.tscn");
-		CanvasLayer lelsktopInterface = (CanvasLayer)m.Instantiate();
-		GetTree().Root.CallDeferred("add_child", lelsktopInterface);
-		lelsktopInterface.GetNode<Panel>("Dock").Size = new Vector2(75, bruh.Y);
+		Dock.Size = new Vector2(75, bruh.Y);
 
 		// play the animation for the dock and make sure the position on the animation is correct :)
-		Animation animationomg = lelsktopInterface.GetNode<AnimationPlayer>("AnimationPlayer").GetAnimation("Startup");
-		// this didn't work
-		// int track = animationomg.FindTrack("Painful/Panel"); 
+		// i could use a tween but last time i tried tweens it looked like shit
+		Animation animationomg = Animator.GetAnimation("Startup");
 		int keyStart = animationomg.TrackFindKey(0, 0);
 		int keyEnd = animationomg.TrackFindKey(0, 0.5f);
 		animationomg.TrackSetKeyValue(0, keyStart, new Vector2(bruh.X, 0));
 		animationomg.TrackSetKeyValue(0, keyEnd, new Vector2(bruh.X-75, 0));
 
 		// and also fix the animation for the quick settings
-		Animation animationOrSomething = lelsktopInterface.GetNode<AnimationPlayer>("AnimationPlayer").
-			GetAnimation("OpenQuickSettings");
+		Animation animationOrSomething = Animator.GetAnimation("OpenQuickSettings");
 		int keyStartOrSomething = animationOrSomething.TrackFindKey(0, 0);
 		int keyEndOrSomething = animationOrSomething.TrackFindKey(0, 0.5f);
 		animationOrSomething.TrackSetKeyValue(0, keyStartOrSomething, new Vector2(bruh.X-375, -475));
 		animationOrSomething.TrackSetKeyValue(0, keyEndOrSomething, new Vector2(bruh.X-375, 40));
 
-		Animation animationButDifferent = lelsktopInterface.GetNode<AnimationPlayer>("AnimationPlayer").
-			GetAnimation("CloseQuickSettings");
+		Animation animationButDifferent = Animator.GetAnimation("CloseQuickSettings");
 		int keyStartButDifferent = animationButDifferent.TrackFindKey(0, 0);
 		int keyEndButDifferent = animationButDifferent.TrackFindKey(0, 0.5f);
 		animationButDifferent.TrackSetKeyValue(0, keyStartButDifferent, new Vector2(bruh.X-375, 40));
 		animationButDifferent.TrackSetKeyValue(0, keyEndButDifferent, new Vector2(bruh.X-375, -475));
-		
-		lelsktopInterface.GetNode<AnimationPlayer>("AnimationPlayer").Play("Startup");
-
-		// and the workspace menu
-		Animation an = lelsktopInterface.GetNode<AnimationPlayer>("AnimationPlayer").
-			GetAnimation("OpenWorkspaces");
-		int keySta = an.TrackFindKey(0, 0);
-		int keyEn = an.TrackFindKey(0, 0.5f);
-		an.TrackSetKeyValue(0, keySta, new Vector2(bruh.X, 64));
-		an.TrackSetKeyValue(0, keyEn, new Vector2(bruh.X-225, 64));
-
-		Animation ani = lelsktopInterface.GetNode<AnimationPlayer>("AnimationPlayer").
-			GetAnimation("CloseWorkspaces");
-		int keyStar = ani.TrackFindKey(0, 0);
-		int keyEndnbnbgf = ani.TrackFindKey(0, 0.5f);
-		ani.TrackSetKeyValue(0, keyStar, new Vector2(bruh.X-225, 64));
-		ani.TrackSetKeyValue(0, keyEndnbnbgf, new Vector2(bruh.X, 64));
-		
-		lelsktopInterface.GetNode<AnimationPlayer>("AnimationPlayer").Play("Startup");
 
 		// load theme
 		Theme theme = GD.Load<Theme>($"res://Assets/Themes/{suffer.Theme}/Theme.tres");
-		Workspace1.GetNode<Control>("ThemeThing").Theme = theme;
-		Workspace2.GetNode<Control>("ThemeThing").Theme = theme;
-		Workspace3.GetNode<Control>("ThemeThing").Theme = theme;
-		Workspace4.GetNode<Control>("ThemeThing").Theme = theme;
-		lelsktopInterface.GetNode<Panel>("Dock").Theme = theme;
-		lelsktopInterface.GetNode<Panel>("QuickSettings").Theme = theme;
-		lelsktopInterface.GetNode<Panel>("AppMenu").Theme = theme;
-		lelsktopInterface.GetNode<Panel>("Panel").Theme = theme;
+		Windows.GetNode<Control>("ThemeThing").Theme = theme;
+		Dock.Theme = theme;
+		QuickSettings.Theme = theme;
+		AppMenu.Theme = theme;
+		Panel.Theme = theme;
 
 		// quick launch stuff
 		Lelapp[] apps = SavingManager.Load<QuickLaunch>(SavingManager.CurrentUser).Apps;
@@ -149,34 +125,30 @@ public partial class Lelsktop : Node2D
 			yes.Icon = GD.Load<Texture2D>(app.Icon);
 			yes.WindowScene = app.Scene;
 			yes.TooltipText = app.Name;
-			lelsktopInterface.GetNode<VBoxContainer>("Dock/DockStuff/QuickLaunch").AddChild(yes);
+			Dock.GetNode("DockStuff/QuickLaunch").AddChild(yes);
 		}
 
 		// load the pinboard stuff :)))
 		Dictionary<string, PinboardItem> items = SavingManager.Load<LelsktopPinboard>(SavingManager.CurrentUser).Items;
-		var pinboard = GetNode<Node2D>("Pinboard");
-		var ftgkvtfyu = GD.Load<PackedScene>("res://OS/Lelsktop/Sticker.tscn");
-		var bhsdffgyu = GD.Load<PackedScene>("res://OS/Lelsktop/StickyNote.tscn");
-
 		foreach (var item in items)
 		{
 			if (item.Value.IsStickyNote)
 			{
-				var bullshit = bhsdffgyu.Instantiate<StickyNote>();
+				var bullshit = StickyNote.Instantiate<StickyNote>();
 				bullshit.Position = item.Value.Position;
 				bullshit.PinboardItem = item.Key;
-				pinboard.AddChild(bullshit);
+				Pinboard.AddChild(bullshit);
 				bullshit.GetNode<TextEdit>("Text").Text = item.Value.Text;
 			}
 			else
 			{
-				var sticker = ftgkvtfyu.Instantiate<Sticker>();
+				var sticker = Sticker.Instantiate<Sticker>();
 				sticker.Position = item.Value.Position;
 				sticker.Rotation = item.Value.Rotation;
 				sticker.Scale = new Vector2(item.Value.Scale, item.Value.Scale);
 				sticker.Texture = ResourceManager.LoadImage(item.Value.TexturePath);
 				sticker.PinboardItem = item.Key;
-				pinboard.AddChild(sticker);
+				Pinboard.AddChild(sticker);
 			}
 		}
 	}

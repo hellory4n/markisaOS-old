@@ -8,31 +8,31 @@ namespace Lelsktop.Interface;
 
 public partial class ShowDesktop : Button
 {
-    List<Lelwindow> WindowAnimators = new();
+    List<Lelwindow> Windows = new();
 
     public override void _Toggled(bool toggledOn)
     {
         base._Toggled(toggledOn);
         if (toggledOn)
         {
-            WindowAnimators = new List<Lelwindow>();
+            Windows = new List<Lelwindow>();
 
             // find every window ever
-            foreach (Lelwindow window in WindowManager.CurrentWorkspace.GetNode("ThemeThing")
+            foreach (Lelwindow window in GetNode<Lelsktop>("/root/Lelsktop").Windows.GetNode("ThemeThing")
             .GetChildren().Cast<Lelwindow>())
             {
-                WindowAnimators.Add(window);
+                Windows.Add(window);
                 window.Visible = false;
             }
         }
         else
         {
-            foreach (var animator in WindowAnimators)
+            foreach (var animator in Windows)
             {
                 if (IsInstanceValid(animator))
                     animator.Visible = true;
             }
-            WindowAnimators = new List<Lelwindow>();
+            Windows = new List<Lelwindow>();
         }
     }
 

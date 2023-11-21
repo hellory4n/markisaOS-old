@@ -6,6 +6,11 @@ namespace Lelsktop.Pinboard;
 
 public partial class AddStickyNote : TextureButton
 {
+    [Export]
+    PackedScene StickyNote;
+    [Export]
+    SubViewport Pinboard;
+
     public override void _Ready()
     {
         base._Ready();
@@ -30,18 +35,17 @@ public partial class AddStickyNote : TextureButton
         SavingManager.Save(SavingManager.CurrentUser, pinboard);
 
         // add it and stuff :)
-        var ftgkvtfyu = GD.Load<PackedScene>("res://OS/Lelsktop/StickyNote.tscn");
-        var sticker = ftgkvtfyu.Instantiate<StickyNote>();
+        var sticker = StickyNote.Instantiate<StickyNote>();
         sticker.Position = stickerdbgfdf.Position;
         sticker.GetNode<TextEdit>("Text").Text = stickerdbgfdf.Text;
         sticker.PinboardItem = bullshit;
-        GetNode("/root/Lelsktop/Pinboard").AddChild(sticker);
+        Pinboard.AddChild(sticker);
     }
 
     public override void _Process(double delta)
     {
         base._Process(delta);
         // so true
-        Visible = Pinboard.EditingPinboard;
+        //Visible = Pinboard.EditingPinboard;
     }
 }
