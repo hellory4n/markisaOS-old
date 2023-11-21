@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://510jc3bhr0on"]
+[gd_scene load_steps=47 format=3 uid="uid://510jc3bhr0on"]
 
 [ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Toolkit/OpenWindow.cs" id="1"]
 [ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Time.cs" id="2"]
@@ -7,11 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://bb4o818jmbkga" path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Settings.png" id="5"]
 [ext_resource type="Script" path="res://OS/Scripts/Lelsktop/AppMenu/ListApps.cs" id="6"]
 [ext_resource type="Texture2D" uid="uid://cx7tmkljkse3g" path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Favorites.png" id="7"]
-[ext_resource type="Texture2D" uid="uid://dgfc04g0uvny2" path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Workspaces.png" id="8"]
 [ext_resource type="Texture2D" uid="uid://b12iaw3tyh50l" path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/QuickSettings.png" id="9"]
 [ext_resource type="Script" path="res://OS/Scripts/Lelsktop/AppMenu/OpenAppMenu.cs" id="10"]
 [ext_resource type="Script" path="res://OS/Scripts/Lelsktop/AppMenu/OpenCategory.cs" id="11"]
-[ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Workspaces/SwitchWorkspace.cs" id="12"]
 [ext_resource type="Script" path="res://OS/Scripts/Lelsktop/QuickSettings/QuickSettingsUserIcon.cs" id="13"]
 [ext_resource type="Texture2D" uid="uid://dptnipv4cmfjj" path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Sound.png" id="14"]
 [ext_resource type="Texture2D" uid="uid://b3l7tqdbguhhr" path="res://Assets/UserIcons/Cat.png" id="15"]
@@ -31,7 +29,6 @@
 [ext_resource type="Texture2D" uid="uid://l6x73ckpj25t" path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Office.png" id="29"]
 [ext_resource type="Texture2D" uid="uid://ylkkv0jt06ri" path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/System.png" id="30"]
 [ext_resource type="Texture2D" uid="uid://dqr4m37nrw2tq" path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Accessories.png" id="31"]
-[ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Workspaces/OpenWorkspaces.cs" id="32"]
 [ext_resource type="Texture2D" uid="uid://5fo8momyhuyq" path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Sunny.png" id="33"]
 [ext_resource type="Script" path="res://OS/Scripts/Lelsktop/SystemMonitorThingy.cs" id="34"]
 [ext_resource type="Script" path="res://OS/Scripts/Lelsktop/ShowDesktop.cs" id="35"]
@@ -99,30 +96,6 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="25"]
 resource_name = "CloseWorkspaces"
 length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Workspaces:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 0.37),
-"update": 0,
-"values": [Vector2(1055, 64), Vector2(1280, 64)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Workspaces:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 0.37),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
 
 [sub_resource type="Animation" id="21"]
 resource_name = "OpenAppMenu"
@@ -183,30 +156,6 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="26"]
 resource_name = "OpenWorkspaces"
 length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Workspaces:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(0.37, 1),
-"update": 0,
-"values": [Vector2(1280, 64), Vector2(1055, 64)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Workspaces:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(0.37, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="Animation" id="8"]
 resource_name = "Startup"
@@ -270,65 +219,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("21")
 
-[node name="Workspaces" type="Panel" parent="."]
-process_priority = -69
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(150, 200)
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 64.0
-offset_right = 150.0
-offset_bottom = -456.0
-theme = ExtResource("3")
-
-[node name="M" type="VBoxContainer" parent="Workspaces"]
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = -10.0
-offset_bottom = -10.0
-theme_override_constants/separation = 0
-alignment = 1
-
-[node name="1" type="Button" parent="Workspaces/M"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_type_variation = &"PanelButton"
-text = "Workspace 1"
-script = ExtResource("12")
-
-[node name="2" type="Button" parent="Workspaces/M"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_type_variation = &"PanelButton"
-text = "Workspace 2"
-script = ExtResource("12")
-Workspace = 2
-
-[node name="3" type="Button" parent="Workspaces/M"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_type_variation = &"PanelButton"
-text = "Workspace 3"
-script = ExtResource("12")
-Workspace = 3
-
-[node name="4" type="Button" parent="Workspaces/M"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_type_variation = &"PanelButton"
-text = "Workspace 4"
-script = ExtResource("12")
-Workspace = 4
-
 [node name="Dock" type="Panel" parent="."]
 process_priority = -69
 custom_minimum_size = Vector2(75, 0)
@@ -367,19 +257,6 @@ icon = ExtResource("7")
 icon_alignment = 1
 script = ExtResource("1")
 WindowScene = "res://Apps/QuickLaunchSetup/QuickLaunchSetup.tscn"
-
-[node name="Workspaces" type="Button" parent="Dock/DockStuff/QuickLaunch"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-tooltip_text = "Switch between workspaces"
-theme_type_variation = &"DockButton"
-theme_override_styles/normal = SubResource("24")
-toggle_mode = true
-icon = ExtResource("8")
-icon_alignment = 1
-script = ExtResource("32")
 
 [node name="Running" type="VBoxContainer" parent="Dock/DockStuff"]
 layout_mode = 2
