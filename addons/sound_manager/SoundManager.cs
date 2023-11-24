@@ -1,167 +1,204 @@
+using System.Collections.Generic;
 using Godot;
 using Godot.Collections;
 
-namespace NathanHoad
+namespace NathanHoad;
+
+public partial class SoundManager : Node
 {
-  public partial class SoundManager : Node
-  {
     private static Node instance;
     public static Node Instance
     {
-      get
-      {
-        if (instance == null)
+        get
         {
-          instance = (Node)Engine.GetSingleton("SoundManager");
+            instance ??= (Node)Engine.GetSingleton("SoundManager");
+            return instance;
         }
-        return instance;
-      }
     }
 
 
     #region Sounds
-
+                  
     public static float GetSoundVolume()
     {
-      return (float)Instance.Call("get_sound_volume");
+        return (float)Instance.Call("get_sound_volume");
     }
 
 
     public static float GetUISoundVolume()
     {
-      return (float)Instance.Call("get_ui_sound_volume");
+        return (float)Instance.Call("get_ui_sound_volume");
     }
 
 
     public static void SetSoundVolume(float volume)
     {
-      Instance.Call("set_sound_volume", volume);
+        Instance.Call("set_sound_volume", volume);
     }
 
 
     public static AudioStreamPlayer PlaySound(AudioStream resource, string overrideBus = "")
     {
-      return (AudioStreamPlayer)Instance.Call("play_sound", resource, overrideBus);
+        return (AudioStreamPlayer)Instance.Call("play_sound", resource, overrideBus);
     }
 
 
     public static AudioStreamPlayer PlaySoundWithPitch(AudioStream resource, float pitch, string overrideBus = "")
     {
-      return (AudioStreamPlayer)Instance.Call("play_sound_with_pitch", resource, pitch, overrideBus);
+        return (AudioStreamPlayer)Instance.Call("play_sound_with_pitch", resource, pitch, overrideBus);
     }
 
 
     public static AudioStreamPlayer PlayUISound(AudioStream resource, string overrideBus = "")
     {
-      return (AudioStreamPlayer)Instance.Call("play_ui_sound", resource, overrideBus);
+        return (AudioStreamPlayer)Instance.Call("play_ui_sound", resource, overrideBus);
     }
 
 
     public static AudioStreamPlayer PlayUISoundWithPitch(AudioStream resource, float pitch, string overrideBus = "")
     {
-      return (AudioStreamPlayer)Instance.Call("play_ui_sound_with_pitch", resource, pitch, overrideBus);
+        return (AudioStreamPlayer)Instance.Call("play_ui_sound_with_pitch", resource, pitch, overrideBus);
     }
 
 
     public static void SetDefaultSoundBus(string bus)
     {
-      Instance.Call("set_default_sound_bus", bus);
+        Instance.Call("set_default_sound_bus", bus);
     }
 
 
     public static void SetDefaultUISoundBus(string bus)
     {
-      Instance.Call("set_default_ui_sound_bus", bus);
+        Instance.Call("set_default_ui_sound_bus", bus);
     }
 
     #endregion
 
 
-    #region  Music
+    #region Music
 
     public static float GetMusicVolume()
     {
-      return (float)Instance.Call("get_music_volume");
+        return (float)Instance.Call("get_music_volume");
     }
 
 
     public static void SetMusicVolume(float volume)
     {
-      Instance.Call("set_music_volume", volume);
+        Instance.Call("set_music_volume", volume);
     }
 
 
     public static AudioStreamPlayer PlayMusic(AudioStream resource, float crossFadeDuration = 0.0f, string overrideBus = "")
     {
-      return (AudioStreamPlayer)Instance.Call("play_music", resource, crossFadeDuration, overrideBus);
+        return (AudioStreamPlayer)Instance.Call("play_music", resource, crossFadeDuration, overrideBus);
     }
 
 
     public static AudioStreamPlayer PlayMusicAtVolume(AudioStream resource, float volume, float crossFadeDuration = 0.0f, string overrideBus = "")
     {
-      return (AudioStreamPlayer)Instance.Call("play_music_at_volume", resource, volume, crossFadeDuration, overrideBus);
+        return (AudioStreamPlayer)Instance.Call("play_music_at_volume", resource, volume, crossFadeDuration, overrideBus);
     }
 
 
     public static Array<string> GetMusicTrackHistory()
     {
-      return (Array<string>)Instance.Call("get_music_track_history");
+        return (Array<string>)Instance.Call("get_music_track_history");
     }
 
 
     public static string GetLastPlayedMusicTrack()
     {
-      return (string)Instance.Call("get_last_played_music_track");
+        return (string)Instance.Call("get_last_played_music_track");
     }
 
 
     public static bool IsMusicPlaying(AudioStream resource = null)
     {
-      return (bool)Instance.Call("is_music_playing", resource);
+        return (bool)Instance.Call("is_music_playing", resource);
     }
 
 
     public static bool IsMusicTrackPlaying(string resource_path)
     {
-      return (bool)Instance.Call("is_music_track_playing", resource_path);
+        return (bool)Instance.Call("is_music_track_playing", resource_path);
     }
 
 
     public static Array<AudioStream> GetCurrentlyPlayingMusic()
     {
-      return (Array<AudioStream>)Instance.Call("get_currently_playing_music");
+        return (Array<AudioStream>)Instance.Call("get_currently_playing_music");
     }
 
 
     public static Array<string> GetCurrentlyPlayingTracks()
     {
-      return (Array<string>)Instance.Call("get_currently_playing_tracks");
+        return (Array<string>)Instance.Call("get_currently_playing_tracks");
     }
 
 
     public static void PauseMusic(AudioStream resource = null)
     {
-      Instance.Call("pause_music", resource);
+        Instance.Call("pause_music", resource);
     }
 
 
     public static void ResumeMusic(AudioStream resource = null)
     {
-      Instance.Call("resume_music", resource);
+        Instance.Call("resume_music", resource);
     }
 
 
     public static void StopMusic(float fadeOutDuration = 0.0f)
     {
-      Instance.Call("stop_music", fadeOutDuration);
+        Instance.Call("stop_music", fadeOutDuration);
     }
 
 
     public static void SetDefaultMusicBus(string bus)
     {
-      Instance.Call("set_default_music_bus", bus);
+        Instance.Call("set_default_music_bus", bus);
     }
 
     #endregion
-  }
+
+    #region lelcubeOS stuff
+    
+    /// <summary>
+    /// The system sounds used for lelcubeOS, the index corresponds to SoundManager.SystemSounds values. Change values to change what sounds lelcubeOS uses.
+    /// </summary>
+    public static AudioStream[] SystemSoundFiles = new AudioStream[]
+    {
+        GD.Load<AudioStream>("res://Audio/Sounds/Startup.mp3"),
+        GD.Load<AudioStream>("res://Audio/Sounds/Shutdown.mp3"),
+        GD.Load<AudioStream>("res://Audio/Sounds/Logout.mp3"),
+        GD.Load<AudioStream>("res://Audio/Sounds/Warning.mp3"),
+        GD.Load<AudioStream>("res://Audio/Sounds/Error.mp3"),
+        GD.Load<AudioStream>("res://Audio/Sounds/Notification.mp3"),
+        GD.Load<AudioStream>("res://Audio/Sounds/CriticalError.mp3"),
+        GD.Load<AudioStream>("res://Audio/Sounds/Question.mp3"),
+        GD.Load<AudioStream>("res://Audio/Sounds/Success.mp3")
+    };
+
+    /// <summary>
+    /// The system sounds used for lelcubeOS, automatically converted to SoundManager.SystemSoundFiles.
+    /// </summary>
+    public enum SystemSounds
+    {
+        Startup,
+        Shutdown,
+        Logout,
+        Warning,
+        Error,
+        Notification,
+        CriticalError,
+        Question,
+        Success
+    }
+
+    public static void PlaySystemSound(SystemSounds sound)
+    {
+        PlayUISound(SystemSoundFiles[(int)sound]);
+    }
+    #endregion
 }

@@ -29,10 +29,10 @@ SavingManager="*res://OS/Scripts/SavingManager/SavingManager.cs"
 LelfsManager="*res://OS/Scripts/Lelfs/LelfsManager.cs"
 ResolutionManager="*res://OS/Scripts/Drivers/ResolutionManager.cs"
 WindowManager="*res://OS/Scripts/WindowManager/WindowManager.cs"
+SoundManager="*res://addons/sound_manager/sound_manager.gd"
 ResourceManager="*res://OS/Scripts/Drivers/ResourceManager.cs"
 NotificationManager="*res://OS/Scripts/Lelsktop/Overlay/NotificationManager.cs"
 ComputerNoisesManager="*res://OS/Scripts/Drivers/ComputerNoisesManager.cs"
-SoundManager="*res://addons/sound_manager/sound_manager.gd"
 
 [display]
 

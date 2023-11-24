@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://bf3bghjlegit6"]
+[gd_scene load_steps=53 format=3 uid="uid://bf3bghjlegit6"]
 
 [ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Pinboard/PinboardSelectThingy.cs" id="1"]
 [ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Lelsktop.cs" id="2"]
@@ -7,9 +7,10 @@
 [ext_resource type="PackedScene" path="res://OS/Lelsktop/StickyNote.tscn" id="3_8ja8u"]
 [ext_resource type="Texture2D" uid="uid://cvihmyn8rchf" path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/AddStickyNote.png" id="4"]
 [ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Toolkit/ImageBackground.cs" id="5"]
+[ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Toolkit/SoundPlayer.cs" id="5_yi2lb"]
 [ext_resource type="Script" path="res://OS/Scripts/Lelsktop/WindowSpace.cs" id="6_8e3nv"]
 [ext_resource type="Texture2D" uid="uid://cx7tmkljkse3g" path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Favorites.png" id="8_jauys"]
-[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" id="9_f4ttp"]
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/Leltheme-Dark-Purple/Theme.tres" id="9_f4ttp"]
 [ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Toolkit/OpenWindow.cs" id="9_fflcb"]
 [ext_resource type="Texture2D" uid="uid://b3l7tqdbguhhr" path="res://Assets/UserIcons/Cat.png" id="10_ggyg4"]
 [ext_resource type="Script" path="res://OS/Scripts/Lelsktop/QuickSettings/QuickSettingsUserIcon.cs" id="11_adboo"]
@@ -43,46 +44,6 @@
 [ext_resource type="Script" path="res://OS/Scripts/Lelsktop/ShowDesktop.cs" id="39_kdn56"]
 [ext_resource type="Texture2D" uid="uid://5fo8momyhuyq" path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Sunny.png" id="40_hrv5q"]
 [ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Time.cs" id="41_q60cx"]
-
-[sub_resource type="Animation" id="Animation_7dafh"]
-resource_name = "Startup"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Inter/Face/Dock:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.37, 1),
-"update": 0,
-"values": [Vector2(0, 720), Vector2(0, 645)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Inter/Face/Panel:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.37, 1),
-"update": 0,
-"values": [Vector2(0, -40), Vector2(0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.37, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_gom4a"]
 resource_name = "CloseAppMenu"
@@ -196,6 +157,46 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_7dafh"]
+resource_name = "Startup"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Inter/Face/Dock:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.37, 1),
+"update": 0,
+"values": [Vector2(0, 720), Vector2(0, 645)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Inter/Face/Panel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.37, 1),
+"update": 0,
+"values": [Vector2(0, -40), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.37, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r2omq"]
 _data = {
 "CloseAppMenu": SubResource("Animation_gom4a"),
@@ -239,6 +240,12 @@ position = Vector2(632.5, 345)
 scale = Vector2(0.332275, 0.351562)
 script = ExtResource("5")
 OriginalSize = Vector2(4096, 2304)
+
+[node name="SoundPlayer" type="Node" parent="."]
+script = ExtResource("5_yi2lb")
+Pitch = 1.0
+Autoplay = true
+PlaySystemSound = true
 
 [node name="Pinboard" type="SubViewportContainer" parent="."]
 layout_mode = 1
@@ -353,6 +360,7 @@ mouse_filter = 2
 
 [node name="AddStickyNote" type="TextureButton" parent="." node_paths=PackedStringArray("Pinboard")]
 custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
 offset_left = 571.0
 offset_top = 65.0
 offset_right = 635.0
