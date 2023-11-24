@@ -1,0 +1,255 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Themes/HighPeaks-Blue/Theme.tres" type="Theme" id=1]
+[ext_resource path="res://OS/Scripts/WindowManager/DashboardWindow.cs" type="Script" id=2]
+
+[sub_resource type="CompressedTexture2D" id=19]
+flags = 4
+load_path = "res://.import/Dashboard.png-a2c0f627fcaddca1aedcb876f8e7a940.stex"
+
+[sub_resource type="Animation" id=20]
+resource_name = "Close"
+length = 0.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 0.37, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 0.37, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PackedFloat32Array( 0.2 ),
+"transitions": PackedFloat32Array( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Minimize"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 0.37, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "Open"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 0.37 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 0.37 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Restore"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 0.37 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[node name="Partitions" type="Window"]
+process_priority = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 95.0
+offset_right = -50.0
+offset_bottom = -50.0
+custom_minimum_size = Vector2( 400, 100 )
+theme = ExtResource( 1 )
+exclusive = true
+window_title = "Partitions"
+script = ExtResource( 2 )
+Icon = SubResource( 19 )
+CustomTheme = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+method_call_mode = 1
+anims/Close = SubResource( 20 )
+anims/Minimize = SubResource( 3 )
+anims/Open = SubResource( 1 )
+anims/Restore = SubResource( 4 )
+
+[node name="Label" type="Label" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+custom_minimum_size = Vector2( 0, 40 )
+theme_type_variation = "Header"
+text = "WARNING: MAKE SURE YOU KNOW WHAT YOU'RE DOING."
+align = 1
+valign = 1
+autowrap = true
+
+[node name="OptionButton" type="OptionButton" parent="."]
+anchor_right = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 40.0
+custom_minimum_size = Vector2( 300, 0 )
+theme_type_variation = "SecondaryButton"
+text = "Lelstorage (/dev/sda)"
+align = 1
+items = [ "Lelstorage (/dev/sda)", null, false, 0, null, "markisaOS Me Installel (/dev/sdb)", null, true, 1, null ]
+selected = 0
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 10.0
+offset_top = 60.0
+offset_right = 40.0
+offset_bottom = 22.0
+theme_type_variation = "Header"
+text = "This is an empty hard drive. How will you organize the partitions?"
+
+[node name="HSplitContainer3" type="HSplitContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 100.0
+offset_bottom = -40.0
+theme_override_constants/autohide = 0
+
+[node name="HSplitContainer" type="HSplitContainer" parent="HSplitContainer3"]
+offset_right = 586.0
+offset_bottom = 435.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/autohide = 0
+
+[node name="Label" type="Label" parent="HSplitContainer3/HSplitContainer"]
+offset_right = 289.0
+offset_bottom = 435.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_type_variation = "Header"
+text = "System"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="HSplitContainer3/HSplitContainer"]
+offset_left = 297.0
+offset_right = 586.0
+offset_bottom = 435.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_type_variation = "Header"
+text = "Apps"
+align = 1
+valign = 1
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="HSplitContainer3"]
+offset_left = 594.0
+offset_right = 1180.0
+offset_bottom = 435.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/autohide = 0
+
+[node name="Label" type="Label" parent="HSplitContainer3/HSplitContainer2"]
+offset_right = 289.0
+offset_bottom = 435.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_type_variation = "Header"
+text = "Home"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="HSplitContainer3/HSplitContainer2"]
+offset_left = 297.0
+offset_right = 586.0
+offset_bottom = 435.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_type_variation = "Header"
+text = "Swap"
+align = 1
+valign = 1

@@ -1,7 +1,7 @@
 using Godot;
 using System;
 using System.Linq;
-using Lelsktop.Overlay;
+using Dashboard.Overlay;
 
 public partial class MinesGameGenerator9000 : Node {
     public readonly Texture2D Mine = GD.Load<Texture2D>("res://Apps/Mines/Assets/OhNoes.png");

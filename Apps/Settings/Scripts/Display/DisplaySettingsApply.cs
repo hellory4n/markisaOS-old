@@ -1,6 +1,6 @@
 using Godot;
 using System;
-using Lelsktop.Wm;
+using Dashboard.Wm;
 
 public partial class DisplaySettingsApply : Button {
     SpinBox resolutionWidth;
@@ -32,7 +32,7 @@ public partial class DisplaySettingsApply : Button {
 
         /*WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
         PackedScene m = GD.Load<PackedScene>("res://Apps/Settings/DisplayConfirm.tscn");
-        Lelwindow jjkn = (Lelwindow)m.Instantiate();    
+        DashboardWindow jjkn = (DashboardWindow)m.Instantiate();    
         wm.AddWindow(jjkn);*/
 
         // yes

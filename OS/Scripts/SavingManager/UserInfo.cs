@@ -41,7 +41,7 @@ public partial class UserInfo
 /// <summary>
 /// Stores the appearance settings of a user.
 /// </summary>
-public partial class UserLelsktop
+public partial class UserDashboard
 {
     /// <summary>
     /// A file path to the wallpaper used by the user.
@@ -50,7 +50,7 @@ public partial class UserLelsktop
     /// <summary>
     /// The theme used by the user. It's actually just a part of the file path to the actual theme, e.g. res://Assets/Themes/insert value here/Theme.tres
     /// </summary>
-    public string Theme = "Leltheme-Dark-Blue";
+    public string Theme = "HighPeaks-Blue";
 }
 
 /// <summary>
@@ -66,7 +66,7 @@ public partial class Lelapp
     /// <summary>
     /// A file path to the icon of the app.
     /// </summary>
-    public string Icon = "res://Assets/Themes/Leltheme-Dark-Blue/Icons/App.png";
+    public string Icon = "res://Assets/Themes/HighPeaks-Blue/Icons/App.png";
     /// <summary>
     /// A file path to the scene of the app's window.
     /// </summary>
@@ -130,8 +130,8 @@ public partial class InstalledApps
     {
         All = new Lelapp[]
         {
-            new("Test App", "res://Assets/Themes/Leltheme-Dark-Blue/Icons/App.png", "res://Apps/WindowManagerTest/WindowManagerTest.tscn"),
-            new("Settings", "res://Assets/Themes/Leltheme-Dark-Blue/Icons/Accessories.png", "res://Apps/Settings/Settings.tscn"),
+            new("Test App", "res://Assets/Themes/HighPeaks-Blue/Icons/App.png", "res://Apps/WindowManagerTest/WindowManagerTest.tscn"),
+            new("Settings", "res://Assets/Themes/HighPeaks-Blue/Icons/Accessories.png", "res://Apps/Settings/Settings.tscn"),
             new("Files", "res://Apps/Files/Assets/IconSmall.png", "res://Apps/Files/Files.tscn"),
             new("Observer", "res://Apps/Observer/Assets/IconSmall.png", "res://Apps/Observer/Observer.tscn"),
             new("Notebook", "res://Apps/Notebook/Assets/IconSmall.png", "res://Apps/Notebook/Notebook.tscn"),
@@ -144,12 +144,12 @@ public partial class InstalledApps
         };
         Accessories = new Lelapp[]
         {
-            new("Settings", "res://Assets/Themes/Leltheme-Dark-Blue/Icons/Accessories.png", "res://Apps/Settings/Settings.tscn"),
+            new("Settings", "res://Assets/Themes/HighPeaks-Blue/Icons/Accessories.png", "res://Apps/Settings/Settings.tscn"),
             new("Files", "res://Apps/Files/Assets/IconSmall.png", "res://Apps/Files/Files.tscn")
         };
         System = new Lelapp[]
         {
-            new("Settings", "res://Assets/Themes/Leltheme-Dark-Blue/Icons/Accessories.png", "res://Apps/Settings/Settings.tscn"),
+            new("Settings", "res://Assets/Themes/HighPeaks-Blue/Icons/Accessories.png", "res://Apps/Settings/Settings.tscn"),
         };
         Graphics = new Lelapp[]
         {
@@ -272,7 +272,7 @@ public partial class PinboardItem
     public string TexturePath = "";
 }
 
-public partial class LelsktopPinboard
+public partial class DashboardPinboard
 {
     public Dictionary<string, PinboardItem> Items = new();
 }

@@ -18,6 +18,6 @@ public partial class SystemInfo : Label {
         else
             cpu = OS.GetProcessorName();
 
-        Text = $"lelcubeOS v{version.MajorVersion}.{version.MinorVersion}.{version.PatchVersion}\n© Passionfruit 2069\nModel {model}\n{cpu}";
+        Text = $"markisaOS v{version.MajorVersion}.{version.MinorVersion}.{version.PatchVersion}\n© Passionfruit 2069\nModel {model}\n{cpu}";
     }
 }

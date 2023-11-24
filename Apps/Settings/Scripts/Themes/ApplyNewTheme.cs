@@ -15,32 +15,32 @@ public partial class ApplyNewTheme : Button {
         CheckBox option = (CheckBox)pain.GetPressedButton();
         Theme theme = option.Text switch
         {
-            "Black" => GD.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Black/Theme.tres"),
-            "Blue" => GD.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres"),
-            "Green" => GD.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Green/Theme.tres"),
-            "Orange" => GD.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Orange/Theme.tres"),
-            "Pink" => GD.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Pink/Theme.tres"),
-            "Purple" => GD.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Purple/Theme.tres"),
-            "Red" => GD.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Red/Theme.tres"),
-            "White" => GD.Load<Theme>("res://Assets/Themes/Leltheme-Dark-White/Theme.tres"),
-            "Yellow" => GD.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Yellow/Theme.tres"),
-            _ => GD.Load<Theme>("res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres"),
+            "Black" => GD.Load<Theme>("res://Assets/Themes/HighPeaks-Black/Theme.tres"),
+            "Blue" => GD.Load<Theme>("res://Assets/Themes/HighPeaks-Blue/Theme.tres"),
+            "Green" => GD.Load<Theme>("res://Assets/Themes/HighPeaks-Green/Theme.tres"),
+            "Orange" => GD.Load<Theme>("res://Assets/Themes/HighPeaks-Orange/Theme.tres"),
+            "Pink" => GD.Load<Theme>("res://Assets/Themes/HighPeaks-Pink/Theme.tres"),
+            "Purple" => GD.Load<Theme>("res://Assets/Themes/HighPeaks-Purple/Theme.tres"),
+            "Red" => GD.Load<Theme>("res://Assets/Themes/HighPeaks-Red/Theme.tres"),
+            "White" => GD.Load<Theme>("res://Assets/Themes/HighPeaks-White/Theme.tres"),
+            "Yellow" => GD.Load<Theme>("res://Assets/Themes/HighPeaks-Yellow/Theme.tres"),
+            _ => GD.Load<Theme>("res://Assets/Themes/HighPeaks-Blue/Theme.tres"),
         };
 
         // apply the theme :)))))))))))))))))))))))))))))
-        GetNode<Control>("/root/Lelsktop/1/Windows/ThemeThing").Theme = theme;
-        GetNode<Control>("/root/Lelsktop/2/Windows/ThemeThing").Theme = theme;
-        GetNode<Control>("/root/Lelsktop/3/Windows/ThemeThing").Theme = theme;
-        GetNode<Control>("/root/Lelsktop/4/Windows/ThemeThing").Theme = theme;
-        CanvasLayer lelsktopInterface = GetNode<CanvasLayer>("/root/LelsktopInterface");
-        lelsktopInterface.GetNode<Panel>("Dock").Theme = theme;
-        lelsktopInterface.GetNode<Panel>("QuickSettings").Theme = theme;
-        lelsktopInterface.GetNode<Panel>("AppMenu").Theme = theme;
-        lelsktopInterface.GetNode<Panel>("Panel").Theme = theme;
+        GetNode<Control>("/root/Dashboard/1/Windows/ThemeThing").Theme = theme;
+        GetNode<Control>("/root/Dashboard/2/Windows/ThemeThing").Theme = theme;
+        GetNode<Control>("/root/Dashboard/3/Windows/ThemeThing").Theme = theme;
+        GetNode<Control>("/root/Dashboard/4/Windows/ThemeThing").Theme = theme;
+        CanvasLayer dashboardInterface = GetNode<CanvasLayer>("/root/DashboardInterface");
+        dashboardInterface.GetNode<Panel>("Dock").Theme = theme;
+        dashboardInterface.GetNode<Panel>("QuickSettings").Theme = theme;
+        dashboardInterface.GetNode<Panel>("AppMenu").Theme = theme;
+        dashboardInterface.GetNode<Panel>("Panel").Theme = theme;
 
         // save the settings :)))))))))))))))))))))))))))))))))))))))))))))))))
-        UserLelsktop asdadjffjsfjaf = SavingManager.Load<UserLelsktop>(SavingManager.CurrentUser);
-        asdadjffjsfjaf.Theme = $"Leltheme-Dark-{option.Text}";
+        UserDashboard asdadjffjsfjaf = SavingManager.Load<UserDashboard>(SavingManager.CurrentUser);
+        asdadjffjsfjaf.Theme = $"HighPeaks-{option.Text}";
         SavingManager.Save(SavingManager.CurrentUser, asdadjffjsfjaf);
     }
 }

@@ -1,6 +1,6 @@
 using Godot;
 using System;
-using Lelsktop.Wm;
+using Dashboard.Wm;
 
 public partial class AddTab : Button {
     readonly PackedScene TabThing = GD.Load<PackedScene>("res://Apps/Files/TabThing.tscn");

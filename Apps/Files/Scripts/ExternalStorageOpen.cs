@@ -1,6 +1,6 @@
 using Godot;
 using System;
-using Lelsktop.Wm;
+using Dashboard.Wm;
 
 public partial class ExternalStorageOpen : Button {
     /*public override void _Ready() {
@@ -15,7 +15,7 @@ public partial class ExternalStorageOpen : Button {
 
         // pain
         FileView mewhenthe = GetNode<FileView>("../../../../Content/ContentThing/ItemList");
-        LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(mewhenthe.Path);
+        CabinetfsFile dfggfdf = CabinetfsManager.Load<CabinetfsFile>(mewhenthe.Path);
         jjkn.Parent = dfggfdf.Id;
         jjkn.ThingThatINeedToRefresh = mewhenthe;
 

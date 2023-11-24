@@ -12,7 +12,7 @@ public partial class FileSidebar : Button {
 
     public void Click() {
         // pain
-        if (LelfsManager.FileExists(Path))
+        if (CabinetfsManager.FileExists(Path))
             GetNode<FileView>("../../../../Content/ContentThing/ItemList").Refresh(Path);
     }
 }

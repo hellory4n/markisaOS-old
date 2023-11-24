@@ -29,12 +29,12 @@ public partial class UserConverter : Node
         DirAccess.MakeDirRecursiveAbsolute($"user://Users/{user}/Files/");
 
         FileAccess haha = FileAccess.Open($"user://Users/{user}/Files/root.json", FileAccess.ModeFlags.Write);
-        haha.StoreString("{\"$type\":\"LelfsRoot, lelcubeOS\",\"Id\":\"root\",\"Parent\":null,\"Name\":\"\",\"Metadata\":{\"$type\":\"System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Object, mscorlib]], mscorlib\"},\"Path\":\"/\",\"Type\":\"Root\",\"Data\":{\"$type\":\"System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Object, mscorlib]], mscorlib\"}}");
+        haha.StoreString("{\"$type\":\"CabinetfsRoot, lelcubeOS\",\"Id\":\"root\",\"Parent\":null,\"Name\":\"\",\"Metadata\":{\"$type\":\"System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Object, mscorlib]], mscorlib\"},\"Path\":\"/\",\"Type\":\"Root\",\"Data\":{\"$type\":\"System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Object, mscorlib]], mscorlib\"}}");
         haha.Close();
 
-        LelfsManager.UpdatePaths();
-        LelfsRoot.CreateRoot();
-        LelfsManager.NewFileStructure();
+        CabinetfsManager.UpdatePaths();
+        CabinetfsRoot.CreateRoot();
+        CabinetfsManager.NewFileStructure();
 
         SavingManager.Save(user, new BasicUser
         {

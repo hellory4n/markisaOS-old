@@ -1,11 +1,11 @@
 using Godot;
-using Lelcore.Drivers;
-using Lelsktop.Interface;
+using Kickstart.Drivers;
+using Dashboard.Interface;
 
-namespace Lelsktop.Wm;
+namespace Dashboard.Wm;
 
 /// <summary>
-/// Responsible for managing all windows in the lelsktop.
+/// Responsible for managing all windows in the dashboard.
 /// </summary>
 public partial class WindowManager : Node
 {
@@ -18,18 +18,18 @@ public partial class WindowManager : Node
     public override void _Ready()
     {
         base._Ready();
-        OpenWindow = GD.Load<PackedScene>("res://OS/Lelsktop/OpenWindowButton.tscn");
+        OpenWindow = GD.Load<PackedScene>("res://OS/Dashboard/OpenWindowButton.tscn");
         WindowSpace = ResolutionManager.Resolution + new Vector2I(-85, 40);
     }
 
     /// <summary>
-    /// Opens a window in the lelsktop.
+    /// Opens a window in the dashboard.
     /// </summary>
     /// <param name="window">The window to open.</param>
-    public void AddWindow(Lelwindow window)
+    public void AddWindow(DashboardWindow window)
     {
-        Control lelsktop = GetNode<Lelsktop>("/root/Lelsktop").Windows.GetNode<Control>("ThemeThing");
-        lelsktop.AddChild(window);
+        Control dashboard = GetNode<Dashboard>("/root/Dashboard").Windows.GetNode<Control>("ThemeThing");
+        dashboard.AddChild(window);
 
         // put it on the center of the screen
         window.Position = WindowSpace/2 - (window.Size/2);
@@ -44,7 +44,7 @@ public partial class WindowManager : Node
         // add it to the dock
         OpenWindowButton coolDockButton = (OpenWindowButton)OpenWindow.Instantiate();
         coolDockButton.Init(window);
-        Node dock = GetNode<Lelsktop>("/root/Lelsktop").Interface.GetNode("Dock/DockStuff/Running");
+        Node dock = GetNode<Dashboard>("/root/Dashboard").Interface.GetNode("Dock/DockStuff/Running");
         dock.AddChild(coolDockButton);
         window.DockButton = coolDockButton;
     }

@@ -19,8 +19,8 @@ public partial class FactoryReset : Button {
         Node jjkn = m.Instantiate();
         GetTree().Root.AddChild(jjkn);
         
-        GetNode<Node2D>("/root/Lelsktop").QueueFree();
-        GetNode<CanvasLayer>("/root/LelsktopInterface").QueueFree();
+        GetNode<Node2D>("/root/Dashboard").QueueFree();
+        GetNode<CanvasLayer>("/root/DashboardInterface").QueueFree();
     }
 
     public void DeleteFolder(string path)

@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://OS/Scripts/Dashboard/Pinboard/StickyNote.cs" type="Script" id=1]
+[ext_resource path="res://Assets/Themes/HighPeaks-Blue/StickyNotes/TheRest.png" type="Texture2D" id=2]
+[ext_resource path="res://Fonts/Solitreo-Regular.ttf" type="FontFile" id=3]
+[ext_resource path="res://Assets/Themes/HighPeaks-Blue/StickyNotes/Header.png" type="Texture2D" id=4]
+[ext_resource path="res://Assets/Themes/HighPeaks-Yellow/Theme.tres" type="Theme" id=5]
+[ext_resource path="res://OS/Scripts/Dashboard/Pinboard/StickyNoteText.cs" type="Script" id=6]
+
+[sub_resource type="FontFile" id=3]
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 300, 300 )
+
+[node name="StickyNote" type="Sprite2D"]
+texture = ExtResource( 4 )
+script = ExtResource( 1 )
+
+[node name="Text" type="TextEdit" parent="."]
+offset_left = -150.0
+offset_top = 25.0
+offset_right = 150.0
+offset_bottom = 325.0
+theme = ExtResource( 5 )
+theme_override_colors/selection_color = Color( 1, 0.756863, 0.027451, 1 )
+theme_override_colors/caret_color = Color( 0, 0, 0, 1 )
+theme_override_colors/font_color = Color( 0.129412, 0.129412, 0.129412, 1 )
+theme_override_fonts/font = SubResource( 3 )
+theme_override_styles/focus = SubResource( 2 )
+theme_override_styles/normal = SubResource( 2 )
+text = "Write text here..."
+wrap_enabled = true
+script = ExtResource( 6 )
+
+[node name="Autosave" type="Timer" parent="Text"]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Text/Autosave" to="Text" method="ActuallySaveAndStuff"]

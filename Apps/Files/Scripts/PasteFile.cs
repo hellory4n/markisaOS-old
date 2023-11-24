@@ -1,8 +1,8 @@
 using Godot;
 using System;
-using Lelsktop.Wm;
+using Dashboard.Wm;
 
-public partial class PasteFile : Lelwindow {
+public partial class PasteFile : DashboardWindow {
     /*public string Parent;
     public FileView ThingThatINeedToRefresh;
     public string OldFile;
@@ -41,7 +41,7 @@ public partial class PasteFile : Lelwindow {
         string filename = GetNode<LineEdit>("CenterContainer/VBoxContainer/Name").Text;
         string suffering;
 
-        Folder parent = LelfsManager.LoadById<Folder>(Parent);
+        Folder parent = CabinetfsManager.LoadById<Folder>(Parent);
         string gkfngof = parent.Path;
         if (Parent == "/")
             suffering = $"/{filename}";
@@ -49,7 +49,7 @@ public partial class PasteFile : Lelwindow {
             suffering = $"{parent.Path}/{filename}";
 
         // making a file that already exists would be pretty uncool
-        if (LelfsManager.FileExists(suffering)) {
+        if (CabinetfsManager.FileExists(suffering)) {
             GetNode<Label>("CenterContainer/VBoxContainer/Label").Text = "File already exists!";
             SoundManager soundManager = GetNode<SoundManager>("/root/SoundManager");
             soundManager.PlaySoundEffect(SoundManager.SoundEffects.Error);
@@ -57,11 +57,11 @@ public partial class PasteFile : Lelwindow {
         }
 
         // actually copy the file :)
-        LelfsFile oldFile = LelfsManager.LoadById<LelfsFile>(OldFile);
+        CabinetfsFile oldFile = CabinetfsManager.LoadById<CabinetfsFile>(OldFile);
         if (oldFile.Type != "Folder") {
             oldFile.Copy(filename, Parent);
         } else {
-            Folder oldFileButItsAFolder = LelfsManager.LoadById<Folder>(OldFile);
+            Folder oldFileButItsAFolder = CabinetfsManager.LoadById<Folder>(OldFile);
             oldFileButItsAFolder.Copy(filename, Parent);
         }
 
@@ -72,8 +72,8 @@ public partial class PasteFile : Lelwindow {
     }
 
     public void Cut() {
-        LelfsFile oldFile = LelfsManager.LoadById<LelfsFile>(OldFile);
-        Folder parent = LelfsManager.LoadById<Folder>(Parent);
+        CabinetfsFile oldFile = CabinetfsManager.LoadById<CabinetfsFile>(OldFile);
+        Folder parent = CabinetfsManager.LoadById<Folder>(Parent);
         string gkfngof = parent.Path;
         string suffering;
         if (Parent == "root")
@@ -82,7 +82,7 @@ public partial class PasteFile : Lelwindow {
             suffering = $"{parent.Path}/{oldFile.Name}";
 
         // making a file that already exists would be pretty uncool
-        if (LelfsManager.FileExists(suffering)) {
+        if (CabinetfsManager.FileExists(suffering)) {
             SoundManager soundManager = GetNode<SoundManager>("/root/SoundManager");
             soundManager.PlaySoundEffect(SoundManager.SoundEffects.Error);
             return;
@@ -90,7 +90,7 @@ public partial class PasteFile : Lelwindow {
 
         // actually move the file :)
         if (oldFile.Type == "Folder") {
-            Folder h = LelfsManager.LoadById<Folder>(OldFile);
+            Folder h = CabinetfsManager.LoadById<Folder>(OldFile);
             h.Move(Parent);
         } else {
             oldFile.Move(Parent);

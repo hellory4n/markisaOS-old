@@ -14,7 +14,7 @@ public partial class NewFolderOpen : Button {
 
         // pain
         FileView mewhenthe = GetNode<FileView>("../../ItemList");
-        LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(mewhenthe.Path);
+        CabinetfsFile dfggfdf = CabinetfsManager.Load<CabinetfsFile>(mewhenthe.Path);
         jjkn.Parent = dfggfdf.Id;
         jjkn.ThingThatINeedToRefresh = mewhenthe;
 

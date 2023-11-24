@@ -12,7 +12,7 @@ public partial class PassionfruitSupportConversation
         int h = Array.FindIndex(socialStuff.Conversations, person => person.Name == "Passionfruit Support");
         socialStuff.Conversations[h].Messages = socialStuff.Conversations[h].Messages.Append(new Message {
             Author = "You",
-            Text = "I need help with lelcubeOS Me apps"
+            Text = "I need help with markisaOS Me apps"
         }).ToArray();
         socialStuff.Conversations[h].Messages = socialStuff.Conversations[h].Messages.Append(new Message {
             Author = "Passionfruit Support",

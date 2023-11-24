@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bxqx5nai5p5tp"]
 
-[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" id="1"]
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Blue/Theme.tres" id="1"]
 [ext_resource type="Texture2D" uid="uid://bek54d11qtxc1" path="res://Apps/Tour/Assets/IconDock.png" id="2"]
-[ext_resource type="Script" path="res://OS/Scripts/WindowManager/Lelwindow.cs" id="5"]
+[ext_resource type="Script" path="res://OS/Scripts/WindowManager/DashboardWindow.cs" id="5"]
 
 [node name="Tour" type="Window"]
 process_priority = 1

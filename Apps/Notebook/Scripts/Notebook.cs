@@ -1,8 +1,8 @@
 using Godot;
 using System;
-using Lelsktop.Wm;
+using Dashboard.Wm;
 
-public partial class Notebook : Lelwindow {
+public partial class Notebook : DashboardWindow {
     public bool Suffer = false;
     public bool J = true;
     public string Fhgkfdlkjgjkhgjf = "";
@@ -11,7 +11,7 @@ public partial class Notebook : Lelwindow {
     public override void _Process(double delta) {
         base._Process(delta);
         if (Suffer && J) {
-            var pain = LelfsManager.LoadById<LelfsFile>(Fhgkfdlkjgjkhgjf);
+            var pain = CabinetfsManager.LoadById<CabinetfsFile>(Fhgkfdlkjgjkhgjf);
             GetNode<Label>("./TabContent/TabTitle").Text = pain.Name;
             var g = GetNode<TextEditThing>("TabContent/TextEdit");
             if (pain.Data.ContainsKey("Text")) {

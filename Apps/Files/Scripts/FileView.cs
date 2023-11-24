@@ -2,9 +2,9 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Lelsktop.Wm;
-using Lelcore.Drivers;
-using Lelsktop.Toolkit;
+using Dashboard.Wm;
+using Kickstart.Drivers;
+using Dashboard.Toolkit;
 
 public partial class FileView : ItemList {
     readonly Texture2D FolderIcon = GD.Load<Texture2D>("res://Apps/Files/Assets/IconDock.png");
@@ -92,13 +92,13 @@ public partial class FileView : ItemList {
             RenameFile();
         }
 
-        /*if (Input.IsActionJustReleased("new_but_different") && GetParent().GetParent().GetParent().GetParent<Lelwindow>()
+        /*if (Input.IsActionJustReleased("new_but_different") && GetParent().GetParent().GetParent().GetParent<DashboardWindow>()
         .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab") {
             WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
             PackedScene m = GD.Load<PackedScene>("res://Apps/Files/NewFolder.tscn");
             NewFolder jjkn = m.Instantiate<NewFolder>();
 
-            LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(Path);
+            CabinetfsFile dfggfdf = CabinetfsManager.Load<CabinetfsFile>(Path);
             jjkn.Parent = dfggfdf.Id;
 
             jjkn.ThingThatINeedToRefresh = this;
@@ -106,14 +106,14 @@ public partial class FileView : ItemList {
             wm.AddWindow(jjkn);
         }
 
-        if (Input.IsActionJustReleased("new") && GetParent().GetParent().GetParent().GetParent<Lelwindow>()
+        if (Input.IsActionJustReleased("new") && GetParent().GetParent().GetParent().GetParent<DashboardWindow>()
         .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab") {
             WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
             PackedScene m = GD.Load<PackedScene>("res://Apps/Files/NewFile.tscn");
             NewFile jjkn = m.Instantiate<NewFile>();
 
             // pain
-            LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(Path);
+            CabinetfsFile dfggfdf = CabinetfsManager.Load<CabinetfsFile>(Path);
             jjkn.Parent = dfggfdf.Id;
 
             jjkn.ThingThatINeedToRefresh = this;
@@ -124,7 +124,7 @@ public partial class FileView : ItemList {
 
     public void Refresh(string pathThingSomething, bool addToHistory = true) {
         // forgor to check this lol
-        if (!LelfsManager.FileExists(pathThingSomething)) {
+        if (!CabinetfsManager.FileExists(pathThingSomething)) {
             return;
         }
 
@@ -149,7 +149,7 @@ public partial class FileView : ItemList {
         CoolFiles.Clear();
 
         // questionable way of sorting stuff :)
-        LelfsFile[] m = LelfsManager.GetFolderItems(Path);
+        CabinetfsFile[] m = CabinetfsManager.GetFolderItems(Path);
         var sortedStuff = m
             .OrderByDescending(obj => obj.Type == "Folder")
             .ThenBy(obj => obj.Name)
@@ -170,7 +170,7 @@ public partial class FileView : ItemList {
                     if (pain.Data.ContainsKey("CoverArt")) {
                         // yeah
                         AddItem(pain.Name, ResourceManager.LoadImage(
-                            LelfsManager.LoadById<LelfsFile>(pain.Data["CoverArt"].ToString())
+                            CabinetfsManager.LoadById<CabinetfsFile>(pain.Data["CoverArt"].ToString())
                                 .Data["Resource"].ToString()
                             )
                         );
@@ -196,7 +196,7 @@ public partial class FileView : ItemList {
     }
 
     void FileSelected(int index) {
-        LelfsFile pain = LelfsManager.LoadById<LelfsFile>(CoolFiles[index]);
+        CabinetfsFile pain = CabinetfsManager.LoadById<CabinetfsFile>(CoolFiles[index]);
         UpdateInspector(pain.Path);
         if (pain.Id == Selected) {
             Open(index);
@@ -205,7 +205,7 @@ public partial class FileView : ItemList {
     }
 
     void Open(int index) {
-        /*LelfsFile pain = LelfsManager.LoadById<LelfsFile>(CoolFiles[index]);
+        /*CabinetfsFile pain = CabinetfsManager.LoadById<CabinetfsFile>(CoolFiles[index]);
         switch (pain.Type) {
             case "Folder":
                 Refresh(pain.Path);
@@ -252,8 +252,8 @@ public partial class FileView : ItemList {
     }
 
     void PathEdit(string path) {
-        if (LelfsManager.FileExists(path)) {
-            LelfsFile m = LelfsManager.Load<LelfsFile>(path);
+        if (CabinetfsManager.FileExists(path)) {
+            CabinetfsFile m = CabinetfsManager.Load<CabinetfsFile>(path);
             if (m.Type == "Folder") {
                 Refresh(path);
             }
@@ -261,7 +261,7 @@ public partial class FileView : ItemList {
     }
 
     void ContextMenu(int index, Vector2I position) {
-        LelfsFile pain = LelfsManager.LoadById<LelfsFile>(CoolFiles[index]);
+        CabinetfsFile pain = CabinetfsManager.LoadById<CabinetfsFile>(CoolFiles[index]);
         UpdateInspector(pain.Path);
         Selected = pain.Id;
         ContextMenuThing.SetItemDisabled(3, false);
@@ -278,7 +278,7 @@ public partial class FileView : ItemList {
             GetNode<Copy>("../../Inspector/M/CopyID").Visible = false;
             GetNode<Copy>("../../Inspector/M/CopyPath").Visible = false;
         } else {
-            LelfsFile nkbn = LelfsManager.Load<LelfsFile>(path);
+            CabinetfsFile nkbn = CabinetfsManager.Load<CabinetfsFile>(path);
             GetNode<Label>("../../Inspector/M/Label").Text = $"{nkbn.Name}\nType: {nkbn.Type}\n\nMetadata:\n";
             foreach (var metadata in nkbn.Metadata) {
                 GetNode<Label>("../../Inspector/M/Label").Text += $"{metadata.Key}: {metadata.Value}\n";
@@ -304,7 +304,7 @@ public partial class FileView : ItemList {
         PasteFile jjkn = m.Instantiate<PasteFile>();
 
         // pain
-        LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(Path);
+        CabinetfsFile dfggfdf = CabinetfsManager.Load<CabinetfsFile>(Path);
         jjkn.Parent = dfggfdf.Id;
 
         jjkn.ThingThatINeedToRefresh = this;
@@ -327,7 +327,7 @@ public partial class FileView : ItemList {
                 NewFile jjkn = m.Instantiate<NewFile>();
 
                 // pain
-                LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(Path);
+                CabinetfsFile dfggfdf = CabinetfsManager.Load<CabinetfsFile>(Path);
                 jjkn.Parent = dfggfdf.Id;
                 jjkn.ThingThatINeedToRefresh = this;
 
@@ -339,7 +339,7 @@ public partial class FileView : ItemList {
                 NewFolder jjkn1 = m1.Instantiate<NewFolder>();
 
                 // pain
-                LelfsFile dfggfdf1 = LelfsManager.Load<LelfsFile>(Path);
+                CabinetfsFile dfggfdf1 = CabinetfsManager.Load<CabinetfsFile>(Path);
                 jjkn1.Parent = dfggfdf1.Id;
                 jjkn1.ThingThatINeedToRefresh = this;
 
@@ -383,8 +383,8 @@ public partial class FileView : ItemList {
     }
 
     void Up() {
-        LelfsFile currentThing = LelfsManager.Load<LelfsFile>(Path);
-        LelfsFile g = LelfsManager.LoadById<LelfsFile>(currentThing.Parent);
+        CabinetfsFile currentThing = CabinetfsManager.Load<CabinetfsFile>(Path);
+        CabinetfsFile g = CabinetfsManager.LoadById<CabinetfsFile>(currentThing.Parent);
         Refresh(g.Path);
     }
 
@@ -398,7 +398,7 @@ public partial class FileView : ItemList {
         Delete jjkn = m.Instantiate<Delete>();
 
         // pain
-        LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(Path);
+        CabinetfsFile dfggfdf = CabinetfsManager.Load<CabinetfsFile>(Path);
         jjkn.Parent = dfggfdf.Id;
         jjkn.ThingThatINeedToRefresh = this;
         jjkn.CoolFile = Selected;
@@ -412,7 +412,7 @@ public partial class FileView : ItemList {
         Rename jjkn = m.Instantiate<Rename>();
 
         // pain
-        LelfsFile dfggfdf = LelfsManager.Load<LelfsFile>(Path);
+        CabinetfsFile dfggfdf = CabinetfsManager.Load<CabinetfsFile>(Path);
         jjkn.Parent = dfggfdf.Id;
         jjkn.ThingThatINeedToRefresh = this;
         jjkn.CoolFile = Selected;

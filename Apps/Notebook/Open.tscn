@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://c0wuoq2n48pfo"]
 
-[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" id="1"]
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Blue/Theme.tres" id="1"]
 [ext_resource type="Texture2D" uid="uid://fmxc2hj566gt" path="res://Apps/Notebook/Assets/IconDock.png" id="2"]
-[ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Overlay/TextPeek.cs" id="3"]
+[ext_resource type="Script" path="res://OS/Scripts/Dashboard/Overlay/TextPeek.cs" id="3"]
 [ext_resource type="Script" path="res://Apps/Notebook/Scripts/NotebookOpen.cs" id="4"]
 
 [sub_resource type="Animation" id="2"]

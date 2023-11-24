@@ -21,54 +21,54 @@ public partial class UserConverter : Node
         coolApps.Utilities = coolApps.Utilities.Append(new Lelapp("Tour", "res://Apps/Tour/Assets/IconSmall.png", "res://Apps/Tour/Tour.tscn")).ToArray();
         SavingManager.Save(user, coolApps);
 
-        FileAccess fgbfg = FileAccess.Open($"user://Users/{user}/LelsktopPinboard.json", FileAccess.ModeFlags.Write);
+        FileAccess fgbfg = FileAccess.Open($"user://Users/{user}/DashboardPinboard.json", FileAccess.ModeFlags.Write);
         fgbfg.StoreString(
-            JsonConvert.SerializeObject(new LelsktopPinboard())
+            JsonConvert.SerializeObject(new DashboardPinboard())
         );
         fgbfg.Close();
 
         // new files and stuff :)
-        Folder samplePictures = LelfsManager.NewFolder("Sample Pictures", LelfsManager.PermanentPath("/Home/Pictures"));
+        Folder samplePictures = CabinetfsManager.NewFolder("Sample Pictures", CabinetfsManager.PermanentPath("/Home/Pictures"));
         samplePictures.Metadata.Add("CreationDate", DateTime.Now);
         samplePictures.Save();
 
-        LelfsFile highPeaks = LelfsManager.NewFile("High Peaks", samplePictures.Id);
+        CabinetfsFile highPeaks = CabinetfsManager.NewFile("High Peaks", samplePictures.Id);
         highPeaks.Type = "Picture";
         highPeaks.Data.Add("Resource", "res://Assets/Wallpapers/HighPeaks.jpg");
         highPeaks.Metadata.Add("CreationDate", DateTime.Now);
         highPeaks.Save();
 
-        LelfsFile flowers = LelfsManager.NewFile("Flowers", samplePictures.Id);
+        CabinetfsFile flowers = CabinetfsManager.NewFile("Flowers", samplePictures.Id);
         flowers.Type = "Picture";
         flowers.Data.Add("Resource", "res://Assets/Wallpapers/Flowers.png");
         flowers.Metadata.Add("CreationDate", DateTime.Now);
         flowers.Save();
 
-        LelfsFile beaches = LelfsManager.NewFile("Beaches", samplePictures.Id);
+        CabinetfsFile beaches = CabinetfsManager.NewFile("Beaches", samplePictures.Id);
         beaches.Type = "Picture";
         beaches.Data.Add("Resource", "res://Assets/Wallpapers/Beaches.png");
         beaches.Metadata.Add("CreationDate", DateTime.Now);
         beaches.Save();
 
-        LelfsFile aurora = LelfsManager.NewFile("Aurora", samplePictures.Id);
+        CabinetfsFile aurora = CabinetfsManager.NewFile("Aurora", samplePictures.Id);
         aurora.Type = "Picture";
         aurora.Data.Add("Resource", "res://Assets/Wallpapers/Aurora.png");
         aurora.Metadata.Add("CreationDate", DateTime.Now);
         aurora.Save();
 
-        LelfsFile mountains = LelfsManager.NewFile("Mountains", samplePictures.Id);
+        CabinetfsFile mountains = CabinetfsManager.NewFile("Mountains", samplePictures.Id);
         mountains.Type = "Picture";
         mountains.Data.Add("Resource", "res://Assets/Wallpapers/Mountains.png");
         mountains.Metadata.Add("CreationDate", DateTime.Now);
         mountains.Save();
 
-        LelfsFile space = LelfsManager.NewFile("Space", samplePictures.Id);
+        CabinetfsFile space = CabinetfsManager.NewFile("Space", samplePictures.Id);
         space.Type = "Picture";
         space.Data.Add("Resource", "res://Assets/Wallpapers/Space.png");
         space.Metadata.Add("CreationDate", DateTime.Now);
         space.Save();
 
-        LelfsFile logo = LelfsManager.NewFile("lelcubeOS", LelfsManager.PermanentPath("/Home/Pictures"));
+        CabinetfsFile logo = CabinetfsManager.NewFile("lelcubeOS", CabinetfsManager.PermanentPath("/Home/Pictures"));
         logo.Type = "Picture";
         logo.Data.Add("Resource", "res://Assets/Boot/Logo2.png");
         logo.Metadata.Add("CreationDate", DateTime.Now);

@@ -1,9 +1,9 @@
 using Godot;
 using System;
-using Lelsktop.Wm;
-using Lelsktop.Overlay;
+using Dashboard.Wm;
+using Dashboard.Overlay;
 
-public partial class NotebookOpen : Lelwindow {
+public partial class NotebookOpen : DashboardWindow {
     public TextEditThing Tfhsjkgjrrh;
 
     public override void _Ready() {
@@ -16,13 +16,13 @@ public partial class NotebookOpen : Lelwindow {
         NotificationManager notificationManager = GetNode<NotificationManager>("/root/NotificationManager");
 
         // error handling haha
-        if (!LelfsManager.IdExists(id)) {
+        if (!CabinetfsManager.IdExists(id)) {
             notificationManager.ShowErrorNotification("File not found!", "Notebook");
             return;
         }
 
         // actually open the file
-        var epicFile = LelfsManager.LoadById<LelfsFile>(id);
+        var epicFile = CabinetfsManager.LoadById<CabinetfsFile>(id);
         if (epicFile.Data.ContainsKey("Text")) {
             Tfhsjkgjrrh.Text = epicFile.Data["Text"].ToString();
         } else {

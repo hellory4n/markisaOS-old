@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Lelsktop.Toolkit;
+using Dashboard.Toolkit;
 
 public partial class RemoveFromQuickLaunch : Button {
     public Lelapp App;
@@ -13,7 +13,7 @@ public partial class RemoveFromQuickLaunch : Button {
     }
 
     public void Click() {
-        VBoxContainer yes = GetNode<VBoxContainer>("/root/LelsktopInterface/Dock/DockStuff/QuickLaunch");
+        VBoxContainer yes = GetNode<VBoxContainer>("/root/DashboardInterface/Dock/DockStuff/QuickLaunch");
         foreach (Node quickSettingsThing in yes.GetChildren()) {
             if (quickSettingsThing is OpenWindow) {
                 OpenWindow h = GetNode<OpenWindow>(quickSettingsThing.GetPath());

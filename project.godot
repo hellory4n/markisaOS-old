@@ -13,7 +13,7 @@ config_version=5
 config/name="lelcubeOS"
 config/description="A game about using a computer to start a revolution lol"
 config/tags=PackedStringArray("stupidly_large")
-run/main_scene="res://OS/Core/MobileSetup.tscn"
+run/main_scene="res://OS/Kickstart/MobileSetup.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="lelcubeOS"
 config/quit_on_go_back=false
@@ -26,12 +26,12 @@ config/icon="res://icon.png"
 [autoload]
 
 SavingManager="*res://OS/Scripts/SavingManager/SavingManager.cs"
-LelfsManager="*res://OS/Scripts/Lelfs/LelfsManager.cs"
+CabinetfsManager="*res://OS/Scripts/Cabinetfs/CabinetfsManager.cs"
 ResolutionManager="*res://OS/Scripts/Drivers/ResolutionManager.cs"
 WindowManager="*res://OS/Scripts/WindowManager/WindowManager.cs"
 SoundManager="*res://addons/sound_manager/sound_manager.gd"
 ResourceManager="*res://OS/Scripts/Drivers/ResourceManager.cs"
-NotificationManager="*res://OS/Scripts/Lelsktop/Overlay/NotificationManager.cs"
+NotificationManager="*res://OS/Scripts/Dashboard/Overlay/NotificationManager.cs"
 ComputerNoisesManager="*res://OS/Scripts/Drivers/ComputerNoisesManager.cs"
 
 [display]

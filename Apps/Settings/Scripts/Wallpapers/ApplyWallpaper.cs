@@ -1,7 +1,7 @@
 using Godot;
 using System;
-using Lelcore.Drivers;
-using Lelsktop.Toolkit;
+using Kickstart.Drivers;
+using Dashboard.Toolkit;
 
 public partial class ApplyWallpaper : Button {
     public override void _Pressed()
@@ -12,9 +12,9 @@ public partial class ApplyWallpaper : Button {
         // is there a custom image the user chose?
         string coolWallpaperId = GetNode<LineEdit>("../LineEdit").Text;
         // hell
-        if (LelfsManager.IdExists(coolWallpaperId))
+        if (CabinetfsManager.IdExists(coolWallpaperId))
         {
-            var coolImage = LelfsManager.LoadById<LelfsFile>(coolWallpaperId);
+            var coolImage = CabinetfsManager.LoadById<CabinetfsFile>(coolWallpaperId);
             if (coolImage.Type == "Picture")
             {
                 if (coolImage.Data.ContainsKey("Resource"))
@@ -42,10 +42,10 @@ public partial class ApplyWallpaper : Button {
         }
 
         // actually apply the wallpaper
-        GetNode<Sprite2D>("/root/Lelsktop/Wallpaper").Texture = wallpaper;
+        GetNode<Sprite2D>("/root/Dashboard/Wallpaper").Texture = wallpaper;
 
         // scale wallpaper :))))))))
-        GetNode<ImageBackground>("/root/Lelsktop/Wallpaper").OriginalSize = wallpaper.GetSize();
+        GetNode<ImageBackground>("/root/Dashboard/Wallpaper").OriginalSize = wallpaper.GetSize();
         Vector2 bruh = ResolutionManager.Resolution;
         float scale;
         if (bruh > wallpaper.GetSize()) {
@@ -55,11 +55,11 @@ public partial class ApplyWallpaper : Button {
         } else {
             scale = Mathf.Max(bruh.X, bruh.Y) / Mathf.Max(wallpaper.GetSize().X, wallpaper.GetSize().Y);
         }
-        GetNode<Sprite2D>("/root/Lelsktop/Wallpaper").Scale = new Vector2(scale, scale);
-        GetNode<Sprite2D>("/root/Lelsktop/Wallpaper").Position = bruh/2;
+        GetNode<Sprite2D>("/root/Dashboard/Wallpaper").Scale = new Vector2(scale, scale);
+        GetNode<Sprite2D>("/root/Dashboard/Wallpaper").Position = bruh/2;
 
         // then save the new settings
-        UserLelsktop m = SavingManager.Load<UserLelsktop>(SavingManager.CurrentUser);
+        UserDashboard m = SavingManager.Load<UserDashboard>(SavingManager.CurrentUser);
         m.Wallpaper = wallpaperSaveThing;
         SavingManager.Save(SavingManager.CurrentUser, m);
     }

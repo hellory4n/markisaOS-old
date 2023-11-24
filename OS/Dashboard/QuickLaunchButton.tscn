@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://OS/Scripts/Dashboard/Toolkit/OpenWindow.cs" id="1"]
+[ext_resource type="Texture2D" uid="uid://r06kutfquu86" path="res://Apps/QuickLaunchSetup/Assets/IconDock.png" id="2"]
+
+[sub_resource type="StyleBoxEmpty" id=24]
+
+[node name="Appomg" type="Button"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -32.0
+offset_bottom = 32.0
+custom_minimum_size = Vector2( 64, 64 )
+tooltip_text = "Quick Launch Setup"
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_type_variation = "DockButton"
+theme_override_styles/normal = SubResource( 24 )
+icon = ExtResource( 2 )
+icon_alignment = 1
+script = ExtResource( 1 )
+WindowScene = "res://Apps/QuickLaunchSetup/QuickLaunchSetup.tscn"

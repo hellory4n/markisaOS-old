@@ -1,5 +1,5 @@
 using Godot;
-using Lelsktop.Wm;
+using Dashboard.Wm;
 using System;
 
 public partial class CloseTab : Button {

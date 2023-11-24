@@ -1,7 +1,7 @@
 using Godot;
 using System;
-using Lelsktop.Wm;
-using Lelcore.Drivers;
+using Dashboard.Wm;
+using Kickstart.Drivers;
 
 public partial class DisplaySettingsAutoRevert : Timer {
     public override void _Ready() {
@@ -15,6 +15,6 @@ public partial class DisplaySettingsAutoRevert : Timer {
         // since the settings aren't actually saved we can just do this
         resolutionManager.Update();
 
-        GetParent<Lelwindow>().EmitSignal(Lelwindow.SignalName.CloseRequested);
+        GetParent<DashboardWindow>().EmitSignal(DashboardWindow.SignalName.CloseRequested);
     }
 }

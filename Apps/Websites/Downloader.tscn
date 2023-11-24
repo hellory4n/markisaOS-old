@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://brsff6q2hbm4r"]
 
 [ext_resource type="Script" path="res://Apps/Websites/Scripts/WebsitesAppDownloaderWindow.cs" id="1"]
-[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" id="2"]
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Blue/Theme.tres" id="2"]
 [ext_resource type="Texture2D" uid="uid://iu02abx33wyb" path="res://Apps/Websites/Assets/IconDock.png" id="3"]
 
 [node name="Downloader" type="Window"]

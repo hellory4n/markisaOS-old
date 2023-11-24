@@ -1,10 +1,10 @@
 [gd_scene load_steps=32 format=3 uid="uid://dgmakobncq5nx"]
 
-[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" id="1"]
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Blue/Theme.tres" id="1"]
 [ext_resource type="Texture2D" uid="uid://djomdwnorfe1e" path="res://Apps/SausageClicker/Assets/IconDock.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://6j26ss8s6qa0" path="res://Apps/SausageClicker/Assets/Sausage.png" id="3"]
 [ext_resource type="FontFile" uid="uid://3bdi3nljrpe3" path="res://Fonts/RedHatText-BoldItalic.ttf" id="4"]
-[ext_resource type="Script" path="res://OS/Scripts/WindowManager/Lelwindow.cs" id="5"]
+[ext_resource type="Script" path="res://OS/Scripts/WindowManager/DashboardWindow.cs" id="5"]
 [ext_resource type="Texture2D" uid="uid://v03jb32abutx" path="res://Apps/SausageClicker/Assets/Background.png" id="6"]
 [ext_resource type="Script" path="res://Apps/SausageClicker/Scripts/Sausage.cs" id="9"]
 [ext_resource type="Texture2D" uid="uid://b2vuh2y5bv8j4" path="res://Apps/SausageClicker/Assets/ButtonPressed.png" id="10"]

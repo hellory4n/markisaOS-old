@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Lelsktop.Toolkit;
+using Dashboard.Toolkit;
 
 public partial class AddToQuickLaunch : Button {
     public Lelapp App;
@@ -13,11 +13,11 @@ public partial class AddToQuickLaunch : Button {
     }
 
     public void Click() {
-        PackedScene packedScene = GD.Load<PackedScene>("res://OS/Lelsktop/QuickLaunchButton.tscn");
+        PackedScene packedScene = GD.Load<PackedScene>("res://OS/Dashboard/QuickLaunchButton.tscn");
         OpenWindow yes = packedScene.Instantiate<OpenWindow>();
         yes.Icon = GD.Load<Texture2D>(App.Icon);
         yes.WindowScene = App.Scene;
-        GetNode<VBoxContainer>("/root/LelsktopInterface/Dock/DockStuff/QuickLaunch").AddChild(yes);
+        GetNode<VBoxContainer>("/root/DashboardInterface/Dock/DockStuff/QuickLaunch").AddChild(yes);
 
         QuickLaunch quickLaunch = SavingManager.Load<QuickLaunch>(SavingManager.CurrentUser);
         List<Lelapp> pain = quickLaunch.Apps.ToList();

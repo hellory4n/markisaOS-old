@@ -1,6 +1,6 @@
 using Godot;
 using System;
-using Lelsktop.Toolkit;
+using Dashboard.Toolkit;
 
 public partial class ConversationList : VBoxContainer {
     // quite the mouthful
@@ -30,7 +30,7 @@ public partial class ConversationList : VBoxContainer {
             h.Text = conversation.Name;
             var bullshit = Shit.Instantiate<MessagingInterface>();
             // the sidebar button thing requires the content's name to start with "Category" :)))
-            bullshit.Name = $"Category{LelfsManager.GenerateID()}";
+            bullshit.Name = $"Category{CabinetfsManager.GenerateID()}";
             bullshit.Visible = false;
             bullshit.Theme = null;
             bullshit.ConversationIndex = i;

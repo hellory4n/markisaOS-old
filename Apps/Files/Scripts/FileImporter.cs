@@ -1,8 +1,8 @@
 using Godot;
 using System;
-using Lelsktop.Wm;
+using Dashboard.Wm;
 
-public partial class FileImporter : Lelwindow {
+public partial class FileImporter : DashboardWindow {
     /*public string Parent;
     public FileView ThingThatINeedToRefresh;
 
@@ -65,28 +65,28 @@ public partial class FileImporter : Lelwindow {
         // import file
         DirAccess dir = new();
         dir.MakeDirRecursive("user://ImportedFiles/");
-        string newPath = $"user://ImportedFiles/{LelfsManager.GenerateID()}.{StringExtensions.Extension(path)}";
+        string newPath = $"user://ImportedFiles/{CabinetfsManager.GenerateID()}.{StringExtensions.Extension(path)}";
         dir.Copy(path, newPath);
 
-        // make the file in lelfs
+        // make the file in cabinetfs
         Random random = new();
         if (StringExtensions.Extension(newPath) == "png" || StringExtensions.Extension(newPath) == "jpg" ||
         StringExtensions.Extension(newPath) == "jpeg" || StringExtensions.Extension(newPath) == "webp" ||
         StringExtensions.Extension(newPath) == "svg") {
-            LelfsFile file = LelfsManager.NewFile($"Picture {random.Next(0, 999999)}", Parent);
+            CabinetfsFile file = CabinetfsManager.NewFile($"Picture {random.Next(0, 999999)}", Parent);
             file.Type = "Picture";
             file.Data.Add("Resource", newPath);
             file.Metadata.Add("CreationDate", DateTime.Now);
             file.Save();
         } else if (StringExtensions.Extension(newPath) == "mp3" ||
         StringExtensions.Extension(newPath) == "ogg" || StringExtensions.Extension(newPath) == "wav") {
-            LelfsFile file = LelfsManager.NewFile($"Audio {random.Next(0, 999999)}", Parent);
+            CabinetfsFile file = CabinetfsManager.NewFile($"Audio {random.Next(0, 999999)}", Parent);
             file.Type = "Audio";
             file.Data.Add("Resource", newPath);
             file.Metadata.Add("CreationDate", DateTime.Now);
             file.Save();
         } else if (StringExtensions.Extension(newPath) == "ogv") {
-            LelfsFile file = LelfsManager.NewFile($"Video {random.Next(0, 999999)}", Parent);
+            CabinetfsFile file = CabinetfsManager.NewFile($"Video {random.Next(0, 999999)}", Parent);
             file.Type = "Video";
             file.Data.Add("Resource", newPath);
             file.Data.Add("Width", (int)GetNode<SpinBox>("CenterContainer/VBoxContainer/VideoThing/Width").Value);

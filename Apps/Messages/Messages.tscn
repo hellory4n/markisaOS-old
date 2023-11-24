@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://37hmu7vt4hhd"]
 
-[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" id="1"]
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Blue/Theme.tres" id="1"]
 [ext_resource type="Script" path="res://Apps/Messages/Scripts/ConversationList.cs" id="2"]
 [ext_resource type="Texture2D" uid="uid://q3m38rmbge15" path="res://Apps/Messages/Assets/IconDock.png" id="3"]
-[ext_resource type="Script" path="res://OS/Scripts/WindowManager/Lelwindow.cs" id="4"]
+[ext_resource type="Script" path="res://OS/Scripts/WindowManager/DashboardWindow.cs" id="4"]
 
 [node name="Messages" type="Window"]
 process_priority = 1

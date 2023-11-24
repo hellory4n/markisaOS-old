@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" type="Theme" id=1]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Home.png" type="Texture2D" id=2]
+[ext_resource path="res://Assets/Themes/HighPeaks-Blue/Theme.tres" type="Theme" id=1]
+[ext_resource path="res://Assets/Themes/HighPeaks-Blue/Icons/Home.png" type="Texture2D" id=2]
 [ext_resource path="res://Apps/Websites/Scripts/WebsiteView.cs" type="Script" id=3]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/ArrowBack.png" type="Texture2D" id=4]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/ArrowForward.png" type="Texture2D" id=5]
-[ext_resource path="res://Assets/Themes/Leltheme-Dark-Blue/Icons/Refresh.png" type="Texture2D" id=6]
-[ext_resource path="res://OS/Scripts/Lelsktop/Overlay/TextPeek.cs" type="Script" id=7]
+[ext_resource path="res://Assets/Themes/HighPeaks-Blue/Icons/ArrowBack.png" type="Texture2D" id=4]
+[ext_resource path="res://Assets/Themes/HighPeaks-Blue/Icons/ArrowForward.png" type="Texture2D" id=5]
+[ext_resource path="res://Assets/Themes/HighPeaks-Blue/Icons/Refresh.png" type="Texture2D" id=6]
+[ext_resource path="res://OS/Scripts/Dashboard/Overlay/TextPeek.cs" type="Script" id=7]
 
 [node name="WebsiteView" type="Control"]
 anchor_right = 1.0
@@ -82,9 +82,9 @@ offset_left = 212.0
 offset_right = 1260.0
 offset_bottom = 43.0
 size_flags_horizontal = 3
-text = "web://passionfruit.com/lelcubeos/me/home.tscn"
+text = "web://passionfruit.com/markisaos/me/home.tscn"
 align = 1
-placeholder_text = "web://passionfruit.com/lelcubeos/me/home.tscn"
+placeholder_text = "web://passionfruit.com/markisaos/me/home.tscn"
 script = ExtResource( 7 )
 
 [node name="HSeparator" type="HSeparator" parent="."]

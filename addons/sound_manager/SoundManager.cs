@@ -162,10 +162,10 @@ public partial class SoundManager : Node
 
     #endregion
 
-    #region lelcubeOS stuff
+    #region markisaOS stuff
     
     /// <summary>
-    /// The system sounds used for lelcubeOS, the index corresponds to SoundManager.SystemSounds values. Change values to change what sounds lelcubeOS uses.
+    /// The system sounds used for markisaOS, the index corresponds to SoundManager.SystemSounds values. Change values to change what sounds markisaOS uses.
     /// </summary>
     public static AudioStream[] SystemSoundFiles = new AudioStream[]
     {
@@ -181,7 +181,7 @@ public partial class SoundManager : Node
     };
 
     /// <summary>
-    /// The system sounds used for lelcubeOS, automatically converted to SoundManager.SystemSoundFiles.
+    /// The system sounds used for markisaOS, automatically converted to SoundManager.SystemSoundFiles.
     /// </summary>
     public enum SystemSounds
     {

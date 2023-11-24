@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://bkkfrmkbherdr"]
 
-[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" id="1"]
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Blue/Theme.tres" id="1"]
 [ext_resource type="Texture2D" uid="uid://8h88ewrw2v33" path="res://Apps/Settings/Assets/IconDock.png" id="2"]
 [ext_resource type="Script" path="res://Apps/Settings/Scripts/Display/DisplaySettingsRevert.cs" id="3"]
 [ext_resource type="Script" path="res://Apps/Settings/Scripts/Display/DisplaySettingsActuallyApply.cs" id="4"]
-[ext_resource type="Script" path="res://OS/Scripts/WindowManager/Lelwindow.cs" id="5"]
+[ext_resource type="Script" path="res://OS/Scripts/WindowManager/DashboardWindow.cs" id="5"]
 [ext_resource type="Script" path="res://Apps/Settings/Scripts/Display/DisplaySettingsAutoRevert.cs" id="6"]
 
 [node name="DisplayConfirm" type="Window"]

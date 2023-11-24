@@ -1,9 +1,9 @@
 using Godot;
 using System;
-using Lelsktop.Wm;
-using Lelsktop.Overlay;
+using Dashboard.Wm;
+using Dashboard.Overlay;
 
-public partial class NotebookSaveAs : Lelwindow {
+public partial class NotebookSaveAs : DashboardWindow {
     public TextEditThing Tfhsjkgjrrh;
 
     public override void _Ready() {
@@ -17,24 +17,24 @@ public partial class NotebookSaveAs : Lelwindow {
         NotificationManager notificationManager = GetNode<NotificationManager>("/root/NotificationManager");
 
         // error handling haha
-        if (!LelfsManager.FileExists(path)) {
+        if (!CabinetfsManager.FileExists(path)) {
             notificationManager.ShowErrorNotification($"Folder {path} not found!", "Notebook");
             return;
         }
 
-        LelfsFile h = LelfsManager.Load<LelfsFile>(path);
+        CabinetfsFile h = CabinetfsManager.Load<CabinetfsFile>(path);
         if (h.Type != "Folder") {
             notificationManager.ShowErrorNotification($"{path} is not a folder!", "Notebook");
             return;
         }
 
-        if (LelfsManager.FileExists(LelfsManager.NewPath(path, name))) {
-            notificationManager.ShowErrorNotification($"File in {LelfsManager.NewPath(path, name)} already exists!", "Notebook");
+        if (CabinetfsManager.FileExists(CabinetfsManager.NewPath(path, name))) {
+            notificationManager.ShowErrorNotification($"File in {CabinetfsManager.NewPath(path, name)} already exists!", "Notebook");
             return;
         }
 
         // actually make the file
-        LelfsFile epicFile = LelfsManager.NewFile(name, h.Id);
+        CabinetfsFile epicFile = CabinetfsManager.NewFile(name, h.Id);
         epicFile.Type = "Text";
         epicFile.Data.Add("Text", Tfhsjkgjrrh.Text);
         epicFile.Metadata.Add("Author", SavingManager.CurrentUser);

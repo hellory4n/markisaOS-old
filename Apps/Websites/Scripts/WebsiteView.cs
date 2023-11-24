@@ -6,7 +6,7 @@ namespace Websites;
 
 public partial class WebsiteView : Control 
 {
-    string coolAddress = "web://passionfruit.com/lelcubeos/me/home.tscn";
+    string coolAddress = "web://passionfruit.com/markisaos/me/home.tscn";
     Control previousThing;
     List<string> addresses = new();
     int addressIndex = -1;
@@ -89,6 +89,6 @@ public partial class WebsiteView : Control
     }
 
     public void Home() {
-        LoadStuff("web://passionfruit.com/lelcubeos/me/home.tscn");
+        LoadStuff("web://passionfruit.com/markisaos/me/home.tscn");
     }
 }

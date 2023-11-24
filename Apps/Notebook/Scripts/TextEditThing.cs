@@ -15,7 +15,7 @@ public partial class TextEditThing : TextEdit {
 
     public override void _Process(double delta) {
         base._Process(delta);
-        if (LelfsManager.IdExists(CoolId)) {
+        if (CabinetfsManager.IdExists(CoolId)) {
             GetNode<Label>("../TabTitle").Text = EpicFilename;
         } else {
             GetNode<Label>("../TabTitle").Text = "Untitled";
@@ -38,12 +38,12 @@ public partial class TextEditThing : TextEdit {
     }
 
     public void Save() {
-        if (!LelfsManager.IdExists(CoolId)) {
+        if (!CabinetfsManager.IdExists(CoolId)) {
             SaveAs();
             return;
         }
 
-        var m = LelfsManager.LoadById<LelfsFile>(CoolId);
+        var m = CabinetfsManager.LoadById<CabinetfsFile>(CoolId);
         m.Data["Text"] = Text;
         m.Save();
         SavedText = Text;

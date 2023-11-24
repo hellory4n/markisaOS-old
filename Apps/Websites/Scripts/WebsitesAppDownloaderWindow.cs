@@ -1,10 +1,10 @@
 using Godot;
 using System;
 using System.Collections.Generic;
-using Lelsktop.Wm;
-using Lelsktop.Overlay;
+using Dashboard.Wm;
+using Dashboard.Overlay;
 
-public partial class WebsitesAppDownloaderWindow : Lelwindow {
+public partial class WebsitesAppDownloaderWindow : DashboardWindow {
     public string NewFilename = "";
     public string Type = "Text";
     public int ProgressBarMaxValue = 1;
@@ -24,8 +24,8 @@ public partial class WebsitesAppDownloaderWindow : Lelwindow {
         if (random.Next(0, 3) == 1)
             j.Value += random.Next(1, 5);
         if (j.Value >= j.MaxValue && !m) {
-            LelfsFile h = LelfsManager.NewFile(
-                NewFilename, LelfsManager.PermanentPath("/Home/Downloads")
+            CabinetfsFile h = CabinetfsManager.NewFile(
+                NewFilename, CabinetfsManager.PermanentPath("/Home/Downloads")
             );
             h.Type = Type;
             h.Data = Data;

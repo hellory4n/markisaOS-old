@@ -22,7 +22,7 @@ public partial class DisplaySettingsActuallyApply : Button {
         PackedScene aPackedScene = GD.Load<PackedScene>("res://OS/Core/Onboarding.tscn");
         Node aNode = aPackedScene.Instantiate();
         GetTree().Root.AddChild(aNode);
-        GetNode("/root/Lelsktop").QueueFree();
-        GetNode("/root/LelsktopInterface").QueueFree();
+        GetNode("/root/Dashboard").QueueFree();
+        GetNode("/root/DashboardInterface").QueueFree();
     }
 }

@@ -1,0 +1,2361 @@
+[gd_scene load_steps=53 format=3 uid="uid://bf3bghjlegit6"]
+
+[ext_resource type="Script" path="res://OS/Scripts/Dashboard/Pinboard/PinboardSelectThingy.cs" id="1"]
+[ext_resource type="Script" path="res://OS/Scripts/Dashboard/Dashboard.cs" id="2"]
+[ext_resource type="PackedScene" path="res://OS/Dashboard/Sticker.tscn" id="2_1ynem"]
+[ext_resource type="Script" path="res://OS/Scripts/Dashboard/Pinboard/AddStickyNote.cs" id="3"]
+[ext_resource type="PackedScene" path="res://OS/Dashboard/StickyNote.tscn" id="3_8ja8u"]
+[ext_resource type="Texture2D" uid="uid://cvihmyn8rchf" path="res://Assets/Themes/HighPeaks-Blue/Icons/AddStickyNote.png" id="4"]
+[ext_resource type="Script" path="res://OS/Scripts/Dashboard/Toolkit/ImageBackground.cs" id="5"]
+[ext_resource type="Script" path="res://OS/Scripts/Dashboard/Toolkit/SoundPlayer.cs" id="5_yi2lb"]
+[ext_resource type="Script" path="res://OS/Scripts/Dashboard/WindowSpace.cs" id="6_8e3nv"]
+[ext_resource type="Texture2D" uid="uid://cx7tmkljkse3g" path="res://Assets/Themes/HighPeaks-Blue/Icons/Favorites.png" id="8_jauys"]
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Purple/Theme.tres" id="9_f4ttp"]
+[ext_resource type="Script" path="res://OS/Scripts/Dashboard/Toolkit/OpenWindow.cs" id="9_fflcb"]
+[ext_resource type="Texture2D" uid="uid://b3l7tqdbguhhr" path="res://Assets/UserIcons/Cat.png" id="10_ggyg4"]
+[ext_resource type="Script" path="res://OS/Scripts/Dashboard/QuickSettings/QuickSettingsUserIcon.cs" id="11_adboo"]
+[ext_resource type="Script" path="res://OS/Scripts/Dashboard/QuickSettings/QuickSettingsUserName.cs" id="12_er27o"]
+[ext_resource type="Texture2D" uid="uid://dptnipv4cmfjj" path="res://Assets/Themes/HighPeaks-Blue/Icons/Sound.png" id="13_osbqo"]
+[ext_resource type="Script" path="res://OS/Scripts/Dashboard/QuickSettings/SoundSlider.cs" id="14_coecm"]
+[ext_resource type="Texture2D" uid="uid://bi20bcsouyx7f" path="res://Assets/Themes/HighPeaks-Blue/Icons/Music.png" id="15_kkmk8"]
+[ext_resource type="Texture2D" uid="uid://bb4o818jmbkga" path="res://Assets/Themes/HighPeaks-Blue/Icons/Settings.png" id="16_radk5"]
+[ext_resource type="Texture2D" uid="uid://d1csa8oxs5lso" path="res://Assets/Themes/HighPeaks-Blue/Icons/Logout.png" id="17_a5l0g"]
+[ext_resource type="Texture2D" uid="uid://ck2xg8qfa4u2q" path="res://Assets/Themes/HighPeaks-Blue/Icons/Power.png" id="18_tppa8"]
+[ext_resource type="Script" path="res://OS/Scripts/Dashboard/SystemMonitorThingy.cs" id="19_nalbm"]
+[ext_resource type="Texture2D" uid="uid://wlamqh1fgh4r" path="res://Assets/Themes/HighPeaks-Blue/Icons/App.png" id="20_2xcb7"]
+[ext_resource type="Script" path="res://OS/Scripts/Dashboard/AppMenu/OpenCategory.cs" id="21_2862c"]
+[ext_resource type="Texture2D" uid="uid://dqr4m37nrw2tq" path="res://Assets/Themes/HighPeaks-Blue/Icons/Accessories.png" id="22_wn1cy"]
+[ext_resource type="Texture2D" uid="uid://v4qrpmwv82ga" path="res://Assets/Themes/HighPeaks-Blue/Icons/Development.png" id="23_pkrwg"]
+[ext_resource type="Texture2D" uid="uid://dtvf0khx6hw0n" path="res://Assets/Themes/HighPeaks-Blue/Icons/Games.png" id="24_5iw46"]
+[ext_resource type="Texture2D" uid="uid://bxdjurhxjp20t" path="res://Assets/Themes/HighPeaks-Blue/Icons/Graphics.png" id="25_ig7pv"]
+[ext_resource type="Texture2D" uid="uid://dk7gd2wlxoxoq" path="res://Assets/Themes/HighPeaks-Blue/Icons/Internet.png" id="26_iaf0h"]
+[ext_resource type="Texture2D" uid="uid://bbld2gjdmlxf2" path="res://Assets/Themes/HighPeaks-Blue/Icons/Multimedia.png" id="27_b877y"]
+[ext_resource type="Texture2D" uid="uid://l6x73ckpj25t" path="res://Assets/Themes/HighPeaks-Blue/Icons/Office.png" id="28_scybk"]
+[ext_resource type="Texture2D" uid="uid://ylkkv0jt06ri" path="res://Assets/Themes/HighPeaks-Blue/Icons/System.png" id="29_rdtnh"]
+[ext_resource type="Texture2D" uid="uid://bf67dtn7qe035" path="res://Assets/Themes/HighPeaks-Blue/Icons/Utilities.png" id="30_3y1xd"]
+[ext_resource type="Script" path="res://OS/Scripts/Dashboard/AppMenu/ListApps.cs" id="31_w3egd"]
+[ext_resource type="Texture2D" uid="uid://ckwfdu4jkwfq7" path="res://Assets/Themes/HighPeaks-Blue/Icons/Applications.png" id="32_cm66b"]
+[ext_resource type="Script" path="res://OS/Scripts/Dashboard/AppMenu/OpenAppMenu.cs" id="33_f17gj"]
+[ext_resource type="Texture2D" uid="uid://byahpi7yp0hi1" path="res://Assets/Themes/HighPeaks-Blue/Icons/PinboardEditor.png" id="34_a24a3"]
+[ext_resource type="Script" path="res://OS/Scripts/Dashboard/Pinboard/Pinboard.cs" id="35_v5tgq"]
+[ext_resource type="Texture2D" uid="uid://b12iaw3tyh50l" path="res://Assets/Themes/HighPeaks-Blue/Icons/QuickSettings.png" id="36_gxl4f"]
+[ext_resource type="Script" path="res://OS/Scripts/Dashboard/QuickSettings/OpenQuickSettings.cs" id="37_60fd5"]
+[ext_resource type="Texture2D" uid="uid://bo0ovd3nykhg5" path="res://Assets/Themes/HighPeaks-Blue/Icons/ShowDesktop.png" id="38_miy4o"]
+[ext_resource type="Script" path="res://OS/Scripts/Dashboard/ShowDesktop.cs" id="39_kdn56"]
+[ext_resource type="Texture2D" uid="uid://5fo8momyhuyq" path="res://Assets/Themes/HighPeaks-Blue/Icons/Sunny.png" id="40_hrv5q"]
+[ext_resource type="Script" path="res://OS/Scripts/Dashboard/Time.cs" id="41_q60cx"]
+
+[sub_resource type="Animation" id="Animation_gom4a"]
+resource_name = "CloseAppMenu"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Inter/Face/AppMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 0.37),
+"update": 0,
+"values": [Vector2(0, 40), Vector2(0, -360)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Inter/Face/AppMenu:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 0.37),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_v3qjx"]
+resource_name = "CloseQuickSettings"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Inter/Face/QuickSettings:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 0.37),
+"update": 0,
+"values": [Vector2(905, 40), Vector2(905, -515)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Inter/Face/QuickSettings:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 0.37),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cq3qv"]
+resource_name = "OpenAppMenu"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Inter/Face/AppMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.37, 1),
+"update": 0,
+"values": [Vector2(0, -360), Vector2(0, 40)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Inter/Face/AppMenu:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.37, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6w1e6"]
+resource_name = "OpenQuickSettings"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Inter/Face/QuickSettings:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.37, 1),
+"update": 0,
+"values": [Vector2(905, -515), Vector2(905, 40)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Inter/Face/QuickSettings:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.37, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7dafh"]
+resource_name = "Startup"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Inter/Face/Dock:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.37, 1),
+"update": 0,
+"values": [Vector2(0, 720), Vector2(0, 645)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Inter/Face/Panel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.37, 1),
+"update": 0,
+"values": [Vector2(0, -40), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.37, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r2omq"]
+_data = {
+"CloseAppMenu": SubResource("Animation_gom4a"),
+"CloseQuickSettings": SubResource("Animation_v3qjx"),
+"OpenAppMenu": SubResource("Animation_cq3qv"),
+"OpenQuickSettings": SubResource("Animation_6w1e6"),
+"Startup": SubResource("Animation_7dafh")
+}
+
+[sub_resource type="StyleBoxEmpty" id="24"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bix5t"]
+
+[node name="Dashboard" type="Control" node_paths=PackedStringArray("Windows", "Interface", "Dock", "Panel", "QuickSettings", "AppMenu", "Animator", "Pinboard")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2")
+Windows = NodePath("M/Windows")
+Interface = NodePath("Inter/Face")
+Dock = NodePath("Inter/Face/Dock")
+Panel = NodePath("Inter/Face/Panel")
+QuickSettings = NodePath("Inter/Face/QuickSettings")
+AppMenu = NodePath("Inter/Face/AppMenu")
+Animator = NodePath("AnimationPlayer")
+Pinboard = NodePath("Pinboard/Stuff")
+Sticker = ExtResource("2_1ynem")
+StickyNote = ExtResource("3_8ja8u")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_r2omq")
+}
+autoplay = "Startup"
+
+[node name="Wallpaper" type="Sprite2D" parent="."]
+position = Vector2(632.5, 345)
+scale = Vector2(0.332275, 0.351562)
+script = ExtResource("5")
+OriginalSize = Vector2(4096, 2304)
+
+[node name="StartupSound" type="Node" parent="."]
+script = ExtResource("5_yi2lb")
+Pitch = 1.0
+Autoplay = true
+PlaySystemSound = true
+
+[node name="Pinboard" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="Stuff" type="SubViewport" parent="Pinboard"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1280, 720)
+render_target_update_mode = 4
+
+[node name="PinboardSelectThingy" type="Node2D" parent="Pinboard/Stuff" node_paths=PackedStringArray("IncreaseSizePanel", "DecreaseSizePanel", "DeletePanel", "Yes", "WindowThemeStuff")]
+script = ExtResource("1")
+IncreaseSizePanel = NodePath("Yes/IncreaseSize")
+DecreaseSizePanel = NodePath("Yes/DecreaseSize")
+DeletePanel = NodePath("Yes/Delete")
+Yes = NodePath("Yes")
+WindowThemeStuff = NodePath("../../../M/Windows/ThemeThing")
+
+[node name="Yes" type="Control" parent="Pinboard/Stuff/PinboardSelectThingy"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="IncreaseSize" type="Panel" parent="Pinboard/Stuff/PinboardSelectThingy/Yes"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 0
+offset_top = 40.0
+offset_right = 320.0
+offset_bottom = 120.0
+
+[node name="Label" type="Label" parent="Pinboard/Stuff/PinboardSelectThingy/Yes/IncreaseSize"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_type_variation = &"Header"
+text = "drag here to increase size"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DecreaseSize" type="Panel" parent="Pinboard/Stuff/PinboardSelectThingy/Yes"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -395.0
+offset_top = 40.0
+offset_right = -75.0
+offset_bottom = 120.0
+
+[node name="Label" type="Label" parent="Pinboard/Stuff/PinboardSelectThingy/Yes/DecreaseSize"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_type_variation = &"Header"
+text = "drag here to decrease size"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Delete" type="Panel" parent="Pinboard/Stuff/PinboardSelectThingy/Yes"]
+self_modulate = Color(0.956863, 0.262745, 0.211765, 1)
+custom_minimum_size = Vector2(320, 80)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -198.0
+offset_top = -80.0
+offset_right = 122.0
+
+[node name="Label" type="Label" parent="Pinboard/Stuff/PinboardSelectThingy/Yes/Delete"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_type_variation = &"Header"
+text = "drag here to delete"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="M" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="Windows" type="SubViewport" parent="M"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1280, 720)
+render_target_update_mode = 4
+
+[node name="ThemeThing" type="Control" parent="M/Windows"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="AddStickyNote" type="TextureButton" parent="." node_paths=PackedStringArray("Pinboard")]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_left = 571.0
+offset_top = 65.0
+offset_right = 635.0
+offset_bottom = 129.0
+tooltip_text = "Add sticky note"
+texture_normal = ExtResource("4")
+texture_pressed = ExtResource("4")
+texture_hover = ExtResource("4")
+texture_disabled = ExtResource("4")
+texture_focused = ExtResource("4")
+script = ExtResource("3")
+StickyNote = ExtResource("3_8ja8u")
+Pinboard = NodePath("../Pinboard/Stuff")
+
+[node name="Inter" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="Face" type="SubViewport" parent="Inter"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1280, 720)
+render_target_update_mode = 4
+
+[node name="WindowSpace" type="Control" parent="Inter/Face"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_8e3nv")
+
+[node name="Dock" type="Panel" parent="Inter/Face"]
+process_priority = -69
+custom_minimum_size = Vector2(75, 0)
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1280.0
+offset_top = 645.0
+offset_right = -1205.0
+offset_bottom = 645.0
+theme = ExtResource("9_f4ttp")
+theme_type_variation = &"Dock"
+
+[node name="DockStuff" type="VSplitContainer" parent="Inter/Face/Dock"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/autohide = 0
+
+[node name="QuickLaunch" type="VBoxContainer" parent="Inter/Face/Dock/DockStuff"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+mouse_filter = 0
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Appomg" type="Button" parent="Inter/Face/Dock/DockStuff/QuickLaunch"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+tooltip_text = "Change pinned apps in Quick Launch"
+theme_type_variation = &"DockButton"
+theme_override_styles/normal = SubResource("24")
+icon = ExtResource("8_jauys")
+icon_alignment = 1
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/QuickLaunchSetup/QuickLaunchSetup.tscn"
+
+[node name="Running" type="VBoxContainer" parent="Inter/Face/Dock/DockStuff"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+mouse_filter = 0
+alignment = 1
+
+[node name="QuickSettings" type="Panel" parent="Inter/Face"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(300, 475)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -375.0
+offset_top = -515.0
+offset_right = -75.0
+offset_bottom = -40.0
+theme = ExtResource("9_f4ttp")
+
+[node name="UserIcon" type="Sprite2D" parent="Inter/Face/QuickSettings"]
+position = Vector2(4, 4)
+scale = Vector2(0.33, 0.33)
+texture = ExtResource("10_ggyg4")
+centered = false
+script = ExtResource("11_adboo")
+
+[node name="Name" type="Label" parent="Inter/Face/QuickSettings"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 3.0
+offset_right = 300.0
+offset_bottom = 40.0
+theme_type_variation = &"Header"
+text = "Cool user :)"
+label_settings = SubResource("LabelSettings_bix5t")
+vertical_alignment = 1
+text_overrun_behavior = 3
+script = ExtResource("12_er27o")
+
+[node name="Sound" type="Sprite2D" parent="Inter/Face/QuickSettings"]
+position = Vector2(4, 44)
+texture = ExtResource("13_osbqo")
+centered = false
+
+[node name="SoundSlider" type="HSlider" parent="Inter/Face/QuickSettings"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 44.0
+offset_right = 290.0
+offset_bottom = 76.0
+value = 100.0
+script = ExtResource("14_coecm")
+
+[node name="Music" type="Sprite2D" parent="Inter/Face/QuickSettings"]
+position = Vector2(4, 84)
+texture = ExtResource("15_kkmk8")
+centered = false
+
+[node name="MusicSlider" type="HSlider" parent="Inter/Face/QuickSettings"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 84.0
+offset_right = 290.0
+offset_bottom = 116.0
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="Settings" type="Button" parent="Inter/Face/QuickSettings"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 120.0
+offset_right = 300.0
+offset_bottom = 160.0
+theme_type_variation = &"PanelButton"
+theme_override_constants/h_separation = 4
+text = "Settings"
+icon = ExtResource("16_radk5")
+alignment = 0
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/Settings/Settings.tscn"
+
+[node name="Logout" type="Button" parent="Inter/Face/QuickSettings"]
+custom_minimum_size = Vector2(296, 40)
+layout_mode = 0
+offset_left = 4.0
+offset_top = 160.0
+offset_right = 300.0
+offset_bottom = 200.0
+theme_type_variation = &"PanelButton"
+theme_override_constants/h_separation = 4
+text = "Logout"
+icon = ExtResource("17_a5l0g")
+alignment = 0
+script = ExtResource("9_fflcb")
+WindowScene = "res://OS/Dashboard/Logout.tscn"
+
+[node name="Turnoff" type="Button" parent="Inter/Face/QuickSettings"]
+custom_minimum_size = Vector2(296, 40)
+layout_mode = 0
+offset_left = 4.0
+offset_top = 200.0
+offset_right = 300.0
+offset_bottom = 240.0
+theme_type_variation = &"PanelButton"
+theme_override_constants/h_separation = 4
+text = "Turn off"
+icon = ExtResource("18_tppa8")
+alignment = 0
+script = ExtResource("9_fflcb")
+WindowScene = "res://OS/Dashboard/Shutdown.tscn"
+
+[node name="Ghjkbhkg" type="Label" parent="Inter/Face/QuickSettings"]
+custom_minimum_size = Vector2(300, 25)
+layout_mode = 0
+offset_top = 245.0
+offset_right = 300.0
+offset_bottom = 270.0
+theme_type_variation = &"Header"
+text = "System Monitor"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cpu" type="ProgressBar" parent="Inter/Face/QuickSettings"]
+custom_minimum_size = Vector2(280, 40)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 275.0
+offset_right = 290.0
+offset_bottom = 315.0
+tooltip_text = "The CPU is the part of the computer that processes stuff."
+script = ExtResource("19_nalbm")
+Thingy = "CPU"
+
+[node name="Ghjkbhkg2" type="Label" parent="Inter/Face/QuickSettings"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 275.0
+offset_right = 280.0
+offset_bottom = 315.0
+text = "Processor"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Gpu" type="ProgressBar" parent="Inter/Face/QuickSettings"]
+custom_minimum_size = Vector2(280, 40)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 325.0
+offset_right = 290.0
+offset_bottom = 365.0
+tooltip_text = "The GPU is the part of the computer responsible for processing graphics."
+script = ExtResource("19_nalbm")
+Thingy = "GPU"
+
+[node name="Ghjkbhkg3" type="Label" parent="Inter/Face/QuickSettings"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 325.0
+offset_right = 280.0
+offset_bottom = 365.0
+text = "Graphics"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Memory" type="ProgressBar" parent="Inter/Face/QuickSettings"]
+custom_minimum_size = Vector2(280, 40)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 375.0
+offset_right = 290.0
+offset_bottom = 415.0
+tooltip_text = "The memory is the part of the computer with all of the values it's currently using."
+script = ExtResource("19_nalbm")
+Thingy = "Memory"
+
+[node name="Ghjkbhkg4" type="Label" parent="Inter/Face/QuickSettings"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 375.0
+offset_right = 280.0
+offset_bottom = 415.0
+text = "Memory"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Storage" type="ProgressBar" parent="Inter/Face/QuickSettings"]
+custom_minimum_size = Vector2(280, 40)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 425.0
+offset_right = 290.0
+offset_bottom = 465.0
+tooltip_text = "This indicates how much apps are currently reading and writing to disk, not how much space is available."
+script = ExtResource("19_nalbm")
+Thingy = "Storage"
+
+[node name="Ghjkbhkg5" type="Label" parent="Inter/Face/QuickSettings"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 425.0
+offset_right = 280.0
+offset_bottom = 465.0
+text = "Storage"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="AppMenu" type="Panel" parent="Inter/Face"]
+modulate = Color(1, 1, 1, 0)
+offset_top = -360.0
+offset_right = 416.0
+offset_bottom = 50.0
+theme = ExtResource("9_f4ttp")
+
+[node name="Categories" type="ScrollContainer" parent="Inter/Face/AppMenu"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 400.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Inter/Face/AppMenu/Categories"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="AllApps" type="Button" parent="Inter/Face/AppMenu/Categories/VBoxContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+theme_type_variation = &"PanelButton"
+text = "All Apps"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("21_2862c")
+Category = NodePath("../../../CategoryAllApps")
+
+[node name="Accessories" type="Button" parent="Inter/Face/AppMenu/Categories/VBoxContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+theme_type_variation = &"PanelButton"
+text = "Accessories"
+icon = ExtResource("22_wn1cy")
+script = ExtResource("21_2862c")
+Category = NodePath("../../../CategoryAccessories")
+
+[node name="Development" type="Button" parent="Inter/Face/AppMenu/Categories/VBoxContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+theme_type_variation = &"PanelButton"
+text = "Development"
+icon = ExtResource("23_pkrwg")
+script = ExtResource("21_2862c")
+Category = NodePath("../../../CategoryDevelopment")
+
+[node name="Games" type="Button" parent="Inter/Face/AppMenu/Categories/VBoxContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+theme_type_variation = &"PanelButton"
+text = "Games"
+icon = ExtResource("24_5iw46")
+script = ExtResource("21_2862c")
+Category = NodePath("../../../CategoryGames")
+
+[node name="Graphics" type="Button" parent="Inter/Face/AppMenu/Categories/VBoxContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+theme_type_variation = &"PanelButton"
+text = "Graphics"
+icon = ExtResource("25_ig7pv")
+script = ExtResource("21_2862c")
+Category = NodePath("../../../CategoryGraphics")
+
+[node name="Internet" type="Button" parent="Inter/Face/AppMenu/Categories/VBoxContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+theme_type_variation = &"PanelButton"
+text = "Internet"
+icon = ExtResource("26_iaf0h")
+script = ExtResource("21_2862c")
+Category = NodePath("../../../CategoryInternet")
+
+[node name="Multimedia" type="Button" parent="Inter/Face/AppMenu/Categories/VBoxContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+theme_type_variation = &"PanelButton"
+text = "Multimedia"
+icon = ExtResource("27_b877y")
+script = ExtResource("21_2862c")
+Category = NodePath("../../../CategoryMultimedia")
+
+[node name="Office" type="Button" parent="Inter/Face/AppMenu/Categories/VBoxContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+theme_type_variation = &"PanelButton"
+text = "Office"
+icon = ExtResource("28_scybk")
+script = ExtResource("21_2862c")
+Category = NodePath("../../../CategoryOffice")
+
+[node name="System" type="Button" parent="Inter/Face/AppMenu/Categories/VBoxContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+theme_type_variation = &"PanelButton"
+text = "System"
+icon = ExtResource("29_rdtnh")
+script = ExtResource("21_2862c")
+Category = NodePath("../../../CategorySystem")
+
+[node name="Utilities" type="Button" parent="Inter/Face/AppMenu/Categories/VBoxContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+theme_type_variation = &"PanelButton"
+text = "Utilities"
+icon = ExtResource("30_3y1xd")
+script = ExtResource("21_2862c")
+Category = NodePath("../../../CategoryUtilities")
+
+[node name="CategoryAllApps" type="ScrollContainer" parent="Inter/Face/AppMenu"]
+layout_mode = 0
+offset_left = 200.0
+offset_right = 416.0
+offset_bottom = 409.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Inter/Face/AppMenu/CategoryAllApps"]
+layout_mode = 2
+theme_override_constants/separation = 0
+script = ExtResource("31_w3egd")
+
+[node name="Settings" type="Button" parent="Inter/Face/AppMenu/CategoryAllApps/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Settings"
+icon = ExtResource("22_wn1cy")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/Settings/Settings.tscn"
+
+[node name="TestApp3" type="Button" parent="Inter/Face/AppMenu/CategoryAllApps/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp4" type="Button" parent="Inter/Face/AppMenu/CategoryAllApps/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp5" type="Button" parent="Inter/Face/AppMenu/CategoryAllApps/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp6" type="Button" parent="Inter/Face/AppMenu/CategoryAllApps/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp7" type="Button" parent="Inter/Face/AppMenu/CategoryAllApps/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp8" type="Button" parent="Inter/Face/AppMenu/CategoryAllApps/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp9" type="Button" parent="Inter/Face/AppMenu/CategoryAllApps/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp10" type="Button" parent="Inter/Face/AppMenu/CategoryAllApps/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp11" type="Button" parent="Inter/Face/AppMenu/CategoryAllApps/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp12" type="Button" parent="Inter/Face/AppMenu/CategoryAllApps/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp13" type="Button" parent="Inter/Face/AppMenu/CategoryAllApps/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp14" type="Button" parent="Inter/Face/AppMenu/CategoryAllApps/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp15" type="Button" parent="Inter/Face/AppMenu/CategoryAllApps/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp16" type="Button" parent="Inter/Face/AppMenu/CategoryAllApps/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp17" type="Button" parent="Inter/Face/AppMenu/CategoryAllApps/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp18" type="Button" parent="Inter/Face/AppMenu/CategoryAllApps/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp19" type="Button" parent="Inter/Face/AppMenu/CategoryAllApps/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp20" type="Button" parent="Inter/Face/AppMenu/CategoryAllApps/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp21" type="Button" parent="Inter/Face/AppMenu/CategoryAllApps/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp22" type="Button" parent="Inter/Face/AppMenu/CategoryAllApps/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp23" type="Button" parent="Inter/Face/AppMenu/CategoryAllApps/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp24" type="Button" parent="Inter/Face/AppMenu/CategoryAllApps/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="CategoryAccessories" type="ScrollContainer" parent="Inter/Face/AppMenu"]
+visible = false
+layout_mode = 0
+offset_left = 200.0
+offset_right = 416.0
+offset_bottom = 409.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Inter/Face/AppMenu/CategoryAccessories"]
+layout_mode = 2
+theme_override_constants/separation = 0
+script = ExtResource("31_w3egd")
+Category = "Accessories"
+
+[node name="TestApp" type="Button" parent="Inter/Face/AppMenu/CategoryAccessories/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp2" type="Button" parent="Inter/Face/AppMenu/CategoryAccessories/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp3" type="Button" parent="Inter/Face/AppMenu/CategoryAccessories/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp4" type="Button" parent="Inter/Face/AppMenu/CategoryAccessories/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp5" type="Button" parent="Inter/Face/AppMenu/CategoryAccessories/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp6" type="Button" parent="Inter/Face/AppMenu/CategoryAccessories/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp7" type="Button" parent="Inter/Face/AppMenu/CategoryAccessories/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp8" type="Button" parent="Inter/Face/AppMenu/CategoryAccessories/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="CategoryDevelopment" type="ScrollContainer" parent="Inter/Face/AppMenu"]
+visible = false
+layout_mode = 0
+offset_left = 200.0
+offset_right = 416.0
+offset_bottom = 409.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Inter/Face/AppMenu/CategoryDevelopment"]
+layout_mode = 2
+theme_override_constants/separation = 0
+script = ExtResource("31_w3egd")
+Category = "Development"
+
+[node name="TestApp" type="Button" parent="Inter/Face/AppMenu/CategoryDevelopment/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp2" type="Button" parent="Inter/Face/AppMenu/CategoryDevelopment/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp3" type="Button" parent="Inter/Face/AppMenu/CategoryDevelopment/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp4" type="Button" parent="Inter/Face/AppMenu/CategoryDevelopment/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp5" type="Button" parent="Inter/Face/AppMenu/CategoryDevelopment/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp6" type="Button" parent="Inter/Face/AppMenu/CategoryDevelopment/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp7" type="Button" parent="Inter/Face/AppMenu/CategoryDevelopment/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="CategoryGames" type="ScrollContainer" parent="Inter/Face/AppMenu"]
+visible = false
+layout_mode = 0
+offset_left = 200.0
+offset_right = 416.0
+offset_bottom = 409.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Inter/Face/AppMenu/CategoryGames"]
+layout_mode = 2
+theme_override_constants/separation = 0
+script = ExtResource("31_w3egd")
+Category = "Games"
+
+[node name="TestApp" type="Button" parent="Inter/Face/AppMenu/CategoryGames/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp2" type="Button" parent="Inter/Face/AppMenu/CategoryGames/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp3" type="Button" parent="Inter/Face/AppMenu/CategoryGames/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp4" type="Button" parent="Inter/Face/AppMenu/CategoryGames/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp5" type="Button" parent="Inter/Face/AppMenu/CategoryGames/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="CategoryGraphics" type="ScrollContainer" parent="Inter/Face/AppMenu"]
+visible = false
+layout_mode = 0
+offset_left = 200.0
+offset_right = 416.0
+offset_bottom = 409.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Inter/Face/AppMenu/CategoryGraphics"]
+layout_mode = 2
+theme_override_constants/separation = 0
+script = ExtResource("31_w3egd")
+Category = "Graphics"
+
+[node name="TestApp" type="Button" parent="Inter/Face/AppMenu/CategoryGraphics/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp2" type="Button" parent="Inter/Face/AppMenu/CategoryGraphics/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp3" type="Button" parent="Inter/Face/AppMenu/CategoryGraphics/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp4" type="Button" parent="Inter/Face/AppMenu/CategoryGraphics/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp5" type="Button" parent="Inter/Face/AppMenu/CategoryGraphics/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp6" type="Button" parent="Inter/Face/AppMenu/CategoryGraphics/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp7" type="Button" parent="Inter/Face/AppMenu/CategoryGraphics/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp8" type="Button" parent="Inter/Face/AppMenu/CategoryGraphics/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp9" type="Button" parent="Inter/Face/AppMenu/CategoryGraphics/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp10" type="Button" parent="Inter/Face/AppMenu/CategoryGraphics/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp11" type="Button" parent="Inter/Face/AppMenu/CategoryGraphics/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp12" type="Button" parent="Inter/Face/AppMenu/CategoryGraphics/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="CategoryInternet" type="ScrollContainer" parent="Inter/Face/AppMenu"]
+visible = false
+layout_mode = 0
+offset_left = 200.0
+offset_right = 416.0
+offset_bottom = 409.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Inter/Face/AppMenu/CategoryInternet"]
+layout_mode = 2
+theme_override_constants/separation = 0
+script = ExtResource("31_w3egd")
+Category = "Internet"
+
+[node name="TestApp" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp2" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp3" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp4" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp5" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp6" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp7" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp8" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp9" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp10" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp11" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp12" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp13" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp14" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp15" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp16" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp17" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp18" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp19" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp20" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp21" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp22" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp23" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp24" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp25" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp26" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp27" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp28" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp29" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp30" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp31" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp32" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp33" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp34" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp35" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp36" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp37" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp38" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp39" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp40" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp41" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp42" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp43" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp44" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp45" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp46" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp47" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp48" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp49" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp50" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp51" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp52" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp53" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp54" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp55" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp56" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp57" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp58" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp59" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp60" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp61" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp62" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp63" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp64" type="Button" parent="Inter/Face/AppMenu/CategoryInternet/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="CategoryMultimedia" type="ScrollContainer" parent="Inter/Face/AppMenu"]
+visible = false
+layout_mode = 0
+offset_left = 200.0
+offset_right = 416.0
+offset_bottom = 409.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Inter/Face/AppMenu/CategoryMultimedia"]
+layout_mode = 2
+theme_override_constants/separation = 0
+script = ExtResource("31_w3egd")
+Category = "Multimedia"
+
+[node name="TestApp" type="Button" parent="Inter/Face/AppMenu/CategoryMultimedia/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp2" type="Button" parent="Inter/Face/AppMenu/CategoryMultimedia/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp3" type="Button" parent="Inter/Face/AppMenu/CategoryMultimedia/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="CategoryOffice" type="ScrollContainer" parent="Inter/Face/AppMenu"]
+visible = false
+layout_mode = 0
+offset_left = 200.0
+offset_right = 416.0
+offset_bottom = 409.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Inter/Face/AppMenu/CategoryOffice"]
+layout_mode = 2
+theme_override_constants/separation = 0
+script = ExtResource("31_w3egd")
+Category = "Office"
+
+[node name="TestApp" type="Button" parent="Inter/Face/AppMenu/CategoryOffice/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp2" type="Button" parent="Inter/Face/AppMenu/CategoryOffice/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp3" type="Button" parent="Inter/Face/AppMenu/CategoryOffice/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp4" type="Button" parent="Inter/Face/AppMenu/CategoryOffice/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp5" type="Button" parent="Inter/Face/AppMenu/CategoryOffice/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp6" type="Button" parent="Inter/Face/AppMenu/CategoryOffice/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp7" type="Button" parent="Inter/Face/AppMenu/CategoryOffice/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp8" type="Button" parent="Inter/Face/AppMenu/CategoryOffice/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp9" type="Button" parent="Inter/Face/AppMenu/CategoryOffice/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp10" type="Button" parent="Inter/Face/AppMenu/CategoryOffice/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp11" type="Button" parent="Inter/Face/AppMenu/CategoryOffice/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp12" type="Button" parent="Inter/Face/AppMenu/CategoryOffice/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="TestApp13" type="Button" parent="Inter/Face/AppMenu/CategoryOffice/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="CategorySystem" type="ScrollContainer" parent="Inter/Face/AppMenu"]
+visible = false
+layout_mode = 0
+offset_left = 200.0
+offset_right = 416.0
+offset_bottom = 409.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Inter/Face/AppMenu/CategorySystem"]
+layout_mode = 2
+theme_override_constants/separation = 0
+script = ExtResource("31_w3egd")
+Category = "System"
+
+[node name="TestApp" type="Button" parent="Inter/Face/AppMenu/CategorySystem/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="CategoryUtilities" type="ScrollContainer" parent="Inter/Face/AppMenu"]
+visible = false
+layout_mode = 0
+offset_left = 200.0
+offset_right = 416.0
+offset_bottom = 409.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Inter/Face/AppMenu/CategoryUtilities"]
+layout_mode = 2
+theme_override_constants/separation = 0
+script = ExtResource("31_w3egd")
+Category = "Utilities"
+
+[node name="TestApp" type="Button" parent="Inter/Face/AppMenu/CategoryUtilities/VBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "Test App™"
+icon = ExtResource("20_2xcb7")
+script = ExtResource("9_fflcb")
+WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"
+
+[node name="Panel" type="Panel" parent="Inter/Face"]
+custom_minimum_size = Vector2(0, 40)
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = -75.0
+offset_bottom = 40.0
+theme = ExtResource("9_f4ttp")
+theme_type_variation = &"DashboardPanel"
+
+[node name="Apps" type="Button" parent="Inter/Face/Panel" node_paths=PackedStringArray("Animation")]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 40.0
+tooltip_text = "Launch applications here"
+theme_type_variation = &"PanelButton"
+toggle_mode = true
+text = "Applications"
+icon = ExtResource("32_cm66b")
+script = ExtResource("33_f17gj")
+Animation = NodePath("../../../../AnimationPlayer")
+
+[node name="PinboardEditor" type="Button" parent="Inter/Face/Panel"]
+layout_mode = 0
+offset_left = 200.0
+offset_right = 400.0
+offset_bottom = 40.0
+tooltip_text = "Launch applications here"
+theme_type_variation = &"PanelButton"
+toggle_mode = true
+text = "Edit Pinboard"
+icon = ExtResource("34_a24a3")
+script = ExtResource("35_v5tgq")
+
+[node name="Settings" type="Button" parent="Inter/Face/Panel" node_paths=PackedStringArray("Animation")]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -20.0
+offset_right = -60.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+tooltip_text = "Here you can quickly adjust volume settings, access the settings app, see how much resources are being used, and turn off your computer."
+theme_type_variation = &"PanelButton"
+toggle_mode = true
+icon = ExtResource("36_gxl4f")
+icon_alignment = 1
+script = ExtResource("37_60fd5")
+Animation = NodePath("../../../../AnimationPlayer")
+
+[node name="ShowDesktop" type="Button" parent="Inter/Face/Panel"]
+custom_minimum_size = Vector2(60, 40)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+tooltip_text = "Show desktop"
+theme_type_variation = &"PanelButton"
+toggle_mode = true
+icon = ExtResource("38_miy4o")
+icon_alignment = 1
+script = ExtResource("39_kdn56")
+
+[node name="InfoThingy" type="HBoxContainer" parent="Inter/Face/Panel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -543.0
+offset_top = -20.0
+offset_right = -260.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Weather" type="Button" parent="Inter/Face/Panel/InfoThingy"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "Sunny (really fucking hot)"
+mouse_filter = 1
+theme_type_variation = &"PanelButton"
+text = "42.0 °C"
+icon = ExtResource("40_hrv5q")
+
+[node name="Time" type="Button" parent="Inter/Face/Panel/InfoThingy"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_type_variation = &"PanelButton"
+text = "06/09/2069 06:09"
+script = ExtResource("41_q60cx")

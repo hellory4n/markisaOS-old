@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Numerics;
 
-namespace Lelcore.Drivers;
+namespace Kickstart.Drivers;
 
 /// <summary>
 /// Adapts the resolution and UI of the game, so you can get the screen resolution on desktop, and a bigger UI on mobile to make touching things easier.

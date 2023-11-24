@@ -1,8 +1,8 @@
 using Godot;
 using System;
-using Lelsktop.Wm;
+using Dashboard.Wm;
 
-public partial class Rename : Lelwindow {
+public partial class Rename : DashboardWindow {
     public string Parent;
     public FileView ThingThatINeedToRefresh;
     public string CoolFile;
@@ -10,30 +10,30 @@ public partial class Rename : Lelwindow {
     public override void _Ready() {
         base._Ready();
         GetNode<Button>("CenterContainer/VBoxContainer/Rename").Connect("pressed", new Callable(this, nameof(Click)));
-        LelfsFile bruh = LelfsManager.LoadById<LelfsFile>(CoolFile);
+        CabinetfsFile bruh = CabinetfsManager.LoadById<CabinetfsFile>(CoolFile);
         GetNode<LineEdit>("CenterContainer/VBoxContainer/Name").Text = bruh.Name;
     }
 
     public void Click() {
         string filename = GetNode<LineEdit>("CenterContainer/VBoxContainer/Name").Text;
-        LelfsFile bruh = LelfsManager.LoadById<LelfsFile>(CoolFile);
+        CabinetfsFile bruh = CabinetfsManager.LoadById<CabinetfsFile>(CoolFile);
 
         string newPath;
         if (Parent == "root") {
-            LelfsFile yeah = LelfsManager.LoadById<LelfsFile>(Parent);
+            CabinetfsFile yeah = CabinetfsManager.LoadById<CabinetfsFile>(Parent);
             newPath = $"{yeah.Path}/{bruh.Name}";
         } else {
             newPath = $"/{bruh.Path}";
         }
 
         // try to move it
-        if (LelfsManager.FileExists(newPath)) {
+        if (CabinetfsManager.FileExists(newPath)) {
             GetNode<Label>("CenterContainer/VBoxContainer/Label").Text = "File with that name already exists!";
             return;
         }
 
         if (bruh.Type == "Folder") {
-            Folder m = LelfsManager.LoadById<Folder>(CoolFile);
+            Folder m = CabinetfsManager.LoadById<Folder>(CoolFile);
             // make sure we can put bajillions of files in the trash
             m.Rename(filename);
         } else {

@@ -1,9 +1,9 @@
 using Godot;
 using System;
-using Lelsktop.Wm;
-using Lelcore.Drivers;
+using Dashboard.Wm;
+using Kickstart.Drivers;
 
-public partial class Observer : Lelwindow {
+public partial class Observer : DashboardWindow {
     public enum OpenMode {
         Image,
         Audio,
@@ -25,7 +25,7 @@ public partial class Observer : Lelwindow {
                 PackedScene m = GD.Load<PackedScene>("res://Apps/Observer/ImageView.tscn");
                 Control coolImageThing = m.Instantiate<Control>();
 
-                LelfsFile coolFile = LelfsManager.LoadById<LelfsFile>(MediaId);
+                CabinetfsFile coolFile = CabinetfsManager.LoadById<CabinetfsFile>(MediaId);
                 if (coolFile.Data.ContainsKey("Resource")) {
                     // one of the codes of all time
                     coolImageThing.GetNode<TextureRect>("Image").Texture = 
@@ -40,7 +40,7 @@ public partial class Observer : Lelwindow {
                 PackedScene m2 = GD.Load<PackedScene>("res://Apps/Observer/MusicPlayer.tscn");
                 Control coolMusicThing = m2.Instantiate<Control>();
 
-                LelfsFile epicFile = LelfsManager.LoadById<LelfsFile>(MediaId);
+                CabinetfsFile epicFile = CabinetfsManager.LoadById<CabinetfsFile>(MediaId);
                 if (epicFile.Data.ContainsKey("Resource")) {
                     // one of the codes of all time
                     coolMusicThing.GetNode<MusicPlayer>("M/N/O/Audio").Music = 
@@ -69,7 +69,7 @@ public partial class Observer : Lelwindow {
                 Control coolVideoThing = m3.Instantiate<Control>();
 
                 // one of the codes of all time
-                LelfsFile majesticFile = LelfsManager.LoadById<LelfsFile>(MediaId);
+                CabinetfsFile majesticFile = CabinetfsManager.LoadById<CabinetfsFile>(MediaId);
                 if (majesticFile.Data.ContainsKey("Resource") && majesticFile.Data.ContainsKey("Width") &&
                 majesticFile.Data.ContainsKey("Height") && majesticFile.Data.ContainsKey("Duration")) {
                     coolVideoThing.GetNode<VideoStreamPlayer>("M/Video").Stream =

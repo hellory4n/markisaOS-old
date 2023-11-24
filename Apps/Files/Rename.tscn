@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cutrqcqhevwck"]
 
-[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/Leltheme-Dark-Blue/Theme.tres" id="1"]
-[ext_resource type="Script" path="res://OS/Scripts/Lelsktop/Overlay/TextPeek.cs" id="2"]
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Blue/Theme.tres" id="1"]
+[ext_resource type="Script" path="res://OS/Scripts/Dashboard/Overlay/TextPeek.cs" id="2"]
 [ext_resource type="Texture2D" uid="uid://dwmc5o0qypr3r" path="res://Apps/Files/Assets/IconDock.png" id="3"]
 [ext_resource type="Script" path="res://Apps/Files/Scripts/Rename.cs" id="4"]
 

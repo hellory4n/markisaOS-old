@@ -9,12 +9,12 @@ public partial class LoadFileFromId : Button {
 
     public void Click() {
         string coolId = GetNode<LineEdit>("../LineEdit").Text;
-        if (!LelfsManager.IdExists(coolId)) {
+        if (!CabinetfsManager.IdExists(coolId)) {
             GetNode<Label>("../Label").Text = "File doesn't exist!";
             return;
         }
 
-        LelfsFile m = LelfsManager.LoadById<LelfsFile>(coolId);
+        CabinetfsFile m = CabinetfsManager.LoadById<CabinetfsFile>(coolId);
         if (m.Type != "Picture" && m.Type != "Audio" && m.Type != "Video") {
             GetNode<Label>("../Label").Text = "Invalid file!";
             return;

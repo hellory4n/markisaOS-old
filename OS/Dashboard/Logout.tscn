@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://2w05ifdndew3"]
+
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Purple/Theme.tres" id="1_708qt"]
+[ext_resource type="Texture2D" uid="uid://d1csa8oxs5lso" path="res://Assets/Themes/HighPeaks-Blue/Icons/Logout.png" id="2"]
+[ext_resource type="Script" path="res://OS/Scripts/WindowManager/Close.cs" id="3"]
+[ext_resource type="Script" path="res://OS/Scripts/Core/Logout.cs" id="4"]
+[ext_resource type="Script" path="res://OS/Scripts/WindowManager/DashboardWindow.cs" id="5"]
+[ext_resource type="Script" path="res://OS/Scripts/Dashboard/Toolkit/SoundPlayer.cs" id="6_7hv4f"]
+
+[node name="Logout" type="Window"]
+process_priority = 1
+title = "Logout"
+position = Vector2i(0, 46)
+size = Vector2i(500, 250)
+unresizable = true
+min_size = Vector2i(500, 250)
+theme = ExtResource("1_708qt")
+script = ExtResource("5")
+Icon = ExtResource("2")
+
+[node name="Cancel" type="Button" parent="." node_paths=PackedStringArray("Window")]
+custom_minimum_size = Vector2(0, 40)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = -47.0
+offset_right = -255.0
+offset_bottom = -7.0
+theme_type_variation = &"SecondaryButton"
+text = "Cancel"
+script = ExtResource("3")
+Window = NodePath("..")
+
+[node name="Continue" type="Button" parent="."]
+custom_minimum_size = Vector2(0, 40)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 254.0
+offset_top = -47.0
+offset_right = -7.0
+offset_bottom = -7.0
+text = "Continue"
+script = ExtResource("4")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -49.0
+text = "Are you sure you want to logout? Progress is automatically saved, but any file currently being edited needs to be manually saved!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="SoundPlayer" type="Node" parent="."]
+script = ExtResource("6_7hv4f")
+Pitch = 1.0
+Autoplay = true
+PlaySystemSound = true
+SystemSound = 3

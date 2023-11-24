@@ -1,8 +1,8 @@
 using Godot;
 using System;
-using Lelsktop.Wm;
+using Dashboard.Wm;
 
-namespace Lelcore.Drivers;
+namespace Kickstart.Drivers;
 
 public partial class ComputerNoisesManager : Node
 {
@@ -49,7 +49,7 @@ public partial class ComputerNoisesManager : Node
     {
         base._Process(delta);
 
-        /*if (GetNodeOrNull("/root/Lelsktop") == null)
+        /*if (GetNodeOrNull("/root/Dashboard") == null)
             return;
 
         // first we need to get how much the device is suffering
@@ -59,28 +59,28 @@ public partial class ComputerNoisesManager : Node
         float storageOmg = 10;
         // we need to check every single workspace :))))))))
 
-        foreach (Lelwindow window in GetNode("/root/Lelsktop/1/Windows/ThemeThing").GetChildren()) {
+        foreach (DashboardWindow window in GetNode("/root/Dashboard/1/Windows/ThemeThing").GetChildren()) {
             cpuOmg += window.CpuUse;
             gpuOmg += window.GpuUse;
             memoryOmg += window.MemoryUse;
             storageOmg += window.StorageUse;
         }
 
-        foreach (Lelwindow window in GetNode("/root/Lelsktop/2/Windows/ThemeThing").GetChildren()) {
+        foreach (DashboardWindow window in GetNode("/root/Dashboard/2/Windows/ThemeThing").GetChildren()) {
             cpuOmg += window.CpuUse;
             gpuOmg += window.GpuUse;
             memoryOmg += window.MemoryUse;
             storageOmg += window.StorageUse;
         }
 
-        foreach (Lelwindow window in GetNode("/root/Lelsktop/3/Windows/ThemeThing").GetChildren()) {
+        foreach (DashboardWindow window in GetNode("/root/Dashboard/3/Windows/ThemeThing").GetChildren()) {
             cpuOmg += window.CpuUse;
             gpuOmg += window.GpuUse;
             memoryOmg += window.MemoryUse;
             storageOmg += window.StorageUse;
         }
 
-        foreach (Lelwindow window in GetNode("/root/Lelsktop/4/Windows/ThemeThing").GetChildren()) {
+        foreach (DashboardWindow window in GetNode("/root/Dashboard/4/Windows/ThemeThing").GetChildren()) {
             cpuOmg += window.CpuUse;
             gpuOmg += window.GpuUse;
             memoryOmg += window.MemoryUse;

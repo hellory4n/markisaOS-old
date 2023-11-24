@@ -1,8 +1,8 @@
 using Godot;
 using System;
-using Lelsktop.Wm;
+using Dashboard.Wm;
 
-public partial class NewFolder : Lelwindow {
+public partial class NewFolder : DashboardWindow {
     public string Parent;
     public FileView ThingThatINeedToRefresh;
 
@@ -13,7 +13,7 @@ public partial class NewFolder : Lelwindow {
 
     public void Click() {
         string filename = GetNode<LineEdit>("CenterContainer/VBoxContainer/Name").Text;
-        string gkfngof = LelfsManager.LoadById<LelfsFile>(Parent).Path;
+        string gkfngof = CabinetfsManager.LoadById<CabinetfsFile>(Parent).Path;
         string suffering;
         if (gkfngof == "/")
             suffering = $"/{filename}";
@@ -21,13 +21,13 @@ public partial class NewFolder : Lelwindow {
             suffering = $"{gkfngof}/{filename}";
 
         // making a folder that already exists would be pretty uncool
-        if (LelfsManager.FileExists(suffering)) {
+        if (CabinetfsManager.FileExists(suffering)) {
             GetNode<Label>("CenterContainer/VBoxContainer/Label").Text = "Folder already exists!";
             return;
         }
 
         // actually make the folder :)
-        Folder newFolder = LelfsManager.NewFolder(filename, Parent);
+        Folder newFolder = CabinetfsManager.NewFolder(filename, Parent);
 
         // TODO: make an actual time system thing
         newFolder.Metadata.Add("CreationDate", DateTime.Now);

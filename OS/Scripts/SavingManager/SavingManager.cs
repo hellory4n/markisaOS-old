@@ -15,6 +15,7 @@ public partial class SavingManager : Node
     {
         base._EnterTree();
         DirAccess.MakeDirRecursiveAbsolute("user://Settings/");
+        DirAccess.MakeDirRecursiveAbsolute("user://Users/");
 
         if (!FileAccess.FileExists("user://Settings/DisplaySettings.json"))
         {
@@ -63,9 +64,9 @@ public partial class SavingManager : Node
             JsonConvert.SerializeObject(info)
         );
 
-        using var bruh = FileAccess.Open($"user://Users/{user}/UserLelsktop.json", FileAccess.ModeFlags.Write);
+        using var bruh = FileAccess.Open($"user://Users/{user}/UserDashboard.json", FileAccess.ModeFlags.Write);
         bruh.StoreString(
-            JsonConvert.SerializeObject(new UserLelsktop())
+            JsonConvert.SerializeObject(new UserDashboard())
         );
 
         using var j = FileAccess.Open($"user://Users/{user}/InstalledApps.json", FileAccess.ModeFlags.Write);
@@ -83,19 +84,19 @@ public partial class SavingManager : Node
             JsonConvert.SerializeObject(new SocialStuff())
         );
 
-        using var fgbfg = FileAccess.Open($"user://Users/{user}/LelsktopPinboard.json", FileAccess.ModeFlags.Write);
+        using var fgbfg = FileAccess.Open($"user://Users/{user}/DashboardPinboard.json", FileAccess.ModeFlags.Write);
         fgbfg.StoreString(
-            JsonConvert.SerializeObject(new LelsktopPinboard())
+            JsonConvert.SerializeObject(new DashboardPinboard())
         );
 
         // setup the filesystem
         DirAccess.MakeDirRecursiveAbsolute($"user://Users/{user}/Files/");
         using var haha = FileAccess.Open($"user://Users/{user}/Files/root.json", FileAccess.ModeFlags.Write);
-        haha.StoreString("{\"$type\":\"LelfsRoot, lelcubeOS\",\"Id\":\"root\",\"Parent\":null,\"Name\":\"\",\"Metadata\":{\"$type\":\"System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Object, mscorlib]], mscorlib\"},\"Path\":\"/\",\"Type\":\"Root\",\"Data\":{\"$type\":\"System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Object, mscorlib]], mscorlib\"}}");
+        haha.StoreString("{\"$type\":\"CabinetfsRoot, lelcubeOS\",\"Id\":\"root\",\"Parent\":null,\"Name\":\"\",\"Metadata\":{\"$type\":\"System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Object, mscorlib]], mscorlib\"},\"Path\":\"/\",\"Type\":\"Root\",\"Data\":{\"$type\":\"System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Object, mscorlib]], mscorlib\"}}");
 
-        LelfsManager.UpdatePaths();
-        LelfsRoot.CreateRoot();
-        LelfsManager.NewFileStructure();
+        CabinetfsManager.UpdatePaths();
+        CabinetfsRoot.CreateRoot();
+        CabinetfsManager.NewFileStructure();
     }
 
     /// <summary>
@@ -115,8 +116,8 @@ public partial class SavingManager : Node
             case nameof(UserInfo):
                 filename = $"user://Users/{user}/UserInfo.json";
                 break;
-            case nameof(UserLelsktop):
-                filename = $"user://Users/{user}/UserLelsktop.json";
+            case nameof(UserDashboard):
+                filename = $"user://Users/{user}/UserDashboard.json";
                 break;
             case nameof(InstalledApps):
                 filename = $"user://Users/{user}/InstalledApps.json";
@@ -127,8 +128,8 @@ public partial class SavingManager : Node
             case nameof(SocialStuff):
                 filename = $"user://Users/{user}/SocialStuff.json";
                 break;
-            case nameof(LelsktopPinboard):
-                filename = $"user://Users/{user}/LelsktopPinboard.json";
+            case nameof(DashboardPinboard):
+                filename = $"user://Users/{user}/DashboardPinboard.json";
                 break;
             default:
                 GD.PushError("Invalid user info type!");
@@ -170,8 +171,8 @@ public partial class SavingManager : Node
             case nameof(UserInfo):
                 filename = $"user://Users/{user}/UserInfo.json";
                 break;
-            case nameof(UserLelsktop):
-                filename = $"user://Users/{user}/UserLelsktop.json";
+            case nameof(UserDashboard):
+                filename = $"user://Users/{user}/UserDashboard.json";
                 break;
             case nameof(InstalledApps):
                 filename = $"user://Users/{user}/InstalledApps.json";
@@ -182,8 +183,8 @@ public partial class SavingManager : Node
             case nameof(SocialStuff):
                 filename = $"user://Users/{user}/SocialStuff.json";
                 break;
-            case nameof(LelsktopPinboard):
-                filename = $"user://Users/{user}/LelsktopPinboard.json";
+            case nameof(DashboardPinboard):
+                filename = $"user://Users/{user}/DashboardPinboard.json";
                 break;
             default:
                 GD.PushError("Invalid user info type!");
