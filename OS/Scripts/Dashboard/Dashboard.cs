@@ -110,7 +110,7 @@ public partial class Dashboard : Control
 		animationButDifferent.TrackSetKeyValue(0, keyEndButDifferent, new Vector2(bruh.X-375, -475));
 
 		// load theme
-		Theme theme = GD.Load<Theme>($"res://Assets/Themes/{suffer.Theme}/Theme.tres");
+		Theme theme = GD.Load<Theme>(suffer.Theme);
 		Windows.GetNode<Control>("ThemeThing").Theme = theme;
 		Dock.Theme = theme;
 		QuickSettings.Theme = theme;

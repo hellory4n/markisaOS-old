@@ -25,7 +25,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-SavingManager="*res://OS/Scripts/Records/SavingManager.cs"
+RecordManager="*res://OS/Scripts/Records/RecordManager.cs"
 CabinetfsManager="*res://OS/Scripts/Cabinetfs/CabinetfsManager.cs"
 ResolutionManager="*res://OS/Scripts/Drivers/ResolutionManager.cs"
 WindowManager="*res://OS/Scripts/WindowManager/WindowManager.cs"
@@ -39,7 +39,8 @@ ComputerNoisesManager="*res://OS/Scripts/Drivers/ComputerNoisesManager.cs"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/mode=3
-window/stretch/aspect="ignore"
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_height"
 window/handheld/orientation="sensor_landscape"
 window/size/fullscreen=true
 

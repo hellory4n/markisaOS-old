@@ -23,7 +23,7 @@ public partial record DashboardConfig : Record
     /// A path to the theme used by the user
     /// </summary>
     public string Theme = "res://Assets/Themes/HighPeaks-Blue/Theme.tres";
-    public List<Package> AllApps = new();
+    public List<Package> AllApps = DefaultAppGenerator5000.Generate();
     public List<Package> QuickLaunch = new();
     public List<Package> Startup = new();
     public Dictionary<string, PinboardItem> Pinboard = new();

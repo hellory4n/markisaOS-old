@@ -7,7 +7,7 @@ namespace Kickstart.Records;
 /// <summary>
 /// Manages records.
 /// </summary>
-public partial class RecordManager
+public partial class RecordManager : Node
 {
     public static string CurrentUser;
 
@@ -15,9 +15,9 @@ public partial class RecordManager
     {
         string path = data.Type switch
         {
-            RecordType.User => $"user://{CurrentUser}/{data.Filename}",
-            RecordType.App => $"user://{CurrentUser}/Apps/{data.AppName}/{data.Filename}",
-            RecordType.Website => $"user://{CurrentUser}/Web/{data.AppName}/{data.Filename}",
+            RecordType.User => $"user://Users/{CurrentUser}/{data.Filename}",
+            RecordType.App => $"user://User/{CurrentUser}/Apps/{data.AppName}/{data.Filename}",
+            RecordType.Website => $"user://Users/{CurrentUser}/Web/{data.AppName}/{data.Filename}",
             _ => $"user://Settings/{data.Filename}",
         };
         DirAccess.MakeDirRecursiveAbsolute(path.Replace(data.Filename, ""));
@@ -37,9 +37,9 @@ public partial class RecordManager
         T data = new();
         string path = data.Type switch
         {
-            RecordType.User => $"user://{CurrentUser}/{data.Filename}",
-            RecordType.App => $"user://{CurrentUser}/Apps/{data.AppName}/{data.Filename}",
-            RecordType.Website => $"user://{CurrentUser}/Web/{data.AppName}/{data.Filename}",
+            RecordType.User => $"user://Users/{CurrentUser}/{data.Filename}",
+            RecordType.App => $"user://Users/{CurrentUser}/Apps/{data.AppName}/{data.Filename}",
+            RecordType.Website => $"user://Users/{CurrentUser}/Web/{data.AppName}/{data.Filename}",
             _ => $"user://Settings/{data.Filename}",
         };
         DirAccess.MakeDirRecursiveAbsolute(path.Replace(data.Filename, ""));

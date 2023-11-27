@@ -5,7 +5,7 @@ using System.Numerics;
 namespace Kickstart.Drivers;
 
 /// <summary>
-/// Adapts the resolution and UI of the game, so you can get the screen resolution on desktop, and a bigger UI on mobile to make touching things easier.
+/// Uhhhhhhhh
 /// </summary>
 public partial class ResolutionManager : Node
 {
@@ -14,20 +14,15 @@ public partial class ResolutionManager : Node
     /// </summary>
     public static Vector2I Resolution = new(1280, 720);
 
-    /*public override void _Ready()
+    public override void _Ready()
     {
         base._Ready();
-        Update();
+        // if we're on desktop we can use the real resolution, but on mobile the game stretches vertically
+        // and expands horizontally
+        if (OS.GetName() != "Android")
+        {
+            GetTree().Root.ContentScaleMode = Window.ContentScaleModeEnum.Disabled;
+            GetTree().Root.ContentScaleAspect = Window.ContentScaleAspectEnum.Expand;
+        }
     }
-
-    /// <summary>
-    /// Reads the display settings files again and updates the display accordingly.
-    /// </summary>
-    public void Update()
-    {
-        DisplaySettings displaySettings = SavingManager.LoadSettings<DisplaySettings>();
-        Resolution = (Vector2I)(displaySettings.Resolution/displaySettings.ScalingFactor);
-
-        GetTree().Root.Size = Resolution;
-    }*/
 }
