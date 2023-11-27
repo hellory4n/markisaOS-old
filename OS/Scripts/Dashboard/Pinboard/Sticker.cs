@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using Kickstart.Records;
 
 namespace Dashboard.Pinboard;
 
@@ -61,9 +62,9 @@ public partial class Sticker : Sprite2D
         // delete sticker :)))))))))))))))
         if (PinboardSelectThingy.RemoveSticker.Intersects(aRect) && SelectedSticker == this)
         {
-            var pinboard = SavingManager.Load<DashboardPinboard>(SavingManager.CurrentUser);
-            pinboard.Items.Remove(PinboardItem);
-            SavingManager.Save(SavingManager.CurrentUser, pinboard);
+            var dashboard = RecordManager.Load<DashboardConfig>();
+            dashboard.Pinboard.Remove(PinboardItem);
+            RecordManager.Save(dashboard);
 
             SelectedSticker = null;
             QueueFree();
@@ -104,9 +105,9 @@ public partial class Sticker : Sprite2D
                     Status = StatusThingy.Released;
 
                     // we need to save the position :)))
-                    var pinboard = SavingManager.Load<DashboardPinboard>(SavingManager.CurrentUser);
-                    pinboard.Items[PinboardItem].Position = Position;
-                    SavingManager.Save(SavingManager.CurrentUser, pinboard);
+                    var dashboard = RecordManager.Load<DashboardConfig>();
+                    dashboard.Pinboard[PinboardItem].Position = Position;
+                    RecordManager.Save(dashboard);
 
                     SelectedSticker = null;
                 }
@@ -130,9 +131,9 @@ public partial class Sticker : Sprite2D
 
         Scale = new Vector2(help, help);
 
-        var pinboard = SavingManager.Load<DashboardPinboard>(SavingManager.CurrentUser);
-        pinboard.Items[PinboardItem].Scale = help;
-        SavingManager.Save(SavingManager.CurrentUser, pinboard);
+        var dashboard = RecordManager.Load<DashboardConfig>();
+        dashboard.Pinboard[PinboardItem].Scale = help;
+        RecordManager.Save(dashboard);
     }
 
     public void GetBiggerOmgomgomg()
@@ -148,8 +149,8 @@ public partial class Sticker : Sprite2D
 
         Scale = new Vector2(help, help);
 
-        var pinboard = SavingManager.Load<DashboardPinboard>(SavingManager.CurrentUser);
-        pinboard.Items[PinboardItem].Scale = help;
-        SavingManager.Save(SavingManager.CurrentUser, pinboard);
+        var dashboard = RecordManager.Load<DashboardConfig>();
+        dashboard.Pinboard[PinboardItem].Scale = help;
+        RecordManager.Save(dashboard);
     }
 }

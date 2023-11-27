@@ -1,6 +1,8 @@
 using Godot;
 using System;
 using Dashboard.Wm;
+using Kickstart.Cabinetfs;
+using Kickstart.Records;
 
 public partial class NewFile : DashboardWindow {
     public string Parent;
@@ -13,7 +15,7 @@ public partial class NewFile : DashboardWindow {
 
     public void Click() {
         string filename = GetNode<LineEdit>("CenterContainer/VBoxContainer/Name").Text;
-        string gkfngof = CabinetfsManager.LoadById<CabinetfsFile>(Parent).Path;
+        string gkfngof = CabinetfsManager.LoadFile(Parent).Path;
         string suffering;
         if (gkfngof == "/")
             suffering = $"/{filename}";
@@ -21,20 +23,20 @@ public partial class NewFile : DashboardWindow {
             suffering = $"{gkfngof}/{filename}";
 
         // making a file that already exists would be pretty uncool
-        if (CabinetfsManager.FileExists(suffering)) {
+        if (CabinetfsManager.PathExists(suffering)) {
             GetNode<Label>("CenterContainer/VBoxContainer/Label").Text = "File already exists!";
             return;
         }
 
         // actually make the file :)
-        CabinetfsFile newFile = CabinetfsManager.NewFile(filename, Parent);
+        File newFile = CabinetfsManager.NewFile(filename, Parent);
 
         // TODO: make an actual time system thing
         newFile.Metadata.Add("CreationDate", DateTime.Now);
-        newFile.Metadata.Add("Author", SavingManager.CurrentUser);
+        newFile.Metadata.Add("Author", RecordManager.CurrentUser);
         newFile.Save();
 
         EmitSignal(SignalName.CloseRequested);
-        ThingThatINeedToRefresh.Refresh(gkfngof, false);
+        //ThingThatINeedToRefresh.Refresh(gkfngof, false);
     }
 }

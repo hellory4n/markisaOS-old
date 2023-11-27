@@ -2,11 +2,14 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using Kickstart.Records;
+
+namespace Kickstart.Cabinetfs;
 
 /// <summary>
 /// A file in Cabinetfs.
 /// </summary>
-public partial class CabinetfsFile
+public partial class File
 {
     /// <summary>
     /// The unique ID for the file: A random number, encoded in base64, with 20 characters.
@@ -42,15 +45,15 @@ public partial class CabinetfsFile
     /// </summary>
     public void Save()
     {
-        DirAccess.MakeDirRecursiveAbsolute($"user://Users/{SavingManager.CurrentUser}/Files/");
+        DirAccess.MakeDirRecursiveAbsolute($"user://Users/{RecordManager.CurrentUser}/Files/");
 
-        if (!CabinetfsManager.FileExists(Path))
+        if (!CabinetfsManager.PathExists(Path))
         {
             CabinetfsManager.Paths.Add(Path, Id);
             CabinetfsManager.SavePaths();
         }
 
-        using var file = FileAccess.Open($"user://Users/{SavingManager.CurrentUser}/Files/{Id}.json", FileAccess.ModeFlags.Write);
+        using var file = FileAccess.Open($"user://Users/{RecordManager.CurrentUser}/Files/{Id}.json", FileAccess.ModeFlags.Write);
         file.StoreString(
             JsonConvert.SerializeObject(this, new JsonSerializerSettings {
                 TypeNameHandling = TypeNameHandling.All,
@@ -59,37 +62,36 @@ public partial class CabinetfsFile
     }
 
     /// <summary>
-    /// Copies the current file. NOTE: Use <c>CopyFolder</c> if this is a folder.
+    /// Copies the current file. Use Folder.Copy() if you also want to copy the folder's children.
     /// </summary>
-    /// <typeparam name="T">The type of the new file.</typeparam>
     /// <param name="name">The name of the new file.</param>
     /// <param name="parent">The parent of the new file.</param>
     /// <returns>The ID of the copied file.</returns>
-    public virtual string Copy(string name, string parent = null)
+    public virtual File Copy(string name, string parent = null)
     {
-        var gaming = JsonConvert.DeserializeObject<CabinetfsFile>(
+        var gaming = JsonConvert.DeserializeObject<File>(
             JsonConvert.SerializeObject(this)
         );
         gaming.Name = name;
         gaming.Parent = parent;
-        gaming.Id = CabinetfsManager.GenerateID();
+        gaming.Id = CabinetfsManager.GenerateId();
 
         if (parent != null)
         {
-            CabinetfsFile m = CabinetfsManager.LoadById<CabinetfsFile>(parent);
+            File m = CabinetfsManager.LoadFile(parent);
             gaming.Path = $"{m.Path}/{gaming.Name}";
         }
         else
             gaming.Path = $"/{gaming.Name}";
 
-        if (!CabinetfsManager.FileExists(gaming.Path))
+        if (!CabinetfsManager.PathExists(gaming.Path))
         {
             CabinetfsManager.Paths.Add(gaming.Path, gaming.Id);
             CabinetfsManager.SavePaths();
         }
 
         gaming.Save();
-        return gaming.Id;
+        return gaming;
     }
 
     /// <summary>
@@ -104,7 +106,7 @@ public partial class CabinetfsFile
 
         if (Parent != "root")
         {
-            CabinetfsFile m = CabinetfsManager.LoadById<CabinetfsFile>(Parent);
+            File m = CabinetfsManager.LoadFile(Parent);
             Path = $"{m.Path}/{name}";
         }
         else
@@ -118,9 +120,9 @@ public partial class CabinetfsFile
     /// </summary>
     public virtual void Delete()
     {
-        if (CabinetfsManager.FileExists(Path))
+        if (CabinetfsManager.PathExists(Path))
         {
-            DirAccess.RemoveAbsolute($"user://Users/{SavingManager.CurrentUser}/Files/{Id}.json");
+            DirAccess.RemoveAbsolute($"user://Users/{RecordManager.CurrentUser}/Files/{Id}.json");
             CabinetfsManager.Paths.Remove(Path);
             CabinetfsManager.SavePaths();
         }
@@ -143,7 +145,7 @@ public partial class CabinetfsFile
 
         if (parent != "root")
         {
-            CabinetfsFile m = CabinetfsManager.LoadById<CabinetfsFile>(parent);
+            File m = CabinetfsManager.LoadFile(parent);
             Path = $"{m.Path}/{Name}";
         }
         else

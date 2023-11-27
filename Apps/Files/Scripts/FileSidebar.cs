@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using Kickstart.Cabinetfs;
 
 public partial class FileSidebar : Button {
     [Export]
@@ -12,7 +13,7 @@ public partial class FileSidebar : Button {
 
     public void Click() {
         // pain
-        if (CabinetfsManager.FileExists(Path))
-            GetNode<FileView>("../../../../Content/ContentThing/ItemList").Refresh(Path);
+        //if (CabinetfsManager.PathExists(Path))
+        //    GetNode<FileView>("../../../../Content/ContentThing/ItemList").Refresh(Path);
     }
 }

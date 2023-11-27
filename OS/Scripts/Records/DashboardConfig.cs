@@ -7,9 +7,9 @@ namespace Kickstart.Records;
 /// <summary>
 /// Stores information about the user's dashboard settings.
 /// </summary>
-public partial record Dashboard : Record
+public partial record DashboardConfig : Record
 {
-    public Dashboard()
+    public DashboardConfig()
     {
         Filename = "Dashboard";
         Type = RecordType.User;

@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using Kickstart.Cabinetfs;
 
 public partial class TextEditThing : TextEdit {
     public string EpicFilename;
@@ -43,7 +44,7 @@ public partial class TextEditThing : TextEdit {
             return;
         }
 
-        var m = CabinetfsManager.LoadById<CabinetfsFile>(CoolId);
+        var m = CabinetfsManager.LoadFile(CoolId);
         m.Data["Text"] = Text;
         m.Save();
         SavedText = Text;

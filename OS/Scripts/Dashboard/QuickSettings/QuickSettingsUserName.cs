@@ -1,13 +1,14 @@
 using Godot;
+using Kickstart.Records;
 using System;
 
-namespace Dashboard.Toolkit;
+namespace Dashboard.Interface;
 
 public partial class QuickSettingsUserName : Label
 {
     public override void _Ready()
     {
         base._Ready();
-        Text = SavingManager.CurrentUser;
+        Text = RecordManager.CurrentUser;
     }
 }

@@ -1,4 +1,5 @@
 using Godot;
+using Kickstart.Records;
 using System;
 
 namespace Dashboard.Pinboard;
@@ -21,10 +22,10 @@ public partial class StickyNoteText : TextEdit
 
     public void ActuallySaveAndStuff()
     {
-        var pinboard = SavingManager.Load<DashboardPinboard>(SavingManager.CurrentUser);
-        pinboard.Items[
+        var mj = RecordManager.Load<DashboardConfig>();
+        mj.Pinboard[
             GetParent<StickyNote>().PinboardItem
         ].Text = Text;
-        SavingManager.Save(SavingManager.CurrentUser, pinboard);
+        RecordManager.Save(mj);
     }
 }

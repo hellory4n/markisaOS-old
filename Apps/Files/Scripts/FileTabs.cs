@@ -18,7 +18,7 @@ public partial class FileTabs : HBoxContainer {
         TabThing fart = TabThing.Instantiate<TabThing>();
         fart.TabContent = coolTab;
         fart.Text = "Home";
-        coolTab.GetNode<FileView>("Content/ContentThing/ItemList").TabThing = fart;
+        //coolTab.GetNode<FileView>("Content/ContentThing/ItemList").TabThing = fart;
 
         CallDeferred("add_child", fart);
         GetParent().GetParent().CallDeferred("add_child", coolTab);

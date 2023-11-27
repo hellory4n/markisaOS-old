@@ -1,6 +1,8 @@
 using Godot;
 using System;
 using Kickstart.Drivers;
+using Kickstart.Records;
+using Kickstart.Cabinetfs;
 
 namespace Dashboard.Pinboard;
 
@@ -22,7 +24,7 @@ public partial class AddStickyNote : TextureButton
     {
         base._Pressed();
         // save the sticker
-        var pinboard = SavingManager.Load<DashboardPinboard>(SavingManager.CurrentUser);
+        var notThePinboard = RecordManager.Load<DashboardConfig>();
         var stickerdbgfdf = new PinboardItem
         {
             Position = new Vector2(250, 160),
@@ -30,11 +32,11 @@ public partial class AddStickyNote : TextureButton
             Text = "Write text here..."
         };
 
-        string bullshit = CabinetfsManager.GenerateID();
-        pinboard.Items.Add(bullshit, stickerdbgfdf);
-        SavingManager.Save(SavingManager.CurrentUser, pinboard);
+        string bullshit = CabinetfsManager.GenerateId();
+        notThePinboard.Pinboard.Add(bullshit, stickerdbgfdf);
+        RecordManager.Save(notThePinboard);
 
-        // add it and stuff :)
+        // make it show up and stuff :)
         var sticker = StickyNote.Instantiate<StickyNote>();
         sticker.Position = stickerdbgfdf.Position;
         sticker.GetNode<TextEdit>("Text").Text = stickerdbgfdf.Text;

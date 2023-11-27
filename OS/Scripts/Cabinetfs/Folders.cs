@@ -2,19 +2,22 @@ using Godot;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using Kickstart.Records;
+
+namespace Kickstart.Cabinetfs;
 
 /// <summary>
 /// A cabinetfs folder.
 /// </summary>
-public partial class Folder : CabinetfsFile
+public partial class Folder : File
 {
     /// <summary>
-    /// Copies this folder and all of its items.
+    /// Copies this folder and all of its items. Use File.Copy() if you don't want copy the items.
     /// </summary>
     /// <param name="name">The name of the new folder.</param>
     /// <param name="parent">The ID of the parent of the new folder.</param>
-    /// <returns>The ID of the copied folder.</returns>
-    public override string Copy(string name, string parent = null)
+    /// <returns>The copied folder.</returns>
+    public override Folder Copy(string name, string parent = null)
     {
         // MemberwiseClone() is no worky xd
         var gaming = JsonConvert.DeserializeObject<Folder>(
@@ -23,11 +26,11 @@ public partial class Folder : CabinetfsFile
 
         gaming.Name = name;
         gaming.Parent = parent;
-        gaming.Id = CabinetfsManager.GenerateID();
+        gaming.Id = CabinetfsManager.GenerateId();
 
         if (parent != "root")
         {
-            CabinetfsFile m = CabinetfsManager.LoadById<CabinetfsFile>(parent);
+            File m = CabinetfsManager.LoadFile(parent);
             gaming.Path = $"{m.Path}/{name}";
         }
         else
@@ -35,11 +38,11 @@ public partial class Folder : CabinetfsFile
 
         gaming.Save();
 
-        foreach (CabinetfsFile m in CabinetfsManager.GetFolderItems(Path))
+        foreach (File m in CabinetfsManager.GetFolderItems(Path))
         {
             if (m.Type == "Folder")
             {
-                Folder ha = CabinetfsManager.LoadById<Folder>(m.Id);
+                Folder ha = CabinetfsManager.LoadFolder(m.Id);
                 // haha recursion
                 ha.Copy(ha.Name, gaming.Id);
             }
@@ -47,7 +50,7 @@ public partial class Folder : CabinetfsFile
                 m.Copy(m.Name, gaming.Id);
         }
 
-        return gaming.Id;
+        return gaming;
     }
 
     /// <summary>
@@ -62,7 +65,7 @@ public partial class Folder : CabinetfsFile
 
         if (Parent != "root")
         {
-            CabinetfsFile m = CabinetfsManager.LoadById<CabinetfsFile>(Parent);
+            File m = CabinetfsManager.LoadFile(Parent);
             Path = $"{m.Path}/{name}";
         }
         else
@@ -70,11 +73,11 @@ public partial class Folder : CabinetfsFile
 
         Save();
 
-        foreach (CabinetfsFile m in CabinetfsManager.GetFolderItems(Path))
+        foreach (File m in CabinetfsManager.GetFolderItems(Path))
         {
             if (m.Type == "Folder")
             {
-                Folder ha = CabinetfsManager.LoadById<Folder>(m.Id);
+                Folder ha = CabinetfsManager.LoadFolder(m.Id);
                 // haha recursion
                 ha.Rename(ha.Name);
             }
@@ -96,20 +99,20 @@ public partial class Folder : CabinetfsFile
     /// </summary>
     public override void Delete()
     {
-        if (FileAccess.FileExists($"user://Users/{SavingManager.CurrentUser}/Files/{Id}.json"))
+        if (FileAccess.FileExists($"user://Users/{RecordManager.CurrentUser}/Files/{Id}.json"))
         {
-            foreach (CabinetfsFile m in CabinetfsManager.GetFolderItems(Path))
+            foreach (File m in CabinetfsManager.GetFolderItems(Path))
             {
                 if (m.Type == "Folder")
                 {
-                    Folder ha = CabinetfsManager.LoadById<Folder>(m.Id);
+                    Folder ha = CabinetfsManager.LoadFolder(m.Id);
                     // haha recursion
                     ha.Delete();
                 } else
                     m.Delete();
             }
 
-            DirAccess.RemoveAbsolute($"user://Users/{SavingManager.CurrentUser}/Files/{Id}.json");
+            DirAccess.RemoveAbsolute($"user://Users/{RecordManager.CurrentUser}/Files/{Id}.json");
             CabinetfsManager.Paths.Remove(Path);
             CabinetfsManager.SavePaths();            
         } else
@@ -119,13 +122,23 @@ public partial class Folder : CabinetfsFile
     /// <summary>
     /// Loads a file inside this folder.
     /// </summary>
-    /// <typeparam name="T">The type of the file.</typeparam>
     /// <param name="path">The path of the file, example: <c>FolderInsideThis/File</c></param>
     /// <returns>The file loaded.</returns>
-    public T LoadLocal<T>(string path) where T : CabinetfsFile
+    public File LoadLocalFile(string path)
     {
         string actualPath = $"{Path}/{path}";
-        return CabinetfsManager.Load<T>(actualPath);
+        return CabinetfsManager.LoadFile(CabinetfsManager.GetId(actualPath));
+    }
+    
+    /// <summary>
+    /// Loads a folder inside this folder.
+    /// </summary>
+    /// <param name="path">The path of the folder, example: <c>FolderInsideThis/OtherFolder</c></param>
+    /// <returns>The folder loaded.</returns>
+    public Folder LoadLocalFolder(string path)
+    {
+        string actualPath = $"{Path}/{path}";
+        return CabinetfsManager.LoadFolder(CabinetfsManager.GetId(actualPath));
     }
 
     /// <summary>
@@ -140,18 +153,18 @@ public partial class Folder : CabinetfsFile
 
         if (Parent != "root")
         {
-            CabinetfsFile m = CabinetfsManager.LoadById<CabinetfsFile>(Parent);
+            File m = CabinetfsManager.LoadFile(Parent);
             Path = $"{m.Path}/{Name}";
         } else
             Path = $"/{Name}";
 
         Save();
 
-        foreach (CabinetfsFile m in CabinetfsManager.GetFolderItems(Path))
+        foreach (File m in CabinetfsManager.GetFolderItems(Path))
         {
             if (m.Type == "Folder")
             {
-                Folder ha = CabinetfsManager.LoadById<Folder>(m.Id);
+                Folder ha = CabinetfsManager.LoadFolder(m.Id);
                 // haha recursion
                 ha.Move(Id);
             }

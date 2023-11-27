@@ -4,7 +4,7 @@ using Dashboard.Wm;
 using Kickstart.Drivers;
 
 public partial class DisplaySettingsAutoRevert : Timer {
-    public override void _Ready() {
+    /*public override void _Ready() {
         base._Ready();
         Connect("timeout", new Callable(this, nameof(Yes)));
     }
@@ -16,5 +16,5 @@ public partial class DisplaySettingsAutoRevert : Timer {
         resolutionManager.Update();
 
         GetParent<DashboardWindow>().EmitSignal(DashboardWindow.SignalName.CloseRequested);
-    }
+    }*/
 }

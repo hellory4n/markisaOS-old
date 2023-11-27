@@ -7,7 +7,7 @@ using Kickstart.Drivers;
 using Dashboard.Toolkit;
 
 public partial class FileView : ItemList {
-    readonly Texture2D FolderIcon = GD.Load<Texture2D>("res://Apps/Files/Assets/IconDock.png");
+    /*readonly Texture2D FolderIcon = GD.Load<Texture2D>("res://Apps/Files/Assets/IconDock.png");
     readonly Texture2D FileIcon = GD.Load<Texture2D>("res://Apps/Files/Assets/File.png");
     readonly Texture2D MusicIcon = GD.Load<Texture2D>("res://Apps/Files/Assets/Music.png");
     readonly Texture2D VideoIcon = GD.Load<Texture2D>("res://Apps/Files/Assets/Video.png");
@@ -92,7 +92,7 @@ public partial class FileView : ItemList {
             RenameFile();
         }
 
-        /*if (Input.IsActionJustReleased("new_but_different") && GetParent().GetParent().GetParent().GetParent<DashboardWindow>()
+        if (Input.IsActionJustReleased("new_but_different") && GetParent().GetParent().GetParent().GetParent<DashboardWindow>()
         .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab") {
             WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
             PackedScene m = GD.Load<PackedScene>("res://Apps/Files/NewFolder.tscn");
@@ -119,7 +119,7 @@ public partial class FileView : ItemList {
             jjkn.ThingThatINeedToRefresh = this;
 
             wm.AddWindow(jjkn);
-        }*/
+        }
     }    
 
     public void Refresh(string pathThingSomething, bool addToHistory = true) {
@@ -205,7 +205,7 @@ public partial class FileView : ItemList {
     }
 
     void Open(int index) {
-        /*CabinetfsFile pain = CabinetfsManager.LoadById<CabinetfsFile>(CoolFiles[index]);
+        CabinetfsFile pain = CabinetfsManager.LoadById<CabinetfsFile>(CoolFiles[index]);
         switch (pain.Type) {
             case "Folder":
                 Refresh(pain.Path);
@@ -242,7 +242,7 @@ public partial class FileView : ItemList {
                 jjkn3.Suffer = true;
                 jjkn3.Fhgkfdlkjgjkhgjf = pain.Id;
                 break;
-        }*/
+        }
     }
 
     void NothingSelected() {
@@ -299,7 +299,7 @@ public partial class FileView : ItemList {
     }
 
     void PasteFile() {
-        /*WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
+        WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
         PackedScene m = GD.Load<PackedScene>("res://Apps/Files/Paste.tscn");
         PasteFile jjkn = m.Instantiate<PasteFile>();
 
@@ -316,11 +316,11 @@ public partial class FileView : ItemList {
             jjkn.Move = true;
         }
 
-        wm.AddWindow(jjkn);*/
+        wm.AddWindow(jjkn);
     }
 
     void ContextMenuSelected(int index) {
-        /*switch (index) {
+        switch (index) {
             case 0:
                 WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
                 PackedScene m = GD.Load<PackedScene>("res://Apps/Files/NewFile.tscn");
@@ -360,7 +360,7 @@ public partial class FileView : ItemList {
             case 7:
                 RenameFile();
                 break;
-        }*/
+        }
     }
 
     void ContextMenuButDifferent(Vector2 position) {
@@ -393,7 +393,7 @@ public partial class FileView : ItemList {
     }
 
     void DeleteFile() {
-        /*WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
+        WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
         PackedScene m = GD.Load<PackedScene>("res://Apps/Files/Delete.tscn");
         Delete jjkn = m.Instantiate<Delete>();
 
@@ -403,11 +403,11 @@ public partial class FileView : ItemList {
         jjkn.ThingThatINeedToRefresh = this;
         jjkn.CoolFile = Selected;
 
-        wm.AddWindow(jjkn);*/
+        wm.AddWindow(jjkn);
     }
 
     void RenameFile() {
-        /*WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
+        WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
         PackedScene m = GD.Load<PackedScene>("res://Apps/Files/Rename.tscn");
         Rename jjkn = m.Instantiate<Rename>();
 
@@ -417,6 +417,6 @@ public partial class FileView : ItemList {
         jjkn.ThingThatINeedToRefresh = this;
         jjkn.CoolFile = Selected;
 
-        wm.AddWindow(jjkn);*/
-    }
+        wm.AddWindow(jjkn);
+    }*/
 }

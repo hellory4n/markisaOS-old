@@ -2,7 +2,7 @@ using Godot;
 using System;
 
 public partial class DisplaySettingsActuallyApply : Button {
-    public Vector2 Resolution;
+    /*public Vector2 Resolution;
     public float ScalingFactor;
 
     public override void _Ready() {
@@ -24,5 +24,5 @@ public partial class DisplaySettingsActuallyApply : Button {
         GetTree().Root.AddChild(aNode);
         GetNode("/root/Dashboard").QueueFree();
         GetNode("/root/DashboardInterface").QueueFree();
-    }
+    }*/
 }

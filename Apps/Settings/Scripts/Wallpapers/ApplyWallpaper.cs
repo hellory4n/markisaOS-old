@@ -2,6 +2,8 @@ using Godot;
 using System;
 using Kickstart.Drivers;
 using Dashboard.Toolkit;
+using Kickstart.Records;
+using Kickstart.Cabinetfs;
 
 public partial class ApplyWallpaper : Button {
     public override void _Pressed()
@@ -14,7 +16,7 @@ public partial class ApplyWallpaper : Button {
         // hell
         if (CabinetfsManager.IdExists(coolWallpaperId))
         {
-            var coolImage = CabinetfsManager.LoadById<CabinetfsFile>(coolWallpaperId);
+            var coolImage = CabinetfsManager.LoadFile(coolWallpaperId);
             if (coolImage.Type == "Picture")
             {
                 if (coolImage.Data.ContainsKey("Resource"))
@@ -59,8 +61,8 @@ public partial class ApplyWallpaper : Button {
         GetNode<Sprite2D>("/root/Dashboard/Wallpaper").Position = bruh/2;
 
         // then save the new settings
-        UserDashboard m = SavingManager.Load<UserDashboard>(SavingManager.CurrentUser);
+        DashboardConfig m = RecordManager.Load<DashboardConfig>();
         m.Wallpaper = wallpaperSaveThing;
-        SavingManager.Save(SavingManager.CurrentUser, m);
+        RecordManager.Save(m);
     }
 }

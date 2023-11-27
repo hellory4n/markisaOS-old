@@ -3,6 +3,9 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Kickstart.Records;
+
+namespace Kickstart.Cabinetfs;
 
 /// <summary>
 /// Manages Cabinetfs. NOTE: Filesystems are local to each user.
@@ -19,16 +22,16 @@ public partial class CabinetfsManager : Node
     /// </summary>
     public static void UpdatePaths()
     {
-        if (FileAccess.FileExists($"user://Users/{SavingManager.CurrentUser}/Files/db.json"))
+        if (FileAccess.FileExists($"user://Users/{RecordManager.CurrentUser}/Files/db.json"))
         {
-            using var file = FileAccess.Open($"user://Users/{SavingManager.CurrentUser}/Files/db.json", FileAccess.ModeFlags.Read);
+            using var file = FileAccess.Open($"user://Users/{RecordManager.CurrentUser}/Files/db.json", FileAccess.ModeFlags.Read);
             Paths = JsonConvert.DeserializeObject<Dictionary<string, string>>(
                 file.GetAsText()
             );
         }
         else
         {
-            using var file = FileAccess.Open($"user://Users/{SavingManager.CurrentUser}/Files/db.json", FileAccess.ModeFlags.Write);
+            using var file = FileAccess.Open($"user://Users/{RecordManager.CurrentUser}/Files/db.json", FileAccess.ModeFlags.Write);
             file.StoreString(
                 JsonConvert.SerializeObject(Paths)
             );
@@ -40,47 +43,22 @@ public partial class CabinetfsManager : Node
     /// </summary>
     public static void SavePaths()
     {
-        using var file = FileAccess.Open($"user://Users/{SavingManager.CurrentUser}/Files/db.json", FileAccess.ModeFlags.Write);
+        using var file = FileAccess.Open($"user://Users/{RecordManager.CurrentUser}/Files/db.json", FileAccess.ModeFlags.Write);
         file.StoreString(
             JsonConvert.SerializeObject(Paths)
         );
     }
 
     /// <summary>
-    /// Loads a file from its path.
-    /// </summary>
-    /// <typeparam name="T">The type of the file.</typeparam>
-    /// <param name="path">The path of the file.</param>
-    /// <returns>The loaded file.</returns>
-    public static T Load<T>(string path) where T : CabinetfsFile
-    {
-        if (Paths.ContainsKey(path))
-        {
-            using var file = FileAccess.Open($"user://Users/{SavingManager.CurrentUser}/Files/{Paths[path]}.json", FileAccess.ModeFlags.Read);
-            T pain = JsonConvert.DeserializeObject<T>(
-                file.GetAsText()
-            );
-            pain.Id = Paths[path];
-            file.Close();
-            return pain;
-        }
-        else
-        {
-            GD.PushError($"No file was found at path \"{path}\"!");
-            return default;
-        }
-    }
-
-    /// <summary>
-    /// Loads a file from its ID instead of its path.
+    /// Loads a file from its ID.
     /// </summary>
     /// <typeparam name="T">The type of the file.</typeparam>
     /// <param name="id">The ID of the file.</param>
     /// <returns>The loaded file.</returns>
-    public static T LoadById<T>(string id) where T : CabinetfsFile
+    static T InternalLoad<T>(string id) where T : File
     {
-        if (FileAccess.FileExists($"user://Users/{SavingManager.CurrentUser}/Files/{id}.json")) {
-            using var file = FileAccess.Open($"user://Users/{SavingManager.CurrentUser}/Files/{id}.json", FileAccess.ModeFlags.Read);
+        if (FileAccess.FileExists($"user://Users/{RecordManager.CurrentUser}/Files/{id}.json")) {
+            using var file = FileAccess.Open($"user://Users/{RecordManager.CurrentUser}/Files/{id}.json", FileAccess.ModeFlags.Read);
             T yes = JsonConvert.DeserializeObject<T>(
                 file.GetAsText()
             );
@@ -94,11 +72,31 @@ public partial class CabinetfsManager : Node
     }
 
     /// <summary>
+    /// Loads a file from its ID.
+    /// </summary>
+    /// <param name="id">The ID of the file.</param>
+    /// <returns>The loaded file.</returns>
+    public static File LoadFile(string id)
+    {
+        return InternalLoad<File>(id);
+    }
+
+    /// <summary>
+    /// Loads a folder from its ID.
+    /// </summary>
+    /// <param name="id">The ID of the folder.</param>
+    /// <returns>The loaded folder.</returns>
+    public static Folder LoadFolder(string id)
+    {
+        return InternalLoad<Folder>(id);
+    }
+
+    /// <summary>
     /// Checks if a file exists from its path.
     /// </summary>
     /// <param name="path">The path of the file.</param>
     /// <returns>Whether or not the file exists.</returns>
-    public static bool FileExists(string path)
+    public static bool PathExists(string path)
     {
         return Paths.ContainsKey(path);
     }
@@ -118,9 +116,9 @@ public partial class CabinetfsManager : Node
     /// </summary>
     /// <param name="path">The path of a file.</param>
     /// <returns>The ID of the file.</returns>
-    public static string PermanentPath(string path)
+    public static string GetId(string path)
     {
-        CabinetfsFile jbkfjbg = Load<CabinetfsFile>(path);
+        File jbkfjbg = LoadFile(path);
         return jbkfjbg.Id;
     }
 
@@ -128,16 +126,16 @@ public partial class CabinetfsManager : Node
     /// Finds all of the files inside a certain folder.
     /// </summary>
     /// <param name="path">The path of the folder.</param>
-    /// <returns>An array of IDs of each file in the folder</returns>
-    public static CabinetfsFile[] GetFolderItems(string path)
+    /// <returns>An array of files in the folder. May also include folders, so remember to check that</returns>
+    public static File[] GetFolderItems(string path)
     {
-        // FIXME: this is very much not efficient and would get slower with more files, 
-        // please fix this at some point for fuck's sake
-        string parentId = Load<Folder>(path).Id;
-        List<CabinetfsFile> pain = new();
+        // FIXME: loading every single in the filesystem just to check the parent is not very efficient,
+        // who could have guessed?
+        string parentId = LoadFolder(path).Id;
+        List<File> pain = new();
         foreach (var item in Paths)
         {
-            CabinetfsFile bruh = LoadById<CabinetfsFile>(item.Value);
+            File bruh = LoadFile(item.Value);
             if (bruh.Parent == parentId)
                 pain.Add(bruh);
         }
@@ -148,7 +146,7 @@ public partial class CabinetfsManager : Node
     /// Generates an ID for files.
     /// </summary>
     /// <returns></returns>
-    public static string GenerateID()
+    public static string GenerateId()
     {
         string id = "";
         string[] possibleCharacters =
@@ -171,7 +169,7 @@ public partial class CabinetfsManager : Node
     /// </summary>
     /// <param name="name">The name of the file.</param>
     /// <param name="parent">The ID of the parent of the file.</param>
-    public static CabinetfsFile NewFile(string name, string parent)
+    public static File NewFile(string name, string parent)
     {
         // very illegal names
         if (name.Contains('/'))
@@ -181,17 +179,17 @@ public partial class CabinetfsManager : Node
         }
 
         // setup stuff :)
-        CabinetfsFile yeah = new()
+        File yeah = new()
         {
             Parent = parent,
             Name = name,
-            Id = GenerateID()
+            Id = GenerateId()
         };
 
         // yes :)
         if (parent != "root" || parent == null)
         {
-            CabinetfsFile m = LoadById<CabinetfsFile>(parent);
+            File m = LoadFile(parent);
             yeah.Path = $"{m.Path}/{name}";
         }
         else
@@ -219,14 +217,14 @@ public partial class CabinetfsManager : Node
         {
             Parent = parent,
             Name = name,
-            Id = GenerateID(),
+            Id = GenerateId(),
             Type = "Folder"
         };
 
         // yes :)
         if (parent != "root" || parent == null)
         {
-            CabinetfsFile m = LoadById<CabinetfsFile>(parent);
+            File m = LoadFile(parent);
             yeah.Path = $"{m.Path}/{name}";
         }
         else
@@ -240,7 +238,7 @@ public partial class CabinetfsManager : Node
     /// </summary>
     public static void NewFileStructure()
     {
-        if (FileExists("/System") && FileExists("/Home"))
+        if (PathExists("/System") && PathExists("/Home"))
             return;
 
         Folder system = NewFolder("System", "root");
@@ -279,43 +277,43 @@ public partial class CabinetfsManager : Node
         samplePictures.Metadata.Add("CreationDate", DateTime.Now);
         samplePictures.Save();
 
-        CabinetfsFile highPeaks = NewFile("High Peaks", samplePictures.Id);
+        File highPeaks = NewFile("High Peaks", samplePictures.Id);
         highPeaks.Type = "Picture";
         highPeaks.Data.Add("Resource", "res://Assets/Wallpapers/HighPeaks.jpg");
         highPeaks.Metadata.Add("CreationDate", DateTime.Now);
         highPeaks.Save();
 
-        CabinetfsFile flowers = NewFile("Flowers", samplePictures.Id);
+        File flowers = NewFile("Flowers", samplePictures.Id);
         flowers.Type = "Picture";
         flowers.Data.Add("Resource", "res://Assets/Wallpapers/Flowers.png");
         flowers.Metadata.Add("CreationDate", DateTime.Now);
         flowers.Save();
 
-        CabinetfsFile beaches = NewFile("Beaches", samplePictures.Id);
+        File beaches = NewFile("Beaches", samplePictures.Id);
         beaches.Type = "Picture";
         beaches.Data.Add("Resource", "res://Assets/Wallpapers/Beaches.png");
         beaches.Metadata.Add("CreationDate", DateTime.Now);
         beaches.Save();
 
-        CabinetfsFile aurora = NewFile("Aurora", samplePictures.Id);
+        File aurora = NewFile("Aurora", samplePictures.Id);
         aurora.Type = "Picture";
         aurora.Data.Add("Resource", "res://Assets/Wallpapers/Aurora.png");
         aurora.Metadata.Add("CreationDate", DateTime.Now);
         aurora.Save();
 
-        CabinetfsFile mountains = NewFile("Mountains", samplePictures.Id);
+        File mountains = NewFile("Mountains", samplePictures.Id);
         mountains.Type = "Picture";
         mountains.Data.Add("Resource", "res://Assets/Wallpapers/Mountains.png");
         mountains.Metadata.Add("CreationDate", DateTime.Now);
         mountains.Save();
 
-        CabinetfsFile space = NewFile("Space", samplePictures.Id);
+        File space = NewFile("Space", samplePictures.Id);
         space.Type = "Picture";
         space.Data.Add("Resource", "res://Assets/Wallpapers/Space.png");
         space.Metadata.Add("CreationDate", DateTime.Now);
         space.Save();
 
-        CabinetfsFile logo = NewFile("lelcubeOS", pictures.Id);
+        File logo = NewFile("lelcubeOS", pictures.Id);
         logo.Type = "Picture";
         logo.Data.Add("Resource", "res://Assets/Boot/Logo2.png");
         logo.Metadata.Add("CreationDate", DateTime.Now);
@@ -334,5 +332,15 @@ public partial class CabinetfsManager : Node
             return $"/{name}";
         else
             return $"{parentPath}/{name}";
+    }
+
+    /// <summary>
+    /// Gets the type of a file from its ID.
+    /// </summary>
+    /// <param name="id">The ID of the file.</param>
+    /// <returns>The type of the file.</returns>
+    public static string GetFileType(string id)
+    {
+        return LoadFile(id).Type;
     }
 }

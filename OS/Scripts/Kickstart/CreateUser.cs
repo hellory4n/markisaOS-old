@@ -1,4 +1,5 @@
 using Godot;
+using Kickstart.Records;
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
@@ -30,16 +31,16 @@ public partial class CreateUser : Button
         {
             switch (icons.GetSelectedItems()[0])
             {
-                case 0: icon = "Cat"; break;
-                case 1: icon = "Flower"; break;
-                case 2: icon = "Balloon"; break;
-                case 3: icon = "Car"; break;
-                case 4: icon = "Dog"; break;
-                case 5: icon = "Duck"; break;
-                case 6: icon = "Pancakes"; break;
-                case 7: icon = "Brushes"; break;
-                case 8: icon = "Shuttle"; break;
-                case 9: icon = "Football"; break;
+                case 0: icon = "res://Assets/UserIcons/Cat.png"; break;
+                case 1: icon = "res://Assets/UserIcons/Flower.png"; break;
+                case 2: icon = "res://Assets/UserIcons/Balloons.png"; break;
+                case 3: icon = "res://Assets/UserIcons/Car.png"; break;
+                case 4: icon = "res://Assets/UserIcons/Dog.png"; break;
+                case 5: icon = "res://Assets/UserIcons/Duck.png"; break;
+                case 6: icon = "res://Assets/UserIcons/Pancakes.png"; break;
+                case 7: icon = "res://Assets/UserIcons/Brushes.png"; break;
+                case 8: icon = "res://Assets/UserIcons/Shuttle.png"; break;
+                case 9: icon = "res://Assets/UserIcons/Football.png"; break;
             }
         }
 
@@ -72,31 +73,34 @@ public partial class CreateUser : Button
         }
 
         // make sure the user doesn't already exist :)
-        List<string> users = new();
-        DirAccess dir = DirAccess.Open("user://Users/");
-        dir.ListDirBegin();
-        string filename = dir.GetNext();
-        while (filename != "")
+        if (DirAccess.DirExistsAbsolute("user://Users"))
         {
-            users.Add(filename);
-            filename = dir.GetNext();
-        }
+            List<string> users = new();
+            DirAccess dir = DirAccess.Open("user://Users/");
+            dir.ListDirBegin();
+            string filename = dir.GetNext();
+            while (filename != "")
+            {
+                users.Add(filename);
+                filename = dir.GetNext();
+            }
 
-        if (users.Contains(name.Text))
-        {
-            errorThingy.Text = $"User \"{name.Text}\" already exists!";
-            return;
+            if (users.Contains(name.Text))
+            {
+                errorThingy.Text = $"User \"{name.Text}\" already exists!";
+                return;
+            }
         }
 
         // now we actually make the user and login
-        UserInfo info = new()
-        {
-            Photo = icon,
-            LelnetUsername = username.Text
+        MarkisaUser user = new() {
+            DisplayName = name.Text,
+            Username = username.Text,
+            Photo = icon
         };
-        SavingManager.NewUser(name.Text, info);
+        RecordManager.CurrentUser = username.Text;
+        RecordManager.Save(user);
 
-        SavingManager.CurrentUser = name.Text;
         PackedScene packedScene = GD.Load<PackedScene>("res://OS/Dashboard/Dashboard.tscn");
         Node dashboard = packedScene.Instantiate();
         GetTree().Root.AddChild(dashboard);

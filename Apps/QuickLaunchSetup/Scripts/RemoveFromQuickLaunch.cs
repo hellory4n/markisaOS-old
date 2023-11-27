@@ -3,38 +3,37 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Dashboard.Toolkit;
+using Kickstart.Records;
 
-public partial class RemoveFromQuickLaunch : Button {
-    public Lelapp App;
+namespace QuickLaunchSetup;
 
-    public override void _Ready() {
-        base._Ready();
-        Connect("pressed", new Callable(this, nameof(Click)));
-    }
+public partial class RemoveFromQuickLaunch : Button
+{
+    public Package App;
 
-    public void Click() {
+    public override void _Pressed()
+    {
+        base._Pressed();
         VBoxContainer yes = GetNode<VBoxContainer>("/root/DashboardInterface/Dock/DockStuff/QuickLaunch");
         foreach (Node quickSettingsThing in yes.GetChildren()) {
             if (quickSettingsThing is OpenWindow) {
                 OpenWindow h = GetNode<OpenWindow>(quickSettingsThing.GetPath());
-                if (h.WindowScene == App.Scene) {
+                if (h.WindowScene == App.Executable) {
                     h.QueueFree();
                 }
             }
         }
 
-        QuickLaunch quickLaunch = SavingManager.Load<QuickLaunch>(SavingManager.CurrentUser);
-        List<Lelapp> pain = quickLaunch.Apps.ToList();
+        var m = RecordManager.Load<DashboardConfig>();
+        List<Package> pain = m.QuickLaunch;
         // .Remove() is no worky :(
         for (int i = 0; i < pain.Count; i++) {
-            if (pain[i].Name == App.Name) {
+            if (pain[i].DisplayName == App.DisplayName) {
                 pain.RemoveAt(i);
                 i--;
             }
         }
-        SavingManager.Save(SavingManager.CurrentUser, new QuickLaunch {
-            Apps = pain.ToArray()
-        });
+        RecordManager.Save(m);
 
         GetParent().GetParent<ListAppsButQuickLaunch>().UpdateItems();
     }

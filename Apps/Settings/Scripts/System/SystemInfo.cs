@@ -1,23 +1,25 @@
 using Godot;
 using System;
-using System.Reflection;
+using Kickstart.Records;
+
+namespace Settings;
 
 public partial class SystemInfo : Label {
     public override void _Ready() {
         base._Ready();
-        BasicUser version = SavingManager.Load<BasicUser>(SavingManager.CurrentUser);
+        MarkisaUser user = RecordManager.Load<MarkisaUser>();
         string model;
         if (OS.GetModelName() == "GenericDevice")
-            model = "Unable to get model name™";
+            model = "Placeholder Device™";
         else
             model = OS.GetModelName();
 
         string cpu;
         if (OS.GetProcessorName() == "")
-            cpu = "Unable to get CPU name™";
+            cpu = "Placeholder Processor™";
         else
             cpu = OS.GetProcessorName();
 
-        Text = $"markisaOS v{version.MajorVersion}.{version.MinorVersion}.{version.PatchVersion}\n© Passionfruit 2069\nModel {model}\n{cpu}";
+        Text = $"markisaOS {user.VersionToString()}\n© Passionfruit 2069\n{model}\n{cpu}";
     }
 }

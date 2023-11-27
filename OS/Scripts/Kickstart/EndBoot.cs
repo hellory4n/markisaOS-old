@@ -1,4 +1,5 @@
 using Godot;
+using Kickstart.Records;
 using System;
 
 namespace Kickstart.Bootloader;
@@ -13,7 +14,7 @@ public partial class EndBoot : Timer
         Connect("timeout", new Callable(this, nameof(Thing)));
 
         // if we're gonna install markisaOS then the bootscreen should take longer and stuff
-        if (!SavingManager.LoadSettings<InstallerInfo>().IsInstalled)
+        if (!RecordManager.Load<SystemInfo>().Installed)
         {
             WaitTime = 15;
             GetNode<Label>("../Control/Label").Text = "markisaOS Me is preparing the installation process.\nThis can take several seconds.";

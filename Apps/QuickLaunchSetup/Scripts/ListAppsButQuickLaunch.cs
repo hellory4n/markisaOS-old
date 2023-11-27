@@ -1,6 +1,10 @@
+using Dashboard.Interface;
 using Godot;
+using Kickstart.Records;
 using System;
 using System.Linq;
+
+namespace QuickLaunchSetup;
 
 public partial class ListAppsButQuickLaunch : VBoxContainer {
     public override void _Ready() {
@@ -14,10 +18,9 @@ public partial class ListAppsButQuickLaunch : VBoxContainer {
             mbcicfda.QueueFree();
         }
 
-        InstalledApps m = SavingManager.Load<InstalledApps>(SavingManager.CurrentUser);
-        Lelapp[] apps = m.All;
-        apps = apps.OrderBy(fart => fart.Name).ToArray();
-        Lelapp[] quickLaunch = SavingManager.Load<QuickLaunch>(SavingManager.CurrentUser).Apps;
+        var m = RecordManager.Load<DashboardConfig>().AllApps;
+        Package[] apps = m.OrderBy(fart => fart.DisplayName).ToArray();
+        Package[] quickLaunch = RecordManager.Load<DashboardConfig>().QuickLaunch.ToArray();
 
         PackedScene yes = GD.Load<PackedScene>("res://Apps/QuickLaunchSetup/QuickLaunchAppThing.tscn");
         PackedScene no = GD.Load<PackedScene>("res://Apps/QuickLaunchSetup/QuickLaunchAppThingPain.tscn");
@@ -25,7 +28,7 @@ public partial class ListAppsButQuickLaunch : VBoxContainer {
             // .Contains() is no worky :(
             bool nbh = false;
             foreach (var item in quickLaunch) {
-                if (item.Name == app.Name) {
+                if (item.DisplayName == app.DisplayName) {
                     nbh = true;
                     break;
                 }
@@ -33,12 +36,12 @@ public partial class ListAppsButQuickLaunch : VBoxContainer {
 
             if (!nbh) {
                 Control gksnj = yes.Instantiate<Control>();
-                gksnj.GetNode<Label>("Label").Text = app.Name;
+                gksnj.GetNode<Label>("Label").Text = app.DisplayName;
                 gksnj.GetNode<AddToQuickLaunch>("Button").App = app;
                 AddChild(gksnj);
             } else {
                 Control gksnj = no.Instantiate<Control>();
-                gksnj.GetNode<Label>("Label").Text = app.Name;
+                gksnj.GetNode<Label>("Label").Text = app.DisplayName;
                 gksnj.GetNode<RemoveFromQuickLaunch>("Button").App = app;
                 AddChild(gksnj);
             }

@@ -2,6 +2,7 @@ using Godot;
 using System;
 using Dashboard.Wm;
 using Dashboard.Overlay;
+using Kickstart.Cabinetfs;
 
 public partial class NotebookOpen : DashboardWindow {
     public TextEditThing Tfhsjkgjrrh;
@@ -22,7 +23,7 @@ public partial class NotebookOpen : DashboardWindow {
         }
 
         // actually open the file
-        var epicFile = CabinetfsManager.LoadById<CabinetfsFile>(id);
+        var epicFile = CabinetfsManager.LoadFile(id);
         if (epicFile.Data.ContainsKey("Text")) {
             Tfhsjkgjrrh.Text = epicFile.Data["Text"].ToString();
         } else {

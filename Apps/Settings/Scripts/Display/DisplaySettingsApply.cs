@@ -3,7 +3,7 @@ using System;
 using Dashboard.Wm;
 
 public partial class DisplaySettingsApply : Button {
-    SpinBox resolutionWidth;
+    /*SpinBox resolutionWidth;
     SpinBox resolutionHeight;
     SpinBox scalingFactor;
 
@@ -41,6 +41,6 @@ public partial class DisplaySettingsApply : Button {
         jjkn.GetNode<DisplaySettingsActuallyApply>("Confirm").ScalingFactor = (float)(scalingFactor.Value/100);
 
         // the window manager is gonna put it on the center but using the old settings
-        jjkn.Position = new Vector2I(10, 90);*/
-    }
+        jjkn.Position = new Vector2I(10, 90);
+    }*/
 }

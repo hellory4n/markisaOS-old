@@ -1,6 +1,7 @@
 using Godot;
 using Dashboard.Wm;
 using System;
+using Kickstart.Cabinetfs;
 
 public partial class Delete : DashboardWindow {
     public string Parent;
@@ -14,40 +15,40 @@ public partial class Delete : DashboardWindow {
     }
 
     public void Click() {
-        CabinetfsFile bruh = CabinetfsManager.LoadById<CabinetfsFile>(CoolFile);
+        File bruh = CabinetfsManager.LoadFile(CoolFile);
         if (GetNode<CheckBox>("CenterContainer/VBoxContainer/PermanentlyDelete").ButtonPressed) {
             // permanently delete
             if (bruh.Type == "Folder") {
-                Folder m = CabinetfsManager.LoadById<Folder>(CoolFile);
+                Folder m = CabinetfsManager.LoadFolder(CoolFile);
                 m.Delete();
             } else {
                 bruh.Delete();
             }
         } else {
             // try to move it
-            if (!CabinetfsManager.FileExists("/System/Trash")) {
+            if (!CabinetfsManager.PathExists("/System/Trash")) {
                 GetNode<Label>("CenterContainer/VBoxContainer/Label").Text = "Couldn't find the trash folder! Your system could be corrupted.";
                 return;
             }
 
             if (bruh.Type == "Folder") {
-                Folder m = CabinetfsManager.LoadById<Folder>(CoolFile);
+                Folder m = CabinetfsManager.LoadFolder(CoolFile);
                 // make sure we can put bajillions of files in the trash
                 m.Rename($"{m.Name} - {m.Id}");
                 m.Move(
-                    CabinetfsManager.PermanentPath("/System/Trash")
+                    CabinetfsManager.GetId("/System/Trash")
                 );
             } else {
                 // make sure we can put bajillions of files in the trash
                 bruh.Rename($"{bruh.Name} - {bruh.Id}");
                 bruh.Move(
-                    CabinetfsManager.PermanentPath("/System/Trash")
+                    CabinetfsManager.GetId("/System/Trash")
                 );
             }
         }
 
         EmitSignal(SignalName.CloseRequested);
-        ThingThatINeedToRefresh.Refresh(ThingThatINeedToRefresh.Path, false);
+        //ThingThatINeedToRefresh.Refresh(ThingThatINeedToRefresh.Path, false);
     }
 
     public void NvmLol() {

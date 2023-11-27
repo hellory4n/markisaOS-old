@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using Dashboard.Wm;
 using Dashboard.Overlay;
+using Kickstart.Cabinetfs;
 
 public partial class WebsitesAppDownloaderWindow : DashboardWindow {
     public string NewFilename = "";
@@ -24,8 +25,8 @@ public partial class WebsitesAppDownloaderWindow : DashboardWindow {
         if (random.Next(0, 3) == 1)
             j.Value += random.Next(1, 5);
         if (j.Value >= j.MaxValue && !m) {
-            CabinetfsFile h = CabinetfsManager.NewFile(
-                NewFilename, CabinetfsManager.PermanentPath("/Home/Downloads")
+            File h = CabinetfsManager.NewFile(
+                NewFilename, CabinetfsManager.GetId("/Home/Downloads")
             );
             h.Type = Type;
             h.Data = Data;

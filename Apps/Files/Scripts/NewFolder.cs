@@ -1,6 +1,8 @@
 using Godot;
 using System;
 using Dashboard.Wm;
+using Kickstart.Cabinetfs;
+using Kickstart.Records;
 
 public partial class NewFolder : DashboardWindow {
     public string Parent;
@@ -13,7 +15,7 @@ public partial class NewFolder : DashboardWindow {
 
     public void Click() {
         string filename = GetNode<LineEdit>("CenterContainer/VBoxContainer/Name").Text;
-        string gkfngof = CabinetfsManager.LoadById<CabinetfsFile>(Parent).Path;
+        string gkfngof = CabinetfsManager.LoadFile(Parent).Path;
         string suffering;
         if (gkfngof == "/")
             suffering = $"/{filename}";
@@ -21,7 +23,7 @@ public partial class NewFolder : DashboardWindow {
             suffering = $"{gkfngof}/{filename}";
 
         // making a folder that already exists would be pretty uncool
-        if (CabinetfsManager.FileExists(suffering)) {
+        if (CabinetfsManager.PathExists(suffering)) {
             GetNode<Label>("CenterContainer/VBoxContainer/Label").Text = "Folder already exists!";
             return;
         }
@@ -31,10 +33,10 @@ public partial class NewFolder : DashboardWindow {
 
         // TODO: make an actual time system thing
         newFolder.Metadata.Add("CreationDate", DateTime.Now);
-        newFolder.Metadata.Add("Author", SavingManager.CurrentUser);
+        newFolder.Metadata.Add("Author", RecordManager.CurrentUser);
         newFolder.Save();
 
         EmitSignal(SignalName.CloseRequested);
-        ThingThatINeedToRefresh.Refresh(gkfngof, false);
+        //ThingThatINeedToRefresh.Refresh(gkfngof, false);
     }
 }

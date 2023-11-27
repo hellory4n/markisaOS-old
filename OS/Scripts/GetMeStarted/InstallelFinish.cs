@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.Text.RegularExpressions;
 using Dashboard.Overlay;
+using Kickstart.Records;
 
 namespace Kickstart.Installel;
 
@@ -58,15 +59,16 @@ public partial class InstallelFinish : Button
         }
 
         // actually make the user :)
-        UserInfo info = new()
-        {
-            Photo = icon,
-            LelnetUsername = lelnetUsername
+        MarkisaUser user = new() {
+            DisplayName = name,
+            Username = lelnetUsername,
+            Photo = icon
         };
-        SavingManager.NewUser(name, info);
+        RecordManager.CurrentUser = lelnetUsername;
+        RecordManager.Save(user);
 
         // set the accent color lol
-        string theme = "HighPeaks-";
+        string theme = "res://Assets/Themes/HighPeaks-";
         switch (GetNode<OptionButton>("../../../Step3/M/AccentColor").Selected)
         {
             case 0: theme += "Black"; break;
@@ -79,7 +81,8 @@ public partial class InstallelFinish : Button
             case 7: theme += "White"; break;
             case 8: theme += "Yellow"; break;
         }
-        var shitfuckery = SavingManager.Load<UserDashboard>(name);
+        theme += "/Theme.tres";
+        var shitfuckery = RecordManager.Load<DashboardConfig>();
         shitfuckery.Theme = theme;
 
         // set the wallpaper haha yes
@@ -94,15 +97,13 @@ public partial class InstallelFinish : Button
             case 5: wallpaper = "res://Assets/Wallpapers/Aurora.png"; break;
         }
         shitfuckery.Wallpaper = wallpaper;
-        SavingManager.Save(name, shitfuckery);
+        RecordManager.Save(shitfuckery);
 
         // yes
-        SavingManager.SaveSettings(new InstallerInfo {
-            IsInstalled = true
-        });
+        var FUCK = RecordManager.Load<SystemInfo>();
+        FUCK.Installed = true;
 
         // finally login :)))))))))))))))))))))))))))))))))
-        SavingManager.CurrentUser = name;
         PackedScene packedScene = GD.Load<PackedScene>("res://OS/Dashboard/Dashboard.tscn");
         Node dashboard = packedScene.Instantiate();
         GetTree().Root.AddChild(dashboard);

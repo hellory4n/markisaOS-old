@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using Dashboard.Wm;
 using Dashboard.Toolkit;
 using Dashboard.Pinboard;
+using Kickstart.Records;
+using Kickstart.Cabinetfs;
 
 namespace Dashboard;
 
@@ -41,8 +43,7 @@ public partial class Dashboard : Control
 
 		Vector2I bruh = ResolutionManager.Resolution;
 
-		SavingManager.ConvertOldUser(SavingManager.CurrentUser);
-		UserDashboard suffer = SavingManager.Load<UserDashboard>(SavingManager.CurrentUser);
+		DashboardConfig suffer = RecordManager.Load<DashboardConfig>();
 
 		// load the wallpaper
 		// is it a default wallpaper?
@@ -55,7 +56,7 @@ public partial class Dashboard : Control
 		}
 		else if (CabinetfsManager.IdExists(suffer.Wallpaper))
 		{
-			var epicFile = CabinetfsManager.LoadById<CabinetfsFile>(suffer.Wallpaper);
+			var epicFile = CabinetfsManager.LoadFile(suffer.Wallpaper);
 			Texture2D wallpaper = ResourceManager.LoadImage(epicFile.Data["Resource"].ToString());
 			GetNode<Sprite2D>("Wallpaper").Texture = wallpaper;
 
@@ -117,20 +118,18 @@ public partial class Dashboard : Control
 		Panel.Theme = theme;
 
 		// quick launch stuff
-		Lelapp[] apps = SavingManager.Load<QuickLaunch>(SavingManager.CurrentUser).Apps;
-		foreach (var app in apps)
+		foreach (var app in suffer.QuickLaunch)
 		{
 			PackedScene packedScene = GD.Load<PackedScene>("res://OS/Dashboard/QuickLaunchButton.tscn");
 			OpenWindow yes = packedScene.Instantiate<OpenWindow>();
 			yes.Icon = GD.Load<Texture2D>(app.Icon);
-			yes.WindowScene = app.Scene;
-			yes.TooltipText = app.Name;
+			yes.WindowScene = app.Executable;
+			yes.TooltipText = app.DisplayName;
 			Dock.GetNode("DockStuff/QuickLaunch").AddChild(yes);
 		}
 
 		// load the pinboard stuff :)))
-		Dictionary<string, PinboardItem> items = SavingManager.Load<DashboardPinboard>(SavingManager.CurrentUser).Items;
-		foreach (var item in items)
+		foreach (var item in suffer.Pinboard)
 		{
 			if (item.Value.IsStickyNote)
 			{
@@ -144,8 +143,7 @@ public partial class Dashboard : Control
 			{
 				var sticker = Sticker.Instantiate<Sticker>();
 				sticker.Position = item.Value.Position;
-				sticker.Rotation = item.Value.Rotation;
-				sticker.Scale = new Vector2(item.Value.Scale, item.Value.Scale);
+				sticker.Scale = new Vector2((float)item.Value.Scale, (float)item.Value.Scale);
 				sticker.Texture = ResourceManager.LoadImage(item.Value.TexturePath);
 				sticker.PinboardItem = item.Key;
 				Pinboard.AddChild(sticker);

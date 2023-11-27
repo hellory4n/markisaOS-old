@@ -3,28 +3,26 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Dashboard.Toolkit;
+using Kickstart.Records;
 
-public partial class AddToQuickLaunch : Button {
-    public Lelapp App;
+namespace QuickLaunchSetup;
 
-    public override void _Ready() {
-        base._Ready();
-        Connect("pressed", new Callable(this, nameof(Click)));
-    }
+public partial class AddToQuickLaunch : Button
+{
+    public Package App;
 
-    public void Click() {
+    public override void _Pressed()
+    {
+        base._Pressed();
         PackedScene packedScene = GD.Load<PackedScene>("res://OS/Dashboard/QuickLaunchButton.tscn");
         OpenWindow yes = packedScene.Instantiate<OpenWindow>();
         yes.Icon = GD.Load<Texture2D>(App.Icon);
-        yes.WindowScene = App.Scene;
+        yes.WindowScene = App.Executable;
         GetNode<VBoxContainer>("/root/DashboardInterface/Dock/DockStuff/QuickLaunch").AddChild(yes);
 
-        QuickLaunch quickLaunch = SavingManager.Load<QuickLaunch>(SavingManager.CurrentUser);
-        List<Lelapp> pain = quickLaunch.Apps.ToList();
-        pain.Add(App);
-        SavingManager.Save(SavingManager.CurrentUser, new QuickLaunch{
-            Apps = pain.ToArray()
-        });
+        var m = RecordManager.Load<DashboardConfig>();
+        m.QuickLaunch.Add(App);
+        RecordManager.Save(m);
 
         GetParent().GetParent<ListAppsButQuickLaunch>().UpdateItems();
     }

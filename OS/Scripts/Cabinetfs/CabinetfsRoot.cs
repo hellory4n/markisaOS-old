@@ -1,6 +1,8 @@
 using System;
 using Godot;
 
+namespace Kickstart.Cabinetfs;
+
 /// <summary>
 /// CabinetfsRoot is the root of Cabinetfs. The parent of all files. Its name is "" and its ID is "root".
 /// </summary>
@@ -24,7 +26,7 @@ public partial class CabinetfsRoot : Folder
     /// <param name="name">What?</param>
     /// <param name="parent">This is literally the root of the filesystem.</param>
     /// <returns>An error.</returns>
-    public override string Copy(string name, string parent = null)
+    public override Folder Copy(string name, string parent = null)
     {
         GD.PushError("Can't copy root!");
         return default;
@@ -61,7 +63,7 @@ public partial class CabinetfsRoot : Folder
     /// </summary>
     public static void CreateRoot()
     {
-        if (CabinetfsManager.FileExists("/"))
+        if (CabinetfsManager.PathExists("/"))
         {
             GD.PushError("Root already exists!");
             return;

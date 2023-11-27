@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using Kickstart.Cabinetfs;
 
 public partial class LoadFileFromId : Button {
     public override void _Ready() {
@@ -14,7 +15,7 @@ public partial class LoadFileFromId : Button {
             return;
         }
 
-        CabinetfsFile m = CabinetfsManager.LoadById<CabinetfsFile>(coolId);
+        File m = CabinetfsManager.LoadFile(coolId);
         if (m.Type != "Picture" && m.Type != "Audio" && m.Type != "Video") {
             GetNode<Label>("../Label").Text = "Invalid file!";
             return;

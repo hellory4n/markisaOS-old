@@ -1,4 +1,5 @@
 using Godot;
+using Kickstart.Records;
 using System;
 
 public partial class ApplyNewTheme : Button {
@@ -39,8 +40,8 @@ public partial class ApplyNewTheme : Button {
         dashboardInterface.GetNode<Panel>("Panel").Theme = theme;
 
         // save the settings :)))))))))))))))))))))))))))))))))))))))))))))))))
-        UserDashboard asdadjffjsfjaf = SavingManager.Load<UserDashboard>(SavingManager.CurrentUser);
-        asdadjffjsfjaf.Theme = $"HighPeaks-{option.Text}";
-        SavingManager.Save(SavingManager.CurrentUser, asdadjffjsfjaf);
+        var asdadjffjsfjaf = RecordManager.Load<DashboardConfig>();
+        asdadjffjsfjaf.Theme = theme.ResourcePath;
+        RecordManager.Save(asdadjffjsfjaf);
     }
 }

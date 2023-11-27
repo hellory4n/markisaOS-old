@@ -1,6 +1,9 @@
 using Godot;
 using System;
 using Dashboard.Toolkit;
+using Kickstart.Records;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Dashboard.Interface;
 
@@ -19,50 +22,25 @@ public partial class ListApps : VBoxContainer
     {
         // clear previous list
         foreach (Node mbcicfda in GetChildren())
-        {
             mbcicfda.QueueFree();
-        }
 
-        // get the list stuff
-        Lelapp[] apps;
-        InstalledApps m = SavingManager.Load<InstalledApps>(SavingManager.CurrentUser);
-        switch (Category) {
-            case "All":
-                apps = m.All;
-                break;
-            case "Accessories":
-                apps = m.Accessories;
-                break;
-            case "Development":
-                apps = m.Development;
-                break;
-            case "Games":
-                apps = m.Games;
-                break;
-            case "Graphics":
-                apps = m.Graphics;
-                break;
-            case "Internet":
-                apps = m.Internet;
-                break;
-            case "Multimedia":
-                apps = m.Multimedia;
-                break;
-            case "Office":
-                apps = m.Office;
-                break;
-            case "System":
-                apps = m.System;
-                break;
-            case "Utilities":
-                apps = m.Utilities;
-                break;
-            default:
-                apps = m.All;
-                break;
-        }
+        List<Package> m = RecordManager.Load<DashboardConfig>().AllApps;
 
-        if (apps.Length == 0) {
+        // i know
+        List<Package> apps = Category switch
+        {
+            "Accessories" => m.Where(item => item.Categories.Contains(Categories.Accessories)).ToList(),
+            "Development" => m.Where(item => item.Categories.Contains(Categories.Development)).ToList(),
+            "Games" => m.Where(item => item.Categories.Contains(Categories.Games)).ToList(),
+            "Graphics" => m.Where(item => item.Categories.Contains(Categories.Graphics)).ToList(),
+            "Internet" => m.Where(item => item.Categories.Contains(Categories.Internet)).ToList(),
+            "Multimedia" => m.Where(item => item.Categories.Contains(Categories.Office)).ToList(),
+            "Office" => m.Where(item => item.Categories.Contains(Categories.Multimedia)).ToList(),
+            "System" => m.Where(item => item.Categories.Contains(Categories.System)).ToList(),
+            "Utilities" => m.Where(item => item.Categories.Contains(Categories.Utilities)).ToList(),
+            _ => m,
+        };
+        if (apps.Count == 0) {
             Label epicbruhmoment = new()
             {
                 Text = "No apps found."
@@ -75,9 +53,9 @@ public partial class ListApps : VBoxContainer
             foreach (var app in apps)
             {
                 OpenWindow amazingApp = yes.Instantiate<OpenWindow>();
-                amazingApp.Text = app.Name;
+                amazingApp.Text = app.DisplayName;
                 amazingApp.Icon = GD.Load<Texture2D>(app.Icon);
-                amazingApp.WindowScene = app.Scene;
+                amazingApp.WindowScene = app.Executable;
                 AddChild(amazingApp);
             }
         }

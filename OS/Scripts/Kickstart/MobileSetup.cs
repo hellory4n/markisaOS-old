@@ -6,7 +6,7 @@ namespace Kickstart;
 
 public partial class MobileSetup : Control
 {
-    int SuccessfulAttempts = 0;
+    /*int SuccessfulAttempts = 0;
 
     public override void _Ready()
     {
@@ -80,5 +80,5 @@ public partial class MobileSetup : Control
             GetTree().Root.AddChild(jjkn);
             GetParent().QueueFree();
         }
-    }
+    }*/
 }

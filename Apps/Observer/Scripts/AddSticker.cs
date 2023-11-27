@@ -2,6 +2,8 @@ using Godot;
 using Kickstart.Drivers;
 using Dashboard.Overlay;
 using Dashboard.Pinboard;
+using Kickstart.Records;
+using Kickstart.Cabinetfs;
 
 public partial class AddSticker : TextureButton
 {
@@ -13,7 +15,7 @@ public partial class AddSticker : TextureButton
         Texture2D texture = GetNode<TextureRect>("../Image").Texture;
 
         // save the sticker
-        var pinboard = SavingManager.Load<DashboardPinboard>(SavingManager.CurrentUser);
+        var dashboard = RecordManager.Load<DashboardConfig>();
         var stickerdbgfdf = new PinboardItem
         {
             TexturePath = TexturePath,
@@ -24,9 +26,9 @@ public partial class AddSticker : TextureButton
         if (texture.GetSize() > ResolutionManager.Resolution)
             stickerdbgfdf.Scale = 0.2f;
 
-        string bullshit = CabinetfsManager.GenerateID();
-        pinboard.Items.Add(bullshit, stickerdbgfdf);
-        SavingManager.Save(SavingManager.CurrentUser, pinboard);
+        string bullshit = CabinetfsManager.GenerateId();
+        dashboard.Pinboard.Add(bullshit, stickerdbgfdf);
+        RecordManager.Save(dashboard);
 
         // add it and stuff :)
         var ftgkvtfyu = GD.Load<PackedScene>("res://OS/Dashboard/Sticker.tscn");
@@ -34,7 +36,7 @@ public partial class AddSticker : TextureButton
         sticker.Position = stickerdbgfdf.Position;
         sticker.Texture = texture;
         sticker.PinboardItem = bullshit;
-        sticker.Scale = new Vector2(stickerdbgfdf.Scale, stickerdbgfdf.Scale);
+        sticker.Scale = new Vector2((float)stickerdbgfdf.Scale, (float)stickerdbgfdf.Scale);
         GetNode("/root/Dashboard/Pinboard").AddChild(sticker);
 
         var notifications = GetNode<NotificationManager>("/root/NotificationManager");

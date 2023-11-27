@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using Dashboard.Wm;
+using Kickstart.Cabinetfs;
 
 public partial class Notebook : DashboardWindow {
     public bool Suffer = false;
@@ -11,7 +12,7 @@ public partial class Notebook : DashboardWindow {
     public override void _Process(double delta) {
         base._Process(delta);
         if (Suffer && J) {
-            var pain = CabinetfsManager.LoadById<CabinetfsFile>(Fhgkfdlkjgjkhgjf);
+            var pain = CabinetfsManager.LoadFile(Fhgkfdlkjgjkhgjf);
             GetNode<Label>("./TabContent/TabTitle").Text = pain.Name;
             var g = GetNode<TextEditThing>("TabContent/TextEdit");
             if (pain.Data.ContainsKey("Text")) {

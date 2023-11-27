@@ -2,6 +2,7 @@ using Godot;
 using System;
 using Dashboard.Wm;
 using Kickstart.Drivers;
+using Kickstart.Cabinetfs;
 
 public partial class Observer : DashboardWindow {
     public enum OpenMode {
@@ -25,7 +26,7 @@ public partial class Observer : DashboardWindow {
                 PackedScene m = GD.Load<PackedScene>("res://Apps/Observer/ImageView.tscn");
                 Control coolImageThing = m.Instantiate<Control>();
 
-                CabinetfsFile coolFile = CabinetfsManager.LoadById<CabinetfsFile>(MediaId);
+                File coolFile = CabinetfsManager.LoadFile(MediaId);
                 if (coolFile.Data.ContainsKey("Resource")) {
                     // one of the codes of all time
                     coolImageThing.GetNode<TextureRect>("Image").Texture = 
@@ -69,7 +70,7 @@ public partial class Observer : DashboardWindow {
                 Control coolVideoThing = m3.Instantiate<Control>();
 
                 // one of the codes of all time
-                CabinetfsFile majesticFile = CabinetfsManager.LoadById<CabinetfsFile>(MediaId);
+                File majesticFile = CabinetfsManager.LoadFile(MediaId);
                 if (majesticFile.Data.ContainsKey("Resource") && majesticFile.Data.ContainsKey("Width") &&
                 majesticFile.Data.ContainsKey("Height") && majesticFile.Data.ContainsKey("Duration")) {
                     coolVideoThing.GetNode<VideoStreamPlayer>("M/Video").Stream =

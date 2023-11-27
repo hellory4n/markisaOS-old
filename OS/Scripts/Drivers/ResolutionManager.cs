@@ -14,7 +14,7 @@ public partial class ResolutionManager : Node
     /// </summary>
     public static Vector2I Resolution = new(1280, 720);
 
-    public override void _Ready()
+    /*public override void _Ready()
     {
         base._Ready();
         Update();
@@ -29,5 +29,5 @@ public partial class ResolutionManager : Node
         Resolution = (Vector2I)(displaySettings.Resolution/displaySettings.ScalingFactor);
 
         GetTree().Root.Size = Resolution;
-    }
+    }*/
 }

@@ -1,13 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://37hmu7vt4hhd"]
+[gd_scene load_steps=4 format=3 uid="uid://37hmu7vt4hhd"]
 
-[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Blue/Theme.tres" id="1"]
-[ext_resource type="Script" path="res://Apps/Messages/Scripts/ConversationList.cs" id="2"]
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Purple/Theme.tres" id="1"]
 [ext_resource type="Texture2D" uid="uid://q3m38rmbge15" path="res://Apps/Messages/Assets/IconDock.png" id="3"]
 [ext_resource type="Script" path="res://OS/Scripts/WindowManager/DashboardWindow.cs" id="4"]
 
 [node name="Messages" type="Window"]
 process_priority = 1
 title = "Messages"
+position = Vector2i(0, 46)
 size = Vector2i(600, 400)
 min_size = Vector2i(500, 300)
 theme = ExtResource("1")
@@ -16,49 +16,13 @@ Icon = ExtResource("3")
 CpuUse = 2
 MemoryUse = 2
 
-[node name="M" type="HSplitContainer" parent="."]
-clip_contents = true
+[node name="Label" type="Label" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-split_offset = 75
-
-[node name="Sidebar" type="Control" parent="M"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-mouse_filter = 1
-
-[node name="CoolSidebarLineThing" type="VSeparator" parent="M/Sidebar"]
-layout_mode = 0
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 1.0
-offset_bottom = -1.0
-mouse_filter = 2
-
-[node name="H" type="ScrollContainer" parent="M/Sidebar"]
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="ConversationList" type="VBoxContainer" parent="M/Sidebar/H"]
-layout_mode = 2
-theme_override_constants/separation = 0
-script = ExtResource("2")
-
-[node name="Content" type="Control" parent="M"]
-layout_mode = 2
-mouse_filter = 1
-
-[node name="CategoryHome" type="CenterContainer" parent="M/Content"]
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-
-[node name="Label" type="Label" parent="M/Content/CategoryHome"]
-layout_mode = 2
+grow_horizontal = 2
+grow_vertical = 2
 theme_type_variation = &"Header"
-text = "Welcome to the Messages app!"
+text = "messaging has been deleted (for now)"
+horizontal_alignment = 1
+vertical_alignment = 1
