@@ -8,7 +8,7 @@ public partial record SystemInfo : Record
 {
     public SystemInfo()
     {
-        Filename = "Dashboard";
+        Filename = "SystemInfo";
         Type = RecordType.Global;
     }
 

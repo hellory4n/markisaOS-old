@@ -1,6 +1,5 @@
 using Godot;
 using System;
-using System.Numerics;
 
 namespace Kickstart.Drivers;
 
@@ -23,6 +22,7 @@ public partial class ResolutionManager : Node
         {
             GetTree().Root.ContentScaleMode = Window.ContentScaleModeEnum.Disabled;
             GetTree().Root.ContentScaleAspect = Window.ContentScaleAspectEnum.Expand;
+            Resolution = DisplayServer.WindowGetSize();
         }
     }
 }

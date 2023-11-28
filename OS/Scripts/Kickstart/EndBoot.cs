@@ -14,13 +14,13 @@ public partial class EndBoot : Timer
         Connect("timeout", new Callable(this, nameof(Thing)));
 
         // if we're gonna install markisaOS then the bootscreen should take longer and stuff
-        if (!RecordManager.Load<SystemInfo>().Installed)
+        /*if (!RecordManager.Load<SystemInfo>().Installed)
         {
             WaitTime = 15;
             GetNode<Label>("../Control/Label").Text = "markisaOS Me is preparing the installation process.\nThis can take several seconds.";
             GetNode<Label>("../Control/Label").OffsetTop = -100;
             installing = true;
-        }
+        }*/
     }
 
     public override void _Process(double delta)
