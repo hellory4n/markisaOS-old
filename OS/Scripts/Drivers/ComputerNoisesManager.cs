@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using Dashboard.Wm;
+using Dashboard;
 
 namespace Kickstart.Drivers;
 
@@ -21,66 +22,49 @@ public partial class ComputerNoisesManager : Node
     {
         base._Ready();
         // h
-        /*CpuUsage = Math.Min(CpuUsage, 100)/100;
+        CpuUsage = Math.Min(CpuUsage, 100)/100;
         GpuUsage = Math.Min(GpuUsage, 100)/100;
         StorageUsage = Math.Min(StorageUsage, 100)/100;
 
         Fan = new AudioStreamPlayer {
             Stream = FanSound,
             Autoplay = true,
-            VolumeDb = GD.LinearToDb(CpuUsage/1.5f)
+            VolumeDb = (float)Mathf.LinearToDb(CpuUsage/1.5)
         };
         GpuFan = new AudioStreamPlayer {
             Stream = GpuFanSound,
             Autoplay = true,
-            VolumeDb = GD.LinearToDb(GpuUsage/1.25f)
+            VolumeDb = (float)Mathf.LinearToDb(GpuUsage/1.25)
         };
         Hdd = new AudioStreamPlayer {
             Stream = HddSound,
             Autoplay = true,
-            VolumeDb = GD.LinearToDb(StorageUsage*1.25f)
+            VolumeDb = (float)Mathf.LinearToDb(StorageUsage*1.25)
         };
         AddChild(Fan);
         AddChild(GpuFan);
-        AddChild(Hdd);*/
+        AddChild(Hdd);
     }
 
     public override void _Process(double delta)
     {
         base._Process(delta);
+        
+        // the bootscreen has its own computer noises
+        Fan.StreamPaused = GetNodeOrNull("/root/Bootscreen") != null;
+        GpuFan.StreamPaused = GetNodeOrNull("/root/Bootscreen") != null;
+        Hdd.StreamPaused = GetNodeOrNull("/root/Bootscreen") != null;
 
-        /*if (GetNodeOrNull("/root/Dashboard") == null)
+        if (GetNodeOrNull("/root/Dashboard") == null)
             return;
-
+        
         // first we need to get how much the device is suffering
         float cpuOmg = 10;
         float gpuOmg = 5;
         float memoryOmg = 10;
         float storageOmg = 10;
-        // we need to check every single workspace :))))))))
 
-        foreach (DashboardWindow window in GetNode("/root/Dashboard/1/Windows/ThemeThing").GetChildren()) {
-            cpuOmg += window.CpuUse;
-            gpuOmg += window.GpuUse;
-            memoryOmg += window.MemoryUse;
-            storageOmg += window.StorageUse;
-        }
-
-        foreach (DashboardWindow window in GetNode("/root/Dashboard/2/Windows/ThemeThing").GetChildren()) {
-            cpuOmg += window.CpuUse;
-            gpuOmg += window.GpuUse;
-            memoryOmg += window.MemoryUse;
-            storageOmg += window.StorageUse;
-        }
-
-        foreach (DashboardWindow window in GetNode("/root/Dashboard/3/Windows/ThemeThing").GetChildren()) {
-            cpuOmg += window.CpuUse;
-            gpuOmg += window.GpuUse;
-            memoryOmg += window.MemoryUse;
-            storageOmg += window.StorageUse;
-        }
-
-        foreach (DashboardWindow window in GetNode("/root/Dashboard/4/Windows/ThemeThing").GetChildren()) {
+        foreach (DashboardWindow window in GetNode("/root/Dashboard/M/Windows").GetChildren()) {
             cpuOmg += window.CpuUse;
             gpuOmg += window.GpuUse;
             memoryOmg += window.MemoryUse;
@@ -93,8 +77,8 @@ public partial class ComputerNoisesManager : Node
         MemoryUsage = Math.Min(memoryOmg, 100)/100;
         StorageUsage = Math.Min(storageOmg, 100)/100;
 
-        Fan.VolumeDb = GD.LinearToDb(CpuUsage/2);
-        GpuFan.VolumeDb = GD.LinearToDb(GpuUsage/1.5f);
-        Hdd.VolumeDb = GD.LinearToDb(StorageUsage);*/
+        Fan.VolumeDb = (float)Mathf.LinearToDb(CpuUsage/2);
+        GpuFan.VolumeDb = (float)Mathf.LinearToDb(GpuUsage/1.5f);
+        Hdd.VolumeDb = (float)Mathf.LinearToDb(StorageUsage);
     }
 }
