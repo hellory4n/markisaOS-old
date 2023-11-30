@@ -6,10 +6,13 @@ namespace Kickstart.Onboarding;
 
 public partial class Login : Button
 {
+    public string Username;
+
     public override void _Pressed()
     {
         base._Pressed();
-        RecordManager.CurrentUser = Text;
+        RecordManager.CurrentUser = Username;
+        RecordManager.CurrentUserDisplayName = Text;
 
         PackedScene packedScene = GD.Load<PackedScene>("res://OS/Dashboard/Dashboard.tscn");
         Node dashboard = packedScene.Instantiate();

@@ -1,19 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://b3qoxqacf66ef"]
+[gd_scene load_steps=15 format=3 uid="uid://b3qoxqacf66ef"]
 
-[ext_resource type="FontFile" uid="uid://c5uj34xs54thp" path="res://Fonts/JetBrainsMono-Regular.ttf" id="1_yqxsd"]
 [ext_resource type="Texture2D" uid="uid://qbnniy18m4ix" path="res://Assets/Boot/Logo3.png" id="2_h158j"]
 [ext_resource type="FontFile" uid="uid://dgstmjhuoxpu6" path="res://Fonts/RedHatText-Medium.ttf" id="3"]
-[ext_resource type="Script" path="res://OS/Scripts/Kickstart/EndBoot.cs" id="5"]
+[ext_resource type="Script" path="res://OS/Scripts/Kickstart/Bootloader.cs" id="5"]
+[ext_resource type="Script" path="res://OS/Scripts/Dashboard/Toolkit/ParadoxBar.gd" id="5_65uad"]
 [ext_resource type="AudioStream" uid="uid://derh0181xxthw" path="res://Audio/Sounds/ComputerNoises/194890__saphe__computer-fan.ogg" id="5_b7k0h"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Boot"
-length = 8.0
-loop_mode = 2
+length = 4.0
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Boot1:rotation")
+tracks/0/path = NodePath("VBoxContainer/Control/Boot1:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -22,6 +22,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [-6.28319, 6.28319]
 }
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fa5kp"]
+_data = {
+"Boot": SubResource("1")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_7rnuv"]
+font_color = Color(1, 1, 1, 0.564706)
+
+[sub_resource type="Animation" id="Animation_6m34o"]
+resource_name = "Dnmujskgnsjnhsf"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
@@ -29,36 +53,108 @@ tracks/1/path = NodePath("AudioStreamPlayer:volume_db")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.5, 8),
-"transitions": PackedFloat32Array(0.316518, 1, 1),
+"times": PackedFloat32Array(0, 1, 6),
+"transitions": PackedFloat32Array(2.63902, 1, 1),
 "update": 0,
-"values": [-80.0, -18.353, -20.0]
+"values": [-80.0, -1.0, -20.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer:pitch_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 6),
+"transitions": PackedFloat32Array(2.2974, 1, 1),
+"update": 0,
+"values": [0.45, 1.05, 1.0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_fa5kp"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1geoa"]
 _data = {
-"Boot": SubResource("1")
+"Dnmujskgnsjnhsf": SubResource("Animation_6m34o")
 }
 
-[sub_resource type="FontFile" id="2"]
-fallbacks = Array[Font]([ExtResource("3")])
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/16/0/kerning_overrides/24/0 = Vector2(0, 0)
-cache/0/24/0/ascent = 0.0
-cache/0/24/0/descent = 0.0
-cache/0/24/0/underline_position = 0.0
-cache/0/24/0/underline_thickness = 0.0
-cache/0/24/0/scale = 1.0
-cache/0/24/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/24/0/kerning_overrides/24/0 = Vector2(0, 0)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_us60h"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
 
-[sub_resource type="LabelSettings" id="LabelSettings_7rnuv"]
-font_size = 24
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_meh23"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="Animation" id="Animation_415og"]
+resource_name = "GJsdighjshijsf"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/Control/Boot1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(8.97304, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(21, 21)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(8.97304, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(8.97304, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer/ParadoxBar:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(8.97304, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e1h11"]
+_data = {
+"GJsdighjshijsf": SubResource("Animation_415og")
+}
 
 [node name="Bootscreen" type="Control"]
 layout_mode = 3
@@ -68,35 +164,27 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Bootloader" type="Node" parent="." node_paths=PackedStringArray("HahaYes")]
+script = ExtResource("5")
+GetMeStarted = "res://OS/GetMeStarted/Installel.tscn"
+HahaYes = NodePath("../AnimationPlayer3")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_fa5kp")
 }
 autoplay = "Boot"
 
-[node name="Post" type="RichTextLabel" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/normal_font = ExtResource("1_yqxsd")
-bbcode_enabled = true
-text = "[color=cornflowerblue][font_size=24]Passionfruit Corporation[/font_size][/color]
-[color=blueviolet]web://passionfruit.com[/color]
-
-PassionBIOS (C) Passionfruit Corporation 2069
-Model: Markistation Starter 2069
-Processor: Passionprocess 2069
-	Cores: 8
-	Speed: 11.3 Ghz
-Memory: 67,108,864K
-Manufacturer: "
-fit_content = true
+color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="."]
-visible = false
 custom_minimum_size = Vector2(0, 58)
 layout_mode = 1
 anchors_preset = 12
@@ -106,38 +194,65 @@ anchor_bottom = 1.0
 offset_top = -33.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = SubResource("2")
-text = "markisaOS Me is starting..."
+theme_override_colors/font_color = Color(0.537255, 0.458824, 0.866667, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3")
+text = "Copyright © 2069 Passionfruit Corporation. All rights reserved."
 label_settings = SubResource("LabelSettings_7rnuv")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Boot1" type="TextureRect" parent="."]
-visible = false
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_b7k0h")
+volume_db = -20.0
+autoplay = true
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1geoa")
+}
+autoplay = "Dnmujskgnsjnhsf"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 64.0
-offset_bottom = 64.0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = 6.28319
-pivot_offset = Vector2(64, 64)
+theme_override_constants/separation = 25
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="Boot1" type="Sprite2D" parent="VBoxContainer/Control"]
+position = Vector2(100, 100)
+rotation = -6.28319
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_h158j")
-expand_mode = 1
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 8.0
-one_shot = true
-autostart = true
-script = ExtResource("5")
+[node name="ParadoxBar" type="ProgressBar" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 20)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_us60h")
+theme_override_styles/fill = SubResource("StyleBoxFlat_meh23")
+max_value = 75.0
+show_percentage = false
+script = ExtResource("5_65uad")
+instability = 5
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_b7k0h")
-volume_db = -30.588
-autoplay = true
+[node name="AnimationPlayer3" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_e1h11")
+}
+
+[connection signal="finished" from="VBoxContainer/ParadoxBar" to="Bootloader" method="Thing"]
+[connection signal="animation_finished" from="AnimationPlayer3" to="Bootloader" method="Thing2"]

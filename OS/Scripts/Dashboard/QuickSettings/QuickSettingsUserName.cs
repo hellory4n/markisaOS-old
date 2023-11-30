@@ -9,6 +9,6 @@ public partial class QuickSettingsUserName : Label
     public override void _Ready()
     {
         base._Ready();
-        Text = RecordManager.CurrentUser;
+        Text = RecordManager.CurrentUserDisplayName;
     }
 }

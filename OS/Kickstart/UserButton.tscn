@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bscraaauooa2k"]
+[gd_scene load_steps=5 format=3 uid="uid://bscraaauooa2k"]
 
 [ext_resource type="FontFile" uid="uid://b82t6vwpkpyyc" path="res://Fonts/RedHatText-Bold.ttf" id="1"]
 [ext_resource type="Texture2D" uid="uid://dj6gard43qeg5" path="res://icon.png" id="2"]
-[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Purple/Theme.tres" id="3"]
 [ext_resource type="Script" path="res://OS/Scripts/Kickstart/Login.cs" id="4"]
 
 [sub_resource type="FontFile" id="1"]
@@ -27,7 +26,6 @@ offset_right = 150.0
 offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("3")
 theme_override_constants/h_separation = 10
 theme_override_fonts/font = SubResource("1")
 text = "User :)"

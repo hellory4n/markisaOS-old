@@ -65,6 +65,7 @@ public partial class InstallelFinish : Button
             Photo = icon
         };
         RecordManager.CurrentUser = lelnetUsername;
+        RecordManager.CurrentUserDisplayName = name;
         RecordManager.Save(user);
 
         // set the accent color lol

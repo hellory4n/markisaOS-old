@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://h7gdare5phe1"]
 
-[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Blue/Theme.tres" id="1"]
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Purple/Theme.tres" id="1"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Exist"
@@ -50,6 +50,8 @@ _data = {
 }
 
 [node name="Notification" type="Panel"]
+visibility_layer = 1048575
+z_index = 2048
 custom_minimum_size = Vector2(350, 125)
 offset_left = 10.0
 offset_top = 50.0

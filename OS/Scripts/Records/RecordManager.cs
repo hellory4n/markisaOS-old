@@ -10,6 +10,7 @@ namespace Kickstart.Records;
 public partial class RecordManager : Node
 {
     public static string CurrentUser;
+    public static string CurrentUserDisplayName;
 
     public static void Save<T>(T data) where T : Record
     {

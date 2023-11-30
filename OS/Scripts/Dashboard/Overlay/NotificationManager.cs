@@ -1,4 +1,5 @@
 using Godot;
+using NathanHoad;
 using System;
 
 namespace Dashboard.Overlay;
@@ -21,6 +22,7 @@ public partial class NotificationManager : Node
         notificationThingy.GetNode<Label>("Text").Text = text;
         notificationThingy.GetNode<Label>("App").Text = app;
         AddChild(notificationThingy);
+        SoundManager.PlaySystemSound(SoundManager.SystemSounds.Notification);
     }
 
     /// <summary>
@@ -34,5 +36,6 @@ public partial class NotificationManager : Node
         notificationThingy.GetNode<Label>("Text").Text = text;
         notificationThingy.GetNode<Label>("App").Text = app;
         AddChild(notificationThingy);
+        SoundManager.PlaySystemSound(SoundManager.SystemSounds.Error);
     }
 }

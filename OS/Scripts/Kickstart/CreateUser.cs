@@ -1,3 +1,4 @@
+using Dashboard.Overlay;
 using Godot;
 using Kickstart.Records;
 using System;
@@ -8,67 +9,53 @@ namespace Kickstart.Onboarding;
 
 public partial class CreateUser : Button
 {
-    LineEdit name;
-    LineEdit username;
-    ItemList icons;
-    Label errorThingy;
-    
+    [Export]
+    public LineEdit DisplayName;
+    [Export]
+    public LineEdit Username;
+    [Export]
+    public OptionButton Icosbnhjrsnjgt;
+    [Export]
+    public Window GetParentDotGetParentDotGetParentDotGetParentDotGetParent;
 
-    public override void _Ready()
-    {
-        base._Ready();
-        name = GetNode<LineEdit>("../../Name");
-        username = GetNode<LineEdit>("../../Username");
-        icons = GetNode<ItemList>("../../Icons");
-        errorThingy = GetNode<Label>("/root/NewUser/Control/ErrorThingy");
-    }
 
     public override void _Pressed() {
         base._Pressed();
         // make the icon be a string and not a number
-        string icon = "";
-        if (icons.GetSelectedItems().Length > 0)
+        string icon = Icosbnhjrsnjgt.GetSelectedId() switch
         {
-            switch (icons.GetSelectedItems()[0])
-            {
-                case 0: icon = "res://Assets/UserIcons/Cat.png"; break;
-                case 1: icon = "res://Assets/UserIcons/Flower.png"; break;
-                case 2: icon = "res://Assets/UserIcons/Balloons.png"; break;
-                case 3: icon = "res://Assets/UserIcons/Car.png"; break;
-                case 4: icon = "res://Assets/UserIcons/Dog.png"; break;
-                case 5: icon = "res://Assets/UserIcons/Duck.png"; break;
-                case 6: icon = "res://Assets/UserIcons/Pancakes.png"; break;
-                case 7: icon = "res://Assets/UserIcons/Brushes.png"; break;
-                case 8: icon = "res://Assets/UserIcons/Shuttle.png"; break;
-                case 9: icon = "res://Assets/UserIcons/Football.png"; break;
-            }
-        }
+            0 => "res://Assets/UserIcons/Cat.png",
+            1 => "res://Assets/UserIcons/Flower.png",
+            2 => "res://Assets/UserIcons/Balloons.png",
+            3 => "res://Assets/UserIcons/Car.png",
+            4 => "res://Assets/UserIcons/Dog.png",
+            5 => "res://Assets/UserIcons/Duck.png",
+            6 => "res://Assets/UserIcons/Pancakes.png",
+            7 => "res://Assets/UserIcons/Brushes.png",
+            8 => "res://Assets/UserIcons/Shuttle.png",
+            9 => "res://Assets/UserIcons/Football.png",
+            _ => ""
+        };
+
+        NotificationManager ohFuckOff = GetNode<NotificationManager>("/root/NotificationManager");
 
         // make sure the name and username things actually have something
-        if (name.Text == "")
+        if (DisplayName.Text == "")
         {
-            errorThingy.Text = "Invalid name!";
+            ohFuckOff.ShowErrorNotification("Invalid name!", "markisaOS");
             return;
         }
 
-        if (username.Text == "")
+        if (Username.Text == "")
         {
-            errorThingy.Text = "Invalid username!";
-            return;
-        }
-
-        // these characters are not allowed in windows, which isn't good since each user is a folder and stuff
-        Regex what = new("[\"/<>:\\|?*]", RegexOptions.Compiled | RegexOptions.CultureInvariant);
-        if (what.Matches(name.Text).Count > 0)
-        {
-            errorThingy.Text = "Names can't include the characters \\/<>:|?*";
+            ohFuckOff.ShowErrorNotification("Invalid username!", "markisaOS");
             return;
         }
 
         Regex idkman = new("[^[a-z0-9._]", RegexOptions.Compiled | RegexOptions.CultureInvariant);
-        if (idkman.Matches(username.Text).Count > 0)
+        if (idkman.Matches(Username.Text).Count > 0)
         {
-            errorThingy.Text = "Lelnet usernames only allow lowercase characters, numbers, underscores (_) and periods (.)";
+            ohFuckOff.ShowErrorNotification("Lelnet usernames only allow lowercase characters, numbers, underscores (_) and periods (.)", "markisaOS");
             return;
         }
 
@@ -85,20 +72,21 @@ public partial class CreateUser : Button
                 filename = dir.GetNext();
             }
 
-            if (users.Contains(name.Text))
+            if (users.Contains(Username.Text))
             {
-                errorThingy.Text = $"User \"{name.Text}\" already exists!";
+                ohFuckOff.ShowErrorNotification("Username already claimed!", "markisaOS");
                 return;
             }
         }
 
         // now we actually make the user and login
         MarkisaUser user = new() {
-            DisplayName = name.Text,
-            Username = username.Text,
+            DisplayName = DisplayName.Text,
+            Username = Username.Text,
             Photo = icon
         };
-        RecordManager.CurrentUser = username.Text;
+        RecordManager.CurrentUser = Username.Text;
+        RecordManager.CurrentUserDisplayName = DisplayName.Text;
         RecordManager.Save(user);
 
         PackedScene packedScene = GD.Load<PackedScene>("res://OS/Dashboard/Dashboard.tscn");
@@ -106,5 +94,6 @@ public partial class CreateUser : Button
         GetTree().Root.AddChild(dashboard);
         GetNode<Node2D>("/root/Onboarding").QueueFree();
         GetNode<Node2D>("/root/NewUser").QueueFree();
+        GetParentDotGetParentDotGetParentDotGetParentDotGetParent.QueueFree();
     }
 }
