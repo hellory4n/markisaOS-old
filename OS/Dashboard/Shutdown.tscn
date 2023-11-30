@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://b6ekr6ssbemnt"]
+[gd_scene load_steps=12 format=3 uid="uid://b6ekr6ssbemnt"]
 
 [ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Blue/Theme.tres" id="1"]
 [ext_resource type="Texture2D" uid="uid://ck2xg8qfa4u2q" path="res://Assets/Themes/HighPeaks-Blue/Icons/Power.png" id="2"]
 [ext_resource type="Script" path="res://OS/Scripts/WindowManager/Close.cs" id="3"]
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/QuickSettings/QuickSettingsShutdown.cs" id="4"]
 [ext_resource type="Script" path="res://OS/Scripts/WindowManager/DashboardWindow.cs" id="5"]
+[ext_resource type="Script" path="res://OS/Scripts/Dashboard/Toolkit/SoundPlayer.cs" id="6_pqapg"]
 
 [sub_resource type="Animation" id="2"]
 resource_name = "Close"
@@ -195,3 +196,10 @@ text = "Are you sure you want to turn off your device? Progress is automatically
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="SoundPlayer" type="Node" parent="."]
+script = ExtResource("6_pqapg")
+Pitch = 1.0
+Autoplay = true
+PlaySystemSound = true
+SystemSound = 3
