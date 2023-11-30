@@ -93,7 +93,6 @@ public partial class CreateUser : Button
         Node dashboard = packedScene.Instantiate();
         GetTree().Root.AddChild(dashboard);
         GetNode<Node2D>("/root/Onboarding").QueueFree();
-        GetNode<Node2D>("/root/NewUser").QueueFree();
         GetParentDotGetParentDotGetParentDotGetParentDotGetParent.QueueFree();
     }
 }

@@ -64,7 +64,7 @@ public partial class ComputerNoisesManager : Node
         float memoryOmg = 10;
         float storageOmg = 10;
 
-        foreach (DashboardWindow window in GetNode("/root/Dashboard/M/Windows").GetChildren()) {
+        foreach (DashboardWindow window in GetNode("/root/Dashboard/M/Windows/ThemeThing").GetChildren()) {
             cpuOmg += window.CpuUse;
             gpuOmg += window.GpuUse;
             memoryOmg += window.MemoryUse;

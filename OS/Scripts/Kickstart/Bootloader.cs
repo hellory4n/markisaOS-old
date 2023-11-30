@@ -23,6 +23,9 @@ public partial class Bootloader : Node
             GetNode<Label>("../Control/Label").OffsetTop = -100;
             installing = true;
         }
+
+        Input.WarpMouse(Vector2.Zero);
+        Input.MouseMode = Input.MouseModeEnum.ConfinedHidden;
     }
 
     public override void _Process(double delta)
@@ -53,5 +56,6 @@ public partial class Bootloader : Node
     public void Thing2(string animName)
     {
         GetParent().QueueFree();
+        Input.MouseMode = Input.MouseModeEnum.Visible;
     }
 }
