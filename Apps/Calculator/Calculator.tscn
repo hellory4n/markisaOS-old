@@ -1,14 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1ohxsxym1lvu"]
+[gd_scene load_steps=8 format=3 uid="uid://c1ohxsxym1lvu"]
 
 [ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Blue/Theme.tres" id="1"]
-[ext_resource type="Script" path="res://Apps/Calculator/Scripts/Calculator.cs" id="2"]
 [ext_resource type="Texture2D" uid="uid://bn1lephsyappg" path="res://Apps/Calculator/Assets/IconDock.png" id="3"]
+[ext_resource type="Script" path="res://Apps/Calculator/Scripts/Processor.cs" id="4_npihx"]
 [ext_resource type="Script" path="res://OS/Scripts/WindowManager/DashboardWindow.cs" id="5"]
+[ext_resource type="Script" path="res://Apps/Calculator/Clear.cs" id="5_ekywr"]
+[ext_resource type="Script" path="res://Apps/Calculator/Undo.cs" id="6_7m5qj"]
+[ext_resource type="Script" path="res://Apps/Calculator/AddStuff.cs" id="7_mmqqw"]
 
 [node name="Calculator" type="Window"]
 process_priority = 1
 title = "Calculator"
-position = Vector2i(0, 45)
+position = Vector2i(0, 46)
 size = Vector2i(290, 410)
 unresizable = true
 min_size = Vector2i(290, 410)
@@ -17,7 +20,11 @@ theme = ExtResource("1")
 script = ExtResource("5")
 Icon = ExtResource("3")
 
-[node name="Expression" type="Label" parent="."]
+[node name="CalculatorProcessor" type="Node" parent="." node_paths=PackedStringArray("TheThing")]
+script = ExtResource("4_npihx")
+TheThing = NodePath("../Expression")
+
+[node name="Expression" type="LineEdit" parent="."]
 custom_minimum_size = Vector2(0, 40)
 anchors_preset = 10
 anchor_right = 1.0
@@ -26,33 +33,45 @@ offset_top = 10.0
 offset_right = -10.0
 offset_bottom = 40.0
 theme_type_variation = &"Header"
+placeholder_text = "2+2"
+alignment = 2
 
-[node name="Clear" type="Button" parent="."]
+[node name="Clear" type="Button" parent="." node_paths=PackedStringArray("Processor")]
 custom_minimum_size = Vector2(60, 60)
 offset_left = 10.0
 offset_top = 60.0
 offset_right = 72.0
 offset_bottom = 120.0
 theme_type_variation = &"SecondaryButton"
+theme_override_font_sizes/font_size = 24
 text = "C"
+script = ExtResource("5_ekywr")
+Processor = NodePath("../CalculatorProcessor")
 
-[node name="Undo" type="Button" parent="."]
+[node name="Undo" type="Button" parent="." node_paths=PackedStringArray("Processor")]
 custom_minimum_size = Vector2(60, 60)
 offset_left = 80.0
 offset_top = 60.0
 offset_right = 140.0
 offset_bottom = 120.0
 theme_type_variation = &"SecondaryButton"
+theme_override_font_sizes/font_size = 24
 text = "←"
+script = ExtResource("6_7m5qj")
+Processor = NodePath("../CalculatorProcessor")
 
-[node name="Negate" type="Button" parent="."]
+[node name="Negate" type="Button" parent="." node_paths=PackedStringArray("Processor")]
 custom_minimum_size = Vector2(60, 60)
 offset_left = 80.0
 offset_top = 340.0
 offset_right = 140.0
 offset_bottom = 400.0
 theme_type_variation = &"SecondaryButton"
+theme_override_font_sizes/font_size = 24
 text = "±"
+script = ExtResource("7_mmqqw")
+Stuff = "-"
+Processor = NodePath("../CalculatorProcessor")
 
 [node name="Divide" type="Button" parent="."]
 custom_minimum_size = Vector2(60, 60)
@@ -61,6 +80,7 @@ offset_top = 60.0
 offset_right = 210.0
 offset_bottom = 120.0
 theme_type_variation = &"SecondaryButton"
+theme_override_font_sizes/font_size = 24
 text = "÷"
 
 [node name="Multiply" type="Button" parent="."]
@@ -70,6 +90,7 @@ offset_top = 60.0
 offset_right = 280.0
 offset_bottom = 120.0
 theme_type_variation = &"SecondaryButton"
+theme_override_font_sizes/font_size = 24
 text = "×"
 
 [node name="Seven" type="Button" parent="."]
@@ -79,6 +100,7 @@ offset_top = 130.0
 offset_right = 70.0
 offset_bottom = 190.0
 theme_type_variation = &"SecondaryButton"
+theme_override_font_sizes/font_size = 24
 text = "7"
 
 [node name="Eight" type="Button" parent="."]
@@ -88,6 +110,7 @@ offset_top = 130.0
 offset_right = 140.0
 offset_bottom = 190.0
 theme_type_variation = &"SecondaryButton"
+theme_override_font_sizes/font_size = 24
 text = "8"
 
 [node name="Nine" type="Button" parent="."]
@@ -97,6 +120,7 @@ offset_top = 130.0
 offset_right = 210.0
 offset_bottom = 190.0
 theme_type_variation = &"SecondaryButton"
+theme_override_font_sizes/font_size = 24
 text = "9"
 
 [node name="Subtract" type="Button" parent="."]
@@ -106,6 +130,7 @@ offset_top = 130.0
 offset_right = 280.0
 offset_bottom = 190.0
 theme_type_variation = &"SecondaryButton"
+theme_override_font_sizes/font_size = 24
 text = "−"
 
 [node name="Four" type="Button" parent="."]
@@ -115,6 +140,7 @@ offset_top = 200.0
 offset_right = 70.0
 offset_bottom = 260.0
 theme_type_variation = &"SecondaryButton"
+theme_override_font_sizes/font_size = 24
 text = "4"
 
 [node name="Five" type="Button" parent="."]
@@ -124,6 +150,7 @@ offset_top = 200.0
 offset_right = 140.0
 offset_bottom = 260.0
 theme_type_variation = &"SecondaryButton"
+theme_override_font_sizes/font_size = 24
 text = "5"
 
 [node name="Six" type="Button" parent="."]
@@ -133,6 +160,7 @@ offset_top = 200.0
 offset_right = 210.0
 offset_bottom = 260.0
 theme_type_variation = &"SecondaryButton"
+theme_override_font_sizes/font_size = 24
 text = "6"
 
 [node name="Add" type="Button" parent="."]
@@ -142,6 +170,7 @@ offset_top = 200.0
 offset_right = 280.0
 offset_bottom = 260.0
 theme_type_variation = &"SecondaryButton"
+theme_override_font_sizes/font_size = 24
 text = "+"
 
 [node name="One" type="Button" parent="."]
@@ -151,6 +180,7 @@ offset_top = 270.0
 offset_right = 70.0
 offset_bottom = 330.0
 theme_type_variation = &"SecondaryButton"
+theme_override_font_sizes/font_size = 24
 text = "1"
 
 [node name="Two" type="Button" parent="."]
@@ -160,6 +190,7 @@ offset_top = 270.0
 offset_right = 140.0
 offset_bottom = 330.0
 theme_type_variation = &"SecondaryButton"
+theme_override_font_sizes/font_size = 24
 text = "2"
 
 [node name="Three" type="Button" parent="."]
@@ -169,6 +200,7 @@ offset_top = 270.0
 offset_right = 210.0
 offset_bottom = 330.0
 theme_type_variation = &"SecondaryButton"
+theme_override_font_sizes/font_size = 24
 text = "3"
 
 [node name="Equal" type="Button" parent="."]
@@ -177,8 +209,8 @@ offset_left = 220.0
 offset_top = 270.0
 offset_right = 280.0
 offset_bottom = 330.0
+theme_override_font_sizes/font_size = 24
 text = "="
-script = ExtResource("2")
 
 [node name="Zero" type="Button" parent="."]
 custom_minimum_size = Vector2(60, 60)
@@ -187,6 +219,7 @@ offset_top = 340.0
 offset_right = 70.0
 offset_bottom = 400.0
 theme_type_variation = &"SecondaryButton"
+theme_override_font_sizes/font_size = 24
 text = "0"
 
 [node name="Dot" type="Button" parent="."]
@@ -196,4 +229,5 @@ offset_top = 340.0
 offset_right = 210.0
 offset_bottom = 400.0
 theme_type_variation = &"SecondaryButton"
+theme_override_font_sizes/font_size = 24
 text = "."
