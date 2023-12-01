@@ -17,12 +17,12 @@ public partial class Bootloader : Node
     {
         base._Ready();
         // if we're gonna install markisaOS then the bootscreen should take longer and stuff
-        if (!new Record<SystemInfo>().Data.Installed)
+        /*if (!new Record<SystemInfo>().Data.Installed)
         {
             GetNode<Label>("../Control/Label").Text = "markisaOS Me is preparing the installation process.\nThis can take several seconds.";
             GetNode<Label>("../Control/Label").OffsetTop = -100;
             installing = true;
-        }
+        }*/
 
         Input.WarpMouse(Vector2.Zero);
         Input.MouseMode = Input.MouseModeEnum.ConfinedHidden;
@@ -46,6 +46,7 @@ public partial class Bootloader : Node
             aPackedScene = GD.Load<PackedScene>(GetMeStarted);
         else
             aPackedScene = GD.Load<PackedScene>(new Record<SystemInfo>().Data.Onboarding);
+        
         Node aNode = aPackedScene.Instantiate();
         GetTree().Root.AddChild(aNode);
         GetParent<Control>().MoveToFront();

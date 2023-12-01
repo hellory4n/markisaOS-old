@@ -35,12 +35,13 @@ public partial class Record<T> where T : struct, IRecordData
     public Record()
     {
         // temporary object so we can generate a path and load the data frfrfr
-        T Data = new();
+        Data = new();
         string path = ProcessFilename();
 
         if (FileAccess.FileExists(path))
         {
             using var file = FileAccess.Open(path, FileAccess.ModeFlags.Read);
+            GD.Print(file.GetAsText());
             Data = JsonConvert.DeserializeObject<T>(
                 file.GetAsText(), new JsonSerializerSettings {
                     TypeNameHandling = TypeNameHandling.All,
