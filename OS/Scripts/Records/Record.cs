@@ -41,7 +41,6 @@ public partial class Record<T> where T : struct, IRecordData
         if (FileAccess.FileExists(path))
         {
             using var file = FileAccess.Open(path, FileAccess.ModeFlags.Read);
-            GD.Print(file.GetAsText());
             Data = JsonConvert.DeserializeObject<T>(
                 file.GetAsText(), new JsonSerializerSettings {
                     TypeNameHandling = TypeNameHandling.All,

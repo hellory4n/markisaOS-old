@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://c1ohxsxym1lvu"]
 
-[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Purple/Theme.tres" id="1"]
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Blue/Theme.tres" id="1_op6p4"]
 [ext_resource type="Texture2D" uid="uid://bn1lephsyappg" path="res://Apps/Calculator/Assets/IconDock.png" id="3"]
 [ext_resource type="Script" path="res://Apps/Calculator/Scripts/Processor.cs" id="4_npihx"]
 [ext_resource type="Script" path="res://OS/Scripts/WindowManager/DashboardWindow.cs" id="5"]
@@ -16,7 +16,7 @@ size = Vector2i(290, 410)
 unresizable = true
 min_size = Vector2i(290, 410)
 max_size = Vector2i(290, 410)
-theme = ExtResource("1")
+theme = ExtResource("1_op6p4")
 script = ExtResource("5")
 Icon = ExtResource("3")
 
@@ -32,7 +32,6 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = -10.0
 offset_bottom = 40.0
-theme_type_variation = &"Header"
 placeholder_text = "2+2"
 alignment = 2
 
@@ -73,7 +72,7 @@ script = ExtResource("7_mmqqw")
 Stuff = "-"
 Processor = NodePath("../CalculatorProcessor")
 
-[node name="Divide" type="Button" parent="."]
+[node name="Divide" type="Button" parent="." node_paths=PackedStringArray("Processor")]
 custom_minimum_size = Vector2(60, 60)
 offset_left = 150.0
 offset_top = 60.0
@@ -82,8 +81,11 @@ offset_bottom = 120.0
 theme_type_variation = &"SecondaryButton"
 theme_override_font_sizes/font_size = 24
 text = "÷"
+script = ExtResource("7_mmqqw")
+Stuff = "/"
+Processor = NodePath("../CalculatorProcessor")
 
-[node name="Multiply" type="Button" parent="."]
+[node name="Multiply" type="Button" parent="." node_paths=PackedStringArray("Processor")]
 custom_minimum_size = Vector2(60, 60)
 offset_left = 220.0
 offset_top = 60.0
@@ -92,8 +94,11 @@ offset_bottom = 120.0
 theme_type_variation = &"SecondaryButton"
 theme_override_font_sizes/font_size = 24
 text = "×"
+script = ExtResource("7_mmqqw")
+Stuff = "*"
+Processor = NodePath("../CalculatorProcessor")
 
-[node name="Seven" type="Button" parent="."]
+[node name="Seven" type="Button" parent="." node_paths=PackedStringArray("Processor")]
 custom_minimum_size = Vector2(60, 60)
 offset_left = 10.0
 offset_top = 130.0
@@ -102,8 +107,11 @@ offset_bottom = 190.0
 theme_type_variation = &"SecondaryButton"
 theme_override_font_sizes/font_size = 24
 text = "7"
+script = ExtResource("7_mmqqw")
+Stuff = "7"
+Processor = NodePath("../CalculatorProcessor")
 
-[node name="Eight" type="Button" parent="."]
+[node name="Eight" type="Button" parent="." node_paths=PackedStringArray("Processor")]
 custom_minimum_size = Vector2(60, 60)
 offset_left = 80.0
 offset_top = 130.0
@@ -112,8 +120,11 @@ offset_bottom = 190.0
 theme_type_variation = &"SecondaryButton"
 theme_override_font_sizes/font_size = 24
 text = "8"
+script = ExtResource("7_mmqqw")
+Stuff = "8"
+Processor = NodePath("../CalculatorProcessor")
 
-[node name="Nine" type="Button" parent="."]
+[node name="Nine" type="Button" parent="." node_paths=PackedStringArray("Processor")]
 custom_minimum_size = Vector2(60, 60)
 offset_left = 150.0
 offset_top = 130.0
@@ -122,8 +133,11 @@ offset_bottom = 190.0
 theme_type_variation = &"SecondaryButton"
 theme_override_font_sizes/font_size = 24
 text = "9"
+script = ExtResource("7_mmqqw")
+Stuff = "9"
+Processor = NodePath("../CalculatorProcessor")
 
-[node name="Subtract" type="Button" parent="."]
+[node name="Subtract" type="Button" parent="." node_paths=PackedStringArray("Processor")]
 custom_minimum_size = Vector2(60, 60)
 offset_left = 220.0
 offset_top = 130.0
@@ -132,8 +146,11 @@ offset_bottom = 190.0
 theme_type_variation = &"SecondaryButton"
 theme_override_font_sizes/font_size = 24
 text = "−"
+script = ExtResource("7_mmqqw")
+Stuff = "-"
+Processor = NodePath("../CalculatorProcessor")
 
-[node name="Four" type="Button" parent="."]
+[node name="Four" type="Button" parent="." node_paths=PackedStringArray("Processor")]
 custom_minimum_size = Vector2(60, 60)
 offset_left = 10.0
 offset_top = 200.0
@@ -142,8 +159,11 @@ offset_bottom = 260.0
 theme_type_variation = &"SecondaryButton"
 theme_override_font_sizes/font_size = 24
 text = "4"
+script = ExtResource("7_mmqqw")
+Stuff = "4"
+Processor = NodePath("../CalculatorProcessor")
 
-[node name="Five" type="Button" parent="."]
+[node name="Five" type="Button" parent="." node_paths=PackedStringArray("Processor")]
 custom_minimum_size = Vector2(60, 60)
 offset_left = 80.0
 offset_top = 200.0
@@ -152,8 +172,11 @@ offset_bottom = 260.0
 theme_type_variation = &"SecondaryButton"
 theme_override_font_sizes/font_size = 24
 text = "5"
+script = ExtResource("7_mmqqw")
+Stuff = "5"
+Processor = NodePath("../CalculatorProcessor")
 
-[node name="Six" type="Button" parent="."]
+[node name="Six" type="Button" parent="." node_paths=PackedStringArray("Processor")]
 custom_minimum_size = Vector2(60, 60)
 offset_left = 150.0
 offset_top = 200.0
@@ -162,8 +185,11 @@ offset_bottom = 260.0
 theme_type_variation = &"SecondaryButton"
 theme_override_font_sizes/font_size = 24
 text = "6"
+script = ExtResource("7_mmqqw")
+Stuff = "6"
+Processor = NodePath("../CalculatorProcessor")
 
-[node name="Add" type="Button" parent="."]
+[node name="Add" type="Button" parent="." node_paths=PackedStringArray("Processor")]
 custom_minimum_size = Vector2(60, 60)
 offset_left = 220.0
 offset_top = 200.0
@@ -172,8 +198,11 @@ offset_bottom = 260.0
 theme_type_variation = &"SecondaryButton"
 theme_override_font_sizes/font_size = 24
 text = "+"
+script = ExtResource("7_mmqqw")
+Stuff = "+"
+Processor = NodePath("../CalculatorProcessor")
 
-[node name="One" type="Button" parent="."]
+[node name="One" type="Button" parent="." node_paths=PackedStringArray("Processor")]
 custom_minimum_size = Vector2(60, 60)
 offset_left = 10.0
 offset_top = 270.0
@@ -182,8 +211,11 @@ offset_bottom = 330.0
 theme_type_variation = &"SecondaryButton"
 theme_override_font_sizes/font_size = 24
 text = "1"
+script = ExtResource("7_mmqqw")
+Stuff = "1"
+Processor = NodePath("../CalculatorProcessor")
 
-[node name="Two" type="Button" parent="."]
+[node name="Two" type="Button" parent="." node_paths=PackedStringArray("Processor")]
 custom_minimum_size = Vector2(60, 60)
 offset_left = 80.0
 offset_top = 270.0
@@ -192,8 +224,11 @@ offset_bottom = 330.0
 theme_type_variation = &"SecondaryButton"
 theme_override_font_sizes/font_size = 24
 text = "2"
+script = ExtResource("7_mmqqw")
+Stuff = "2"
+Processor = NodePath("../CalculatorProcessor")
 
-[node name="Three" type="Button" parent="."]
+[node name="Three" type="Button" parent="." node_paths=PackedStringArray("Processor")]
 custom_minimum_size = Vector2(60, 60)
 offset_left = 150.0
 offset_top = 270.0
@@ -202,6 +237,9 @@ offset_bottom = 330.0
 theme_type_variation = &"SecondaryButton"
 theme_override_font_sizes/font_size = 24
 text = "3"
+script = ExtResource("7_mmqqw")
+Stuff = "3"
+Processor = NodePath("../CalculatorProcessor")
 
 [node name="Equal" type="Button" parent="."]
 custom_minimum_size = Vector2(60, 130)
@@ -212,7 +250,7 @@ offset_bottom = 330.0
 theme_override_font_sizes/font_size = 24
 text = "="
 
-[node name="Zero" type="Button" parent="."]
+[node name="Zero" type="Button" parent="." node_paths=PackedStringArray("Processor")]
 custom_minimum_size = Vector2(60, 60)
 offset_left = 10.0
 offset_top = 340.0
@@ -221,8 +259,11 @@ offset_bottom = 400.0
 theme_type_variation = &"SecondaryButton"
 theme_override_font_sizes/font_size = 24
 text = "0"
+script = ExtResource("7_mmqqw")
+Stuff = "0"
+Processor = NodePath("../CalculatorProcessor")
 
-[node name="Dot" type="Button" parent="."]
+[node name="Dot" type="Button" parent="." node_paths=PackedStringArray("Processor")]
 custom_minimum_size = Vector2(60, 60)
 offset_left = 150.0
 offset_top = 340.0
@@ -231,3 +272,8 @@ offset_bottom = 400.0
 theme_type_variation = &"SecondaryButton"
 theme_override_font_sizes/font_size = 24
 text = "."
+script = ExtResource("7_mmqqw")
+Stuff = "."
+Processor = NodePath("../CalculatorProcessor")
+
+[connection signal="pressed" from="Equal" to="CalculatorProcessor" method="Calculate"]
