@@ -7,12 +7,9 @@ namespace Kickstart.Records;
 /// <summary>
 /// Stores information about the user's dashboard settings.
 /// </summary>
-public partial record struct DashboardConfig : IRecord
+public partial struct DashboardConfig : IRecordData
 {
-    public override string GetFilename()
-    {
-        
-    }
+    public readonly string GetFilename() { return "%user/DashboardConfig.json"; }
 
 	/// <summary>
     /// A path to the wallpaper used by the user.
@@ -28,7 +25,13 @@ public partial record struct DashboardConfig : IRecord
     public Dictionary<string, PinboardItem> Pinboard = new();
     public DashboardMode Mode = DashboardMode.Desktop;
 
-    public DashboardConfig() {}
+    public DashboardConfig() 
+    {
+        if (OS.GetName() == "Android")
+            Mode = DashboardMode.Mobile;
+        else
+            Mode = DashboardMode.Desktop;
+    }
 }
 
 public enum DashboardMode
@@ -37,11 +40,13 @@ public enum DashboardMode
     Mobile,
 }
 
-public partial record PinboardItem
+public partial struct PinboardItem
 {
     public bool IsStickyNote = false;
     public Vector2 Position = new(0, 0);
     public double Scale = 1;
     public string Text = "";
     public string TexturePath = "";
+
+    public PinboardItem() {}
 }

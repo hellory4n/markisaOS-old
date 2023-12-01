@@ -6,7 +6,7 @@ namespace Kickstart.Records;
 /// <summary>
 /// A package describes information about a markisaOS app.
 /// </summary>
-public partial record Package
+public partial struct Package
 {
     /// <summary>
     /// The name that will be displayed to the user.

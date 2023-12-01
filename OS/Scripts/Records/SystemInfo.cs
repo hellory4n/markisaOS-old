@@ -4,14 +4,9 @@ using System.Collections.Generic;
 
 namespace Kickstart.Records;
 
-public partial record SystemInfo : IRecord
+public partial struct SystemInfo : IRecordData
 {
-    public SystemInfo()
-    {
-        Filename = "SystemInfo";
-        Type = RecordType.Global;
-    }
-
+    public readonly string GetFilename() { return "Settings/SystemInfo.json"; }
     /// <summary>
     /// If true, the player has already finished the installation process.
     /// </summary>
@@ -21,4 +16,6 @@ public partial record SystemInfo : IRecord
     /// </summary>
     public string Onboarding = "res://OS/Kickstart/Onboarding.tscn";
     public List<string> Achievements = new();
+
+    public SystemInfo() {}
 }

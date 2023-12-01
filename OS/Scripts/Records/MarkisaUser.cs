@@ -6,14 +6,10 @@ namespace Kickstart.Records;
 /// <summary>
 /// Stores user info.
 /// </summary>
-record MarkisaUser : IRecord
+public partial struct MarkisaUser : IRecordData
 {
-    public MarkisaUser()
-    {
-        Filename = "MarkisaUser";
-        Type = RecordType.User;
-    }
-
+    public readonly string GetFilename() { return "%user/MarkisaUser.json"; }
+    
     /// <summary>
     /// The major version, incremented with really big updates that break a lot of stuff.
     /// </summary>
@@ -46,13 +42,15 @@ record MarkisaUser : IRecord
     /// <summary>
     /// A path (not in cabinetfs) pointing to the photo the user uses.
     /// </summary>
-    public string Photo;
+    public string Photo = "res://Assets/UserIcons/Cat.png";
+
+    public MarkisaUser() {}
 
     /// <summary>
     /// Converts the version the user is currently using into a string.
     /// </summary>
     /// <returns>A string with the format "vMAJOR.MINOR.PATCH.BUILD" + "(Beta)" at the end if it is one.</returns>
-    public string VersionToString()
+    public readonly string VersionToString()
     {
         if (Beta)
             return $"v{Major}.{Minor}.{Patch}.{Build} (Beta)";
