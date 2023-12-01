@@ -6,20 +6,23 @@ namespace Kickstart.Records;
 /// <summary>
 /// Base class for markisaOS data. Use with RecordManager.
 /// </summary>
-public partial record Record
+public partial interface IRecord
 {
     /// <summary>
-    /// The filename of the record. Automatically gets a folder path at the beginning.
+    /// Gets the type of the record.
     /// </summary>
-	public string Filename;
+    /// <returns>The type of the record.</returns>
+    public static virtual RecordType GetType() { return default; }
     /// <summary>
-    /// The type of the record.
+    /// Gets the filename of the record. Automatically gets a folder path at the beginning.
     /// </summary>
-    public RecordType Type;
+    /// <returns>The filename of the record.</returns>
+    public static virtual string GetFilename() { return default; }
     /// <summary>
-    /// The app/website that uses this data. Only used if the type is RecordType.App or RecordType.Website. To make sure this is unique, we recommend putting the author before the name, e.g. "Passionfruit/Files" or "JohnDoe/example.com"
+    /// Get the app/website that uses this data. Only used if the type is RecordType.App or RecordType.Website. To make sure this is unique, we recommend putting the author before the name, e.g. "Passionfruit/Files" or "JohnDoe/example.com"
     /// </summary>
-    public string AppName;
+    /// <returns>The app/website that uses this data.</returns>
+    public static virtual string GetAppName() { return default; }
 }
 
 /// <summary>

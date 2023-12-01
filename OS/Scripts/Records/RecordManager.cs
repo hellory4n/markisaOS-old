@@ -12,16 +12,16 @@ public partial class RecordManager : Node
     public static string CurrentUser;
     public static string CurrentUserDisplayName;
 
-    public static void Save<T>(T data) where T : Record
+    public static void Save<T>(T data) where T : IRecord
     {
-        string path = data.Type switch
+        string path = data.GetType() switch
         {
-            RecordType.User => $"user://Users/{CurrentUser}/{data.Filename}",
-            RecordType.App => $"user://User/{CurrentUser}/Apps/{data.AppName}/{data.Filename}",
-            RecordType.Website => $"user://Users/{CurrentUser}/Web/{data.AppName}/{data.Filename}",
-            _ => $"user://Settings/{data.Filename}",
+            RecordType.User => $"user://Users/{CurrentUser}/{data.GetFilename()}",
+            RecordType.App => $"user://User/{CurrentUser}/Apps/{data.GetAppName()}/{data.GetFilename()}",
+            RecordType.Website => $"user://Users/{CurrentUser}/Web/{data.GetAppName()}/{data.GetFilename()}",
+            _ => $"user://Settings/{data.GetFilename()}",
         };
-        DirAccess.MakeDirRecursiveAbsolute(path.Replace(data.Filename, ""));
+        DirAccess.MakeDirRecursiveAbsolute(path.Replace(data.GetFilename(), ""));
 
         using var file = FileAccess.Open(path, FileAccess.ModeFlags.Write);
         file.StoreString(
@@ -32,18 +32,18 @@ public partial class RecordManager : Node
         );
     }
 
-    public static T Load<T>() where T : Record, new()
+    public static T Load<T>() where T : IRecord, new()
     {
         // temporary object so we can generate a path and load the data frfrfr
         T data = new();
-        string path = data.Type switch
+        string path = data.GetType() switch
         {
-            RecordType.User => $"user://Users/{CurrentUser}/{data.Filename}",
-            RecordType.App => $"user://Users/{CurrentUser}/Apps/{data.AppName}/{data.Filename}",
-            RecordType.Website => $"user://Users/{CurrentUser}/Web/{data.AppName}/{data.Filename}",
-            _ => $"user://Settings/{data.Filename}",
+            RecordType.User => $"user://Users/{CurrentUser}/{data.GetFilename()}",
+            RecordType.App => $"user://User/{CurrentUser}/Apps/{data.GetAppName()}/{data.GetFilename()}",
+            RecordType.Website => $"user://Users/{CurrentUser}/Web/{data.GetAppName()}/{data.GetFilename()}",
+            _ => $"user://Settings/{data.GetFilename()}",
         };
-        DirAccess.MakeDirRecursiveAbsolute(path.Replace(data.Filename, ""));
+        DirAccess.MakeDirRecursiveAbsolute(path.Replace(data.GetFilename(), ""));
 
         if (FileAccess.FileExists(path))
         {

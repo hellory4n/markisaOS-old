@@ -7,12 +7,11 @@ namespace Kickstart.Records;
 /// <summary>
 /// Stores information about the user's dashboard settings.
 /// </summary>
-public partial record DashboardConfig : Record
+public partial record struct DashboardConfig : IRecord
 {
-    public DashboardConfig()
+    public override string GetFilename()
     {
-        Filename = "Dashboard";
-        Type = RecordType.User;
+        
     }
 
 	/// <summary>
@@ -28,6 +27,8 @@ public partial record DashboardConfig : Record
     public List<Package> Startup = new();
     public Dictionary<string, PinboardItem> Pinboard = new();
     public DashboardMode Mode = DashboardMode.Desktop;
+
+    public DashboardConfig() {}
 }
 
 public enum DashboardMode

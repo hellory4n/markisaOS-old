@@ -24,7 +24,7 @@ public partial class ListApps : VBoxContainer
         foreach (Node mbcicfda in GetChildren())
             mbcicfda.QueueFree();
 
-        List<Package> m = RecordManager.Load<DashboardConfig>().AllApps;
+        List<Package> m = RecordManager.Load<DashboardConfig>().AllApps.Distinct().ToList();
 
         // i know
         List<Package> apps = Category switch
@@ -40,10 +40,15 @@ public partial class ListApps : VBoxContainer
             "Utilities" => m.Where(item => item.Categories.Contains(Categories.Utilities)).ToList(),
             _ => m,
         };
+        
         if (apps.Count == 0) {
             Label epicbruhmoment = new()
             {
-                Text = "No apps found."
+                Text = "No apps found.",
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center,
+                SizeFlagsHorizontal = SizeFlags.ExpandFill,
+                SizeFlagsVertical = SizeFlags.ExpandFill
             };
             AddChild(epicbruhmoment);
         }

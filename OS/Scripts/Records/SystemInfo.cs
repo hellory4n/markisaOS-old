@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Kickstart.Records;
 
-public partial record SystemInfo : Record
+public partial record SystemInfo : IRecord
 {
     public SystemInfo()
     {

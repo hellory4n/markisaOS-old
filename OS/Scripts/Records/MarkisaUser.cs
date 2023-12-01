@@ -6,7 +6,7 @@ namespace Kickstart.Records;
 /// <summary>
 /// Stores user info.
 /// </summary>
-record MarkisaUser : Record
+record MarkisaUser : IRecord
 {
     public MarkisaUser()
     {
