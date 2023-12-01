@@ -18,23 +18,15 @@ public partial class ListAppsButQuickLaunch : VBoxContainer {
             mbcicfda.QueueFree();
         }
 
-        var m = RecordManager.Load<DashboardConfig>().AllApps;
+        var pain = new Record<DashboardConfig>();
+        var m = pain.Data.AllApps;
         Package[] apps = m.OrderBy(fart => fart.DisplayName).ToArray();
-        Package[] quickLaunch = RecordManager.Load<DashboardConfig>().QuickLaunch.ToArray();
+        Package[] quickLaunch = pain.Data.QuickLaunch.ToArray();
 
         PackedScene yes = GD.Load<PackedScene>("res://Apps/QuickLaunchSetup/QuickLaunchAppThing.tscn");
         PackedScene no = GD.Load<PackedScene>("res://Apps/QuickLaunchSetup/QuickLaunchAppThingPain.tscn");
         foreach (var app in apps) {
-            // .Contains() is no worky :(
-            bool nbh = false;
-            foreach (var item in quickLaunch) {
-                if (item.DisplayName == app.DisplayName) {
-                    nbh = true;
-                    break;
-                }
-            }
-
-            if (!nbh) {
+            if (!quickLaunch.Contains(app)) {
                 Control gksnj = yes.Instantiate<Control>();
                 gksnj.GetNode<Label>("Label").Text = app.DisplayName;
                 gksnj.GetNode<AddToQuickLaunch>("Button").App = app;

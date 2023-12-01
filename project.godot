@@ -25,7 +25,6 @@ config/icon="res://icon.png"
 
 [autoload]
 
-RecordManager="*res://OS/Scripts/Records/RecordManager.cs"
 CabinetfsManager="*res://OS/Scripts/Cabinetfs/CabinetfsManager.cs"
 ResolutionManager="*res://OS/Scripts/Drivers/ResolutionManager.cs"
 WindowManager="*res://OS/Scripts/WindowManager/WindowManager.cs"

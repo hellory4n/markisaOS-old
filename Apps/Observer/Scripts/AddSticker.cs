@@ -15,7 +15,7 @@ public partial class AddSticker : TextureButton
         Texture2D texture = GetNode<TextureRect>("../Image").Texture;
 
         // save the sticker
-        var dashboard = RecordManager.Load<DashboardConfig>();
+        var dashboard = new Record<DashboardConfig>();
         var stickerdbgfdf = new PinboardItem
         {
             TexturePath = TexturePath,
@@ -27,8 +27,8 @@ public partial class AddSticker : TextureButton
             stickerdbgfdf.Scale = 0.2f;
 
         string bullshit = CabinetfsManager.GenerateId();
-        dashboard.Pinboard.Add(bullshit, stickerdbgfdf);
-        RecordManager.Save(dashboard);
+        dashboard.Data.Pinboard.Add(bullshit, stickerdbgfdf);
+        dashboard.Save();
 
         // add it and stuff :)
         var ftgkvtfyu = GD.Load<PackedScene>("res://OS/Dashboard/Sticker.tscn");

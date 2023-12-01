@@ -24,7 +24,7 @@ public partial class AddStickyNote : TextureButton
     {
         base._Pressed();
         // save the sticker
-        var notThePinboard = RecordManager.Load<DashboardConfig>();
+        var notThePinboard = new Record<DashboardConfig>();
         var stickerdbgfdf = new PinboardItem
         {
             Position = new Vector2(250, 160),
@@ -33,8 +33,8 @@ public partial class AddStickyNote : TextureButton
         };
 
         string bullshit = CabinetfsManager.GenerateId();
-        notThePinboard.Pinboard.Add(bullshit, stickerdbgfdf);
-        RecordManager.Save(notThePinboard);
+        notThePinboard.Data.Pinboard.Add(bullshit, stickerdbgfdf);
+        notThePinboard.Save();
 
         // make it show up and stuff :)
         var sticker = StickyNote.Instantiate<StickyNote>();

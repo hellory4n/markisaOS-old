@@ -7,11 +7,13 @@ namespace Dashboard.Pinboard;
 public partial class StickyNoteText : TextEdit
 {
     Timer StupidTimer;
+    string Hi;
 
     public override void _Ready()
     {
         base._Ready();
         StupidTimer = GetNode<Timer>("Autosave");
+        Hi = GetParent<StickyNote>().PinboardItem;
     }
 
     public override void _Process(double delta)
@@ -22,10 +24,10 @@ public partial class StickyNoteText : TextEdit
 
     public void ActuallySaveAndStuff()
     {
-        var mj = RecordManager.Load<DashboardConfig>();
-        mj.Pinboard[
-            GetParent<StickyNote>().PinboardItem
-        ].Text = Text;
-        RecordManager.Save(mj);
+        var mj = new Record<DashboardConfig>();
+        var fuck = mj.Data.Pinboard[Hi];
+        fuck.Text = Text;
+        mj.Data.Pinboard[Hi] = fuck;
+        mj.Save();
     }
 }

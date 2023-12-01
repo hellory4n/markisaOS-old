@@ -62,9 +62,9 @@ public partial class Sticker : Sprite2D
         // delete sticker :)))))))))))))))
         if (PinboardSelectThingy.RemoveSticker.Intersects(aRect) && SelectedSticker == this)
         {
-            var dashboard = RecordManager.Load<DashboardConfig>();
-            dashboard.Pinboard.Remove(PinboardItem);
-            RecordManager.Save(dashboard);
+            var dashboard = new Record<DashboardConfig>();
+            dashboard.Data.Pinboard.Remove(PinboardItem);
+            dashboard.Save();
 
             SelectedSticker = null;
             QueueFree();
@@ -105,9 +105,11 @@ public partial class Sticker : Sprite2D
                     Status = StatusThingy.Released;
 
                     // we need to save the position :)))
-                    var dashboard = RecordManager.Load<DashboardConfig>();
-                    dashboard.Pinboard[PinboardItem].Position = Position;
-                    RecordManager.Save(dashboard);
+                    var dashboard = new Record<DashboardConfig>();
+                    var sdgsdkgm = dashboard.Data.Pinboard[PinboardItem];
+                    sdgsdkgm.Position = Position;
+                    dashboard.Data.Pinboard[PinboardItem] = sdgsdkgm;
+                    dashboard.Save();
 
                     SelectedSticker = null;
                 }
@@ -131,9 +133,11 @@ public partial class Sticker : Sprite2D
 
         Scale = new Vector2(help, help);
 
-        var dashboard = RecordManager.Load<DashboardConfig>();
-        dashboard.Pinboard[PinboardItem].Scale = help;
-        RecordManager.Save(dashboard);
+        var dashboard = new Record<DashboardConfig>();
+        var sdgsdkgm = dashboard.Data.Pinboard[PinboardItem];
+        sdgsdkgm.Position = Scale;
+        dashboard.Data.Pinboard[PinboardItem] = sdgsdkgm;
+        dashboard.Save();
     }
 
     public void GetBiggerOmgomgomg()
@@ -149,8 +153,10 @@ public partial class Sticker : Sprite2D
 
         Scale = new Vector2(help, help);
 
-        var dashboard = RecordManager.Load<DashboardConfig>();
-        dashboard.Pinboard[PinboardItem].Scale = help;
-        RecordManager.Save(dashboard);
+        var dashboard = new Record<DashboardConfig>();
+        var sdgsdkgm = dashboard.Data.Pinboard[PinboardItem];
+        sdgsdkgm.Position = Scale;
+        dashboard.Data.Pinboard[PinboardItem] = sdgsdkgm;
+        dashboard.Save();
     }
 }

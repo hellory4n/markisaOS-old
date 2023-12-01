@@ -20,9 +20,9 @@ public partial class AddToQuickLaunch : Button
         yes.WindowScene = App.Executable;
         GetNode<VBoxContainer>("/root/DashboardInterface/Dock/DockStuff/QuickLaunch").AddChild(yes);
 
-        var m = RecordManager.Load<DashboardConfig>();
-        m.QuickLaunch.Add(App);
-        RecordManager.Save(m);
+        var m = new Record<DashboardConfig>();
+        m.Data.QuickLaunch.Add(App);
+        m.Save();
 
         GetParent().GetParent<ListAppsButQuickLaunch>().UpdateItems();
     }

@@ -61,8 +61,8 @@ public partial class ApplyWallpaper : Button {
         GetNode<Sprite2D>("/root/Dashboard/Wallpaper").Position = bruh/2;
 
         // then save the new settings
-        DashboardConfig m = RecordManager.Load<DashboardConfig>();
-        m.Wallpaper = wallpaperSaveThing;
-        RecordManager.Save(m);
+        var m = new Record<DashboardConfig>();
+        m.Data.Wallpaper = wallpaperSaveThing;
+        m.Save();
     }
 }

@@ -9,9 +9,10 @@ namespace Kickstart.Records;
 /// </summary>
 public partial class Record<T> where T : struct, IRecordData
 {
+    /// <summary>
+    /// The data of this record.
+    /// </summary>
     public T Data;
-    public static string CurrentUser;
-    public static string CurrentUserDisplayName;
 
     /// <summary>
     /// Saves the record.
@@ -62,15 +63,14 @@ public partial class Record<T> where T : struct, IRecordData
     string ProcessFilename()
     {
         string bruh = $"user://{Data.GetFilename()}";
-        bruh = bruh.Replace("%user", $"Users/{CurrentUser}");
+        bruh = bruh.Replace("%user", $"Users/{RecordManager.CurrentUser}");
         DirAccess.MakeDirRecursiveAbsolute(bruh.GetBaseDir());
         return bruh;
     }
 }
 
-public partial class Record
+public partial class RecordManager
 {
-    public static string GetCurrentUser()
-    {
-    }
+    public static string CurrentUser;
+    public static string CurrentUserDisplayName;
 }

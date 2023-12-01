@@ -87,7 +87,10 @@ public partial class CreateUser : Button
         };
         RecordManager.CurrentUser = Username.Text;
         RecordManager.CurrentUserDisplayName = DisplayName.Text;
-        RecordManager.Save(user);
+        Record<MarkisaUser> record = new() {
+            Data = user
+        };
+        record.Save();
 
         PackedScene packedScene = GD.Load<PackedScene>("res://OS/Dashboard/Dashboard.tscn");
         Node dashboard = packedScene.Instantiate();

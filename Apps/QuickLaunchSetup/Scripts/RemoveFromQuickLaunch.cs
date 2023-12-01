@@ -24,8 +24,8 @@ public partial class RemoveFromQuickLaunch : Button
             }
         }
 
-        var m = RecordManager.Load<DashboardConfig>();
-        List<Package> pain = m.QuickLaunch;
+        var m = new Record<DashboardConfig>();
+        List<Package> pain = m.Data.QuickLaunch;
         // .Remove() is no worky :(
         for (int i = 0; i < pain.Count; i++) {
             if (pain[i].DisplayName == App.DisplayName) {
@@ -33,7 +33,7 @@ public partial class RemoveFromQuickLaunch : Button
                 i--;
             }
         }
-        RecordManager.Save(m);
+        m.Save();
 
         GetParent().GetParent<ListAppsButQuickLaunch>().UpdateItems();
     }

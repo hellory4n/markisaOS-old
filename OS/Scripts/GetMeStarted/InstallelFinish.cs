@@ -66,7 +66,10 @@ public partial class InstallelFinish : Button
         };
         RecordManager.CurrentUser = lelnetUsername;
         RecordManager.CurrentUserDisplayName = name;
-        RecordManager.Save(user);
+        Record<MarkisaUser> record = new() {
+            Data = user
+        };
+        record.Save();
 
         // set the accent color lol
         string theme = "res://Assets/Themes/HighPeaks-";
@@ -83,8 +86,8 @@ public partial class InstallelFinish : Button
             case 8: theme += "Yellow"; break;
         }
         theme += "/Theme.tres";
-        var shitfuckery = RecordManager.Load<DashboardConfig>();
-        shitfuckery.Theme = theme;
+        var shitfuckery = new Record<DashboardConfig>();
+        shitfuckery.Data.Theme = theme;
 
         // set the wallpaper haha yes
         string wallpaper = "";
@@ -97,12 +100,12 @@ public partial class InstallelFinish : Button
             case 4: wallpaper = "res://Assets/Wallpapers/Mountains.png"; break;
             case 5: wallpaper = "res://Assets/Wallpapers/Aurora.png"; break;
         }
-        shitfuckery.Wallpaper = wallpaper;
-        RecordManager.Save(shitfuckery);
+        shitfuckery.Data.Wallpaper = wallpaper;
+        shitfuckery.Save();
 
         // yes
-        var FUCK = RecordManager.Load<SystemInfo>();
-        FUCK.Installed = true;
+        var FUCK = new Record<SystemInfo>();
+        FUCK.Data.Installed = true;
 
         // finally login :)))))))))))))))))))))))))))))))))
         PackedScene packedScene = GD.Load<PackedScene>("res://OS/Dashboard/Dashboard.tscn");

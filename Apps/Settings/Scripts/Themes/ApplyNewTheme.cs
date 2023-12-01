@@ -40,8 +40,8 @@ public partial class ApplyNewTheme : Button {
         dashboardInterface.GetNode<Panel>("Panel").Theme = theme;
 
         // save the settings :)))))))))))))))))))))))))))))))))))))))))))))))))
-        var asdadjffjsfjaf = RecordManager.Load<DashboardConfig>();
-        asdadjffjsfjaf.Theme = theme.ResourcePath;
-        RecordManager.Save(asdadjffjsfjaf);
+        var asdadjffjsfjaf = new Record<DashboardConfig>();
+        asdadjffjsfjaf.Data.Theme = theme.ResourcePath;
+        asdadjffjsfjaf.Save();
     }
 }

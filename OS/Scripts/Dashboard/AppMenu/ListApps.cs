@@ -24,7 +24,7 @@ public partial class ListApps : VBoxContainer
         foreach (Node mbcicfda in GetChildren())
             mbcicfda.QueueFree();
 
-        List<Package> m = RecordManager.Load<DashboardConfig>().AllApps.Distinct().ToList();
+        List<Package> m = new Record<DashboardConfig>().Data.AllApps.Distinct().ToList();
 
         // i know
         List<Package> apps = Category switch

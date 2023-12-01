@@ -43,20 +43,20 @@ public partial class Dashboard : Control
 
 		Vector2I bruh = ResolutionManager.Resolution;
 
-		DashboardConfig suffer = RecordManager.Load<DashboardConfig>();
+		Record<DashboardConfig> suffer = new();
 
 		// load the wallpaper
 		// is it a default wallpaper?
-		if (ResourceLoader.Exists(suffer.Wallpaper))
+		if (ResourceLoader.Exists(suffer.Data.Wallpaper))
 		{
-			string wallpaperPath = suffer.Wallpaper;
+			string wallpaperPath = suffer.Data.Wallpaper;
 			Texture2D wallpaper = GD.Load<Texture2D>(wallpaperPath);
 			GetNode<Sprite2D>("Wallpaper").Texture = wallpaper;
 		// is it a cabinetfs file?
 		}
-		else if (CabinetfsManager.IdExists(suffer.Wallpaper))
+		else if (CabinetfsManager.IdExists(suffer.Data.Wallpaper))
 		{
-			var epicFile = CabinetfsManager.LoadFile(suffer.Wallpaper);
+			var epicFile = CabinetfsManager.LoadFile(suffer.Data.Wallpaper);
 			Texture2D wallpaper = ResourceManager.LoadImage(epicFile.Data["Resource"].ToString());
 			GetNode<Sprite2D>("Wallpaper").Texture = wallpaper;
 
@@ -110,7 +110,7 @@ public partial class Dashboard : Control
 		animationButDifferent.TrackSetKeyValue(0, keyEndButDifferent, new Vector2(bruh.X-375, -475));
 
 		// load theme
-		Theme theme = GD.Load<Theme>(suffer.Theme);
+		Theme theme = GD.Load<Theme>(suffer.Data.Theme);
 		Windows.GetNode<Control>("ThemeThing").Theme = theme;
 		Dock.Theme = theme;
 		QuickSettings.Theme = theme;
@@ -118,7 +118,7 @@ public partial class Dashboard : Control
 		Panel.Theme = theme;
 
 		// quick launch stuff
-		foreach (var app in suffer.QuickLaunch)
+		foreach (var app in suffer.Data.QuickLaunch)
 		{
 			PackedScene packedScene = GD.Load<PackedScene>("res://OS/Dashboard/QuickLaunchButton.tscn");
 			OpenWindow yes = packedScene.Instantiate<OpenWindow>();
@@ -129,7 +129,7 @@ public partial class Dashboard : Control
 		}
 
 		// load the pinboard stuff :)))
-		foreach (var item in suffer.Pinboard)
+		foreach (var item in suffer.Data.Pinboard)
 		{
 			if (item.Value.IsStickyNote)
 			{

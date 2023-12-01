@@ -7,7 +7,7 @@ namespace Settings;
 public partial class SystemInfo : Label {
     public override void _Ready() {
         base._Ready();
-        MarkisaUser user = RecordManager.Load<MarkisaUser>();
+        Record<MarkisaUser> user = new();
         string model;
         if (OS.GetModelName() == "GenericDevice")
             model = "Placeholder Device™";
@@ -20,6 +20,6 @@ public partial class SystemInfo : Label {
         else
             cpu = OS.GetProcessorName();
 
-        Text = $"markisaOS {user.VersionToString()}\n© Passionfruit 2069\n{model}\n{cpu}";
+        Text = $"markisaOS {user.Data.VersionToString()}\n© Passionfruit 2069\n{model}\n{cpu}";
     }
 }

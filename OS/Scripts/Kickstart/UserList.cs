@@ -20,12 +20,12 @@ public partial class UserList : VBoxContainer
                 RecordManager.CurrentUser = filename;
 
                 Login useromgomgomg = stupidity.Instantiate<Login>();
-                useromgomgomg.Text = RecordManager.Load<MarkisaUser>().DisplayName;
+                useromgomgomg.Text = new Record<MarkisaUser>().Data.DisplayName;
                 useromgomgomg.Username = filename;
                 useromgomgomg.TooltipText = filename;
                 
                 // cool user photo
-                string photo = RecordManager.Load<MarkisaUser>().Photo;
+                string photo = new Record<MarkisaUser>().Data.Photo;
                 useromgomgomg.Icon = GD.Load<Texture2D>(photo);
 
                 AddChild(useromgomgomg);
