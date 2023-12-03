@@ -1,21 +1,31 @@
-[gd_scene load_steps=17 format=3 uid="uid://vpg2b056wk5y"]
+[gd_scene load_steps=23 format=3 uid="uid://vpg2b056wk5y"]
 
-[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Dark-Purple/Theme.tres" id="1"]
-[ext_resource type="Texture2D" uid="uid://bxdjurhxjp20t" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Graphics.png" id="2"]
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Dark-Blue/Theme.tres" id="1_c3k0o"]
 [ext_resource type="Script" path="res://OS/Scripts/WindowManager/DashboardWindow.cs" id="3"]
 [ext_resource type="Texture2D" uid="uid://8h88ewrw2v33" path="res://Apps/Settings/Assets/IconDock.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://cm0a7mqanrpgh" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Home2.png" id="4_ax76q"]
 [ext_resource type="Texture2D" uid="uid://ylkkv0jt06ri" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/System.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://bvxna03fu6xub" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Wallpapers.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://wlamqh1fgh4r" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/App.png" id="6_p2rvp"]
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/Toolkit/SidebarButton.cs" id="7"]
 [ext_resource type="Texture2D" uid="uid://dln805ks7nugu" path="res://Assets/Boot/Logo.png" id="8"]
-[ext_resource type="Script" path="res://Apps/Settings/Scripts/Display/DisplaySettingsApply.cs" id="9"]
+[ext_resource type="Texture2D" uid="uid://bl008vs8e3njs" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Language.png" id="9_01j3m"]
 [ext_resource type="Script" path="res://Apps/Settings/Scripts/Wallpapers/WallpaperThing.cs" id="10"]
 [ext_resource type="Script" path="res://Apps/Settings/Scripts/Wallpapers/ApplyWallpaper.cs" id="11"]
+[ext_resource type="Texture2D" uid="uid://dbn1wtd7rytw1" path="res://Assets/Themes/HighPeaks-Dark-Blue/Window/Close.png" id="11_v7vjn"]
+[ext_resource type="Script" path="res://Apps/Settings/Scripts/Themes/ListThemes.cs" id="11_w5xfs"]
 [ext_resource type="Texture2D" uid="uid://ciyyjtu436wpj" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Themes.png" id="12"]
+[ext_resource type="Script" path="res://OS/Scripts/WindowManager/Close.cs" id="12_plfjk"]
 [ext_resource type="Script" path="res://Apps/Settings/Scripts/System/SystemInfo.cs" id="13"]
 [ext_resource type="Script" path="res://Apps/Settings/Scripts/Themes/ApplyNewTheme.cs" id="14"]
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/Toolkit/OpenWindow.cs" id="15"]
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/Overlay/TextPeek.cs" id="16"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_posfm"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_uk76x"]
+font_size = 24
 
 [node name="Settings" type="Window"]
 process_priority = 1
@@ -23,7 +33,7 @@ title = "Settings"
 position = Vector2i(0, 46)
 size = Vector2i(750, 500)
 min_size = Vector2i(500, 350)
-theme = ExtResource("1")
+theme = ExtResource("1_c3k0o")
 script = ExtResource("3")
 Icon = ExtResource("4")
 CpuUse = 2
@@ -58,6 +68,24 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme_override_constants/separation = 0
 
+[node name="Button5" type="Button" parent="HSplitContainer/Sidebar/VBoxContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_type_variation = &"SidebarButton"
+text = "Home"
+icon = ExtResource("4_ax76q")
+script = ExtResource("7")
+Category = NodePath("../../../Content/CategoryHome")
+
+[node name="Button7" type="Button" parent="HSplitContainer/Sidebar/VBoxContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_type_variation = &"SidebarButton"
+text = "Apps"
+icon = ExtResource("6_p2rvp")
+script = ExtResource("7")
+Category = NodePath("../../../Content/CategoryThemes")
+
 [node name="Button2" type="Button" parent="HSplitContainer/Sidebar/VBoxContainer" node_paths=PackedStringArray("Category")]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
@@ -76,14 +104,14 @@ icon = ExtResource("12")
 script = ExtResource("7")
 Category = NodePath("../../../Content/CategoryThemes")
 
-[node name="Button" type="Button" parent="HSplitContainer/Sidebar/VBoxContainer" node_paths=PackedStringArray("Category")]
+[node name="Button6" type="Button" parent="HSplitContainer/Sidebar/VBoxContainer" node_paths=PackedStringArray("Category")]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme_type_variation = &"SidebarButton"
-text = "Display"
-icon = ExtResource("2")
+text = "Language"
+icon = ExtResource("9_01j3m")
 script = ExtResource("7")
-Category = NodePath("../../../Content/CategoryDisplay")
+Category = NodePath("../../../Content/CategoryThemes")
 
 [node name="Button3" type="Button" parent="HSplitContainer/Sidebar/VBoxContainer" node_paths=PackedStringArray("Category")]
 custom_minimum_size = Vector2(0, 40)
@@ -94,87 +122,112 @@ icon = ExtResource("5")
 script = ExtResource("7")
 Category = NodePath("../../../Content/CategorySystem")
 
+[node name="Close" type="Button" parent="HSplitContainer/Sidebar/VBoxContainer" node_paths=PackedStringArray("Window")]
+custom_minimum_size = Vector2(0, 44.75)
+layout_mode = 2
+theme_type_variation = &"SidebarButton"
+text = "Exit"
+icon = ExtResource("11_v7vjn")
+expand_icon = true
+script = ExtResource("12_plfjk")
+Window = NodePath("../../../..")
+
 [node name="Content" type="Control" parent="HSplitContainer"]
 layout_mode = 2
 mouse_filter = 1
 
 [node name="CategoryHome" type="CenterContainer" parent="HSplitContainer/Content"]
+visible = false
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="HSplitContainer/Content/CategoryHome"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryHome"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HSplitContainer/Content/CategoryHome/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+texture = ExtResource("4")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="HSplitContainer/Content/CategoryHome/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"Header"
 text = "Welcome to the Settings app!"
+label_settings = SubResource("LabelSettings_posfm")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CategoryDisplay" type="CenterContainer" parent="HSplitContainer/Content"]
-visible = false
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryDisplay"]
-layout_mode = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="HSplitContainer/Content/CategoryDisplay/VBoxContainer"]
-layout_mode = 2
-theme_type_variation = &"Header"
-text = "Resolution"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ResolutionThing" type="HBoxContainer" parent="HSplitContainer/Content/CategoryDisplay/VBoxContainer"]
+[node name="HFlowContainer" type="HFlowContainer" parent="HSplitContainer/Content/CategoryHome/VBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 alignment = 1
 
-[node name="Width" type="SpinBox" parent="HSplitContainer/Content/CategoryDisplay/VBoxContainer/ResolutionThing"]
-custom_minimum_size = Vector2(150, 0)
+[node name="SidebarButton" type="Button" parent="HSplitContainer/Content/CategoryHome/VBoxContainer/HFlowContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
-min_value = 100.0
-value = 100.0
-rounded = true
-allow_greater = true
-prefix = "Width:"
+size_flags_horizontal = 3
+tooltip_text = "Apps"
+theme_type_variation = &"SecondaryButton"
+icon = ExtResource("6_p2rvp")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("7")
+Category = NodePath("../../../../CategoryThemes")
 
-[node name="Height" type="SpinBox" parent="HSplitContainer/Content/CategoryDisplay/VBoxContainer/ResolutionThing"]
-custom_minimum_size = Vector2(150, 0)
+[node name="SidebarButton2" type="Button" parent="HSplitContainer/Content/CategoryHome/VBoxContainer/HFlowContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
-min_value = 100.0
-value = 100.0
-rounded = true
-allow_greater = true
-prefix = "Height: "
+size_flags_horizontal = 3
+tooltip_text = "Wallpapers"
+theme_type_variation = &"SecondaryButton"
+icon = ExtResource("6")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("7")
+Category = NodePath("../../../../CategoryThemes")
 
-[node name="Label2" type="Label" parent="HSplitContainer/Content/CategoryDisplay/VBoxContainer"]
+[node name="SidebarButton3" type="Button" parent="HSplitContainer/Content/CategoryHome/VBoxContainer/HFlowContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
-theme_type_variation = &"Header"
-text = "Scaling Factor"
-horizontal_alignment = 1
-vertical_alignment = 1
+size_flags_horizontal = 3
+tooltip_text = "Themes"
+theme_type_variation = &"SecondaryButton"
+icon = ExtResource("12")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("7")
+Category = NodePath("../../../../CategoryThemes")
 
-[node name="ScalingFactor" type="SpinBox" parent="HSplitContainer/Content/CategoryDisplay/VBoxContainer"]
+[node name="SidebarButton4" type="Button" parent="HSplitContainer/Content/CategoryHome/VBoxContainer/HFlowContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
-min_value = 1.0
-max_value = 99999.0
-step = -1.0
-value = 100.0
-allow_greater = true
-suffix = "%"
+size_flags_horizontal = 3
+tooltip_text = "Languages"
+theme_type_variation = &"SecondaryButton"
+icon = ExtResource("9_01j3m")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("7")
+Category = NodePath("../../../../CategoryThemes")
 
-[node name="Apply" type="Button" parent="HSplitContainer/Content/CategoryDisplay/VBoxContainer"]
+[node name="SidebarButton5" type="Button" parent="HSplitContainer/Content/CategoryHome/VBoxContainer/HFlowContainer" node_paths=PackedStringArray("Category")]
+custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
-text = "Apply"
-script = ExtResource("9")
+size_flags_horizontal = 3
+tooltip_text = "System
+"
+theme_type_variation = &"SecondaryButton"
+icon = ExtResource("5")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("7")
+Category = NodePath("../../../../CategoryThemes")
 
 [node name="CategoryThemes" type="CenterContainer" parent="HSplitContainer/Content"]
-visible = false
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -187,63 +240,24 @@ alignment = 1
 [node name="Label" type="Label" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"Header"
-text = "Accent colors"
+text = "Themes"
+label_settings = SubResource("LabelSettings_uk76x")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Grid" type="GridContainer" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer"]
+custom_minimum_size = Vector2(350, 200)
 layout_mode = 2
-columns = 5
 
-[node name="CheckBox" type="CheckBox" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer/Grid"]
-custom_minimum_size = Vector2(0, 40)
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer/ScrollContainer"]
 layout_mode = 2
-text = "Black"
+script = ExtResource("11_w5xfs")
 
-[node name="CheckBox43234" type="CheckBox" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer/Grid"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-text = "Blue"
-
-[node name="CheckBox2" type="CheckBox" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer/Grid"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-text = "Green"
-
-[node name="CheckBox3" type="CheckBox" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer/Grid"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-text = "Orange"
-
-[node name="CheckBox4" type="CheckBox" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer/Grid"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-text = "Pink"
-
-[node name="CheckBox5" type="CheckBox" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer/Grid"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-text = "Purple"
-
-[node name="CheckBox6" type="CheckBox" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer/Grid"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-text = "Red"
-
-[node name="CheckBox8" type="CheckBox" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer/Grid"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-text = "White"
-
-[node name="CheckBox7" type="CheckBox" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer/Grid"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-text = "Yellow"
-
-[node name="Button" type="Button" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer"]
+[node name="Button" type="Button" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer" node_paths=PackedStringArray("StupidThingy")]
 layout_mode = 2
 text = "Apply"
 script = ExtResource("14")
+StupidThingy = NodePath("../ScrollContainer/VBoxContainer")
 
 [node name="Label2" type="Label" parent="HSplitContainer/Content/CategoryThemes/VBoxContainer"]
 layout_mode = 2

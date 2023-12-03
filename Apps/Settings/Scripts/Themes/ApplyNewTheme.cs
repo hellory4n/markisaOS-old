@@ -2,38 +2,28 @@ using Godot;
 using Kickstart.Records;
 using System;
 
-public partial class ApplyNewTheme : Button {
-    public override void _Ready() {
-        base._Ready();
-        Connect("pressed", new Callable(this, nameof(Click)));
-    }
+namespace Settings;
 
-    public void Click() {
-        // a questionable way of getting the buttongroup :)))))))
-        ButtonGroup pain = GetNode<CheckBox>("../Grid/CheckBox").ButtonGroup;
+public partial class ApplyNewTheme : Button 
+{
+    [Export]
+    ListThemes StupidThingy;
 
-        // load the theme :))))))
-        CheckBox option = (CheckBox)pain.GetPressedButton();
-        Theme theme = option.Text switch
-        {
-            "Black" => GD.Load<Theme>("res://Assets/Themes/HighPeaks-Black/Theme.tres"),
-            "Blue" => GD.Load<Theme>("res://Assets/Themes/HighPeaks-Blue/Theme.tres"),
-            "Green" => GD.Load<Theme>("res://Assets/Themes/HighPeaks-Green/Theme.tres"),
-            "Orange" => GD.Load<Theme>("res://Assets/Themes/HighPeaks-Orange/Theme.tres"),
-            "Pink" => GD.Load<Theme>("res://Assets/Themes/HighPeaks-Pink/Theme.tres"),
-            "Purple" => GD.Load<Theme>("res://Assets/Themes/HighPeaks-Purple/Theme.tres"),
-            "Red" => GD.Load<Theme>("res://Assets/Themes/HighPeaks-Red/Theme.tres"),
-            "White" => GD.Load<Theme>("res://Assets/Themes/HighPeaks-White/Theme.tres"),
-            "Yellow" => GD.Load<Theme>("res://Assets/Themes/HighPeaks-Yellow/Theme.tres"),
-            _ => GD.Load<Theme>("res://Assets/Themes/HighPeaks-Blue/Theme.tres"),
-        };
+    public override void _Pressed()
+    {
+        base._Pressed();
+
+        // get the button group :)
+        ButtonGroup lol = StupidThingy.GetChild<Button>(0).ButtonGroup;
+
+        // get the theme :)))))))))))
+        Button ohFuckOff = (Button)lol.GetPressedButton();
+        Record<DashboardConfig> record = new();
+        Theme theme = GD.Load<Theme>(record.Data.Themes[ohFuckOff.Text]);
 
         // apply the theme :)))))))))))))))))))))))))))))
-        GetNode<Control>("/root/Dashboard/1/Windows/ThemeThing").Theme = theme;
-        GetNode<Control>("/root/Dashboard/2/Windows/ThemeThing").Theme = theme;
-        GetNode<Control>("/root/Dashboard/3/Windows/ThemeThing").Theme = theme;
-        GetNode<Control>("/root/Dashboard/4/Windows/ThemeThing").Theme = theme;
-        CanvasLayer dashboardInterface = GetNode<CanvasLayer>("/root/DashboardInterface");
+        GetNode<Control>("/root/Dashboard/M/Windows/ThemeThing").Theme = theme;
+        Node dashboardInterface = GetNode("/root/Dashboard/Inter/Face");
         dashboardInterface.GetNode<Panel>("Dock").Theme = theme;
         dashboardInterface.GetNode<Panel>("QuickSettings").Theme = theme;
         dashboardInterface.GetNode<Panel>("AppMenu").Theme = theme;
@@ -41,7 +31,7 @@ public partial class ApplyNewTheme : Button {
 
         // save the settings :)))))))))))))))))))))))))))))))))))))))))))))))))
         var asdadjffjsfjaf = new Record<DashboardConfig>();
-        asdadjffjsfjaf.Data.Theme = theme.ResourcePath;
+        asdadjffjsfjaf.Data.Theme = record.Data.Themes[ohFuckOff.Text];
         asdadjffjsfjaf.Save();
     }
 }

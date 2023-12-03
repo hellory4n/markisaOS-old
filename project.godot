@@ -157,7 +157,7 @@ click={
 
 locale/translations=PackedStringArray("res://Localization/Portuguese/OS/Dashboard.po", "res://Localization/Portuguese/OS/Bootscreen.po", "res://Localization/Portuguese/OS/Onboarding.po", "res://Localization/Portuguese/OS/NewUser.po", "res://Localization/Portuguese/OS/ConfirmationStuff.po", "res://Localization/Russian/OS/Bootscreen.po", "res://Localization/Russian/OS/ConfirmationStuff.po", "res://Localization/Russian/OS/Dashboard.po", "res://Localization/Russian/OS/NewUser.po", "res://Localization/Russian/OS/Onboarding.po")
 locale/translations_pot_files=PackedStringArray("res://OS/Dashboard/Logout.tscn", "res://OS/Dashboard/Shutdown.tscn")
-locale/test="ru"
+locale/test="en"
 
 [mono]
 

@@ -11,14 +11,14 @@ public partial class DefaultAppGenerator5000
         return new List<Package> {
             new() {
                 DisplayName = "Test App",
-                Icon = "res://Assets/Themes/HighPeaks-Blue/Icons/App.png",
+                Icon = "res://Assets/Themes/HighPeaks-Dark-Blue/Icons/App.png",
                 Executable = "res://Apps/WindowManagerTest/WindowManagerTest.tscn",
                 Author = "Passionfruit Corporation",
                 Categories = new Categories[] { Categories.Utilities }
             },
             new() {
                 DisplayName = "Settings",
-                Icon = "res://Assets/Themes/HighPeaks-Blue/Icons/Accessories.png",
+                Icon = "res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Accessories.png",
                 Executable = "res://Apps/Settings/Settings.tscn",
                 Author = "Passionfruit Corporation",
                 Categories = new Categories[] { Categories.Accessories, Categories.System }
