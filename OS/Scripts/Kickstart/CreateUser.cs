@@ -55,7 +55,7 @@ public partial class CreateUser : Button
         Regex idkman = new("[^[a-z0-9._]", RegexOptions.Compiled | RegexOptions.CultureInvariant);
         if (idkman.Matches(Username.Text).Count > 0)
         {
-            ohFuckOff.ShowErrorNotification("Lelnet usernames only allow lowercase characters, numbers, underscores (_) and periods (.)", "markisaOS");
+            ohFuckOff.ShowErrorNotification("Usernames only allow lowercase characters, numbers, underscores (_) and periods (.)", "markisaOS");
             return;
         }
 

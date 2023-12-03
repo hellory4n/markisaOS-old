@@ -1,0 +1,32 @@
+# LANGUAGE translation for lelcubeOS for the following files:
+# res://OS/Kickstart/Onboarding.tscn
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: lelcubeOS\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: OS/Kickstart/Onboarding.tscn
+msgid "markisaOS Me"
+msgstr ""
+
+#: OS/Kickstart/Onboarding.tscn
+msgid "To begin, click your username"
+msgstr ""
+
+#: OS/Kickstart/Onboarding.tscn
+msgid "New User"
+msgstr ""
+
+#: OS/Kickstart/Onboarding.tscn
+msgid "32/13/-1 26:99"
+msgstr ""
+
+#: OS/Kickstart/Onboarding.tscn
+msgid "Turn off"
+msgstr ""

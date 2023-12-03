@@ -1,0 +1,30 @@
+# LANGUAGE translation for lelcubeOS for the following files:
+# res://OS/Kickstart/Bootscreen.tscn
+# res://OS/Kickstart/FactoryReset.tscn
+# res://OS/Kickstart/Shutdown.tscn
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: lelcubeOS\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: OS/Kickstart/Bootscreen.tscn
+#: OS/Kickstart/FactoryReset.tscn
+#: OS/Kickstart/Shutdown.tscn
+msgid "Copyright © 2069 Passionfruit Corporation. All rights reserved."
+msgstr ""
+
+#: OS/Kickstart/FactoryReset.tscn
+msgid ""
+"Your device is being reset to \n"
+"factory settings."
+msgstr ""
+
+#: OS/Kickstart/Shutdown.tscn
+msgid "Shutting down..."
+msgstr ""

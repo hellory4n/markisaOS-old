@@ -1,0 +1,103 @@
+# LANGUAGE translation for lelcubeOS for the following files:
+# res://OS/Kickstart/NewUser.tscn
+#
+# Automatically generated, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lelcubeOS\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: pt\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: OS/Kickstart/NewUser.tscn
+msgid "New User"
+msgstr "Novo Usuário"
+
+#: OS/Kickstart/NewUser.tscn
+msgid "What is your name?"
+msgstr "Qual é o seu nome?"
+
+#: OS/Kickstart/NewUser.tscn
+msgid "John Doe"
+msgstr "Fulano de Tal"
+
+#: OS/Kickstart/NewUser.tscn
+msgid "What will be your username?"
+msgstr "Qual vai ser o seu nome de usuário?"
+
+#: OS/Kickstart/NewUser.tscn
+msgid "john.doe"
+msgstr "fulano.de.tal"
+
+#: OS/Kickstart/NewUser.tscn
+msgid "What will be your icon?"
+msgstr "Qual vai ser o seu ícone?"
+
+#: OS/Kickstart/NewUser.tscn
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: OS/Kickstart/NewUser.tscn
+msgid "Create"
+msgstr "Criar"
+
+#: OS/Kickstart/NewUser.tscn
+msgid "Cat"
+msgstr "Gato"
+
+#: OS/Kickstart/NewUser.tscn
+msgid "Flowers"
+msgstr "Flores"
+
+#: OS/Kickstart/NewUser.tscn
+msgid "Balloons"
+msgstr "Balões"
+
+#: OS/Kickstart/NewUser.tscn
+msgid "Car"
+msgstr "Carro"
+
+#: OS/Kickstart/NewUser.tscn
+msgid "Dog"
+msgstr "Cachorro"
+
+#: OS/Kickstart/NewUser.tscn
+msgid "Duck"
+msgstr "Pato"
+
+#: OS/Kickstart/NewUser.tscn
+msgid "Pancakes"
+msgstr "Panquecas"
+
+#: OS/Kickstart/NewUser.tscn
+msgid "Brushes"
+msgstr "Pinceis"
+
+#: OS/Kickstart/NewUser.tscn
+msgid "Shuttle"
+msgstr "Foguete"
+
+#: OS/Kickstart/NewUser.tscn
+msgid "Football"
+msgstr "Futebol"
+
+#: OS/Kickstart/NewUser.tscn
+msgid "Invalid name!"
+msgstr "Nome inválido!"
+
+#: OS/Kickstart/NewUser.tscn
+msgid "Invalid username!"
+msgstr "Nome de usuário inválido!"
+
+#: OS/Kickstart/NewUser.tscn
+msgid "Usernames only allow lowercase characters, numbers, underscores (_) and periods (.)"
+msgstr "Nomes de usuário apenas permitem letras minúsculas, números, sublinhados (_), e pontos (.)"
+
+#: OS/Kickstart/NewUser.tscn
+msgid "Username already claimed!"
+msgstr "Usuário já existe!"

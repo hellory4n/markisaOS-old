@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/Dashboard.cs" id="2"]
 [ext_resource type="PackedScene" uid="uid://dakwq4v046ewp" path="res://OS/Dashboard/Sticker.tscn" id="2_1ynem"]
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/Pinboard/AddStickyNote.cs" id="3"]
-[ext_resource type="PackedScene" path="res://OS/Dashboard/StickyNote.tscn" id="3_8ja8u"]
+[ext_resource type="PackedScene" uid="uid://cit70jvovdbj6" path="res://OS/Dashboard/StickyNote.tscn" id="3_8ja8u"]
 [ext_resource type="Texture2D" uid="uid://cvihmyn8rchf" path="res://Assets/Themes/HighPeaks-Blue/Icons/AddStickyNote.png" id="4"]
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/Toolkit/ImageBackground.cs" id="5"]
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/Toolkit/SoundPlayer.cs" id="5_yi2lb"]

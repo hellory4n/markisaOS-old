@@ -1,17 +1,16 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://cyt4qvlsxra61"]
 
 [ext_resource type="Texture2D" uid="uid://wlamqh1fgh4r" path="res://Assets/Themes/HighPeaks-Blue/Icons/App.png" id="1"]
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/Toolkit/OpenWindow.cs" id="2"]
 
 [node name="TestApp2" type="Button"]
+custom_minimum_size = Vector2(200, 40)
 offset_top = 40.0
 offset_right = 200.0
 offset_bottom = 80.0
-custom_minimum_size = Vector2( 200, 40 )
 mouse_filter = 1
-theme_type_variation = "PanelButton"
+theme_type_variation = &"PanelButton"
 text = "Test App™"
-icon = ExtResource( 1 )
-align = 0
-script = ExtResource( 2 )
+icon = ExtResource("1")
+script = ExtResource("2")
 WindowScene = "res://Apps/WindowManagerTest/WindowManagerTest.tscn"

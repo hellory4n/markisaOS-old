@@ -90,7 +90,7 @@ msgstr "Isso indica quantos aplicativos estão lendo e gravando no disco no"
 
 #: OS/Dashboard/Dashboard.tscn
 msgid "Storage"
-msgstr "Armazenamento"
+msgstr "Disco"
 
 #: OS/Dashboard/Dashboard.tscn
 msgid "All Apps"
@@ -168,3 +168,31 @@ msgstr "42.0 °C"
 #: OS/Dashboard/Dashboard.tscn
 msgid "06/09/2069 06:09"
 msgstr "06/09/2069 06:09"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Calculator"
+msgstr "Calculadora"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Test App"
+msgstr "App de teste"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Files"
+msgstr "Arquivos"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Observer"
+msgstr "Observador"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Notebook"
+msgstr "Caderno"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Messages"
+msgstr "Mensagens"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Mines"
+msgstr "Minas"

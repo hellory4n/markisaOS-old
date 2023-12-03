@@ -1,0 +1,46 @@
+# LANGUAGE translation for lelcubeOS for the following files:
+# res://OS/Dashboard/Logout.tscn
+# res://OS/Dashboard/Shutdown.tscn
+#
+# Automatically generated, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lelcubeOS\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: pt\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: OS/Dashboard/Logout.tscn
+msgid "Logout"
+msgstr "Encerrar sessão"
+
+#: OS/Dashboard/Logout.tscn OS/Dashboard/Shutdown.tscn
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: OS/Dashboard/Logout.tscn OS/Dashboard/Shutdown.tscn
+msgid "Continue"
+msgstr "Continuar"
+
+#: OS/Dashboard/Logout.tscn
+msgid ""
+"Are you sure you want to logout? Progress is automatically saved, but any "
+"file currently being edited needs to be manually saved!"
+msgstr "Tem certeza de que deseja sair? O progresso é salvo automaticamente, mas qualquer "
+"arquivo que está sendo editado precisa ser salvo manualmente!"
+
+#: OS/Dashboard/Shutdown.tscn
+msgid "Shutdown"
+msgstr "Desligar"
+
+#: OS/Dashboard/Shutdown.tscn
+msgid ""
+"Are you sure you want to turn off your device? Progress is automatically "
+"saved, but any file currently being edited needs to be manually saved!"
+msgstr "Tem certeza de que deseja desligar seu dispositivo? O progresso é salvo automaticamente, mas qualquer "
+"arquivo que está sendo editado precisa ser salvo manualmente!"
