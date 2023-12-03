@@ -1,0 +1,204 @@
+# LANGUAGE translation for lelcubeOS for the following files:
+# res://OS/Dashboard/Dashboard.tscn
+#
+# Automatically generated, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lelcubeOS\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "drag here to increase size"
+msgstr "перетащите здесь, чтобы увеличить размер"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "drag here to decrease size"
+msgstr "перетащите здесь, чтобы уменьшить размер"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "drag here to delete"
+msgstr "перетащите сюда, чтобы удалить"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Add sticky note"
+msgstr "Добавить заметку"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Change pinned apps in Quick Launch"
+msgstr "Изменить закреплённые приложения в Быстром Запуске"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Cool user :)"
+msgstr "прикольны чел :)"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Settings"
+msgstr "Настройки"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Logout"
+msgstr "Выйти из системы"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Turn off"
+msgstr "Выключить"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "System Monitor"
+msgstr "Системный Монитор"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "The CPU is the part of the computer that processes stuff."
+msgstr "Процессор (ЦП) - это часть компьютера, которая обрабатывает вещи."
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Processor"
+msgstr "Процессор (ЦП)"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid ""
+"The GPU is the part of the computer responsible for processing graphics."
+msgstr ""
+"Графический Процессор (ГП) - часть компьютера, которая отвечает за обработку графики."
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Graphics"
+msgstr "Графика"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid ""
+"The memory is the part of the computer with all of the values it's currently "
+"using."
+msgstr ""
+"Память - это часть компьютера со всеми значениями, которые он использует"
+"на данный момент."
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Memory"
+msgstr "Память"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid ""
+"This indicates how much apps are currently reading and writing to disk, not "
+"how much space is available."
+msgstr ""
+"Это показывает сколько приложений читают и пишут на диск, а не"
+"сколько памяти осталось."
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Storage"
+msgstr "Тоже память"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "All Apps"
+msgstr "Все приложения"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Accessories"
+msgstr "Аксессуары"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Development"
+msgstr "Разработка"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Games"
+msgstr "Игры"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Internet"
+msgstr "Интернет"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Multimedia"
+msgstr "Мультимедиа"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Office"
+msgstr "Офис"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "System"
+msgstr "Система"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Utilities"
+msgstr "Утилиты"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Launch applications here"
+msgstr "Запускать приложения здесь"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Applications"
+msgstr "Приложения"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Toggle between editing the pinboard and using applications"
+msgstr "Переключить между редактированием пинборда и использованием приложений"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Edit Pinboard"
+msgstr "Редактировать пинборд"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid ""
+"Here you can quickly adjust volume settings, access the \n"
+"settings app, see how much resources are being \n"
+"used, and turn off your computer."
+msgstr ""
+"Тут вы можете быстро настроить звук, открыть \n"
+"настройки, посмотреть сколько ресурсов используются \n"
+"на данный момент, и отключить ваш компьютер."
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Show desktop"
+msgstr "Показать рабочий стол"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Sunny (really fucking hot)"
+msgstr "Солнечно (очень блять жарко)"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "42.0 °C"
+msgstr "42.0 °C"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "06/09/2069 06:09"
+msgstr "06/09/2069 06:09"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Calculator"
+msgstr "Калькулятор"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Test App"
+msgstr "Тестовое Приложение"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Files"
+msgstr "Файлы"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Observer"
+msgstr "Наблюдатель"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Notebook"
+msgstr "Блокнот"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Messages"
+msgstr "Сообщения"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Mines"
+msgstr "Мины"

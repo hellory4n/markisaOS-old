@@ -1,0 +1,48 @@
+# LANGUAGE translation for lelcubeOS for the following files:
+# res://OS/Dashboard/Logout.tscn
+# res://OS/Dashboard/Shutdown.tscn
+#
+# Automatically generated, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lelcubeOS\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: OS/Dashboard/Logout.tscn
+msgid "Logout"
+msgstr "Выйти из системы"
+
+#: OS/Dashboard/Logout.tscn OS/Dashboard/Shutdown.tscn
+msgid "Cancel"
+msgstr "Отмена"
+
+#: OS/Dashboard/Logout.tscn OS/Dashboard/Shutdown.tscn
+msgid "Continue"
+msgstr "Продолжить"
+
+#: OS/Dashboard/Logout.tscn
+msgid ""
+"Are you sure you want to logout? Progress is automatically saved, but any "
+"file currently being edited needs to be manually saved!"
+msgstr ""
+"Вы уверены, что хотите выйти из системы? Весь прогресс сохранён автоматически, "
+"но любые файлы в процессе редактирования должны быть сохранены вручную!"
+
+#: OS/Dashboard/Shutdown.tscn
+msgid "Shutdown"
+msgstr "Завершение работы"
+
+#: OS/Dashboard/Shutdown.tscn
+msgid ""
+"Are you sure you want to turn off your device? Progress is automatically "
+"saved, but any file currently being edited needs to be manually saved!"
+msgstr "Вы уверены, что хотите завершить работу? Весь прогресс сохранён автоматически, "
+"но любые файлы в процессе редактирования должны быть сохранены вручную!"

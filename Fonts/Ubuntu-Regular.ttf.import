@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://c0nv0wgbdr1p"
-path="res://.godot/imported/RedHatText-Italic.ttf-6298d72acca3a7bafd64522d4931738c.fontdata"
+uid="uid://1wq2lsm1elbv"
+path="res://.godot/imported/Ubuntu-Regular.ttf-06571dbd541f7f4a2083816d4c6842f9.fontdata"
 
 [deps]
 
-source_file="res://Fonts/RedHatText-Italic.ttf"
-dest_files=["res://.godot/imported/RedHatText-Italic.ttf-6298d72acca3a7bafd64522d4931738c.fontdata"]
+source_file="res://Fonts/Ubuntu-Regular.ttf"
+dest_files=["res://.godot/imported/Ubuntu-Regular.ttf-06571dbd541f7f4a2083816d4c6842f9.fontdata"]
 
 [params]
 
@@ -27,13 +27,7 @@ Fallbacks=null
 fallbacks=[]
 Compress=null
 compress=true
-preload=[{
-"chars": [],
-"glyphs": [],
-"name": "New Configuration",
-"size": Vector2i(16, 0),
-"variation_embolden": 0.0
-}]
+preload=[]
 language_support={}
 script_support={}
 opentype_features={}

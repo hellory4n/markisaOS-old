@@ -2,7 +2,7 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://b82t6vwpkpyyc"
+uid="uid://dp75d1njyr5an"
 path="res://.godot/imported/RedHatText-Bold.ttf-086ded561ed150e33279ef67ea232f8c.fontdata"
 
 [deps]
@@ -24,10 +24,15 @@ hinting=1
 subpixel_positioning=1
 oversampling=0.0
 Fallbacks=null
-fallbacks=[]
+fallbacks=[Resource("res://Fonts/Ubuntu-Bold.ttf")]
 Compress=null
-compress=true
-preload=[]
+compress=false
+preload=[{
+"chars": [],
+"glyphs": [],
+"name": "New Configuration",
+"size": Vector2i(16, 0)
+}]
 language_support={}
 script_support={}
 opentype_features={}
