@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cj6kucg0d3rqu"]
 
-[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Blue/Theme.tres" id="1"]
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Dark-Purple/Theme.tres" id="1"]
 [ext_resource type="Texture2D" uid="uid://fmxc2hj566gt" path="res://Apps/Notebook/Assets/IconDock.png" id="2"]
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/Overlay/TextPeek.cs" id="3"]
 [ext_resource type="Script" path="res://Apps/Notebook/Scripts/NotebookSaveAs.cs" id="4"]

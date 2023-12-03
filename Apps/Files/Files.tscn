@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://cxddbnhjtp1ob"]
 
-[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Blue/Theme.tres" id="1"]
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Dark-Purple/Theme.tres" id="1"]
 [ext_resource type="Texture2D" uid="uid://dwmc5o0qypr3r" path="res://Apps/Files/Assets/IconDock.png" id="2"]
 [ext_resource type="Script" path="res://OS/Scripts/WindowManager/DashboardWindow.cs" id="3"]
-[ext_resource type="Texture2D" uid="uid://dkv0eta3v5lwb" path="res://Assets/Themes/HighPeaks-Blue/Icons/Add.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://dkv0eta3v5lwb" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Add.png" id="6"]
 [ext_resource type="Script" path="res://Apps/Files/Scripts/FileTabs.cs" id="7"]
 [ext_resource type="Script" path="res://Apps/Files/Scripts/AddTab.cs" id="8"]
 

@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource path="res://Assets/Themes/HighPeaks-Blue/Icons/Close.png" type="Texture2D" id=1]
-[ext_resource path="res://Apps/Files/Scripts/TabThing.cs" type="Script" id=2]
-[ext_resource path="res://Apps/Files/Scripts/CloseTab.cs" type="Script" id=3]
+[ext_resource type="Texture2D" uid="uid://dvftd0gnnjr35" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Close.png" id="1"]
+[ext_resource type="Script" path="res://Apps/Files/Scripts/TabThing.cs" id="2"]
+[ext_resource type="Script" path="res://Apps/Files/Scripts/CloseTab.cs" id="3"]
 
 [node name="FGHJkl" type="Button"]
 offset_right = 148.0

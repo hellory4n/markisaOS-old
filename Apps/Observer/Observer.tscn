@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c6j8cei3uledp"]
 
-[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Blue/Theme.tres" id="1"]
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Dark-Purple/Theme.tres" id="1"]
 [ext_resource type="Texture2D" uid="uid://b18fae65vq8re" path="res://Apps/Observer/Assets/IconDock.png" id="3"]
 [ext_resource type="Script" path="res://Apps/Observer/Scripts/Observer.cs" id="4"]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=32 format=3 uid="uid://dgmakobncq5nx"]
 
-[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Blue/Theme.tres" id="1"]
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Dark-Purple/Theme.tres" id="1"]
 [ext_resource type="Texture2D" uid="uid://djomdwnorfe1e" path="res://Apps/SausageClicker/Assets/IconDock.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://6j26ss8s6qa0" path="res://Apps/SausageClicker/Assets/Sausage.png" id="3"]
 [ext_resource type="FontFile" uid="uid://3bdi3nljrpe3" path="res://Fonts/RedHatText-BoldItalic.ttf" id="4"]

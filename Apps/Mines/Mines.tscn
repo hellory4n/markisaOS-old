@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://doflhaf32mwil"]
 
-[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Blue/Theme.tres" id="1"]
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Dark-Purple/Theme.tres" id="1"]
 [ext_resource type="Texture2D" uid="uid://0yssrp58vxb1" path="res://Assets/Boot/OnboardingBackground.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://lni0mvy5boc" path="res://Apps/Mines/Assets/IconDock.png" id="3"]
 [ext_resource type="Script" path="res://Apps/Mines/Scripts/MinesGameGenerator9000.cs" id="4"]

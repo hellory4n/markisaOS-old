@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=8 format=3]
 
-[ext_resource path="res://Assets/Themes/HighPeaks-Blue/Theme.tres" type="Theme" id=1]
-[ext_resource path="res://OS/Scripts/Installel/InstallelHiUhCanYouRestartYourComputerCheersMate.cs" type="Script" id=2]
-[ext_resource path="res://OS/Scripts/WindowManager/DashboardWindow.cs" type="Script" id=5]
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Dark-Purple/Theme.tres" id="1"]
+[ext_resource type="Script" path="res://OS/Scripts/Installel/InstallelHiUhCanYouRestartYourComputerCheersMate.cs" id="2"]
+[ext_resource type="Script" path="res://OS/Scripts/WindowManager/DashboardWindow.cs" id="5"]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Close"

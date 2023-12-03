@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://cit70jvovdbj6"]
 
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/Pinboard/StickyNote.cs" id="1"]
-[ext_resource type="Texture2D" uid="uid://dp5yndn18wu3j" path="res://Assets/Themes/HighPeaks-Blue/StickyNotes/TheRest.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://dp5yndn18wu3j" path="res://Assets/Themes/HighPeaks-Dark-Blue/StickyNotes/TheRest.png" id="2"]
 [ext_resource type="FontFile" uid="uid://cft5u72xdxeq4" path="res://Fonts/Solitreo-Regular.ttf" id="3"]
-[ext_resource type="Texture2D" uid="uid://bubq8uua5j0qa" path="res://Assets/Themes/HighPeaks-Blue/StickyNotes/Header.png" id="4"]
-[ext_resource type="Theme" uid="uid://4msp2hx4qfe5" path="res://Assets/Themes/HighPeaks-Yellow/Theme.tres" id="5"]
+[ext_resource type="Texture2D" uid="uid://bubq8uua5j0qa" path="res://Assets/Themes/HighPeaks-Dark-Blue/StickyNotes/Header.png" id="4"]
+[ext_resource type="Theme" uid="uid://4msp2hx4qfe5" path="res://Assets/Themes/HighPeaks-Dark-Yellow/Theme.tres" id="5"]
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/Pinboard/StickyNoteText.cs" id="6"]
 
 [sub_resource type="FontFile" id="3"]

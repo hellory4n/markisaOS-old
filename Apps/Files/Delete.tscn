@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dc8cuw5uqgl3j"]
 
-[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Blue/Theme.tres" id="1"]
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Dark-Purple/Theme.tres" id="1"]
 [ext_resource type="Script" path="res://Apps/Files/Scripts/Delete.cs" id="2"]
 [ext_resource type="Texture2D" uid="uid://dwmc5o0qypr3r" path="res://Apps/Files/Assets/IconDock.png" id="3"]
 

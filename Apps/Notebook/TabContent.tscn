@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource path="res://Assets/Themes/HighPeaks-Blue/Theme.tres" type="Theme" id=1]
-[ext_resource path="res://Apps/Notebook/Scripts/TextEditThing.cs" type="Script" id=2]
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Dark-Purple/Theme.tres" id="1"]
+[ext_resource type="Script" path="res://Apps/Notebook/Scripts/TextEditThing.cs" id="2"]
 
 [node name="TabContent" type="Control"]
 anchor_right = 1.0

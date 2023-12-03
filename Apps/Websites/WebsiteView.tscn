@@ -1,12 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=8 format=3]
 
-[ext_resource path="res://Assets/Themes/HighPeaks-Blue/Theme.tres" type="Theme" id=1]
-[ext_resource path="res://Assets/Themes/HighPeaks-Blue/Icons/Home.png" type="Texture2D" id=2]
-[ext_resource path="res://Apps/Websites/Scripts/WebsiteView.cs" type="Script" id=3]
-[ext_resource path="res://Assets/Themes/HighPeaks-Blue/Icons/ArrowBack.png" type="Texture2D" id=4]
-[ext_resource path="res://Assets/Themes/HighPeaks-Blue/Icons/ArrowForward.png" type="Texture2D" id=5]
-[ext_resource path="res://Assets/Themes/HighPeaks-Blue/Icons/Refresh.png" type="Texture2D" id=6]
-[ext_resource path="res://OS/Scripts/Dashboard/Overlay/TextPeek.cs" type="Script" id=7]
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Dark-Purple/Theme.tres" id="1"]
+[ext_resource type="Texture2D" uid="uid://gxgwo1fbm45u" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Home.png" id="2"]
+[ext_resource type="Script" path="res://Apps/Websites/Scripts/WebsiteView.cs" id="3"]
+[ext_resource type="Texture2D" uid="uid://b01s0p8qpc4x1" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/ArrowBack.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://dx16noijvcvto" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/ArrowForward.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://dpyjqqs4bhqci" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Refresh.png" id="6"]
+[ext_resource type="Script" path="res://OS/Scripts/Dashboard/Overlay/TextPeek.cs" id="7"]
 
 [node name="WebsiteView" type="Control"]
 anchor_right = 1.0
