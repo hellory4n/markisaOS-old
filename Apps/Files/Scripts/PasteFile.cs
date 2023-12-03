@@ -2,7 +2,7 @@ using Godot;
 using System;
 using Dashboard.Wm;
 
-public partial class PasteFile : DashboardWindow {
+public partial class PasteFile : MksWindow {
     /*public string Parent;
     public FileView ThingThatINeedToRefresh;
     public string OldFile;

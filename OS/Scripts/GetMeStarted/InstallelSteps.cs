@@ -15,10 +15,10 @@ public partial class InstallelSteps : Label
         double max = yes.MaxValue;
         if (yes.Value/max > 0.999) {
             PackedScene m = GD.Load<PackedScene>("res://OS/Core/InstallelFinish.tscn");
-            DashboardWindow jjkn = (DashboardWindow)m.Instantiate();    
+            MksWindow jjkn = (MksWindow)m.Instantiate();    
             GetNode<Control>("/root/Installel/1/Windows/ThemeThing").AddChild(jjkn);
             jjkn.Visible = true;
-            GetParent().GetParent<DashboardWindow>().EmitSignal(DashboardWindow.SignalName.CloseRequested);
+            GetParent().GetParent<MksWindow>().EmitSignal(MksWindow.SignalName.CloseRequested);
             QueueFree();
         } else if (yes.Value/max > 0.91) {
             Text = "Finishing installation...";

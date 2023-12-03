@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3]
 
 [ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Dark-Purple/Theme.tres" id="1"]
-[ext_resource type="Script" path="res://OS/Scripts/WindowManager/DashboardWindow.cs" id="2"]
+[ext_resource type="Script" path="res://OS/Scripts/WindowManager/MksWindow.cs" id="2"]
 
 [sub_resource type="CompressedTexture2D" id=19]
 flags = 4

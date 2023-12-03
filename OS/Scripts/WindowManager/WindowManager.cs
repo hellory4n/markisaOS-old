@@ -26,7 +26,7 @@ public partial class WindowManager : Node
     /// Opens a window in the dashboard.
     /// </summary>
     /// <param name="window">The window to open.</param>
-    public void AddWindow(DashboardWindow window)
+    public void AddWindow(MksWindow window)
     {
         Control dashboard = GetNode<Dashboard>("/root/Dashboard").Windows.GetNode<Control>("ThemeThing");
         dashboard.AddChild(window);

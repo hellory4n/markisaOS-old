@@ -1,7 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://vpg2b056wk5y"]
+[gd_scene load_steps=22 format=3 uid="uid://vpg2b056wk5y"]
 
-[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Dark-Blue/Theme.tres" id="1_c3k0o"]
-[ext_resource type="Script" path="res://OS/Scripts/WindowManager/DashboardWindow.cs" id="3"]
+[ext_resource type="Script" path="res://OS/Scripts/WindowManager/MksWindow.cs" id="3"]
 [ext_resource type="Texture2D" uid="uid://8h88ewrw2v33" path="res://Apps/Settings/Assets/IconDock.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://cm0a7mqanrpgh" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Home2.png" id="4_ax76q"]
 [ext_resource type="Texture2D" uid="uid://ylkkv0jt06ri" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/System.png" id="5"]
@@ -15,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dbn1wtd7rytw1" path="res://Assets/Themes/HighPeaks-Dark-Blue/Window/Close.png" id="11_v7vjn"]
 [ext_resource type="Script" path="res://Apps/Settings/Scripts/Themes/ListThemes.cs" id="11_w5xfs"]
 [ext_resource type="Texture2D" uid="uid://ciyyjtu436wpj" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Themes.png" id="12"]
-[ext_resource type="Script" path="res://OS/Scripts/WindowManager/Close.cs" id="12_plfjk"]
+[ext_resource type="Script" path="res://OS/Scripts/WindowManager/CloseWindow.cs" id="12_plfjk"]
 [ext_resource type="Script" path="res://Apps/Settings/Scripts/System/SystemInfo.cs" id="13"]
 [ext_resource type="Script" path="res://Apps/Settings/Scripts/Themes/ApplyNewTheme.cs" id="14"]
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/Toolkit/OpenWindow.cs" id="15"]
@@ -33,7 +32,6 @@ title = "Settings"
 position = Vector2i(0, 46)
 size = Vector2i(750, 500)
 min_size = Vector2i(500, 350)
-theme = ExtResource("1_c3k0o")
 script = ExtResource("3")
 Icon = ExtResource("4")
 CpuUse = 2

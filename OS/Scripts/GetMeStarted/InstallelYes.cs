@@ -11,7 +11,7 @@ public partial class InstallelYes : Node2D
         Vector2 bruh = ResolutionManager.Resolution;
         GetNode<SubViewport>("1/Windows").Size = bruh;
 
-        var hfbjgfj = GetNode<DashboardWindow>("1/Windows/ThemeThing/Installel");
+        var hfbjgfj = GetNode<MksWindow>("1/Windows/ThemeThing/Installel");
         // j
         if (Name == "InstallelOobe")
             hfbjgfj.Position = new Vector2(74892839, 89958439);

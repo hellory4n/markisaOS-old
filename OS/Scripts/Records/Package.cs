@@ -21,7 +21,7 @@ public partial struct Package
     /// </summary>
     public string Icon;
     /// <summary>
-    /// A path to the scene with the app, with a DashboardWindow as its root.
+    /// A path to the scene with the app, with a MksWindow as its root.
     /// </summary>
     public string Executable;
     /// <summary>

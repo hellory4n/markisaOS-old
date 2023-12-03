@@ -10,7 +10,7 @@ namespace Dashboard.Wm;
 /// A basic window. Adds window decorations, manages opening, closing, and minimizing animations, and also manages window snapping and making windows active.
 /// </summary>
 [GlobalClass]
-public partial class DashboardWindow : Window
+public partial class MksWindow : Window
 {
 	Vector2I ScreenSize;
 	Vector2I PreviousPosition = new(0, 0);
@@ -82,7 +82,10 @@ public partial class DashboardWindow : Window
 		// window snapping :)
 		// is the window moving?
 		if (PreviousPosition == Position || !CanSnap || Unresizable)
+		{
+			PreviousPosition = Position;
 			return;
+		}
 		
 		MoveToForeground();
 		
@@ -105,8 +108,6 @@ public partial class DashboardWindow : Window
 
 		if (GetTree().Root.GetMousePosition().X > ScreenSize.X-115)
 			SnapToRight();
-
-		PreviousPosition = Position;
 	}
 
 	/// <summary>

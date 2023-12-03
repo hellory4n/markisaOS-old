@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/Toolkit/SoundPlayer.cs" id="5_yi2lb"]
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/WindowSpace.cs" id="6_8e3nv"]
 [ext_resource type="Texture2D" uid="uid://cx7tmkljkse3g" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Favorites.png" id="8_jauys"]
-[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Dark-Blue/Theme.tres" id="9_f4ttp"]
+[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Dark-Purple/Theme.tres" id="9_f4ttp"]
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/Toolkit/OpenWindow.cs" id="9_fflcb"]
 [ext_resource type="Texture2D" uid="uid://b3l7tqdbguhhr" path="res://Assets/UserIcons/Cat.png" id="10_ggyg4"]
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/QuickSettings/QuickSettingsUserIcon.cs" id="11_adboo"]

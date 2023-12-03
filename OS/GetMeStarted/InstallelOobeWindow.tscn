@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3]
 
 [ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Dark-Purple/Theme.tres" id="1"]
-[ext_resource type="Script" path="res://OS/Scripts/WindowManager/DashboardWindow.cs" id="2"]
+[ext_resource type="Script" path="res://OS/Scripts/WindowManager/MksWindow.cs" id="2"]
 [ext_resource type="Texture2D" uid="uid://dln805ks7nugu" path="res://Assets/Boot/Logo.png" id="3"]
 [ext_resource type="Script" path="res://OS/Scripts/Installel/InstallerNormalNext.cs" id="4"]
 [ext_resource type="Script" path="res://OS/Scripts/Installel/InstallelFinish.cs" id="5"]

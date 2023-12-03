@@ -10,9 +10,9 @@ public partial class PauseMusic : Button {
     public override void _Process(double delta) {
         base._Process(delta);
         // BLOODY HELL
-        /*GetNode<MusicPlayer>("../Audio").CanPlay = GetParent().GetParent().GetParent().GetParent().GetParent<DashboardWindow>().IsActive();
+        /*GetNode<MusicPlayer>("../Audio").CanPlay = GetParent().GetParent().GetParent().GetParent().GetParent<MksWindow>().IsActive();
 
-        if (GetParent().GetParent().GetParent().GetParent().GetParent<DashboardWindow>().IsClosing) {
+        if (GetParent().GetParent().GetParent().GetParent().GetParent<MksWindow>().IsClosing) {
             GetNode<MusicManager>("/root/MusicManager").DeletePlayer(GetNode<MusicPlayer>("../Audio").PlayerIndex);
         }*/
     }

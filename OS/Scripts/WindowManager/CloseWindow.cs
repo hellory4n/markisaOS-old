@@ -4,14 +4,14 @@ using System;
 namespace Dashboard.Wm;
 
 [GlobalClass]
-public partial class Close : Button
+public partial class CloseWindow : Button
 {
     [Export]
-    DashboardWindow Window;
+    MksWindow Window;
 
     public override void _Pressed()
     {
         base._Pressed();
-        Window.EmitSignal(DashboardWindow.SignalName.CloseRequested);
+        Window.EmitSignal(MksWindow.SignalName.CloseRequested);
     }
 }

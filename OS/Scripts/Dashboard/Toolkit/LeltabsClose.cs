@@ -9,7 +9,7 @@ public partial class LeltabsClose : Button
         base._Process(delta);
         // comically large if statement
         /*if (Input.IsActionJustReleased("close_tab") && GetParent<Button>().ThemeTypeVariation == "ActiveTab"
-        && GetParent().GetParent().GetParent().GetParent<DashboardWindow>().IsActive()) {
+        && GetParent().GetParent().GetParent().GetParent<MksWindow>().IsActive()) {
             Click();
         }*/
     }

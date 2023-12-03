@@ -2,7 +2,7 @@ using Godot;
 using System;
 using Dashboard.Wm;
 
-public partial class FileImporter : DashboardWindow {
+public partial class FileImporter : MksWindow {
     /*public string Parent;
     public FileView ThingThatINeedToRefresh;
 

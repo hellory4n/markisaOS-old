@@ -13,7 +13,7 @@ public partial class InstallelCustomWindowOpenerThing : Button
     {
         base._Pressed();
         PackedScene m = GD.Load<PackedScene>(WindowScene);
-        DashboardWindow jjkn = (DashboardWindow)m.Instantiate();    
+        MksWindow jjkn = (MksWindow)m.Instantiate();    
         GetNode<Control>("/root/Installel/1/Windows/ThemeThing").AddChild(jjkn);
         jjkn.Visible = true;
     }

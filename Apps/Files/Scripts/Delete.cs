@@ -3,7 +3,7 @@ using Dashboard.Wm;
 using System;
 using Kickstart.Cabinetfs;
 
-public partial class Delete : DashboardWindow {
+public partial class Delete : MksWindow {
     public string Parent;
     public FileView ThingThatINeedToRefresh;
     public string CoolFile;

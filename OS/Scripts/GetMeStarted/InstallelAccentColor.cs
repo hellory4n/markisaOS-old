@@ -18,31 +18,31 @@ public partial class InstallelAccentColor : OptionButton
         switch (index)
         {
             case 0:
-                GetNode<DashboardWindow>("/root/InstallelOobe/1/Windows/ThemeThing/Installel").Theme = GD.Load<Theme>("res://Assets/Themes/HighPeaks-Black/Theme.tres");
+                GetNode<MksWindow>("/root/InstallelOobe/1/Windows/ThemeThing/Installel").Theme = GD.Load<Theme>("res://Assets/Themes/HighPeaks-Black/Theme.tres");
                 break;
             case 1:
-                GetNode<DashboardWindow>("/root/InstallelOobe/1/Windows/ThemeThing/Installel").Theme = GD.Load<Theme>("res://Assets/Themes/HighPeaks-Blue/Theme.tres");
+                GetNode<MksWindow>("/root/InstallelOobe/1/Windows/ThemeThing/Installel").Theme = GD.Load<Theme>("res://Assets/Themes/HighPeaks-Blue/Theme.tres");
                 break;
             case 2:
-                GetNode<DashboardWindow>("/root/InstallelOobe/1/Windows/ThemeThing/Installel").Theme = GD.Load<Theme>("res://Assets/Themes/HighPeaks-Green/Theme.tres");
+                GetNode<MksWindow>("/root/InstallelOobe/1/Windows/ThemeThing/Installel").Theme = GD.Load<Theme>("res://Assets/Themes/HighPeaks-Green/Theme.tres");
                 break;
             case 3:
-                GetNode<DashboardWindow>("/root/InstallelOobe/1/Windows/ThemeThing/Installel").Theme = GD.Load<Theme>("res://Assets/Themes/HighPeaks-Orange/Theme.tres");
+                GetNode<MksWindow>("/root/InstallelOobe/1/Windows/ThemeThing/Installel").Theme = GD.Load<Theme>("res://Assets/Themes/HighPeaks-Orange/Theme.tres");
                 break;
             case 4:
-                GetNode<DashboardWindow>("/root/InstallelOobe/1/Windows/ThemeThing/Installel").Theme = GD.Load<Theme>("res://Assets/Themes/HighPeaks-Pink/Theme.tres");
+                GetNode<MksWindow>("/root/InstallelOobe/1/Windows/ThemeThing/Installel").Theme = GD.Load<Theme>("res://Assets/Themes/HighPeaks-Pink/Theme.tres");
                 break;
             case 5:
-                GetNode<DashboardWindow>("/root/InstallelOobe/1/Windows/ThemeThing/Installel").Theme = GD.Load<Theme>("res://Assets/Themes/HighPeaks-Purple/Theme.tres");
+                GetNode<MksWindow>("/root/InstallelOobe/1/Windows/ThemeThing/Installel").Theme = GD.Load<Theme>("res://Assets/Themes/HighPeaks-Purple/Theme.tres");
                 break;
             case 6:
-                GetNode<DashboardWindow>("/root/InstallelOobe/1/Windows/ThemeThing/Installel").Theme = GD.Load<Theme>("res://Assets/Themes/HighPeaks-Red/Theme.tres");
+                GetNode<MksWindow>("/root/InstallelOobe/1/Windows/ThemeThing/Installel").Theme = GD.Load<Theme>("res://Assets/Themes/HighPeaks-Red/Theme.tres");
                 break;
             case 7:
-                GetNode<DashboardWindow>("/root/InstallelOobe/1/Windows/ThemeThing/Installel").Theme = GD.Load<Theme>("res://Assets/Themes/HighPeaks-White/Theme.tres");
+                GetNode<MksWindow>("/root/InstallelOobe/1/Windows/ThemeThing/Installel").Theme = GD.Load<Theme>("res://Assets/Themes/HighPeaks-White/Theme.tres");
                 break;
             case 8:
-                GetNode<DashboardWindow>("/root/InstallelOobe/1/Windows/ThemeThing/Installel").Theme = GD.Load<Theme>("res://Assets/Themes/HighPeaks-Yellow/Theme.tres");
+                GetNode<MksWindow>("/root/InstallelOobe/1/Windows/ThemeThing/Installel").Theme = GD.Load<Theme>("res://Assets/Themes/HighPeaks-Yellow/Theme.tres");
                 break;
         }
     }

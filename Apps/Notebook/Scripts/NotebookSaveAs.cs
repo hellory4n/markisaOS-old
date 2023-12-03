@@ -5,7 +5,7 @@ using Dashboard.Overlay;
 using Kickstart.Cabinetfs;
 using Kickstart.Records;
 
-public partial class NotebookSaveAs : DashboardWindow {
+public partial class NotebookSaveAs : MksWindow {
     public TextEditThing Tfhsjkgjrrh;
 
     public override void _Ready() {

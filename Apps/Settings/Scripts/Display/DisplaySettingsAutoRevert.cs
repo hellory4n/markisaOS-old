@@ -15,6 +15,6 @@ public partial class DisplaySettingsAutoRevert : Timer {
         // since the settings aren't actually saved we can just do this
         resolutionManager.Update();
 
-        GetParent<DashboardWindow>().EmitSignal(DashboardWindow.SignalName.CloseRequested);
+        GetParent<MksWindow>().EmitSignal(MksWindow.SignalName.CloseRequested);
     }*/
 }

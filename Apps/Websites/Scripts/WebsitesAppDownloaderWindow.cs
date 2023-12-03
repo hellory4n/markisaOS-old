@@ -5,7 +5,7 @@ using Dashboard.Wm;
 using Dashboard.Overlay;
 using Kickstart.Cabinetfs;
 
-public partial class WebsitesAppDownloaderWindow : DashboardWindow {
+public partial class WebsitesAppDownloaderWindow : MksWindow {
     public string NewFilename = "";
     public string Type = "Text";
     public int ProgressBarMaxValue = 1;

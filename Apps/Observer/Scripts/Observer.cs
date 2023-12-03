@@ -4,7 +4,7 @@ using Dashboard.Wm;
 using Kickstart.Drivers;
 using Kickstart.Cabinetfs;
 
-public partial class Observer : DashboardWindow {
+public partial class Observer : MksWindow {
     public enum OpenMode {
         Image,
         Audio,

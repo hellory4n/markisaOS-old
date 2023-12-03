@@ -14,7 +14,7 @@ public partial class LeltabsAdd : Button
         MoveToFront();
 
         // help
-        /*if (Input.IsActionJustReleased("add_tab") && GetParent().GetParent().GetParent<DashboardWindow>().IsActive()) {
+        /*if (Input.IsActionJustReleased("add_tab") && GetParent().GetParent().GetParent<MksWindow>().IsActive()) {
             Click();
         }*/
     }

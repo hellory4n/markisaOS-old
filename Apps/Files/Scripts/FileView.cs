@@ -92,7 +92,7 @@ public partial class FileView : ItemList {
             RenameFile();
         }
 
-        if (Input.IsActionJustReleased("new_but_different") && GetParent().GetParent().GetParent().GetParent<DashboardWindow>()
+        if (Input.IsActionJustReleased("new_but_different") && GetParent().GetParent().GetParent().GetParent<MksWindow>()
         .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab") {
             WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
             PackedScene m = GD.Load<PackedScene>("res://Apps/Files/NewFolder.tscn");
@@ -106,7 +106,7 @@ public partial class FileView : ItemList {
             wm.AddWindow(jjkn);
         }
 
-        if (Input.IsActionJustReleased("new") && GetParent().GetParent().GetParent().GetParent<DashboardWindow>()
+        if (Input.IsActionJustReleased("new") && GetParent().GetParent().GetParent().GetParent<MksWindow>()
         .IsActive() && TabThing.ThemeTypeVariation == "ActiveTab") {
             WindowManager wm = GetNode<WindowManager>("/root/WindowManager");
             PackedScene m = GD.Load<PackedScene>("res://Apps/Files/NewFile.tscn");

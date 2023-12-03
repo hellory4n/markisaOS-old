@@ -4,7 +4,7 @@ using Dashboard.Wm;
 using Kickstart.Cabinetfs;
 using Kickstart.Records;
 
-public partial class NewFolder : DashboardWindow {
+public partial class NewFolder : MksWindow {
     public string Parent;
     public FileView ThingThatINeedToRefresh;
 

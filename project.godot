@@ -58,6 +58,7 @@ enabled=PackedStringArray("res://addons/sound_manager/plugin.cfg")
 
 [gui]
 
+theme/custom="res://Assets/Themes/HighPeaks-Dark-Blue/Theme.tres"
 common/drop_mouse_on_gui_input_disabled=true
 
 [input]

@@ -3,7 +3,7 @@ using System;
 using Dashboard.Wm;
 using Kickstart.Cabinetfs;
 
-public partial class Notebook : DashboardWindow {
+public partial class Notebook : MksWindow {
     public bool Suffer = false;
     public bool J = true;
     public string Fhgkfdlkjgjkhgjf = "";

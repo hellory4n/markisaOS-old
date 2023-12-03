@@ -4,7 +4,7 @@ using Dashboard.Wm;
 using Dashboard.Overlay;
 using Kickstart.Cabinetfs;
 
-public partial class NotebookOpen : DashboardWindow {
+public partial class NotebookOpen : MksWindow {
     public TextEditThing Tfhsjkgjrrh;
 
     public override void _Ready() {

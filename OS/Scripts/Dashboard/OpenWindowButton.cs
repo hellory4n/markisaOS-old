@@ -7,10 +7,10 @@ namespace Dashboard.Interface;
 
 public partial class OpenWindowButton : Button
 {
-    DashboardWindow Window;
+    MksWindow Window;
 
     // called when the window manager opens a window
-    public void Init(DashboardWindow window)
+    public void Init(MksWindow window)
     {
         Window = window;
     }

@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Dark-Purple/Theme.tres" id="1_op6p4"]
 [ext_resource type="Texture2D" uid="uid://bn1lephsyappg" path="res://Apps/Calculator/Assets/IconDock.png" id="3"]
 [ext_resource type="Script" path="res://Apps/Calculator/Scripts/Processor.cs" id="4_npihx"]
-[ext_resource type="Script" path="res://OS/Scripts/WindowManager/DashboardWindow.cs" id="5"]
+[ext_resource type="Script" path="res://OS/Scripts/WindowManager/MksWindow.cs" id="5"]
 [ext_resource type="Script" path="res://Apps/Calculator/Scripts/Clear.cs" id="5_ekywr"]
 [ext_resource type="Script" path="res://Apps/Calculator/Scripts/Undo.cs" id="6_7m5qj"]
 [ext_resource type="Script" path="res://Apps/Calculator/Scripts/AddStuff.cs" id="7_mmqqw"]

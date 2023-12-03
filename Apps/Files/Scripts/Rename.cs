@@ -3,7 +3,7 @@ using System;
 using Dashboard.Wm;
 using Kickstart.Cabinetfs;
 
-public partial class Rename : DashboardWindow {
+public partial class Rename : MksWindow {
     public string Parent;
     public FileView ThingThatINeedToRefresh;
     public string CoolFile;
