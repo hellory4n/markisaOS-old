@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cm7w3o61sgpt2"
-path="res://.godot/imported/Lelsktop.png-4cfb777816635659548e85eae4b99129.ctex"
+path="res://.godot/imported/Dashboard.png-812168a4de5e8186313000d94f13fcc9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Themes/HighPeaks-Blue/Icons/Lelsktop.png"
-dest_files=["res://.godot/imported/Lelsktop.png-4cfb777816635659548e85eae4b99129.ctex"]
+source_file="res://Assets/Themes/HighPeaks-Blue/Icons/Dashboard.png"
+dest_files=["res://.godot/imported/Dashboard.png-812168a4de5e8186313000d94f13fcc9.ctex"]
 
 [params]
 

@@ -1,0 +1,159 @@
+# LANGUAGE translation for lelcubeOS for the following files:
+# res://OS/Dashboard/Dashboard.tscn
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: lelcubeOS\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "drag here to increase size"
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "drag here to decrease size"
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "drag here to delete"
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Add sticky note"
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Change pinned apps in Quick Launch"
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Cool user :)"
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Settings"
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Logout"
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Turn off"
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "System Monitor"
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "The CPU is the part of the computer that processes stuff."
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Processor"
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "The GPU is the part of the computer responsible for processing graphics."
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Graphics"
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "The memory is the part of the computer with all of the values it's currently using."
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Memory"
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "This indicates how much apps are currently reading and writing to disk, not how much space is available."
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Storage"
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "All Apps"
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Accessories"
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Development"
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Games"
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Internet"
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Multimedia"
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Office"
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "System"
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Utilities"
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Launch applications here"
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Applications"
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Toggle between editing the pinboard and using applications"
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Edit Pinboard"
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid ""
+"Here you can quickly adjust volume settings, access the \n"
+"settings app, see how much resources are being \n"
+"used, and turn off your computer."
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Show desktop"
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Sunny (really fucking hot)"
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "42.0 °C"
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "06/09/2069 06:09"
+msgstr ""

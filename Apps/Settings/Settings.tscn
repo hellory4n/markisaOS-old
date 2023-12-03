@@ -20,7 +20,7 @@
 [node name="Settings" type="Window"]
 process_priority = 1
 title = "Settings"
-position = Vector2i(0, 45)
+position = Vector2i(0, 46)
 size = Vector2i(750, 500)
 min_size = Vector2i(500, 350)
 theme = ExtResource("1")

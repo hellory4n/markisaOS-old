@@ -1,0 +1,170 @@
+# LANGUAGE translation for lelcubeOS for the following files:
+# res://OS/Dashboard/Dashboard.tscn
+#
+# Automatically generated, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lelcubeOS\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: pt\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "drag here to increase size"
+msgstr "arraste aqui para aumentar o tamanho"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "drag here to decrease size"
+msgstr "arraste aqui para diminuir o tamanho"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "drag here to delete"
+msgstr "arraste aqui para excluir"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Add sticky note"
+msgstr "Adicionar nota adesiva"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Change pinned apps in Quick Launch"
+msgstr "Mude os aplicativos fixados no Início Rápido"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Cool user :)"
+msgstr ""
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Settings"
+msgstr "Configurações"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Logout"
+msgstr "Encerrar sessão"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Turn off"
+msgstr "Desligar"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "System Monitor"
+msgstr "Monitor do sistema"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "The CPU is the part of the computer that processes stuff."
+msgstr "O processador é a parte do computador que processa coisas."
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Processor"
+msgstr "Processador"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid ""
+"The GPU is the part of the computer responsible for processing graphics."
+msgstr "A placa de vídeo é a parte do computador responsável por processar gráficos."
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Graphics"
+msgstr "Gráficos"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid ""
+"The memory is the part of the computer with all of the values it's currently "
+"using."
+msgstr "A memória é a parte do computador com todos os valores que ele está usando."
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Memory"
+msgstr "Memória"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid ""
+"This indicates how much apps are currently reading and writing to disk, not "
+"how much space is available."
+msgstr "Isso indica quantos aplicativos estão lendo e gravando no disco no"
+"momento, e não quanto espaço está disponível."
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Storage"
+msgstr "Armazenamento"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "All Apps"
+msgstr "Todos"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Accessories"
+msgstr "Acessórios"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Development"
+msgstr "Desenvolvimento"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Games"
+msgstr "Jogos"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Internet"
+msgstr "Internet"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Multimedia"
+msgstr "Multimídia"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Office"
+msgstr "Escritório"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "System"
+msgstr "Sistema"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Utilities"
+msgstr "Utilitários"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Launch applications here"
+msgstr "Abra aplicativos aqui"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Applications"
+msgstr "Aplicativos"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Toggle between editing the pinboard and using applications"
+msgstr "Alterne entre editar o quadro de avisos e usar os aplicativos"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Edit Pinboard"
+msgstr "Editar quadro de avisos"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid ""
+"Here you can quickly adjust volume settings, access the \n"
+"settings app, see how much resources are being \n"
+"used, and turn off your computer."
+msgstr "Aqui você pode ajustar rapidamente o volume, acessar as \n"
+"configurações, veja quantos recursos estão sendo usados, e\n"
+"a opção de desligar o computador.."
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Show desktop"
+msgstr "Mostrar a área de trabalho"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "Sunny (really fucking hot)"
+msgstr "Ensolarado (quente para um fodendo caralho desgraçado)"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "42.0 °C"
+msgstr "42.0 °C"
+
+#: OS/Dashboard/Dashboard.tscn
+msgid "06/09/2069 06:09"
+msgstr "06/09/2069 06:09"
