@@ -24,24 +24,24 @@ public partial class WallpaperThing : OptionButton {
                 WallpaperPath = "res://Assets/Wallpapers/HighPeaks.jpg";
                 break;
             case 1:
-                Wallpaper = GD.Load<Texture2D>("res://Assets/Wallpapers/Flowers.png");
-                WallpaperPath = "res://Assets/Wallpapers/Flowers.png";
+                Wallpaper = GD.Load<Texture2D>("res://Assets/Wallpapers/Flowers.jpg");
+                WallpaperPath = "res://Assets/Wallpapers/Flowers.jpg";
                 break;
             case 2:
-                Wallpaper = GD.Load<Texture2D>("res://Assets/Wallpapers/Beaches.png");
-                WallpaperPath = "res://Assets/Wallpapers/Beaches.png";
+                Wallpaper = GD.Load<Texture2D>("res://Assets/Wallpapers/Beaches.jpg");
+                WallpaperPath = "res://Assets/Wallpapers/Beaches.jpg";
                 break;
             case 3:
-                Wallpaper = GD.Load<Texture2D>("res://Assets/Wallpapers/Space.png");
-                WallpaperPath = "res://Assets/Wallpapers/Space.png";
+                Wallpaper = GD.Load<Texture2D>("res://Assets/Wallpapers/Space.jpg");
+                WallpaperPath = "res://Assets/Wallpapers/Space.jpg";
                 break;
             case 4:
-                Wallpaper = GD.Load<Texture2D>("res://Assets/Wallpapers/Mountains.png");
-                WallpaperPath = "res://Assets/Wallpapers/Mountains.png";
+                Wallpaper = GD.Load<Texture2D>("res://Assets/Wallpapers/Mountains.jpg");
+                WallpaperPath = "res://Assets/Wallpapers/Mountains.jpg";
                 break;
             case 5:
-                Wallpaper = GD.Load<Texture2D>("res://Assets/Wallpapers/Aurora.png");
-                WallpaperPath = "res://Assets/Wallpapers/Aurora.png";
+                Wallpaper = GD.Load<Texture2D>("res://Assets/Wallpapers/Aurora.jpg");
+                WallpaperPath = "res://Assets/Wallpapers/Aurora.jpg";
                 break;
         }
     }

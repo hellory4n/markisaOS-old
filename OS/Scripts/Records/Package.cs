@@ -32,6 +32,10 @@ public partial struct Package
     /// The categories of this app.
     /// </summary>
     public Categories[] Categories;
+    /// <summary>
+    /// The list of languages this language supports, with the format here: https://docs.godotengine.org/en/stable/tutorials/i18n/locales.html, ignored if the author is "Passionfruit".
+    /// </summary>
+    public string[] Languages;
 }
 
 public enum Categories

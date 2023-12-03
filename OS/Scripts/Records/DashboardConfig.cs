@@ -24,6 +24,12 @@ public partial struct DashboardConfig : IRecordData
     public List<Package> Startup = new();
     public Dictionary<string, PinboardItem> Pinboard = new();
     public DashboardMode Mode = DashboardMode.Desktop;
+    /// <summary>
+    /// A list of paths to the wallpapers the user has.
+    /// </summary>
+    public List<string> Wallpapers = new(new string[]{
+        ""
+    });
 
     public DashboardConfig() 
     {

@@ -12,19 +12,19 @@ public partial class InstallelWallpaper : OptionButton
                 GetNode<Sprite2D>("/root/InstallelOobe/Wallpaper").Texture2D = GD.Load<Texture2D>("res://Assets/Wallpapers/HighPeaks.jpg");
                 break;
             case 1:
-                GetNode<Sprite2D>("/root/InstallelOobe/Wallpaper").Texture2D = GD.Load<Texture2D>("res://Assets/Wallpapers/Flowers.png");
+                GetNode<Sprite2D>("/root/InstallelOobe/Wallpaper").Texture2D = GD.Load<Texture2D>("res://Assets/Wallpapers/Flowers.jpg");
                 break;
             case 2:
-                GetNode<Sprite2D>("/root/InstallelOobe/Wallpaper").Texture2D = GD.Load<Texture2D>("res://Assets/Wallpapers/Beaches.png");
+                GetNode<Sprite2D>("/root/InstallelOobe/Wallpaper").Texture2D = GD.Load<Texture2D>("res://Assets/Wallpapers/Beaches.jpg");
                 break;
             case 3:
-                GetNode<Sprite2D>("/root/InstallelOobe/Wallpaper").Texture2D = GD.Load<Texture2D>("res://Assets/Wallpapers/Space.png");
+                GetNode<Sprite2D>("/root/InstallelOobe/Wallpaper").Texture2D = GD.Load<Texture2D>("res://Assets/Wallpapers/Space.jpg");
                 break;
             case 4:
-                GetNode<Sprite2D>("/root/InstallelOobe/Wallpaper").Texture2D = GD.Load<Texture2D>("res://Assets/Wallpapers/Mountains.png");
+                GetNode<Sprite2D>("/root/InstallelOobe/Wallpaper").Texture2D = GD.Load<Texture2D>("res://Assets/Wallpapers/Mountains.jpg");
                 break;
             case 5:
-                GetNode<Sprite2D>("/root/InstallelOobe/Wallpaper").Texture2D = GD.Load<Texture2D>("res://Assets/Wallpapers/Aurora.png");
+                GetNode<Sprite2D>("/root/InstallelOobe/Wallpaper").Texture2D = GD.Load<Texture2D>("res://Assets/Wallpapers/Aurora.jpg");
                 break;
         }
     }*/

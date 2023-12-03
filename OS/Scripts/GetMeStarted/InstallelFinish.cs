@@ -94,11 +94,11 @@ public partial class InstallelFinish : Button
         switch (GetNode<OptionButton>("../../../Step3/M/Wallpaper").Selected)
         {
             case 0: wallpaper = "res://Assets/Wallpapers/HighPeaks.jpg"; break;
-            case 1: wallpaper = "res://Assets/Wallpapers/Flowers.png"; break;
-            case 2: wallpaper = "res://Assets/Wallpapers/Beaches.png"; break;
-            case 3: wallpaper = "res://Assets/Wallpapers/Space.png"; break;
-            case 4: wallpaper = "res://Assets/Wallpapers/Mountains.png"; break;
-            case 5: wallpaper = "res://Assets/Wallpapers/Aurora.png"; break;
+            case 1: wallpaper = "res://Assets/Wallpapers/Flowers.jpg"; break;
+            case 2: wallpaper = "res://Assets/Wallpapers/Beaches.jpg"; break;
+            case 3: wallpaper = "res://Assets/Wallpapers/Space.jpg"; break;
+            case 4: wallpaper = "res://Assets/Wallpapers/Mountains.jpg"; break;
+            case 5: wallpaper = "res://Assets/Wallpapers/Aurora.jpg"; break;
         }
         shitfuckery.Data.Wallpaper = wallpaper;
         shitfuckery.Save();

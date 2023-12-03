@@ -285,31 +285,31 @@ public partial class CabinetfsManager : Node
 
         File flowers = NewFile("Flowers", samplePictures.Id);
         flowers.Type = "Picture";
-        flowers.Data.Add("Resource", "res://Assets/Wallpapers/Flowers.png");
+        flowers.Data.Add("Resource", "res://Assets/Wallpapers/Flowers.jpg");
         flowers.Metadata.Add("CreationDate", DateTime.Now);
         flowers.Save();
 
         File beaches = NewFile("Beaches", samplePictures.Id);
         beaches.Type = "Picture";
-        beaches.Data.Add("Resource", "res://Assets/Wallpapers/Beaches.png");
+        beaches.Data.Add("Resource", "res://Assets/Wallpapers/Beaches.jpg");
         beaches.Metadata.Add("CreationDate", DateTime.Now);
         beaches.Save();
 
         File aurora = NewFile("Aurora", samplePictures.Id);
         aurora.Type = "Picture";
-        aurora.Data.Add("Resource", "res://Assets/Wallpapers/Aurora.png");
+        aurora.Data.Add("Resource", "res://Assets/Wallpapers/Aurora.jpg");
         aurora.Metadata.Add("CreationDate", DateTime.Now);
         aurora.Save();
 
         File mountains = NewFile("Mountains", samplePictures.Id);
         mountains.Type = "Picture";
-        mountains.Data.Add("Resource", "res://Assets/Wallpapers/Mountains.png");
+        mountains.Data.Add("Resource", "res://Assets/Wallpapers/Mountains.jpg");
         mountains.Metadata.Add("CreationDate", DateTime.Now);
         mountains.Save();
 
         File space = NewFile("Space", samplePictures.Id);
         space.Type = "Picture";
-        space.Data.Add("Resource", "res://Assets/Wallpapers/Space.png");
+        space.Data.Add("Resource", "res://Assets/Wallpapers/Space.jpg");
         space.Metadata.Add("CreationDate", DateTime.Now);
         space.Save();
 
