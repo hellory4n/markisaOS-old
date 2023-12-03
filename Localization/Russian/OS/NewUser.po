@@ -52,7 +52,7 @@ msgid "Cat"
 msgstr "Кот"
 
 #: OS/Kickstart/NewUser.tscn
-msgid "Flowers"
+msgid "Flower"
 msgstr "Цветы"
 
 #: OS/Kickstart/NewUser.tscn
