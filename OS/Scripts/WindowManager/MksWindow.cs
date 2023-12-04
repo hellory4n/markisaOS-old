@@ -76,9 +76,6 @@ public partial class MksWindow : Window
 	{
 		base._Process(delta);
 
-		// :)
-		GuiDisableInput = !HasFocus();
-
 		// window snapping :)
 		// is the window moving?
 		if (PreviousPosition == Position || !CanSnap || Unresizable)

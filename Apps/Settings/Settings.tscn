@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://vpg2b056wk5y"]
+[gd_scene load_steps=23 format=3 uid="uid://vpg2b056wk5y"]
 
 [ext_resource type="Script" path="res://OS/Scripts/WindowManager/MksWindow.cs" id="3"]
 [ext_resource type="Texture2D" uid="uid://8h88ewrw2v33" path="res://Apps/Settings/Assets/IconDock.png" id="4"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://ciyyjtu436wpj" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Themes.png" id="12"]
 [ext_resource type="Script" path="res://OS/Scripts/WindowManager/CloseWindow.cs" id="12_plfjk"]
 [ext_resource type="Script" path="res://Apps/Settings/Scripts/System/SystemInfo.cs" id="13"]
+[ext_resource type="Script" path="res://Apps/Settings/Scripts/Apps/ListApps.cs" id="13_rbwqi"]
 [ext_resource type="Script" path="res://Apps/Settings/Scripts/Themes/ApplyNewTheme.cs" id="14"]
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/Toolkit/OpenWindow.cs" id="15"]
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/Overlay/TextPeek.cs" id="16"]
@@ -82,7 +83,7 @@ theme_type_variation = &"SidebarButton"
 text = "Apps"
 icon = ExtResource("6_p2rvp")
 script = ExtResource("7")
-Category = NodePath("../../../Content/CategoryThemes")
+Category = NodePath("../../../Content/CategoryApps")
 
 [node name="Button2" type="Button" parent="HSplitContainer/Sidebar/VBoxContainer" node_paths=PackedStringArray("Category")]
 custom_minimum_size = Vector2(0, 40)
@@ -135,10 +136,12 @@ layout_mode = 2
 mouse_filter = 1
 
 [node name="CategoryHome" type="CenterContainer" parent="HSplitContainer/Content"]
-visible = false
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryHome"]
@@ -225,10 +228,47 @@ expand_icon = true
 script = ExtResource("7")
 Category = NodePath("../../../../CategoryThemes")
 
-[node name="CategoryThemes" type="CenterContainer" parent="HSplitContainer/Content"]
-layout_mode = 0
+[node name="CategoryApps" type="Control" parent="HSplitContainer/Content"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryApps"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OpenWindow" type="Button" parent="HSplitContainer/Content/CategoryApps/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"DangerButton"
+disabled = true
+text = "Uninstall"
+script = ExtResource("15")
+
+[node name="ItemList" type="ItemList" parent="HSplitContainer/Content/CategoryApps/VBoxContainer" node_paths=PackedStringArray("Uninstall")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("13_rbwqi")
+Uninstall = NodePath("../OpenWindow")
+
+[node name="CategoryThemes" type="CenterContainer" parent="HSplitContainer/Content"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryThemes"]
@@ -266,9 +306,12 @@ autowrap_mode = 2
 
 [node name="CategoryWallpapers" type="CenterContainer" parent="HSplitContainer/Content"]
 visible = false
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryWallpapers"]
@@ -300,9 +343,12 @@ script = ExtResource("11")
 
 [node name="CategorySystem" type="CenterContainer" parent="HSplitContainer/Content"]
 visible = false
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategorySystem"]
@@ -340,3 +386,5 @@ theme_type_variation = &"DangerButton"
 text = "Factory Reset"
 script = ExtResource("15")
 WindowScene = "res://Apps/Settings/DeleteAllDataConfirm.tscn"
+
+[connection signal="item_selected" from="HSplitContainer/Content/CategoryApps/VBoxContainer/ItemList" to="HSplitContainer/Content/CategoryApps/VBoxContainer/ItemList" method="OnItemSelected"]
