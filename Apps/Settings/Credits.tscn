@@ -1,78 +1,51 @@
-[gd_scene load_steps=4 format=3 uid="uid://be0ecte3emg47"]
+[gd_scene load_steps=3 format=3 uid="uid://be0ecte3emg47"]
 
-[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Dark-Purple/Theme.tres" id="1"]
 [ext_resource type="Texture2D" uid="uid://8h88ewrw2v33" path="res://Apps/Settings/Assets/IconDock.png" id="2"]
 [ext_resource type="Script" path="res://OS/Scripts/WindowManager/MksWindow.cs" id="5"]
 
 [node name="Credits" type="Window"]
 process_priority = 1
 title = "Credits"
-position = Vector2i(0, 45)
+position = Vector2i(0, 46)
 size = Vector2i(500, 455)
 min_size = Vector2i(500, 455)
-theme = ExtResource("1")
 script = ExtResource("5")
 Icon = ExtResource("2")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[center]Developed by hellory4n
+Audio by alex343xd
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
+[font_size=24][b]Translations[/b][/font_size]
+Português (Portuguese): hellory4n
+Русский (Russian): matt7ress
 
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer"]
-layout_mode = 2
-text = "Developed by hellory4n
-Audio by alex343xd"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="Label4" type="Label" parent="ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_type_variation = &"Header"
-text = "Startup/Shutdown Sound"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="Label5" type="Label" parent="ScrollContainer/VBoxContainer"]
-layout_mode = 2
-text = "Melody thing by alex343xd
+[font_size=24][b]Startup Sound[/b][/font_size]
+Melody thing by alex343xd
 There's also the Zorin OS 16.x startup sound with some effects and the Ubuntu 6.10 - 18.04 shutdown sound (composed by Peter Savage) with some more effects
-I'm pretty sure it's transformative and as such fair use"
-horizontal_alignment = 1
-autowrap_mode = 2
+I'm pretty sure it's transformative and as such fair use
 
-[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_type_variation = &"Header"
-text = "Wallpapers"
-horizontal_alignment = 1
-autowrap_mode = 2
+[font_size=24][b]Wallpapers[/b][/font_size]
 
-[node name="Label3" type="Label" parent="ScrollContainer/VBoxContainer"]
-layout_mode = 2
-text = "High Peaks: Nisarg Patel
+High Peaks: Nisarg Patel
 Flowers: Aaron Burden
 Beach: Derek Thomson
 Space: Tengyart
 Mountains: Leila Azevedo
-Aurora: Sami Matias"
-horizontal_alignment = 1
-autowrap_mode = 2
+Aurora: Sami Matias
+Forest: Geranimo
+Lake: dirk von loen-wagnen
+Coffee: Mike Kenneally
+Green Peaks: Dayan Quinteros
 
-[node name="Label6" type="Label" parent="ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_type_variation = &"Header"
-text = "User Icons"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="Label7" type="Label" parent="ScrollContainer/VBoxContainer"]
-layout_mode = 2
-text = "Cat: Andriyko Podilnyk
+[font_size=24][b]User Icons[/b][/font_size]
+Cat: Andriyko Podilnyk
 Flower: Aaron Burden
 Balloon: Kyle Hinkson
 Car: Sven D
@@ -81,35 +54,15 @@ Duck: Timothy Dykes
 Pancakes: nikldn
 Brushes: nikldn
 Rocket: NASA
-Football: Wesley Tingey"
-horizontal_alignment = 1
-autowrap_mode = 2
+Football: Wesley Tingey
 
-[node name="Label10" type="Label" parent="ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_type_variation = &"Header"
-text = "Computer Noises"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="Label11" type="Label" parent="ScrollContainer/VBoxContainer"]
-layout_mode = 2
-text = "Fan: saphe
+[font_size=24][b]Computer Noises[/b][/font_size]
+Fan: saphe
 GPU Fan: soundofscienceupf
-HDD: sad3d"
-horizontal_alignment = 1
-autowrap_mode = 2
+HDD: sad3d
 
-[node name="Label8" type="Label" parent="ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_type_variation = &"Header"
-text = "Special Thanks"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="Label9" type="Label" parent="ScrollContainer/VBoxContainer"]
-layout_mode = 2
-text = "My parents
+[font_size=24][b]Special Thanks[/b][/font_size]
+My parents
 My cats
 Godot developers
 Figma developers
@@ -128,7 +81,8 @@ Telcaum
 Clustra
 DeafSalute
 matt7ress
+raven5
+nash neefus
+Thebest666
 Martin Magni
-You :)"
-horizontal_alignment = 1
-autowrap_mode = 2
+You :)[/center]"

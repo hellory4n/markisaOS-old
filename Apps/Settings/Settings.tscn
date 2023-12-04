@@ -185,7 +185,7 @@ icon = ExtResource("6_p2rvp")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("7")
-Category = NodePath("../../../../CategoryThemes")
+Category = NodePath("../../../../CategoryApps")
 
 [node name="SidebarButton2" type="Button" parent="HSplitContainer/Content/CategoryHome/VBoxContainer/HFlowContainer" node_paths=PackedStringArray("Category")]
 custom_minimum_size = Vector2(100, 40)
@@ -197,7 +197,7 @@ icon = ExtResource("6")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("7")
-Category = NodePath("../../../../CategoryThemes")
+Category = NodePath("../../../../CategoryWallpapers")
 
 [node name="SidebarButton3" type="Button" parent="HSplitContainer/Content/CategoryHome/VBoxContainer/HFlowContainer" node_paths=PackedStringArray("Category")]
 custom_minimum_size = Vector2(100, 40)
@@ -221,7 +221,7 @@ icon = ExtResource("9_01j3m")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("7")
-Category = NodePath("../../../../CategoryThemes")
+Category = NodePath("../../../../CategoryLanguages")
 
 [node name="SidebarButton5" type="Button" parent="HSplitContainer/Content/CategoryHome/VBoxContainer/HFlowContainer" node_paths=PackedStringArray("Category")]
 custom_minimum_size = Vector2(100, 40)
@@ -234,9 +234,10 @@ icon = ExtResource("5")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("7")
-Category = NodePath("../../../../CategoryThemes")
+Category = NodePath("../../../../CategorySystem")
 
 [node name="CategoryLanguages" type="CenterContainer" parent="HSplitContainer/Content"]
+visible = false
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -409,7 +410,6 @@ fixed_icon_size = Vector2i(100, 100)
 script = ExtResource("10")
 
 [node name="CategorySystem" type="CenterContainer" parent="HSplitContainer/Content"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -429,7 +429,7 @@ expand_mode = 1
 
 [node name="Label" type="Label" parent="HSplitContainer/Content/CategorySystem/VBoxContainer"]
 layout_mode = 2
-text = "markisaOS v0.10.0
+text = "markisaOS v0.11.0
 © Passionfruit 2069
 Running on Device™"
 horizontal_alignment = 1
