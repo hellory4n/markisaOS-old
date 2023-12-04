@@ -75,36 +75,35 @@ public partial class MksWindow : Window
 	public override void _Process(double delta)
 	{
 		base._Process(delta);
+		PreviousPosition = Position;
+		ProcessSnapping();
+	}
 
-		// window snapping :)
+	void ProcessSnapping()
+	{
 		// is the window moving?
-		if (PreviousPosition == Position || !CanSnap || Unresizable)
-		{
-			PreviousPosition = Position;
+		if (PreviousPosition != Position || !CanSnap || Unresizable)
 			return;
-		}
 		
-		MoveToForeground();
-		
-		// restore :)
+		// restore :))
 		if (Size.Y == ScreenSize.Y-85)
 		{
-  	 	 	Size = PreviousSize;
-			// so it doesn't immediately go back to its original state again lol
+			Size = PreviousSize;
+			// so it doesn't immediately go back to its original state again
 			return;
 		}
-		
-		if (!Input.IsActionJustReleased("click"))
-			return;
 
-		if (GetTree().Root.GetMousePosition().Y < 80)
-			Maximize();
+		if (Input.IsActionJustReleased("click"))
+		{
+			if (GetTree().Root.GetMousePosition().X < 40)
+				SnapToLeft();
 
-		if (GetTree().Root.GetMousePosition().X < 40)
-			SnapToLeft();
-
-		if (GetTree().Root.GetMousePosition().X > ScreenSize.X-115)
-			SnapToRight();
+			if (GetTree().Root.GetMousePosition().X > ScreenSize.X-115)
+				SnapToRight();
+				
+			if (GetTree().Root.GetMousePosition().Y < 80)
+				Maximize();
+		}
 	}
 
 	/// <summary>

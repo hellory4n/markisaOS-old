@@ -306,9 +306,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="CategoryWallpapers" type="CenterContainer" parent="HSplitContainer/Content"]
-visible = false
-layout_mode = 0
+[node name="CategoryWallpapers" type="ScrollContainer" parent="HSplitContainer/Content"]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -317,8 +317,7 @@ mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryWallpapers"]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_horizontal = 6
 alignment = 1
 
 [node name="Label2" type="Label" parent="HSplitContainer/Content/CategoryWallpapers/VBoxContainer"]
@@ -366,14 +365,13 @@ label_settings = SubResource("LabelSettings_m82sf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ItemList" type="ItemList" parent="HSplitContainer/Content/CategoryWallpapers/VBoxContainer" node_paths=PackedStringArray("WallpaperMode")]
+[node name="ItemList" type="ItemList" parent="HSplitContainer/Content/CategoryWallpapers/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 auto_height = true
 max_columns = 0
 fixed_icon_size = Vector2i(100, 100)
 script = ExtResource("10")
-WallpaperMode = NodePath("../OptionButton")
 
 [node name="CategorySystem" type="CenterContainer" parent="HSplitContainer/Content"]
 visible = false

@@ -6,8 +6,6 @@ namespace Settings;
 
 public partial class WallpaperThing : ItemList
 {
-    [Export]
-    OptionButton WallpaperMode;
     Record<DashboardConfig> Record = new();
 
     public override void _Ready()
@@ -26,7 +24,7 @@ public partial class WallpaperThing : ItemList
         TextureRect wallOfPaper = GetNode<TextureRect>("/root/Dashboard/Wallpaper");
         wallOfPaper.Texture = newWallpaperOmgmomogmogmo;
 
-        DashboardConfig.WallpaperModeEnum help;
+        /*DashboardConfig.WallpaperModeEnum help;
         switch (WallpaperMode.Selected)
 		{
 			case 0: // center
@@ -52,10 +50,9 @@ public partial class WallpaperThing : ItemList
             default: // so the compiler doesn't complain
                 help = DashboardConfig.WallpaperModeEnum.Cover;
                 break;
-		}
+		}*/
 
         Record.Data.Wallpaper = newWallpaperOmgmomogmogmo.ResourcePath;
-        Record.Data.WallpaperMode = help;
         Record.Save();
     }
 }
