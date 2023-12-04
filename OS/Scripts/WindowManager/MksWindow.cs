@@ -19,7 +19,6 @@ public partial class MksWindow : Window
 	/// </summary>
 	[Export]
 	public Texture2D Icon;
-	bool CanSnap = false;
 	[Export]
 	public int CpuUse = 1;
 	[Export]
@@ -47,20 +46,6 @@ public partial class MksWindow : Window
 		// make it inherit the theme from the viewport
 		Theme = null;
 
-		// a window snapping just because your mouse was on the dock is quite inconvenient
-		Timer jgjk = new()
-        {
-			Name = "jrgjdkggooghmgdgddgsaa39933",
-			WaitTime = 0.5,
-			Autostart = true,
-			OneShot = true
-		};
-		jgjk.Timeout += () =>
-		{
-			CanSnap = true;
-		};
-		AddChild(jgjk);
-
 		// so true
 		if (!CustomCloseRequest)
 		{
@@ -78,7 +63,7 @@ public partial class MksWindow : Window
 		PreviousPosition = Position;
 		
 		// is the window moving?
-		if (PreviousPosition != Position || !CanSnap || Unresizable)
+		if (PreviousPosition != Position || Unresizable)
 			return;
 
 		if (Input.IsActionJustReleased("click"))
@@ -93,8 +78,8 @@ public partial class MksWindow : Window
 				Maximize();
 		}
 		// restore :))
-		else if (Input.IsActionJustPressed("click") && Size.Y == ScreenSize.Y-85)
-			Size = PreviousSize;
+		/*else if (Input.IsActionJustPressed("click") && Size.Y == ScreenSize.Y-85)
+			Size = PreviousSize;*/
 	}
 
 	/// <summary>

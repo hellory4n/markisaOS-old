@@ -16,6 +16,8 @@ public partial class Dashboard : Control
 	/// If true, the user is currently using either the dock, panel, app menu, quick settings, or the workspace switcher.
 	/// </summary>
 	public static bool InteractingWithDashboardInterface = false;
+	public static bool InteractingWithPanel = false;
+	public static bool InteractingWithDock = false;
 	[Export]
 	public SubViewport Windows;
 	[Export]
@@ -36,6 +38,7 @@ public partial class Dashboard : Control
 	PackedScene Sticker;
 	[Export]
 	PackedScene StickyNote;
+	Color Invisible = new(1, 1, 1, 0);
 
 	public override void _Ready()
 	{
@@ -163,42 +166,13 @@ public partial class Dashboard : Control
 		{
 			InteractingWithDashboardInterface = false;
 			return;
-		}
+		}*/
 
 		Vector2 pain = ResolutionManager.Resolution;
-		SubViewport bruh1 = GetNode<SubViewport>("/root/Dashboard/1/Windows");
-		SubViewport bruh2 = GetNode<SubViewport>("/root/Dashboard/2/Windows");
-		SubViewport bruh3 = GetNode<SubViewport>("/root/Dashboard/3/Windows");
-		SubViewport bruh4 = GetNode<SubViewport>("/root/Dashboard/4/Windows");
-		Panel appMenu = GetNode<Panel>("/root/DashboardInterface/AppMenu");
-		Panel quickSettings = GetNode<Panel>("/root/DashboardInterface/QuickSettings");
-		Panel workspaces = GetNode<Panel>("/root/DashboardInterface/Workspaces");
-		Color invisible = new(1, 1, 1, 0);
 
-		if (GetGlobalMousePosition().Y < 40 || GetGlobalMousePosition().X > pain.X-75 ||
-		appMenu.Modulate != invisible || quickSettings.Modulate != invisible
-		|| workspaces.Modulate != invisible)
-		{
-			bruh1.GuiDisableInput = true;
-			bruh2.GuiDisableInput = true;
-			bruh3.GuiDisableInput = true;
-			bruh4.GuiDisableInput = true;
-			
-			InteractingWithDashboardInterface = true;
-		}
-		else
-		{
-			// suffering
-			if (WindowManager.CurrentWorkspace == bruh1 true)
-				bruh1.GuiDisableInput = false;
-			if (WindowManager.CurrentWorkspace == bruh2 true)
-				bruh2.GuiDisableInput = false;
-			if (WindowManager.CurrentWorkspace == bruh3 true)
-				bruh3.GuiDisableInput = false;
-			if (WindowManager.CurrentWorkspace == bruh4 true)
-				bruh4.GuiDisableInput = false;
-
-			InteractingWithDashboardInterface = false;
-		}*/
+		// quite the mouthful innit
+		InteractingWithDashboardInterface = GetGlobalMousePosition().Y < 40 ||
+		GetGlobalMousePosition().X > pain.X-75 || AppMenu.Modulate != Invisible ||
+		QuickSettings.Modulate != Invisible;
 	}
 }
