@@ -16,6 +16,7 @@ public partial struct SystemInfo : IRecordData
     /// </summary>
     public string Onboarding = "res://OS/Kickstart/Onboarding.tscn";
     public List<string> Achievements = new();
+    public string Language = "en";
 
     public SystemInfo() {}
 }

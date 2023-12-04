@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://vpg2b056wk5y"]
+[gd_scene load_steps=26 format=3 uid="uid://vpg2b056wk5y"]
 
 [ext_resource type="Script" path="res://OS/Scripts/WindowManager/MksWindow.cs" id="3"]
 [ext_resource type="Texture2D" uid="uid://8h88ewrw2v33" path="res://Apps/Settings/Assets/IconDock.png" id="4"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dbn1wtd7rytw1" path="res://Assets/Themes/HighPeaks-Dark-Blue/Window/Close.png" id="11_v7vjn"]
 [ext_resource type="Script" path="res://Apps/Settings/Scripts/Themes/ListThemes.cs" id="11_w5xfs"]
 [ext_resource type="Texture2D" uid="uid://ciyyjtu436wpj" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Themes.png" id="12"]
+[ext_resource type="Script" path="res://Apps/Settings/Scripts/Languages/Languages.cs" id="12_0i2p2"]
 [ext_resource type="Script" path="res://OS/Scripts/WindowManager/CloseWindow.cs" id="12_plfjk"]
 [ext_resource type="Script" path="res://Apps/Settings/Scripts/System/SystemInfo.cs" id="13"]
 [ext_resource type="Script" path="res://Apps/Settings/Scripts/Apps/ListApps.cs" id="13_rbwqi"]
@@ -22,6 +23,11 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_posfm"]
 font_size = 24
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_xua6r"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_fwqha"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uk76x"]
 font_size = 24
@@ -112,7 +118,7 @@ theme_type_variation = &"SidebarButton"
 text = "Language"
 icon = ExtResource("9_01j3m")
 script = ExtResource("7")
-Category = NodePath("../../../Content/CategoryThemes")
+Category = NodePath("../../../Content/CategoryLanguages")
 
 [node name="Button3" type="Button" parent="HSplitContainer/Sidebar/VBoxContainer" node_paths=PackedStringArray("Category")]
 custom_minimum_size = Vector2(0, 40)
@@ -230,6 +236,36 @@ expand_icon = true
 script = ExtResource("7")
 Category = NodePath("../../../../CategoryThemes")
 
+[node name="CategoryLanguages" type="CenterContainer" parent="HSplitContainer/Content"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryLanguages" node_paths=PackedStringArray("English", "Portuguese", "Russian")]
+layout_mode = 2
+script = ExtResource("12_0i2p2")
+English = NodePath("English")
+Portuguese = NodePath("Portuguese")
+Russian = NodePath("Russian")
+
+[node name="English" type="CheckBox" parent="HSplitContainer/Content/CategoryLanguages/VBoxContainer"]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_xua6r")
+text = "English"
+
+[node name="Portuguese" type="CheckBox" parent="HSplitContainer/Content/CategoryLanguages/VBoxContainer"]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_fwqha")
+text = "Português"
+
+[node name="Russian" type="CheckBox" parent="HSplitContainer/Content/CategoryLanguages/VBoxContainer"]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_fwqha")
+text = "Русский"
+
 [node name="CategoryApps" type="Control" parent="HSplitContainer/Content"]
 visible = false
 layout_mode = 1
@@ -307,6 +343,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="CategoryWallpapers" type="VBoxContainer" parent="HSplitContainer/Content"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

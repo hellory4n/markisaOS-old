@@ -26,6 +26,9 @@ public partial class Bootloader : Node
 
         Input.WarpMouse(Vector2.Zero);
         Input.MouseMode = Input.MouseModeEnum.ConfinedHidden;
+
+        Record<SystemInfo> record = new();
+        TranslationServer.SetLocale(record.Data.Language);
     }
 
     public override void _Process(double delta)
