@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://dln805ks7nugu" path="res://Assets/Boot/Logo.png" id="8"]
 [ext_resource type="Texture2D" uid="uid://bl008vs8e3njs" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Language.png" id="9_01j3m"]
 [ext_resource type="Script" path="res://Apps/Settings/Scripts/Wallpapers/WallpaperThing.cs" id="10"]
-[ext_resource type="Script" path="res://Apps/Settings/Scripts/Wallpapers/ApplyWallpaper.cs" id="11"]
 [ext_resource type="Texture2D" uid="uid://dbn1wtd7rytw1" path="res://Assets/Themes/HighPeaks-Dark-Blue/Window/Close.png" id="11_v7vjn"]
 [ext_resource type="Script" path="res://Apps/Settings/Scripts/Themes/ListThemes.cs" id="11_w5xfs"]
 [ext_resource type="Texture2D" uid="uid://ciyyjtu436wpj" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Themes.png" id="12"]
@@ -25,6 +24,9 @@
 font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_uk76x"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_m82sf"]
 font_size = 24
 
 [node name="Settings" type="Window"]
@@ -136,8 +138,8 @@ layout_mode = 2
 mouse_filter = 1
 
 [node name="CategoryHome" type="CenterContainer" parent="HSplitContainer/Content"]
-layout_mode = 1
-anchors_preset = 15
+visible = false
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -306,8 +308,7 @@ autowrap_mode = 2
 
 [node name="CategoryWallpapers" type="CenterContainer" parent="HSplitContainer/Content"]
 visible = false
-layout_mode = 1
-anchors_preset = 15
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -316,30 +317,63 @@ mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Content/CategoryWallpapers"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 alignment = 1
-
-[node name="ChooseThingy" type="OptionButton" parent="HSplitContainer/Content/CategoryWallpapers/VBoxContainer"]
-layout_mode = 2
-theme_type_variation = &"SecondaryButton"
-script = ExtResource("10")
 
 [node name="Label2" type="Label" parent="HSplitContainer/Content/CategoryWallpapers/VBoxContainer"]
 layout_mode = 2
-text = "or, choose an image you have:"
+text = "Add a wallpaper:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LineEdit" type="LineEdit" parent="HSplitContainer/Content/CategoryWallpapers/VBoxContainer"]
-custom_minimum_size = Vector2(375, 0)
+custom_minimum_size = Vector2(375, 40)
 layout_mode = 2
+size_flags_horizontal = 4
 placeholder_text = "ID of the file, e.g. HlvWY03AIgXzDnacpw5S"
 alignment = 1
 script = ExtResource("16")
 
-[node name="Button" type="Button" parent="HSplitContainer/Content/CategoryWallpapers/VBoxContainer"]
+[node name="Label3" type="Label" parent="HSplitContainer/Content/CategoryWallpapers/VBoxContainer"]
 layout_mode = 2
-text = "Apply"
-script = ExtResource("11")
+text = "Wallpaper mode:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="HSplitContainer/Content/CategoryWallpapers/VBoxContainer"]
+custom_minimum_size = Vector2(375, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"SecondaryButton"
+alignment = 1
+item_count = 4
+selected = 1
+popup/item_0/text = "Center"
+popup/item_0/id = 0
+popup/item_1/text = "Cover"
+popup/item_1/id = 1
+popup/item_2/text = "Stretch"
+popup/item_2/id = 2
+popup/item_3/text = "Keep Aspect"
+popup/item_3/id = 3
+
+[node name="Label4" type="Label" parent="HSplitContainer/Content/CategoryWallpapers/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"Header"
+text = "Wallpapers"
+label_settings = SubResource("LabelSettings_m82sf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemList" type="ItemList" parent="HSplitContainer/Content/CategoryWallpapers/VBoxContainer" node_paths=PackedStringArray("WallpaperMode")]
+layout_mode = 2
+size_flags_vertical = 3
+auto_height = true
+max_columns = 0
+fixed_icon_size = Vector2i(100, 100)
+script = ExtResource("10")
+WallpaperMode = NodePath("../OptionButton")
 
 [node name="CategorySystem" type="CenterContainer" parent="HSplitContainer/Content"]
 visible = false
@@ -386,5 +420,3 @@ theme_type_variation = &"DangerButton"
 text = "Factory Reset"
 script = ExtResource("15")
 WindowScene = "res://Apps/Settings/DeleteAllDataConfirm.tscn"
-
-[connection signal="item_selected" from="HSplitContainer/Content/CategoryApps/VBoxContainer/ItemList" to="HSplitContainer/Content/CategoryApps/VBoxContainer/ItemList" method="OnItemSelected"]

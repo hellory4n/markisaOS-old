@@ -1,48 +1,61 @@
 using Godot;
+using Kickstart.Records;
 using System;
 
-public partial class WallpaperThing : OptionButton {
-    // public so when it's applied we don't have to load the wallpaper twice
-    public Texture2D Wallpaper = GD.Load<Texture2D>("res://Assets/Wallpapers/HighPeaks.jpg");
-    public string WallpaperPath = "res://Assets/Wallpapers/HighPeaks.jpg";
+namespace Settings;
 
-    public override void _Ready() {
+public partial class WallpaperThing : ItemList
+{
+    [Export]
+    OptionButton WallpaperMode;
+    Record<DashboardConfig> Record = new();
+
+    public override void _Ready()
+    {
         base._Ready();
-        AddItem("High Peaks");
-        AddItem("Flowers");
-        AddItem("Beaches");
-        AddItem("Space");
-        AddItem("Mountains");
-        AddItem("Aurora");
-        Connect("item_selected", new Callable(this, nameof(PreviewThing)));
+        foreach (var wallpaerper in Record.Data.Wallpapers)
+        {
+            Texture2D hi = GD.Load<Texture2D>(wallpaerper);
+            AddItem("", hi);
+        }
     }
 
-    public void PreviewThing(int index) {
-        switch (index) {
-            case 0:
-                Wallpaper = GD.Load<Texture2D>("res://Assets/Wallpapers/HighPeaks.jpg");
-                WallpaperPath = "res://Assets/Wallpapers/HighPeaks.jpg";
+    public void ApplyThemeAndShit(int index)
+    {
+        Texture2D newWallpaperOmgmomogmogmo = GetItemIcon(index);
+        TextureRect wallOfPaper = GetNode<TextureRect>("/root/Dashboard/Wallpaper");
+        wallOfPaper.Texture = newWallpaperOmgmomogmogmo;
+
+        DashboardConfig.WallpaperModeEnum help;
+        switch (WallpaperMode.Selected)
+		{
+			case 0: // center
+				wallOfPaper.ExpandMode = TextureRect.ExpandModeEnum.KeepSize;
+				wallOfPaper.StretchMode = TextureRect.StretchModeEnum.KeepCentered;
+                help = DashboardConfig.WallpaperModeEnum.Center;
+				break;
+			case 1: // cover
+				wallOfPaper.ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize;
+				wallOfPaper.StretchMode = TextureRect.StretchModeEnum.KeepAspectCovered;
+                help = DashboardConfig.WallpaperModeEnum.Cover;
+				break;
+			case 2: // stretch
+				wallOfPaper.ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize;
+				wallOfPaper.StretchMode = TextureRect.StretchModeEnum.Scale;
+                help = DashboardConfig.WallpaperModeEnum.Stretch;
+				break;
+			case 3: // keep aspect
+				wallOfPaper.ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize;
+				wallOfPaper.StretchMode = TextureRect.StretchModeEnum.KeepAspectCentered;
+                help = DashboardConfig.WallpaperModeEnum.KeepAspect;
+				break;
+            default: // so the compiler doesn't complain
+                help = DashboardConfig.WallpaperModeEnum.Cover;
                 break;
-            case 1:
-                Wallpaper = GD.Load<Texture2D>("res://Assets/Wallpapers/Flowers.jpg");
-                WallpaperPath = "res://Assets/Wallpapers/Flowers.jpg";
-                break;
-            case 2:
-                Wallpaper = GD.Load<Texture2D>("res://Assets/Wallpapers/Beaches.jpg");
-                WallpaperPath = "res://Assets/Wallpapers/Beaches.jpg";
-                break;
-            case 3:
-                Wallpaper = GD.Load<Texture2D>("res://Assets/Wallpapers/Space.jpg");
-                WallpaperPath = "res://Assets/Wallpapers/Space.jpg";
-                break;
-            case 4:
-                Wallpaper = GD.Load<Texture2D>("res://Assets/Wallpapers/Mountains.jpg");
-                WallpaperPath = "res://Assets/Wallpapers/Mountains.jpg";
-                break;
-            case 5:
-                Wallpaper = GD.Load<Texture2D>("res://Assets/Wallpapers/Aurora.jpg");
-                WallpaperPath = "res://Assets/Wallpapers/Aurora.jpg";
-                break;
-        }
+		}
+
+        Record.Data.Wallpaper = newWallpaperOmgmomogmogmo.ResourcePath;
+        Record.Data.WallpaperMode = help;
+        Record.Save();
     }
 }

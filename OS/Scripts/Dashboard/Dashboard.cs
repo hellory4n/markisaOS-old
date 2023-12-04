@@ -45,46 +45,49 @@ public partial class Dashboard : Control
 
 		Record<DashboardConfig> suffer = new();
 
-		// load the wallpaper
+		// load the wallpaper :)))))))))
+		TextureRect wallOfPaper = GetNode<TextureRect>("Wallpaper");
+		switch (suffer.Data.WallpaperMode)
+		{
+			case DashboardConfig.WallpaperModeEnum.Center:
+				wallOfPaper.ExpandMode = TextureRect.ExpandModeEnum.KeepSize;
+				wallOfPaper.StretchMode = TextureRect.StretchModeEnum.KeepCentered;
+				break;
+			case DashboardConfig.WallpaperModeEnum.Cover:
+				wallOfPaper.ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize;
+				wallOfPaper.StretchMode = TextureRect.StretchModeEnum.KeepAspectCovered;
+				break;
+			case DashboardConfig.WallpaperModeEnum.Stretch:
+				wallOfPaper.ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize;
+				wallOfPaper.StretchMode = TextureRect.StretchModeEnum.Scale;
+				break;
+			case DashboardConfig.WallpaperModeEnum.KeepAspect:
+				wallOfPaper.ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize;
+				wallOfPaper.StretchMode = TextureRect.StretchModeEnum.KeepAspectCentered;
+				break;
+		}
+
 		// is it a default wallpaper?
 		if (ResourceLoader.Exists(suffer.Data.Wallpaper))
 		{
 			string wallpaperPath = suffer.Data.Wallpaper;
 			Texture2D wallpaper = GD.Load<Texture2D>(wallpaperPath);
-			GetNode<Sprite2D>("Wallpaper").Texture = wallpaper;
+			wallOfPaper.Texture = wallpaper;
+			
 		// is it a cabinetfs file?
 		}
 		else if (CabinetfsManager.IdExists(suffer.Data.Wallpaper))
 		{
 			var epicFile = CabinetfsManager.LoadFile(suffer.Data.Wallpaper);
 			Texture2D wallpaper = ResourceManager.LoadImage(epicFile.Data["Resource"].ToString());
-			GetNode<Sprite2D>("Wallpaper").Texture = wallpaper;
-
-			// scale wallpaper thing :))))
-			GetNode<ImageBackground>("Wallpaper").OriginalSize = wallpaper.GetSize();
-			float scale;
-			if (bruh > wallpaper.GetSize())
-			{
-				scale = (Mathf.Max(bruh.X, bruh.Y) - Mathf.Max(wallpaper.GetSize().X, wallpaper.GetSize().Y)) /
-					Mathf.Max(wallpaper.GetSize().X, wallpaper.GetSize().X);
-				scale += 1;
-			}
-			else
-				scale = Mathf.Max(bruh.X, bruh.X) / Mathf.Max(wallpaper.GetSize().X, wallpaper.GetSize().Y);
-
-			GetNode<Sprite2D>("Wallpaper").Scale = new Vector2(scale, scale);
-			GetNode<Sprite2D>("Wallpaper").Position = bruh/2;
+			wallOfPaper.Texture = wallpaper;
 		}
 		// ok it's broken, just load the default wallpaper
 		else
 		{
 			var wallpaper = GD.Load<Texture2D>("res://Assets/Wallpapers/HighPeaks.jpg");
-			GetNode<Sprite2D>("Wallpaper").Texture = wallpaper;
+			wallOfPaper.Texture = wallpaper;
 		}
-
-		// startup sound :)
-		/*SoundManager sounds = GetNode<SoundManager>("/root/SoundManager");
-		sounds.PlaySoundEffect(SoundManager.SoundEffects.Startup);*/
 
 		Dock.Size = new Vector2(75, bruh.Y);
 

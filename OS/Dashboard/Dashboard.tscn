@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://bf3bghjlegit6"]
+[gd_scene load_steps=52 format=3 uid="uid://bf3bghjlegit6"]
 
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/Pinboard/PinboardSelectThingy.cs" id="1"]
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/Dashboard.cs" id="2"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/Pinboard/AddStickyNote.cs" id="3"]
 [ext_resource type="PackedScene" uid="uid://cit70jvovdbj6" path="res://OS/Dashboard/StickyNote.tscn" id="3_8ja8u"]
 [ext_resource type="Texture2D" uid="uid://cvihmyn8rchf" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/AddStickyNote.png" id="4"]
-[ext_resource type="Script" path="res://OS/Scripts/Dashboard/Toolkit/ImageBackground.cs" id="5"]
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/Toolkit/SoundPlayer.cs" id="5_yi2lb"]
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/WindowSpace.cs" id="6_8e3nv"]
 [ext_resource type="Texture2D" uid="uid://cx7tmkljkse3g" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Favorites.png" id="8_jauys"]
@@ -235,11 +234,13 @@ libraries = {
 }
 autoplay = "Startup"
 
-[node name="Wallpaper" type="Sprite2D" parent="."]
-position = Vector2(632.5, 345)
-scale = Vector2(0.332275, 0.351562)
-script = ExtResource("5")
-OriginalSize = Vector2(4096, 2304)
+[node name="Wallpaper" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="StartupSound" type="Node" parent="."]
 script = ExtResource("5_yi2lb")
