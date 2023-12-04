@@ -60,7 +60,7 @@ public partial class MksWindow : Window
 	public override void _Process(double delta)
 	{
 		base._Process(delta);
-		PreviousPosition = Position;
+		/*PreviousPosition = Position;
 		
 		// is the window moving?
 		if (PreviousPosition != Position || Unresizable)
@@ -78,7 +78,7 @@ public partial class MksWindow : Window
 				Maximize();
 		}
 		// restore :))
-		/*else if (Input.IsActionJustPressed("click") && Size.Y == ScreenSize.Y-85)
+		else if (Input.IsActionJustPressed("click") && Size.Y == ScreenSize.Y-85)
 			Size = PreviousSize;*/
 	}
 
