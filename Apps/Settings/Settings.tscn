@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://vpg2b056wk5y"]
+[gd_scene load_steps=22 format=3 uid="uid://vpg2b056wk5y"]
 
 [ext_resource type="Script" path="res://OS/Scripts/WindowManager/MksWindow.cs" id="3"]
 [ext_resource type="Texture2D" uid="uid://8h88ewrw2v33" path="res://Apps/Settings/Assets/IconDock.png" id="4"]
@@ -18,7 +18,6 @@
 [ext_resource type="Script" path="res://Apps/Settings/Scripts/Apps/ListApps.cs" id="13_rbwqi"]
 [ext_resource type="Script" path="res://Apps/Settings/Scripts/Themes/ApplyNewTheme.cs" id="14"]
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/Toolkit/OpenWindow.cs" id="15"]
-[ext_resource type="Script" path="res://OS/Scripts/Dashboard/Overlay/TextPeek.cs" id="16"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_posfm"]
 font_size = 24
@@ -321,18 +320,19 @@ size_flags_horizontal = 6
 alignment = 1
 
 [node name="Label2" type="Label" parent="HSplitContainer/Content/CategoryWallpapers/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Add a wallpaper:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LineEdit" type="LineEdit" parent="HSplitContainer/Content/CategoryWallpapers/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(375, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 placeholder_text = "ID of the file, e.g. HlvWY03AIgXzDnacpw5S"
 alignment = 1
-script = ExtResource("16")
 
 [node name="Label3" type="Label" parent="HSplitContainer/Content/CategoryWallpapers/VBoxContainer"]
 layout_mode = 2

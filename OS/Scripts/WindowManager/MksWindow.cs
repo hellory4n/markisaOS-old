@@ -76,22 +76,10 @@ public partial class MksWindow : Window
 	{
 		base._Process(delta);
 		PreviousPosition = Position;
-		ProcessSnapping();
-	}
-
-	void ProcessSnapping()
-	{
+		
 		// is the window moving?
 		if (PreviousPosition != Position || !CanSnap || Unresizable)
 			return;
-		
-		// restore :))
-		if (Size.Y == ScreenSize.Y-85)
-		{
-			Size = PreviousSize;
-			// so it doesn't immediately go back to its original state again
-			return;
-		}
 
 		if (Input.IsActionJustReleased("click"))
 		{
@@ -104,6 +92,9 @@ public partial class MksWindow : Window
 			if (GetTree().Root.GetMousePosition().Y < 80)
 				Maximize();
 		}
+		// restore :))
+		else if (Input.IsActionJustPressed("click") && Size.Y == ScreenSize.Y-85)
+			Size = PreviousSize;
 	}
 
 	/// <summary>
