@@ -1,5 +1,7 @@
 using Godot;
+using Newtonsoft.Json;
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Kickstart.Records;
 
@@ -33,9 +35,36 @@ public partial struct Package
     /// </summary>
     public Categories[] Categories;
     /// <summary>
-    /// The list of languages this language supports, with the format here: https://docs.godotengine.org/en/stable/tutorials/i18n/locales.html, ignored if the author is "Passionfruit".
+    /// The list of languages this language supports, with the format here: https://docs.godotengine.org/en/stable/tutorials/i18n/locales.html, ignored if the author is "Passionfruit Corporation".
     /// </summary>
     public string[] Languages;
+
+    public override readonly bool Equals([NotNullWhen(true)] object obj)
+    {
+        if (obj is Package bruh)
+        {
+            return bruh.DisplayName == DisplayName && bruh.Author == Author && bruh.Icon == Icon &&
+            bruh.Executable == Executable && bruh.Uninstaller == Uninstaller && bruh.Categories == Categories &&
+            bruh.Languages == Languages;
+        }
+        else
+            return false;
+    }
+
+    public override readonly int GetHashCode()
+    {
+        return JsonConvert.SerializeObject(this).GetHashCode();
+    }
+
+    public static bool operator ==(Package left, Package right)
+    {
+        return left.Equals(right);
+    }
+
+    public static bool operator !=(Package left, Package right)
+    {
+        return !(left == right);
+    }
 }
 
 public enum Categories

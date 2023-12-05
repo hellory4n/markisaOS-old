@@ -13,14 +13,14 @@ public partial class ListApps : VBoxContainer
     public override void _Ready()
     {
         base._Ready();
-        
+
         var pain = new Record<DashboardConfig>();
         var m = pain.Data.AllApps;
         Package[] apps = m.OrderBy(fart => Tr(fart.DisplayName)).ToArray();
         
         foreach (var app in apps)
         {
-            if (!pain.Data.QuickLaunch.Exists(x => x.Executable == app.Executable))
+            if (!pain.Data.QuickLaunch.Contains(app))
             {
                 Control gksnj = yes.Instantiate<Control>();
                 gksnj.GetNode<Label>("Label").Text = Tr(app.DisplayName);

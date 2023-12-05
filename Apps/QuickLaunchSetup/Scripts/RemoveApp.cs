@@ -27,7 +27,7 @@ public partial class RemoveApp : Button
         }
 
         var m = new Record<DashboardConfig>();
-        m.Data.QuickLaunch = m.Data.QuickLaunch.SkipWhile(x => x.Executable == App.Executable).ToList();
+        m.Data.QuickLaunch.Remove(App);
         m.Save();
 
         // couldn't make it delete all of the children properly for some reason so it just relaunches the app lol
