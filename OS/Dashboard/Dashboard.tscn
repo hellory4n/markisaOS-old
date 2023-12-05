@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://bf3bghjlegit6"]
+[gd_scene load_steps=51 format=3 uid="uid://bf3bghjlegit6"]
 
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/Pinboard/PinboardSelectThingy.cs" id="1"]
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/Dashboard.cs" id="2"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://cvihmyn8rchf" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/AddStickyNote.png" id="4"]
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/Toolkit/SoundPlayer.cs" id="5_yi2lb"]
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/WindowSpace.cs" id="6_8e3nv"]
-[ext_resource type="Texture2D" uid="uid://cx7tmkljkse3g" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Favorites.png" id="8_jauys"]
 [ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Dark-Purple/Theme.tres" id="9_f4ttp"]
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/Toolkit/OpenWindow.cs" id="9_fflcb"]
 [ext_resource type="Texture2D" uid="uid://b3l7tqdbguhhr" path="res://Assets/UserIcons/Cat.png" id="10_ggyg4"]
@@ -423,6 +422,7 @@ anchor_bottom = 1.0
 theme_override_constants/autohide = 0
 
 [node name="QuickLaunch" type="VBoxContainer" parent="Inter/Face/Dock/DockStuff"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -438,7 +438,6 @@ size_flags_vertical = 4
 tooltip_text = "Change pinned apps in Quick Launch"
 theme_type_variation = &"DockButton"
 theme_override_styles/normal = SubResource("24")
-icon = ExtResource("8_jauys")
 icon_alignment = 1
 script = ExtResource("9_fflcb")
 WindowScene = "res://Apps/QuickLaunchSetup/QuickLaunchSetup.tscn"

@@ -123,17 +123,6 @@ public partial class Dashboard : Control
 		AppMenu.Theme = theme;
 		Panel.Theme = theme;
 
-		// quick launch stuff
-		foreach (var app in suffer.Data.QuickLaunch)
-		{
-			PackedScene packedScene = GD.Load<PackedScene>("res://OS/Dashboard/QuickLaunchButton.tscn");
-			OpenWindow yes = packedScene.Instantiate<OpenWindow>();
-			yes.Icon = GD.Load<Texture2D>(app.Icon);
-			yes.WindowScene = app.Executable;
-			yes.TooltipText = Tr(app.DisplayName);
-			Dock.GetNode("DockStuff/QuickLaunch").AddChild(yes);
-		}
-
 		// load the pinboard stuff :)))
 		foreach (var item in suffer.Data.Pinboard)
 		{
