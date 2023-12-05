@@ -34,12 +34,14 @@ public partial class ListApps : VBoxContainer
             "Games" => m.Where(item => item.Categories.Contains(Categories.Games)).ToList(),
             "Graphics" => m.Where(item => item.Categories.Contains(Categories.Graphics)).ToList(),
             "Internet" => m.Where(item => item.Categories.Contains(Categories.Internet)).ToList(),
-            "Multimedia" => m.Where(item => item.Categories.Contains(Categories.Office)).ToList(),
-            "Office" => m.Where(item => item.Categories.Contains(Categories.Multimedia)).ToList(),
+            "Multimedia" => m.Where(item => item.Categories.Contains(Categories.Multimedia)).ToList(),
+            "Office" => m.Where(item => item.Categories.Contains(Categories.Office)).ToList(),
             "System" => m.Where(item => item.Categories.Contains(Categories.System)).ToList(),
             "Utilities" => m.Where(item => item.Categories.Contains(Categories.Utilities)).ToList(),
             _ => m,
         };
+
+        apps = apps.OrderBy(fart => Tr(fart.DisplayName)).ToList();
         
         if (apps.Count == 0) {
             Label epicbruhmoment = new()

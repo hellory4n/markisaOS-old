@@ -130,7 +130,7 @@ public partial class Dashboard : Control
 			OpenWindow yes = packedScene.Instantiate<OpenWindow>();
 			yes.Icon = GD.Load<Texture2D>(app.Icon);
 			yes.WindowScene = app.Executable;
-			yes.TooltipText = app.DisplayName;
+			yes.TooltipText = Tr(app.DisplayName);
 			Dock.GetNode("DockStuff/QuickLaunch").AddChild(yes);
 		}
 
