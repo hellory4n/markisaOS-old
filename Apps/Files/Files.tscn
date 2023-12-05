@@ -1,42 +1,27 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxddbnhjtp1ob"]
+[gd_scene load_steps=4 format=3 uid="uid://cxddbnhjtp1ob"]
 
-[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Dark-Purple/Theme.tres" id="1"]
 [ext_resource type="Texture2D" uid="uid://dwmc5o0qypr3r" path="res://Apps/Files/Assets/IconDock.png" id="2"]
 [ext_resource type="Script" path="res://OS/Scripts/WindowManager/MksWindow.cs" id="3"]
-[ext_resource type="Texture2D" uid="uid://dkv0eta3v5lwb" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Add.png" id="6"]
-[ext_resource type="Script" path="res://Apps/Files/Scripts/FileTabs.cs" id="7"]
-[ext_resource type="Script" path="res://Apps/Files/Scripts/AddTab.cs" id="8"]
+[ext_resource type="Script" path="res://OS/Scripts/Dashboard/Toolkit/MksTabs.cs" id="3_2puh5"]
 
 [node name="Files" type="Window"]
 process_priority = 1
 title = "Files"
-size = Vector2i(500, 350)
-min_size = Vector2i(500, 350)
-theme = ExtResource("1")
+position = Vector2i(0, 46)
+size = Vector2i(600, 350)
+min_size = Vector2i(600, 350)
 script = ExtResource("3")
 Icon = ExtResource("2")
 CpuUse = 2
 MemoryUse = 2
 StorageUse = 6
 
-[node name="Leltab" type="Panel" parent="."]
-clip_contents = true
-anchors_preset = 10
+[node name="MksTabs" type="HSplitContainer" parent="." node_paths=PackedStringArray("Window")]
+anchors_preset = 15
 anchor_right = 1.0
-offset_bottom = 45.0
-theme_type_variation = &"Leltab"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Leltab"]
-layout_mode = 0
-anchor_right = 1.0
-offset_bottom = 45.0
-theme_type_variation = &"LeltabContainer"
-theme_override_constants/separation = 0
-script = ExtResource("7")
-
-[node name="Add" type="Button" parent="Leltab/HBoxContainer"]
-layout_mode = 2
-theme_type_variation = &"PanelButton"
-icon = ExtResource("6")
-icon_alignment = 1
-script = ExtResource("8")
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_2puh5")
+TabContent = "res://Apps/Files/TabContent.tscn"
+Window = NodePath("..")

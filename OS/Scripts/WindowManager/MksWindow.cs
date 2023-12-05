@@ -37,6 +37,10 @@ public partial class MksWindow : Window
 	/// The button in dock corresponding to this window.
 	/// </summary>
 	public OpenWindowButton DockButton;
+	/// <summary>
+	/// 0 = not snapped, 1 = maximized, 2 = snap left, 3 = snap right
+	/// </summary>
+	int SnapStateThingy = 0;
 
 	public override void _Ready()
 	{
@@ -60,26 +64,31 @@ public partial class MksWindow : Window
 	public override void _Process(double delta)
 	{
 		base._Process(delta);
-		/*PreviousPosition = Position;
+
+		// epic window snapping bonanza
+		if (Unresizable || !HasFocus())
+			return;
 		
-		// is the window moving?
-		if (PreviousPosition != Position || Unresizable)
+		int newSnapStateThingy = -1;
+		if (Input.IsActionJustReleased("Maximize")) newSnapStateThingy = 1;
+		if (Input.IsActionJustReleased("SnapLeft")) newSnapStateThingy = 2;
+		if (Input.IsActionJustReleased("SnapRight")) newSnapStateThingy = 3;
+
+		if (newSnapStateThingy == -1)
 			return;
 
-		if (Input.IsActionJustReleased("click"))
+		if (newSnapStateThingy == SnapStateThingy)
 		{
-			if (GetTree().Root.GetMousePosition().X < 40)
-				SnapToLeft();
-
-			if (GetTree().Root.GetMousePosition().X > ScreenSize.X-115)
-				SnapToRight();
-				
-			if (GetTree().Root.GetMousePosition().Y < 80)
-				Maximize();
+			Size = PreviousSize;
+			Position = PreviousPosition;
+			SnapStateThingy = 0;
 		}
-		// restore :))
-		else if (Input.IsActionJustPressed("click") && Size.Y == ScreenSize.Y-85)
-			Size = PreviousSize;*/
+		else
+		{
+			if (newSnapStateThingy == 1) Maximize();
+			if (newSnapStateThingy == 2) SnapToLeft();
+			if (newSnapStateThingy == 3) SnapToRight();
+		}
 	}
 
 	/// <summary>
@@ -88,9 +97,11 @@ public partial class MksWindow : Window
 	public void Maximize()
 	{
 		PreviousSize = Size;
+		PreviousPosition = Position;
 		Vector2I newSize = new(ScreenSize.X-75, ScreenSize.Y-85);
 		Position = new Vector2I(0, 85);
 		Size = newSize;
+		SnapStateThingy = 1;
 	}
 
 	/// <summary>
@@ -99,9 +110,11 @@ public partial class MksWindow : Window
 	public void SnapToLeft()
 	{
 		PreviousSize = Size;
+		PreviousPosition = Position;
 		Vector2I newSize = new((ScreenSize.X-75)/2, ScreenSize.Y-85);
 		Position = new Vector2I(0, 85);
 		Size = newSize;
+		SnapStateThingy = 2;
 	}
 
 	/// <summary>
@@ -110,8 +123,10 @@ public partial class MksWindow : Window
 	public void SnapToRight()
 	{
 		PreviousSize = Size;
+		PreviousPosition = Position;
 		Vector2I newSize = new((ScreenSize.X-75)/2, ScreenSize.Y-85);
 		Position = new Vector2I((ScreenSize.X-75)/2, 85);
 		Size = newSize;
+		SnapStateThingy = 3;
 	}
 }
