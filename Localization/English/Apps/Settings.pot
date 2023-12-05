@@ -1,0 +1,198 @@
+# LANGUAGE translation for lelcubeOS for the following files:
+# res://Apps/Settings/Settings.tscn
+# res://Apps/Settings/DeleteAllDataConfirm.tscn
+# res://Apps/Settings/Credits.tscn
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: lelcubeOS\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: Apps/Settings/Settings.tscn
+msgid "Settings"
+msgstr ""
+
+#: Apps/Settings/Settings.tscn
+msgid "Home"
+msgstr ""
+
+#: Apps/Settings/Settings.tscn
+msgid "Apps"
+msgstr ""
+
+#: Apps/Settings/Settings.tscn
+msgid "Wallpapers"
+msgstr ""
+
+#: Apps/Settings/Settings.tscn
+msgid "Themes"
+msgstr ""
+
+#: Apps/Settings/Settings.tscn
+msgid "Language"
+msgstr ""
+
+#: Apps/Settings/Settings.tscn
+msgid "System"
+msgstr ""
+
+#: Apps/Settings/Settings.tscn
+msgid "Exit"
+msgstr ""
+
+#: Apps/Settings/Settings.tscn
+msgid "Welcome to the Settings app!"
+msgstr ""
+
+#: Apps/Settings/Settings.tscn
+msgid "Languages"
+msgstr ""
+
+#: Apps/Settings/Settings.tscn
+msgid "System\n"
+msgstr ""
+
+#: Apps/Settings/Settings.tscn
+msgid "English"
+msgstr ""
+
+#: Apps/Settings/Settings.tscn
+msgid "Português"
+msgstr ""
+
+#: Apps/Settings/Settings.tscn
+msgid "Русский"
+msgstr ""
+
+#: Apps/Settings/Settings.tscn
+msgid "Uninstall"
+msgstr ""
+
+#: Apps/Settings/Settings.tscn
+msgid "Apply"
+msgstr ""
+
+#: Apps/Settings/Settings.tscn
+msgid "Custom themes will be available when modding support is added (v0.13 ish probably)"
+msgstr ""
+
+#: Apps/Settings/Settings.tscn
+msgid "Add a wallpaper:"
+msgstr ""
+
+#: Apps/Settings/Settings.tscn
+msgid "ID of the file, e.g. HlvWY03AIgXzDnacpw5S"
+msgstr ""
+
+#: Apps/Settings/Settings.tscn
+msgid "Wallpaper mode:"
+msgstr ""
+
+#: Apps/Settings/Settings.tscn
+msgid ""
+"markisaOS v0.11.0\n"
+"© Passionfruit 2069\n"
+"Running on Device™"
+msgstr ""
+
+#: Apps/Settings/Settings.tscn
+#: Apps/Settings/Credits.tscn
+msgid "Credits"
+msgstr ""
+
+#: Apps/Settings/Settings.tscn
+#: Apps/Settings/DeleteAllDataConfirm.tscn
+msgid "Factory Reset"
+msgstr ""
+
+#: Apps/Settings/DeleteAllDataConfirm.tscn
+msgid "Nevermind"
+msgstr ""
+
+#: Apps/Settings/DeleteAllDataConfirm.tscn
+msgid "Delete it all!"
+msgstr ""
+
+#: Apps/Settings/DeleteAllDataConfirm.tscn
+msgid ""
+"Are you sure you want to delete ALL data saved in your device? All settings, apps installed, every file every user ever saved in this device will be gone forever, replaced with the state it was in when you got this device! You cannot undo this action!\n"
+"\n"
+"\n"
+"NOTE: This requires a restart."
+msgstr ""
+
+#: Apps/Settings/Credits.tscn
+msgid ""
+"[center]Developed by hellory4n\n"
+"Audio by alex343xd\n"
+"\n"
+"[font_size=24][b]Translations[/b][/font_size]\n"
+"Português (Portuguese): hellory4n\n"
+"Русский (Russian): matt7ress\n"
+"\n"
+"[font_size=24][b]Startup Sound[/b][/font_size]\n"
+"Melody thing by alex343xd\n"
+"There's also the Zorin OS 16.x startup sound with some effects and the Ubuntu 6.10 - 18.04 shutdown sound (composed by Peter Savage) with some more effects\n"
+"I'm pretty sure it's transformative and as such fair use\n"
+"\n"
+"[font_size=24][b]Wallpapers[/b][/font_size]\n"
+"\n"
+"High Peaks: Nisarg Patel\n"
+"Flowers: Aaron Burden\n"
+"Beach: Derek Thomson\n"
+"Space: Tengyart\n"
+"Mountains: Leila Azevedo\n"
+"Aurora: Sami Matias\n"
+"Forest: Geranimo\n"
+"Lake: dirk von loen-wagnen\n"
+"Coffee: Mike Kenneally\n"
+"Green Peaks: Dayan Quinteros\n"
+"\n"
+"[font_size=24][b]User Icons[/b][/font_size]\n"
+"Cat: Andriyko Podilnyk\n"
+"Flower: Aaron Burden\n"
+"Balloon: Kyle Hinkson\n"
+"Car: Sven D\n"
+"Dog: Jamie Street\n"
+"Duck: Timothy Dykes\n"
+"Pancakes: nikldn\n"
+"Brushes: nikldn\n"
+"Rocket: NASA\n"
+"Football: Wesley Tingey\n"
+"\n"
+"[font_size=24][b]Computer Noises[/b][/font_size]\n"
+"Fan: saphe\n"
+"GPU Fan: soundofscienceupf\n"
+"HDD: sad3d\n"
+"\n"
+"[font_size=24][b]Special Thanks[/b][/font_size]\n"
+"My parents\n"
+"My cats\n"
+"Godot developers\n"
+"Figma developers\n"
+"parfesan\n"
+"Tha Muffin\n"
+"Bricked\n"
+"alex343xd\n"
+"Rubi\n"
+"RThreeFive\n"
+"ten9⁵\n"
+"Newton Gametone\n"
+"MashedFig\n"
+"Artifyber (R3DZ3R)\n"
+"Aliorio\n"
+"Telcaum\n"
+"Clustra\n"
+"DeafSalute\n"
+"matt7ress\n"
+"raven5\n"
+"nash neefus\n"
+"Thebest666\n"
+"Martin Magni\n"
+"You :)[/center]"
+msgstr ""

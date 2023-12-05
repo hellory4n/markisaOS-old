@@ -52,10 +52,9 @@ clip_contents = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-split_offset = 150
+split_offset = 200
 
 [node name="Sidebar" type="Control" parent="HSplitContainer"]
-custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 mouse_filter = 1
 
@@ -144,7 +143,6 @@ layout_mode = 2
 mouse_filter = 1
 
 [node name="CategoryHome" type="CenterContainer" parent="HSplitContainer/Content"]
-visible = false
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -410,6 +408,7 @@ fixed_icon_size = Vector2i(100, 100)
 script = ExtResource("10")
 
 [node name="CategorySystem" type="CenterContainer" parent="HSplitContainer/Content"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

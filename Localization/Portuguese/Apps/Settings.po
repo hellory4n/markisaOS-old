@@ -1,0 +1,333 @@
+# LANGUAGE translation for lelcubeOS for the following files:
+# res://Apps/Settings/Settings.tscn
+# res://Apps/Settings/DeleteAllDataConfirm.tscn
+# res://Apps/Settings/Credits.tscn
+#
+# Automatically generated, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lelcubeOS\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: pt\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: Apps/Settings/Settings.tscn
+msgid "Settings"
+msgstr "Configurações"
+
+#: Apps/Settings/Settings.tscn
+msgid "Home"
+msgstr "Início"
+
+#: Apps/Settings/Settings.tscn
+msgid "Apps"
+msgstr "Aplicativos"
+
+#: Apps/Settings/Settings.tscn
+msgid "Wallpapers"
+msgstr "Papel de parede"
+
+#: Apps/Settings/Settings.tscn
+msgid "Themes"
+msgstr "Aparência"
+
+#: Apps/Settings/Settings.tscn
+msgid "Language"
+msgstr "Idioma"
+
+#: Apps/Settings/Settings.tscn
+msgid "System"
+msgstr "Sistema"
+
+#: Apps/Settings/Settings.tscn
+msgid "Exit"
+msgstr "Sair"
+
+#: Apps/Settings/Settings.tscn
+msgid "Welcome to the Settings app!"
+msgstr "Bem-vindo as Configurações!"
+
+#: Apps/Settings/Settings.tscn
+msgid "Languages"
+msgstr "Idiomas"
+
+#: Apps/Settings/Settings.tscn
+msgid "System\n"
+msgstr "Sistema\n"
+
+#: Apps/Settings/Settings.tscn
+msgid "English"
+msgstr "English"
+
+#: Apps/Settings/Settings.tscn
+msgid "Português"
+msgstr "Português"
+
+#: Apps/Settings/Settings.tscn
+msgid "Русский"
+msgstr "Русский"
+
+#: Apps/Settings/Settings.tscn
+msgid "Uninstall"
+msgstr "Desinstalar"
+
+#: Apps/Settings/Settings.tscn
+msgid "Apply"
+msgstr "Aplicar"
+
+#: Apps/Settings/Settings.tscn
+# don't translate i forgor to remove it
+msgid ""
+"Custom themes will be available when modding support is added (v0.13 ish "
+"probably)"
+msgstr ""
+
+#: Apps/Settings/Settings.tscn
+msgid "Add a wallpaper"
+msgstr "Adicione um papel de parede"
+
+#: Apps/Settings/Settings.tscn
+# don't translate i'm gonna change how this works later
+msgid "ID of the file, e.g. HlvWY03AIgXzDnacpw5S"
+msgstr ""
+
+#: Apps/Settings/Settings.tscn
+msgid "Wallpaper mode:"
+msgstr "Modo do papel de parede"
+
+#: Apps/Settings/Settings.tscn
+# this is ignored by the code lol
+msgid ""
+"markisaOS v0.11.0\n"
+"© Passionfruit 2069\n"
+"Running on Device™"
+msgstr ""
+
+#: Apps/Settings/Settings.tscn Apps/Settings/Credits.tscn
+msgid "Credits"
+msgstr "Créditos"
+
+#: Apps/Settings/Settings.tscn Apps/Settings/DeleteAllDataConfirm.tscn
+msgid "Factory Reset"
+msgstr "Configurações de fábrica"
+
+#: Apps/Settings/DeleteAllDataConfirm.tscn
+msgid "Nevermind"
+msgstr "Cancelar"
+
+#: Apps/Settings/DeleteAllDataConfirm.tscn
+msgid "Delete it all!"
+msgstr "Continuar"
+
+#: Apps/Settings/DeleteAllDataConfirm.tscn
+msgid ""
+"Are you sure you want to delete ALL data saved in your device? All settings, "
+"apps installed, every file every user ever saved in this device will be gone "
+"forever, replaced with the state it was in when you got this device! You "
+"cannot undo this action!\n"
+"\n"
+"\n"
+"NOTE: This requires a restart."
+msgstr "Tem certeza de que quer remover todos as informações no seu dispositivo? Todas as configurações, aplicativos, cada arquivo que cada usuário já salvou neste dispositivo vão ser perdidos para sempre, substítuidos pelo estado em que estava quanto comprou ele! Você não pode desfazer esta ação!\n"
+"\n"
+"\n"
+"Obs. Isso requer um reinício."
+
+#: Apps/Settings/Credits.tscn
+msgid ""
+"[center]Developed by hellory4n\n"
+"Audio by alex343xd\n"
+"\n"
+"[font_size=24][b]Translations[/b][/font_size]\n"
+"Português (Portuguese): hellory4n\n"
+"Русский (Russian): matt7ress\n"
+"\n"
+"[font_size=24][b]Startup Sound[/b][/font_size]\n"
+"Melody thing by alex343xd\n"
+"There's also the Zorin OS 16.x startup sound with some effects and the "
+"Ubuntu 6.10 - 18.04 shutdown sound (composed by Peter Savage) with some more "
+"effects\n"
+"I'm pretty sure it's transformative and as such fair use\n"
+"\n"
+"[font_size=24][b]Wallpapers[/b][/font_size]\n"
+"\n"
+"High Peaks: Nisarg Patel\n"
+"Flowers: Aaron Burden\n"
+"Beach: Derek Thomson\n"
+"Space: Tengyart\n"
+"Mountains: Leila Azevedo\n"
+"Aurora: Sami Matias\n"
+"Forest: Geranimo\n"
+"Lake: dirk von loen-wagnen\n"
+"Coffee: Mike Kenneally\n"
+"Green Peaks: Dayan Quinteros\n"
+"\n"
+"[font_size=24][b]User Icons[/b][/font_size]\n"
+"Cat: Andriyko Podilnyk\n"
+"Flower: Aaron Burden\n"
+"Balloon: Kyle Hinkson\n"
+"Car: Sven D\n"
+"Dog: Jamie Street\n"
+"Duck: Timothy Dykes\n"
+"Pancakes: nikldn\n"
+"Brushes: nikldn\n"
+"Rocket: NASA\n"
+"Football: Wesley Tingey\n"
+"\n"
+"[font_size=24][b]Computer Noises[/b][/font_size]\n"
+"Fan: saphe\n"
+"GPU Fan: soundofscienceupf\n"
+"HDD: sad3d\n"
+"\n"
+"[font_size=24][b]Special Thanks[/b][/font_size]\n"
+"My parents\n"
+"My cats\n"
+"Godot developers\n"
+"Figma developers\n"
+"parfesan\n"
+"Tha Muffin\n"
+"Bricked\n"
+"alex343xd\n"
+"Rubi\n"
+"RThreeFive\n"
+"ten9⁵\n"
+"Newton Gametone\n"
+"MashedFig\n"
+"Artifyber (R3DZ3R)\n"
+"Aliorio\n"
+"Telcaum\n"
+"Clustra\n"
+"DeafSalute\n"
+"matt7ress\n"
+"raven5\n"
+"nash neefus\n"
+"Thebest666\n"
+"Martin Magni\n"
+"You :)[/center]"
+msgstr "[center]Desenvolvido por hellory4n\n"
+"Áudio por alex343xd\n"
+"\n"
+"[font_size=24][b]Traduções[/b][/font_size]\n"
+"Português: hellory4n\n"
+"Русский (Russo): matt7ress\n"
+"\n"
+"[font_size=24][b]Som de Inicialização[/b][/font_size]\n"
+"Melodia por alex343xd\n"
+"Também tem o som de inicialização do Zorin OS 16 com algums efeitos e o som de desligamento do "
+"Ubuntu 6.10 até o 18.04 (feito por Peter Savage) com mais efeitos\n"
+"\n"
+"[font_size=24][b]Papeis de parede[/b][/font_size]\n"
+"\n"
+"Picos Altos: Nisarg Patel\n"
+"Flores: Aaron Burden\n"
+"Praia: Derek Thomson\n"
+"Espaço: Tengyart\n"
+"Montanhas: Leila Azevedo\n"
+"Aurora: Sami Matias\n"
+"Floresta: Geranimo\n"
+"Lago: dirk von loen-wagnen\n"
+"Café: Mike Kenneally\n"
+"Picos Verdes: Dayan Quinteros\n"
+"\n"
+"[font_size=24][b]Ícones de Usuário[/b][/font_size]\n"
+"Gato: Andriyko Podilnyk\n"
+"Flores: Aaron Burden\n"
+"Balões: Kyle Hinkson\n"
+"Carro: Sven D\n"
+"Cachorro: Jamie Street\n"
+"Pato: Timothy Dykes\n"
+"Panquecas: nikldn\n"
+"Pinceis: nikldn\n"
+"Foguete: NASA\n"
+"Futebol: Wesley Tingey\n"
+"\n"
+"[font_size=24][b]Sons de Computador[/b][/font_size]\n"
+"Ventoinha: saphe\n"
+"Ventoinha da placa de vídeo: soundofscienceupf\n"
+"HD: sad3d\n"
+"\n"
+"[font_size=24][b]Agradecimentos Especiais[/b][/font_size]\n"
+"Meus pais\n"
+"Meus gatos\n"
+"Desenvolvedores do Godot\n"
+"Desenvolvedores do Figma\n"
+"parfesan\n"
+"Tha Muffin\n"
+"Bricked\n"
+"alex343xd\n"
+"Rubi\n"
+"RThreeFive\n"
+"ten9⁵\n"
+"Newton Gametone\n"
+"MashedFig\n"
+"Artifyber (R3DZ3R)\n"
+"Aliorio\n"
+"Telcaum\n"
+"Clustra\n"
+"DeafSalute\n"
+"matt7ress\n"
+"raven5\n"
+"nash neefus\n"
+"Thebest666\n"
+"Martin Magni\n"
+"Você :)[/center]"
+
+#: Apps/Settings/Settings.tscn
+# wallpaper mode, this doesn't stretch the wallpaper and just leaves it on the center
+msgid "Center"
+msgstr "Centro"
+
+#: Apps/Settings/Settings.tscn
+# as in cover all of the screen while keeping the aspect ratio
+msgid "Cover"
+msgstr "Cobrir"
+
+#: Apps/Settings/Settings.tscn
+msgid "Stretch"
+msgstr "Esticar"
+
+#: Apps/Settings/Settings.tscn
+msgid "Keep Aspect"
+msgstr "Manter Proporção"
+
+# default themes
+#: Apps/Settings/Settings.tscn
+msgid "markisaOS Dark Black"
+msgstr "markisaOS Negro Escuro"
+
+#: Apps/Settings/Settings.tscn
+msgid "markisaOS Dark Blue"
+msgstr "markisaOS Azul Escuro"
+
+#: Apps/Settings/Settings.tscn
+msgid "markisaOS Dark Green"
+msgstr "markisaOS Verde Escuro"
+
+#: Apps/Settings/Settings.tscn
+msgid "markisaOS Dark Orange"
+msgstr "markisaOS Laranja Escuro"
+
+#: Apps/Settings/Settings.tscn
+msgid "markisaOS Dark Pink"
+msgstr "markisaOS Rosa Escuro"
+
+#: Apps/Settings/Settings.tscn
+msgid "markisaOS Dark Purple"
+msgstr "markisaOS Roxo Escuro"
+
+#: Apps/Settings/Settings.tscn
+msgid "markisaOS Dark Red"
+msgstr "markisaOS Vermelho Escuro"
+
+#: Apps/Settings/Settings.tscn
+msgid "markisaOS Dark Yellow"
+msgstr "markisaOS Amarelo Escuro"
+
+#: Apps/Settings/Settings.tscn
+msgid "markisaOS High Contrast Dark"
+msgstr "markisaOS Alto Contraste Escuro"

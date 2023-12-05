@@ -15,7 +15,7 @@ public partial class ListApps : ItemList
     {
         base._Ready();
         foreach (var app in Recordfdjgnsjgnew.Data.AllApps)
-            AddItem(app.DisplayName, GD.Load<Texture2D>(app.Icon));
+            AddItem(Tr(app.DisplayName), GD.Load<Texture2D>(app.Icon));
     }
 
     public void OnItemSelected(int index)

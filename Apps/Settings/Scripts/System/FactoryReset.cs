@@ -1,13 +1,13 @@
 using Godot;
 using System;
 
-public partial class FactoryReset : Button {
-    public override void _Ready() {
-        base._Ready();
-        Connect("pressed", new Callable(this, nameof(Click)));
-    }
+namespace Settings;
 
-    public void Click() {
+public partial class FactoryReset : Button
+{
+    public override void _Pressed()
+    {
+        base._Pressed();
         // yes
         DeleteFolder("user://");
 
@@ -15,15 +15,14 @@ public partial class FactoryReset : Button {
         DirAccess.RemoveAbsolute("user://Users");
 
         // now show the factory reset screen :)
-        PackedScene m = GD.Load<PackedScene>("res://OS/Core/FactoryReset.tscn");
+        PackedScene m = GD.Load<PackedScene>("res://OS/Kickstart/FactoryReset.tscn");
         Node jjkn = m.Instantiate();
         GetTree().Root.AddChild(jjkn);
         
-        GetNode<Node2D>("/root/Dashboard").QueueFree();
-        GetNode<CanvasLayer>("/root/DashboardInterface").QueueFree();
+        GetNode("/root/Dashboard").QueueFree();
     }
 
-    public void DeleteFolder(string path)
+    static void DeleteFolder(string path)
     {
         DirAccess dir = DirAccess.Open(path);
         if (dir != null)
@@ -37,9 +36,7 @@ public partial class FactoryReset : Button {
                     dir.Remove($"{path}/{filename}/");
                 }
                 else
-                {
                     dir.Remove($"{path}/{filename}");
-                }
                 filename = dir.GetNext();
             }
             dir.ListDirEnd();
