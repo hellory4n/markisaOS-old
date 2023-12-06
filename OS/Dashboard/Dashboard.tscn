@@ -444,8 +444,7 @@ WindowScene = "res://Apps/QuickLaunchSetup/QuickLaunchSetup.tscn"
 
 [node name="Running" type="VBoxContainer" parent="Inter/Face/Dock/DockStuff"]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
+size_flags_vertical = 3
 mouse_filter = 0
 alignment = 1
 

@@ -1,29 +1,47 @@
-[gd_scene load_steps=13 format=3 uid="uid://dttb15gq01c03"]
+[gd_scene load_steps=19 format=3 uid="uid://dttb15gq01c03"]
 
-[ext_resource type="Theme" uid="uid://c0bcvkyvqeere" path="res://Assets/Themes/HighPeaks-Dark-Purple/Theme.tres" id="1"]
+[ext_resource type="Texture2D" uid="uid://mln45bmb2urt" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Copy.png" id="1_u3bmc"]
 [ext_resource type="Script" path="res://Apps/Files/Scripts/FileView.cs" id="2"]
+[ext_resource type="Texture2D" uid="uid://damurkbkuo1te" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Cut.png" id="2_xjtnm"]
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/Overlay/TextPeek.cs" id="3"]
+[ext_resource type="Texture2D" uid="uid://c0d3lvn570swd" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Paste.png" id="3_72bci"]
 [ext_resource type="Script" path="res://Apps/Files/Scripts/NewFileOpen.cs" id="4"]
+[ext_resource type="Texture2D" uid="uid://cdkqv84t40d6q" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Edit.png" id="4_yjyoq"]
 [ext_resource type="Script" path="res://Apps/Files/Scripts/NewFolderOpen.cs" id="5"]
+[ext_resource type="Texture2D" uid="uid://bj8s0lsfu21fp" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Delete.png" id="5_04q17"]
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/Toolkit/Copy.cs" id="6"]
+[ext_resource type="Texture2D" uid="uid://byiyqbdjxgnjl" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/FilePath.png" id="6_u0m53"]
 [ext_resource type="Texture2D" uid="uid://dx16noijvcvto" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/ArrowForward.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://bkqk5s0bkt523" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/FileId.png" id="7_1so3c"]
 [ext_resource type="Texture2D" uid="uid://b01s0p8qpc4x1" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/ArrowBack.png" id="8"]
 [ext_resource type="Texture2D" uid="uid://clrdc7nwew8bi" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/ArrowUp.png" id="9"]
 [ext_resource type="Texture2D" uid="uid://dpyjqqs4bhqci" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Refresh.png" id="10"]
-[ext_resource type="Script" path="res://Apps/Files/Scripts/FileSidebar.cs" id="11"]
-[ext_resource type="Script" path="res://Apps/Files/Scripts/ExternalStorageOpen.cs" id="12"]
 
-[node name="TabContent" type="HSplitContainer"]
+[sub_resource type="InputEventKey" id="InputEventKey_48dxr"]
+device = -1
+alt_pressed = true
+ctrl_pressed = true
+keycode = 67
+unicode = 99
+
+[sub_resource type="Shortcut" id="Shortcut_e5frt"]
+events = [SubResource("InputEventKey_48dxr")]
+
+[node name="CoolAndEpicTab" type="Control"]
 clip_contents = true
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 45.0
-theme = ExtResource("1")
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Sidebar" type="Control" parent="."]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
 
 [node name="VSeparator" type="VSeparator" parent="Sidebar"]
 layout_mode = 0
@@ -35,98 +53,92 @@ offset_top = 1.0
 offset_right = 4.0
 offset_bottom = -1.0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Sidebar"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="VBoxContainer" type="VBoxContainer" parent="Sidebar"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+offset_right = 70.0
+offset_bottom = 720.0
+size_flags_vertical = 3
+alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Sidebar/ScrollContainer"]
-custom_minimum_size = Vector2(150, 0)
+[node name="Copy" type="Button" parent="Sidebar/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "Copy"
+theme_type_variation = &"SecondaryButton"
+shortcut = SubResource("Shortcut_e5frt")
+icon = ExtResource("1_u3bmc")
+icon_alignment = 1
+
+[node name="Cut" type="Button" parent="Sidebar/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "Cut"
+theme_type_variation = &"SecondaryButton"
+shortcut = SubResource("Shortcut_e5frt")
+icon = ExtResource("2_xjtnm")
+icon_alignment = 1
+
+[node name="Paste" type="Button" parent="Sidebar/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "Paste"
+theme_type_variation = &"SecondaryButton"
+shortcut = SubResource("Shortcut_e5frt")
+icon = ExtResource("3_72bci")
+icon_alignment = 1
+
+[node name="Rename" type="Button" parent="Sidebar/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "Rename"
+theme_type_variation = &"SecondaryButton"
+shortcut = SubResource("Shortcut_e5frt")
+icon = ExtResource("4_yjyoq")
+icon_alignment = 1
+
+[node name="Delete" type="Button" parent="Sidebar/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "Delete"
+theme_type_variation = &"SecondaryButton"
+shortcut = SubResource("Shortcut_e5frt")
+icon = ExtResource("5_04q17")
+icon_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Sidebar/VBoxContainer"]
 layout_mode = 2
 
-[node name="Home" type="Button" parent="Sidebar/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
+[node name="CopyPath" type="Button" parent="Sidebar/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-mouse_filter = 1
-theme_type_variation = &"SidebarButton"
-text = "Home"
-script = ExtResource("11")
-Path = "/Home"
+size_flags_horizontal = 4
+tooltip_text = "Copy Path"
+theme_type_variation = &"SecondaryButton"
+shortcut = SubResource("Shortcut_e5frt")
+icon = ExtResource("6_u0m53")
+icon_alignment = 1
 
-[node name="Documents" type="Button" parent="Sidebar/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
+[node name="CopyId" type="Button" parent="Sidebar/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-mouse_filter = 1
-theme_type_variation = &"SidebarButton"
-text = "Documents"
-script = ExtResource("11")
-Path = "/Home/Documents"
-
-[node name="Downloads" type="Button" parent="Sidebar/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-mouse_filter = 1
-theme_type_variation = &"SidebarButton"
-text = "Downloads"
-script = ExtResource("11")
-Path = "/Home/Downloads"
-
-[node name="Music" type="Button" parent="Sidebar/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-mouse_filter = 1
-theme_type_variation = &"SidebarButton"
-text = "Music"
-script = ExtResource("11")
-Path = "/Home/Music"
-
-[node name="Pictures" type="Button" parent="Sidebar/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-mouse_filter = 1
-theme_type_variation = &"SidebarButton"
-text = "Pictures"
-script = ExtResource("11")
-Path = "/Home/Pictures"
-
-[node name="Videos" type="Button" parent="Sidebar/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-mouse_filter = 1
-theme_type_variation = &"SidebarButton"
-text = "Videos"
-script = ExtResource("11")
-Path = "/Home/Videos"
-
-[node name="Trash" type="Button" parent="Sidebar/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-mouse_filter = 1
-theme_type_variation = &"SidebarButton"
-text = "Trash"
-script = ExtResource("11")
-Path = "/System/Trash"
-
-[node name="Root" type="Button" parent="Sidebar/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-mouse_filter = 1
-theme_type_variation = &"SidebarButton"
-text = "Computer"
-script = ExtResource("11")
-Path = "/"
-
-[node name="ExternalStorage" type="Button" parent="Sidebar/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-mouse_filter = 1
-theme_type_variation = &"SidebarButton"
-text = "External Storage"
-script = ExtResource("12")
+size_flags_horizontal = 4
+tooltip_text = "Copy ID"
+theme_type_variation = &"SecondaryButton"
+shortcut = SubResource("Shortcut_e5frt")
+icon = ExtResource("7_1so3c")
+icon_alignment = 1
 
 [node name="Content" type="HSplitContainer" parent="."]
 layout_mode = 2
+offset_left = 158.0
+offset_right = 1280.0
+offset_bottom = 675.0
 split_offset = 550
 
 [node name="ContentThing" type="Control" parent="Content"]
@@ -236,52 +248,6 @@ fixed_column_width = 160
 icon_mode = 0
 fixed_icon_size = Vector2i(40, 40)
 script = ExtResource("2")
-
-[node name="FileOperations" type="HBoxContainer" parent="Content/ContentThing"]
-clip_contents = true
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -50.0
-offset_bottom = -10.0
-alignment = 1
-
-[node name="Copy" type="Button" parent="Content/ContentThing/FileOperations"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-tooltip_text = "Ctrl+C"
-theme_type_variation = &"SecondaryButton"
-text = "Copy"
-
-[node name="Paste" type="Button" parent="Content/ContentThing/FileOperations"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-tooltip_text = "Ctrl+V"
-theme_type_variation = &"SecondaryButton"
-text = "Paste"
-
-[node name="Move" type="Button" parent="Content/ContentThing/FileOperations"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-tooltip_text = "Ctrl+X"
-theme_type_variation = &"SecondaryButton"
-text = "Move"
-
-[node name="Rename" type="Button" parent="Content/ContentThing/FileOperations"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-tooltip_text = "Ctrl+X"
-theme_type_variation = &"SecondaryButton"
-text = "Rename"
-
-[node name="Delete" type="Button" parent="Content/ContentThing/FileOperations"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-tooltip_text = "Ctrl+X"
-theme_type_variation = &"SecondaryButton"
-text = "Delete"
 
 [node name="ContextMenu" type="PopupMenu" parent="Content/ContentThing"]
 item_count = 8

@@ -11,6 +11,8 @@ public partial class Languages : VBoxContainer
 	[Export]
 	CheckBox Portuguese;
 	[Export]
+	CheckBox Spanish;
+	[Export]
 	CheckBox Russian;
 
     public override void _Ready()
@@ -19,6 +21,7 @@ public partial class Languages : VBoxContainer
 		ButtonGroup fuck = new();
 		English.ButtonGroup = fuck;
 		Portuguese.ButtonGroup = fuck;
+		Spanish.ButtonGroup = fuck;
 		Russian.ButtonGroup = fuck;
 
 		switch (TranslationServer.GetLocale())
@@ -28,6 +31,9 @@ public partial class Languages : VBoxContainer
 				break;
 			case "pt-br":
 				Portuguese.ButtonPressed = true;
+				break;
+			case "es":
+				Spanish.ButtonPressed = true;
 				break;
 			case "ru":
 				Russian.ButtonPressed = true;
@@ -45,6 +51,8 @@ public partial class Languages : VBoxContainer
 			fucker = "en";
 		else if (button == Portuguese)
 			fucker = "pt-br";
+		else if (button == Spanish)
+			fucker = "es";
 		else if (button == Russian)
 			fucker = "ru";
 		
