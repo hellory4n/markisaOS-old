@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dttb15gq01c03"]
+[gd_scene load_steps=18 format=3 uid="uid://dttb15gq01c03"]
 
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/Toolkit/MksTabRoot.cs" id="1_6b78n"]
 [ext_resource type="Texture2D" uid="uid://mln45bmb2urt" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Copy.png" id="1_u3bmc"]
@@ -11,9 +11,7 @@
 [ext_resource type="Script" path="res://Apps/Files/Scripts/NewFolderOpen.cs" id="5"]
 [ext_resource type="Texture2D" uid="uid://bj8s0lsfu21fp" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Delete.png" id="5_04q17"]
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/Toolkit/Copy.cs" id="6"]
-[ext_resource type="Texture2D" uid="uid://byiyqbdjxgnjl" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/FilePath.png" id="6_u0m53"]
 [ext_resource type="Texture2D" uid="uid://dx16noijvcvto" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/ArrowForward.png" id="7"]
-[ext_resource type="Texture2D" uid="uid://bkqk5s0bkt523" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/FileId.png" id="7_1so3c"]
 [ext_resource type="Texture2D" uid="uid://b01s0p8qpc4x1" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/ArrowBack.png" id="8"]
 [ext_resource type="Texture2D" uid="uid://clrdc7nwew8bi" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/ArrowUp.png" id="9"]
 [ext_resource type="Texture2D" uid="uid://dpyjqqs4bhqci" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Refresh.png" id="10"]
@@ -58,9 +56,12 @@ offset_bottom = -1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Sidebar"]
 custom_minimum_size = Vector2(70, 0)
-layout_mode = 2
-offset_right = 70.0
-offset_bottom = 720.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 3
 alignment = 1
 
@@ -112,29 +113,6 @@ tooltip_text = "Delete"
 theme_type_variation = &"SecondaryButton"
 shortcut = SubResource("Shortcut_e5frt")
 icon = ExtResource("5_04q17")
-icon_alignment = 1
-
-[node name="HSeparator" type="HSeparator" parent="Sidebar/VBoxContainer"]
-layout_mode = 2
-
-[node name="CopyPath" type="Button" parent="Sidebar/VBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-tooltip_text = "Copy Path"
-theme_type_variation = &"SecondaryButton"
-shortcut = SubResource("Shortcut_e5frt")
-icon = ExtResource("6_u0m53")
-icon_alignment = 1
-
-[node name="CopyId" type="Button" parent="Sidebar/VBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-tooltip_text = "Copy ID"
-theme_type_variation = &"SecondaryButton"
-shortcut = SubResource("Shortcut_e5frt")
-icon = ExtResource("7_1so3c")
 icon_alignment = 1
 
 [node name="Content" type="HSplitContainer" parent="."]

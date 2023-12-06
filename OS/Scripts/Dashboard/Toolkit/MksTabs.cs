@@ -3,6 +3,7 @@ using Godot;
 using Kickstart.Cabinetfs;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Dashboard.Toolkit;
 
@@ -20,11 +21,14 @@ public partial class MksTabs : HSplitContainer
 	Button AddTabButton;
 	CloseWindow Exit;
 	readonly PackedScene SidebarScene = GD.Load<PackedScene>("res://OS/Dashboard/TabSidebar.tscn");
+	readonly Texture2D CloseIcon = GD.Load<Texture2D>("res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Close.png");
 
     public override void _Ready()
     {
         base._Ready();
 		SetAnchorsPreset(LayoutPreset.FullRect);
+		Collapsed = true;
+		DraggerVisibility = DraggerVisibilityEnum.HiddenCollapsed;
 
 		Control FUCK = SidebarScene.Instantiate<Control>();
 		AddChild(FUCK);
@@ -56,18 +60,32 @@ public partial class MksTabs : HSplitContainer
 		TabRoot.AddChild(newTab);
 		Tabs.Add(thisIsTheKey, newTab);
 
-		// add the tab switcher thing
+		// add theh tab switcher thing
 		Button tabSwitcherThingy = new()
 		{
 			Text = "Tab",
 			ThemeTypeVariation = "SidebarButton",
 			TextOverrunBehavior = TextServer.OverrunBehavior.TrimEllipsis,
-			SizeFlagsHorizontal = SizeFlags.ExpandFill,
-			CustomMinimumSize = new Vector2(200, 40)
+			SizeFlagsHorizontal = SizeFlags.ShrinkBegin,
+			CustomMinimumSize = new Vector2(160, 40)
 		};
 		Sidebar.AddChild(tabSwitcherThingy);
 		TabSwitchers.Add(thisIsTheKey,tabSwitcherThingy);
 		tabSwitcherThingy.Pressed += () => SwitchTab(thisIsTheKey);
+
+		// close tab button :)))))))
+		Button closeThingy = new()
+		{
+			Icon = CloseIcon,
+			ThemeTypeVariation = "SidebarButton",
+			ExpandIcon = true,
+			CustomMinimumSize = new Vector2(40, 40),
+			Position = new Vector2(160, 0)
+		};
+		tabSwitcherThingy.AddChild(closeThingy);
+		closeThingy.Pressed += () => CloseTab(thisIsTheKey);
+
+		SwitchTab(thisIsTheKey);
 	}
 
 	public void SwitchTab(string key)
@@ -77,6 +95,14 @@ public partial class MksTabs : HSplitContainer
 			tab.Value.Visible = key == tab.Key;
 			tab.Value.IsTabActive = key == tab.Key;
 		}
+	}
+
+	public void CloseTab(string key)
+	{
+		Tabs[key].QueueFree();
+		Tabs.Remove(key);
+		TabSwitchers[key].QueueFree();
+		SwitchTab(Tabs.First().Key);
 	}
 
     public override void _Process(double delta)
