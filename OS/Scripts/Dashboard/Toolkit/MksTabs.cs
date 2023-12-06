@@ -13,7 +13,8 @@ public partial class MksTabs : HSplitContainer
 	public string TabContent = "";
 	[Export]
 	MksWindow Window;
-	Dictionary<string, Control> Tabs = new();
+	Dictionary<string, MksTabRoot> Tabs = new();
+	Dictionary<string, Button> TabSwitchers = new();
 	VBoxContainer Sidebar;
 	Control TabRoot;
 	Button AddTabButton;
@@ -51,7 +52,7 @@ public partial class MksTabs : HSplitContainer
 
 		// add the content
 		PackedScene content = GD.Load<PackedScene>(TabContent);
-		Control newTab = content.Instantiate<Control>();
+		MksTabRoot newTab = content.Instantiate<MksTabRoot>();
 		TabRoot.AddChild(newTab);
 		Tabs.Add(thisIsTheKey, newTab);
 
@@ -65,13 +66,17 @@ public partial class MksTabs : HSplitContainer
 			CustomMinimumSize = new Vector2(200, 40)
 		};
 		Sidebar.AddChild(tabSwitcherThingy);
+		TabSwitchers.Add(thisIsTheKey,tabSwitcherThingy);
 		tabSwitcherThingy.Pressed += () => SwitchTab(thisIsTheKey);
 	}
 
 	public void SwitchTab(string key)
 	{
 		foreach (var tab in Tabs)
+		{
 			tab.Value.Visible = key == tab.Key;
+			tab.Value.IsTabActive = key == tab.Key;
+		}
 	}
 
     public override void _Process(double delta)
@@ -80,5 +85,9 @@ public partial class MksTabs : HSplitContainer
 		// so they're always at the end of the list
 		AddTabButton.MoveToFront();
 		Exit.MoveToFront();
+
+		// set tab titles
+		foreach (var tab in Tabs)
+			TabSwitchers[tab.Key].Text = tab.Value.TabTitle;
     }
 }

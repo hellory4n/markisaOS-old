@@ -202,3 +202,11 @@ msgstr "Сообщения"
 #: OS/Dashboard/Dashboard.tscn
 msgid "Mines"
 msgstr "Мины"
+
+#: OS/Dashboard/TabSidebar.tscn
+msgid "New Tab"
+msgstr "Новая Вкладка"
+
+#: OS/Dashboard/TabSidebar.tscn
+msgid "Tab"
+msgstr "Вкладка"

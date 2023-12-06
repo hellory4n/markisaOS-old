@@ -1,5 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://dttb15gq01c03"]
+[gd_scene load_steps=20 format=3 uid="uid://dttb15gq01c03"]
 
+[ext_resource type="Script" path="res://OS/Scripts/Dashboard/Toolkit/MksTabRoot.cs" id="1_6b78n"]
 [ext_resource type="Texture2D" uid="uid://mln45bmb2urt" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Copy.png" id="1_u3bmc"]
 [ext_resource type="Script" path="res://Apps/Files/Scripts/FileView.cs" id="2"]
 [ext_resource type="Texture2D" uid="uid://damurkbkuo1te" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Cut.png" id="2_xjtnm"]
@@ -35,6 +36,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_6b78n")
+TabTitle = "/Home"
 
 [node name="Sidebar" type="Control" parent="."]
 custom_minimum_size = Vector2(70, 0)
