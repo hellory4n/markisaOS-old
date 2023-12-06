@@ -7,7 +7,7 @@ namespace Dashboard.Wm;
 public partial class CloseWindow : Button
 {
     [Export]
-    MksWindow Window;
+    public MksWindow Window;
 
     public override void _Pressed()
     {

@@ -196,3 +196,11 @@ msgstr "Mensagens"
 #: OS/Dashboard/Dashboard.tscn
 msgid "Mines"
 msgstr "Minas"
+
+#: OS/Dashboard/TabSidebar.tscn
+msgid "New Tab"
+msgstr "Nova Aba"
+
+#: OS/Dashboard/TabSidebar.tscn
+msgid "Tab"
+msgstr "Aba"

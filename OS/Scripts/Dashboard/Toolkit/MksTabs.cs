@@ -16,41 +16,24 @@ public partial class MksTabs : HSplitContainer
 	Dictionary<string, Control> Tabs = new();
 	VBoxContainer Sidebar;
 	Control TabRoot;
+	Button AddTabButton;
+	CloseWindow Exit;
+	readonly PackedScene SidebarScene = GD.Load<PackedScene>("res://OS/Dashboard/TabSidebar.tscn");
 
     public override void _Ready()
     {
         base._Ready();
 		SetAnchorsPreset(LayoutPreset.FullRect);
 
-        // setup the node structure and shit :)
-        Control ngjdngjd = new()
-        {
-            CustomMinimumSize = new Vector2(200, 0)
-        };
-        AddChild(ngjdngjd);
+		Control FUCK = SidebarScene.Instantiate<Control>();
+		AddChild(FUCK);
+		FUCK.Size = new Vector2(200, FUCK.Size.Y);
 
-		VSeparator gregregation = new();
-		gregregation.SetAnchorsPreset(LayoutPreset.FullRect);
-		AddChild(ngjdngjd);
-
-		// sorry for that
-		ScrollContainer thatThingWhenYouDragYourFingerFromTheBottomToTheTopOfTheScreen = new();
-		thatThingWhenYouDragYourFingerFromTheBottomToTheTopOfTheScreen.SetAnchorsPreset(LayoutPreset.FullRect);
-		ngjdngjd.AddChild(thatThingWhenYouDragYourFingerFromTheBottomToTheTopOfTheScreen);
-
-		Sidebar = new VBoxContainer();
-		thatThingWhenYouDragYourFingerFromTheBottomToTheTopOfTheScreen.AddChild(Sidebar);
-
-		Button addTab = new()
-		{
-			Text = "Add Tab",
-			ThemeTypeVariation = "SidebarButton",
-			TextOverrunBehavior = TextServer.OverrunBehavior.TrimEllipsis,
-			SizeFlagsHorizontal = SizeFlags.ExpandFill,
-			CustomMinimumSize = new Vector2(200, 40)
-		};
-		addTab.Pressed += AddTab;
-		Sidebar.AddChild(addTab);
+		Sidebar = FUCK.GetNode<VBoxContainer>("ScrollContainer/VBoxContainer");
+		AddTabButton = FUCK.GetNode<Button>("ScrollContainer/VBoxContainer/AddTab");
+		AddTabButton.Pressed += AddTab;
+		Exit = FUCK.GetNode<CloseWindow>("ScrollContainer/VBoxContainer/Exit");
+		Exit.Window = Window;
 
 		TabRoot = new Control
 		{
@@ -75,7 +58,7 @@ public partial class MksTabs : HSplitContainer
 		// add the tab switcher thing
 		Button tabSwitcherThingy = new()
 		{
-			Text = "New Tab",
+			Text = "Tab",
 			ThemeTypeVariation = "SidebarButton",
 			TextOverrunBehavior = TextServer.OverrunBehavior.TrimEllipsis,
 			SizeFlagsHorizontal = SizeFlags.ExpandFill,
@@ -90,4 +73,12 @@ public partial class MksTabs : HSplitContainer
 		foreach (var tab in Tabs)
 			tab.Value.Visible = key == tab.Key;
 	}
+
+    public override void _Process(double delta)
+    {
+        base._Process(delta);
+		// so they're always at the end of the list
+		AddTabButton.MoveToFront();
+		Exit.MoveToFront();
+    }
 }
