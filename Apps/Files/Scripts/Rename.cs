@@ -3,6 +3,8 @@ using System;
 using Dashboard.Wm;
 using Kickstart.Cabinetfs;
 
+namespace Files;
+
 public partial class Rename : MksWindow {
     public string Parent;
     public FileView ThingThatINeedToRefresh;

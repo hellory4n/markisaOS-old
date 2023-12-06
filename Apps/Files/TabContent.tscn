@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dttb15gq01c03"]
+[gd_scene load_steps=21 format=3 uid="uid://dttb15gq01c03"]
 
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/Toolkit/MksTabRoot.cs" id="1_6b78n"]
 [ext_resource type="Texture2D" uid="uid://mln45bmb2urt" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Copy.png" id="1_u3bmc"]
@@ -13,6 +13,11 @@
 [ext_resource type="Texture2D" uid="uid://b01s0p8qpc4x1" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/ArrowBack.png" id="8"]
 [ext_resource type="Texture2D" uid="uid://clrdc7nwew8bi" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/ArrowUp.png" id="9"]
 [ext_resource type="Texture2D" uid="uid://dpyjqqs4bhqci" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Refresh.png" id="10"]
+[ext_resource type="Texture2D" uid="uid://dwmc5o0qypr3r" path="res://Apps/Files/Assets/IconDock.png" id="14_03x7m"]
+[ext_resource type="Texture2D" uid="uid://xeo7iqx2rmp4" path="res://Apps/Files/Assets/File.png" id="15_2np7w"]
+[ext_resource type="Texture2D" uid="uid://drb36fe1jhvj2" path="res://Apps/Files/Assets/Music.png" id="16_5hrur"]
+[ext_resource type="Texture2D" uid="uid://c0t0yy701nxhs" path="res://Apps/Files/Assets/Video.png" id="17_45bnr"]
+[ext_resource type="Texture2D" uid="uid://d188nn8ny1qih" path="res://Apps/Files/Assets/Text.png" id="18_0lvrg"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_48dxr"]
 device = -1
@@ -327,7 +332,7 @@ offset_right = -1.0
 offset_bottom = 62.0
 grow_horizontal = 2
 
-[node name="ItemList" type="ItemList" parent="MarginContainer/ContentThing"]
+[node name="ItemList" type="ItemList" parent="MarginContainer/ContentThing" node_paths=PackedStringArray("TabThing", "ContextMenuThing", "CopyButton", "CutButton", "PasteButton", "DeleteButton", "RenameButton", "BackButton", "ForwardButton", "UpButton", "PathEdit")]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -342,6 +347,22 @@ fixed_column_width = 160
 icon_mode = 0
 fixed_icon_size = Vector2i(40, 40)
 script = ExtResource("2")
+FolderIcon = ExtResource("14_03x7m")
+FileIcon = ExtResource("15_2np7w")
+MusicIcon = ExtResource("16_5hrur")
+VideoIcon = ExtResource("17_45bnr")
+TextIcon = ExtResource("18_0lvrg")
+TabThing = NodePath("../../..")
+ContextMenuThing = NodePath("../ContextMenu")
+CopyButton = NodePath("../../../Sidebar/VBoxContainer/Copy")
+CutButton = NodePath("../../../Sidebar/VBoxContainer/Cut")
+PasteButton = NodePath("../../../Sidebar/VBoxContainer/Paste")
+DeleteButton = NodePath("../../../Sidebar/VBoxContainer/Delete")
+RenameButton = NodePath("../../../Sidebar/VBoxContainer/Rename")
+BackButton = NodePath("../Toolbar/Back")
+ForwardButton = NodePath("../Toolbar/Forward")
+UpButton = NodePath("../Toolbar/Up")
+PathEdit = NodePath("../Toolbar/Path")
 
 [node name="ContextMenu" type="PopupMenu" parent="MarginContainer/ContentThing"]
 size = Vector2i(141, 208)
@@ -363,3 +384,7 @@ item_6/text = "Delete"
 item_6/id = 6
 item_7/text = "Rename"
 item_7/id = 7
+
+[connection signal="pressed" from="MarginContainer/ContentThing/Toolbar/Refresh" to="MarginContainer/ContentThing/ItemList" method="RefreshButton"]
+[connection signal="text_submitted" from="MarginContainer/ContentThing/Toolbar/Path" to="MarginContainer/ContentThing/ItemList" method="Refresh" binds= [true]]
+[connection signal="item_selected" from="MarginContainer/ContentThing/ItemList" to="MarginContainer/ContentThing/ItemList" method="FileSelected"]

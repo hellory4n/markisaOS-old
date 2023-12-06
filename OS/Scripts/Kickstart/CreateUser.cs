@@ -4,6 +4,7 @@ using Kickstart.Records;
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using Kickstart.Cabinetfs;
 
 namespace Kickstart.Onboarding;
 
@@ -18,8 +19,8 @@ public partial class CreateUser : Button
     [Export]
     public Window GetParentDotGetParentDotGetParentDotGetParentDotGetParent;
 
-
-    public override void _Pressed() {
+    public override void _Pressed()
+    {
         base._Pressed();
         // make the icon be a string and not a number
         string icon = Icosbnhjrsnjgt.GetSelectedId() switch
@@ -79,18 +80,45 @@ public partial class CreateUser : Button
             }
         }
 
-        // now we actually make the user and login
-        MarkisaUser user = new() {
+        // now we actually make the user
+        MarkisaUser user = new()
+        {
             DisplayName = DisplayName.Text,
             Username = Username.Text,
             Photo = icon
         };
         RecordManager.CurrentUser = Username.Text;
         RecordManager.CurrentUserDisplayName = DisplayName.Text;
-        Record<MarkisaUser> record = new() {
+        Record<MarkisaUser> record = new()
+        {
             Data = user
         };
         record.Save();
+
+        // setup cabinetfs
+        DirAccess.MakeDirRecursiveAbsolute($"user://Users/{Username.Text}/Files/");
+
+        using var haha = FileAccess.Open($"user://Users/{Username.Text}/Files/root.json", FileAccess.ModeFlags.Write);
+        haha.StoreString(@"
+{
+  ""$type"": ""Kickstart.Cabinetfs.CabinetfsRoot, lelcubeOS"",
+  ""Id"": ""root"",
+  ""Parent"": null,
+  ""Name"": """",
+  ""Metadata"": {
+    ""$type"": ""System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Object, mscorlib]], mscorlib""
+  },
+  ""Path"": ""/"",
+  ""Type"": ""Root"",
+  ""Data"": {
+    ""$type"": ""System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Object, mscorlib]], mscorlib""
+  }
+}"
+        );
+
+        CabinetfsManager.UpdatePaths();
+        CabinetfsRoot.CreateRoot();
+        CabinetfsManager.NewFileStructure();
 
         PackedScene packedScene = GD.Load<PackedScene>("res://OS/Dashboard/Dashboard.tscn");
         Node dashboard = packedScene.Instantiate();

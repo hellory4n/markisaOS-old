@@ -4,6 +4,8 @@ using Dashboard.Wm;
 using Kickstart.Cabinetfs;
 using Kickstart.Records;
 
+namespace Files;
+
 public partial class NewFile : MksWindow {
     public string Parent;
     public FileView ThingThatINeedToRefresh;

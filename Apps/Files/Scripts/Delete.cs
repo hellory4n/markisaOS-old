@@ -3,6 +3,8 @@ using Dashboard.Wm;
 using System;
 using Kickstart.Cabinetfs;
 
+namespace Files;
+
 public partial class Delete : MksWindow {
     public string Parent;
     public FileView ThingThatINeedToRefresh;
