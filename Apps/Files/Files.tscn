@@ -8,8 +8,8 @@
 process_priority = 1
 title = "Files"
 position = Vector2i(0, 46)
-size = Vector2i(600, 350)
-min_size = Vector2i(600, 350)
+size = Vector2i(700, 350)
+min_size = Vector2i(700, 350)
 script = ExtResource("3")
 Icon = ExtResource("2")
 CpuUse = 2

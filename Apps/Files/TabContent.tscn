@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dttb15gq01c03"]
+[gd_scene load_steps=16 format=3 uid="uid://dttb15gq01c03"]
 
 [ext_resource type="Script" path="res://OS/Scripts/Dashboard/Toolkit/MksTabRoot.cs" id="1_6b78n"]
 [ext_resource type="Texture2D" uid="uid://mln45bmb2urt" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Copy.png" id="1_u3bmc"]
@@ -8,9 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c0d3lvn570swd" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Paste.png" id="3_72bci"]
 [ext_resource type="Script" path="res://Apps/Files/Scripts/NewFileOpen.cs" id="4"]
 [ext_resource type="Texture2D" uid="uid://cdkqv84t40d6q" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Edit.png" id="4_yjyoq"]
-[ext_resource type="Script" path="res://Apps/Files/Scripts/NewFolderOpen.cs" id="5"]
 [ext_resource type="Texture2D" uid="uid://bj8s0lsfu21fp" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/Delete.png" id="5_04q17"]
-[ext_resource type="Script" path="res://OS/Scripts/Dashboard/Toolkit/Copy.cs" id="6"]
 [ext_resource type="Texture2D" uid="uid://dx16noijvcvto" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/ArrowForward.png" id="7"]
 [ext_resource type="Texture2D" uid="uid://b01s0p8qpc4x1" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/ArrowBack.png" id="8"]
 [ext_resource type="Texture2D" uid="uid://clrdc7nwew8bi" path="res://Assets/Themes/HighPeaks-Dark-Blue/Icons/ArrowUp.png" id="9"]
@@ -35,7 +33,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6b78n")
-TabTitle = "/Home"
+TabTitle = "/"
 
 [node name="Sidebar" type="Control" parent="."]
 custom_minimum_size = Vector2(70, 0)
@@ -115,106 +113,221 @@ shortcut = SubResource("Shortcut_e5frt")
 icon = ExtResource("5_04q17")
 icon_alignment = 1
 
-[node name="Content" type="HSplitContainer" parent="."]
-layout_mode = 2
-offset_left = 158.0
-offset_right = 1280.0
-offset_bottom = 675.0
-split_offset = 550
-
-[node name="ContentThing" type="Control" parent="Content"]
-layout_mode = 2
-
-[node name="Toolbar" type="HBoxContainer" parent="Content/ContentThing"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
-offset_top = 10.0
-offset_bottom = 40.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 78
 
-[node name="Back" type="Button" parent="Content/ContentThing/Toolbar"]
-custom_minimum_size = Vector2(43, 0)
+[node name="ContentThing" type="Control" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Toolbar" type="HBoxContainer" parent="MarginContainer/ContentThing"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -60.0
+offset_right = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Back" type="Button" parent="MarginContainer/ContentThing/Toolbar"]
+custom_minimum_size = Vector2(43, 40)
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_vertical = 4
 tooltip_text = "Go back (Alt+Left)"
 theme_type_variation = &"SecondaryButton"
 icon = ExtResource("8")
 icon_alignment = 1
 
-[node name="Forward" type="Button" parent="Content/ContentThing/Toolbar"]
-custom_minimum_size = Vector2(43, 0)
+[node name="Forward" type="Button" parent="MarginContainer/ContentThing/Toolbar"]
+custom_minimum_size = Vector2(43, 40)
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_vertical = 4
 tooltip_text = "Go forward (Alt+Right)"
 theme_type_variation = &"SecondaryButton"
 icon = ExtResource("7")
 icon_alignment = 1
 
-[node name="Up" type="Button" parent="Content/ContentThing/Toolbar"]
-custom_minimum_size = Vector2(43, 0)
+[node name="Up" type="Button" parent="MarginContainer/ContentThing/Toolbar"]
+custom_minimum_size = Vector2(43, 40)
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_vertical = 4
 tooltip_text = "Go to the parent of the current folder (Alt+Up)"
 theme_type_variation = &"SecondaryButton"
 icon = ExtResource("9")
 icon_alignment = 1
 
-[node name="Refresh" type="Button" parent="Content/ContentThing/Toolbar"]
-custom_minimum_size = Vector2(43, 0)
+[node name="Refresh" type="Button" parent="MarginContainer/ContentThing/Toolbar"]
+custom_minimum_size = Vector2(43, 40)
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_vertical = 4
 tooltip_text = "List the files of the current folder again (F5)"
 theme_type_variation = &"SecondaryButton"
 icon = ExtResource("10")
 icon_alignment = 1
 
-[node name="Path" type="LineEdit" parent="Content/ContentThing/Toolbar"]
+[node name="Path" type="LineEdit" parent="MarginContainer/ContentThing/Toolbar"]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 2.0
-text = "/"
+size_flags_vertical = 4
+size_flags_stretch_ratio = 4.0
+placeholder_text = "/Home"
+alignment = 1
+virtual_keyboard_type = 1
 script = ExtResource("3")
 
-[node name="NewFile" type="Button" parent="Content/ContentThing/Toolbar"]
+[node name="New" type="OptionButton" parent="MarginContainer/ContentThing/Toolbar"]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_vertical = 4
 theme_type_variation = &"SecondaryButton"
-text = "New File"
+alignment = 1
+item_count = 4
+popup/item_0/text = "Folder"
+popup/item_0/id = 0
+popup/item_1/text = ""
+popup/item_1/id = 1
+popup/item_1/separator = true
+popup/item_2/text = "Blank File"
+popup/item_2/id = 2
+popup/item_3/text = "Text File"
+popup/item_3/id = 3
 script = ExtResource("4")
 
-[node name="NewFolder" type="Button" parent="Content/ContentThing/Toolbar"]
+[node name="Places" type="HBoxContainer" parent="MarginContainer/ContentThing"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = -5.0
+offset_bottom = 60.0
+grow_horizontal = 2
+
+[node name="Home" type="Button" parent="MarginContainer/ContentThing/Places"]
+custom_minimum_size = Vector2(43, 40)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_vertical = 4
+tooltip_text = "Go back (Alt+Left)"
 theme_type_variation = &"SecondaryButton"
-text = "New Folder"
-script = ExtResource("5")
+text = "Home"
+text_overrun_behavior = 3
+icon_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="Content/ContentThing"]
-layout_mode = 0
-anchor_right = 1.0
-offset_left = -3.0
-offset_top = 60.0
-offset_right = 6.0
-offset_bottom = 2.0
+[node name="Home2" type="Button" parent="MarginContainer/ContentThing/Places"]
+custom_minimum_size = Vector2(43, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+tooltip_text = "Go back (Alt+Left)"
+theme_type_variation = &"SecondaryButton"
+text = "Documents"
+text_overrun_behavior = 3
+icon_alignment = 1
 
-[node name="HSeparator2" type="HSeparator" parent="Content/ContentThing"]
-layout_mode = 0
+[node name="Home3" type="Button" parent="MarginContainer/ContentThing/Places"]
+custom_minimum_size = Vector2(43, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+tooltip_text = "Go back (Alt+Left)"
+theme_type_variation = &"SecondaryButton"
+text = "Downloads"
+text_overrun_behavior = 3
+icon_alignment = 1
+
+[node name="Home4" type="Button" parent="MarginContainer/ContentThing/Places"]
+custom_minimum_size = Vector2(43, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+tooltip_text = "Go back (Alt+Left)"
+theme_type_variation = &"SecondaryButton"
+text = "Music"
+text_overrun_behavior = 3
+icon_alignment = 1
+
+[node name="Home5" type="Button" parent="MarginContainer/ContentThing/Places"]
+custom_minimum_size = Vector2(43, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+tooltip_text = "Go back (Alt+Left)"
+theme_type_variation = &"SecondaryButton"
+text = "Pictures"
+text_overrun_behavior = 3
+icon_alignment = 1
+
+[node name="Home6" type="Button" parent="MarginContainer/ContentThing/Places"]
+custom_minimum_size = Vector2(43, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+tooltip_text = "Go back (Alt+Left)"
+theme_type_variation = &"SecondaryButton"
+text = "Videos"
+text_overrun_behavior = 3
+icon_alignment = 1
+
+[node name="Home8" type="Button" parent="MarginContainer/ContentThing/Places"]
+custom_minimum_size = Vector2(43, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+tooltip_text = "Go back (Alt+Left)"
+theme_type_variation = &"SecondaryButton"
+text = "Computer"
+text_overrun_behavior = 3
+icon_alignment = 1
+
+[node name="Home7" type="Button" parent="MarginContainer/ContentThing/Places"]
+custom_minimum_size = Vector2(43, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+tooltip_text = "Go back (Alt+Left)"
+theme_type_variation = &"SecondaryButton"
+text = "Trash"
+text_overrun_behavior = 3
+icon_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/ContentThing"]
+layout_mode = 1
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -3.0
-offset_top = -60.0
-offset_right = 6.0
-offset_bottom = -58.0
+offset_top = -62.0
+offset_right = -1.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 0
 
-[node name="ItemList" type="ItemList" parent="Content/ContentThing"]
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/ContentThing"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -3.0
+offset_top = 60.0
+offset_right = -1.0
+offset_bottom = 62.0
+grow_horizontal = 2
+
+[node name="ItemList" type="ItemList" parent="MarginContainer/ContentThing"]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -230,7 +343,8 @@ icon_mode = 0
 fixed_icon_size = Vector2i(40, 40)
 script = ExtResource("2")
 
-[node name="ContextMenu" type="PopupMenu" parent="Content/ContentThing"]
+[node name="ContextMenu" type="PopupMenu" parent="MarginContainer/ContentThing"]
+size = Vector2i(141, 208)
 item_count = 8
 item_0/text = "New File"
 item_0/id = 0
@@ -249,40 +363,3 @@ item_6/text = "Delete"
 item_6/id = 6
 item_7/text = "Rename"
 item_7/id = 7
-
-[node name="Inspector" type="Control" parent="Content"]
-layout_mode = 2
-
-[node name="VSeparator" type="VSeparator" parent="Content/Inspector"]
-layout_mode = 0
-anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = 1.0
-offset_bottom = -1.0
-
-[node name="M" type="VBoxContainer" parent="Content/Inspector"]
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="Label" type="Label" parent="Content/Inspector/M"]
-layout_mode = 2
-text = "Yes."
-
-[node name="CopyID" type="Button" parent="Content/Inspector/M"]
-custom_minimum_size = Vector2(125, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_type_variation = &"SecondaryButton"
-text = "Copy ID"
-script = ExtResource("6")
-
-[node name="CopyPath" type="Button" parent="Content/Inspector/M"]
-custom_minimum_size = Vector2(125, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_type_variation = &"SecondaryButton"
-text = "Copy Path"
-script = ExtResource("6")
