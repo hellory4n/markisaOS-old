@@ -1,5 +1,7 @@
 # markisaOS
 
+## note i decided to rewrite the game lol
+
 my new game lol
 
 featuring
